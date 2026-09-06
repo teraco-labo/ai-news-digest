@@ -30,6 +30,21 @@
   </itunes:category>
   
   <item>
+    <title>世界一わかりやすいAIニュース - 2026-09-07</title>
+    <itunes:title>世界一わかりやすいAIニュース - 2026-09-07</itunes:title>
+    <description>世界一わかりやすいAIニュース - 2026-09-07。 今日の内容は、専門用語の解説つきの記事でも読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-07.html ／ 台本つき音声プレイヤー → https://teraco-labo.github.io/ai-news-digest/podcast/player.html?date=2026-09-07 ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
+    <itunes:summary>世界一わかりやすいAIニュース - 2026-09-07。 今日の内容は、専門用語の解説つきの記事でも読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-07.html ／ 台本つき音声プレイヤー → https://teraco-labo.github.io/ai-news-digest/podcast/player.html?date=2026-09-07 ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
+    <author>fujisaki@teraco-labo.com</author>
+    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:episode>63</itunes:episode>
+    <itunes:episodeType>full</itunes:episodeType>
+    <itunes:duration>14:35</itunes:duration>
+    <itunes:explicit>false</itunes:explicit>
+    <enclosure url="https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-07.mp3" length="8758380" type="audio/mpeg"/>
+    <pubDate>Mon, 07 Sep 2026 21:00:00 GMT</pubDate>
+    <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-07.mp3</guid>
+  </item>
+  <item>
     <title>世界一わかりやすいAIニュース - 2026-09-06</title>
     <itunes:title>世界一わかりやすいAIニュース - 2026-09-06</itunes:title>
     <description>世界一わかりやすいAIニュース - 2026-09-06。 今日の内容は、専門用語の解説つきの記事でも読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-06.html ／ 台本つき音声プレイヤー → https://teraco-labo.github.io/ai-news-digest/podcast/player.html?date=2026-09-06 ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
@@ -913,21 +928,6 @@
     <enclosure url="https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-05-25.mp3" length="4289901" type="audio/mpeg"/>
     <pubDate>Mon, 25 May 2026 21:00:00 GMT</pubDate>
     <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-05-25.mp3</guid>
-  </item>
-  <item>
-    <title>世界一わかりやすいAIニュース - 2026-05-19</title>
-    <itunes:title>世界一わかりやすいAIニュース - 2026-05-19</itunes:title>
-    <description>世界一わかりやすいAIニュース - 2026-05-19。 今日の内容は、専門用語の解説つきの記事でも読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-05-19.html ／ 台本つき音声プレイヤー → https://teraco-labo.github.io/ai-news-digest/podcast/player.html?date=2026-05-19 ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
-    <itunes:summary>世界一わかりやすいAIニュース - 2026-05-19。 今日の内容は、専門用語の解説つきの記事でも読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-05-19.html ／ 台本つき音声プレイヤー → https://teraco-labo.github.io/ai-news-digest/podcast/player.html?date=2026-05-19 ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
-    <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
-    <itunes:episode>16</itunes:episode>
-    <itunes:episodeType>full</itunes:episodeType>
-    <itunes:duration>20:54</itunes:duration>
-    <itunes:explicit>false</itunes:explicit>
-    <enclosure url="https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-05-19.mp3" length="5017197" type="audio/mpeg"/>
-    <pubDate>Tue, 19 May 2026 21:00:00 GMT</pubDate>
-    <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-05-19.mp3</guid>
   </item>
 </channel>
 </rss>
