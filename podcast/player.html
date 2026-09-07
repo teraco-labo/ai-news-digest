@@ -3,517 +3,368 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0f172a">
-<title>てらこAIニュースダイジェスト</title>
+<title>音声版 | 世界一わかりやすいAIニュース</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
-    background: #0f172a;
-    color: #e2e8f0;
-    min-height: 100vh;
-    padding: 16px;
-    line-height: 1.7;
-  }
-  .container { max-width: 720px; margin: 0 auto; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#0e7490; }
+  body { font-family:'Noto Sans JP','Inter',sans-serif; background:var(--bg); color:var(--text);
+    line-height:1.7; -webkit-font-smoothing:antialiased; }
+  a { color:inherit; }
+  .hero { background:linear-gradient(135deg,#0f172a,#1e293b); color:#fff; padding:3rem 1.5rem; }
+  .hero-inner { max-width:1100px; margin:0 auto; }
+  .hero h1 { font-size:1.8rem; font-weight:700; letter-spacing:0.01em; }
+  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#cbd5e1; max-width:640px; }
+  .hero-actions { margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.75rem; }
+  .crumbs { font-size:0.75rem; color:#94a3b8; margin-bottom:0.75rem; }
+  .crumbs a { text-decoration:none; }
+  .crumbs a:hover { text-decoration:underline; }
+  .btn { display:inline-block; padding:0.6rem 1.3rem; border-radius:6px; font-size:0.85rem;
+    font-weight:700; text-decoration:none; }
+  .btn-primary { background:#22d3ee; color:#0f172a; }
+  .btn-ghost { border:1px solid rgba(255,255,255,0.35); color:#e2e8f0; }
+  main { max-width:1100px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
+  .section-label { font-size:0.75rem; font-weight:700; letter-spacing:0.12em; color:var(--text-muted);
+    text-transform:uppercase; margin:2.5rem 0 1rem; }
+  .section-label:first-child { margin-top:0; }
+  .issue-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1rem; }
+  .issue { display:block; padding:1rem 1.1rem; background:var(--card-bg); border:1px solid var(--border);
+    border-radius:8px; text-decoration:none; transition:border-color .15s; }
+  .issue:hover { border-color:var(--accent); }
+  .issue .d { font-size:0.95rem; font-weight:700; }
+  .issue .m { margin-top:0.25rem; font-size:0.75rem; color:var(--text-muted); }
+  .issue-list { list-style:none; columns:2; column-gap:2rem; }
+  .issue-list li { break-inside:avoid; padding:0.35rem 0; border-bottom:1px solid var(--border); }
+  .issue-list a { font-size:0.85rem; text-decoration:none; }
+  .issue-list a:hover { color:var(--accent); }
+  .issue-list .m { font-size:0.72rem; color:var(--text-muted); margin-left:0.5rem; }
+  footer { border-top:1px solid var(--border); padding:2rem 1.5rem; text-align:center;
+    font-size:0.78rem; color:var(--text-muted); }
+  .sub-grid { max-width:760px; margin:0 auto; display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:0.8rem; }
+  .sub-card { display:flex; flex-direction:column; gap:0.3rem; padding:1.1rem 1.2rem;
+    background:var(--card-bg); border:1px solid var(--border); border-radius:8px;
+    text-decoration:none; transition:border-color .15s; }
+  .sub-card:hover { border-color:var(--accent); }
+  .sub-card.mail { border-color:var(--accent); border-width:2px;
+    background:linear-gradient(180deg,rgba(14,116,144,0.05),transparent); }
+  .sub-embed { cursor:default; }
+  .sub-badge { display:block; margin-top:0.5rem; padding:0.6rem; text-align:center;
+    border-radius:6px; font-size:0.85rem; font-weight:700; text-decoration:none; color:#fff; }
+  .sub-badge.spotify { background:#1db954; }
+  .sub-badge.apple { background:#8e44ec; }
+  .sub-copy { margin-top:0.6rem; width:100%; padding:0.6rem; background:var(--accent);
+    color:#fff; font-size:0.85rem; font-weight:700; border:none; border-radius:6px;
+    cursor:pointer; }
+  .sub-advanced { max-width:760px; margin:0.8rem auto 0; font-size:0.72rem;
+    color:var(--text-muted); }
+  .sub-advanced a { color:var(--text-muted); }
+  .sub-embed form { margin-top:0.5rem; }
+  .sub-embed input[type="email"] { width:100%; padding:0.6rem 0.8rem; font-size:0.9rem;
+    border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text); }
+  .sub-embed button, .sub-embed input[type="submit"] { margin-top:0.5rem; width:100%;
+    padding:0.65rem; background:var(--accent); color:#fff; font-size:0.88rem; font-weight:700;
+    border:none; border-radius:6px; cursor:pointer; }
+  .sub-ico { font-size:1.2rem; }
+  .sub-t { font-size:0.92rem; font-weight:700; }
+  .sub-d { font-size:0.76rem; line-height:1.7; color:var(--text-muted); }
+  .lang-switch { display:flex; flex-wrap:wrap; align-items:center; gap:0.35rem;
+    margin-top:1rem; font-size:0.74rem; }
+  .lang-switch .globe { opacity:0.7; margin-right:0.15rem; }
+  .lang-switch .lang { padding:0.25rem 0.7rem; border-radius:999px;
+    border:1px solid rgba(255,255,255,0.25); color:#cbd5e1; text-decoration:none; }
+  .lang-switch a.lang:hover { background:rgba(255,255,255,0.12); color:#fff; }
+  .lang-switch .lang.on { background:rgba(255,255,255,0.9); color:#0f172a; font-weight:700;
+    border-color:transparent; }
+  .lang-switch .lang.soon { opacity:0.45; cursor:default; }
+  .lang-switch .lang.soon em { font-style:normal; font-size:0.62rem; margin-left:0.3rem;
+    opacity:0.85; }
+  .footer-links { margin-top:0.9rem; font-size:0.75rem; }
+  .footer-links a { color:var(--text-muted); text-decoration:none; }
+  .footer-links a:hover { color:var(--accent); text-decoration:underline; }
+  .footer-brand { margin-top:1.1rem; font-size:0.68rem; letter-spacing:0.04em;
+    color:var(--text-muted); opacity:0.55; }
+  @media (max-width:640px){ .issue-list{columns:1;} .hero h1{font-size:1.4rem;} }
 
-  .header {
-    text-align: center;
-    padding: 24px 0 16px;
+  :root {
+    --model:#1d4ed8; --research:#6d28d9; --business:#065f46;
+    --policy:#92400e; --tools:#0e7490;
   }
-  .header h1 {
-    font-size: 18px;
-    color: #94a3b8;
-    margin: 0 0 6px;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-  }
-  .header .date {
-    font-size: 28px;
-    font-weight: 700;
-    color: #f1f5f9;
-    margin: 0;
-  }
-  .header .weekday {
-    font-size: 14px;
-    color: #64748b;
-    margin-top: 4px;
-  }
+  .lead { max-width:760px; margin:0 auto 2.5rem; padding:1.5rem 1.7rem;
+    background:var(--card-bg); border:1px solid var(--border); border-radius:8px; }
+  .lead-label { font-size:0.7rem; font-weight:700; letter-spacing:0.14em;
+    color:var(--text-muted); margin-bottom:0.9rem; }
+  .lead ol { list-style:none; counter-reset:lead; display:flex; flex-direction:column; gap:0.7rem; }
+  .lead li { counter-increment:lead; position:relative; padding-left:1.9rem;
+    font-size:0.95rem; line-height:1.85; }
+  .lead li::before { content:counter(lead); position:absolute; left:0; top:0.3em;
+    width:1.25rem; height:1.25rem; border-radius:50%; background:var(--accent); color:#fff;
+    font-size:0.68rem; font-weight:700; display:flex; align-items:center; justify-content:center; }
+  .digest { max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:1rem; }
+  .card { padding:1.4rem 1.5rem; background:var(--card-bg); border:1px solid var(--border);
+    border-left:3px solid var(--text-muted); border-radius:8px; }
+  .card.model{border-left-color:var(--model)} .card.research{border-left-color:var(--research)}
+  .card.business{border-left-color:var(--business)} .card.policy{border-left-color:var(--policy)}
+  .card.tools{border-left-color:var(--tools)}
+  .card-top { display:flex; align-items:center; gap:0.6rem; margin-bottom:0.6rem; }
+  .card-label { font-size:0.66rem; font-weight:700; letter-spacing:0.06em; padding:2px 7px;
+    border-radius:3px; color:#fff; background:var(--text-muted); }
+  .card-label.model{background:var(--model)} .card-label.research{background:var(--research)}
+  .card-label.business{background:var(--business)} .card-label.policy{background:var(--policy)}
+  .card-label.tools{background:var(--tools)}
+  .stars { display:flex; gap:3px; }
+  .dot { width:6px; height:6px; border-radius:50%; background:var(--border); }
+  .dot.filled { background:var(--text-muted); }
+  .card-title-ja { font-size:1.08rem; font-weight:700; line-height:1.6; }
+  .card-title-en { margin-top:0.25rem; font-size:0.78rem; color:var(--text-muted); line-height:1.5; }
+  .card-source { margin-top:0.5rem; font-size:0.72rem; color:var(--text-muted); }
+  .card-body { margin-top:0.7rem; font-size:0.9rem; line-height:1.95; }
+  .card-link { display:inline-block; margin-top:0.9rem; font-size:0.82rem; font-weight:600;
+    color:var(--accent); text-decoration:none; }
+  .card-link:hover { text-decoration:underline; }
+  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(14,116,144,0.04),transparent); }
+  .card.top .card-title-ja { font-size:1.25rem; }
+  .tier { max-width:760px; margin:2rem auto 0.5rem; font-size:0.7rem; font-weight:700;
+    letter-spacing:0.14em; color:var(--text-muted); }
+  .tier:first-of-type { margin-top:0; }
+  .top-nav { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:1.3rem; }
+  .top-nav a { padding:0.4rem 0.95rem; border:1px solid rgba(255,255,255,0.3); border-radius:999px;
+    font-size:0.78rem; font-weight:600; color:#e2e8f0; text-decoration:none; }
+  .top-nav a:hover { background:rgba(255,255,255,0.12); }
+  .listen { max-width:760px; margin:0 auto 2.5rem; padding:1.2rem 1.4rem;
+    background:linear-gradient(135deg,#0f172a,#1e293b); border-radius:10px; color:#e2e8f0; }
+  .listen-head { display:flex; align-items:baseline; gap:0.6rem; flex-wrap:wrap; margin-bottom:0.75rem; }
+  .listen-head strong { font-size:0.95rem; color:#fff; }
+  .listen-head span { font-size:0.76rem; color:#94a3b8; }
+  .listen audio { width:100%; height:40px; display:block; }
+  .speed-row { display:flex; align-items:center; gap:0.4rem; margin-top:0.7rem; flex-wrap:wrap; }
+  .speed-label { font-size:0.7rem; color:#94a3b8; margin-right:0.2rem; }
+  .speed-btn { padding:0.3rem 0.75rem; background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.25); border-radius:999px; color:#e2e8f0;
+    font-size:0.75rem; font-weight:600; cursor:pointer; }
+  .speed-btn.on { background:#22d3ee; border-color:#22d3ee; color:#0f172a; }
+  .copy-feed { padding:0.25rem 0.7rem; background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.3); border-radius:6px; color:#e2e8f0;
+    font-size:0.72rem; font-weight:600; cursor:pointer; }
+  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#94a3b8; line-height:1.8; }
+  .listen-sub a { color:#7dd3fc; text-decoration:none; }
+  .listen-sub a:hover { text-decoration:underline; }
+  details.genre { max-width:760px; margin:0 auto 0.75rem; background:var(--card-bg);
+    border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+  details.genre > summary { list-style:none; cursor:pointer; padding:1rem 1.3rem;
+    display:flex; align-items:center; gap:0.7rem; font-weight:700; font-size:0.92rem;
+    -webkit-tap-highlight-color:transparent; }
+  details.genre > summary::-webkit-details-marker { display:none; }
+  details.genre > summary::before { content:"▸"; font-size:0.8rem; color:var(--text-muted);
+    transition:transform .15s; }
+  details.genre[open] > summary::before { transform:rotate(90deg); }
+  details.genre > summary .cnt { margin-left:auto; font-size:0.72rem; font-weight:600;
+    color:var(--text-muted); }
+  details.genre .genre-dot { width:9px; height:9px; border-radius:50%; background:var(--text-muted); }
+  details.genre.model .genre-dot{background:var(--model)} details.genre.research .genre-dot{background:var(--research)}
+  details.genre.business .genre-dot{background:var(--business)} details.genre.policy .genre-dot{background:var(--policy)}
+  details.genre.tools .genre-dot{background:var(--tools)}
+  details.genre .genre-body { padding:0 0.9rem 0.9rem; display:flex; flex-direction:column; gap:0.75rem; }
+  details.genre .card { border:none; border-left:3px solid var(--border); background:var(--bg);
+    border-radius:6px; }
+  .subscribe { max-width:760px; margin:2.5rem auto 0; padding:1rem 1.3rem; text-align:center;
+    border:1px dashed var(--border); border-radius:8px; font-size:0.8rem; color:var(--text-muted); }
+  .subscribe a { color:var(--accent); font-weight:600; text-decoration:none; }
+  @media (max-width:640px){ .card{padding:1.15rem 1.2rem} .card.top .card-title-ja{font-size:1.1rem} }
 
-  /* ---- プレイヤーカード ---- */
-  .player-card {
-    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-    border-radius: 20px;
-    padding: 28px 24px;
-    margin: 16px 0;
-    border: 1px solid #334155;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-  }
-
-  /* ---- 進捗バー ---- */
-  .progress-wrap {
-    margin: 0 0 16px;
-  }
-  .progress-bar {
-    width: 100%;
-    height: 6px;
-    background: #334155;
-    border-radius: 3px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-  }
-  .progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #60a5fa, #818cf8);
-    width: 0;
-    border-radius: 3px;
-    transition: width 0.1s linear;
-  }
-  .time-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-    color: #94a3b8;
-    margin-top: 6px;
-    font-variant-numeric: tabular-nums;
-  }
-
-  /* ---- メインコントロール ---- */
-  .controls-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    margin: 20px 0 16px;
-  }
-  .btn {
-    background: none;
-    border: none;
-    color: #e2e8f0;
-    cursor: pointer;
-    padding: 12px;
-    border-radius: 50%;
-    transition: background 0.15s, transform 0.1s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .btn:hover, .btn:active { background: rgba(255,255,255,0.08); }
-  .btn:active { transform: scale(0.92); }
-  .btn svg { display: block; }
-  .btn.skip { padding: 10px; }
-  .btn.skip .skip-label {
-    font-size: 9px;
-    position: absolute;
-    color: #cbd5e1;
-    font-weight: 700;
-  }
-  .btn.play {
-    background: linear-gradient(135deg, #60a5fa 0%, #818cf8 100%);
-    width: 64px;
-    height: 64px;
-    padding: 0;
-    box-shadow: 0 4px 20px rgba(96,165,250,0.4);
-  }
-  .btn.play:hover { transform: scale(1.05); }
-  .btn.play:active { transform: scale(0.95); }
-
-  /* ---- 速度ボタン ---- */
-  .speed-row {
-    display: flex;
-    justify-content: center;
-    gap: 6px;
-    flex-wrap: wrap;
-    margin-top: 12px;
-  }
-  .speed-btn {
-    background: #1e293b;
-    border: 1px solid #334155;
-    color: #cbd5e1;
-    padding: 6px 12px;
-    border-radius: 16px;
-    font-size: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.15s;
-    font-variant-numeric: tabular-nums;
-  }
-  .speed-btn:hover { border-color: #60a5fa; color: #f1f5f9; }
-  .speed-btn.active {
-    background: #60a5fa;
-    border-color: #60a5fa;
-    color: #0f172a;
-  }
-
-  /* ---- 副情報 ---- */
-  .meta-row {
-    display: flex;
-    justify-content: center;
-    gap: 14px;
-    margin-top: 16px;
-    font-size: 12px;
-    color: #64748b;
-  }
-  .meta-row a {
-    color: #94a3b8;
-    text-decoration: none;
-    padding: 4px 10px;
-    border-radius: 12px;
-    background: rgba(148,163,184,0.08);
-    transition: background 0.15s;
-  }
-  .meta-row a:hover { background: rgba(148,163,184,0.18); color: #e2e8f0; }
-
-  /* ---- 台本セクション ---- */
-  .transcript {
-    margin-top: 24px;
-    background: #1e293b;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid #334155;
-  }
-  .transcript summary {
-    padding: 16px 20px;
-    cursor: pointer;
-    font-size: 14px;
-    color: #cbd5e1;
-    font-weight: 600;
-    user-select: none;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .transcript summary::-webkit-details-marker { display: none; }
-  .transcript summary::after {
-    content: "▾";
-    color: #64748b;
-    transition: transform 0.2s;
-  }
-  .transcript[open] summary::after { transform: rotate(180deg); }
-  .transcript-body {
-    padding: 0 20px 20px;
-    max-height: 480px;
-    overflow-y: auto;
-    font-size: 14px;
-    line-height: 1.85;
-  }
-  .turn {
-    margin: 12px 0;
-    padding: 10px 14px;
-    border-radius: 10px;
-    background: #0f172a;
-    border-left: 3px solid #475569;
-  }
-  .turn.terako { border-left-color: #60a5fa; }
-  .turn.mika   { border-left-color: #f472b6; }
-  .turn .speaker {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #94a3b8;
-    margin-bottom: 4px;
-  }
-  .turn.terako .speaker { color: #60a5fa; }
-  .turn.mika   .speaker { color: #f472b6; }
-  .turn .text { color: #e2e8f0; }
-
-  /* ---- フッター ---- */
-  .footer {
-    text-align: center;
-    margin: 32px 0 16px;
-    font-size: 12px;
-    color: #64748b;
-  }
-  .footer a { color: #64748b; text-decoration: none; }
-  .footer a:hover { color: #94a3b8; text-decoration: underline; }
-
-  /* ---- エラー / ローディング ---- */
-  .status {
-    text-align: center;
-    padding: 32px 20px;
-    color: #94a3b8;
-    font-size: 14px;
-  }
-
-  @media (max-width: 480px) {
-    .header .date { font-size: 22px; }
-    .player-card { padding: 22px 18px; }
-    .btn.play { width: 56px; height: 56px; }
-    .speed-btn { padding: 5px 10px; font-size: 11px; }
-  }
-</style>
-</head>
+  .player-wrap { max-width:760px; margin:0 auto; }
+  .listen.player { padding:1.5rem 1.6rem 1.4rem; }
+  .p-date { font-size:0.78rem; color:#94a3b8; letter-spacing:0.06em; }
+  .p-title { margin-top:0.2rem; font-size:1.05rem; font-weight:700; color:#fff; }
+  .progress { margin-top:1.1rem; height:6px; background:rgba(255,255,255,0.15);
+    border-radius:3px; cursor:pointer; overflow:hidden; }
+  .progress-fill { height:100%; width:0; background:#22d3ee; border-radius:3px; }
+  .time-row { display:flex; justify-content:space-between; margin-top:0.4rem;
+    font-size:0.72rem; color:#94a3b8; font-variant-numeric:tabular-nums; }
+  .controls { display:flex; align-items:center; justify-content:center; gap:0.6rem;
+    margin:1rem 0 0.4rem; }
+  .ctl { background:none; border:none; color:#e2e8f0; cursor:pointer; padding:0.55rem;
+    border-radius:50%; display:flex; flex-direction:column; align-items:center;
+    -webkit-tap-highlight-color:transparent; }
+  .ctl:hover { background:rgba(255,255,255,0.1); }
+  .ctl small { font-size:0.6rem; color:#94a3b8; margin-top:-2px; }
+  .ctl.play { width:60px; height:60px; padding:0; justify-content:center;
+    background:#22d3ee; color:#0f172a; box-shadow:0 4px 18px rgba(34,211,238,0.35); }
+  .ctl.play:hover { background:#67e8f9; }
+  .ctl svg { display:block; }
+  .p-links { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1rem; }
+  .p-links a { padding:0.35rem 0.8rem; border:1px solid rgba(255,255,255,0.25);
+    border-radius:999px; font-size:0.74rem; color:#e2e8f0; text-decoration:none; }
+  .p-links a:hover { background:rgba(255,255,255,0.12); }
+  details.script { max-width:760px; margin:1.5rem auto 0; background:var(--card-bg);
+    border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+  details.script > summary { list-style:none; cursor:pointer; padding:1rem 1.3rem;
+    font-weight:700; font-size:0.92rem; display:flex; align-items:center; gap:0.6rem; }
+  details.script > summary::-webkit-details-marker { display:none; }
+  details.script > summary::before { content:"▸"; font-size:0.8rem; color:var(--text-muted); }
+  details.script[open] > summary::before { content:"▾"; }
+  .turn { margin:0 1rem 0.8rem; padding:0.8rem 1rem; border-radius:6px; background:var(--bg);
+    border-left:3px solid var(--border); font-size:0.9rem; line-height:1.9; }
+  .turn .who { display:block; font-size:0.68rem; font-weight:700; letter-spacing:0.06em;
+    color:var(--text-muted); margin-bottom:0.2rem; }
+  .turn.terako { border-left-color:var(--accent); }
+  .turn.mika { border-left-color:#db2777; }
+  .turn.terako .who { color:var(--accent); }
+  .turn.mika .who { color:#db2777; }
+  .status { padding:1rem 1.3rem; font-size:0.85rem; color:var(--text-muted); }
+  .read-cta { max-width:760px; margin:1rem auto 0; display:block; padding:1rem 1.3rem;
+    background:var(--card-bg); border:2px solid var(--accent); border-radius:8px;
+    text-decoration:none; color:var(--text); }
+  .read-cta strong { display:block; font-size:0.95rem; color:var(--accent); }
+  .read-cta span { display:block; margin-top:0.2rem; font-size:0.78rem; color:var(--text-muted); line-height:1.7; }
+  .kbd-help { max-width:760px; margin:1rem auto 0; font-size:0.72rem; color:var(--text-muted);
+    text-align:center; }
+  @media (max-width:640px){ .ctl.play{width:54px;height:54px} }
+</style></head>
 <body>
-<div class="container">
-
-  <div class="header">
-    <h1>🎙️ てらこAIニュースダイジェスト</h1>
-    <p class="date" id="dateLabel">読み込み中...</p>
-    <p class="weekday" id="weekdayLabel"></p>
-  </div>
-
-  <div class="player-card">
-    <audio id="audio" preload="metadata"></audio>
-
-    <div class="progress-wrap">
-      <div class="progress-bar" id="progressBar">
-        <div class="progress-fill" id="progressFill"></div>
-      </div>
-      <div class="time-row">
-        <span id="currentTime">0:00</span>
-        <span id="totalTime">--:--</span>
-      </div>
-    </div>
-
-    <div class="controls-main">
-      <button class="btn skip" id="back30" aria-label="30秒戻る" title="30秒戻る" style="position:relative;">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="1 4 1 10 7 10"></polyline>
-          <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
-        </svg>
-        <span class="skip-label">30</span>
-      </button>
-
-      <button class="btn skip" id="back10" aria-label="10秒戻る" title="10秒戻る" style="position:relative;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="1 4 1 10 7 10"></polyline>
-          <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
-        </svg>
-        <span class="skip-label">10</span>
-      </button>
-
-      <button class="btn play" id="playBtn" aria-label="再生">
-        <svg id="playIcon" width="28" height="28" viewBox="0 0 24 24" fill="#0f172a">
-          <polygon points="6,4 20,12 6,20"/>
-        </svg>
-        <svg id="pauseIcon" width="28" height="28" viewBox="0 0 24 24" fill="#0f172a" style="display:none;">
-          <rect x="6" y="4" width="4" height="16"/>
-          <rect x="14" y="4" width="4" height="16"/>
-        </svg>
-      </button>
-
-      <button class="btn skip" id="fwd10" aria-label="10秒進む" title="10秒進む" style="position:relative;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform:scaleX(-1);">
-          <polyline points="1 4 1 10 7 10"></polyline>
-          <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
-        </svg>
-        <span class="skip-label">10</span>
-      </button>
-
-      <button class="btn skip" id="fwd30" aria-label="30秒進む" title="30秒進む" style="position:relative;">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform:scaleX(-1);">
-          <polyline points="1 4 1 10 7 10"></polyline>
-          <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
-        </svg>
-        <span class="skip-label">30</span>
-      </button>
-    </div>
-
-    <div class="speed-row" id="speedRow">
-      <button class="speed-btn" data-rate="0.75">0.75×</button>
-      <button class="speed-btn active" data-rate="1.0">1.0×</button>
-      <button class="speed-btn" data-rate="1.25">1.25×</button>
-      <button class="speed-btn" data-rate="1.5">1.5×</button>
-      <button class="speed-btn" data-rate="2.0">2.0×</button>
-      <button class="speed-btn" data-rate="2.5">2.5×</button>
-    </div>
-
-    <div class="meta-row">
-      <a id="mp3Link" href="#" download>💾 MP3ダウンロード</a>
-      <a id="newsLink" href="#">📰 元記事HTMLへ</a>
+<div class="hero">
+  <div class="hero-inner">
+    <div class="crumbs"><a href="../">世界一わかりやすいAIニュース</a></div>
+    <h1>🎧 音声版 <span id="hDate"></span></h1>
+    <p>対話形式・ながら聴き向け。てらこ先生とミカが、今日のAIニュースをやさしく解説します。</p>
+    <div class="top-nav">
+      <a href="../">トップ</a>
+      <a id="newsLink" href="../">この号を読む</a>
+      <a href="../archive.html">バックナンバー</a>
+      <a href="../terms/">AI用語集</a>
     </div>
   </div>
-
-  <details class="transcript" id="transcriptBox">
-    <summary>📝 台本を表示</summary>
-    <div class="transcript-body" id="transcriptBody">
-      読み込み中...
-    </div>
-  </details>
-
-  <div class="footer">
-    📡 <a href="feed.xml">RSSフィード（Spotify登録用）</a>
-    ・
-    <a href="https://open.spotify.com/show/033cDtX8MpRhSYox" target="_blank" rel="noopener">Spotify</a>
-    ・
-    <a href="../">過去エピソード</a>
-  </div>
-
 </div>
 
+<main>
+  <div class="player-wrap">
+    <div class="listen player">
+      <div class="p-date" id="pDate">読み込み中…</div>
+      <div class="p-title">世界一わかりやすいAIニュース</div>
+      <audio id="audio" preload="metadata"></audio>
+      <div class="progress" id="progress"><div class="progress-fill" id="fill"></div></div>
+      <div class="time-row"><span id="cur">0:00</span><span id="dur">--:--</span></div>
+      <div class="controls">
+        <button type="button" class="ctl" id="b30" aria-label="30秒戻る"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg><small>30</small></button>
+        <button type="button" class="ctl" id="b10" aria-label="10秒戻る"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg><small>10</small></button>
+        <button type="button" class="ctl play" id="play" aria-label="再生">
+          <span id="icPlay"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><polygon points="7,4 21,12 7,20"/></svg></span><span id="icPause" hidden><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></span>
+        </button>
+        <button type="button" class="ctl" id="f10" aria-label="10秒進む"><svg style="transform:scaleX(-1)" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg><small>10</small></button>
+        <button type="button" class="ctl" id="f30" aria-label="30秒進む"><svg style="transform:scaleX(-1)" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg><small>30</small></button>
+      </div>
+      <div class="speed-row"><span class="speed-label">再生速度</span><button type="button" class="speed-btn" data-speed="0.75">0.75×</button><button type="button" class="speed-btn" data-speed="1">1×</button><button type="button" class="speed-btn" data-speed="1.25">1.25×</button><button type="button" class="speed-btn" data-speed="1.5">1.5×</button><button type="button" class="speed-btn" data-speed="2">2×</button><button type="button" class="speed-btn" data-speed="2.5">2.5×</button></div>
+      <div class="p-links">
+        <a id="mp3Link" href="#">音声ファイルを開く</a>
+        <a href="https://teracosensei.substack.com/subscribe" target="_blank" rel="noopener">メールで毎朝受け取る</a>
+        <a href="https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3" target="_blank" rel="noopener">Spotify で聴く</a>
+        <a href="feed.xml">ポッドキャストアプリ用アドレス</a>
+      </div>
+    </div>
+
+    <a class="read-cta" id="readLink" href="../">
+      <strong>この号を、専門用語の解説つきで読む →</strong>
+      <span>記事では、企業名・モデル名・専門用語ぜんぶに注釈がつきます。聴いてわからなかった言葉は、こちらで確認できます。</span>
+    </a>
+
+    <details class="script" id="scriptBox">
+      <summary>台本を読む</summary>
+      <div id="scriptBody" class="status">読み込み中…</div>
+    </details>
+    <div class="kbd-help">キーボード：スペースで再生／停止、← → で10秒、J / L で30秒</div>
+  </div>
+</main>
+
+<footer>
+  <strong>世界一わかりやすいAIニュース</strong> — 音声版<br>
+  毎朝6時に自動生成・自動配信しています。
+  <div class="footer-links"><a href="../">トップ</a> ／ <a href="../terms/">AI用語集</a> ／ <a href="../articles/">読み物</a> ／ <a href="../archive.html">バックナンバー</a> ／ <a href="../about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
+  <div class="footer-brand">Teraco News by てらこ先生</div>
+</footer>
+
 <script>
-(function() {
-  const WEEKDAYS = ['日', '月', '火', '水', '木', '金', '土'];
-
-  // -------- 日付の解決 --------
-  function resolveDate() {
-    // 1. URLパラメータ ?date=YYYY-MM-DD
-    const p = new URLSearchParams(location.search);
-    const d = p.get('date');
-    if (d && /^\d{4}-\d{2}-\d{2}$/.test(d)) return d;
-    // 2. ハッシュ #2026-05-24
-    if (location.hash && /^#\d{4}-\d{2}-\d{2}$/.test(location.hash)) {
-      return location.hash.slice(1);
-    }
-    // 3. ファイル名末尾 player-2026-05-24.html / 2026-05-24.html
-    const name = location.pathname.split('/').pop();
-    const m = name && name.match(/(\d{4}-\d{2}-\d{2})/);
-    if (m) return m[1];
-    // 4. デフォルト: 今日の日付（JST）
-    const now = new Date(Date.now() + 9*3600*1000); // JST
-    return now.toISOString().slice(0, 10);
+(function(){
+  var WD = ['日','月','火','水','木','金','土'];
+  function pick(){
+    var p = new URLSearchParams(location.search).get('date');
+    if (p && /^\d{4}-\d{2}-\d{2}$/.test(p)) return p;
+    if (/^#\d{4}-\d{2}-\d{2}$/.test(location.hash)) return location.hash.slice(1);
+    var now = new Date(Date.now() + 9*3600*1000);
+    return now.toISOString().slice(0,10);
   }
+  var iso = pick(), d = new Date(iso + 'T00:00:00+09:00');
+  var label = d.getFullYear() + '年' + (d.getMonth()+1) + '月' + d.getDate() + '日（' + WD[d.getDay()] + '）';
+  document.getElementById('hDate').textContent = label;
+  document.getElementById('pDate').textContent = label + ' の号';
+  document.title = label + ' 音声版 | 世界一わかりやすいAIニュース';
+  document.getElementById('newsLink').href = '../ai-news-' + iso + '.html';
+  document.getElementById('readLink').href = '../ai-news-' + iso + '.html';
+  document.getElementById('mp3Link').href = 'ai-news-' + iso + '.mp3';
 
-  const dateIso = resolveDate();
-  const dateObj = new Date(dateIso + 'T00:00:00+09:00');
-  const audioUrl = 'ai-news-' + dateIso + '.mp3';
-  const scriptUrl = 'script-' + dateIso + '.txt';
-  const newsHtml = '../ai-news-' + dateIso + '.html';
-
-  // -------- ヘッダー描画 --------
-  document.getElementById('dateLabel').textContent =
-    dateObj.getFullYear() + '年' + (dateObj.getMonth()+1) + '月' + dateObj.getDate() + '日';
-  document.getElementById('weekdayLabel').textContent =
-    WEEKDAYS[dateObj.getDay()] + '曜日 配信';
-  document.getElementById('mp3Link').href = audioUrl;
-  document.getElementById('mp3Link').download = audioUrl;
-  document.getElementById('newsLink').href = newsHtml;
-  document.title = 'てらこAIニュース ' + dateIso;
-
-  // -------- audio --------
-  const audio = document.getElementById('audio');
-  audio.src = audioUrl;
-
-  const playBtn   = document.getElementById('playBtn');
-  const playIcon  = document.getElementById('playIcon');
-  const pauseIcon = document.getElementById('pauseIcon');
-
-  function setPlaying(p) {
-    playIcon.style.display  = p ? 'none'  : 'block';
-    pauseIcon.style.display = p ? 'block' : 'none';
-    playBtn.setAttribute('aria-label', p ? '一時停止' : '再生');
-  }
-
-  playBtn.addEventListener('click', () => {
-    if (audio.paused) audio.play(); else audio.pause();
-  });
-  audio.addEventListener('play',  () => setPlaying(true));
-  audio.addEventListener('pause', () => setPlaying(false));
-  audio.addEventListener('ended', () => setPlaying(false));
-
-  // -------- スキップ --------
-  function skip(sec) {
-    audio.currentTime = Math.max(0, Math.min(audio.duration || 0, audio.currentTime + sec));
-  }
-  document.getElementById('back30').addEventListener('click', () => skip(-30));
-  document.getElementById('back10').addEventListener('click', () => skip(-10));
-  document.getElementById('fwd10').addEventListener('click',  () => skip(10));
-  document.getElementById('fwd30').addEventListener('click',  () => skip(30));
-
-  // -------- 進捗バー --------
-  const progressBar  = document.getElementById('progressBar');
-  const progressFill = document.getElementById('progressFill');
-  const currentTimeEl = document.getElementById('currentTime');
-  const totalTimeEl   = document.getElementById('totalTime');
-
-  function fmt(sec) {
-    if (!isFinite(sec)) return '--:--';
-    sec = Math.max(0, Math.floor(sec));
-    const m = Math.floor(sec / 60);
-    const s = sec % 60;
-    return m + ':' + (s < 10 ? '0' + s : s);
-  }
-
-  audio.addEventListener('loadedmetadata', () => {
-    totalTimeEl.textContent = fmt(audio.duration);
-  });
-  audio.addEventListener('timeupdate', () => {
-    const pct = audio.duration ? (audio.currentTime / audio.duration * 100) : 0;
-    progressFill.style.width = pct + '%';
-    currentTimeEl.textContent = fmt(audio.currentTime);
+  var a = document.getElementById('audio');
+  a.src = 'ai-news-' + iso + '.mp3';
+  var play = document.getElementById('play'), icP = document.getElementById('icPlay'), icQ = document.getElementById('icPause');
+  function ui(on){ icP.hidden = on; icQ.hidden = !on; play.setAttribute('aria-label', on ? '一時停止' : '再生'); }
+  play.addEventListener('click', function(){ a.paused ? a.play() : a.pause(); });
+  a.addEventListener('play', function(){ ui(true); });
+  a.addEventListener('pause', function(){ ui(false); });
+  a.addEventListener('ended', function(){ ui(false); });
+  a.addEventListener('error', function(){
+    document.getElementById('pDate').textContent = label + ' の音声はまだありません（毎朝6時ごろ公開）';
   });
 
-  function seekFromEvent(e) {
-    const rect = progressBar.getBoundingClientRect();
-    const x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
-    const pct = Math.max(0, Math.min(1, x / rect.width));
-    if (audio.duration) audio.currentTime = audio.duration * pct;
+  function skip(s){ a.currentTime = Math.max(0, Math.min(a.duration || 0, a.currentTime + s)); }
+  document.getElementById('b30').onclick = function(){ skip(-30); };
+  document.getElementById('b10').onclick = function(){ skip(-10); };
+  document.getElementById('f10').onclick = function(){ skip(10); };
+  document.getElementById('f30').onclick = function(){ skip(30); };
+
+  var fill = document.getElementById('fill'), cur = document.getElementById('cur'), dur = document.getElementById('dur');
+  function fmt(s){ if (!isFinite(s)) return '--:--'; s = Math.floor(s); return Math.floor(s/60) + ':' + ('0' + s%60).slice(-2); }
+  a.addEventListener('loadedmetadata', function(){ dur.textContent = fmt(a.duration); });
+  a.addEventListener('timeupdate', function(){
+    fill.style.width = (a.duration ? a.currentTime / a.duration * 100 : 0) + '%';
+    cur.textContent = fmt(a.currentTime);
+  });
+  document.getElementById('progress').addEventListener('click', function(e){
+    var r = this.getBoundingClientRect();
+    if (a.duration) a.currentTime = a.duration * Math.max(0, Math.min(1, (e.clientX - r.left) / r.width));
+  });
+
+  // 再生速度：記事ページ内のプレイヤーと同じ保存キーを使い、どのページでも同じ速度になる
+  var btns = document.querySelectorAll('.speed-btn'), saved = '1';
+  try { saved = localStorage.getItem('wk-speed') || '1'; } catch(e) {}
+  function apply(v){
+    a.playbackRate = parseFloat(v); saved = v;
+    btns.forEach(function(b){ b.classList.toggle('on', b.dataset.speed === v); });
+    try { localStorage.setItem('wk-speed', v); } catch(e) {}
   }
-  progressBar.addEventListener('click', seekFromEvent);
+  apply(saved);
+  a.addEventListener('play', function(){ a.playbackRate = parseFloat(saved); });
+  btns.forEach(function(b){ b.addEventListener('click', function(){ apply(b.dataset.speed); }); });
 
-  // -------- 速度 --------
-  const speedRow = document.getElementById('speedRow');
-  // キー名を v5 に更新して過去の保存設定をリセットし、デフォルトを 1.0 倍（等速）にする
-  const SAVED_RATE_KEY = 'terako-ai-news-rate-v5';
-  const savedRate = parseFloat(localStorage.getItem(SAVED_RATE_KEY) || '1.0');
+  document.addEventListener('keydown', function(e){
+    if (/INPUT|TEXTAREA/.test(e.target.tagName)) return;
+    if (e.key === ' ' || e.key === 'k') { e.preventDefault(); a.paused ? a.play() : a.pause(); }
+    else if (e.key === 'ArrowLeft') skip(-10);
+    else if (e.key === 'ArrowRight') skip(10);
+    else if (e.key === 'j') skip(-30);
+    else if (e.key === 'l') skip(30);
+  });
 
-  function setRate(r) {
-    audio.playbackRate = r;
-    speedRow.querySelectorAll('.speed-btn').forEach(btn => {
-      btn.classList.toggle('active', parseFloat(btn.dataset.rate) === r);
+  function esc(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  fetch('script-' + iso + '.txt').then(function(r){ return r.ok ? r.text() : Promise.reject(); }).then(function(t){
+    var out = [];
+    t.split('\n').forEach(function(line){
+      var m = line.match(/^\[(てらこ先生|ミカ)\]\s*(.+)$/);
+      if (m) out.push('<div class="turn ' + (m[1] === 'てらこ先生' ? 'terako' : 'mika') + '"><span class="who">' + m[1] + '</span>' + esc(m[2]) + '</div>');
     });
-    try { localStorage.setItem(SAVED_RATE_KEY, String(r)); } catch (e) {}
-  }
-  setRate(savedRate);
-
-  speedRow.addEventListener('click', (e) => {
-    const t = e.target.closest('.speed-btn');
-    if (!t) return;
-    setRate(parseFloat(t.dataset.rate));
+    document.getElementById('scriptBody').className = '';
+    document.getElementById('scriptBody').innerHTML = out.length ? out.join('') : '<div class="status">この号の台本はまだありません。</div>';
+  }).catch(function(){
+    document.getElementById('scriptBody').innerHTML = '<div class="status">台本を読み込めませんでした。</div>';
   });
-
-  // -------- キーボードショートカット --------
-  document.addEventListener('keydown', (e) => {
-    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-    switch (e.key) {
-      case ' ':
-      case 'k':
-        e.preventDefault();
-        if (audio.paused) audio.play(); else audio.pause();
-        break;
-      case 'ArrowLeft':  skip(-10); break;
-      case 'ArrowRight': skip(10);  break;
-      case 'j': skip(-30); break;
-      case 'l': skip(30);  break;
-    }
-  });
-
-  // -------- 台本ロード --------
-  fetch(scriptUrl)
-    .then(r => r.ok ? r.text() : Promise.reject('not found'))
-    .then(text => {
-      const body = document.getElementById('transcriptBody');
-      const lines = text.split('\n');
-      const html = [];
-      for (const line of lines) {
-        const m = line.match(/^\[(てらこ先生|ミカ)\]\s*(.+)$/);
-        if (m) {
-          const cls = m[1] === 'てらこ先生' ? 'terako' : 'mika';
-          html.push(
-            '<div class="turn ' + cls + '">' +
-            '<div class="speaker">' + m[1] + '</div>' +
-            '<div class="text">' + escapeHtml(m[2]) + '</div>' +
-            '</div>'
-          );
-        }
-      }
-      body.innerHTML = html.length
-        ? html.join('')
-        : '<p style="color:#94a3b8;">本日の台本はまだ準備中です。</p>';
-    })
-    .catch(() => {
-      document.getElementById('transcriptBody').innerHTML =
-        '<p style="color:#94a3b8;">台本を読み込めませんでした。</p>';
-    });
-
-  function escapeHtml(s) {
-    return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  }
 })();
 </script>
 </body>

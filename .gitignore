@@ -33,3 +33,21 @@ service_costs.json
 
 # 記事の下書きプレビュー
 .preview/
+
+# セミナー録画の文字起こし・議事録（社外に出せない内容が入るのでローカルのみ）
+seminars/
+
+# 個人情報を含むため公開リポジトリに載せない（2026-08-19 追加 / 2026-08-29 再適用）
+customer-tool/
+teraco-voice-v2/
+
+# 依存パッケージ（巨大なうえ npm install で復元できる）
+node_modules/
+
+# 別セッションの作業ファイル。公開リポジトリなので中身が出ないようにする（2026-08-31 追加）
+SECURITY_INCIDENT_*.md
+pwa-reserve/customer-requirements.html
+pwa-reserve/test_customer_tool.py
+pwa-reserve/test_manual_instructions.md
+
+podcast/.work/

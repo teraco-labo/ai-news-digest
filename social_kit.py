@@ -26,6 +26,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Dict, List, Optional
 
+import glossary
 import monetize
 
 JST = timezone(timedelta(hours=9))
@@ -199,6 +200,26 @@ def build_note_outline(articles: List[Dict], date: datetime, url: str) -> str:
     return "\n".join(lines)
 
 
+def build_term_post(date: datetime, url_base: str) -> Optional[Dict]:
+    """「今日の用語」投稿。97語の辞書を日替わりでSNSの教育コンテンツに変える。
+
+    ニュースのリンク投稿より、それ自体で完結する解説投稿のほうが拡散しやすく、
+    「わかりやすく教える人」というブランドの発信としても筋がいい。
+    """
+    terms = glossary.published()
+    if not terms:
+        return None
+    t = terms[int(date.strftime("%Y%m%d")) % len(terms)]  # 日付で決まる巡回
+    reading = f"（{t['reading']}）" if t.get("reading") else ""
+    url = f"{url_base}/terms/{t['slug']}.html" if url_base else ""
+    text = (f"【今日のAI用語】{t['term']}{reading}\n\n"
+            f"{t['short']}\n\n"
+            + (f"もう一歩くわしく↓\n{url}\n\n" if url else "")
+            + "#AI用語 #生成AI #AI初心者")
+    return {"label": "今日の用語（教育系・拡散向き）", "text": text,
+            "length": x_length(text), "ok": x_length(text) <= X_LIMIT}
+
+
 def build_kit(categorized: Dict[str, List[Dict]], date: datetime,
               config: Optional[Dict] = None) -> str:
     config = config if config is not None else monetize.load_config()
@@ -210,6 +231,11 @@ def build_kit(categorized: Dict[str, List[Dict]], date: datetime,
     if not articles:
         return ""
 
+    posts = build_x_posts(articles, date, url)
+    term_post = build_term_post(date, base)
+    if term_post:
+        posts.append(term_post)
+
     out = [
         f"# SNS投稿キット {date_iso}（{WEEKDAYS_JA[date.weekday()]}）",
         "",
@@ -219,7 +245,7 @@ def build_kit(categorized: Dict[str, List[Dict]], date: datetime,
         "## X（旧Twitter）",
         "",
     ]
-    for p in build_x_posts(articles, date, url):
+    for p in posts:
         status = "OK" if p["ok"] else "⚠️ 上限超過・要短縮"
         out += [f"### {p['label']}  — {p['length']}/{X_LIMIT} {status}", "", "```", p["text"], "```", ""]
 

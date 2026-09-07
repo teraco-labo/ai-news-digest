@@ -13,8 +13,10 @@ AIの最新ニュースを毎朝6時に自動収集し、日本語で要約し�
   解説ページの中の用語にもさらに解説がつく入れ子構造。毎朝のキュレーションで用語が自動追加される
 - **解説記事** — `articles/*.md` から静的HTMLを生成（検索流入用）
 - **SNS投稿キット** — その日のダイジェストからコピペ用の投稿文を生成
+- **セミナー議事録**（手動実行）— Zoom等の録画から文字起こし・議事録・タイムスタンプ付き要約を作り、
+  内容にそのまま質問できる。限定公開の動画が NotebookLM に読めない問題への回答
 
-すべて GitHub Actions で毎朝6時（JST）に全自動実行されます。
+セミナー議事録以外は GitHub Actions で毎朝6時（JST）に全自動実行されます。
 
 ## セットアップ
 
@@ -44,12 +46,21 @@ python revenue_tracker.py report         # 収支レポート
 python revenue_tracker.py plan           # 目標達成までの逆算
 
 python api_dashboard.py                  # APIコストの確認
+
+python seminar_notes.py <録画URL> --title "勉強会"   # セミナーの文字起こし＋議事録
+python seminar_notes.py --ask "料金の話はどこ？"     # 録画の内容に質問する
 ```
 
 ## 経緯と現状
 
 **[PROJECT_LOG.md](PROJECT_LOG.md)** に、何をなぜそうしたか・ハマった罠・
 次にやることをまとめています。作業を再開するときはここから。
+
+## セミナーの録画から議事録を作る
+
+録画を文字起こしして議事録・要約・配布メール文面まで作り、内容に質問できるようにする手順は
+**[SEMINAR_NOTES.md](SEMINAR_NOTES.md)** にまとめています。
+NotebookLM が限定公開の YouTube を読み込めない理由と回避策もそこに書いてあります。
 
 ## 記事を書く
 

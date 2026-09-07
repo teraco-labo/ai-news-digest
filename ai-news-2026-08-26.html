@@ -49,6 +49,23 @@
   .sub-card:hover { border-color:var(--accent); }
   .sub-card.mail { border-color:var(--accent); border-width:2px;
     background:linear-gradient(180deg,rgba(14,116,144,0.05),transparent); }
+  .sub-embed { cursor:default; }
+  .sub-badge { display:block; margin-top:0.5rem; padding:0.6rem; text-align:center;
+    border-radius:6px; font-size:0.85rem; font-weight:700; text-decoration:none; color:#fff; }
+  .sub-badge.spotify { background:#1db954; }
+  .sub-badge.apple { background:#8e44ec; }
+  .sub-copy { margin-top:0.6rem; width:100%; padding:0.6rem; background:var(--accent);
+    color:#fff; font-size:0.85rem; font-weight:700; border:none; border-radius:6px;
+    cursor:pointer; }
+  .sub-advanced { max-width:760px; margin:0.8rem auto 0; font-size:0.72rem;
+    color:var(--text-muted); }
+  .sub-advanced a { color:var(--text-muted); }
+  .sub-embed form { margin-top:0.5rem; }
+  .sub-embed input[type="email"] { width:100%; padding:0.6rem 0.8rem; font-size:0.9rem;
+    border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text); }
+  .sub-embed button, .sub-embed input[type="submit"] { margin-top:0.5rem; width:100%;
+    padding:0.65rem; background:var(--accent); color:#fff; font-size:0.88rem; font-weight:700;
+    border:none; border-radius:6px; cursor:pointer; }
   .sub-ico { font-size:1.2rem; }
   .sub-t { font-size:0.92rem; font-weight:700; }
   .sub-d { font-size:0.76rem; line-height:1.7; color:var(--text-muted); }
@@ -119,7 +136,16 @@
   .listen-head strong { font-size:0.95rem; color:#fff; }
   .listen-head span { font-size:0.76rem; color:#94a3b8; }
   .listen audio { width:100%; height:40px; display:block; }
-  .listen-sub { margin-top:0.6rem; font-size:0.74rem; }
+  .speed-row { display:flex; align-items:center; gap:0.4rem; margin-top:0.7rem; flex-wrap:wrap; }
+  .speed-label { font-size:0.7rem; color:#94a3b8; margin-right:0.2rem; }
+  .speed-btn { padding:0.3rem 0.75rem; background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.25); border-radius:999px; color:#e2e8f0;
+    font-size:0.75rem; font-weight:600; cursor:pointer; }
+  .speed-btn.on { background:#22d3ee; border-color:#22d3ee; color:#0f172a; }
+  .copy-feed { padding:0.25rem 0.7rem; background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.3); border-radius:6px; color:#e2e8f0;
+    font-size:0.72rem; font-weight:600; cursor:pointer; }
+  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#94a3b8; line-height:1.8; }
   .listen-sub a { color:#7dd3fc; text-decoration:none; }
   .listen-sub a:hover { text-decoration:underline; }
   details.genre { max-width:760px; margin:0 auto 0.75rem; background:var(--card-bg);
@@ -296,13 +322,37 @@
       <strong>🎧 今日の音声版</strong>
       <span>対話形式・ながら聴き向け（10〜15分）</span>
     </div>
-    <audio controls preload="none" src="podcast/ai-news-2026-08-26.mp3">
+    <audio id="pod-audio" controls preload="none" src="podcast/ai-news-2026-08-26.mp3">
       <a href="podcast/ai-news-2026-08-26.mp3">音声ファイルを開く</a>
     </audio>
-    <div class="listen-sub">
-      <a href="https://teraco-labo.github.io/ai-news-digest/podcast/feed.xml">📡 ポッドキャストとして購読する（RSS / Spotify）</a>
+    <div class="speed-row"><span class="speed-label">再生速度</span>
+      <button type="button" class="speed-btn" data-speed="0.75">0.75×</button>
+      <button type="button" class="speed-btn" data-speed="1">1×</button>
+      <button type="button" class="speed-btn" data-speed="1.25">1.25×</button>
+      <button type="button" class="speed-btn" data-speed="1.5">1.5×</button>
+      <button type="button" class="speed-btn" data-speed="2">2×</button>
     </div>
+    <div class="listen-sub">ポッドキャストアプリで毎朝受け取るには <button type="button" class="copy-feed" data-copy="https://teraco-labo.github.io/ai-news-digest/podcast/feed.xml" onclick="navigator.clipboard.writeText(this.dataset.copy).then(()=>{this.textContent='✓ コピーしました';setTimeout(()=>this.textContent='番組アドレスをコピー',2000);});">番組アドレスをコピー</button> して、アプリの「番組を追加」に貼り付けてください</div>
   </div>
+<script>
+(function(){
+  var audio = document.getElementById('pod-audio');
+  if (!audio) return;
+  var btns = document.querySelectorAll('.speed-btn');
+  function apply(v){
+    audio.playbackRate = parseFloat(v);
+    btns.forEach(function(b){ b.classList.toggle('on', b.dataset.speed === v); });
+    try { localStorage.setItem('wk-speed', v); } catch(e) {}
+  }
+  var saved = '1';
+  try { saved = localStorage.getItem('wk-speed') || '1'; } catch(e) {}
+  apply(saved);
+  audio.addEventListener('play', function(){ audio.playbackRate = parseFloat(saved); });
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){ saved = b.dataset.speed; apply(saved); });
+  });
+})();
+</script>
 
   <div class="tier">注目のニュース</div>
   <div class="digest">
@@ -421,7 +471,7 @@
         <span class="card-label tools">ツール</span>
         <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">OpenAI、<span class="t" data-t="gpt" tabindex="0" role="button" aria-label="ChatGPTの説明を見る">ChatGPT</span> PlusのCodex利用上限を5時間枠に戻す</div>
+      <div class="card-title-ja">OpenAI、<span class="t" data-t="gpt" tabindex="0" role="button" aria-label="ChatGPTの説明を見る">ChatGPT</span> Plusの<span class="t" data-t="codex" tabindex="0" role="button" aria-label="Codexの説明を見る">Codex</span>利用上限を5時間枠に戻す</div>
       <div class="card-source">Hacker News</div>
       <div class="card-body">OpenAIがChatGPT Plusユーザー向けに、Codexおよびワーク関連機能の5時間単位の利用上限を復活させました。Hacker Newsでは104ポイントを集め、実務で使う開発者を中心に反応が広がっています。エージェント型のコーディング支援は消費計算が読みにくく、上限の設計変更がそのまま日々の作業計画に響きます。有料プランで何がどれだけ使えるのかという条件は、開発ワークフローを組む前提そのものです。</div>
     </article>
@@ -430,17 +480,14 @@
 
   <div class="section-label">毎朝うけとる</div>
   <div class="sub-grid">
-    <a class="sub-card" href="https://teraco-labo.github.io/ai-news-digest/podcast/feed.xml">
+    <div class="sub-card sub-embed">
       <span class="sub-ico">🎧</span>
       <span class="sub-t">ポッドキャストで聴く</span>
-      <span class="sub-d">Spotify・Apple Podcast などのアプリにこのリンクを登録してください</span>
-    </a>
-    <a class="sub-card" href="feed.xml">
-      <span class="sub-ico">📡</span>
-      <span class="sub-t">RSSで読む</span>
-      <span class="sub-d">Feedly などのRSSリーダー用。本文がまるごと届きます</span>
-    </a>
+      <span class="sub-d">お使いのポッドキャストアプリの「番組を追加」「URLで追加」に、下のボタンでコピーした番組アドレスを貼り付けてください</span>
+      <button type="button" class="sub-copy" data-copy="https://teraco-labo.github.io/ai-news-digest/podcast/feed.xml" onclick="navigator.clipboard.writeText(this.dataset.copy).then(()=>{this.textContent='✓ コピーしました';setTimeout(()=>this.textContent='番組アドレスをコピー',2000);});">番組アドレスをコピー</button>
+    </div>
   </div>
+  <p class="sub-advanced">上級者向け：<a href="feed.xml">RSS配信</a>（サイトの更新を自動で受け取るための仕組みです。Feedly などのRSSリーダーをお使いの方はこちらを登録してください）</p>
 
 </main>
 
@@ -449,7 +496,7 @@
   毎朝6時に自動生成しています。
   <div class="footer-links"><a href="">トップ</a> ／ <a href="terms/">AI用語集</a> ／ <a href="articles/">読み物</a> ／ <a href="archive.html">バックナンバー</a> ／ <a href="about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
 </footer>
-<script type="application/json" id="glossary-data">{"accel": {"n": "Accel", "r": "アクセル", "s": "アメリカのベンチャーキャピタル（投資会社）です。創業間もない企業に出資します。", "u": "terms/accel.html"}, "ai-agent": {"n": "AIエージェント", "r": "エーアイエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "anthropic": {"n": "Anthropic", "r": "アンソロピック", "s": "AIアシスタント「Claude」を開発するアメリカの企業です。AIの安全性を重視する方針を掲げています。", "u": "terms/anthropic.html"}, "api": {"n": "API", "r": "エーピーアイ", "s": "他のソフトウェアからAIを呼び出すための窓口です。自作のアプリにAIを組み込むときに使います。", "u": "terms/api.html"}, "benchmark": {"n": "ベンチマーク", "r": "ベンチマーク", "s": "AIの性能を共通のテストで測るための指標です。モデル同士の比較に使われます。", "u": "terms/benchmark.html"}, "blackwell": {"n": "Blackwell", "r": "ブラックウェル", "s": "NVIDIAのAI用GPUの世代名です。世代ごとに研究者の名前が付けられており、その最新版にあたります。", "u": "terms/blackwell.html"}, "claude": {"n": "Claude", "r": "クロード", "s": "Anthropicが開発しているAIアシスタントです。長文の読解や文章作成、プログラミングに強みがあります。", "u": "terms/claude.html"}, "generative-ai": {"n": "生成AI", "r": "", "s": "文章・画像・音声・動画などを新しく作り出せるAIの総称です。分類や予測をするだけだった従来のAIとの違いがここにあります。", "u": "terms/generative-ai.html"}, "gpt": {"n": "GPT", "r": "ジーピーティー", "s": "OpenAIが開発しているAIモデルのシリーズ名です。ChatGPTの中身がこれにあたります。", "u": "terms/gpt.html"}, "gpu": {"n": "GPU", "r": "ジーピーユー", "s": "大量の計算を同時に行える半導体で、AIの学習と実行に欠かせない部品です。", "u": "terms/gpu.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "inference": {"n": "推論", "r": "すいろん", "s": "学習済みのAIを実際に動かして答えを出させることです。AIを「使う」場面はすべて推論にあたります。", "u": "terms/inference.html"}, "inference-cost": {"n": "推論コスト", "r": "", "s": "AIを動かすたびにかかる費用のことです。AIサービスの採算を左右する最も重要な数字です。", "u": "terms/inference-cost.html"}, "nvidia": {"n": "NVIDIA", "r": "エヌビディア", "s": "AI開発に不可欠なGPUを作っている半導体企業です。生成AIブームの最大の受益者と言われています。", "u": "terms/nvidia.html"}, "open-weight": {"n": "オープンウェイト", "r": "オープンウェイト", "s": "モデルの中身（重み）が公開されていて、誰でもダウンロードして動かせる形態のことです。", "u": "terms/open-weight.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "semianalysis": {"n": "SemiAnalysis", "r": "セミアナリシス", "s": "半導体とAIインフラを専門に分析する調査メディアです。業界内で影響力があります。", "u": "terms/semianalysis.html"}, "stability-ai": {"n": "Stability AI", "r": "ステビリティ・エーアイ", "s": "画像生成AI「Stable Diffusion」を公開したイギリスの企業です。", "u": "terms/stability-ai.html"}, "stable-diffusion": {"n": "Stable Diffusion", "r": "ステーブル・ディフュージョン", "s": "誰でもダウンロードして自分の環境で動かせる画像生成AIです。", "u": "terms/stable-diffusion.html"}, "token": {"n": "トークン", "r": "トークン", "s": "AIが文章を扱うときの最小単位です。英語ならおよそ単語1つ、日本語なら1〜2文字が1トークンにあたります。", "u": "terms/token.html"}}</script>
+<script type="application/json" id="glossary-data">{"accel": {"n": "Accel", "r": "アクセル", "s": "アメリカのベンチャーキャピタル（投資会社）です。創業間もない企業に出資します。", "u": "terms/accel.html"}, "ai-agent": {"n": "AIエージェント", "r": "エーアイエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "anthropic": {"n": "Anthropic", "r": "アンソロピック", "s": "AIアシスタント「Claude」を開発するアメリカの企業です。AIの安全性を重視する方針を掲げています。", "u": "terms/anthropic.html"}, "api": {"n": "API", "r": "エーピーアイ", "s": "他のソフトウェアからAIを呼び出すための窓口です。自作のアプリにAIを組み込むときに使います。", "u": "terms/api.html"}, "benchmark": {"n": "ベンチマーク", "r": "ベンチマーク", "s": "AIの性能を共通のテストで測るための指標です。モデル同士の比較に使われます。", "u": "terms/benchmark.html"}, "blackwell": {"n": "Blackwell", "r": "ブラックウェル", "s": "NVIDIAのAI用GPUの世代名です。世代ごとに研究者の名前が付けられており、その最新版にあたります。", "u": "terms/blackwell.html"}, "claude": {"n": "Claude", "r": "クロード", "s": "Anthropicが開発しているAIアシスタントです。長文の読解や文章作成、プログラミングに強みがあります。", "u": "terms/claude.html"}, "codex": {"n": "Codex", "r": "コーデックス", "s": "OpenAI が提供している、プログラムを書く作業を任せるためのAIです。人が指示を出すと、コードを書いたり直したりします。", "u": "terms/codex.html"}, "generative-ai": {"n": "生成AI", "r": "", "s": "文章・画像・音声・動画などを新しく作り出せるAIの総称です。分類や予測をするだけだった従来のAIとの違いがここにあります。", "u": "terms/generative-ai.html"}, "gpt": {"n": "GPT", "r": "ジーピーティー", "s": "OpenAIが開発しているAIモデルのシリーズ名です。ChatGPTの中身がこれにあたります。", "u": "terms/gpt.html"}, "gpu": {"n": "GPU", "r": "ジーピーユー", "s": "大量の計算を同時に行える半導体で、AIの学習と実行に欠かせない部品です。", "u": "terms/gpu.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "inference": {"n": "推論", "r": "すいろん", "s": "学習済みのAIを実際に動かして答えを出させることです。AIを「使う」場面はすべて推論にあたります。", "u": "terms/inference.html"}, "inference-cost": {"n": "推論コスト", "r": "", "s": "AIを動かすたびにかかる費用のことです。AIサービスの採算を左右する最も重要な数字です。", "u": "terms/inference-cost.html"}, "nvidia": {"n": "NVIDIA", "r": "エヌビディア", "s": "AI開発に不可欠なGPUを作っている半導体企業です。生成AIブームの最大の受益者と言われています。", "u": "terms/nvidia.html"}, "open-weight": {"n": "オープンウェイト", "r": "オープンウェイト", "s": "モデルの中身（重み）が公開されていて、誰でもダウンロードして動かせる形態のことです。", "u": "terms/open-weight.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "semianalysis": {"n": "SemiAnalysis", "r": "セミアナリシス", "s": "半導体とAIインフラを専門に分析する調査メディアです。業界内で影響力があります。", "u": "terms/semianalysis.html"}, "stability-ai": {"n": "Stability AI", "r": "ステビリティ・エーアイ", "s": "画像生成AI「Stable Diffusion」を公開したイギリスの企業です。", "u": "terms/stability-ai.html"}, "stable-diffusion": {"n": "Stable Diffusion", "r": "ステーブル・ディフュージョン", "s": "誰でもダウンロードして自分の環境で動かせる画像生成AIです。", "u": "terms/stable-diffusion.html"}, "token": {"n": "トークン", "r": "トークン", "s": "AIが文章を扱うときの最小単位です。英語ならおよそ単語1つ、日本語なら1〜2文字が1トークンにあたります。", "u": "terms/token.html"}}</script>
 
 <script>
 (function(){

@@ -300,6 +300,20 @@ GLOSSARY_PAGE_CSS = """
   .term-list .n { font-weight:700; font-size:0.92rem; }
   .term-list .s { margin-top:0.25rem; font-size:0.76rem; color:var(--text-muted);
     display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+
+  .term-toolbar { max-width:760px; margin:0 auto 0.6rem; display:flex; gap:0.6rem;
+    flex-wrap:wrap; align-items:center; }
+  .term-search { flex:1 1 220px; min-width:0; padding:0.6rem 0.9rem; font-size:0.9rem;
+    font-family:inherit; color:var(--text); background:var(--card-bg); border:1px solid var(--border);
+    border-radius:8px; }
+  .term-search:focus-visible { outline:2px solid var(--accent); outline-offset:1px; }
+  .term-sort { display:flex; gap:0.4rem; flex-wrap:wrap; }
+  .term-sort button { font:inherit; font-size:0.8rem; padding:0.5rem 0.9rem; border-radius:999px;
+    border:1px solid var(--border); background:var(--card-bg); color:var(--text); cursor:pointer; }
+  .term-sort button[aria-pressed="true"] { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .term-sort button:focus-visible { outline:2px solid var(--accent); outline-offset:1px; }
+  .term-count { max-width:760px; margin:0 auto 1.6rem; font-size:0.78rem; color:var(--text-muted); }
+  .term-empty { max-width:760px; margin:2rem auto; font-size:0.9rem; color:var(--text-muted); }
 """
 
 
@@ -413,6 +427,119 @@ def build_term_page(term: Dict, all_terms: Dict[str, Dict], config: Dict) -> str
     )
 
 
+TERM_SEARCH_JS = r"""
+(function () {
+  var DATA = JSON.parse(document.getElementById("termData").textContent);
+  var main = document.getElementById("termMain");
+  var search = document.getElementById("termSearch");
+  var count = document.getElementById("termCount");
+  var buttons = Array.prototype.slice.call(document.querySelectorAll(".term-sort button"));
+
+  // 五十音の行（濁音・半濁音は清音の行にまとめる）。「五十音順」の並び替えで見出しに使う
+  var GYOU = {};
+  [["あいうえお","あ"],["かきくけこがぎぐげご","か"],["さしすせそざじずぜぞ","さ"],
+   ["たちつてとだぢづでど","た"],["なにぬねの","な"],
+   ["はひふへほばびぶべぼぱぴぷぺぽ","は"],["まみむめも","ま"],
+   ["やゆよ","や"],["らりるれろ","ら"],["わをん","わ"]].forEach(function (pair) {
+    for (var i = 0; i < pair[0].length; i++) GYOU[pair[0][i]] = pair[1];
+  });
+  function toHiragana(ch) {
+    var c = (ch || "").charCodeAt(0);
+    return c >= 0x30A1 && c <= 0x30F6 ? String.fromCharCode(c - 0x60) : ch;
+  }
+  function gyouOf(reading) {
+    var ch = toHiragana((reading || "").charAt(0));
+    return GYOU[ch] || "他";
+  }
+
+  var collatorJa = window.Intl ? new Intl.Collator("ja") : null;
+  var collatorEn = window.Intl ? new Intl.Collator("en", { sensitivity: "base" }) : null;
+  function cmpJa(a, b) { return collatorJa ? collatorJa.compare(a, b) : (a < b ? -1 : a > b ? 1 : 0); }
+  function cmpEn(a, b) { return collatorEn ? collatorEn.compare(a, b) : (a < b ? -1 : a > b ? 1 : 0); }
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  function matches(t, q) {
+    if (!q) return true;
+    q = q.toLowerCase();
+    if ((t.term || "").toLowerCase().indexOf(q) !== -1) return true;
+    if ((t.short || "").toLowerCase().indexOf(q) !== -1) return true;
+    if ((t.reading || "").toLowerCase().indexOf(q) !== -1) return true;
+    return (t.aliases || []).some(function (a) { return a.toLowerCase().indexOf(q) !== -1; });
+  }
+
+  function groupsFor(mode, items) {
+    var groups = [];
+    if (mode === "category") {
+      var order = [], byCat = {};
+      items.forEach(function (t) {
+        var cat = t.category || "その他";
+        if (!byCat[cat]) { byCat[cat] = []; order.push(cat); }
+        byCat[cat].push(t);
+      });
+      order.forEach(function (cat) {
+        groups.push({ label: cat, items: byCat[cat].slice().sort(function (a, b) { return cmpJa(a.term, b.term); }) });
+      });
+    } else if (mode === "kana") {
+      var ROWS = ["あ", "か", "さ", "た", "な", "は", "ま", "や", "ら", "わ", "他"];
+      var byRow = {};
+      items.slice().sort(function (a, b) { return cmpJa(a.reading || a.term, b.reading || b.term); })
+        .forEach(function (t) {
+          var row = gyouOf(t.reading || t.term);
+          (byRow[row] = byRow[row] || []).push(t);
+        });
+      ROWS.forEach(function (row) { if (byRow[row]) groups.push({ label: row + "行", items: byRow[row] }); });
+    } else {
+      var byLetter = {}, order2 = [];
+      items.slice().sort(function (a, b) { return cmpEn(a.term, b.term); })
+        .forEach(function (t) {
+          var ch = (t.term || "").charAt(0).toUpperCase();
+          var key = /[A-Z]/.test(ch) ? ch : "その他";
+          if (!byLetter[key]) { byLetter[key] = []; order2.push(key); }
+          byLetter[key].push(t);
+        });
+      order2.sort(function (a, b) { return a === "その他" ? 1 : b === "その他" ? -1 : (a < b ? -1 : 1); });
+      order2.forEach(function (key) { groups.push({ label: key, items: byLetter[key] }); });
+    }
+    return groups;
+  }
+
+  function render() {
+    var q = search.value.trim();
+    var mode = document.querySelector('.term-sort button[aria-pressed="true"]').getAttribute("data-sort");
+    var filtered = DATA.filter(function (t) { return matches(t, q); });
+    var groups = groupsFor(mode, filtered);
+    if (!groups.length) {
+      main.innerHTML = '<p class="term-empty">「' + esc(q) + '」に一致する用語が見つかりませんでした。</p>';
+    } else {
+      main.innerHTML = groups.map(function (g) {
+        var cards = g.items.map(function (t) {
+          return '<a href="' + t.slug + '.html"><div class="n">' + esc(t.term) +
+                 '</div><div class="s">' + esc(t.short) + "</div></a>";
+        }).join("");
+        return '<div class="term-index-group"><h2>' + esc(g.label) +
+               '</h2><div class="term-list">' + cards + "</div></div>";
+      }).join("");
+    }
+    count.textContent = q ? filtered.length + " / " + DATA.length + " 語を表示" : DATA.length + " 語";
+  }
+
+  search.addEventListener("input", render);
+  buttons.forEach(function (b) {
+    b.addEventListener("click", function () {
+      buttons.forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
+      b.setAttribute("aria-pressed", "true");
+      render();
+    });
+  });
+})();
+"""
+
+
 def build_index_page(terms: List[Dict], config: Dict) -> str:
     import monetize
     import site_theme
@@ -446,6 +573,12 @@ def build_index_page(terms: List[Dict], config: Dict) -> str:
         sections += (f'  <div class="term-index-group">\n    <h2>{_html.escape(cat)}</h2>\n'
                      f'    <div class="term-list">\n{cards}    </div>\n  </div>\n')
 
+    term_payload = json.dumps(
+        [{"slug": t["slug"], "term": t["term"], "short": t["short"],
+          "category": t.get("category", "その他"), "reading": t.get("reading", ""),
+          "aliases": t.get("aliases", [])} for t in terms],
+        ensure_ascii=False)
+
     body = f"""<div class="hero">
   <div class="hero-inner">
     <div class="crumbs"><a href="../">{_html.escape(name)}</a></div>
@@ -460,12 +593,26 @@ def build_index_page(terms: List[Dict], config: Dict) -> str:
 </div>
 
 <main>
-{sections}</main>
+  <div class="term-toolbar">
+    <input type="search" id="termSearch" class="term-search"
+           placeholder="用語を検索（例: LLM、GPU、著作権）" aria-label="用語を検索">
+    <div class="term-sort" role="group" aria-label="並び替え">
+      <button type="button" data-sort="category" aria-pressed="true">ジャンル別</button>
+      <button type="button" data-sort="kana">五十音順</button>
+      <button type="button" data-sort="alpha">アルファベット順</button>
+    </div>
+  </div>
+  <p class="term-count" id="termCount" aria-live="polite">{len(terms)} 語</p>
+  <div id="termMain">
+{sections}  </div>
+</main>
 
 <footer>
   <strong>{_html.escape(name)}</strong> — {_html.escape(site.get("author", ""))}
   {site_theme.footer_links(config, prefix="../")}
-</footer>"""
+</footer>
+<script type="application/json" id="termData">{term_payload}</script>
+<script>{TERM_SEARCH_JS}</script>"""
 
     return site_theme.page_shell(f"AI用語集 | {name}", head, body,
                                  extra_css=GLOSSARY_PAGE_CSS)

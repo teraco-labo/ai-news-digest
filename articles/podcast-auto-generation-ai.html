@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIポッドキャストを毎朝自動生成して4ヶ月。音声代0円で分かった「聴かれる音声」の作り方 | 世界一わかりやすいAIニュース</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#0e7490; }
+  body { font-family:'Noto Sans JP','Inter',sans-serif; background:var(--bg); color:var(--text);
+    line-height:1.7; -webkit-font-smoothing:antialiased; }
+  a { color:inherit; }
+  .hero { background:linear-gradient(135deg,#0f172a,#1e293b); color:#fff; padding:3rem 1.5rem; }
+  .hero-inner { max-width:1100px; margin:0 auto; }
+  .hero h1 { font-size:1.8rem; font-weight:700; letter-spacing:0.01em; }
+  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#cbd5e1; max-width:640px; }
+  .hero-actions { margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.75rem; }
+  .crumbs { font-size:0.75rem; color:#94a3b8; margin-bottom:0.75rem; }
+  .crumbs a { text-decoration:none; }
+  .crumbs a:hover { text-decoration:underline; }
+  .btn { display:inline-block; padding:0.6rem 1.3rem; border-radius:6px; font-size:0.85rem;
+    font-weight:700; text-decoration:none; }
+  .btn-primary { background:#22d3ee; color:#0f172a; }
+  .btn-ghost { border:1px solid rgba(255,255,255,0.35); color:#e2e8f0; }
+  main { max-width:1100px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
+  .section-label { font-size:0.75rem; font-weight:700; letter-spacing:0.12em; color:var(--text-muted);
+    text-transform:uppercase; margin:2.5rem 0 1rem; }
+  .section-label:first-child { margin-top:0; }
+  .issue-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1rem; }
+  .issue { display:block; padding:1rem 1.1rem; background:var(--card-bg); border:1px solid var(--border);
+    border-radius:8px; text-decoration:none; transition:border-color .15s; }
+  .issue:hover { border-color:var(--accent); }
+  .issue .d { font-size:0.95rem; font-weight:700; }
+  .issue .m { margin-top:0.25rem; font-size:0.75rem; color:var(--text-muted); }
+  .issue-list { list-style:none; columns:2; column-gap:2rem; }
+  .issue-list li { break-inside:avoid; padding:0.35rem 0; border-bottom:1px solid var(--border); }
+  .issue-list a { font-size:0.85rem; text-decoration:none; }
+  .issue-list a:hover { color:var(--accent); }
+  .issue-list .m { font-size:0.72rem; color:var(--text-muted); margin-left:0.5rem; }
+  footer { border-top:1px solid var(--border); padding:2rem 1.5rem; text-align:center;
+    font-size:0.78rem; color:var(--text-muted); }
+  .sub-grid { max-width:760px; margin:0 auto; display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:0.8rem; }
+  .sub-card { display:flex; flex-direction:column; gap:0.3rem; padding:1.1rem 1.2rem;
+    background:var(--card-bg); border:1px solid var(--border); border-radius:8px;
+    text-decoration:none; transition:border-color .15s; }
+  .sub-card:hover { border-color:var(--accent); }
+  .sub-card.mail { border-color:var(--accent); border-width:2px;
+    background:linear-gradient(180deg,rgba(14,116,144,0.05),transparent); }
+  .sub-embed { cursor:default; }
+  .sub-badge { display:block; margin-top:0.5rem; padding:0.6rem; text-align:center;
+    border-radius:6px; font-size:0.85rem; font-weight:700; text-decoration:none; color:#fff; }
+  .sub-badge.spotify { background:#1db954; }
+  .sub-badge.apple { background:#8e44ec; }
+  .sub-copy { margin-top:0.6rem; width:100%; padding:0.6rem; background:var(--accent);
+    color:#fff; font-size:0.85rem; font-weight:700; border:none; border-radius:6px;
+    cursor:pointer; }
+  .sub-advanced { max-width:760px; margin:0.8rem auto 0; font-size:0.72rem;
+    color:var(--text-muted); }
+  .sub-advanced a { color:var(--text-muted); }
+  .sub-embed form { margin-top:0.5rem; }
+  .sub-embed input[type="email"] { width:100%; padding:0.6rem 0.8rem; font-size:0.9rem;
+    border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text); }
+  .sub-embed button, .sub-embed input[type="submit"] { margin-top:0.5rem; width:100%;
+    padding:0.65rem; background:var(--accent); color:#fff; font-size:0.88rem; font-weight:700;
+    border:none; border-radius:6px; cursor:pointer; }
+  .sub-ico { font-size:1.2rem; }
+  .sub-t { font-size:0.92rem; font-weight:700; }
+  .sub-d { font-size:0.76rem; line-height:1.7; color:var(--text-muted); }
+  .lang-switch { display:flex; flex-wrap:wrap; align-items:center; gap:0.35rem;
+    margin-top:1rem; font-size:0.74rem; }
+  .lang-switch .globe { opacity:0.7; margin-right:0.15rem; }
+  .lang-switch .lang { padding:0.25rem 0.7rem; border-radius:999px;
+    border:1px solid rgba(255,255,255,0.25); color:#cbd5e1; text-decoration:none; }
+  .lang-switch a.lang:hover { background:rgba(255,255,255,0.12); color:#fff; }
+  .lang-switch .lang.on { background:rgba(255,255,255,0.9); color:#0f172a; font-weight:700;
+    border-color:transparent; }
+  .lang-switch .lang.soon { opacity:0.45; cursor:default; }
+  .lang-switch .lang.soon em { font-style:normal; font-size:0.62rem; margin-left:0.3rem;
+    opacity:0.85; }
+  .footer-links { margin-top:0.9rem; font-size:0.75rem; }
+  .footer-links a { color:var(--text-muted); text-decoration:none; }
+  .footer-links a:hover { color:var(--accent); text-decoration:underline; }
+  .footer-brand { margin-top:1.1rem; font-size:0.68rem; letter-spacing:0.04em;
+    color:var(--text-muted); opacity:0.55; }
+  @media (max-width:640px){ .issue-list{columns:1;} .hero h1{font-size:1.4rem;} }
+
+  .prose { max-width:720px; margin:0 auto; }
+  .prose > * + * { margin-top:1.1rem; }
+  .prose h2 { margin-top:2.8rem; padding-bottom:0.5rem; border-bottom:2px solid var(--border);
+    font-size:1.3rem; font-weight:700; line-height:1.5; }
+  .prose h3 { margin-top:2rem; font-size:1.05rem; font-weight:700; }
+  .prose p { font-size:0.95rem; line-height:2.0; }
+  .prose ul, .prose ol { padding-left:1.4rem; }
+  .prose li { font-size:0.95rem; line-height:1.9; margin-top:0.4rem; }
+  .prose a { color:var(--accent); font-weight:500; }
+  .prose strong { font-weight:700; }
+  .prose blockquote { padding:0.8rem 1.1rem; border-left:3px solid var(--accent);
+    background:rgba(14,116,144,0.06); border-radius:0 6px 6px 0; font-size:0.9rem; }
+  .prose blockquote p { font-size:0.9rem; line-height:1.85; }
+  .prose code { padding:0.15em 0.4em; background:#e2e8f0; border-radius:3px;
+    font-family:'SFMono-Regular',Consolas,monospace; font-size:0.85em; }
+  .prose pre { padding:1rem; background:#0f172a; color:#e2e8f0; border-radius:8px;
+    overflow-x:auto; font-size:0.82rem; line-height:1.7; }
+  .prose pre code { background:none; color:inherit; padding:0; }
+  .prose table { width:100%; border-collapse:collapse; font-size:0.85rem; display:block; overflow-x:auto; }
+  .prose th, .prose td { padding:0.6rem 0.8rem; border:1px solid var(--border); text-align:left; }
+  .prose th { background:#f1f5f9; font-weight:700; white-space:nowrap; }
+  .prose hr { border:none; border-top:1px solid var(--border); margin:2.5rem 0; }
+  .prose img { max-width:100%; height:auto; border-radius:8px; }
+  .toc { max-width:720px; margin:2rem auto; padding:1.1rem 1.3rem; background:var(--card-bg);
+    border:1px solid var(--border); border-radius:8px; }
+  .toc-title { font-size:0.75rem; font-weight:700; letter-spacing:0.1em; color:var(--text-muted);
+    margin-bottom:0.6rem; }
+  .toc ol { list-style:none; counter-reset:toc; }
+  .toc li { counter-increment:toc; padding:0.25rem 0; font-size:0.85rem; }
+  .toc li::before { content:counter(toc) ". "; color:var(--text-muted); }
+  .toc a { text-decoration:none; }
+  .toc a:hover { color:var(--accent); text-decoration:underline; }
+  .article-meta { max-width:720px; margin:0 auto 2rem; font-size:0.78rem; color:var(--text-muted); }
+
+  .t { color:var(--accent); border-bottom:1px dashed currentColor; cursor:help;
+    font-weight:500; }
+  .t:hover, .t:focus-visible { background:rgba(14,116,144,0.10); outline:none; border-radius:2px; }
+  #tip { position:absolute; z-index:60; max-width:min(22rem,88vw); padding:0.85rem 1rem;
+    background:var(--card-bg); border:1px solid var(--border); border-radius:8px;
+    box-shadow:0 8px 28px rgba(15,23,42,0.16); font-size:0.84rem; line-height:1.8;
+    opacity:0; visibility:hidden; transition:opacity .12s; pointer-events:none; }
+  #tip.on { opacity:1; visibility:visible; pointer-events:auto; }
+  #tip .tip-n { font-weight:700; display:block; margin-bottom:0.3rem; }
+  #tip .tip-m { display:inline-block; margin-top:0.5rem; font-size:0.78rem;
+    font-weight:600; color:var(--accent); text-decoration:none; }
+  #sheet { position:fixed; left:0; right:0; bottom:0; z-index:70; padding:1.4rem 1.4rem 2rem;
+    background:var(--card-bg); border-top:1px solid var(--border);
+    border-radius:16px 16px 0 0; box-shadow:0 -8px 32px rgba(15,23,42,0.22);
+    transform:translateY(102%); transition:transform .22s ease; }
+  #sheet.on { transform:translateY(0); }
+  #sheet .sheet-grip { width:36px; height:4px; border-radius:2px; background:var(--border);
+    margin:0 auto 1rem; }
+  #sheet .tip-n { font-size:1.05rem; font-weight:700; display:block; margin-bottom:0.5rem; }
+  #sheet .tip-s { font-size:0.92rem; line-height:1.95; color:var(--text-muted); }
+  #sheet .tip-m { display:block; margin-top:1.1rem; padding:0.75rem; text-align:center;
+    background:var(--accent); color:#fff; border-radius:8px; font-size:0.88rem;
+    font-weight:700; text-decoration:none; }
+  #veil { position:fixed; inset:0; z-index:69; background:rgba(15,23,42,0.35);
+    opacity:0; visibility:hidden; transition:opacity .22s; }
+  #veil.on { opacity:1; visibility:visible; }
+  @media (prefers-reduced-motion:reduce){ #sheet,#veil,#tip{transition:none} }
+</style>
+<!-- monetize.py: SEO / analytics -->
+<meta name="description" content="台本生成から音声合成、配信までを全自動にしたAIポッドキャストの運用記録。音声代0円の作り方、途中で切れる・棒読みになる・番組が消えるといった実際に起きた失敗と、その直し方をすべて公開します。">
+<link rel="canonical" href="https://teraco-labo.github.io/ai-news-digest/articles/podcast-auto-generation-ai.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AIポッドキャストを毎朝自動生成して4ヶ月。音声代0円で分かった「聴かれる音声」の作り方 | 世界一わかりやすいAIニュース">
+<meta property="og:description" content="台本生成から音声合成、配信までを全自動にしたAIポッドキャストの運用記録。音声代0円の作り方、途中で切れる・棒読みになる・番組が消えるといった実際に起きた失敗と、その直し方をすべて公開します。">
+<meta property="og:url" content="https://teraco-labo.github.io/ai-news-digest/articles/podcast-auto-generation-ai.html">
+<meta property="og:site_name" content="世界一わかりやすいAIニュース">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://teraco-labo.github.io/ai-news-digest/podcast/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="application/rss+xml" title="世界一わかりやすいAIニュース" href="https://teraco-labo.github.io/ai-news-digest/feed.xml">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "AIポッドキャストを毎朝自動生成して4ヶ月。音声代0円で分かった「聴かれる音声」の作り方 | 世界一わかりやすいAIニュース", "description": "台本生成から音声合成、配信までを全自動にしたAIポッドキャストの運用記録。音声代0円の作り方、途中で切れる・棒読みになる・番組が消えるといった実際に起きた失敗と、その直し方をすべて公開します。", "url": "https://teraco-labo.github.io/ai-news-digest/articles/podcast-auto-generation-ai.html", "inLanguage": "ja", "author": {"@type": "Person", "name": "てらこ先生"}, "publisher": {"@type": "Organization", "name": "世界一わかりやすいAIニュース"}, "datePublished": "2026-09-04T09:00:00+09:00", "dateModified": "2026-09-04T09:00:00+09:00"}</script>
+
+<style id="mz-style">
+  .mz-disclosure { max-width: 1100px; margin: 0 auto 1rem; padding: 0.5rem 0.75rem;
+    font-size: 0.7rem; line-height: 1.6; color: var(--text-muted, #64748b);
+    background: rgba(148,163,184,0.10); border-radius: 6px; }
+  .mz-block { max-width: 1100px; margin: 2rem auto; }
+  .mz-head { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+  .mz-head h2 { font-size: 0.9rem; font-weight: 700; color: var(--text, #1e293b); letter-spacing: 0.02em; }
+  .mz-pr { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em; padding: 2px 6px;
+    border-radius: 3px; background: #94a3b8; color: #fff; }
+  .mz-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+  .mz-card { display: flex; flex-direction: column; gap: 0.4rem; padding: 1rem;
+    background: var(--card-bg, #fff); border: 1px solid var(--border, #e2e8f0);
+    border-left: 3px solid #0e7490; border-radius: 8px; }
+  .mz-card .mz-name { font-size: 0.68rem; font-weight: 600; color: var(--text-muted, #64748b); letter-spacing: 0.04em; }
+  .mz-card .mz-title { font-size: 0.95rem; font-weight: 700; color: var(--text, #1e293b); line-height: 1.5; }
+  .mz-card .mz-body { font-size: 0.8rem; line-height: 1.7; color: var(--text-muted, #64748b); }
+  .mz-card .mz-cta { margin-top: auto; padding-top: 0.6rem; font-size: 0.8rem; font-weight: 600;
+    color: #0e7490; text-decoration: none; }
+  .mz-card .mz-cta:hover { text-decoration: underline; }
+  .mz-badge { align-self: flex-start; font-size: 0.6rem; font-weight: 700; padding: 2px 6px;
+    border-radius: 3px; background: #0e7490; color: #fff; }
+  .mz-cta-block { max-width: 1100px; margin: 2rem auto; padding: 1.5rem;
+    background: linear-gradient(135deg, #0f172a, #1e293b); border-radius: 10px; color: #e2e8f0; }
+  .mz-cta-block h2 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: #fff; }
+  .mz-cta-block p { font-size: 0.85rem; line-height: 1.8; color: #cbd5e1; }
+  .mz-cta-block a { display: inline-block; margin-top: 0.9rem; padding: 0.6rem 1.4rem;
+    background: #22d3ee; color: #0f172a; font-size: 0.85rem; font-weight: 700;
+    border-radius: 6px; text-decoration: none; }
+  .mz-ad { max-width: 1100px; margin: 2rem auto; text-align: center; }
+</style>
+<meta name="keywords" content="ポッドキャスト 自動生成 AI, edge-tts 日本語, AI 音声合成 無料, 音声配信 自動化, Spotify RSS 登録, Gemini API 台本">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://teraco-labo.github.io/ai-news-digest/"}, {"@type": "ListItem", "position": 2, "name": "読み物", "item": "https://teraco-labo.github.io/ai-news-digest/articles/"}, {"@type": "ListItem", "position": 3, "name": "AIポッドキャストを毎朝自動生成して4ヶ月。音声代0円で分かった「聴かれる音声」の作り方", "item": "https://teraco-labo.github.io/ai-news-digest/articles/podcast-auto-generation-ai.html"}]}</script>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-inner">
+    <div class="crumbs"><a href="../">世界一わかりやすいAIニュース</a> ／ <a href="./">読み物</a></div>
+    <h1>AIポッドキャストを毎朝自動生成して4ヶ月。音声代0円で分かった「聴かれる音声」の作り方</h1>
+    <p>台本生成から音声合成、配信までを全自動にしたAIポッドキャストの運用記録。音声代0円の作り方、途中で切れる・棒読みになる・番組が消えるといった実際に起きた失敗と、その直し方をすべて公開します。</p>
+  </div>
+</div>
+
+<main>
+
+  <div class="article-meta">公開 2026-09-04</div>
+  <nav class="toc">
+    <div class="toc-title">目次</div>
+    <ol>
+      <li><a href="#h-1">結論：音声代は0円。でも、0円のまま品質を上げるのが本題だった</a></li>
+      <li><a href="#h-2">全体の流れ</a></li>
+      <li><a href="#h-3">① 台本 ─ 「要約」ではなく「会話」にする</a></li>
+      <li><a href="#h-4">② いちばん効いた改善：AIに「英語の原文」を渡す</a></li>
+      <li><a href="#h-5">③ 声 ─ 無料でどこまでできるか</a></li>
+      <li><a href="#h-6">④ 起きた失敗と、その原因</a></li>
+      <li><a href="#h-7">⑤ 自動化しただけでは足りなかったこと</a></li>
+      <li><a href="#h-8">これから作る人へ</a></li>
+    </ol>
+  </nav>
+
+  <article class="prose">
+<p>毎朝6時、AIニュースを2人が対話形式で解説する12分の音声番組が、自動で公開されます。台本を書いたのも、声を当てたのも、Spotifyに届けたのも、すべてプログラムです。</p>
+<p>この記事では、その仕組みと、<strong>4ヶ月動かして分かった「自動化しただけでは聴かれない」という現実</strong>を書きます。うまくいった話より、つまずいた話のほうが多いかもしれません。</p>
+<h2 id="h-1">結論：音声代は0円。でも、0円のまま品質を上げるのが本題だった</h2>
+<p>先に結果です。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>実績</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1本あたりの長さ</td>
+<td>約12分（対話形式・2人）</td>
+</tr>
+<tr>
+<td>音声合成の費用</td>
+<td>0円（edge-tts）</td>
+</tr>
+<tr>
+<td>台本生成の費用</td>
+<td>0円（<span class="t" data-t="gemini" tabindex="0" role="button" aria-label="Geminiの説明を見る">Gemini</span> の無料枠）</td>
+</tr>
+<tr>
+<td>サーバー代</td>
+<td>0円（GitHub Pages）</td>
+</tr>
+<tr>
+<td>配信先</td>
+<td>自前サイト・Spotify・メール</td>
+</tr>
+<tr>
+<td>人間の作業</td>
+<td>0分（公開まで全自動）</td>
+</tr>
+</tbody>
+</table>
+<p>費用の話はここで終わりです。<strong>本当に時間がかかったのは、この0円の中で「聴けるもの」にする作業</strong>でした。</p>
+<p>やっぱり先入観で有料のサービスの方が出来が良いだろうと言う思い込みがありました。でもいちかばちか無料でできる最高の方法を探すと言う手段をやってみたところ、チャットのラリーを重ね、修正を重ねるたびに、どんどんと精度の高い苦労に成長しているのがわかりました。現在は90点位でちょっと妥協して一旦フィックスします。また運用しながらブラッシュアップしていこうかなと思います。</p>
+<h2 id="h-2">全体の流れ</h2>
+<pre><code>ニュース収集 → 台本を書く（AI）→ 2人分の声を作る → つなぐ → 配信
+</code></pre>
+<p>1日1回、GitHub Actions というクラウドの仕組みが動きます。自分のパソコンは関係ありません。夜中でも旅行中でも、朝には出来上がっています。</p>
+<h2 id="h-3">① 台本 ─ 「要約」ではなく「会話」にする</h2>
+<p>最初に作ったものは、ニュースを1件ずつ読み上げるだけのものでした。情報は正しいのに、<strong>3分で飽きる</strong>のです。</p>
+<p>今は2人の会話にしています。解説役と、聞き役です。同じ内容でも、質問が挟まると急に聴きやすくなります。ラジオがなぜ2人以上でやっているのか、作ってみて分かりました。</p>
+<p>台本はGeminiに書かせています。無料枠で足ります。1日1回しか呼ばないので、上限に当たることはありません。</p>
+<h2 id="h-4">② いちばん効いた改善：AIに「英語の原文」を渡す</h2>
+<p>ここが今回いちばんの学びでした。</p>
+<p>当初、集めた英語ニュースを機械翻訳してからAIに渡していました。すると出てくる台本が、どうにも硬いのです。</p>
+<blockquote>
+<p>「〜することが可能になりました」「〜であると報告されています」</p>
+</blockquote>
+<p>耳で聴くと、これがとても不自然です。<strong>機械翻訳の文体を、AIがそのまま引き継いでいた</strong>のが原因でした。</p>
+<p>そこで、翻訳せずに<strong>英語の原文をそのままAIに渡す</strong>ように変えました。「意味を理解して、日本語のラジオで話す言葉に置き換えて」と頼む形です。結果はこうなりました。</p>
+<blockquote>
+<p>「そうなんですよ！実は、<span class="t" data-t="microsoft" tabindex="0" role="button" aria-label="マイクロソフトの説明を見る">マイクロソフト</span>のAI需要が急増しすぎて、なんとライバルのアマゾンに助けを求めたんです」</p>
+</blockquote>
+<p>同じニュースです。<strong>間に翻訳を挟まないほうが、自然な日本語になる。</strong> 直感に反しますが、こういうことが起きます。</p>
+
+  </article>
+
+  <article class="prose">
+<h2 id="h-5">③ 声 ─ 無料でどこまでできるか</h2>
+<p>音声合成には edge-tts を使っています。Microsoftのブラウザに入っている読み上げ機能を、プログラムから呼ぶものです。<span class="t" data-t="api" tabindex="0" role="button" aria-label="APIの説明を見る">API</span>キーも料金も不要です。</p>
+<p>日本語の声を調べたところ、<strong>男性は1種類しかありませんでした。</strong> 選択肢を増やすため VOICEVOX（無料）の男性話者9種も聴き比べましたが、採用には至りませんでした。</p>
+<p>修正後の音声を実に50種類以上聞いたでしょうか。自分の声であるという事情もあり、品質には妥協したくなかったので、とにかくわがままを言いました。今もそうです。</p>
+<p>なお VOICEVOX を毎朝の自動処理で使うには一工夫要ります。<strong>あれはパソコンの中で動くソフトで、クラウドからは呼べない</strong>からです。この違いは、自動化を考えるときに何度もぶつかる壁でした。</p>
+<h2 id="h-6">④ 起きた失敗と、その原因</h2>
+<h3>音声が途中で終わる</h3>
+<p>「12分あるはずの音声が、途中でぷつっと終わる」という報告を受けました。</p>
+<p>最初はMP3ファイルの不具合を疑い、フォーマットを作り直しました。でも直りません。調べていくと、原因は音声ではなく<strong>台本</strong>でした。</p>
+<p>AIが出力できる文字数の上限に当たって、<strong>台本自体が会話の途中で切れていた</strong>のです。音声は、切れた台本を忠実に読んでいただけでした。</p>
+<p>上限を引き上げ、さらに「途中で切れた場合は自動で締めの言葉を足す」処理を入れて解決しました。<strong>症状が出た場所と、原因の場所は違う。</strong> 当たり前のようで、見落としやすい話です。</p>
+<h3>「AIっぽい」と言われる</h3>
+<p>聞き役の相づちを、感情豊かにしようと調整した時期がありました。</p>
+<blockquote>
+<p>「えーっ！それはすごいですね！」「ええっ、本当ですか！？」</p>
+</blockquote>
+<p>これが<strong>かえって不自然</strong>でした。人間はニュースにここまで驚きません。今は「なるほど」「たしかに」といった落ち着いた相づちを基本にし、驚きは言葉の中身で表すようにしています。</p>
+<blockquote>
+<p>「その数字は想像以上でした」</p>
+</blockquote>
+<p>感情は、記号ではなく中身で出す。文章では当たり前のことが、音声だと忘れがちでした。</p>
+<h3>番組がSpotifyから消えていた</h3>
+<p>GitHubのアカウントを移した日から、Spotifyに登録していた配信アドレスが無効になっていました。Spotifyは新しい場所を知る手段がないので、<strong>更新が止まったまま放置</strong>されます。</p>
+<p>気づいたのは、しばらく経ってからでした。登録し直して復旧しましたが、<strong>外部サービスは「こちらの引っ越し」を追いかけてくれない</strong>という教訓です。</p>
+<p>現在の<span class="t" data-t="ai-agent" tabindex="0" role="button" aria-label="AIエージェントの説明を見る">AIエージェント</span>は自動化やルーティーンワークが得意ですが、単に「お願いね」と伝えるだけで半永久的に動き続けてくれるわけではありません。結局のところ従業員と同じで、うまく動いているか確認してあげることがたまには必要なのです。</p>
+<h2 id="h-7">⑤ 自動化しただけでは足りなかったこと</h2>
+<p>最後に、いちばん考えさせられた話です。</p>
+<p>このニュースの持ち味は、記事に出てくる専門用語すべてに解説が付くところにあります。ところが<strong>音声だけ聴いている人には、それが存在しないのと同じ</strong>です。</p>
+<p>音声で「エージェント」と言われて分からなければ、そこで置いていかれます。名前に「わかりやすい」と付けていても、聴いている人が分からなければ意味がありません。</p>
+<p>そこで3か所に導線を足しました。</p>
+<ul>
+<li>番組の締めで「説明欄のリンクから、解説つきの記事でも読めます」と一言</li>
+<li>配信アプリの説明欄に記事のリンク</li>
+<li>プレイヤー画面に「専門用語の解説つきで読む」のボタン</li>
+</ul>
+<p><strong>媒体の強みは、その媒体の中にいる人にしか伝わらない。</strong> 音声から入った人に、どうやって強みのある場所まで来てもらうか。自動化とは別の設計が要るところでした。</p>
+<h2 id="h-8">これから作る人へ</h2>
+<p>4ヶ月やってみて、順番としてはこう考えています。</p>
+<ol>
+<li><strong>まず出し続ける仕組みを作る</strong>（品質は後で上げられる。止まると何も残らない）</li>
+<li><strong>次に、聴いた人の反応で直す</strong>（作り手には自分の音声の不自然さが分からない）</li>
+<li><strong>費用は最後に考える</strong>（無料で始められる。足りなくなってから払えばいい）</li>
+</ol>
+<p>そして、<strong>自動化できないところを見極めること</strong>。台本も音声も配信も自動にできますが、「これは聴きづらい」と気づくのは人間だけです。</p>
+<p>結局、聞いてくださるのはリスナーの方なので、違和感なく耳から入ってこないと音声学習どころではありません。この「違和感なく」という点は動画も同様で、映像クリエイターとして携わってきた経験からの知見です。尖ったものよりも、違和感なくインプットできるものが大事だと考えています。</p>
+  </article>
+
+  <div class="section-label">あわせて読みたい</div>
+  <div class="issue-grid">
+    <a class="issue" href="claude-code-ai-news-automation.html">
+      <div class="d">Claude CodeとGitHub Actionsで「毎朝6時に届くAIニュース」を自動生成する仕組みを作った</div>
+      <div class="m">AIニュースの収集・選別・日本語化・ポッドキャスト化・メール配信までを全自動化した記録。91号の運用実績と、実際にかかっ</div>
+    </a>
+  </div>
+
+  <p style="max-width:720px;margin:2.5rem auto 0;font-size:0.85rem;">
+    <a href="../" style="color:var(--accent);font-weight:600;">← 毎朝のAIニュースダイジェストを見る</a>
+  </p>
+</main>
+
+<footer>
+  <strong>世界一わかりやすいAIニュース</strong> — てらこ先生
+  <div class="footer-links"><a href="../">トップ</a> ／ <a href="../terms/">AI用語集</a> ／ <a href="../articles/">読み物</a> ／ <a href="../archive.html">バックナンバー</a> ／ <a href="../about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
+</footer>
+<script type="application/json" id="glossary-data">{"ai-agent": {"n": "AIエージェント", "r": "エーアイエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "../terms/ai-agent.html"}, "api": {"n": "API", "r": "エーピーアイ", "s": "他のソフトウェアからAIを呼び出すための窓口です。自作のアプリにAIを組み込むときに使います。", "u": "../terms/api.html"}, "gemini": {"n": "Gemini", "r": "ジェミニ", "s": "Googleが開発しているAIモデルです。文章・画像・音声・動画をまとめて扱えることを特徴としています。", "u": "../terms/gemini.html"}, "microsoft": {"n": "Microsoft", "r": "マイクロソフト", "s": "OpenAIに巨額の出資を行い、自社サービスにAIを組み込んでいる企業です。", "u": "../terms/microsoft.html"}}</script>
+
+<script>
+(function(){
+  var el = document.getElementById('glossary-data');
+  if (!el) return;
+  var G; try { G = JSON.parse(el.textContent); } catch(e) { return; }
+
+  // 指でも操作する端末ではシート、マウスがある端末ではポップアップにする
+  var hoverable = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  var tip = document.createElement('div'); tip.id = 'tip';
+  var veil = document.createElement('div'); veil.id = 'veil';
+  var sheet = document.createElement('div'); sheet.id = 'sheet';
+  sheet.innerHTML = '<div class="sheet-grip"></div><span class="tip-n"></span>'
+    + '<div class="tip-s"></div><a class="tip-m" href="#">くわしい解説を読む →</a>';
+  document.body.appendChild(tip);
+  document.body.appendChild(veil);
+  document.body.appendChild(sheet);
+
+  function showTip(node, d){
+    tip.innerHTML = '<span class="tip-n"></span><span class="tip-s"></span>'
+      + '<a class="tip-m" href="#">くわしい解説 →</a>';
+    tip.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
+    tip.querySelector('.tip-s').textContent = d.s;
+    tip.querySelector('.tip-m').href = d.u;
+    tip.classList.add('on');
+    var r = node.getBoundingClientRect();
+    var w = tip.offsetWidth, h = tip.offsetHeight;
+    var left = Math.min(Math.max(8, r.left + r.width/2 - w/2), window.innerWidth - w - 8);
+    var top = r.top - h - 10;
+    if (top < 8) top = r.bottom + 10;           // 上に入らなければ下に出す
+    tip.style.left = (left + window.scrollX) + 'px';
+    tip.style.top  = (top + window.scrollY) + 'px';
+  }
+  function hideTip(){ tip.classList.remove('on'); }
+
+  function openSheet(d){
+    sheet.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
+    sheet.querySelector('.tip-s').textContent = d.s;
+    sheet.querySelector('.tip-m').href = d.u;
+    sheet.classList.add('on'); veil.classList.add('on');
+  }
+  function closeSheet(){ sheet.classList.remove('on'); veil.classList.remove('on'); }
+  veil.addEventListener('click', closeSheet);
+
+  var hideTimer;
+  document.addEventListener('mouseover', function(e){
+    if (!hoverable) return;
+    var n = e.target.closest('.t'); if (!n) return;
+    clearTimeout(hideTimer);
+    var d = G[n.getAttribute('data-t')]; if (d) showTip(n, d);
+  });
+  document.addEventListener('mouseout', function(e){
+    if (!hoverable) return;
+    if (e.target.closest('.t') && !tip.contains(e.relatedTarget)) {
+      hideTimer = setTimeout(hideTip, 180);
+    }
+  });
+  tip.addEventListener('mouseenter', function(){ clearTimeout(hideTimer); });
+  tip.addEventListener('mouseleave', hideTip);
+
+  document.addEventListener('click', function(e){
+    var n = e.target.closest('.t'); if (!n) return;
+    var d = G[n.getAttribute('data-t')]; if (!d) return;
+    e.preventDefault();
+    if (hoverable) { location.href = d.u; } else { openSheet(d); }
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') { hideTip(); closeSheet(); return; }
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    var n = document.activeElement; if (!n || !n.classList.contains('t')) return;
+    var d = G[n.getAttribute('data-t')]; if (!d) return;
+    e.preventDefault();
+    hoverable ? (location.href = d.u) : openSheet(d);
+  });
+})();
+</script>
+
+</body>
+</html>

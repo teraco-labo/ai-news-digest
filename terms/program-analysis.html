@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>プログラム解析とは？ わかりやすく解説 | 世界一わかりやすいAIニュース</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#0e7490; }
+  body { font-family:'Noto Sans JP','Inter',sans-serif; background:var(--bg); color:var(--text);
+    line-height:1.7; -webkit-font-smoothing:antialiased; }
+  a { color:inherit; }
+  .hero { background:linear-gradient(135deg,#0f172a,#1e293b); color:#fff; padding:3rem 1.5rem; }
+  .hero-inner { max-width:1100px; margin:0 auto; }
+  .hero h1 { font-size:1.8rem; font-weight:700; letter-spacing:0.01em; }
+  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#cbd5e1; max-width:640px; }
+  .hero-actions { margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.75rem; }
+  .crumbs { font-size:0.75rem; color:#94a3b8; margin-bottom:0.75rem; }
+  .crumbs a { text-decoration:none; }
+  .crumbs a:hover { text-decoration:underline; }
+  .btn { display:inline-block; padding:0.6rem 1.3rem; border-radius:6px; font-size:0.85rem;
+    font-weight:700; text-decoration:none; }
+  .btn-primary { background:#22d3ee; color:#0f172a; }
+  .btn-ghost { border:1px solid rgba(255,255,255,0.35); color:#e2e8f0; }
+  main { max-width:1100px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
+  .section-label { font-size:0.75rem; font-weight:700; letter-spacing:0.12em; color:var(--text-muted);
+    text-transform:uppercase; margin:2.5rem 0 1rem; }
+  .section-label:first-child { margin-top:0; }
+  .issue-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1rem; }
+  .issue { display:block; padding:1rem 1.1rem; background:var(--card-bg); border:1px solid var(--border);
+    border-radius:8px; text-decoration:none; transition:border-color .15s; }
+  .issue:hover { border-color:var(--accent); }
+  .issue .d { font-size:0.95rem; font-weight:700; }
+  .issue .m { margin-top:0.25rem; font-size:0.75rem; color:var(--text-muted); }
+  .issue-list { list-style:none; columns:2; column-gap:2rem; }
+  .issue-list li { break-inside:avoid; padding:0.35rem 0; border-bottom:1px solid var(--border); }
+  .issue-list a { font-size:0.85rem; text-decoration:none; }
+  .issue-list a:hover { color:var(--accent); }
+  .issue-list .m { font-size:0.72rem; color:var(--text-muted); margin-left:0.5rem; }
+  footer { border-top:1px solid var(--border); padding:2rem 1.5rem; text-align:center;
+    font-size:0.78rem; color:var(--text-muted); }
+  .sub-grid { max-width:760px; margin:0 auto; display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:0.8rem; }
+  .sub-card { display:flex; flex-direction:column; gap:0.3rem; padding:1.1rem 1.2rem;
+    background:var(--card-bg); border:1px solid var(--border); border-radius:8px;
+    text-decoration:none; transition:border-color .15s; }
+  .sub-card:hover { border-color:var(--accent); }
+  .sub-card.mail { border-color:var(--accent); border-width:2px;
+    background:linear-gradient(180deg,rgba(14,116,144,0.05),transparent); }
+  .sub-embed { cursor:default; }
+  .sub-badge { display:block; margin-top:0.5rem; padding:0.6rem; text-align:center;
+    border-radius:6px; font-size:0.85rem; font-weight:700; text-decoration:none; color:#fff; }
+  .sub-badge.spotify { background:#1db954; }
+  .sub-badge.apple { background:#8e44ec; }
+  .sub-copy { margin-top:0.6rem; width:100%; padding:0.6rem; background:var(--accent);
+    color:#fff; font-size:0.85rem; font-weight:700; border:none; border-radius:6px;
+    cursor:pointer; }
+  .sub-advanced { max-width:760px; margin:0.8rem auto 0; font-size:0.72rem;
+    color:var(--text-muted); }
+  .sub-advanced a { color:var(--text-muted); }
+  .sub-embed form { margin-top:0.5rem; }
+  .sub-embed input[type="email"] { width:100%; padding:0.6rem 0.8rem; font-size:0.9rem;
+    border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text); }
+  .sub-embed button, .sub-embed input[type="submit"] { margin-top:0.5rem; width:100%;
+    padding:0.65rem; background:var(--accent); color:#fff; font-size:0.88rem; font-weight:700;
+    border:none; border-radius:6px; cursor:pointer; }
+  .sub-ico { font-size:1.2rem; }
+  .sub-t { font-size:0.92rem; font-weight:700; }
+  .sub-d { font-size:0.76rem; line-height:1.7; color:var(--text-muted); }
+  .lang-switch { display:flex; flex-wrap:wrap; align-items:center; gap:0.35rem;
+    margin-top:1rem; font-size:0.74rem; }
+  .lang-switch .globe { opacity:0.7; margin-right:0.15rem; }
+  .lang-switch .lang { padding:0.25rem 0.7rem; border-radius:999px;
+    border:1px solid rgba(255,255,255,0.25); color:#cbd5e1; text-decoration:none; }
+  .lang-switch a.lang:hover { background:rgba(255,255,255,0.12); color:#fff; }
+  .lang-switch .lang.on { background:rgba(255,255,255,0.9); color:#0f172a; font-weight:700;
+    border-color:transparent; }
+  .lang-switch .lang.soon { opacity:0.45; cursor:default; }
+  .lang-switch .lang.soon em { font-style:normal; font-size:0.62rem; margin-left:0.3rem;
+    opacity:0.85; }
+  .footer-links { margin-top:0.9rem; font-size:0.75rem; }
+  .footer-links a { color:var(--text-muted); text-decoration:none; }
+  .footer-links a:hover { color:var(--accent); text-decoration:underline; }
+  .footer-brand { margin-top:1.1rem; font-size:0.68rem; letter-spacing:0.04em;
+    color:var(--text-muted); opacity:0.55; }
+  @media (max-width:640px){ .issue-list{columns:1;} .hero h1{font-size:1.4rem;} }
+
+  .term-reading { margin-top:0.5rem; font-size:0.85rem; opacity:0.8; }
+  .term-hero-cat { display:inline-block; margin-bottom:0.6rem; padding:3px 10px;
+    border-radius:999px; background:rgba(255,255,255,0.14); font-size:0.72rem; font-weight:600; }
+  .term-body { max-width:720px; margin:0 auto; }
+  .term-easy { padding:1.4rem 1.6rem; background:var(--card-bg); border:1px solid var(--border);
+    border-left:3px solid var(--accent); border-radius:8px; }
+  .term-easy .lbl, .term-more .lbl { display:block; font-size:0.7rem; font-weight:700;
+    letter-spacing:0.12em; color:var(--text-muted); margin-bottom:0.6rem; }
+  .term-easy p { font-size:1.02rem; line-height:2.0; }
+  .term-more { margin-top:2rem; }
+  .term-more p { font-size:0.94rem; line-height:2.0; color:var(--text-muted); }
+  .chips { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.9rem; }
+  .chips a { padding:0.4rem 0.9rem; background:var(--card-bg); border:1px solid var(--border);
+    border-radius:999px; font-size:0.82rem; text-decoration:none; }
+  .chips a:hover { border-color:var(--accent); color:var(--accent); }
+  .seen { margin-top:0.9rem; display:flex; flex-direction:column; gap:0.4rem; }
+  .seen a { font-size:0.85rem; text-decoration:none; color:var(--text-muted); }
+  .seen a:hover { color:var(--accent); text-decoration:underline; }
+  .term-index-group { max-width:760px; margin:0 auto 2rem; }
+  .term-index-group h2 { font-size:0.75rem; font-weight:700; letter-spacing:0.12em;
+    color:var(--text-muted); margin-bottom:0.8rem; }
+  .term-list { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:0.7rem; }
+  .term-list a { display:block; padding:0.85rem 1rem; background:var(--card-bg);
+    border:1px solid var(--border); border-radius:8px; text-decoration:none; }
+  .term-list a:hover { border-color:var(--accent); }
+  .term-list .n { font-weight:700; font-size:0.92rem; }
+  .term-list .s { margin-top:0.25rem; font-size:0.76rem; color:var(--text-muted);
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+
+  .term-toolbar { max-width:760px; margin:0 auto 0.6rem; display:flex; gap:0.6rem;
+    flex-wrap:wrap; align-items:center; }
+  .term-search { flex:1 1 220px; min-width:0; padding:0.6rem 0.9rem; font-size:0.9rem;
+    font-family:inherit; color:var(--text); background:var(--card-bg); border:1px solid var(--border);
+    border-radius:8px; }
+  .term-search:focus-visible { outline:2px solid var(--accent); outline-offset:1px; }
+  .term-sort { display:flex; gap:0.4rem; flex-wrap:wrap; }
+  .term-sort button { font:inherit; font-size:0.8rem; padding:0.5rem 0.9rem; border-radius:999px;
+    border:1px solid var(--border); background:var(--card-bg); color:var(--text); cursor:pointer; }
+  .term-sort button[aria-pressed="true"] { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .term-sort button:focus-visible { outline:2px solid var(--accent); outline-offset:1px; }
+  .term-count { max-width:760px; margin:0 auto 1.6rem; font-size:0.78rem; color:var(--text-muted); }
+  .term-empty { max-width:760px; margin:2rem auto; font-size:0.9rem; color:var(--text-muted); }
+
+  .t { color:var(--accent); border-bottom:1px dashed currentColor; cursor:help;
+    font-weight:500; }
+  .t:hover, .t:focus-visible { background:rgba(14,116,144,0.10); outline:none; border-radius:2px; }
+  #tip { position:absolute; z-index:60; max-width:min(22rem,88vw); padding:0.85rem 1rem;
+    background:var(--card-bg); border:1px solid var(--border); border-radius:8px;
+    box-shadow:0 8px 28px rgba(15,23,42,0.16); font-size:0.84rem; line-height:1.8;
+    opacity:0; visibility:hidden; transition:opacity .12s; pointer-events:none; }
+  #tip.on { opacity:1; visibility:visible; pointer-events:auto; }
+  #tip .tip-n { font-weight:700; display:block; margin-bottom:0.3rem; }
+  #tip .tip-m { display:inline-block; margin-top:0.5rem; font-size:0.78rem;
+    font-weight:600; color:var(--accent); text-decoration:none; }
+  #sheet { position:fixed; left:0; right:0; bottom:0; z-index:70; padding:1.4rem 1.4rem 2rem;
+    background:var(--card-bg); border-top:1px solid var(--border);
+    border-radius:16px 16px 0 0; box-shadow:0 -8px 32px rgba(15,23,42,0.22);
+    transform:translateY(102%); transition:transform .22s ease; }
+  #sheet.on { transform:translateY(0); }
+  #sheet .sheet-grip { width:36px; height:4px; border-radius:2px; background:var(--border);
+    margin:0 auto 1rem; }
+  #sheet .tip-n { font-size:1.05rem; font-weight:700; display:block; margin-bottom:0.5rem; }
+  #sheet .tip-s { font-size:0.92rem; line-height:1.95; color:var(--text-muted); }
+  #sheet .tip-m { display:block; margin-top:1.1rem; padding:0.75rem; text-align:center;
+    background:var(--accent); color:#fff; border-radius:8px; font-size:0.88rem;
+    font-weight:700; text-decoration:none; }
+  #veil { position:fixed; inset:0; z-index:69; background:rgba(15,23,42,0.35);
+    opacity:0; visibility:hidden; transition:opacity .22s; }
+  #veil.on { opacity:1; visibility:visible; }
+  @media (prefers-reduced-motion:reduce){ #sheet,#veil,#tip{transition:none} }
+</style>
+<!-- monetize.py: SEO / analytics -->
+<meta name="description" content="プログラムを実際に動かす前や動かしながら、その中身の性質を機械的に調べる技術です。どの値がどこまで影響するかを追いかけます。">
+<link rel="canonical" href="https://teraco-labo.github.io/ai-news-digest/terms/program-analysis.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:title" content="プログラム解析とは？ わかりやすく解説 | 世界一わかりやすいAIニュース">
+<meta property="og:description" content="プログラムを実際に動かす前や動かしながら、その中身の性質を機械的に調べる技術です。どの値がどこまで影響するかを追いかけます。">
+<meta property="og:url" content="https://teraco-labo.github.io/ai-news-digest/terms/program-analysis.html">
+<meta property="og:site_name" content="世界一わかりやすいAIニュース">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://teraco-labo.github.io/ai-news-digest/podcast/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="application/rss+xml" title="世界一わかりやすいAIニュース" href="https://teraco-labo.github.io/ai-news-digest/feed.xml">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "プログラム解析とは？ わかりやすく解説 | 世界一わかりやすいAIニュース", "description": "プログラムを実際に動かす前や動かしながら、その中身の性質を機械的に調べる技術です。どの値がどこまで影響するかを追いかけます。", "url": "https://teraco-labo.github.io/ai-news-digest/terms/program-analysis.html", "inLanguage": "ja", "author": {"@type": "Person", "name": "てらこ先生"}, "publisher": {"@type": "Organization", "name": "世界一わかりやすいAIニュース"}}</script>
+
+<style id="mz-style">
+  .mz-disclosure { max-width: 1100px; margin: 0 auto 1rem; padding: 0.5rem 0.75rem;
+    font-size: 0.7rem; line-height: 1.6; color: var(--text-muted, #64748b);
+    background: rgba(148,163,184,0.10); border-radius: 6px; }
+  .mz-block { max-width: 1100px; margin: 2rem auto; }
+  .mz-head { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+  .mz-head h2 { font-size: 0.9rem; font-weight: 700; color: var(--text, #1e293b); letter-spacing: 0.02em; }
+  .mz-pr { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em; padding: 2px 6px;
+    border-radius: 3px; background: #94a3b8; color: #fff; }
+  .mz-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+  .mz-card { display: flex; flex-direction: column; gap: 0.4rem; padding: 1rem;
+    background: var(--card-bg, #fff); border: 1px solid var(--border, #e2e8f0);
+    border-left: 3px solid #0e7490; border-radius: 8px; }
+  .mz-card .mz-name { font-size: 0.68rem; font-weight: 600; color: var(--text-muted, #64748b); letter-spacing: 0.04em; }
+  .mz-card .mz-title { font-size: 0.95rem; font-weight: 700; color: var(--text, #1e293b); line-height: 1.5; }
+  .mz-card .mz-body { font-size: 0.8rem; line-height: 1.7; color: var(--text-muted, #64748b); }
+  .mz-card .mz-cta { margin-top: auto; padding-top: 0.6rem; font-size: 0.8rem; font-weight: 600;
+    color: #0e7490; text-decoration: none; }
+  .mz-card .mz-cta:hover { text-decoration: underline; }
+  .mz-badge { align-self: flex-start; font-size: 0.6rem; font-weight: 700; padding: 2px 6px;
+    border-radius: 3px; background: #0e7490; color: #fff; }
+  .mz-cta-block { max-width: 1100px; margin: 2rem auto; padding: 1.5rem;
+    background: linear-gradient(135deg, #0f172a, #1e293b); border-radius: 10px; color: #e2e8f0; }
+  .mz-cta-block h2 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: #fff; }
+  .mz-cta-block p { font-size: 0.85rem; line-height: 1.8; color: #cbd5e1; }
+  .mz-cta-block a { display: inline-block; margin-top: 0.9rem; padding: 0.6rem 1.4rem;
+    background: #22d3ee; color: #0f172a; font-size: 0.85rem; font-weight: 700;
+    border-radius: 6px; text-decoration: none; }
+  .mz-ad { max-width: 1100px; margin: 2rem auto; text-align: center; }
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "DefinedTerm", "name": "プログラム解析", "description": "プログラムを実際に動かす前や動かしながら、その中身の性質を機械的に調べる技術です。どの値がどこまで影響するかを追いかけます。", "inDefinedTermSet": "https://teraco-labo.github.io/ai-news-digest/terms/"}</script>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-inner">
+    <div class="crumbs"><a href="../">世界一わかりやすいAIニュース</a> ／ <a href="./">用語集</a></div>
+    <span class="term-hero-cat">基礎</span>
+    <h1>プログラム解析とは？</h1>
+    
+  </div>
+</div>
+
+<main>
+  <div class="term-body">
+    <div class="term-easy">
+      <span class="lbl">かんたんに言うと</span>
+      <p>プログラムを実際に動かす前や動かしながら、その中身の性質を機械的に調べる技術です。どの値がどこまで影響するかを追いかけます。</p>
+    </div>
+    <div class="term-more">
+      <span class="lbl">もう一歩くわしく</span>
+      <p>コンパイラやバグ検出ツールの土台になっている、数十年の蓄積がある分野です。「この変数はここから先では使われない」といった判断を自動で下せるため、不要な情報を安全に捨てる作業と相性があります。AIに持たせる記憶の取捨選択にも同じ考え方が使えるという指摘があり、勘に頼っていた設計を理論の側から支える可能性があります。</p>
+    </div>
+  <div class="lbl" style="margin-top:2rem">この用語が出てきたニュース</div>
+  <div class="seen">
+    <a href="../ai-news-2026-08-30.html">2026年8月30日のダイジェスト →</a>
+  </div>
+  </div>
+
+  <p style="max-width:720px;margin:2.5rem auto 0;font-size:0.85rem;">
+    <a href="./" style="color:var(--accent);font-weight:600;">← 用語集の一覧にもどる</a>
+  </p>
+</main>
+
+<footer>
+  <strong>世界一わかりやすいAIニュース</strong> — てらこ先生
+  <div class="footer-links"><a href="../">トップ</a> ／ <a href="../terms/">AI用語集</a> ／ <a href="../articles/">読み物</a> ／ <a href="../archive.html">バックナンバー</a> ／ <a href="../about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
+</footer>
+
+</body>
+</html>

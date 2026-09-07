@@ -85,7 +85,16 @@ DIGEST_CSS = """
   .listen-head strong { font-size:0.95rem; color:#fff; }
   .listen-head span { font-size:0.76rem; color:#94a3b8; }
   .listen audio { width:100%; height:40px; display:block; }
-  .listen-sub { margin-top:0.6rem; font-size:0.74rem; }
+  .speed-row { display:flex; align-items:center; gap:0.4rem; margin-top:0.7rem; flex-wrap:wrap; }
+  .speed-label { font-size:0.7rem; color:#94a3b8; margin-right:0.2rem; }
+  .speed-btn { padding:0.3rem 0.75rem; background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.25); border-radius:999px; color:#e2e8f0;
+    font-size:0.75rem; font-weight:600; cursor:pointer; }
+  .speed-btn.on { background:#22d3ee; border-color:#22d3ee; color:#0f172a; }
+  .copy-feed { padding:0.25rem 0.7rem; background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.3); border-radius:6px; color:#e2e8f0;
+    font-size:0.72rem; font-weight:600; cursor:pointer; }
+  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#94a3b8; line-height:1.8; }
   .listen-sub a { color:#7dd3fc; text-decoration:none; }
   .listen-sub a:hover { text-decoration:underline; }
   details.genre { max-width:760px; margin:0 auto 0.75rem; background:var(--card-bg);
@@ -173,28 +182,78 @@ def _lead(overview: List[str], ann=None) -> str:
 def _listen(date: datetime, available: bool) -> str:
     """埋め込み音声プレイヤー。
 
-    別ページのプレイヤーに飛ばすのではなく、その場で再生できるようにする。
-    src は相対パスにする — 絶対URL（本番サイト）だと、まだデプロイされて
-    いない環境（プレビューやブランチ）で鳴らない。相対ならどこで開いても
-    同じリポジトリ内の mp3 を指す。
+    再生速度ボタン付き（選んだ速度はブラウザに記憶され、次の日も同じ速度で再生される）。
+    src は相対パス — 絶対URLだと未デプロイの環境で鳴らないため。
+    購読の案内は「RSS」という言葉を使わず、アプリ名またはコピーボタンで示す。
     """
     if not available:
         return ""
     date_iso = date.strftime("%Y-%m-%d")
+    cfg = monetize.load_config()
+    pod_cfg = cfg.get("podcast", {})
     base = monetize.podcast_url()
+
+    # 購読の行: Spotify / Apple の番組URLがあればそれを、無ければURLコピーを出す
+    spotify = pod_cfg.get("spotify_url", "").strip()
+    apple = pod_cfg.get("apple_url", "").strip()
+    sub_bits = []
+    if spotify:
+        sub_bits.append(f'<a href="{spotify}">Spotify で聴く</a>')
+    if apple:
+        sub_bits.append(f'<a href="{apple}">Apple Podcast で聴く</a>')
+    if sub_bits:
+        sub_line = "毎朝の配信を購読： " + " ／ ".join(sub_bits)
+    else:
+        feed = f"{base}/podcast/feed.xml"
+        sub_line = (
+            "ポッドキャストアプリで毎朝受け取るには "
+            f'<button type="button" class="copy-feed" data-copy="{feed}" '
+            "onclick=\"navigator.clipboard.writeText(this.dataset.copy)"
+            ".then(()=>{this.textContent='✓ コピーしました';"
+            "setTimeout(()=>this.textContent='番組アドレスをコピー',2000);});\">"
+            "番組アドレスをコピー</button>"
+            " して、アプリの「番組を追加」に貼り付けてください"
+        )
+
     return (
         '  <div class="listen" id="listen">\n'
         '    <div class="listen-head">\n'
         "      <strong>🎧 今日の音声版</strong>\n"
         "      <span>対話形式・ながら聴き向け（10〜15分）</span>\n"
         "    </div>\n"
-        f'    <audio controls preload="none" src="podcast/ai-news-{date_iso}.mp3">\n'
+        f'    <audio id="pod-audio" controls preload="none" src="podcast/ai-news-{date_iso}.mp3">\n'
         f'      <a href="podcast/ai-news-{date_iso}.mp3">音声ファイルを開く</a>\n'
         "    </audio>\n"
-        '    <div class="listen-sub">\n'
-        f'      <a href="{base}/podcast/feed.xml">📡 ポッドキャストとして購読する（RSS / Spotify）</a>\n'
-        "    </div>\n"
+        '    <div class="speed-row"><span class="speed-label">再生速度</span>\n'
+        + "".join(
+            f'      <button type="button" class="speed-btn" data-speed="{v}">{label}</button>\n'
+            # 単独プレイヤー(podcast/player.html)と選択肢を揃えること
+            for v, label in [("0.75", "0.75×"), ("1", "1×"), ("1.25", "1.25×"),
+                             ("1.5", "1.5×"), ("2", "2×"), ("2.5", "2.5×")]
+        )
+        + "    </div>\n"
+        f'    <div class="listen-sub">{sub_line}</div>\n'
         "  </div>\n"
+        """<script>
+(function(){
+  var audio = document.getElementById('pod-audio');
+  if (!audio) return;
+  var btns = document.querySelectorAll('.speed-btn');
+  function apply(v){
+    audio.playbackRate = parseFloat(v);
+    btns.forEach(function(b){ b.classList.toggle('on', b.dataset.speed === v); });
+    try { localStorage.setItem('wk-speed', v); } catch(e) {}
+  }
+  var saved = '1';
+  try { saved = localStorage.getItem('wk-speed') || '1'; } catch(e) {}
+  apply(saved);
+  audio.addEventListener('play', function(){ audio.playbackRate = parseFloat(saved); });
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){ saved = b.dataset.speed; apply(saved); });
+  });
+})();
+</script>
+"""
     )
 
 
@@ -329,6 +388,7 @@ def render(categorized: Dict[str, List[Dict]], date: datetime,
   <strong>{_html.escape(name)}</strong> — {date_str}（{weekday}）／ {total} 件収録<br>
   毎朝6時に自動生成しています。
   {site_theme.footer_links(config)}
+  {site_theme.footer_brand(config)}
 </footer>
 {glossary.assets(ann) if ann else ""}"""
 

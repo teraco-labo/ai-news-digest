@@ -32,7 +32,23 @@ try:
     BASE_URL = _podcast_url()
 except Exception:
     BASE_URL = "https://teraco-labo.github.io/ai-news-digest"
-COVER_URL = f"{BASE_URL}/podcast/cover.jpg"
+
+
+def _cover_url() -> str:
+    """カバー画像のURL。画像を差し替えた日を ?v= で付ける。
+
+    Spotify や Apple は一度取り込んだカバーを、同じURLのまま中身が変わっても
+    取り直さない。差し替えた日が変われば別のURLになるので、確実に反映される。
+    """
+    base = f"{BASE_URL}/podcast/cover.jpg"
+    try:
+        from datetime import datetime as _dt
+        stamp = _dt.fromtimestamp((PODCAST_DIR / "cover.jpg").stat().st_mtime).strftime("%Y%m%d")
+        return f"{base}?v={stamp}"
+    except Exception:
+        return base
+
+
 PODCAST_EMAIL = "fujisaki@teraco-labo.com"
 
 # カテゴリごとの最大記事数（合計 14 件程度を Gemini に渡す）
@@ -58,6 +74,21 @@ _TRANSITIONS = [
 # TTS 発音改善：略語・固有名詞をカタカナに変換
 # ---------------------------------------------------------------------------
 _TTS_REPLACEMENTS = [
+    # --- 運営元まわりの読み（辞書登録）---
+    # 番組名は「世界一わかりやすいAIニュース」で日本語なので変換は不要。
+    # Teraco News はフッターの署名にだけ使う通称。万一読み上げに混ざっても
+    # 変な読みにならないよう登録しておく。
+    # 長い表記から先に置換すること（"Teraco" 単体を先に処理すると
+    # "Teraco News" が壊れるため、必ずこの順序を守る）。
+    ("Teraco Voice", "テラコボイス"),   # 本人の声クローンの製品名（2026-09-05 登録）
+    ("TERACO VOICE", "テラコボイス"),
+    ("TeracoVoice",  "テラコボイス"),
+    ("Teraco News", "テラコニュース"),
+    ("TERACO NEWS", "テラコニュース"),
+    ("TeracoNews",  "テラコニュース"),
+    ("TERACO.LABO", "テラコラボ"),
+    ("Teraco",      "テラコ"),
+    ("TERACO",      "テラコ"),
     ("ChatGPT",   "チャットジーピーティー"),
     ("GPT-4o",    "ジーピーティーフォーオー"),
     ("GPT-4",     "ジーピーティーフォー"),
@@ -141,7 +172,7 @@ def build_script(articles_by_category: Dict[str, List[Dict]], date: datetime) ->
 
     # ---- オープニング ----
     lines.append(
-        f"てらこ エーアイ ニュースダイジェスト。"
+        f"世界一わかりやすいAIニュース。"
         f"{date_str}、{weekday}曜日版をお届けします。"
         f"本日は特に注目の{total}件をピックアップし、内容まで詳しく解説します。"
         f"ではさっそく参りましょう。"
@@ -202,7 +233,7 @@ def build_script(articles_by_category: Dict[str, List[Dict]], date: datetime) ->
     # ---- クロージング ----
     lines.append(
         f"以上、本日の注目 {total}件をお届けしました。"
-        "てらこ エーアイ ニュースダイジェスト、また明日もお楽しみに。"
+        "世界一わかりやすいAIニュース、また明日もお楽しみに。"
     )
 
     return "\n".join(lines)
@@ -256,6 +287,46 @@ def _hms(seconds) -> str:
     return f"{h}:{m:02d}:{s:02d}" if h else f"{m}:{s:02d}"
 
 
+
+def _episode_description(ep: Dict) -> str:
+    """エピソードの説明欄（概要欄）。音声だけ聴いた人を、用語解説つきの記事へ案内する。
+    この番組の強みは「記事中の専門用語にぜんぶ注釈がつく」ことなので、必ずリンクを置く。"""
+    date = ep.get("date", "")
+    article = f"{BASE_URL}/ai-news-{date}.html"
+    player  = f"{BASE_URL}/podcast/player.html?date={date}"
+    text = (f"{ep.get('title','')}。"
+            f" 今日の内容は、専門用語の解説つきの記事でも読めます → {article}"
+            f" ／ 台本つき音声プレイヤー → {player}")
+    try:
+        import monetize, site_theme
+        mail = site_theme.newsletter_links(monetize.load_config())["signup_url"]
+        if mail:
+            text += f" ／ メールで毎朝受け取る（無料）→ {mail}"
+    except Exception:
+        pass
+    return text.replace("&", "&amp;").replace("<", "&lt;")
+
+def _feed_ready(episodes: List[Dict], today: str) -> List[Dict]:
+    """Spotify などに配る feed.xml に載せてよい回だけを返す。
+
+    当日の回は、本人の声（Teraco Voice）への差し替えが済むまで載せない。
+    Spotify は同じURLの音声を取り直さないため、先に載せると edge-tts 版が
+    そのまま残ってしまう（2026-09-05 に実際に起きた）。
+    日付が変わった回は、差し替えが済んでいなくても載せる（Mac が寝ていた日の保険）。
+    """
+    voices_file = PODCAST_DIR / "voices.json"
+    try:
+        voices = json.loads(voices_file.read_text(encoding="utf-8"))
+    except Exception:
+        voices = {}
+    out = []
+    for e in episodes:
+        d = e.get("date", "")
+        if d != today or voices.get(d, {}).get("teraco"):
+            out.append(e)
+    return out
+
+
 def update_feed(date: datetime, audio_file: Path) -> None:
     """episodes.json と Spotify/Apple 対応 feed.xml を更新する。"""
     PODCAST_DIR.mkdir(exist_ok=True)
@@ -291,9 +362,14 @@ def update_feed(date: datetime, audio_file: Path) -> None:
     if not duration_sec:
         duration_sec = size_bytes // 10000
 
-    ep_num = len(episodes) + 1  # 既存エピソード数 + 1
-
+    # 同じ日を作り直したとき（Teraco Voice への差し替えなど）は番号を据え置く。
+    # 以前は「既存数+1」を先に計算していたため、作り直すたびに番号が1つ進んでいた
+    existing = next((e for e in episodes if e.get("date") == date_str), None)
     episodes = [e for e in episodes if e.get("date") != date_str]
+    # 新しい日は「これまでの最大番号+1」。以前の「件数+1」は一覧を60件で切っているため
+    # 61で止まったままだった（2026-09-05 に発見。当面は番号がそこから続く）
+    _nums = [int(e.get("episode_num") or 0) for e in episodes]
+    ep_num = existing.get("episode_num") if existing and existing.get("episode_num") else (max(_nums) + 1 if _nums else 1)
     episodes.insert(0, {
         "date":        date_str,
         "title":       f"世界一わかりやすいAIニュース - {date_str}",
@@ -316,17 +392,26 @@ def update_feed(date: datetime, audio_file: Path) -> None:
         json.dumps(episodes, ensure_ascii=False, indent=2), encoding="utf-8"
     )
 
+    # ---- feed.xml に載せる回を選ぶ ----
+    # Spotify は一度取り込んだ音声を、同じURLで中身を差し替えても取り直さない。
+    # 朝はクラウドが edge-tts 版を作り、そのあと Mac が本人の声（Teraco Voice）に
+    # 差し替えるので、当日分をすぐフィードに載せると Spotify には edge-tts 版が残る。
+    # そこで「本人の声になった回」だけを載せる。ただし Mac が寝ていた日に配信が
+    # 途切れないよう、日付が変わった回は声にかかわらず載せる（保険）。
+    feed_episodes = _feed_ready(episodes, date_str)
+
     # ---- feed.xml ----
     items_xml = ""
-    for i, ep in enumerate(episodes):
-        ep_ep_num = ep.get("episode_num", len(episodes) - i)
+    for i, ep in enumerate(feed_episodes):
+        ep_ep_num = ep.get("episode_num", len(feed_episodes) - i)
         dur_hms   = _hms(ep.get("duration", 0))
         pub       = _rfc2822(ep.get("date", ""))
         items_xml += f"""
   <item>
     <title>{ep['title']}</title>
     <itunes:title>{ep['title']}</itunes:title>
-    <description>{ep['title']}</description>
+    <description>{_episode_description(ep)}</description>
+    <itunes:summary>{_episode_description(ep)}</itunes:summary>
     <author>{PODCAST_EMAIL}</author>
     <itunes:author>世界一わかりやすいAIニュース</itunes:author>
     <itunes:episode>{ep_ep_num}</itunes:episode>
@@ -358,11 +443,11 @@ def update_feed(date: datetime, audio_file: Path) -> None:
     <itunes:email>{PODCAST_EMAIL}</itunes:email>
   </itunes:owner>
   <image>
-    <url>{COVER_URL}</url>
+    <url>{_cover_url()}</url>
     <title>世界一わかりやすいAIニュース</title>
     <link>{BASE_URL}</link>
   </image>
-  <itunes:image href="{COVER_URL}"/>
+  <itunes:image href="{_cover_url()}"/>
   <itunes:explicit>false</itunes:explicit>
   <itunes:type>episodic</itunes:type>
   <itunes:category text="Technology">

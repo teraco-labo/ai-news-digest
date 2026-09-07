@@ -41,11 +41,17 @@
         "url": ""
       }
     ],
-    "_languages_note": "多言語展開用。status を live にして url を入れると切り替えボタンが有効になります。別言語版は、この構成一式を別リポジトリ（または別ディレクトリ）に置き、site.lang と glossary.json、curate.py のプロンプトを差し替えれば作れます。"
+    "_languages_note": "多言語展開用。status を live にして url を入れると切り替えボタンが有効になります。別言語版は、この構成一式を別リポジトリ（または別ディレクトリ）に置き、site.lang と glossary.json、curate.py のプロンプトを差し替えれば作れます。",
+    "brand_line": "Teraco News by てらこ先生",
+    "_brand_line_note": "フッターに小さく出す運営元の通称。見出し・音声の番組名は site.name を使うこと。"
   },
   "podcast": {
     "_note": "2026-08-22 のアカウント移管(anomalocaress→teraco-labo)で旧URLは404になりました。GitHub Pages はアカウント間の移管ではリダイレクトされません。現在は site.base_url と同じURLを使います。",
-    "base_url": "https://teraco-labo.github.io/ai-news-digest"
+    "base_url": "https://teraco-labo.github.io/ai-news-digest",
+    "spotify_url": "https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3",
+    "apple_url": "",
+    "_apps_note": "Spotify / Apple Podcast に番組登録したら、番組ページのURLをここに貼るとサイトの購読ボタンが「Spotifyで聴く」「Apple Podcastで聴く」に変わります。登録手順: 各サービスの配信者向けページ（Spotify for Creators / Apple Podcasts Connect）で feed.xml のURLを提出するだけです。",
+    "_spotify_note": "2026-09-04 に再登録した番組（旧 033cDtX8MpRhSYoxdG9vzg / 4unkGD4h2zJoeFWfKsdBYx は旧URLのフィードのまま更新停止）。"
   },
   "disclosure": {
     "enabled": true,
@@ -268,14 +274,16 @@
     "_note": "用語解説の設定。auto_discover を有効にすると、毎朝のキュレーション時に新出用語を検出して glossary.json へ自動追加します。max_marks_per_page は1ページに付ける解説の上限。「今日の3行まとめ」から順に割り当てられます。",
     "enabled": true,
     "auto_discover": true,
-    "max_marks_per_page": 26
+    "max_marks_per_page": 34
   },
   "newsletter": {
-    "_note": "メールニュースレターの設定。signup_url に登録フォームのURLを入れるとサイトに購読ボタンが出ます。配信そのものは、各サービスの「RSSから自動配信」機能に feed.xml を登録すれば動きます（本文は content:encoded に入れてあります）。",
+    "_note": "メール購読（読者リスト）。provider が substack のときは substack_url（例 https://xxx.substack.com）を入れるだけで、サイトの購読フォーム・プレイヤーの登録リンク・ポッドキャストの説明欄・音声内の案内が全部つながります。signup_url / embed_html を直接入れた場合はそちらが優先。手順は NEWSLETTER_SETUP.md。",
     "enabled": true,
-    "provider": "",
+    "provider": "substack",
     "signup_url": "",
-    "blurb": "毎朝6時、AIの重要ニュースだけを日本語で。専門用語には解説つき。",
-    "rss_full_body_items": 12
+    "blurb": "毎朝6時のAIニュースと、週1回のまとめ・解説記事をメールで。専門用語には解説つき。無料・いつでも解除できます",
+    "rss_full_body_items": 12,
+    "embed_html": "",
+    "substack_url": "https://teracosensei.substack.com"
   }
 }

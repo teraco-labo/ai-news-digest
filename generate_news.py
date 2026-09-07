@@ -538,7 +538,7 @@ def update_index_html(date: datetime):
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="refresh" content="0; url={latest_file}">
-  <title>AI News Digest</title>
+  <title>世界一わかりやすいAIニュース</title>
 </head>
 <body>
   Redirecting to <a href="{latest_file}">latest digest</a>...
@@ -595,7 +595,7 @@ def build_email_html(categorized: Dict[str, List[Dict]], date: datetime, include
 <body>
 <div class="container">
   <div class="header">
-    <h1>📰 AI News Digest</h1>
+    <h1>世界一わかりやすいAIニュース</h1>
     <p>"""
         + date_str
         + """（"""

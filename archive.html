@@ -49,6 +49,23 @@
   .sub-card:hover { border-color:var(--accent); }
   .sub-card.mail { border-color:var(--accent); border-width:2px;
     background:linear-gradient(180deg,rgba(14,116,144,0.05),transparent); }
+  .sub-embed { cursor:default; }
+  .sub-badge { display:block; margin-top:0.5rem; padding:0.6rem; text-align:center;
+    border-radius:6px; font-size:0.85rem; font-weight:700; text-decoration:none; color:#fff; }
+  .sub-badge.spotify { background:#1db954; }
+  .sub-badge.apple { background:#8e44ec; }
+  .sub-copy { margin-top:0.6rem; width:100%; padding:0.6rem; background:var(--accent);
+    color:#fff; font-size:0.85rem; font-weight:700; border:none; border-radius:6px;
+    cursor:pointer; }
+  .sub-advanced { max-width:760px; margin:0.8rem auto 0; font-size:0.72rem;
+    color:var(--text-muted); }
+  .sub-advanced a { color:var(--text-muted); }
+  .sub-embed form { margin-top:0.5rem; }
+  .sub-embed input[type="email"] { width:100%; padding:0.6rem 0.8rem; font-size:0.9rem;
+    border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text); }
+  .sub-embed button, .sub-embed input[type="submit"] { margin-top:0.5rem; width:100%;
+    padding:0.65rem; background:var(--accent); color:#fff; font-size:0.88rem; font-weight:700;
+    border:none; border-radius:6px; cursor:pointer; }
   .sub-ico { font-size:1.2rem; }
   .sub-t { font-size:0.92rem; font-weight:700; }
   .sub-d { font-size:0.76rem; line-height:1.7; color:var(--text-muted); }
@@ -66,22 +83,24 @@
   .footer-links { margin-top:0.9rem; font-size:0.75rem; }
   .footer-links a { color:var(--text-muted); text-decoration:none; }
   .footer-links a:hover { color:var(--accent); text-decoration:underline; }
+  .footer-brand { margin-top:1.1rem; font-size:0.68rem; letter-spacing:0.04em;
+    color:var(--text-muted); opacity:0.55; }
   @media (max-width:640px){ .issue-list{columns:1;} .hero h1{font-size:1.4rem;} }
 </style>
 <!-- monetize.py: SEO / analytics -->
-<meta name="description" content="世界一わかりやすいAIニュース のバックナンバー全91号の一覧。日付ごとにAIニュースの日本語まとめを読めます。">
+<meta name="description" content="世界一わかりやすいAIニュース のバックナンバー全104号の一覧。日付ごとにAIニュースの日本語まとめを読めます。">
 <link rel="canonical" href="https://teraco-labo.github.io/ai-news-digest/archive.html">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="website">
 <meta property="og:title" content="バックナンバー一覧 | 世界一わかりやすいAIニュース">
-<meta property="og:description" content="世界一わかりやすいAIニュース のバックナンバー全91号の一覧。日付ごとにAIニュースの日本語まとめを読めます。">
+<meta property="og:description" content="世界一わかりやすいAIニュース のバックナンバー全104号の一覧。日付ごとにAIニュースの日本語まとめを読めます。">
 <meta property="og:url" content="https://teraco-labo.github.io/ai-news-digest/archive.html">
 <meta property="og:site_name" content="世界一わかりやすいAIニュース">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://teraco-labo.github.io/ai-news-digest/podcast/cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" type="application/rss+xml" title="世界一わかりやすいAIニュース" href="https://teraco-labo.github.io/ai-news-digest/feed.xml">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "バックナンバー一覧 | 世界一わかりやすいAIニュース", "description": "世界一わかりやすいAIニュース のバックナンバー全91号の一覧。日付ごとにAIニュースの日本語まとめを読めます。", "url": "https://teraco-labo.github.io/ai-news-digest/archive.html", "inLanguage": "ja", "author": {"@type": "Person", "name": "てらこ先生"}, "publisher": {"@type": "Organization", "name": "世界一わかりやすいAIニュース"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "バックナンバー一覧 | 世界一わかりやすいAIニュース", "description": "世界一わかりやすいAIニュース のバックナンバー全104号の一覧。日付ごとにAIニュースの日本語まとめを読めます。", "url": "https://teraco-labo.github.io/ai-news-digest/archive.html", "inLanguage": "ja", "author": {"@type": "Person", "name": "てらこ先生"}, "publisher": {"@type": "Organization", "name": "世界一わかりやすいAIニュース"}}</script>
 
 <style id="mz-style">
   .mz-disclosure { max-width: 1100px; margin: 0 auto 1rem; padding: 0.5rem 0.75rem;
@@ -119,7 +138,7 @@
   <div class="hero-inner">
     <div class="crumbs"><a href="./">世界一わかりやすいAIニュース</a></div>
     <h1>バックナンバー</h1>
-    <p>世界一わかりやすいAIニュース 全 91 号</p>
+    <p>世界一わかりやすいAIニュース 全 104 号</p>
     <div class="hero-actions">
       <a class="btn btn-ghost" href="./">トップへ戻る</a>
       <a class="btn btn-ghost" href="terms/">📘 AI用語集</a>
@@ -130,8 +149,23 @@
 
 <main>
 
+  <div class="section-label">2026年9月</div>
+  <ul class="issue-list">
+    <li><a href="ai-news-2026-09-07.html">2026年9月7日（月）</a><span class="m">🎧</span></li>
+    <li><a href="ai-news-2026-09-06.html">2026年9月6日（日）</a><span class="m">🎧</span></li>
+    <li><a href="ai-news-2026-09-05.html">2026年9月5日（土）</a><span class="m">🎧</span></li>
+    <li><a href="ai-news-2026-09-04.html">2026年9月4日（金）</a><span class="m">🎧</span></li>
+    <li><a href="ai-news-2026-09-03.html">2026年9月3日（木）</a><span class="m">🎧</span></li>
+    <li><a href="ai-news-2026-09-02.html">2026年9月2日（水）</a><span class="m">🎧</span></li>
+    <li><a href="ai-news-2026-09-01.html">2026年9月1日（火）</a><span class="m">🎧</span></li>
+  </ul>
   <div class="section-label">2026年8月</div>
   <ul class="issue-list">
+    <li><a href="ai-news-2026-08-31.html">2026年8月31日（月）</a><span class="m">🎧</span></li>
+    <li><a href="ai-news-2026-08-30.html">2026年8月30日（日）</a><span class="m">🎧</span></li>
+    <li><a href="ai-news-2026-08-29.html">2026年8月29日（土）</a><span class="m">🎧</span></li>
+    <li><a href="ai-news-2026-08-28.html">2026年8月28日（金）</a><span class="m">🎧</span></li>
+    <li><a href="ai-news-2026-08-27.html">2026年8月27日（木）</a><span class="m">🎧</span></li>
     <li><a href="ai-news-2026-08-26.html">2026年8月26日（水）</a><span class="m">🎧</span></li>
     <li><a href="ai-news-2026-08-25.html">2026年8月25日（火）</a><span class="m">🎧</span></li>
   </ul>
@@ -223,6 +257,7 @@
     <li><a href="ai-news-2026-04-28.html">2026年4月28日（火）</a><span class="m">🎧</span></li>
     <li><a href="ai-news-2026-04-27.html">2026年4月27日（月）</a><span class="m">🎧</span></li>
     <li><a href="ai-news-2026-04-26.html">2026年4月26日（日）</a><span class="m">🎧</span></li>
+    <li><a href="ai-news-2026-04-24.html">2026年4月24日（金）</a><span class="m">2記事</span></li>
     <li><a href="ai-news-2026-04-22.html">2026年4月22日（水）</a><span class="m">🎧</span></li>
     <li><a href="ai-news-2026-04-21.html">2026年4月21日（火）</a><span class="m">🎧</span></li>
     <li><a href="ai-news-2026-04-20.html">2026年4月20日（月）</a><span class="m">🎧</span></li>

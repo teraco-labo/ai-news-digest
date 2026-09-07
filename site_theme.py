@@ -49,6 +49,23 @@ PAGE_CSS = """
   .sub-card:hover { border-color:var(--accent); }
   .sub-card.mail { border-color:var(--accent); border-width:2px;
     background:linear-gradient(180deg,rgba(14,116,144,0.05),transparent); }
+  .sub-embed { cursor:default; }
+  .sub-badge { display:block; margin-top:0.5rem; padding:0.6rem; text-align:center;
+    border-radius:6px; font-size:0.85rem; font-weight:700; text-decoration:none; color:#fff; }
+  .sub-badge.spotify { background:#1db954; }
+  .sub-badge.apple { background:#8e44ec; }
+  .sub-copy { margin-top:0.6rem; width:100%; padding:0.6rem; background:var(--accent);
+    color:#fff; font-size:0.85rem; font-weight:700; border:none; border-radius:6px;
+    cursor:pointer; }
+  .sub-advanced { max-width:760px; margin:0.8rem auto 0; font-size:0.72rem;
+    color:var(--text-muted); }
+  .sub-advanced a { color:var(--text-muted); }
+  .sub-embed form { margin-top:0.5rem; }
+  .sub-embed input[type="email"] { width:100%; padding:0.6rem 0.8rem; font-size:0.9rem;
+    border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text); }
+  .sub-embed button, .sub-embed input[type="submit"] { margin-top:0.5rem; width:100%;
+    padding:0.65rem; background:var(--accent); color:#fff; font-size:0.88rem; font-weight:700;
+    border:none; border-radius:6px; cursor:pointer; }
   .sub-ico { font-size:1.2rem; }
   .sub-t { font-size:0.92rem; font-weight:700; }
   .sub-d { font-size:0.76rem; line-height:1.7; color:var(--text-muted); }
@@ -66,6 +83,8 @@ PAGE_CSS = """
   .footer-links { margin-top:0.9rem; font-size:0.75rem; }
   .footer-links a { color:var(--text-muted); text-decoration:none; }
   .footer-links a:hover { color:var(--accent); text-decoration:underline; }
+  .footer-brand { margin-top:1.1rem; font-size:0.68rem; letter-spacing:0.04em;
+    color:var(--text-muted); opacity:0.55; }
   @media (max-width:640px){ .issue-list{columns:1;} .hero h1{font-size:1.4rem;} }
 """
 
@@ -121,46 +140,109 @@ PROSE_CSS = """
 """
 
 
+def newsletter_links(config: dict) -> dict:
+    """メール購読の「登録ページURL」と「埋め込みフォーム」を設定から組み立てる。
+    provider=substack なら substack_url 1つから両方作る（Substack は /subscribe と /embed を用意している）。
+    signup_url / embed_html が直接書かれていればそちらを優先。未設定なら空＝どこにも出ない。"""
+    nl = config.get("newsletter", {})
+    if not nl.get("enabled", True):
+        return {"signup_url": "", "embed_html": ""}
+    signup = nl.get("signup_url", "").strip()
+    embed = nl.get("embed_html", "").strip()
+    base = nl.get("substack_url", "").strip().rstrip("/")
+    if nl.get("provider") == "substack" and base:
+        signup = signup or f"{base}/subscribe"
+        embed = embed or (f'<iframe src="{base}/embed" width="100%" height="150" '
+                          'style="border:1px solid var(--border);border-radius:6px;background:#fff;" '
+                          'frameborder="0" scrolling="no" title="メールマガジン登録"></iframe>')
+    return {"signup_url": signup, "embed_html": embed}
+
+
 def subscribe_block(config: dict, prefix: str = "") -> str:
     """購読の導線。
 
-    以前は「📡 購読」がポッドキャストのRSSを直接指しており、
-    ブラウザで押すと生のXMLが出るという状態だった。
-    メール・音声・RSSは目的が違うので、それぞれ何が届くのかを明示して並べる。
+    「RSS」のような作り手側の言葉を読者に見せない。
+    メールは「メールマガジン」、音声は「Spotify / Apple Podcast」という
+    誰でも知っている名前で置き、RSS は上級者向けの補足に格下げする。
     """
     site = config.get("site", {})
     nl = config.get("newsletter", {})
-    pod = config.get("podcast", {}).get("base_url", site.get("base_url", "")).rstrip("/")
+    pod_cfg = config.get("podcast", {})
+    pod = pod_cfg.get("base_url", site.get("base_url", "")).rstrip("/")
 
     cards = []
-    if nl.get("enabled", True) and nl.get("signup_url"):
+
+    # --- メールマガジン ---
+    links = newsletter_links(config)
+    embed = links["embed_html"]
+    if embed:
         cards.append(
-            f'    <a class="sub-card mail" href="{_html.escape(nl["signup_url"])}">\n'
-            f'      <span class="sub-ico">✉️</span>\n'
-            f'      <span class="sub-t">メールで受け取る</span>\n'
+            '    <div class="sub-card mail sub-embed">\n'
+            '      <span class="sub-ico">✉️</span>\n'
+            '      <span class="sub-t">メールマガジンで受け取る</span>\n'
             f'      <span class="sub-d">{_html.escape(nl.get("blurb", ""))}</span>\n'
-            "    </a>\n"
+            f"      {embed}\n"
+            "    </div>\n"
         )
-    if pod:
+    elif links["signup_url"]:
         cards.append(
-            f'    <a class="sub-card" href="{_html.escape(pod)}/podcast/feed.xml">\n'
-            "      <span class=\"sub-ico\">🎧</span>\n"
-            "      <span class=\"sub-t\">ポッドキャストで聴く</span>\n"
-            "      <span class=\"sub-d\">Spotify・Apple Podcast などのアプリに"
-            "このリンクを登録してください</span>\n"
+            f'    <a class="sub-card mail" href="{_html.escape(links["signup_url"])}">\n'
+            '      <span class="sub-ico">✉️</span>\n'
+            '      <span class="sub-t">メールマガジンで受け取る</span>\n'
+            f'      <span class="sub-d">{_html.escape(nl.get("blurb", ""))} 無料・いつでも解除できます</span>\n'
             "    </a>\n"
         )
-    cards.append(
-        f'    <a class="sub-card" href="{prefix}feed.xml">\n'
-        "      <span class=\"sub-ico\">📡</span>\n"
-        "      <span class=\"sub-t\">RSSで読む</span>\n"
-        "      <span class=\"sub-d\">Feedly などのRSSリーダー用。"
-        "本文がまるごと届きます</span>\n"
-        "    </a>\n"
+
+    # --- ポッドキャスト ---
+    spotify = pod_cfg.get("spotify_url", "").strip()
+    apple = pod_cfg.get("apple_url", "").strip()
+    feed_url = f"{pod}/podcast/feed.xml" if pod else ""
+    if spotify or apple:
+        badges = ""
+        if spotify:
+            badges += (f'      <a class="sub-badge spotify" href="{_html.escape(spotify)}">'
+                       "Spotify で聴く</a>\n")
+        if apple:
+            badges += (f'      <a class="sub-badge apple" href="{_html.escape(apple)}">'
+                       "Apple Podcast で聴く</a>\n")
+        cards.append(
+            '    <div class="sub-card sub-embed">\n'
+            '      <span class="sub-ico">🎧</span>\n'
+            '      <span class="sub-t">ポッドキャストで聴く</span>\n'
+            '      <span class="sub-d">通勤中や作業中に。毎朝10〜15分の音声版です</span>\n'
+            f"{badges}"
+            "    </div>\n"
+        )
+    elif feed_url:
+        # 番組登録が済むまでの暫定。アプリへの登録方法を言葉で案内する
+        cards.append(
+            '    <div class="sub-card sub-embed">\n'
+            '      <span class="sub-ico">🎧</span>\n'
+            '      <span class="sub-t">ポッドキャストで聴く</span>\n'
+            '      <span class="sub-d">お使いのポッドキャストアプリの「番組を追加」「URLで追加」に、'
+            "下のボタンでコピーした番組アドレスを貼り付けてください</span>\n"
+            f'      <button type="button" class="sub-copy" data-copy="{_html.escape(feed_url)}" '
+            "onclick=\"navigator.clipboard.writeText(this.dataset.copy)"
+            ".then(()=>{this.textContent='✓ コピーしました';"
+            "setTimeout(()=>this.textContent='番組アドレスをコピー',2000);});\">"
+            "番組アドレスをコピー</button>\n"
+            "    </div>\n"
+        )
+
+    if not cards:
+        return ""
+
+    # RSS は上級者向けの一行に格下げ（一般の読者には意味が通らないため）
+    advanced = (
+        '  <p class="sub-advanced">上級者向け：'
+        f'<a href="{prefix}feed.xml">RSS配信</a>'
+        "（サイトの更新を自動で受け取るための仕組みです。Feedly などの"
+        "RSSリーダーをお使いの方はこちらを登録してください）</p>\n"
     )
 
     return ('  <div class="section-label">毎朝うけとる</div>\n'
-            f'  <div class="sub-grid">\n{"".join(cards)}  </div>\n')
+            f'  <div class="sub-grid">\n{"".join(cards)}  </div>\n'
+            + advanced)
 
 
 def lang_switch(config: dict, prefix: str = "") -> str:
@@ -201,6 +283,17 @@ def footer_links(config: dict, prefix: str = "") -> str:
         items.append((parent, config.get("site", {}).get("parent_site_name", "運営元")))
     links = " ／ ".join(f'<a href="{href}">{label}</a>' for href, label in items)
     return f'<div class="footer-links">{links}</div>'
+
+
+def footer_brand(config: dict) -> str:
+    """運営元の通称を、いちばん下に小さく置く。
+    見出し・音声の番組名は site.name（世界一わかりやすいAIニュース）を使い、
+    こちらは署名としてひっそり出すだけ。持ち主の指示による住み分け。"""
+    line = config.get("site", {}).get("brand_line", "").strip()
+    if not line:
+        return ""
+    import html as _h
+    return f'<div class="footer-brand">{_h.escape(line)}</div>'
 
 
 def page_shell(title: str, head_extra: str, body: str, extra_css: str = "") -> str:

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI最新ニュースまとめ 2026年9月4日 | 世界一わかりやすいAIニュース</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#0e7490; }
+  body { font-family:'Noto Sans JP','Inter',sans-serif; background:var(--bg); color:var(--text);
+    line-height:1.7; -webkit-font-smoothing:antialiased; }
+  a { color:inherit; }
+  .hero { background:linear-gradient(135deg,#0f172a,#1e293b); color:#fff; padding:3rem 1.5rem; }
+  .hero-inner { max-width:1100px; margin:0 auto; }
+  .hero h1 { font-size:1.8rem; font-weight:700; letter-spacing:0.01em; }
+  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#cbd5e1; max-width:640px; }
+  .hero-actions { margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.75rem; }
+  .crumbs { font-size:0.75rem; color:#94a3b8; margin-bottom:0.75rem; }
+  .crumbs a { text-decoration:none; }
+  .crumbs a:hover { text-decoration:underline; }
+  .btn { display:inline-block; padding:0.6rem 1.3rem; border-radius:6px; font-size:0.85rem;
+    font-weight:700; text-decoration:none; }
+  .btn-primary { background:#22d3ee; color:#0f172a; }
+  .btn-ghost { border:1px solid rgba(255,255,255,0.35); color:#e2e8f0; }
+  main { max-width:1100px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
+  .section-label { font-size:0.75rem; font-weight:700; letter-spacing:0.12em; color:var(--text-muted);
+    text-transform:uppercase; margin:2.5rem 0 1rem; }
+  .section-label:first-child { margin-top:0; }
+  .issue-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1rem; }
+  .issue { display:block; padding:1rem 1.1rem; background:var(--card-bg); border:1px solid var(--border);
+    border-radius:8px; text-decoration:none; transition:border-color .15s; }
+  .issue:hover { border-color:var(--accent); }
+  .issue .d { font-size:0.95rem; font-weight:700; }
+  .issue .m { margin-top:0.25rem; font-size:0.75rem; color:var(--text-muted); }
+  .issue-list { list-style:none; columns:2; column-gap:2rem; }
+  .issue-list li { break-inside:avoid; padding:0.35rem 0; border-bottom:1px solid var(--border); }
+  .issue-list a { font-size:0.85rem; text-decoration:none; }
+  .issue-list a:hover { color:var(--accent); }
+  .issue-list .m { font-size:0.72rem; color:var(--text-muted); margin-left:0.5rem; }
+  footer { border-top:1px solid var(--border); padding:2rem 1.5rem; text-align:center;
+    font-size:0.78rem; color:var(--text-muted); }
+  .sub-grid { max-width:760px; margin:0 auto; display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:0.8rem; }
+  .sub-card { display:flex; flex-direction:column; gap:0.3rem; padding:1.1rem 1.2rem;
+    background:var(--card-bg); border:1px solid var(--border); border-radius:8px;
+    text-decoration:none; transition:border-color .15s; }
+  .sub-card:hover { border-color:var(--accent); }
+  .sub-card.mail { border-color:var(--accent); border-width:2px;
+    background:linear-gradient(180deg,rgba(14,116,144,0.05),transparent); }
+  .sub-embed { cursor:default; }
+  .sub-badge { display:block; margin-top:0.5rem; padding:0.6rem; text-align:center;
+    border-radius:6px; font-size:0.85rem; font-weight:700; text-decoration:none; color:#fff; }
+  .sub-badge.spotify { background:#1db954; }
+  .sub-badge.apple { background:#8e44ec; }
+  .sub-copy { margin-top:0.6rem; width:100%; padding:0.6rem; background:var(--accent);
+    color:#fff; font-size:0.85rem; font-weight:700; border:none; border-radius:6px;
+    cursor:pointer; }
+  .sub-advanced { max-width:760px; margin:0.8rem auto 0; font-size:0.72rem;
+    color:var(--text-muted); }
+  .sub-advanced a { color:var(--text-muted); }
+  .sub-embed form { margin-top:0.5rem; }
+  .sub-embed input[type="email"] { width:100%; padding:0.6rem 0.8rem; font-size:0.9rem;
+    border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text); }
+  .sub-embed button, .sub-embed input[type="submit"] { margin-top:0.5rem; width:100%;
+    padding:0.65rem; background:var(--accent); color:#fff; font-size:0.88rem; font-weight:700;
+    border:none; border-radius:6px; cursor:pointer; }
+  .sub-ico { font-size:1.2rem; }
+  .sub-t { font-size:0.92rem; font-weight:700; }
+  .sub-d { font-size:0.76rem; line-height:1.7; color:var(--text-muted); }
+  .lang-switch { display:flex; flex-wrap:wrap; align-items:center; gap:0.35rem;
+    margin-top:1rem; font-size:0.74rem; }
+  .lang-switch .globe { opacity:0.7; margin-right:0.15rem; }
+  .lang-switch .lang { padding:0.25rem 0.7rem; border-radius:999px;
+    border:1px solid rgba(255,255,255,0.25); color:#cbd5e1; text-decoration:none; }
+  .lang-switch a.lang:hover { background:rgba(255,255,255,0.12); color:#fff; }
+  .lang-switch .lang.on { background:rgba(255,255,255,0.9); color:#0f172a; font-weight:700;
+    border-color:transparent; }
+  .lang-switch .lang.soon { opacity:0.45; cursor:default; }
+  .lang-switch .lang.soon em { font-style:normal; font-size:0.62rem; margin-left:0.3rem;
+    opacity:0.85; }
+  .footer-links { margin-top:0.9rem; font-size:0.75rem; }
+  .footer-links a { color:var(--text-muted); text-decoration:none; }
+  .footer-links a:hover { color:var(--accent); text-decoration:underline; }
+  .footer-brand { margin-top:1.1rem; font-size:0.68rem; letter-spacing:0.04em;
+    color:var(--text-muted); opacity:0.55; }
+  @media (max-width:640px){ .issue-list{columns:1;} .hero h1{font-size:1.4rem;} }
+
+  :root {
+    --model:#1d4ed8; --research:#6d28d9; --business:#065f46;
+    --policy:#92400e; --tools:#0e7490;
+  }
+  .lead { max-width:760px; margin:0 auto 2.5rem; padding:1.5rem 1.7rem;
+    background:var(--card-bg); border:1px solid var(--border); border-radius:8px; }
+  .lead-label { font-size:0.7rem; font-weight:700; letter-spacing:0.14em;
+    color:var(--text-muted); margin-bottom:0.9rem; }
+  .lead ol { list-style:none; counter-reset:lead; display:flex; flex-direction:column; gap:0.7rem; }
+  .lead li { counter-increment:lead; position:relative; padding-left:1.9rem;
+    font-size:0.95rem; line-height:1.85; }
+  .lead li::before { content:counter(lead); position:absolute; left:0; top:0.3em;
+    width:1.25rem; height:1.25rem; border-radius:50%; background:var(--accent); color:#fff;
+    font-size:0.68rem; font-weight:700; display:flex; align-items:center; justify-content:center; }
+  .digest { max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:1rem; }
+  .card { padding:1.4rem 1.5rem; background:var(--card-bg); border:1px solid var(--border);
+    border-left:3px solid var(--text-muted); border-radius:8px; }
+  .card.model{border-left-color:var(--model)} .card.research{border-left-color:var(--research)}
+  .card.business{border-left-color:var(--business)} .card.policy{border-left-color:var(--policy)}
+  .card.tools{border-left-color:var(--tools)}
+  .card-top { display:flex; align-items:center; gap:0.6rem; margin-bottom:0.6rem; }
+  .card-label { font-size:0.66rem; font-weight:700; letter-spacing:0.06em; padding:2px 7px;
+    border-radius:3px; color:#fff; background:var(--text-muted); }
+  .card-label.model{background:var(--model)} .card-label.research{background:var(--research)}
+  .card-label.business{background:var(--business)} .card-label.policy{background:var(--policy)}
+  .card-label.tools{background:var(--tools)}
+  .stars { display:flex; gap:3px; }
+  .dot { width:6px; height:6px; border-radius:50%; background:var(--border); }
+  .dot.filled { background:var(--text-muted); }
+  .card-title-ja { font-size:1.08rem; font-weight:700; line-height:1.6; }
+  .card-title-en { margin-top:0.25rem; font-size:0.78rem; color:var(--text-muted); line-height:1.5; }
+  .card-source { margin-top:0.5rem; font-size:0.72rem; color:var(--text-muted); }
+  .card-body { margin-top:0.7rem; font-size:0.9rem; line-height:1.95; }
+  .card-link { display:inline-block; margin-top:0.9rem; font-size:0.82rem; font-weight:600;
+    color:var(--accent); text-decoration:none; }
+  .card-link:hover { text-decoration:underline; }
+  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(14,116,144,0.04),transparent); }
+  .card.top .card-title-ja { font-size:1.25rem; }
+  .tier { max-width:760px; margin:2rem auto 0.5rem; font-size:0.7rem; font-weight:700;
+    letter-spacing:0.14em; color:var(--text-muted); }
+  .tier:first-of-type { margin-top:0; }
+  .top-nav { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:1.3rem; }
+  .top-nav a { padding:0.4rem 0.95rem; border:1px solid rgba(255,255,255,0.3); border-radius:999px;
+    font-size:0.78rem; font-weight:600; color:#e2e8f0; text-decoration:none; }
+  .top-nav a:hover { background:rgba(255,255,255,0.12); }
+  .listen { max-width:760px; margin:0 auto 2.5rem; padding:1.2rem 1.4rem;
+    background:linear-gradient(135deg,#0f172a,#1e293b); border-radius:10px; color:#e2e8f0; }
+  .listen-head { display:flex; align-items:baseline; gap:0.6rem; flex-wrap:wrap; margin-bottom:0.75rem; }
+  .listen-head strong { font-size:0.95rem; color:#fff; }
+  .listen-head span { font-size:0.76rem; color:#94a3b8; }
+  .listen audio { width:100%; height:40px; display:block; }
+  .speed-row { display:flex; align-items:center; gap:0.4rem; margin-top:0.7rem; flex-wrap:wrap; }
+  .speed-label { font-size:0.7rem; color:#94a3b8; margin-right:0.2rem; }
+  .speed-btn { padding:0.3rem 0.75rem; background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.25); border-radius:999px; color:#e2e8f0;
+    font-size:0.75rem; font-weight:600; cursor:pointer; }
+  .speed-btn.on { background:#22d3ee; border-color:#22d3ee; color:#0f172a; }
+  .copy-feed { padding:0.25rem 0.7rem; background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.3); border-radius:6px; color:#e2e8f0;
+    font-size:0.72rem; font-weight:600; cursor:pointer; }
+  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#94a3b8; line-height:1.8; }
+  .listen-sub a { color:#7dd3fc; text-decoration:none; }
+  .listen-sub a:hover { text-decoration:underline; }
+  details.genre { max-width:760px; margin:0 auto 0.75rem; background:var(--card-bg);
+    border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+  details.genre > summary { list-style:none; cursor:pointer; padding:1rem 1.3rem;
+    display:flex; align-items:center; gap:0.7rem; font-weight:700; font-size:0.92rem;
+    -webkit-tap-highlight-color:transparent; }
+  details.genre > summary::-webkit-details-marker { display:none; }
+  details.genre > summary::before { content:"▸"; font-size:0.8rem; color:var(--text-muted);
+    transition:transform .15s; }
+  details.genre[open] > summary::before { transform:rotate(90deg); }
+  details.genre > summary .cnt { margin-left:auto; font-size:0.72rem; font-weight:600;
+    color:var(--text-muted); }
+  details.genre .genre-dot { width:9px; height:9px; border-radius:50%; background:var(--text-muted); }
+  details.genre.model .genre-dot{background:var(--model)} details.genre.research .genre-dot{background:var(--research)}
+  details.genre.business .genre-dot{background:var(--business)} details.genre.policy .genre-dot{background:var(--policy)}
+  details.genre.tools .genre-dot{background:var(--tools)}
+  details.genre .genre-body { padding:0 0.9rem 0.9rem; display:flex; flex-direction:column; gap:0.75rem; }
+  details.genre .card { border:none; border-left:3px solid var(--border); background:var(--bg);
+    border-radius:6px; }
+  .subscribe { max-width:760px; margin:2.5rem auto 0; padding:1rem 1.3rem; text-align:center;
+    border:1px dashed var(--border); border-radius:8px; font-size:0.8rem; color:var(--text-muted); }
+  .subscribe a { color:var(--accent); font-weight:600; text-decoration:none; }
+  @media (max-width:640px){ .card{padding:1.15rem 1.2rem} .card.top .card-title-ja{font-size:1.1rem} }
+
+  .t { color:var(--accent); border-bottom:1px dashed currentColor; cursor:help;
+    font-weight:500; }
+  .t:hover, .t:focus-visible { background:rgba(14,116,144,0.10); outline:none; border-radius:2px; }
+  #tip { position:absolute; z-index:60; max-width:min(22rem,88vw); padding:0.85rem 1rem;
+    background:var(--card-bg); border:1px solid var(--border); border-radius:8px;
+    box-shadow:0 8px 28px rgba(15,23,42,0.16); font-size:0.84rem; line-height:1.8;
+    opacity:0; visibility:hidden; transition:opacity .12s; pointer-events:none; }
+  #tip.on { opacity:1; visibility:visible; pointer-events:auto; }
+  #tip .tip-n { font-weight:700; display:block; margin-bottom:0.3rem; }
+  #tip .tip-m { display:inline-block; margin-top:0.5rem; font-size:0.78rem;
+    font-weight:600; color:var(--accent); text-decoration:none; }
+  #sheet { position:fixed; left:0; right:0; bottom:0; z-index:70; padding:1.4rem 1.4rem 2rem;
+    background:var(--card-bg); border-top:1px solid var(--border);
+    border-radius:16px 16px 0 0; box-shadow:0 -8px 32px rgba(15,23,42,0.22);
+    transform:translateY(102%); transition:transform .22s ease; }
+  #sheet.on { transform:translateY(0); }
+  #sheet .sheet-grip { width:36px; height:4px; border-radius:2px; background:var(--border);
+    margin:0 auto 1rem; }
+  #sheet .tip-n { font-size:1.05rem; font-weight:700; display:block; margin-bottom:0.5rem; }
+  #sheet .tip-s { font-size:0.92rem; line-height:1.95; color:var(--text-muted); }
+  #sheet .tip-m { display:block; margin-top:1.1rem; padding:0.75rem; text-align:center;
+    background:var(--accent); color:#fff; border-radius:8px; font-size:0.88rem;
+    font-weight:700; text-decoration:none; }
+  #veil { position:fixed; inset:0; z-index:69; background:rgba(15,23,42,0.35);
+    opacity:0; visibility:hidden; transition:opacity .22s; }
+  #veil.on { opacity:1; visibility:visible; }
+  @media (prefers-reduced-motion:reduce){ #sheet,#veil,#tip{transition:none} }
+</style>
+<!-- monetize.py: SEO / analytics -->
+<meta name="description" content="NVIDIAがHugging Faceを129億ドルで買収し、オープンAI開発の中心地がチップ大手の傘下に入ります。">
+<link rel="canonical" href="https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-04.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI最新ニュースまとめ 2026年9月4日 | 世界一わかりやすいAIニュース">
+<meta property="og:description" content="NVIDIAがHugging Faceを129億ドルで買収し、オープンAI開発の中心地がチップ大手の傘下に入ります。">
+<meta property="og:url" content="https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-04.html">
+<meta property="og:site_name" content="世界一わかりやすいAIニュース">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://teraco-labo.github.io/ai-news-digest/podcast/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="application/rss+xml" title="世界一わかりやすいAIニュース" href="https://teraco-labo.github.io/ai-news-digest/feed.xml">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "AI最新ニュースまとめ 2026年9月4日 | 世界一わかりやすいAIニュース", "description": "NVIDIAがHugging Faceを129億ドルで買収し、オープンAI開発の中心地がチップ大手の傘下に入ります。", "url": "https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-04.html", "inLanguage": "ja", "author": {"@type": "Person", "name": "てらこ先生"}, "publisher": {"@type": "Organization", "name": "世界一わかりやすいAIニュース"}, "datePublished": "2026-09-04T06:00:00+09:00", "dateModified": "2026-09-04T06:00:00+09:00"}</script>
+
+<style id="mz-style">
+  .mz-disclosure { max-width: 1100px; margin: 0 auto 1rem; padding: 0.5rem 0.75rem;
+    font-size: 0.7rem; line-height: 1.6; color: var(--text-muted, #64748b);
+    background: rgba(148,163,184,0.10); border-radius: 6px; }
+  .mz-block { max-width: 1100px; margin: 2rem auto; }
+  .mz-head { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+  .mz-head h2 { font-size: 0.9rem; font-weight: 700; color: var(--text, #1e293b); letter-spacing: 0.02em; }
+  .mz-pr { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em; padding: 2px 6px;
+    border-radius: 3px; background: #94a3b8; color: #fff; }
+  .mz-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+  .mz-card { display: flex; flex-direction: column; gap: 0.4rem; padding: 1rem;
+    background: var(--card-bg, #fff); border: 1px solid var(--border, #e2e8f0);
+    border-left: 3px solid #0e7490; border-radius: 8px; }
+  .mz-card .mz-name { font-size: 0.68rem; font-weight: 600; color: var(--text-muted, #64748b); letter-spacing: 0.04em; }
+  .mz-card .mz-title { font-size: 0.95rem; font-weight: 700; color: var(--text, #1e293b); line-height: 1.5; }
+  .mz-card .mz-body { font-size: 0.8rem; line-height: 1.7; color: var(--text-muted, #64748b); }
+  .mz-card .mz-cta { margin-top: auto; padding-top: 0.6rem; font-size: 0.8rem; font-weight: 600;
+    color: #0e7490; text-decoration: none; }
+  .mz-card .mz-cta:hover { text-decoration: underline; }
+  .mz-badge { align-self: flex-start; font-size: 0.6rem; font-weight: 700; padding: 2px 6px;
+    border-radius: 3px; background: #0e7490; color: #fff; }
+  .mz-cta-block { max-width: 1100px; margin: 2rem auto; padding: 1.5rem;
+    background: linear-gradient(135deg, #0f172a, #1e293b); border-radius: 10px; color: #e2e8f0; }
+  .mz-cta-block h2 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: #fff; }
+  .mz-cta-block p { font-size: 0.85rem; line-height: 1.8; color: #cbd5e1; }
+  .mz-cta-block a { display: inline-block; margin-top: 0.9rem; padding: 0.6rem 1.4rem;
+    background: #22d3ee; color: #0f172a; font-size: 0.85rem; font-weight: 700;
+    border-radius: 6px; text-decoration: none; }
+  .mz-ad { max-width: 1100px; margin: 2rem auto; text-align: center; }
+</style>
+
+<!-- monetize.py: SEO / analytics -->
+<meta name="description" content="2026年09月04日のAI関連ニュース13件を日本語で要約。モデル・研究・ビジネス・ポリシー・ツールの5カテゴリで重要ニュースだけを厳選しています。">
+<link rel="canonical" href="https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-04.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI最新ニュースまとめ 2026年09月04日 | 世界一わかりやすいAIニュース">
+<meta property="og:description" content="2026年09月04日のAI関連ニュース13件を日本語で要約。モデル・研究・ビジネス・ポリシー・ツールの5カテゴリで重要ニュースだけを厳選しています。">
+<meta property="og:url" content="https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-04.html">
+<meta property="og:site_name" content="世界一わかりやすいAIニュース">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://teraco-labo.github.io/ai-news-digest/podcast/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="application/rss+xml" title="世界一わかりやすいAIニュース" href="https://teraco-labo.github.io/ai-news-digest/feed.xml">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "AI最新ニュースまとめ 2026年09月04日 | 世界一わかりやすいAIニュース", "description": "2026年09月04日のAI関連ニュース13件を日本語で要約。モデル・研究・ビジネス・ポリシー・ツールの5カテゴリで重要ニュースだけを厳選しています。", "url": "https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-04.html", "inLanguage": "ja", "author": {"@type": "Person", "name": "てらこ先生"}, "publisher": {"@type": "Organization", "name": "世界一わかりやすいAIニュース"}, "datePublished": "2026-09-04T06:00:00+09:00", "dateModified": "2026-09-04T06:00:00+09:00"}</script>
+
+<style id="mz-style">
+  .mz-disclosure { max-width: 1100px; margin: 0 auto 1rem; padding: 0.5rem 0.75rem;
+    font-size: 0.7rem; line-height: 1.6; color: var(--text-muted, #64748b);
+    background: rgba(148,163,184,0.10); border-radius: 6px; }
+  .mz-block { max-width: 1100px; margin: 2rem auto; }
+  .mz-head { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+  .mz-head h2 { font-size: 0.9rem; font-weight: 700; color: var(--text, #1e293b); letter-spacing: 0.02em; }
+  .mz-pr { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em; padding: 2px 6px;
+    border-radius: 3px; background: #94a3b8; color: #fff; }
+  .mz-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+  .mz-card { display: flex; flex-direction: column; gap: 0.4rem; padding: 1rem;
+    background: var(--card-bg, #fff); border: 1px solid var(--border, #e2e8f0);
+    border-left: 3px solid #0e7490; border-radius: 8px; }
+  .mz-card .mz-name { font-size: 0.68rem; font-weight: 600; color: var(--text-muted, #64748b); letter-spacing: 0.04em; }
+  .mz-card .mz-title { font-size: 0.95rem; font-weight: 700; color: var(--text, #1e293b); line-height: 1.5; }
+  .mz-card .mz-body { font-size: 0.8rem; line-height: 1.7; color: var(--text-muted, #64748b); }
+  .mz-card .mz-cta { margin-top: auto; padding-top: 0.6rem; font-size: 0.8rem; font-weight: 600;
+    color: #0e7490; text-decoration: none; }
+  .mz-card .mz-cta:hover { text-decoration: underline; }
+  .mz-badge { align-self: flex-start; font-size: 0.6rem; font-weight: 700; padding: 2px 6px;
+    border-radius: 3px; background: #0e7490; color: #fff; }
+  .mz-cta-block { max-width: 1100px; margin: 2rem auto; padding: 1.5rem;
+    background: linear-gradient(135deg, #0f172a, #1e293b); border-radius: 10px; color: #e2e8f0; }
+  .mz-cta-block h2 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: #fff; }
+  .mz-cta-block p { font-size: 0.85rem; line-height: 1.8; color: #cbd5e1; }
+  .mz-cta-block a { display: inline-block; margin-top: 0.9rem; padding: 0.6rem 1.4rem;
+    background: #22d3ee; color: #0f172a; font-size: 0.85rem; font-weight: 700;
+    border-radius: 6px; text-decoration: none; }
+  .mz-ad { max-width: 1100px; margin: 2rem auto; text-align: center; }
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-inner">
+    <div class="crumbs"><a href="./">世界一わかりやすいAIニュース</a></div>
+    <h1>2026年9月4日（金）のAIニュース</h1>
+    <p>厳選 13 件。3分で今日のAIがわかります。</p>
+    <div class="top-nav">
+      <a href="./">トップ</a>
+      <a href="articles/">読み物</a>
+      <a href="terms/">AI用語集</a>
+      <a href="archive.html">バックナンバー</a><a href="#listen">🎧 音声で聴く</a>
+    </div>
+    <div class="lang-switch"><span class="globe">🌐</span><span class="lang on">日本語</span><span class="lang soon" title="準備中">English<em>準備中</em></span><span class="lang soon" title="準備中">中文<em>準備中</em></span><span class="lang soon" title="準備中">Español<em>準備中</em></span></div>
+  </div>
+</div>
+
+<main>
+  <div class="lead">
+    <div class="lead-label">今日の3行まとめ</div>
+    <ol>
+      <li><span class="t" data-t="nvidia" tabindex="0" role="button" aria-label="NVIDIAの説明を見る">NVIDIA</span>が<span class="t" data-t="hugging-face" tabindex="0" role="button" aria-label="Hugging Faceの説明を見る">Hugging Face</span>を129億ドルで買収し、<span class="t" data-t="openai" tabindex="0" role="button" aria-label="オープンAIの説明を見る">オープンAI</span>開発の中心地がチップ大手の傘下に入ります。</li>
+      <li>OpenAIが計算機・ブラウザ操作に強い新モデル<span class="t" data-t="astra" tabindex="0" role="button" aria-label="Astraの説明を見る">Astra</span>（<span class="t" data-t="gpt" tabindex="0" role="button" aria-label="GPTの説明を見る">GPT</span>-6）を公開し、<span class="t" data-t="agi" tabindex="0" role="button" aria-label="AGIの説明を見る">AGI</span>到達への布石だと位置づけています。</li>
+      <li>ChatGPT・<span class="t" data-t="claude" tabindex="0" role="button" aria-label="Claudeの説明を見る">Claude</span>・<span class="t" data-t="xai" tabindex="0" role="button" aria-label="Grokの説明を見る">Grok</span>・<span class="t" data-t="gemini" tabindex="0" role="button" aria-label="Geminiの説明を見る">Gemini</span>が同時刻に落ちる異例の障害が発生し、原因は各社とも説明していません。</li>
+    </ol>
+  </div>
+
+  <div class="listen" id="listen">
+    <div class="listen-head">
+      <strong>🎧 今日の音声版</strong>
+      <span>対話形式・ながら聴き向け（10〜15分）</span>
+    </div>
+    <audio id="pod-audio" controls preload="none" src="podcast/ai-news-2026-09-04.mp3">
+      <a href="podcast/ai-news-2026-09-04.mp3">音声ファイルを開く</a>
+    </audio>
+    <div class="speed-row"><span class="speed-label">再生速度</span>
+      <button type="button" class="speed-btn" data-speed="0.75">0.75×</button>
+      <button type="button" class="speed-btn" data-speed="1">1×</button>
+      <button type="button" class="speed-btn" data-speed="1.25">1.25×</button>
+      <button type="button" class="speed-btn" data-speed="1.5">1.5×</button>
+      <button type="button" class="speed-btn" data-speed="2">2×</button>
+      <button type="button" class="speed-btn" data-speed="2.5">2.5×</button>
+    </div>
+    <div class="listen-sub">ポッドキャストアプリで毎朝受け取るには <button type="button" class="copy-feed" data-copy="https://teraco-labo.github.io/ai-news-digest/podcast/feed.xml" onclick="navigator.clipboard.writeText(this.dataset.copy).then(()=>{this.textContent='✓ コピーしました';setTimeout(()=>this.textContent='番組アドレスをコピー',2000);});">番組アドレスをコピー</button> して、アプリの「番組を追加」に貼り付けてください</div>
+  </div>
+<script>
+(function(){
+  var audio = document.getElementById('pod-audio');
+  if (!audio) return;
+  var btns = document.querySelectorAll('.speed-btn');
+  function apply(v){
+    audio.playbackRate = parseFloat(v);
+    btns.forEach(function(b){ b.classList.toggle('on', b.dataset.speed === v); });
+    try { localStorage.setItem('wk-speed', v); } catch(e) {}
+  }
+  var saved = '1';
+  try { saved = localStorage.getItem('wk-speed') || '1'; } catch(e) {}
+  apply(saved);
+  audio.addEventListener('play', function(){ audio.playbackRate = parseFloat(saved); });
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){ saved = b.dataset.speed; apply(saved); });
+  });
+})();
+</script>
+
+  <div class="tier">注目のニュース</div>
+  <div class="digest">
+    <article class="card model top">
+      <div class="card-top">
+        <span class="card-label model">モデル</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
+      </div>
+      <div class="card-title-ja">OpenAI、GPT-6 Astraを公開「AGI時代の入口」と主張</div>
+      <div class="card-title-en">GPT-6 Astra Is Here—and OpenAI Thinks It May Kick Off the AGI Era</div>
+      <div class="card-source">Wired AI · Thu, 03 Se</div>
+      <div class="card-body">OpenAIが次世代モデルGPT-6 Astraの提供を開始しました。コンピュータ操作とブラウザ操作、そしてコーディングを得意分野に据え、同社は「computer useとbrowser useの新しいフロンティア」であり、速度・正確性・安全性で他に並ぶものがないと説明しています。経営陣はこのモデルがAGI（人間並みに幅広い知的作業をこなすAI）に向けた重要な節目になりうるとの見方を示しました。<span class="t" data-t="ai-agent" tabindex="0" role="button" aria-label="エージェントの説明を見る">エージェント</span>が人の代わりに画面を操作する用途が実用段階に入るかどうかが、今後数か月の論点になります。</div>
+      <a class="card-link" href="https://www.wired.com/story/openai-says-gpt-6-can-use-a-computer-better-than-a-human/" target="_blank" rel="noopener">元記事を読む →</a>
+    </article>
+    <article class="card business top">
+      <div class="card-top">
+        <span class="card-label business">ビジネス</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
+      </div>
+      <div class="card-title-ja">NVIDIA、Hugging Faceを129億ドルで買収</div>
+      <div class="card-title-en">Nvidia confirms it will buy Hugging Face for $12.9 billion</div>
+      <div class="card-source">TechCrunch AI · Thu, 03 Se</div>
+      <div class="card-body">NVIDIAが、AIモデルの共有基盤であるHugging Faceを129億ドル（約1.9兆円）で買収すると正式に発表しました。Hugging Faceには300万を超えるモデルがホストされ、1800万人以上の開発者が利用しています。NVIDIAは買収後もプラットフォームをオープンなまま維持すると表明しており、「AIのGitHub」と呼ばれる中立的なハブがチップメーカーの傘下に入ることへの反応が焦点です。<span class="t" data-t="gpu" tabindex="0" role="button" aria-label="GPUの説明を見る">GPU</span>を売る側がモデル流通の入口まで押さえる形になり、<span class="t" data-t="open-weight" tabindex="0" role="button" aria-label="オープンウェイトの説明を見る">オープンウェイト</span>陣営にとっては後ろ盾であると同時に、依存先が一社に寄るリスクにもなります。</div>
+      <a class="card-link" href="https://techcrunch.com/2026/09/03/nvidia-confirms-it-will-buy-hugging-face-for-12-9-billion/" target="_blank" rel="noopener">元記事を読む →</a>
+    </article>
+    <article class="card tools top">
+      <div class="card-top">
+        <span class="card-label tools">ツール</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
+      </div>
+      <div class="card-title-ja">ChatGPT・Claude・Grok・Geminiが同時に停止</div>
+      <div class="card-title-en">Four major AI models suffer rare overlapping downtime</div>
+      <div class="card-source">Ars Technica · Thu, 03 Se</div>
+      <div class="card-body">主要な<span class="t" data-t="generative-ai" tabindex="0" role="button" aria-label="生成AIの説明を見る">生成AI</span>サービス4つが、ほぼ同じ時刻にそろって障害を起こしました。ChatGPT、Claude、Grok、Geminiが相次いで応答しなくなり、OpenAIの<span class="t" data-t="codex" tabindex="0" role="button" aria-label="Codexの説明を見る">Codex</span>にも影響が及んでいます。各社とも原因の詳細を公表しておらず、共通のクラウド基盤やネットワーク経路に起因するのではないかという推測が飛び交っている状況です。業務にAIを組み込んでいる企業にとっては、複数社を使い分けていても同時に止まりうるという事実が突きつけられた形になります。</div>
+      <a class="card-link" href="https://arstechnica.com/ai/2026/09/four-major-ai-models-suffer-rare-overlapping-downtime/" target="_blank" rel="noopener">元記事を読む →</a>
+    </article>
+  </div>
+  <div class="tier">ジャンル別のニュース（タップで開く）</div>
+  <details class="genre model">
+    <summary><span class="genre-dot"></span>モデル<span class="cnt">1件</span></summary>
+    <div class="genre-body">
+    <article class="card model">
+      <div class="card-top">
+        <span class="card-label model">モデル</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja">Google、天気予報モデル<span class="t" data-t="weathernext-3" tabindex="0" role="button" aria-label="WeatherNext 3の説明を見る">WeatherNext 3</span>を検索やマップに投入</div>
+      <div class="card-title-en">Google’s latest AI weather model gives you no excuse to forget your umbrella</div>
+      <div class="card-source">TechCrunch AI · Thu, 03 Se</div>
+      <div class="card-body">Googleが最新の気象予測モデルWeatherNext 3を発表しました。深層学習による予報は従来の数値計算中心の気象学を大きく塗り替えつつあり、今回のモデルはその流れの最新版にあたります。Googleは、検索・Googleマップ・Geminiで利用者が目にする天気情報にこのモデルを組み込んでいくとしています。研究段階の成果が数億人規模の日常的なサービスに直接流し込まれる、応用側の代表例です。</div>
+      <a class="card-link" href="https://techcrunch.com/2026/09/03/googles-latest-ai-weather-model-gives-you-no-excuse-to-forget-your-umbrella/" target="_blank" rel="noopener">元記事を読む →</a>
+    </article>
+    </div>
+  </details>
+  <details class="genre research">
+    <summary><span class="genre-dot"></span>研究<span class="cnt">2件</span></summary>
+    <div class="genre-body">
+    <article class="card research">
+      <div class="card-top">
+        <span class="card-label research">研究</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja">Abliteration.ai、<span class="t" data-t="guardrail" tabindex="0" role="button" aria-label="ガードレールの説明を見る">ガードレール</span>を外したモデルを商売にする</div>
+      <div class="card-title-en">Abliteration.ai is making a business out of removing AI guardrails</div>
+      <div class="card-source">TechCrunch AI · Thu, 03 Se</div>
+      <div class="card-body">Abliteration.AIは、AIモデルから安全機構（ガードレール）を取り除いたものを誰でも使える形で提供する事業を始めました。同社の主張は、防御側が攻撃側と同じ道具を持てることで最終的にサイバーセキュリティは改善する、というものです。モデルの重みを操作して拒否応答を消す「abliteration」という手法が、研究者の実験から商用サービスへと移った形になります。安全対策の解除そのものが値付けされる市場が生まれたことで、オープンウェイトモデルの扱いをめぐる議論は新しい段階に入ります。</div>
+      <a class="card-link" href="https://techcrunch.com/2026/09/03/abliteration-ai-is-making-a-business-out-of-removing-ai-guardrails/" target="_blank" rel="noopener">元記事を読む →</a>
+    </article>
+    <article class="card research">
+      <div class="card-top">
+        <span class="card-label research">研究</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja">囲碁棋士シン九段、2子置かせて<span class="t" data-t="katago" tabindex="0" role="button" aria-label="KataGoの説明を見る">KataGo</span>に勝利</div>
+      <div class="card-title-en">Go grandmaster Shin defeats AI KataGo with a two-stone handicap</div>
+      <div class="card-source">Hacker News · 2026-09-03</div>
+      <div class="card-body">囲碁のグランドマスターであるシン棋士が、AI囲碁エンジンのKataGoに2子のハンディキャップを与えた対局で勝利しました。AIが人間を圧倒して久しい囲碁で、しかもハンディを負った状態での勝利という点が話題を呼んでいます。強力なAIにも探索の穴や苦手な局面構成が残っていることを示す結果で、トップ棋士はそこを突く戦い方を磨いてきました。<span class="t" data-t="benchmark" tabindex="0" role="button" aria-label="ベンチマークの説明を見る">ベンチマーク</span>上の強さと、人間が仕掛ける想定外の状況への頑健さは別物だという、実践的な示唆があります。</div>
+      <a class="card-link" href="https://www.kedglobal.com/artificial-intelligence/newsView/ked202607210007" target="_blank" rel="noopener">元記事を読む →</a>
+    </article>
+    </div>
+  </details>
+  <details class="genre business">
+    <summary><span class="genre-dot"></span>ビジネス<span class="cnt">3件</span></summary>
+    <div class="genre-body">
+    <article class="card business">
+      <div class="card-top">
+        <span class="card-label business">ビジネス</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja"><span class="t" data-t="thinking-machines" tabindex="0" role="button" aria-label="Thinking Machinesの説明を見る">Thinking Machines</span>、<span class="t" data-t="valuation" tabindex="0" role="button" aria-label="評価額の説明を見る">評価額</span>400億ドルで10億ドル調達か</div>
+      <div class="card-title-en">Accel reportedly in talks to lead $1B round for Thinking Machines at $40B valuation</div>
+      <div class="card-source">TechCrunch AI · Thu, 03 Se</div>
+      <div class="card-body"><span class="t" data-t="accel" tabindex="0" role="button" aria-label="Accelの説明を見る">Accel</span>が主導する形で、Thinking Machinesに10億ドルを投じる<span class="t" data-t="funding-round" tabindex="0" role="button" aria-label="資金調達の説明を見る">資金調達</span>の交渉が進んでいると報じられました。評価額は400億ドルとされています。同社の<span class="t" data-t="arr" tabindex="0" role="button" aria-label="年間経常収益の説明を見る">年間経常収益</span>（ARR）は1億ドル超で、評価額は売上の約400倍という水準です。実績よりも人材と将来性に賭ける、生成AIスタートアップ特有の値づけがなお続いていることを示す取引です。</div>
+      <a class="card-link" href="https://techcrunch.com/2026/09/03/accel-reportedly-in-talks-to-lead-1b-round-for-thinking-machines-at-40b-valuation/" target="_blank" rel="noopener">元記事を読む →</a>
+    </article>
+    <article class="card business">
+      <div class="card-top">
+        <span class="card-label business">ビジネス</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja">OpenAI、マスク回避のため<span class="t" data-t="cursor" tabindex="0" role="button" aria-label="Cursorの説明を見る">Cursor</span>との10億ドル契約を解消</div>
+      <div class="card-title-en">OpenAI Cut Off a Billion-Dollar Customer to Avoid Elon Musk</div>
+      <div class="card-source">Wired AI · Thu, 03 Se</div>
+      <div class="card-body">OpenAIが、<span class="t" data-t="agentic-coding" tabindex="0" role="button" aria-label="AIコーディングの説明を見る">AIコーディング</span>企業Cursorとの提携を打ち切っていたことが分かりました。WIREDによれば、OpenAIはこの提携から年間10億ドルを超える収益を見込んでいたといいます。それでも手を引いた理由は、<span class="t" data-t="elon-musk" tabindex="0" role="button" aria-label="イーロン・マスクの説明を見る">イーロン・マスク</span>の<span class="t" data-t="spacex" tabindex="0" role="button" aria-label="SpaceXの説明を見る">SpaceX</span>がCursorを買収したためです。10億ドル規模の売上を捨ててでも競合の影響下にある企業とは組まないという判断で、AI業界の対立が商流そのものを組み替え始めています。</div>
+      <a class="card-link" href="https://www.wired.com/story/openai-elon-musk-cursor-billion-revenue/" target="_blank" rel="noopener">元記事を読む →</a>
+    </article>
+    <article class="card business">
+      <div class="card-top">
+        <span class="card-label business">ビジネス</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja"><span class="t" data-t="meta-ai" tabindex="0" role="button" aria-label="Metaの説明を見る">Meta</span>、<span class="t" data-t="prompt" tabindex="0" role="button" aria-label="プロンプトの説明を見る">プロンプト</span>提供と引き換えに約95%割引</div>
+      <div class="card-title-en">Meta is paying to peek at how you use their latest AI model</div>
+      <div class="card-source">TechCrunch AI · Thu, 03 Se</div>
+      <div class="card-body">Metaが新モデル<span class="t" data-t="muse-spark" tabindex="0" role="button" aria-label="Muse Sparkの説明を見る">Muse Spark</span>で、利用者のプロンプトとモデル出力を将来の開発に「提供」してもらう代わりに、平均で約95%の割引を明示的に提示しています。Muse Sparkはコーディングをはじめとするエージェントの動作を担う位置づけのモデルです。データを差し出すかどうかを利用者に選ばせ、価格差として見せる設計になっており、無償利用の裏で暗黙にデータを取る従来のやり方とは対照的です。<span class="t" data-t="training-data" tabindex="0" role="button" aria-label="学習データの説明を見る">学習データ</span>の獲得競争が、値引きという分かりやすい形で表に出てきました。</div>
+      <a class="card-link" href="https://techcrunch.com/2026/09/03/meta-is-paying-to-peek-at-how-you-use-their-latest-ai-model/" target="_blank" rel="noopener">元記事を読む →</a>
+    </article>
+    </div>
+  </details>
+  <details class="genre policy">
+    <summary><span class="genre-dot"></span>ポリシー<span class="cnt">2件</span></summary>
+    <div class="genre-body">
+    <article class="card policy">
+      <div class="card-top">
+        <span class="card-label policy">ポリシー</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja">WIRED、警察向けAI検索ツール<span class="t" data-t="flock" tabindex="0" role="button" aria-label="Flockの説明を見る">Flock</span>の中身を再現</div>
+      <div class="card-title-en">This Is Flock’s AI Search Tool for Cops</div>
+      <div class="card-source">Wired AI · Thu, 03 Se</div>
+      <div class="card-body">WIREDが、Flockが警察官のブラウザに送っているコードから同社の最新検索ツールを再構築し、その仕組みを公開しました。このツールのAIは、文章で書かれた人物描写に合致する人間を複数のカメラをまたいで探し続けることができます。「赤い上着の男性」といった言葉による指定だけで追跡対象を設定できるため、令状や個別の照会を前提としてきた捜査手続きとの整合が問われます。監視カメラ網と<span class="t" data-t="multimodal" tabindex="0" role="button" aria-label="マルチモーダルAIの説明を見る">マルチモーダルAI</span>が結びついたときに何が可能になるかを、実装レベルで示した報道です。</div>
+      <a class="card-link" href="https://www.wired.com/story/flock-ai-search-user-interface/" target="_blank" rel="noopener">元記事を読む →</a>
+    </article>
+    <article class="card policy">
+      <div class="card-top">
+        <span class="card-label policy">ポリシー</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja"><span class="t" data-t="metr" tabindex="0" role="button" aria-label="METRの説明を見る">METR</span>、OpenAI・Hugging Face侵害インシデントの報告書を公開</div>
+      <div class="card-title-en">METR Report on OpenAI / Hugging Face Hacking Incident</div>
+      <div class="card-source">Hacker News · 2026-09-02</div>
+      <div class="card-body">評価機関のMETRが、OpenAIとHugging Faceに関わるハッキング事案についての報告書を公表しました。Hacker Newsで122ポイントを集めています。買収の発表と同じタイミングでセキュリティ事案の検証結果が出た形で、モデル配布の基盤がどこまで守られているかという論点が重なりました。多数のモデルと開発者が一箇所に集まるハブは、それ自体が攻撃対象として価値を持ちます。</div>
+      <a class="card-link" href="https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/#core-takeaways-about-this-incident" target="_blank" rel="noopener">元記事を読む →</a>
+    </article>
+    </div>
+  </details>
+  <details class="genre tools">
+    <summary><span class="genre-dot"></span>ツール<span class="cnt">2件</span></summary>
+    <div class="genre-body">
+    <article class="card tools">
+      <div class="card-top">
+        <span class="card-label tools">ツール</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja">NVIDIA RTX Spark搭載、AIをPC内で動かすノートPCが登場</div>
+      <div class="card-title-en">Nvidia RTX Spark ‘Superchip’: The First AI PCs Are Here</div>
+      <div class="card-source">Wired AI · Thu, 03 Se</div>
+      <div class="card-body">IFA 2026で、NVIDIAとパートナー各社がRTX Spark「スーパーチップ」を積んだノートPCとミニPCを披露しました。いずれもAIモデルを手元のコンピュータ上で直接動かすことを狙った設計です。クラウドに送らずに済むため、機密データを扱う業務や通信が不安定な環境での利用が現実味を帯びます。同時多発的なクラウド障害が起きた日に登場したという点でも、オンデバイス実行の意味が際立ちます。</div>
+      <a class="card-link" href="https://www.wired.com/story/nvidia-rtx-spark-laptops-first-look/" target="_blank" rel="noopener">元記事を読む →</a>
+    </article>
+    <article class="card tools">
+      <div class="card-top">
+        <span class="card-label tools">ツール</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja">Qwen 3.8 27B、Cerebrasで毎秒1500トークン</div>
+      <div class="card-title-en">Qwen 3.8 27B available on Cerebras at 1500 tokens/s</div>
+      <div class="card-source">Hacker News · 2026-09-03</div>
+      <div class="card-body">Qwen 3.8の27BパラメータモデルがCerebrasの基盤上で提供され、毎秒1500トークンという生成速度を記録しました。一般的なGPU推論と比べて桁違いの速さで、Hacker Newsでも392ポイントを集めて注目されています。この速度域になると、AIが1文字ずつ返してくるのを待つ体験そのものが変わり、エージェントが何十回も思考と再試行を繰り返す使い方が現実的になります。専用チップによる推論高速化が、モデル性能とは別軸の競争軸として立ち上がってきました。</div>
+      <a class="card-link" href="https://inference-docs.cerebras.ai/models/overview" target="_blank" rel="noopener">元記事を読む →</a>
+    </article>
+    </div>
+  </details>
+
+  <div class="section-label">毎朝うけとる</div>
+  <div class="sub-grid">
+    <div class="sub-card sub-embed">
+      <span class="sub-ico">🎧</span>
+      <span class="sub-t">ポッドキャストで聴く</span>
+      <span class="sub-d">お使いのポッドキャストアプリの「番組を追加」「URLで追加」に、下のボタンでコピーした番組アドレスを貼り付けてください</span>
+      <button type="button" class="sub-copy" data-copy="https://teraco-labo.github.io/ai-news-digest/podcast/feed.xml" onclick="navigator.clipboard.writeText(this.dataset.copy).then(()=>{this.textContent='✓ コピーしました';setTimeout(()=>this.textContent='番組アドレスをコピー',2000);});">番組アドレスをコピー</button>
+    </div>
+  </div>
+  <p class="sub-advanced">上級者向け：<a href="feed.xml">RSS配信</a>（サイトの更新を自動で受け取るための仕組みです。Feedly などのRSSリーダーをお使いの方はこちらを登録してください）</p>
+
+</main>
+
+<footer>
+  <strong>世界一わかりやすいAIニュース</strong> — 2026年9月4日（金）／ 13 件収録<br>
+  毎朝6時に自動生成しています。
+  <div class="footer-links"><a href="">トップ</a> ／ <a href="terms/">AI用語集</a> ／ <a href="articles/">読み物</a> ／ <a href="archive.html">バックナンバー</a> ／ <a href="about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
+  <div class="footer-brand">Teraco News by てらこ先生</div>
+</footer>
+<script type="application/json" id="glossary-data">{"accel": {"n": "Accel", "r": "アクセル", "s": "アメリカのベンチャーキャピタル（投資会社）です。創業間もない企業に出資します。", "u": "terms/accel.html"}, "agentic-coding": {"n": "エージェント型コーディング", "r": "", "s": "AIが自分でファイルを読み書きし、テストを実行しながらプログラムを完成させる開発の進め方です。", "u": "terms/agentic-coding.html"}, "agi": {"n": "AGI", "r": "エージーアイ", "s": "人間ができる知的作業を、分野を問わず一通りこなせるAIのことです。まだ実現しておらず、定義自体も定まっていません。", "u": "terms/agi.html"}, "ai-agent": {"n": "AIエージェント", "r": "エーアイエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "arr": {"n": "ARR", "r": "エーアールアール", "s": "月額や年額で継続して支払われるサービスが、1年間で受け取る見込みの売上です。契約が続く前提で計算します。", "u": "terms/arr.html"}, "astra": {"n": "Astra", "r": "アストラ", "s": "OpenAI がこれから公開する新しい AI モデルの名前です。コンピュータへの侵入を伴う作業がとても得意だとされています。", "u": "terms/astra.html"}, "benchmark": {"n": "ベンチマーク", "r": "ベンチマーク", "s": "AIの性能を共通のテストで測るための指標です。モデル同士の比較に使われます。", "u": "terms/benchmark.html"}, "claude": {"n": "Claude", "r": "クロード", "s": "Anthropicが開発しているAIアシスタントです。長文の読解や文章作成、プログラミングに強みがあります。", "u": "terms/claude.html"}, "codex": {"n": "Codex", "r": "コーデックス", "s": "OpenAI が提供している、プログラムを書く作業を任せるためのAIです。人が指示を出すと、コードを書いたり直したりします。", "u": "terms/codex.html"}, "cursor": {"n": "Cursor", "r": "カーソル", "s": "AIがコードを書くのを手伝うプログラミング用のエディタです。", "u": "terms/cursor.html"}, "elon-musk": {"n": "イーロン・マスク", "r": "イーロン・マスク", "s": "テスラやスペースX、X（旧Twitter）を率いる実業家です。AI企業xAIも設立しました。", "u": "terms/elon-musk.html"}, "flock": {"n": "Flock", "r": "フロック", "s": "警察向けに監視カメラと検索の仕組みを提供している会社です。カメラの映像をAIで探せるようにしています。", "u": "terms/flock.html"}, "funding-round": {"n": "資金調達ラウンド", "r": "", "s": "スタートアップが投資家からお金を集める段階のことです。シード、シリーズA、Bと進みます。", "u": "terms/funding-round.html"}, "gemini": {"n": "Gemini", "r": "ジェミニ", "s": "Googleが開発しているAIモデルです。文章・画像・音声・動画をまとめて扱えることを特徴としています。", "u": "terms/gemini.html"}, "generative-ai": {"n": "生成AI", "r": "", "s": "文章・画像・音声・動画などを新しく作り出せるAIの総称です。分類や予測をするだけだった従来のAIとの違いがここにあります。", "u": "terms/generative-ai.html"}, "gpt": {"n": "GPT", "r": "ジーピーティー", "s": "OpenAIが開発しているAIモデルのシリーズ名です。ChatGPTの中身がこれにあたります。", "u": "terms/gpt.html"}, "gpu": {"n": "GPU", "r": "ジーピーユー", "s": "大量の計算を同時に行える半導体で、AIの学習と実行に欠かせない部品です。", "u": "terms/gpu.html"}, "guardrail": {"n": "ガードレール", "r": "ガードレール", "s": "AIが不適切な出力をしないように設ける制限や検査の仕組みです。", "u": "terms/guardrail.html"}, "hugging-face": {"n": "Hugging Face", "r": "ハギングフェイス", "s": "AIモデルやデータセットを誰でも公開・共有できるプラットフォームです。「AI版GitHub」と呼ばれます。", "u": "terms/hugging-face.html"}, "katago": {"n": "KataGo", "r": "カタゴー", "s": "囲碁を打つAIプログラムです。公開されていて誰でも使えます。", "u": "terms/katago.html"}, "meta-ai": {"n": "Meta", "r": "メタ", "s": "FacebookやInstagramを運営する企業で、AIモデル「Llama」を公開しています。", "u": "terms/meta-ai.html"}, "metr": {"n": "METR", "r": "メーター", "s": "AIの能力やリスクを外部から検証する組織です。企業の言い分をそのまま受け取らず、自分たちで測ります。", "u": "terms/metr.html"}, "multimodal": {"n": "マルチモーダル", "r": "マルチモーダル", "s": "文章だけでなく、画像・音声・動画も一緒に扱えるAIのことです。写真を見せて質問できるのはこの能力によるものです。", "u": "terms/multimodal.html"}, "muse-spark": {"n": "Muse Spark", "r": "ミューズスパーク", "s": "Metaが新しく出したAIモデルの名前です。コードを書く作業などを自動で進める用途を想定しています。", "u": "terms/muse-spark.html"}, "nvidia": {"n": "NVIDIA", "r": "エヌビディア", "s": "AI開発に不可欠なGPUを作っている半導体企業です。生成AIブームの最大の受益者と言われています。", "u": "terms/nvidia.html"}, "open-weight": {"n": "オープンウェイト", "r": "オープンウェイト", "s": "モデルの中身（重み）が公開されていて、誰でもダウンロードして動かせる形態のことです。", "u": "terms/open-weight.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "prompt": {"n": "プロンプト", "r": "プロンプト", "s": "AIに与える指示や質問の文章のことです。書き方しだいで返ってくる答えの質が大きく変わります。", "u": "terms/prompt.html"}, "spacex": {"n": "SpaceX", "r": "スペースエックス", "s": "ロケットと人工衛星を作っているアメリカの会社です。Elon Musk が率いています。", "u": "terms/spacex.html"}, "thinking-machines": {"n": "Thinking Machines", "r": "シンキングマシンズ", "s": "AI開発を手がける新興企業です。設立から間もないながら、非常に高い評価額で資金を集めています。", "u": "terms/thinking-machines.html"}, "training-data": {"n": "学習データ", "r": "", "s": "AIを訓練するために読み込ませる大量のデータのことです。AIの性能と偏りの両方を決める土台です。", "u": "terms/training-data.html"}, "valuation": {"n": "評価額", "r": "ひょうかがく", "s": "投資を受ける際に算定される企業の価値のことです。「10億ドルの評価額で調達」のように使われます。", "u": "terms/valuation.html"}, "weathernext-3": {"n": "WeatherNext 3", "r": "ウェザーネクストスリー", "s": "Googleが作った天気を予測するAIです。検索やマップに表示される天気予報に使われていきます。", "u": "terms/weathernext-3.html"}, "xai": {"n": "xAI", "r": "エックスエーアイ", "s": "イーロン・マスク氏が設立したAI企業です。AIモデル「Grok」を開発しています。", "u": "terms/xai.html"}}</script>
+
+<script>
+(function(){
+  var el = document.getElementById('glossary-data');
+  if (!el) return;
+  var G; try { G = JSON.parse(el.textContent); } catch(e) { return; }
+
+  // 指でも操作する端末ではシート、マウスがある端末ではポップアップにする
+  var hoverable = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  var tip = document.createElement('div'); tip.id = 'tip';
+  var veil = document.createElement('div'); veil.id = 'veil';
+  var sheet = document.createElement('div'); sheet.id = 'sheet';
+  sheet.innerHTML = '<div class="sheet-grip"></div><span class="tip-n"></span>'
+    + '<div class="tip-s"></div><a class="tip-m" href="#">くわしい解説を読む →</a>';
+  document.body.appendChild(tip);
+  document.body.appendChild(veil);
+  document.body.appendChild(sheet);
+
+  function showTip(node, d){
+    tip.innerHTML = '<span class="tip-n"></span><span class="tip-s"></span>'
+      + '<a class="tip-m" href="#">くわしい解説 →</a>';
+    tip.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
+    tip.querySelector('.tip-s').textContent = d.s;
+    tip.querySelector('.tip-m').href = d.u;
+    tip.classList.add('on');
+    var r = node.getBoundingClientRect();
+    var w = tip.offsetWidth, h = tip.offsetHeight;
+    var left = Math.min(Math.max(8, r.left + r.width/2 - w/2), window.innerWidth - w - 8);
+    var top = r.top - h - 10;
+    if (top < 8) top = r.bottom + 10;           // 上に入らなければ下に出す
+    tip.style.left = (left + window.scrollX) + 'px';
+    tip.style.top  = (top + window.scrollY) + 'px';
+  }
+  function hideTip(){ tip.classList.remove('on'); }
+
+  function openSheet(d){
+    sheet.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
+    sheet.querySelector('.tip-s').textContent = d.s;
+    sheet.querySelector('.tip-m').href = d.u;
+    sheet.classList.add('on'); veil.classList.add('on');
+  }
+  function closeSheet(){ sheet.classList.remove('on'); veil.classList.remove('on'); }
+  veil.addEventListener('click', closeSheet);
+
+  var hideTimer;
+  document.addEventListener('mouseover', function(e){
+    if (!hoverable) return;
+    var n = e.target.closest('.t'); if (!n) return;
+    clearTimeout(hideTimer);
+    var d = G[n.getAttribute('data-t')]; if (d) showTip(n, d);
+  });
+  document.addEventListener('mouseout', function(e){
+    if (!hoverable) return;
+    if (e.target.closest('.t') && !tip.contains(e.relatedTarget)) {
+      hideTimer = setTimeout(hideTip, 180);
+    }
+  });
+  tip.addEventListener('mouseenter', function(){ clearTimeout(hideTimer); });
+  tip.addEventListener('mouseleave', hideTip);
+
+  document.addEventListener('click', function(e){
+    var n = e.target.closest('.t'); if (!n) return;
+    var d = G[n.getAttribute('data-t')]; if (!d) return;
+    e.preventDefault();
+    if (hoverable) { location.href = d.u; } else { openSheet(d); }
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') { hideTip(); closeSheet(); return; }
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    var n = document.activeElement; if (!n || !n.classList.contains('t')) return;
+    var d = G[n.getAttribute('data-t')]; if (!d) return;
+    e.preventDefault();
+    hoverable ? (location.href = d.u) : openSheet(d);
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -49,6 +49,23 @@
   .sub-card:hover { border-color:var(--accent); }
   .sub-card.mail { border-color:var(--accent); border-width:2px;
     background:linear-gradient(180deg,rgba(14,116,144,0.05),transparent); }
+  .sub-embed { cursor:default; }
+  .sub-badge { display:block; margin-top:0.5rem; padding:0.6rem; text-align:center;
+    border-radius:6px; font-size:0.85rem; font-weight:700; text-decoration:none; color:#fff; }
+  .sub-badge.spotify { background:#1db954; }
+  .sub-badge.apple { background:#8e44ec; }
+  .sub-copy { margin-top:0.6rem; width:100%; padding:0.6rem; background:var(--accent);
+    color:#fff; font-size:0.85rem; font-weight:700; border:none; border-radius:6px;
+    cursor:pointer; }
+  .sub-advanced { max-width:760px; margin:0.8rem auto 0; font-size:0.72rem;
+    color:var(--text-muted); }
+  .sub-advanced a { color:var(--text-muted); }
+  .sub-embed form { margin-top:0.5rem; }
+  .sub-embed input[type="email"] { width:100%; padding:0.6rem 0.8rem; font-size:0.9rem;
+    border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text); }
+  .sub-embed button, .sub-embed input[type="submit"] { margin-top:0.5rem; width:100%;
+    padding:0.65rem; background:var(--accent); color:#fff; font-size:0.88rem; font-weight:700;
+    border:none; border-radius:6px; cursor:pointer; }
   .sub-ico { font-size:1.2rem; }
   .sub-t { font-size:0.92rem; font-weight:700; }
   .sub-d { font-size:0.76rem; line-height:1.7; color:var(--text-muted); }
@@ -66,6 +83,8 @@
   .footer-links { margin-top:0.9rem; font-size:0.75rem; }
   .footer-links a { color:var(--text-muted); text-decoration:none; }
   .footer-links a:hover { color:var(--accent); text-decoration:underline; }
+  .footer-brand { margin-top:1.1rem; font-size:0.68rem; letter-spacing:0.04em;
+    color:var(--text-muted); opacity:0.55; }
   @media (max-width:640px){ .issue-list{columns:1;} .hero h1{font-size:1.4rem;} }
 
   :root {
@@ -119,7 +138,16 @@
   .listen-head strong { font-size:0.95rem; color:#fff; }
   .listen-head span { font-size:0.76rem; color:#94a3b8; }
   .listen audio { width:100%; height:40px; display:block; }
-  .listen-sub { margin-top:0.6rem; font-size:0.74rem; }
+  .speed-row { display:flex; align-items:center; gap:0.4rem; margin-top:0.7rem; flex-wrap:wrap; }
+  .speed-label { font-size:0.7rem; color:#94a3b8; margin-right:0.2rem; }
+  .speed-btn { padding:0.3rem 0.75rem; background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.25); border-radius:999px; color:#e2e8f0;
+    font-size:0.75rem; font-weight:600; cursor:pointer; }
+  .speed-btn.on { background:#22d3ee; border-color:#22d3ee; color:#0f172a; }
+  .copy-feed { padding:0.25rem 0.7rem; background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.3); border-radius:6px; color:#e2e8f0;
+    font-size:0.72rem; font-weight:600; cursor:pointer; }
+  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#94a3b8; line-height:1.8; }
   .listen-sub a { color:#7dd3fc; text-decoration:none; }
   .listen-sub a:hover { text-decoration:underline; }
   details.genre { max-width:760px; margin:0 auto 0.75rem; background:var(--card-bg);
@@ -242,14 +270,14 @@
 </div>
 
 <main>
-  <div class="today">2026年8月26日（水）のニュース　厳選 11 件</div>
+  <div class="today">2026年9月7日（月）のニュース　厳選 9 件</div>
 
   <div class="lead">
     <div class="lead-label">今日の3行まとめ</div>
     <ol>
-      <li><span class="t" data-t="openai" tabindex="0" role="button" aria-label="OpenAIの説明を見る">OpenAI</span>の自社<span class="t" data-t="inference" tabindex="0" role="button" aria-label="推論の説明を見る">推論</span>チップJalapeñoが<span class="t" data-t="benchmark" tabindex="0" role="button" aria-label="ベンチマークの説明を見る">ベンチマーク</span>で現行最先端を上回り、AI半導体の勢力図が動き始めました。</li>
-      <li>スタンフォードの調査では、AIの影響を受ける職種で若手雇用が19%減少し、雇用への打撃が数字で示されました。</li>
-      <li><span class="t" data-t="stability-ai" tabindex="0" role="button" aria-label="Stability AIの説明を見る">Stability AI</span>の7600万ドル調達やKeenableの2600万ドルなど、資金はモデルから<span class="t" data-t="ai-agent" tabindex="0" role="button" aria-label="エージェントの説明を見る">エージェント</span>基盤へ広がっています。</li>
+      <li><span class="t" data-t="anthropic" tabindex="0" role="button" aria-label="Anthropicの説明を見る">Anthropic</span>と<span class="t" data-t="openai" tabindex="0" role="button" aria-label="OpenAIの説明を見る">OpenAI</span>をめぐる<span class="t" data-t="copyright" tabindex="0" role="button" aria-label="著作権の説明を見る">著作権</span>の争いが、和解金の配分と新たな提訴の両面で動きました。</li>
+      <li><span class="t" data-t="gpt-6" tabindex="0" role="button" aria-label="GPT-6の説明を見る">GPT-6</span> <span class="t" data-t="astra" tabindex="0" role="button" aria-label="Astraの説明を見る">Astra</span>を<span class="t" data-t="robot-arm" tabindex="0" role="button" aria-label="ロボットアームの説明を見る">ロボットアーム</span>で動かす試みが注目され、言語モデルの身体化が進んでいます。</li>
+      <li><span class="t" data-t="datacenter" tabindex="0" role="button" aria-label="データセンターの説明を見る">データセンター</span>建設への反発やSiri刷新の評価など、AIの受け止め方は揺れ続けています。</li>
     </ol>
   </div>
 
@@ -258,13 +286,38 @@
       <strong>🎧 今日の音声版</strong>
       <span>対話形式・ながら聴き向け（10〜15分）</span>
     </div>
-    <audio controls preload="none" src="podcast/ai-news-2026-08-26.mp3">
-      <a href="podcast/ai-news-2026-08-26.mp3">音声ファイルを開く</a>
+    <audio id="pod-audio" controls preload="none" src="podcast/ai-news-2026-09-07.mp3">
+      <a href="podcast/ai-news-2026-09-07.mp3">音声ファイルを開く</a>
     </audio>
-    <div class="listen-sub">
-      <a href="https://teraco-labo.github.io/ai-news-digest/podcast/feed.xml">📡 ポッドキャストとして購読する（RSS / Spotify）</a>
+    <div class="speed-row"><span class="speed-label">再生速度</span>
+      <button type="button" class="speed-btn" data-speed="0.75">0.75×</button>
+      <button type="button" class="speed-btn" data-speed="1">1×</button>
+      <button type="button" class="speed-btn" data-speed="1.25">1.25×</button>
+      <button type="button" class="speed-btn" data-speed="1.5">1.5×</button>
+      <button type="button" class="speed-btn" data-speed="2">2×</button>
+      <button type="button" class="speed-btn" data-speed="2.5">2.5×</button>
     </div>
+    <div class="listen-sub">毎朝の配信を購読： <a href="https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3">Spotify で聴く</a></div>
   </div>
+<script>
+(function(){
+  var audio = document.getElementById('pod-audio');
+  if (!audio) return;
+  var btns = document.querySelectorAll('.speed-btn');
+  function apply(v){
+    audio.playbackRate = parseFloat(v);
+    btns.forEach(function(b){ b.classList.toggle('on', b.dataset.speed === v); });
+    try { localStorage.setItem('wk-speed', v); } catch(e) {}
+  }
+  var saved = '1';
+  try { saved = localStorage.getItem('wk-speed') || '1'; } catch(e) {}
+  apply(saved);
+  audio.addEventListener('play', function(){ audio.playbackRate = parseFloat(saved); });
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){ saved = b.dataset.speed; apply(saved); });
+  });
+})();
+</script>
 
   <div class="tier">注目のニュース</div>
   <div class="digest">
@@ -273,42 +326,33 @@
         <span class="card-label model">モデル</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
-      <div class="card-title-ja">OpenAIの自社チップJalapeño、推論効率で首位に</div>
-      <div class="card-source">TechCrunch AI</div>
-      <div class="card-body">OpenAIが開発した推論向けチップJalapeñoのベンチマーク結果が公開されました。<span class="t" data-t="semianalysis" tabindex="0" role="button" aria-label="SemiAnalysisの説明を見る">SemiAnalysis</span>の推論ベンチマーク「InferenceX」でテストされ、ユーザーあたりの生成<span class="t" data-t="token" tabindex="0" role="button" aria-label="トークンの説明を見る">トークン</span>数と、消費電力1キロワットあたりのスループットの両方で、現在入手可能な最先端製品を上回ったと報告されています。<span class="t" data-t="hacker-news" tabindex="0" role="button" aria-label="Hacker Newsの説明を見る">Hacker News</span>でも「<span class="t" data-t="nvidia" tabindex="0" role="button" aria-label="Nvidiaの説明を見る">Nvidia</span> <span class="t" data-t="blackwell" tabindex="0" role="button" aria-label="Blackwellの説明を見る">Blackwell</span>より優れる」として192ポイントを集め、大きな注目を浴びました。<span class="t" data-t="inference-cost" tabindex="0" role="button" aria-label="推論コストの説明を見る">推論コスト</span>は<span class="t" data-t="generative-ai" tabindex="0" role="button" aria-label="生成AIの説明を見る">生成AI</span>サービスの採算を直接左右するため、OpenAIが自社チップで電力効率の優位を確保できれば、Nvidia依存の構図と価格設定の前提が変わります。</div>
+      <div class="card-title-ja">GPT-6 Astraをロボットアームで動かす試み</div>
+      <div class="card-source">Hacker News</div>
+      <div class="card-body">OpenAIのGPT-6 Astraをロボットアームの制御に使った事例が、<span class="t" data-t="hacker-news" tabindex="0" role="button" aria-label="Hacker Newsの説明を見る">Hacker News</span>で229ポイントを集めて注目されました。画面の中で文章やコードを扱ってきた大規模モデルを、そのまま物理的な機械の動作に結び付ける流れの一例です。言語モデルが現実世界のセンサー情報を受け取り、腕の動きに変換できるかどうかは、<span class="t" data-t="embodied-ai" tabindex="0" role="button" aria-label="身体性AIの説明を見る">身体性AI</span>が実用に届くかを左右する論点になっています。デモの完成度がどこまで実務に耐えるかは、これからの検証を待つ段階です。</div>
     </article>
-    <article class="card research top">
+    <article class="card policy top">
       <div class="card-top">
-        <span class="card-label research">研究</span>
+        <span class="card-label policy">ポリシー</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
-      <div class="card-title-ja">AIの打撃は若手に集中、スタンフォード調査</div>
-      <div class="card-source">Ars Technica</div>
-      <div class="card-body">スタンフォード大学の研究チームが、AIの導入が雇用に与える影響を職種別に分析した結果を公表しました。AIの影響を受けやすい職種では、AI耐性の高い職種と比べて若手の雇用が19%減少していたことが分かっています。全体の雇用者数ではなく、エントリーレベルの入り口が細っている点が特徴です。「AIが仕事を奪うか」という抽象的な議論ではなく、新卒採用という具体的な層で数字が出た点で、採用計画やキャリア教育に直結する調査結果と言えます。</div>
+      <div class="card-title-ja">Anthropic和解金の取り分で著者と出版社が対立</div>
+      <div class="card-source">TechCrunch AI</div>
+      <div class="card-body">Anthropicが著作権訴訟で結んだ和解の支払いをめぐり、著者側が異議を唱えています。<span class="t" data-t="techcrunch" tabindex="0" role="button" aria-label="TechCrunchの説明を見る">TechCrunch</span>によれば、出版社や<span class="t" data-t="literary-agent" tabindex="0" role="button" aria-label="文芸エージェントの説明を見る">文芸エージェント</span>が本来の取り分を超える額を請求しているように見える、というのが著者たちの主張です。和解金は本を書いた当人に渡るはずのお金ですが、出版契約の解釈しだいで配分が変わるため、誰にいくら届くかが争点になっています。<span class="t" data-t="generative-ai" tabindex="0" role="button" aria-label="生成AIの説明を見る">生成AI</span>の学習をめぐる和解が実際の支払い段階に入り、権利者側の内部での分配が新たな火種になり始めた点で注目されます。</div>
     </article>
   </div>
 
   <div class="tier">ジャンル別のニュース（タップで開く）</div>
   <details class="genre research">
-    <summary><span class="genre-dot"></span>研究<span class="cnt">2件</span></summary>
+    <summary><span class="genre-dot"></span>研究<span class="cnt">1件</span></summary>
     <div class="genre-body">
     <article class="card research">
       <div class="card-top">
         <span class="card-label research">研究</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">放射線科医はAIに置き換わらない、しかし仕事は激変</div>
-      <div class="card-source">Ars Technica</div>
-      <div class="card-body">AI研究の第一人者がかつて「コンピューターが放射線科医を置き換える」と予測しましたが、現実にはそうなっていないという検証記事です。画像診断はAIの成果が最も早く出た領域にもかかわらず、専門医の需要はむしろ維持されています。一方で、読影の一次スクリーニングや優先順位付けをAIが担うことで、医師の仕事の中身は大きく変わりつつあります。「職業が消える」ではなく「職務が組み替わる」という、AI雇用論の現実的な着地点を示す事例です。</div>
-    </article>
-    <article class="card research">
-      <div class="card-top">
-        <span class="card-label research">研究</span>
-        <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
-      </div>
-      <div class="card-title-ja">AIでニュースを追うと何が起きるか、MITの研究</div>
-      <div class="card-source">MIT Tech Review</div>
-      <div class="card-body">MIT Media LabのPattie Maesらが、AIチャットボットでニュースに触れることの影響を調べた研究を発表しました。参加者は4週間にわたり見出しと画像の組み合わせを評価し、当初は真偽の判別精度が21%高いという結果が出ています。しかし研究チームは、この使い方には大きな問題があると指摘しています。AIを情報収集の入り口にする習慣が、判断力にどう作用するかを実証的に扱った数少ない研究です。</div>
+      <div class="card-title-ja">OpenAI内部から見た「研究の加速」</div>
+      <div class="card-source">Hacker News</div>
+      <div class="card-body">OpenAIの内側から、AIが研究開発のスピードをどこまで押し上げているかを語った記事が、Hacker Newsで89ポイントを集めました。モデル自身が実験や検証の一部を担うことで研究サイクルが短くなるという見立ては、AI開発各社がここ数年繰り返し掲げてきたテーマです。もし研究そのものの加速が実際に起きているなら、モデルの進歩ペースを外から予測することはさらに難しくなります。研究職の働き方や、研究者に求められる技能のありようにも影響が及ぶ話です。</div>
     </article>
     </div>
   </details>
@@ -320,81 +364,76 @@
         <span class="card-label business">ビジネス</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">Stability AI、7600万ドルを追加調達</div>
+      <div class="card-title-ja">Uber創業者の<span class="t" data-t="atoms" tabindex="0" role="button" aria-label="Atomsの説明を見る">Atoms</span>、<span class="t" data-t="robotaxi" tabindex="0" role="button" aria-label="ロボタクシーの説明を見る">ロボタクシー</span>参入か</div>
       <div class="card-source">TechCrunch AI</div>
-      <div class="card-body">画像生成モデル<span class="t" data-t="stable-diffusion" tabindex="0" role="button" aria-label="Stable Diffusionの説明を見る">Stable Diffusion</span>を手がけるStability AIが、7600万ドルの新規資金を調達しました。これにより同社の累計調達額は2億3200万ドルに達します。経営体制の混乱と資金繰りの懸念が続いた同社にとって、事業継続の裏付けとなる調達です。画像生成分野はOpenAIやGoogleとの競争が激しく、<span class="t" data-t="open-weight" tabindex="0" role="button" aria-label="オープンモデルの説明を見る">オープンモデル</span>陣営の代表格が資金を確保できたかどうかは、今後の選択肢の広さに影響します。</div>
-    </article>
-    <article class="card business">
-      <div class="card-top">
-        <span class="card-label business">ビジネス</span>
-        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
-      </div>
-      <div class="card-title-ja">Keenable、AIエージェント用の検索インデックスで26億円級調達</div>
-      <div class="card-source">TechCrunch AI</div>
-      <div class="card-body"><span class="t" data-t="accel" tabindex="0" role="button" aria-label="Accelの説明を見る">Accel</span>が出資するKeenableが2600万ドルのシード資金を調達し、ステルス状態を脱しました。同社が構築してきたのは、人間ではなくAIエージェントが使うことを前提にした大規模なウェブ検索インデックスです。エージェントが自律的に情報を集めるには、既存の検索<span class="t" data-t="api" tabindex="0" role="button" aria-label="APIの説明を見る">API</span>では粒度も速度も足りないという課題があります。エージェント時代の「土台」を押さえる企業に資金が向かい始めた動きを象徴する案件です。</div>
+      <div class="card-body">Uberを創業した<span class="t" data-t="travis-kalanick" tabindex="0" role="button" aria-label="Travis Kalanickの説明を見る">Travis Kalanick</span>氏が率いる新会社Atomsが、ロボタクシー事業に乗り出す可能性が報じられました。Kalanick氏は以前からAtomsについて「やり残した仕事」を片付けるための会社だと語っており、Uber時代に果たせなかった自動運転構想への再挑戦と受け止められています。ロボタクシーは運転手を乗せずに走る配車サービスで、自動運転AIの実用化競争が最も目に見える形で進む領域です。世界規模の配車網を作り上げた人物が同じ市場に戻れば、既存の自動運転各社にとって無視できない動きになります。</div>
     </article>
     <article class="card business">
       <div class="card-top">
         <span class="card-label business">ビジネス</span>
         <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">Gamma、デザインスタートアップLicaを買収</div>
-      <div class="card-source">TechCrunch AI</div>
-      <div class="card-body">プレゼン資料生成のGammaが、Accelの出資を受けたデザインスタートアップLicaを買収しました。Licaの共同創業者らはGammaが新設する研究チームに合流します。製品機能の獲得というより、デザインとAIの接点を担う人材の取り込みが主眼と見られます。AI企業が小規模チームごと買い取って研究部門を立ち上げる動きは、この分野の人材獲得競争の激しさを映しています。</div>
+      <div class="card-title-ja">AIは道具か、変革か——現場からの問い直し</div>
+      <div class="card-source">Hacker News</div>
+      <div class="card-body">AIを「新しい道具」として捉えるべきか、それとも仕事のしかた自体を変える転換点と見るべきかを論じた記事が、Hacker Newsで140ポイントを集めました。道具として扱うなら既存の作業手順に組み込めば済みますが、変革と捉えるなら組織や役割の設計から見直す必要があります。この線引きは、社内でAI導入をどの規模で進めるかという実務判断に直結します。同じ問いが繰り返し議論の的になること自体、答えがまだ定まっていないことの表れです。</div>
+    </article>
+    <article class="card business">
+      <div class="card-top">
+        <span class="card-label business">ビジネス</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja">「AIをどう感じているか」個人の実感が反響</div>
+      <div class="card-source">Hacker News</div>
+      <div class="card-body">AIに対して抱いている実感を率直に書いた個人の文章が、Hacker Newsで149ポイントを集めました。技術的な優劣よりも、AIが自分の仕事や日々の感覚をどう変えたかという主観的な語りに議論が集まっています。この種の記事が繰り返し上位に来ること自体、開発者コミュニティの中で受け止め方の整理がついていないことを示しています。性能競争のニュースとは別の層で、現場の感情が揺れていることが分かります。</div>
     </article>
     </div>
   </details>
   <details class="genre policy">
-    <summary><span class="genre-dot"></span>ポリシー<span class="cnt">1件</span></summary>
+    <summary><span class="genre-dot"></span>ポリシー<span class="cnt">2件</span></summary>
     <div class="genre-body">
     <article class="card policy">
       <div class="card-top">
         <span class="card-label policy">ポリシー</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">Spirit Airlinesの乗務員データ、Googleへの販売に反発</div>
+      <div class="card-title-ja">Seattle Timesと<span class="t" data-t="newsday" tabindex="0" role="button" aria-label="Newsdayの説明を見る">Newsday</span>もOpenAIを提訴</div>
+      <div class="card-source">TechCrunch AI</div>
+      <div class="card-body">米地方紙のSeattle TimesとNewsdayが、自社の報道記事を無断でAIの学習に使われたとして、OpenAIと<span class="t" data-t="microsoft" tabindex="0" role="button" aria-label="Microsoftの説明を見る">Microsoft</span>を提訴しました。両社はすでに複数の報道機関から同種の訴訟を起こされており、原告に加わる媒体はさらに増えた形です。争点は、取材費をかけて作られた記事がAIの<span class="t" data-t="training-data" tabindex="0" role="button" aria-label="学習データの説明を見る">学習データ</span>や回答生成にどこまで使われてよいのか、という点にあります。全国紙だけでなく地方紙が動き始めたことで、AI企業が向き合う権利者の数は一段と広がりました。判決や和解の内容しだいでは、AI企業がニュース媒体にライセンス料を払う流れが加速する可能性があります。</div>
+    </article>
+    <article class="card policy">
+      <div class="card-top">
+        <span class="card-label policy">ポリシー</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja">データセンター反対論に持ち出される中国脅威論</div>
       <div class="card-source">Wired AI</div>
-      <div class="card-body">Spirit Airlinesが保有するデータをGoogleに販売しようとしている件で、元客室乗務員から強い懸念の声が上がっています。「自分たちの個人データをAIのために売り渡すとは思ってもみなかった」と元乗務員は語っています。企業が保有する従業員データがAI学習用の資産として扱われ始めている点が問題の核心です。取引先や雇用主に預けたデータがどこまでAI用途に転用されうるのか、契約と同意のあり方が問われます。</div>
+      <div class="card-body">各種の世論調査では、圧倒的多数の米国人がデータセンターの建設に否定的だと<span class="t" data-t="wired" tabindex="0" role="button" aria-label="Wiredの説明を見る">Wired</span>は伝えています。これに対しテック業界の経営者やその支持者は「中国に後れを取る」という論法を持ち出し、AI向けデータセンターの拡張を正当化してきました。ただし記事は、その主張を裏づける証拠が乏しい点を問題視しています。電力や水の消費をめぐる地元の反発は今後も強まる見込みで、AIインフラの建設が技術ではなく政治の問題になりつつあることを示しています。</div>
     </article>
     </div>
   </details>
   <details class="genre tools">
-    <summary><span class="genre-dot"></span>ツール<span class="cnt">3件</span></summary>
+    <summary><span class="genre-dot"></span>ツール<span class="cnt">1件</span></summary>
     <div class="genre-body">
     <article class="card tools">
       <div class="card-top">
         <span class="card-label tools">ツール</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja"><span class="t" data-t="claude" tabindex="0" role="button" aria-label="Claudeの説明を見る">Claude</span>、チャットとCoworkで記憶を共有</div>
-      <div class="card-source">TechCrunch AI</div>
-      <div class="card-body"><span class="t" data-t="anthropic" tabindex="0" role="button" aria-label="Anthropicの説明を見る">Anthropic</span>がClaudeのメモリ機能を拡張し、通常のチャットとCoworkの間で記憶を共有できるようにしました。これまでは新しい作業を始めるたびにプロジェクトの前提や好みを説明し直す必要がありましたが、今後は片方で伝えた文脈をもう片方が引き継ぎます。エージェント型の作業環境では、指示のたびに背景説明をやり直すコストが利用継続の最大の壁になっていました。長期プロジェクトでの実用性を左右する地味ながら重要な改善です。</div>
-    </article>
-    <article class="card tools">
-      <div class="card-top">
-        <span class="card-label tools">ツール</span>
-        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
-      </div>
-      <div class="card-title-ja">Apple、M6とM5 Ultra発表 ローカルAI開発向け</div>
-      <div class="card-source">Ars Technica</div>
-      <div class="card-body">AppleがM6およびM5 Ultraを搭載した新しいデスクトップを発表しました。今回の刷新は、ローカル環境でのAI開発を明確に想定した設計になっており、複数台のMacを数珠つなぎにして大規模モデルを動かしてきたユーザーの使い方が織り込まれています。Hacker Newsでは837ポイントを集め、この日最も反響の大きい話題となりました。クラウドの<span class="t" data-t="gpu" tabindex="0" role="button" aria-label="GPUの説明を見る">GPU</span>確保が難しい開発者にとって、手元でモデルを動かす選択肢の現実味が一段と増しています。</div>
-    </article>
-    <article class="card tools">
-      <div class="card-top">
-        <span class="card-label tools">ツール</span>
-        <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
-      </div>
-      <div class="card-title-ja">OpenAI、<span class="t" data-t="gpt" tabindex="0" role="button" aria-label="ChatGPTの説明を見る">ChatGPT</span> PlusのCodex利用上限を5時間枠に戻す</div>
-      <div class="card-source">Hacker News</div>
-      <div class="card-body">OpenAIがChatGPT Plusユーザー向けに、Codexおよびワーク関連機能の5時間単位の利用上限を復活させました。Hacker Newsでは104ポイントを集め、実務で使う開発者を中心に反応が広がっています。エージェント型のコーディング支援は消費計算が読みにくく、上限の設計変更がそのまま日々の作業計画に響きます。有料プランで何がどれだけ使えるのかという条件は、開発ワークフローを組む前提そのものです。</div>
+      <div class="card-title-ja">刷新されたSiriへの熱、正式版を前に冷めていく</div>
+      <div class="card-source">Wired AI</div>
+      <div class="card-body">Wiredの筆者が、Appleが刷新したスマートフォン向け音声アシスタント「Siri AI」のベータ版を使った体験を書いています。試し始めた当初は強く惹かれたものの、正式リリースが近づくころには存在自体を忘れてしまっていた、というのが結論です。生成AIを組み込んだアシスタントが、最初の驚きを日常の習慣に変えられるかという難題を示す例になっています。発表時の派手さよりも、毎日使い続けたくなる理由を作れるかどうかが問われています。</div>
     </article>
     </div>
   </details>
 
-  <p style="max-width:760px;margin:1.5rem auto 0;font-size:0.82rem;text-align:right;"><a href="ai-news-2026-08-26.html" style="color:var(--text-muted);">この号だけを開く（共有用リンク） →</a></p>
+  <p style="max-width:760px;margin:1.5rem auto 0;font-size:0.82rem;text-align:right;"><a href="ai-news-2026-09-07.html" style="color:var(--text-muted);">この号だけを開く（共有用リンク） →</a></p>
 
   <div class="section-label">読み物</div>
   <div class="issue-grid">
+    <a class="issue" href="articles/podcast-auto-generation-ai.html">
+      <div class="d">AIポッドキャストを毎朝自動生成して4ヶ月。音声代0円で分かった「聴かれる音声」の作り方</div>
+      <div class="m">台本生成から音声合成、配信までを全自動にしたAIポッドキャストの運用記録。音声代0円の作り方、途中で切れる・棒読みになる・番組が消えるといっ</div>
+    </a>
     <a class="issue" href="articles/claude-code-ai-news-automation.html">
       <div class="d">Claude CodeとGitHub Actionsで「毎朝6時に届くAIニュース」を自動生成する仕組みを作った</div>
       <div class="m">AIニュースの収集・選別・日本語化・ポッドキャスト化・メール配信までを全自動化した記録。91号の運用実績と、実際にかかった費用の内訳、40日</div>
@@ -403,55 +442,58 @@
 
   <div class="section-label">これまでの号</div>
   <div class="issue-grid">
-    <a class="issue" href="ai-news-2026-08-25.html">
-      <div class="d">2026年8月25日（火）</div>
+    <a class="issue" href="ai-news-2026-09-06.html">
+      <div class="d">2026年9月6日（日）</div>
       <div class="m">0 記事 · 🎧</div>
     </a>
-    <a class="issue" href="ai-news-2026-07-16.html">
-      <div class="d">2026年7月16日（木）</div>
+    <a class="issue" href="ai-news-2026-09-05.html">
+      <div class="d">2026年9月5日（土）</div>
       <div class="m">0 記事 · 🎧</div>
     </a>
-    <a class="issue" href="ai-news-2026-07-15.html">
-      <div class="d">2026年7月15日（水）</div>
+    <a class="issue" href="ai-news-2026-09-04.html">
+      <div class="d">2026年9月4日（金）</div>
       <div class="m">0 記事 · 🎧</div>
     </a>
-    <a class="issue" href="ai-news-2026-07-14.html">
-      <div class="d">2026年7月14日（火）</div>
+    <a class="issue" href="ai-news-2026-09-03.html">
+      <div class="d">2026年9月3日（木）</div>
       <div class="m">0 記事 · 🎧</div>
     </a>
-    <a class="issue" href="ai-news-2026-07-13.html">
-      <div class="d">2026年7月13日（月）</div>
+    <a class="issue" href="ai-news-2026-09-02.html">
+      <div class="d">2026年9月2日（水）</div>
       <div class="m">0 記事 · 🎧</div>
     </a>
-    <a class="issue" href="ai-news-2026-07-12.html">
-      <div class="d">2026年7月12日（日）</div>
+    <a class="issue" href="ai-news-2026-09-01.html">
+      <div class="d">2026年9月1日（火）</div>
       <div class="m">0 記事 · 🎧</div>
     </a>
-    <a class="issue" href="ai-news-2026-07-11.html">
-      <div class="d">2026年7月11日（土）</div>
+    <a class="issue" href="ai-news-2026-08-31.html">
+      <div class="d">2026年8月31日（月）</div>
       <div class="m">0 記事 · 🎧</div>
     </a>
-    <a class="issue" href="ai-news-2026-07-10.html">
-      <div class="d">2026年7月10日（金）</div>
+    <a class="issue" href="ai-news-2026-08-30.html">
+      <div class="d">2026年8月30日（日）</div>
       <div class="m">0 記事 · 🎧</div>
     </a>
   </div>
-  <p style="margin-top:1rem;font-size:0.85rem;"><a href="archive.html" style="color:var(--accent);font-weight:600;">全 91 号の一覧を見る →</a></p>
+  <p style="margin-top:1rem;font-size:0.85rem;"><a href="archive.html" style="color:var(--accent);font-weight:600;">全 104 号の一覧を見る →</a></p>
 
   <div id="subscribe"></div>
   <div class="section-label">毎朝うけとる</div>
   <div class="sub-grid">
-    <a class="sub-card" href="https://teraco-labo.github.io/ai-news-digest/podcast/feed.xml">
+    <div class="sub-card mail sub-embed">
+      <span class="sub-ico">✉️</span>
+      <span class="sub-t">メールマガジンで受け取る</span>
+      <span class="sub-d">毎朝6時のAIニュースと、週1回のまとめ・解説記事をメールで。専門用語には解説つき。無料・いつでも解除できます</span>
+      <iframe src="https://teracosensei.substack.com/embed" width="100%" height="150" style="border:1px solid var(--border);border-radius:6px;background:#fff;" frameborder="0" scrolling="no" title="メールマガジン登録"></iframe>
+    </div>
+    <div class="sub-card sub-embed">
       <span class="sub-ico">🎧</span>
       <span class="sub-t">ポッドキャストで聴く</span>
-      <span class="sub-d">Spotify・Apple Podcast などのアプリにこのリンクを登録してください</span>
-    </a>
-    <a class="sub-card" href="feed.xml">
-      <span class="sub-ico">📡</span>
-      <span class="sub-t">RSSで読む</span>
-      <span class="sub-d">Feedly などのRSSリーダー用。本文がまるごと届きます</span>
-    </a>
+      <span class="sub-d">通勤中や作業中に。毎朝10〜15分の音声版です</span>
+      <a class="sub-badge spotify" href="https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3">Spotify で聴く</a>
+    </div>
   </div>
+  <p class="sub-advanced">上級者向け：<a href="feed.xml">RSS配信</a>（サイトの更新を自動で受け取るための仕組みです。Feedly などのRSSリーダーをお使いの方はこちらを登録してください）</p>
 
 </main>
 
@@ -459,8 +501,9 @@
   <strong>世界一わかりやすいAIニュース</strong> — てらこ先生<br>
   毎朝6時に自動生成・自動配信しています。
   <div class="footer-links"><a href="">トップ</a> ／ <a href="terms/">AI用語集</a> ／ <a href="articles/">読み物</a> ／ <a href="archive.html">バックナンバー</a> ／ <a href="about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
+  <div class="footer-brand">Teraco News by てらこ先生</div>
 </footer>
-<script type="application/json" id="glossary-data">{"accel": {"n": "Accel", "r": "アクセル", "s": "アメリカのベンチャーキャピタル（投資会社）です。創業間もない企業に出資します。", "u": "terms/accel.html"}, "ai-agent": {"n": "AIエージェント", "r": "エーアイエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "anthropic": {"n": "Anthropic", "r": "アンソロピック", "s": "AIアシスタント「Claude」を開発するアメリカの企業です。AIの安全性を重視する方針を掲げています。", "u": "terms/anthropic.html"}, "api": {"n": "API", "r": "エーピーアイ", "s": "他のソフトウェアからAIを呼び出すための窓口です。自作のアプリにAIを組み込むときに使います。", "u": "terms/api.html"}, "benchmark": {"n": "ベンチマーク", "r": "ベンチマーク", "s": "AIの性能を共通のテストで測るための指標です。モデル同士の比較に使われます。", "u": "terms/benchmark.html"}, "blackwell": {"n": "Blackwell", "r": "ブラックウェル", "s": "NVIDIAのAI用GPUの世代名です。世代ごとに研究者の名前が付けられており、その最新版にあたります。", "u": "terms/blackwell.html"}, "claude": {"n": "Claude", "r": "クロード", "s": "Anthropicが開発しているAIアシスタントです。長文の読解や文章作成、プログラミングに強みがあります。", "u": "terms/claude.html"}, "generative-ai": {"n": "生成AI", "r": "", "s": "文章・画像・音声・動画などを新しく作り出せるAIの総称です。分類や予測をするだけだった従来のAIとの違いがここにあります。", "u": "terms/generative-ai.html"}, "gpt": {"n": "GPT", "r": "ジーピーティー", "s": "OpenAIが開発しているAIモデルのシリーズ名です。ChatGPTの中身がこれにあたります。", "u": "terms/gpt.html"}, "gpu": {"n": "GPU", "r": "ジーピーユー", "s": "大量の計算を同時に行える半導体で、AIの学習と実行に欠かせない部品です。", "u": "terms/gpu.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "inference": {"n": "推論", "r": "すいろん", "s": "学習済みのAIを実際に動かして答えを出させることです。AIを「使う」場面はすべて推論にあたります。", "u": "terms/inference.html"}, "inference-cost": {"n": "推論コスト", "r": "", "s": "AIを動かすたびにかかる費用のことです。AIサービスの採算を左右する最も重要な数字です。", "u": "terms/inference-cost.html"}, "nvidia": {"n": "NVIDIA", "r": "エヌビディア", "s": "AI開発に不可欠なGPUを作っている半導体企業です。生成AIブームの最大の受益者と言われています。", "u": "terms/nvidia.html"}, "open-weight": {"n": "オープンウェイト", "r": "オープンウェイト", "s": "モデルの中身（重み）が公開されていて、誰でもダウンロードして動かせる形態のことです。", "u": "terms/open-weight.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "semianalysis": {"n": "SemiAnalysis", "r": "セミアナリシス", "s": "半導体とAIインフラを専門に分析する調査メディアです。業界内で影響力があります。", "u": "terms/semianalysis.html"}, "stability-ai": {"n": "Stability AI", "r": "ステビリティ・エーアイ", "s": "画像生成AI「Stable Diffusion」を公開したイギリスの企業です。", "u": "terms/stability-ai.html"}, "stable-diffusion": {"n": "Stable Diffusion", "r": "ステーブル・ディフュージョン", "s": "誰でもダウンロードして自分の環境で動かせる画像生成AIです。", "u": "terms/stable-diffusion.html"}, "token": {"n": "トークン", "r": "トークン", "s": "AIが文章を扱うときの最小単位です。英語ならおよそ単語1つ、日本語なら1〜2文字が1トークンにあたります。", "u": "terms/token.html"}}</script>
+<script type="application/json" id="glossary-data">{"anthropic": {"n": "Anthropic", "r": "アンソロピック", "s": "AIアシスタント「Claude」を開発するアメリカの企業です。AIの安全性を重視する方針を掲げています。", "u": "terms/anthropic.html"}, "astra": {"n": "Astra", "r": "アストラ", "s": "OpenAI がこれから公開する新しい AI モデルの名前です。コンピュータへの侵入を伴う作業がとても得意だとされています。", "u": "terms/astra.html"}, "atoms": {"n": "Atoms", "r": "アトムズ", "s": "Travis Kalanick氏が率いる新しい会社です。運転手のいない配車サービスへの参入がうわさされています。", "u": "terms/atoms.html"}, "copyright": {"n": "AIと著作権", "r": "", "s": "AIの学習に他人の著作物を使ってよいか、AIの生成物に著作権が生じるかという論点です。", "u": "terms/copyright.html"}, "datacenter": {"n": "データセンター", "r": "データセンター", "s": "AIを動かすためのコンピュータを大量に設置した施設です。AI競争は電力と土地の競争でもあります。", "u": "terms/datacenter.html"}, "embodied-ai": {"n": "身体性AI", "r": "", "s": "ロボットなど物理的な身体を持ち、実世界で動作するAIのことです。", "u": "terms/embodied-ai.html"}, "generative-ai": {"n": "生成AI", "r": "", "s": "文章・画像・音声・動画などを新しく作り出せるAIの総称です。分類や予測をするだけだった従来のAIとの違いがここにあります。", "u": "terms/generative-ai.html"}, "gpt-6": {"n": "GPT-6", "r": "ジーピーティーシックス", "s": "OpenAIのGPTシリーズの新しい世代とされるモデルです。今回はロボットアームの制御に使われた例が話題になりました。", "u": "terms/gpt-6.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "literary-agent": {"n": "文芸エージェント", "r": "ブンゲイエージェント", "s": "作家に代わって出版社と交渉する代理人です。契約をまとめ、その報酬の一部を受け取ります。", "u": "terms/literary-agent.html"}, "microsoft": {"n": "Microsoft", "r": "マイクロソフト", "s": "OpenAIに巨額の出資を行い、自社サービスにAIを組み込んでいる企業です。", "u": "terms/microsoft.html"}, "newsday": {"n": "Newsday", "r": "ニューズデイ", "s": "米ニューヨーク州ロングアイランドの地方紙です。こちらもOpenAIとMicrosoftを提訴しました。", "u": "terms/newsday.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "robot-arm": {"n": "ロボットアーム", "r": "", "s": "人の腕のように動く機械の腕です。工場で物をつかんだり組み立てたりするのに使われます。", "u": "terms/robot-arm.html"}, "robotaxi": {"n": "ロボタクシー", "r": "", "s": "運転手が乗っていないタクシーのことです。AIが車を運転して客を目的地まで運びます。", "u": "terms/robotaxi.html"}, "techcrunch": {"n": "TechCrunch", "r": "テッククランチ", "s": "スタートアップと技術業界を専門に扱うアメリカのニュースメディアです。", "u": "terms/techcrunch.html"}, "training-data": {"n": "学習データ", "r": "", "s": "AIを訓練するために読み込ませる大量のデータのことです。AIの性能と偏りの両方を決める土台です。", "u": "terms/training-data.html"}, "travis-kalanick": {"n": "Travis Kalanick", "r": "トラビス・カラニック", "s": "配車サービスUberを立ち上げた起業家です。現在はAtomsという新しい会社を率いています。", "u": "terms/travis-kalanick.html"}, "wired": {"n": "Wired", "r": "ワイアード", "s": "技術と社会の関わりを扱う米国の雑誌・ニュースサイトです。日本語版もあります。", "u": "terms/wired.html"}}</script>
 
 <script>
 (function(){

@@ -49,6 +49,23 @@
   .sub-card:hover { border-color:var(--accent); }
   .sub-card.mail { border-color:var(--accent); border-width:2px;
     background:linear-gradient(180deg,rgba(14,116,144,0.05),transparent); }
+  .sub-embed { cursor:default; }
+  .sub-badge { display:block; margin-top:0.5rem; padding:0.6rem; text-align:center;
+    border-radius:6px; font-size:0.85rem; font-weight:700; text-decoration:none; color:#fff; }
+  .sub-badge.spotify { background:#1db954; }
+  .sub-badge.apple { background:#8e44ec; }
+  .sub-copy { margin-top:0.6rem; width:100%; padding:0.6rem; background:var(--accent);
+    color:#fff; font-size:0.85rem; font-weight:700; border:none; border-radius:6px;
+    cursor:pointer; }
+  .sub-advanced { max-width:760px; margin:0.8rem auto 0; font-size:0.72rem;
+    color:var(--text-muted); }
+  .sub-advanced a { color:var(--text-muted); }
+  .sub-embed form { margin-top:0.5rem; }
+  .sub-embed input[type="email"] { width:100%; padding:0.6rem 0.8rem; font-size:0.9rem;
+    border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text); }
+  .sub-embed button, .sub-embed input[type="submit"] { margin-top:0.5rem; width:100%;
+    padding:0.65rem; background:var(--accent); color:#fff; font-size:0.88rem; font-weight:700;
+    border:none; border-radius:6px; cursor:pointer; }
   .sub-ico { font-size:1.2rem; }
   .sub-t { font-size:0.92rem; font-weight:700; }
   .sub-d { font-size:0.76rem; line-height:1.7; color:var(--text-muted); }
@@ -66,6 +83,8 @@
   .footer-links { margin-top:0.9rem; font-size:0.75rem; }
   .footer-links a { color:var(--text-muted); text-decoration:none; }
   .footer-links a:hover { color:var(--accent); text-decoration:underline; }
+  .footer-brand { margin-top:1.1rem; font-size:0.68rem; letter-spacing:0.04em;
+    color:var(--text-muted); opacity:0.55; }
   @media (max-width:640px){ .issue-list{columns:1;} .hero h1{font-size:1.4rem;} }
 </style>
 <!-- monetize.py: SEO / analytics -->
@@ -129,6 +148,10 @@
 <main>
 
   <div class="issue-grid">
+    <a class="issue" href="podcast-auto-generation-ai.html">
+      <div class="d">AIポッドキャストを毎朝自動生成して4ヶ月。音声代0円で分かった「聴かれる音声」の作り方</div>
+      <div class="m">台本生成から音声合成、配信までを全自動にしたAIポッドキャストの運用記録。音声代0円の作り方、途中で切れる・棒読みになる・番組が消えるといった実際に起きた失敗と</div>
+    </a>
     <a class="issue" href="claude-code-ai-news-automation.html">
       <div class="d">Claude CodeとGitHub Actionsで「毎朝6時に届くAIニュース」を自動生成する仕組みを作った</div>
       <div class="m">AIニュースの収集・選別・日本語化・ポッドキャスト化・メール配信までを全自動化した記録。91号の運用実績と、実際にかかった費用の内訳、40日間止まっていた原因ま</div>

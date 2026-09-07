@@ -388,7 +388,7 @@ def build_dashboard_html():
           <div class="link-desc">Google全体の費用確認</div>
         </div>
       </a>
-      <a href="https://creators.spotify.com/pod/show/4unkGD4h2zJoeFWfKsdBYx/home" target="_blank" class="link-item">
+      <a href="https://creators.spotify.com/pod/show/0kuCanHapeNX2ALHYvzbf3/home" target="_blank" class="link-item">
         <div class="link-icon">🎵</div>
         <div>
           <div class="link-name">Spotify for Creators</div>

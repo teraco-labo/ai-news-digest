@@ -203,6 +203,7 @@ def build_home(issues: List[Dict], articles: List[Dict], config: Dict) -> str:
   <strong>{_html.escape(name)}</strong> — {_html.escape(site.get("author", ""))}<br>
   毎朝6時に自動生成・自動配信しています。
   {site_theme.footer_links(config)}
+  {site_theme.footer_brand(config)}
 </footer>
 {glossary.assets(ann) if ann else ""}"""
 
@@ -524,6 +525,13 @@ def build_all(verbose: bool = True) -> Dict[str, int]:
         written[filename] = len(content)
         if verbose:
             print(f"✓ {filename} ({len(content):,} bytes)")
+
+    # 音声プレイヤー専用ページ（メールのボタンの飛び先）。サイト本体と同じ見た目で毎回作り直す
+    try:
+        import player_page
+        written["podcast/player.html"] = player_page.write(config, verbose=verbose)
+    except Exception as e:  # プレイヤーが壊れてもサイト本体の再構築は止めない
+        print(f"⚠️  player.html の生成に失敗しました（サイト本体は続行）: {e}")
 
     if verbose:
         print(f"✓ 収録号数: {len(issues)} / 解説記事: {len(articles)} / 用語: {len(terms)}")
