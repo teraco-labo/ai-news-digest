@@ -288,15 +288,38 @@ def _hms(seconds) -> str:
 
 
 
+DEFAULT_SHOW_DESCRIPTION = (
+    "毎朝6時配信。AIの最新ニュースを、専門用語ぜんぶに解説をつけてお届けします。"
+    "聴いていて分からなかった言葉は、各回の説明欄にある記事版ですべて確認できます。"
+    "予備知識がなくても置いていかれません。")
+
+
+def _show_description() -> str:
+    """番組全体の説明。Spotify の番組ページに出る、この番組を選ぶ理由になる一文。
+
+    「用語ぜんぶに解説がつく」がこの番組の核なので、必ずそこから書く
+    （2026-09-07 まで「厳選してわかりやすくお届け」だけで、核が抜けていた）。
+    """
+    try:
+        import monetize
+        d = monetize.load_config().get("podcast", {}).get("description")
+        if d:
+            return d
+    except Exception:
+        pass
+    return DEFAULT_SHOW_DESCRIPTION
+
+
 def _episode_description(ep: Dict) -> str:
     """エピソードの説明欄（概要欄）。音声だけ聴いた人を、用語解説つきの記事へ案内する。
     この番組の強みは「記事中の専門用語にぜんぶ注釈がつく」ことなので、必ずリンクを置く。"""
     date = ep.get("date", "")
     article = f"{BASE_URL}/ai-news-{date}.html"
-    player  = f"{BASE_URL}/podcast/player.html?date={date}"
+    # 台本つきプレイヤーへのリンクはここには置かない。Spotify で聴いている人は
+    # すでに音声を聴けているので行く理由がなく、リンクが増えるほど記事が押されなくなる
+    # （2026-09-07 藤崎さんの判断）。プレイヤーはサイト内からの導線として残す
     text = (f"{ep.get('title','')}。"
-            f" 今日の内容は、専門用語の解説つきの記事でも読めます → {article}"
-            f" ／ 台本つき音声プレイヤー → {player}")
+            f" この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → {article}")
     try:
         import monetize, site_theme
         mail = site_theme.newsletter_links(monetize.load_config())["signup_url"]
@@ -430,8 +453,8 @@ def update_feed(date: datetime, audio_file: Path) -> None:
 <channel>
   <title>世界一わかりやすいAIニュース</title>
   <itunes:title>世界一わかりやすいAIニュース</itunes:title>
-  <description>毎朝6時配信。AIの最新ニュースを厳選してわかりやすくお届けします。</description>
-  <itunes:summary>毎朝6時配信。AIの最新ニュースを厳選してわかりやすくお届けします。</itunes:summary>
+  <description>{_show_description()}</description>
+  <itunes:summary>{_show_description()}</itunes:summary>
   <link>{BASE_URL}</link>
   <language>ja</language>
   <author>{PODCAST_EMAIL} (てらこ先生)</author>
