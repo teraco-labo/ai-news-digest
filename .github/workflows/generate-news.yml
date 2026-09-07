@@ -104,6 +104,8 @@ jobs:
           # GITHUB_TOKEN を渡すことで Python 内で push → 待機 → メール送信の順が保証される
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # 名前の変更などで読み込めなくなったファイルが無いか、本番の前に確かめる
+          python check_imports.py
           if [ -n "${{ github.event.inputs.date }}" ]; then
             python generate_news.py --date "${{ github.event.inputs.date }}"
           else

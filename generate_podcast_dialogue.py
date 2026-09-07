@@ -15,7 +15,7 @@ from pathlib import Path
 from typing import Dict, List, Tuple
 
 from generate_podcast import (
-    PODCAST_DIR, BASE_URL, PODCAST_EMAIL, COVER_URL,
+    PODCAST_DIR, BASE_URL, PODCAST_EMAIL,
     CATEGORIES_JA, WEEKDAYS_JA, MAX_PER_CATEGORY,
     clean_text, preprocess_for_tts, select_top_articles, update_feed,
 )
