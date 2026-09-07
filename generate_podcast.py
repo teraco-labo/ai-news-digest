@@ -288,6 +288,17 @@ def _hms(seconds) -> str:
 
 
 
+SHOW_TITLE = "世界一わかりやすいAIニュース｜てらこ先生"
+"""配信先（Spotify/Apple）に出す番組名。**ここだけ発信者名を添える。**
+
+サイト名・記事タイトル・音声の中の名乗りは「世界一わかりやすいAIニュース」のまま
+（音声で毎回「てらこ先生の〜、てらこ先生です」と言うのは冗長なため）。
+名前は後ろに置く。配信アプリの一覧は15〜18字ほどで切られるので、前に置くと
+いちばんのウリである「世界一わかりやすい」が消える（2026-09-07 藤崎さんと決定）。
+"""
+PODCAST_AUTHOR = "てらこ先生"
+
+
 DEFAULT_SHOW_DESCRIPTION = (
     "毎朝6時配信。AIの最新ニュースを、専門用語ぜんぶに解説をつけてお届けします。"
     "聴いていて分からなかった言葉は、各回の説明欄にある記事版ですべて確認できます。"
@@ -436,7 +447,7 @@ def update_feed(date: datetime, audio_file: Path) -> None:
     <description>{_episode_description(ep)}</description>
     <itunes:summary>{_episode_description(ep)}</itunes:summary>
     <author>{PODCAST_EMAIL}</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>{PODCAST_AUTHOR}</itunes:author>
     <itunes:episode>{ep_ep_num}</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>{dur_hms}</itunes:duration>
@@ -451,8 +462,8 @@ def update_feed(date: datetime, audio_file: Path) -> None:
   xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
   xmlns:podcast="https://podcastindex.org/namespace/1.0">
 <channel>
-  <title>世界一わかりやすいAIニュース</title>
-  <itunes:title>世界一わかりやすいAIニュース</itunes:title>
+  <title>{SHOW_TITLE}</title>
+  <itunes:title>{SHOW_TITLE}</itunes:title>
   <description>{_show_description()}</description>
   <itunes:summary>{_show_description()}</itunes:summary>
   <link>{BASE_URL}</link>
@@ -467,7 +478,7 @@ def update_feed(date: datetime, audio_file: Path) -> None:
   </itunes:owner>
   <image>
     <url>{_cover_url()}</url>
-    <title>世界一わかりやすいAIニュース</title>
+    <title>{SHOW_TITLE}</title>
     <link>{BASE_URL}</link>
   </image>
   <itunes:image href="{_cover_url()}"/>

@@ -3,8 +3,8 @@
   xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
   xmlns:podcast="https://podcastindex.org/namespace/1.0">
 <channel>
-  <title>世界一わかりやすいAIニュース</title>
-  <itunes:title>世界一わかりやすいAIニュース</itunes:title>
+  <title>世界一わかりやすいAIニュース｜てらこ先生</title>
+  <itunes:title>世界一わかりやすいAIニュース｜てらこ先生</itunes:title>
   <description>毎朝6時配信。AIの最新ニュースを、専門用語ぜんぶに解説をつけてお届けします。聴いていて分からなかった言葉は、各回の説明欄にある記事版ですべて確認できます。予備知識がなくても置いていかれません。</description>
   <itunes:summary>毎朝6時配信。AIの最新ニュースを、専門用語ぜんぶに解説をつけてお届けします。聴いていて分からなかった言葉は、各回の説明欄にある記事版ですべて確認できます。予備知識がなくても置いていかれません。</itunes:summary>
   <link>https://teraco-labo.github.io/ai-news-digest</link>
@@ -19,7 +19,7 @@
   </itunes:owner>
   <image>
     <url>https://teraco-labo.github.io/ai-news-digest/podcast/cover.jpg?v=20260907</url>
-    <title>世界一わかりやすいAIニュース</title>
+    <title>世界一わかりやすいAIニュース｜てらこ先生</title>
     <link>https://teraco-labo.github.io/ai-news-digest</link>
   </image>
   <itunes:image href="https://teraco-labo.github.io/ai-news-digest/podcast/cover.jpg?v=20260907"/>
@@ -35,7 +35,7 @@
     <description>世界一わかりやすいAIニュース - 2026-09-07。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-07.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-09-07。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-07.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>63</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>14:13</itunes:duration>
@@ -50,7 +50,7 @@
     <description>世界一わかりやすいAIニュース - 2026-09-06。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-06.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-09-06。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-06.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>62</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>11:38</itunes:duration>
@@ -65,7 +65,7 @@
     <description>世界一わかりやすいAIニュース - 2026-09-05。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-05.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-09-05。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-05.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>61</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>10:47</itunes:duration>
@@ -80,7 +80,7 @@
     <description>世界一わかりやすいAIニュース - 2026-09-04。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-04.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-09-04。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-04.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>61</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>11:16</itunes:duration>
@@ -95,7 +95,7 @@
     <description>世界一わかりやすいAIニュース - 2026-09-03。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-03.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-09-03。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-03.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>61</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>16:23</itunes:duration>
@@ -110,7 +110,7 @@
     <description>世界一わかりやすいAIニュース - 2026-09-02。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-02.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-09-02。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-02.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>61</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>12:30</itunes:duration>
@@ -125,7 +125,7 @@
     <description>世界一わかりやすいAIニュース - 2026-09-01。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-01.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-09-01。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-01.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>61</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>12:35</itunes:duration>
@@ -140,7 +140,7 @@
     <description>世界一わかりやすいAIニュース - 2026-08-31。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-08-31.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-08-31。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-08-31.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>61</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>13:25</itunes:duration>
@@ -155,7 +155,7 @@
     <description>世界一わかりやすいAIニュース - 2026-08-30。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-08-30.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-08-30。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-08-30.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>61</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>12:45</itunes:duration>
@@ -170,7 +170,7 @@
     <description>世界一わかりやすいAIニュース - 2026-08-29。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-08-29.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-08-29。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-08-29.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>61</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>14:05</itunes:duration>
@@ -185,7 +185,7 @@
     <description>世界一わかりやすいAIニュース - 2026-08-28。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-08-28.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-08-28。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-08-28.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>61</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>14:42</itunes:duration>
@@ -200,7 +200,7 @@
     <description>世界一わかりやすいAIニュース - 2026-08-27。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-08-27.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-08-27。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-08-27.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>61</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>10:06</itunes:duration>
@@ -215,7 +215,7 @@
     <description>世界一わかりやすいAIニュース - 2026-08-26。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-08-26.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-08-26。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-08-26.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>61</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>12:39</itunes:duration>
@@ -230,7 +230,7 @@
     <description>世界一わかりやすいAIニュース - 2026-08-25。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-08-25.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-08-25。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-08-25.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>61</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>12:34</itunes:duration>
@@ -245,7 +245,7 @@
     <description>世界一わかりやすいAIニュース - 2026-07-16。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-16.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-07-16。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-16.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>61</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>13:10</itunes:duration>
@@ -260,7 +260,7 @@
     <description>世界一わかりやすいAIニュース - 2026-07-15。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-15.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-07-15。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-15.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>61</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>13:37</itunes:duration>
@@ -275,7 +275,7 @@
     <description>世界一わかりやすいAIニュース - 2026-07-14。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-14.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-07-14。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-14.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>60</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>12:52</itunes:duration>
@@ -290,7 +290,7 @@
     <description>世界一わかりやすいAIニュース - 2026-07-13。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-13.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-07-13。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-13.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>59</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>13:42</itunes:duration>
@@ -305,7 +305,7 @@
     <description>世界一わかりやすいAIニュース - 2026-07-12。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-12.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-07-12。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-12.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>58</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>13:02</itunes:duration>
@@ -320,7 +320,7 @@
     <description>世界一わかりやすいAIニュース - 2026-07-11。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-11.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-07-11。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-11.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>57</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>15:17</itunes:duration>
@@ -335,7 +335,7 @@
     <description>世界一わかりやすいAIニュース - 2026-07-10。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-10.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-07-10。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-10.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>56</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>15:00</itunes:duration>
@@ -350,7 +350,7 @@
     <description>世界一わかりやすいAIニュース - 2026-07-09。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-09.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-07-09。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-09.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>55</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>0:22</itunes:duration>
@@ -365,7 +365,7 @@
     <description>世界一わかりやすいAIニュース - 2026-07-08。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-08.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-07-08。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-08.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>54</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>12:04</itunes:duration>
@@ -380,7 +380,7 @@
     <description>世界一わかりやすいAIニュース - 2026-07-07。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-07.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-07-07。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-07.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>53</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>13:56</itunes:duration>
@@ -395,7 +395,7 @@
     <description>世界一わかりやすいAIニュース - 2026-07-06。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-06.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-07-06。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-06.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>52</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>11:42</itunes:duration>
@@ -410,7 +410,7 @@
     <description>世界一わかりやすいAIニュース - 2026-07-05。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-05.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-07-05。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-05.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>51</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>14:53</itunes:duration>
@@ -425,7 +425,7 @@
     <description>世界一わかりやすいAIニュース - 2026-07-04。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-04.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-07-04。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-04.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>50</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>0:20</itunes:duration>
@@ -440,7 +440,7 @@
     <description>世界一わかりやすいAIニュース - 2026-07-03。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-03.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-07-03。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-03.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>49</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>16:50</itunes:duration>
@@ -455,7 +455,7 @@
     <description>世界一わかりやすいAIニュース - 2026-07-02。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-02.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-07-02。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-02.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>48</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>14:39</itunes:duration>
@@ -470,7 +470,7 @@
     <description>世界一わかりやすいAIニュース - 2026-07-01。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-01.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-07-01。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-07-01.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>47</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>12:56</itunes:duration>
@@ -485,7 +485,7 @@
     <description>世界一わかりやすいAIニュース - 2026-06-30。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-30.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-06-30。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-30.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>46</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>14:24</itunes:duration>
@@ -500,7 +500,7 @@
     <description>世界一わかりやすいAIニュース - 2026-06-29。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-29.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-06-29。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-29.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>45</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>14:53</itunes:duration>
@@ -515,7 +515,7 @@
     <description>世界一わかりやすいAIニュース - 2026-06-28。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-28.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-06-28。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-28.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>44</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>14:03</itunes:duration>
@@ -530,7 +530,7 @@
     <description>世界一わかりやすいAIニュース - 2026-06-27。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-27.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-06-27。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-27.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>43</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>11:43</itunes:duration>
@@ -545,7 +545,7 @@
     <description>世界一わかりやすいAIニュース - 2026-06-26。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-26.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-06-26。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-26.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>42</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>14:04</itunes:duration>
@@ -560,7 +560,7 @@
     <description>世界一わかりやすいAIニュース - 2026-06-25。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-25.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-06-25。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-25.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>41</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>16:24</itunes:duration>
@@ -575,7 +575,7 @@
     <description>世界一わかりやすいAIニュース - 2026-06-24。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-24.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-06-24。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-24.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>40</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>13:43</itunes:duration>
@@ -590,7 +590,7 @@
     <description>世界一わかりやすいAIニュース - 2026-06-23。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-23.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-06-23。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-23.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>39</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>13:11</itunes:duration>
@@ -605,7 +605,7 @@
     <description>世界一わかりやすいAIニュース - 2026-06-22。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-22.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-06-22。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-22.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>38</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>16:28</itunes:duration>
@@ -620,7 +620,7 @@
     <description>世界一わかりやすいAIニュース - 2026-06-21。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-21.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-06-21。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-21.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>37</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>14:14</itunes:duration>
@@ -635,7 +635,7 @@
     <description>世界一わかりやすいAIニュース - 2026-06-20。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-20.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-06-20。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-20.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>36</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>12:25</itunes:duration>
@@ -650,7 +650,7 @@
     <description>世界一わかりやすいAIニュース - 2026-06-19。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-19.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-06-19。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-19.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>35</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>14:06</itunes:duration>
@@ -665,7 +665,7 @@
     <description>世界一わかりやすいAIニュース - 2026-06-18。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-18.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-06-18。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-18.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>34</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>14:06</itunes:duration>
@@ -680,7 +680,7 @@
     <description>世界一わかりやすいAIニュース - 2026-06-17。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-17.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-06-17。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-17.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>33</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>12:26</itunes:duration>
@@ -695,7 +695,7 @@
     <description>世界一わかりやすいAIニュース - 2026-06-16。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-16.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-06-16。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-16.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>32</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>4:25</itunes:duration>
@@ -710,7 +710,7 @@
     <description>世界一わかりやすいAIニュース - 2026-06-15。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-15.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-06-15。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-15.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>31</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>9:35</itunes:duration>
@@ -725,7 +725,7 @@
     <description>世界一わかりやすいAIニュース - 2026-06-14。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-14.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-06-14。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-14.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>30</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>10:05</itunes:duration>
@@ -740,7 +740,7 @@
     <description>世界一わかりやすいAIニュース - 2026-06-13。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-13.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-06-13。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-13.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>29</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>10:24</itunes:duration>
@@ -755,7 +755,7 @@
     <description>世界一わかりやすいAIニュース - 2026-06-12。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-12.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-06-12。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-12.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>28</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>8:47</itunes:duration>
@@ -770,7 +770,7 @@
     <description>世界一わかりやすいAIニュース - 2026-06-11。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-11.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-06-11。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-11.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>27</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>5:19</itunes:duration>
@@ -785,7 +785,7 @@
     <description>世界一わかりやすいAIニュース - 2026-06-10。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-10.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-06-10。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-10.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>26</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>9:27</itunes:duration>
@@ -800,7 +800,7 @@
     <description>世界一わかりやすいAIニュース - 2026-06-09。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-09.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-06-09。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-09.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>25</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>8:49</itunes:duration>
@@ -815,7 +815,7 @@
     <description>世界一わかりやすいAIニュース - 2026-06-08。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-08.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-06-08。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-08.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>25</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>14:52</itunes:duration>
@@ -830,7 +830,7 @@
     <description>世界一わかりやすいAIニュース - 2026-06-03。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-03.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-06-03。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-06-03.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>24</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>10:24</itunes:duration>
@@ -845,7 +845,7 @@
     <description>世界一わかりやすいAIニュース - 2026-05-29。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-05-29.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-05-29。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-05-29.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>22</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>7:59</itunes:duration>
@@ -860,7 +860,7 @@
     <description>世界一わかりやすいAIニュース - 2026-05-28。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-05-28.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-05-28。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-05-28.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>21</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>5:26</itunes:duration>
@@ -875,7 +875,7 @@
     <description>世界一わかりやすいAIニュース - 2026-05-24。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-05-24.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-05-24。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-05-24.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>21</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>9:48</itunes:duration>
@@ -890,7 +890,7 @@
     <description>世界一わかりやすいAIニュース - 2026-05-27。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-05-27.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-05-27。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-05-27.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>20</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>1:41</itunes:duration>
@@ -905,7 +905,7 @@
     <description>世界一わかりやすいAIニュース - 2026-05-26。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-05-26.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-05-26。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-05-26.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>19</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>21:43</itunes:duration>
@@ -920,7 +920,7 @@
     <description>世界一わかりやすいAIニュース - 2026-05-25。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-05-25.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
     <itunes:summary>世界一わかりやすいAIニュース - 2026-05-25。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-05-25.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
     <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>世界一わかりやすいAIニュース</itunes:author>
+    <itunes:author>てらこ先生</itunes:author>
     <itunes:episode>18</itunes:episode>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>17:52</itunes:duration>
