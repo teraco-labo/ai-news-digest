@@ -107,6 +107,14 @@ def generate_api_dashboard_html() -> str:
     </div>
   </div>'''
 
+    # コードが呼んでいない課金（サブスク・前払い・無料体験からの自動移行）は
+    # 上の集計に出てこないので、service_costs.json の台帳を隣に並べる。
+    try:
+        from service_costs import generate_service_costs_html
+        html += "\n" + generate_service_costs_html()
+    except Exception as e:
+        print(f"⚠️  課金サービスカードの生成に失敗しました: {e}")
+
     return html
 
 

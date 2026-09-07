@@ -3,7 +3,7 @@
 このファイルは、**セッションが変わっても経緯が失われないように**残しています。
 コードはGitに全部残りますが、「なぜそうしたか」の議論は残らないためです。
 
-最終更新: 2026-08-27
+最終更新: 2026-09-07
 
 ---
 
@@ -39,6 +39,7 @@ RSS/Hacker News から収集
 | 毎日3分 | `social/YYYY-MM-DD.md` の投稿文をコピーしてXへ（一言足すと伸びる） |
 | 週1本 | 解説記事を書く（→ WRITING.md） |
 | 月1回 | ASPの成果を記録（`python revenue_tracker.py add`） |
+| 随時 | サブスクAPIチェッカーの通知に対応（毎朝自動で走る）→ COST_TRACKING.md |
 
 ---
 
@@ -132,18 +133,25 @@ YouTubeソースは **一般公開＋字幕あり＋投稿から72時間経過**
 | サブスク枠が使えず401 | 失効した `ANTHROPIC_API_KEY` が OAuth トークンより**優先される** | トークンがあるときはAPIキーを子プロセス環境から外す |
 | CNAMEを置いたらサイトが全滅しかける | DNS設定前にCNAMEを置くと、未到達のドメインへリダイレクトが始まる | CNAMEはリポジトリに置かず、DNS→確認→GitHub設定の順に（→ DOMAIN_SETUP.md） |
 | 3行まとめに用語解説が付かない | カードを先に組み立てて上限を使い切っていた | まとめ行を最優先に |
+| 身に覚えのない fal の請求に見えた | 実際は自分で入れたクレジットの購入代（コードは fal を呼んでいない）。**コードが動かなくても課金されるもの**を誰も台帳に持っていなかった | 台帳を teraco.money に統合（→ COST_TRACKING.md） |
 | 議事録ツールのYouTube経路が何度やっても403 | Anthropicのクラウド環境がYouTubeを遮断していた。設定ミスでも限定公開のせいでもない | 外部サイトを叩く確認はローカルのセッションで行う |
 
 ---
 
 ## 次にやること
 
-1. **GA4の測定ID**を取得 → `monetize_config.json` に1行
-2. **Search Console** に `sitemap.xml` を送信（91号＋88用語ページが検索対象に）
-3. **A8.net に登録** → 承認された案件のURLを設定ファイルに貼る
-4. 解説記事を週1本（→ WRITING.md）
-5. 独自ドメイン `news.teraco-labo.com`（→ DOMAIN_SETUP.md）
-6. 議事録ツールの **Zoom クラウド録画対応** — Zoom は自前で文字起こしを持っているので、
+1. **サブスクAPIチェッカーの初期設定**: teraco.money の「サブスク」を開いて「初期設定を実行する」を1回押すだけ
+   （2026-09-05 に統合・マージ済み。テーブル作成と22件の投入がボタンで終わる）
+   - 受信箱の見張りを teraco.money へ繋ぐなら、このリポジトリの Secrets に
+     `SUBSCHECK_URL`（`https://teraco-money.vercel.app`）と `SUBSCHECK_SYNC_TOKEN`
+     （teraco-money 側の `SYNC_TOKEN` と同じ値）を追加する
+2. **Gemini API のお支払い方法**を 10/12 までに前払いへ切り替え（放置すると API が止まる）
+3. **GA4の測定ID**を取得 → `monetize_config.json` に1行
+4. **Search Console** に `sitemap.xml` を送信（91号＋88用語ページが検索対象に）
+5. **A8.net に登録** → 承認された案件のURLを設定ファイルに貼る
+6. 解説記事を週1本（→ WRITING.md）
+7. 独自ドメイン `news.teraco-labo.com`（→ DOMAIN_SETUP.md）
+8. 議事録ツールの **Zoom クラウド録画対応** — Zoom は自前で文字起こしを持っているので、
    YouTube にアップする一手間を省ける（→ SEMINAR_NOTES.md）
 
 ---
@@ -172,11 +180,14 @@ GitHub上に安全に残っています。続きをやるときはここから�
 | `article_builder.py` | 解説記事（`articles/*.md` → HTML） |
 | `social_kit.py` | SNS投稿文の生成 |
 | `revenue_tracker.py` | 収支の記録 |
+| `billing_watch.py` | 毎朝、受信箱から新しい課金を見つけて **teraco.money へ送る**（→ COST_TRACKING.md） |
+| `service_costs.py` / `service_costs.sample.json` | サブスクAPIチェッカーの旧版（手元用の予備）。**本体は teraco.money の `/advice/subscriptions` に統合済み（2026-09-05）** |
 | `rerender.py` | 過去号の再描画（費用ゼロ） |
 | `seminar_notes.py` | セミナー録画→文字起こし・議事録・質問応答（→ SEMINAR_NOTES.md） |
 | `WRITING.md` | 記事に自分の言葉を入れる方法 |
 | `MONETIZATION.md` | 収益化の手順 |
 | `STRATEGY_BRIEF.md` | 戦略の判断材料 |
 | `DOMAIN_SETUP.md` | 独自ドメインの設定手順 |
+| `COST_TRACKING.md` | サブスクAPIチェッカーの考え方と手順 |
 | `SEMINAR_NOTES.md` | セミナー議事録ツールの使い方・つまずきどころ |
 | `CLAUDE.md` | Claude への指示（話し方のルール・用語表） |

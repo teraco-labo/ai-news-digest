@@ -1,7 +1,7 @@
 {
   "subscription_plan": {
-    "name": "Claude Code (Pro)",
-    "monthly_usd": 20.0,
-    "description": "Claude Code Pro monthly subscription"
+    "name": "Claude Max 5x",
+    "monthly_usd": 100.0,
+    "description": "2026-08-21 に Claude Pro ($20) から乗り換え。日次ダイジェストのキュレーションはこの枠で動く"
   }
 }

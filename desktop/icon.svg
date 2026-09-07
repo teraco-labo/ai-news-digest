@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0.35" y2="1">
+      <stop offset="0%"   stop-color="#28705d"/>
+      <stop offset="55%"  stop-color="#1f5c4d"/>
+      <stop offset="100%" stop-color="#143f35"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.16"/>
+      <stop offset="45%"  stop-color="#ffffff" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="0.2" y2="1">
+      <stop offset="0%"   stop-color="#fffdf8"/>
+      <stop offset="100%" stop-color="#efe9dc"/>
+    </linearGradient>
+    <filter id="drop" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="26" flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+
+  <!-- 地：深い緑。帳簿の表紙の色 -->
+  <rect x="64" y="64" width="896" height="896" rx="202" fill="url(#ground)"/>
+  <rect x="64" y="64" width="896" height="896" rx="202" fill="url(#sheen)"/>
+  <rect x="64.5" y="64.5" width="895" height="895" rx="201.5"
+        fill="none" stroke="#000000" stroke-opacity="0.18" stroke-width="3"/>
+
+  <!-- レシート：下端をギザギザに。切り取られた明細そのもの -->
+  <g filter="url(#drop)">
+    <path fill="url(#paper)" d="
+      M 316 262
+      h 392
+      a 26 26 0 0 1 26 26
+      v 434
+      l -49 34 -49 -34 -49 34 -49 -34 -49 34 -49 -34 -49 34 -49 -34
+      V 288
+      a 26 26 0 0 1 26 -26 z"/>
+  </g>
+
+  <!-- 明細の行。1本だけ琥珀＝要対応 -->
+  <g stroke-linecap="round">
+    <rect x="372" y="352" width="280" height="26" rx="13" fill="#c3bcab"/>
+    <rect x="372" y="438" width="196" height="26" rx="13" fill="#c3bcab"/>
+    <rect x="372" y="524" width="240" height="30" rx="15" fill="#d9922a"/>
+    <rect x="372" y="614" width="156" height="26" rx="13" fill="#c3bcab"/>
+  </g>
+
+  <!-- 見張っている印：琥珀の行だけに付く点 -->
+  <circle cx="672" cy="539" r="21" fill="#d9922a"/>
+</svg>
