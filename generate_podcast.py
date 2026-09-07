@@ -32,7 +32,23 @@ try:
     BASE_URL = _podcast_url()
 except Exception:
     BASE_URL = "https://teraco-labo.github.io/ai-news-digest"
-COVER_URL = f"{BASE_URL}/podcast/cover.jpg"
+
+
+def _cover_url() -> str:
+    """カバー画像のURL。画像を差し替えた日を ?v= で付ける。
+
+    Spotify や Apple は一度取り込んだカバーを、同じURLのまま中身が変わっても
+    取り直さない。差し替えた日が変われば別のURLになるので、確実に反映される。
+    """
+    base = f"{BASE_URL}/podcast/cover.jpg"
+    try:
+        from datetime import datetime as _dt
+        stamp = _dt.fromtimestamp((PODCAST_DIR / "cover.jpg").stat().st_mtime).strftime("%Y%m%d")
+        return f"{base}?v={stamp}"
+    except Exception:
+        return base
+
+
 PODCAST_EMAIL = "fujisaki@teraco-labo.com"
 
 # カテゴリごとの最大記事数（合計 14 件程度を Gemini に渡す）
@@ -427,11 +443,11 @@ def update_feed(date: datetime, audio_file: Path) -> None:
     <itunes:email>{PODCAST_EMAIL}</itunes:email>
   </itunes:owner>
   <image>
-    <url>{COVER_URL}</url>
+    <url>{_cover_url()}</url>
     <title>世界一わかりやすいAIニュース</title>
     <link>{BASE_URL}</link>
   </image>
-  <itunes:image href="{COVER_URL}"/>
+  <itunes:image href="{_cover_url()}"/>
   <itunes:explicit>false</itunes:explicit>
   <itunes:type>episodic</itunes:type>
   <itunes:category text="Technology">

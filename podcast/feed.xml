@@ -18,11 +18,11 @@
     <itunes:email>fujisaki@teraco-labo.com</itunes:email>
   </itunes:owner>
   <image>
-    <url>https://teraco-labo.github.io/ai-news-digest/podcast/cover.jpg</url>
+    <url>https://teraco-labo.github.io/ai-news-digest/podcast/cover.jpg?v=20260907</url>
     <title>世界一わかりやすいAIニュース</title>
     <link>https://teraco-labo.github.io/ai-news-digest</link>
   </image>
-  <itunes:image href="https://teraco-labo.github.io/ai-news-digest/podcast/cover.jpg"/>
+  <itunes:image href="https://teraco-labo.github.io/ai-news-digest/podcast/cover.jpg?v=20260907"/>
   <itunes:explicit>false</itunes:explicit>
   <itunes:type>episodic</itunes:type>
   <itunes:category text="Technology">
