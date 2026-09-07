@@ -163,9 +163,11 @@ def publish(date_str: str, log) -> int:
     if not script.exists() or not mp3.exists():
         log.write(f"{date_str} の台本または音声がまだ無い（クラウド側の配信待ち）\n"); return 2
     build(script, mp3, log)
-    update_feed(datetime.strptime(date_str, "%Y-%m-%d"), mp3)
+    # フィードに載せてよいかの判定（generate_podcast._feed_ready）が voices.json を見るので、
+    # update_feed より先に「本人の声にした」と記録しておく
     voices[date_str] = {"teraco": f"{PRODUCT} {_product_version()}", "mika": "edge-tts ja-JP-NanamiNeural"}
     VOICES_FILE.write_text(json.dumps(voices, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    update_feed(datetime.strptime(date_str, "%Y-%m-%d"), mp3)
     log.write(f"{date_str} を {PRODUCT} {_product_version()} に差し替えました\n")
     return 0
 

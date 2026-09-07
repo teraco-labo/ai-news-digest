@@ -290,6 +290,27 @@ def _episode_description(ep: Dict) -> str:
         pass
     return text.replace("&", "&amp;").replace("<", "&lt;")
 
+def _feed_ready(episodes: List[Dict], today: str) -> List[Dict]:
+    """Spotify などに配る feed.xml に載せてよい回だけを返す。
+
+    当日の回は、本人の声（Teraco Voice）への差し替えが済むまで載せない。
+    Spotify は同じURLの音声を取り直さないため、先に載せると edge-tts 版が
+    そのまま残ってしまう（2026-09-05 に実際に起きた）。
+    日付が変わった回は、差し替えが済んでいなくても載せる（Mac が寝ていた日の保険）。
+    """
+    voices_file = PODCAST_DIR / "voices.json"
+    try:
+        voices = json.loads(voices_file.read_text(encoding="utf-8"))
+    except Exception:
+        voices = {}
+    out = []
+    for e in episodes:
+        d = e.get("date", "")
+        if d != today or voices.get(d, {}).get("teraco"):
+            out.append(e)
+    return out
+
+
 def update_feed(date: datetime, audio_file: Path) -> None:
     """episodes.json と Spotify/Apple 対応 feed.xml を更新する。"""
     PODCAST_DIR.mkdir(exist_ok=True)
@@ -355,10 +376,18 @@ def update_feed(date: datetime, audio_file: Path) -> None:
         json.dumps(episodes, ensure_ascii=False, indent=2), encoding="utf-8"
     )
 
+    # ---- feed.xml に載せる回を選ぶ ----
+    # Spotify は一度取り込んだ音声を、同じURLで中身を差し替えても取り直さない。
+    # 朝はクラウドが edge-tts 版を作り、そのあと Mac が本人の声（Teraco Voice）に
+    # 差し替えるので、当日分をすぐフィードに載せると Spotify には edge-tts 版が残る。
+    # そこで「本人の声になった回」だけを載せる。ただし Mac が寝ていた日に配信が
+    # 途切れないよう、日付が変わった回は声にかかわらず載せる（保険）。
+    feed_episodes = _feed_ready(episodes, date_str)
+
     # ---- feed.xml ----
     items_xml = ""
-    for i, ep in enumerate(episodes):
-        ep_ep_num = ep.get("episode_num", len(episodes) - i)
+    for i, ep in enumerate(feed_episodes):
+        ep_ep_num = ep.get("episode_num", len(feed_episodes) - i)
         dur_hms   = _hms(ep.get("duration", 0))
         pub       = _rfc2822(ep.get("date", ""))
         items_xml += f"""
