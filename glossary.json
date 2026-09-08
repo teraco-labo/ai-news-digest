@@ -2693,6 +2693,118 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "cognition",
+      "term": "Cognition",
+      "reading": "コグニション",
+      "aliases": [],
+      "category": "企業",
+      "short": "AIにソフトウェア開発を任せるツールを作っているアメリカの会社です。自分でコードを書いて動かすAI「Devin」で知られています。",
+      "detail": "2024年に自律型AIソフトウェアエンジニア「Devin」を発表して注目を集めました。指示を受けて計画を立て、コードを書き、テストして修正するところまでを一続きでこなす点が特徴です。今回480億ドルの評価額がつき、AIコーディング分野で最上位クラスの企業になりました。Cursorなどと並び、開発現場のAI化を担う主要プレイヤーです。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "muse",
+      "term": "Muse",
+      "reading": "ミューズ",
+      "aliases": [
+        "Meta Muse"
+      ],
+      "category": "モデル",
+      "short": "Metaが出した、身の回りのことを代わりにやってくれるAIです。メールや予約、支払いまで扱おうとしています。",
+      "detail": "メール、カレンダー、決済、健康サービスへのアクセス権を求め、車の売却や航空券の予約といった実務を代行するとされています。競合はOpenClawやInstinctで、Metaにとって消費者向けAI最大の投資です。実際にお金と個人情報を動かすため、性能よりも信頼性と権限設計が採用の分かれ目になります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "navier-stokes",
+      "term": "ナビエ・ストークス方程式",
+      "reading": "ナビエストークスほうていしき",
+      "aliases": [
+        "Navier-Stokes"
+      ],
+      "category": "基礎",
+      "short": "水や空気の流れ方を表す数式です。式はあるのに、解が必ず存在するかどうかが未解決のままです。",
+      "detail": "流体の運動を記述する基本方程式で、気象予測から航空機設計まで実務で広く使われています。一方で「解が常に存在し、なめらかであり続けるか」という数学的な問いは未解決で、クレイ数学研究所のミレニアム懸賞問題の一つとして100万ドルの賞金がかけられています。OpenAIがこの問題に関する成果を発表したことで、AIが最先端の数学研究に踏み込んだ事例として注目されました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "millennium-prize",
+      "term": "ミレニアム懸賞問題",
+      "reading": "ミレニアムけんしょうもんだい",
+      "aliases": [
+        "Millennium Prize Problems"
+      ],
+      "category": "基礎",
+      "short": "数学の未解決問題のうち、特に重要とされる7つです。1問解くごとに100万ドルの賞金が出ます。",
+      "detail": "クレイ数学研究所が2000年に選定した7つの難問で、ナビエ・ストークス方程式の存在と滑らかさもその一つです。解決すれば数学者としてのキャリアが決定づけられる水準の問題とされます。AI企業がこの領域で成果を主張し始めたことで、証明の検証方法や成果の帰属をどう扱うかが新たな論点になっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "sovereign-ai",
+      "term": "ソブリンAI",
+      "reading": "ソブリンエーアイ",
+      "aliases": [
+        "Sovereign AI",
+        "主権AI"
+      ],
+      "category": "インフラ",
+      "short": "自分の国の中でAIを動かし、データも国内に置こうという考え方です。他国の会社に頼りきりにならないことが目的です。",
+      "detail": "モデルの学習・運用・データ保管を自国の管轄内で完結させる方針を指します。安全保障や規制対応、産業政策の観点から、欧州や中東、アジア各国で予算が付き始めています。Mistral AIの30億ユーロ調達はこの需要を背景にしたもので、米国の大手クラウドとモデルに依存しない選択肢への投資として位置づけられます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "forward-deployed-engineer",
+      "term": "フォワードデプロイドエンジニア",
+      "reading": "フォワードデプロイドエンジニア",
+      "aliases": [
+        "Forward Deployed Engineer",
+        "FDE"
+      ],
+      "category": "ビジネス",
+      "short": "顧客の会社に入り込んで、その場で実装まで手を動かす技術者のことです。売って終わりにしない売り方です。",
+      "detail": "Palantirが広めた職種で、製品を渡すだけでなく顧客の業務に合わせて作り込むところまで担当します。生成AIは試験導入で止まる案件が多く、その詰まりを人手で解消する狙いがあります。Google CloudとAccentureの提携はこの体制を大規模に用意するもので、モデル性能ではなく導入支援力で差をつける競争になっていることを示しています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "alphagenome",
+      "term": "AlphaGenome",
+      "reading": "アルファゲノム",
+      "aliases": [
+        "AlphaGenome Atlas"
+      ],
+      "category": "モデル",
+      "short": "Google DeepMindが作った、遺伝子の並びから体への影響を予測するAIです。今回その予測をまとめた大規模な資料集が公開されました。",
+      "detail": "ゲノム配列を入力として、その変異が遺伝子の働きにどう影響するかを予測するモデルです。Atlasはその予測結果を大規模に整理して公開したリソースにあたり、研究者が個別に計算しなくても参照できます。タンパク質構造でAlphaFoldが果たした役割を、DeepMindがゲノム解析でも狙っている流れの一部です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "reversible-computing",
+      "term": "可逆計算",
+      "reading": "かぎゃくけいさん",
+      "aliases": [
+        "Reversible Computing"
+      ],
+      "category": "インフラ",
+      "short": "計算のときに捨てている熱を、捨てずに回収して使い直す方式です。消費電力を根本から減らそうという考え方です。",
+      "detail": "通常の計算では情報を消すたびに熱が発生しますが、計算を逆向きにたどれる形に設計すればその損失を避けられるという理論に基づきます。Vaire ComputingのHannah Earley氏らが実チップでの実現に取り組んでいます。AIの計算需要でデータセンターの電力と冷却が制約になるなか、成功すれば計算コストの前提そのものが変わる技術です。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
