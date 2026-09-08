@@ -30,6 +30,21 @@
   </itunes:category>
   
   <item>
+    <title>世界一わかりやすいAIニュース - 2026-09-08</title>
+    <itunes:title>世界一わかりやすいAIニュース - 2026-09-08</itunes:title>
+    <description>世界一わかりやすいAIニュース - 2026-09-08。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-08.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
+    <itunes:summary>世界一わかりやすいAIニュース - 2026-09-08。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-08.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
+    <author>fujisaki@teraco-labo.com</author>
+    <itunes:author>てらこ先生</itunes:author>
+    <itunes:episode>64</itunes:episode>
+    <itunes:episodeType>full</itunes:episodeType>
+    <itunes:duration>12:55</itunes:duration>
+    <itunes:explicit>false</itunes:explicit>
+    <enclosure url="https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-08.mp3" length="7755538" type="audio/mpeg"/>
+    <pubDate>Tue, 08 Sep 2026 21:00:00 GMT</pubDate>
+    <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-08.mp3</guid>
+  </item>
+  <item>
     <title>世界一わかりやすいAIニュース - 2026-09-07</title>
     <itunes:title>世界一わかりやすいAIニュース - 2026-09-07</itunes:title>
     <description>世界一わかりやすいAIニュース - 2026-09-07。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-07.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
@@ -913,21 +928,6 @@
     <enclosure url="https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-05-26.mp3" length="5215341" type="audio/mpeg"/>
     <pubDate>Tue, 26 May 2026 21:00:00 GMT</pubDate>
     <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-05-26.mp3</guid>
-  </item>
-  <item>
-    <title>世界一わかりやすいAIニュース - 2026-05-25</title>
-    <itunes:title>世界一わかりやすいAIニュース - 2026-05-25</itunes:title>
-    <description>世界一わかりやすいAIニュース - 2026-05-25。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-05-25.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
-    <itunes:summary>世界一わかりやすいAIニュース - 2026-05-25。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-05-25.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
-    <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>てらこ先生</itunes:author>
-    <itunes:episode>18</itunes:episode>
-    <itunes:episodeType>full</itunes:episodeType>
-    <itunes:duration>17:52</itunes:duration>
-    <itunes:explicit>false</itunes:explicit>
-    <enclosure url="https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-05-25.mp3" length="4289901" type="audio/mpeg"/>
-    <pubDate>Mon, 25 May 2026 21:00:00 GMT</pubDate>
-    <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-05-25.mp3</guid>
   </item>
 </channel>
 </rss>
