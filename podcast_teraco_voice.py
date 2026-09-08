@@ -38,6 +38,9 @@ TARGET_MEAN_DB = -16.0        # 話している間の平均音量。ポッドキ
 CEILING_DB     = -1.5         # 仕上げのリミッターで頭を抑える高さ（音割れ防止）
 COMP_THRESHOLD_DB = -20       # ここより大きい音だけ圧縮する
 COMP_RATIO        = 3         # 圧縮の強さ。上げすぎると声が平板になる
+# てらこ先生への上乗せ。落ち着いた声は同じ音量でも小さく感じるため、ミカより少し大きくする
+# （藤崎さんの指摘「僕の声はおとなしめなので、美香さんより少し上げるくらいでちょうどいい」）
+TERAKO_BOOST_DB = float(os.environ.get("TERAKO_BOOST_DB", 1.5))
 
 
 def _tidy_for_teraco(text: str) -> str:
@@ -82,8 +85,10 @@ def _mean_peak(path) -> tuple:
     return mean, peak
 
 
-def to_pcm(src: Path, dst: Path):
+def to_pcm(src: Path, dst: Path, boost_db: float = 0.0):
     """どの声も 24kHz mono 16bit wav にそろえ、平均音量を TARGET_MEAN_DB に合わせる。
+
+    boost_db を渡すと、その話者だけ目標より大きくする。
 
     2段階で処理する。先に圧縮だけかけ、**その結果をもう一度測ってから**音量を合わせる。
     1回で済ませると、圧縮でどれだけ下がったかを見ずに持ち上げ幅を決めることになり、
@@ -99,7 +104,7 @@ def to_pcm(src: Path, dst: Path):
                    capture_output=True, check=True)
     # 2段目: 圧縮後の平均を測り、目標に合わせて持ち上げる（頭はリミッターで抑える）
     mean, _ = _mean_peak(tmp)
-    gain = TARGET_MEAN_DB - mean if mean is not None else 0.0
+    gain = (TARGET_MEAN_DB + boost_db) - mean if mean is not None else 0.0
     subprocess.run(["ffmpeg", "-y", "-i", str(tmp),
                     "-af", f"volume={gain:.2f}dB,alimiter=limit={10 ** (CEILING_DB / 20):.3f}",
                     "-ar", "24000", "-ac", "1", "-c:a", "pcm_s16le", str(dst)],
@@ -145,7 +150,7 @@ def build(script_path: Path, out_mp3: Path, log):
                 log.write(f"  ！ {i} 番（{s}）が作れていないので飛ばします\n")
                 continue
             dst = tmp / f"p_{i:04d}.wav"
-            to_pcm(src, dst)
+            to_pcm(src, dst, TERAKO_BOOST_DB if s == "てらこ先生" else 0.0)
             if prev:
                 sil = tmp / ("sil_same.wav" if prev == s else "sil_change.wav")
                 if not sil.exists():
