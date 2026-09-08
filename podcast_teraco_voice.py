@@ -31,7 +31,13 @@ SKILL     = Path.home() / ".claude/skills/teraco-movie"
 SOVITS_PY = Path.home() / ".openclaw/workspace/GPT-SoVITS/.venv/bin/python"
 VOICE_KEY = "terako"          # voice.json の項目名（＝Teraco Voice）
 SIL_SAME, SIL_CHANGE = 0.25, 0.5   # 同一話者／話者交代の間（秒）。従来と同じ
-PEAK_DB = -2.0                # 2つの声の音量をそろえる（ピーク基準）
+# 2つの声の音量をそろえる基準。**ピークではなく平均で合わせる。**
+# ピークだけ合わせると、抑揚の大きい Teraco Voice は平均が -23dB まで下がり、
+# edge-tts のミカ（-17dB）より小さく聞こえた（2026-09-08 藤崎さんの指摘・実測）。
+TARGET_MEAN_DB = -16.0        # 話している間の平均音量。ポッドキャストの一般的な水準
+CEILING_DB     = -1.5         # 仕上げのリミッターで頭を抑える高さ（音割れ防止）
+COMP_THRESHOLD_DB = -20       # ここより大きい音だけ圧縮する
+COMP_RATIO        = 3         # 圧縮の強さ。上げすぎると声が平板になる
 
 
 def _tidy_for_teraco(text: str) -> str:
@@ -64,14 +70,28 @@ def trim_pauses(wav: Path):
 
 
 def to_pcm(src: Path, dst: Path):
-    """どの声も 24kHz mono 16bit wav にそろえ、ピークを PEAK_DB に合わせる。"""
+    """どの声も 24kHz mono 16bit wav にそろえ、平均音量を TARGET_MEAN_DB に合わせる。
+
+    平均で合わせると2人の声が同じ大きさに聞こえる。ただし持ち上げすぎると音が割れるので、
+    ピークが CEILING_DB を超えない範囲までに抑える。
+    """
     probe = subprocess.run(["ffmpeg", "-i", str(src), "-af", "volumedetect", "-f", "null", "-"],
                            capture_output=True, text=True).stderr
-    gain = 0.0
+    mean = peak = None
     for line in probe.splitlines():
-        if "max_volume" in line:
-            gain = PEAK_DB - float(line.split("max_volume:")[1].split("dB")[0])
-    subprocess.run(["ffmpeg", "-y", "-i", str(src), "-af", f"volume={gain:.2f}dB",
+        if "mean_volume" in line:
+            mean = float(line.split("mean_volume:")[1].split("dB")[0])
+        elif "max_volume" in line:
+            peak = float(line.split("max_volume:")[1].split("dB")[0])
+    gain = TARGET_MEAN_DB - mean if mean is not None else 0.0
+    # 先に軽く圧縮して、飛び出したピークだけを抑える。こうしないと Teraco Voice は
+    # ピークに頭を押さえられて平均が -22dB 止まりになり、ミカより小さく聞こえる。
+    # 最後のリミッターで頭を CEILING_DB に揃えるので、持ち上げても音は割れない
+    # （文字起こしが前後で一致すること・Flat factor 0 を実測で確認：2026-09-08）。
+    chain = (f"acompressor=threshold={COMP_THRESHOLD_DB}dB:ratio={COMP_RATIO}:attack=5:release=120,"
+             f"volume={gain:.2f}dB,"
+             f"alimiter=limit={10 ** (CEILING_DB / 20):.3f}")
+    subprocess.run(["ffmpeg", "-y", "-i", str(src), "-af", chain,
                     "-ar", "24000", "-ac", "1", "-c:a", "pcm_s16le", str(dst)],
                    capture_output=True, check=True)
 
