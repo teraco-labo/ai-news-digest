@@ -69,31 +69,42 @@ def trim_pauses(wav: Path):
         print(f"  ！ 間の詰めに失敗（そのまま使う）: {wav.name} {r.stderr.decode('utf-8','replace')[-200:]}")
 
 
-def to_pcm(src: Path, dst: Path):
-    """どの声も 24kHz mono 16bit wav にそろえ、平均音量を TARGET_MEAN_DB に合わせる。
-
-    平均で合わせると2人の声が同じ大きさに聞こえる。ただし持ち上げすぎると音が割れるので、
-    ピークが CEILING_DB を超えない範囲までに抑える。
-    """
-    probe = subprocess.run(["ffmpeg", "-i", str(src), "-af", "volumedetect", "-f", "null", "-"],
-                           capture_output=True, text=True).stderr
+def _mean_peak(path) -> tuple:
+    """音声の平均音量とピークを測る（dB）。"""
+    out = subprocess.run(["ffmpeg", "-i", str(path), "-af", "volumedetect", "-f", "null", "-"],
+                         capture_output=True, text=True).stderr
     mean = peak = None
-    for line in probe.splitlines():
+    for line in out.splitlines():
         if "mean_volume" in line:
             mean = float(line.split("mean_volume:")[1].split("dB")[0])
         elif "max_volume" in line:
             peak = float(line.split("max_volume:")[1].split("dB")[0])
+    return mean, peak
+
+
+def to_pcm(src: Path, dst: Path):
+    """どの声も 24kHz mono 16bit wav にそろえ、平均音量を TARGET_MEAN_DB に合わせる。
+
+    2段階で処理する。先に圧縮だけかけ、**その結果をもう一度測ってから**音量を合わせる。
+    1回で済ませると、圧縮でどれだけ下がったかを見ずに持ち上げ幅を決めることになり、
+    元から大きい声（ミカ）は下がりすぎ、小さい声（てらこ先生）は上がりすぎる
+    （2026-09-08 に実際に逆転した。てらこ先生 -17.9dB 対 ミカ -21.1dB）。
+    """
+    # 1段目: 飛び出たピークだけを軽く抑える
+    tmp = dst.with_suffix(".pre.wav")
+    subprocess.run(["ffmpeg", "-y", "-i", str(src),
+                    "-af", f"acompressor=threshold={COMP_THRESHOLD_DB}dB:ratio={COMP_RATIO}"
+                           ":attack=5:release=120",
+                    "-ar", "24000", "-ac", "1", "-c:a", "pcm_s16le", str(tmp)],
+                   capture_output=True, check=True)
+    # 2段目: 圧縮後の平均を測り、目標に合わせて持ち上げる（頭はリミッターで抑える）
+    mean, _ = _mean_peak(tmp)
     gain = TARGET_MEAN_DB - mean if mean is not None else 0.0
-    # 先に軽く圧縮して、飛び出したピークだけを抑える。こうしないと Teraco Voice は
-    # ピークに頭を押さえられて平均が -22dB 止まりになり、ミカより小さく聞こえる。
-    # 最後のリミッターで頭を CEILING_DB に揃えるので、持ち上げても音は割れない
-    # （文字起こしが前後で一致すること・Flat factor 0 を実測で確認：2026-09-08）。
-    chain = (f"acompressor=threshold={COMP_THRESHOLD_DB}dB:ratio={COMP_RATIO}:attack=5:release=120,"
-             f"volume={gain:.2f}dB,"
-             f"alimiter=limit={10 ** (CEILING_DB / 20):.3f}")
-    subprocess.run(["ffmpeg", "-y", "-i", str(src), "-af", chain,
+    subprocess.run(["ffmpeg", "-y", "-i", str(tmp),
+                    "-af", f"volume={gain:.2f}dB,alimiter=limit={10 ** (CEILING_DB / 20):.3f}",
                     "-ar", "24000", "-ac", "1", "-c:a", "pcm_s16le", str(dst)],
                    capture_output=True, check=True)
+    tmp.unlink(missing_ok=True)
 
 
 def build(script_path: Path, out_mp3: Path, log):
