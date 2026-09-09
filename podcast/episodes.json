@@ -1,5 +1,13 @@
 [
   {
+    "date": "2026-09-10",
+    "title": "世界一わかりやすいAIニュース - 2026-09-10",
+    "url": "https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-10.mp3",
+    "size": 8472600,
+    "duration": 847,
+    "episode_num": 66
+  },
+  {
     "date": "2026-09-09",
     "title": "世界一わかりやすいAIニュース - 2026-09-09",
     "url": "https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-09.mp3",
@@ -470,13 +478,5 @@
     "size": 5890135,
     "duration": 588,
     "episode_num": 21
-  },
-  {
-    "date": "2026-05-27",
-    "title": "世界一わかりやすいAIニュース - 2026-05-27",
-    "url": "https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-05-27.mp3",
-    "size": 405549,
-    "duration": 101,
-    "episode_num": 20
   }
 ]

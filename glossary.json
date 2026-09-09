@@ -2805,6 +2805,104 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "jacob-coxon",
+      "term": "Jacob Coxon",
+      "reading": "ジェイコブ・コクソン",
+      "aliases": [],
+      "category": "人物",
+      "short": "AnthropicでAIの安全性を研究していた人です。2026年9月に辞職し、その理由を公開しました。",
+      "detail": "AIが自ら性能を改良していく段階に入ると人間の制御が追いつかなくなる、という危機感から辞職を選んだと説明しています。社内には安全性に取り組む大がかりな体制があったものの、残された時間は数年だと述べました。開発の当事者が公に警告を出した点で、業界内外に大きな反響がありました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "paul-christiano",
+      "term": "Paul Christiano",
+      "reading": "ポール・クリスチアーノ",
+      "aliases": [],
+      "category": "人物",
+      "short": "AIを人間の意図に沿わせる研究で知られる研究者です。OpenAI Foundationの理事に就任しました。",
+      "detail": "AIがもたらすリスクを一貫して指摘してきた立場で、いわゆる悲観派の代表格として扱われています。理事就任は、安全性への懸念を統治の中枢に組み込む動きと受け止められています。開発を進める企業が、批判的な立場の人物をどう内部に位置づけるかを示す事例です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "connor-leahy",
+      "term": "Connor Leahy",
+      "reading": "コナー・リーヒ",
+      "aliases": [],
+      "category": "人物",
+      "short": "AIの安全性を訴える団体ControlAIを率いる人です。超知能を「武器ではなく敵対者だ」と表現しています。",
+      "detail": "人間より高い能力を持つシステムは道具として扱えず、意図を持った相手として向き合わざるを得ない、という立場をとっています。AI企業が超知能の実現を既定路線のように語る風潮に対し、実現の是非そのものを問うべきだと主張しています。規制を求める側の論客として国際的な議論に加わっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "controlai",
+      "term": "ControlAI",
+      "reading": "コントロールAI",
+      "aliases": [],
+      "category": "企業",
+      "short": "高度なAIの危険性を訴え、規制を求めて活動している団体です。Connor Leahyが率いています。",
+      "detail": "超知能の開発を止めるか、少なくとも国際的な管理下に置くべきだという主張を掲げています。技術開発そのものよりも、政策決定者への働きかけと世論形成に軸足を置いています。AI企業側の主張に対する対抗軸として、報道でも引用される機会が増えています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "iphone-duo",
+      "term": "iPhone Duo",
+      "reading": "アイフォン・デュオ",
+      "aliases": [
+        "折りたたみiPhone"
+      ],
+      "category": "モデル",
+      "short": "Appleが初めて出した折りたたみ式のiPhoneです。2026年秋の発表会で公開されました。",
+      "detail": "長く噂されてきた製品で、この日のイベントの目玉になりました。折りたたみ部分のヒンジ（蝶番）の製造にAIと3Dプリンティングを使ったとAppleは説明しています。スマートフォンの形状競争にAppleが本格参入したことを示す製品です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "apple-intelligence",
+      "term": "Apple Intelligence",
+      "reading": "アップル・インテリジェンス",
+      "aliases": [],
+      "category": "モデル",
+      "short": "Appleが自社製品に組み込んでいるAI機能の総称です。端末の中で処理することを重視しています。",
+      "detail": "新しいHealthアプリでは、蓄積された健康データから「健康年齢」やレディネススコアを算出する用途に使われています。Appleは端末上で動くモデルのほうが利用者のプライバシーを守れると主張しています。クラウド側で処理する他社のAIとの差別化の軸になっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "apple-reference-image",
+      "term": "Apple Reference Image",
+      "reading": "アップル・リファレンス・イメージ",
+      "aliases": [],
+      "category": "安全性",
+      "short": "写真が編集されているかどうかを確かめるためのAppleの仕組みです。AIによる加工も対象です。",
+      "detail": "撮影された元の状態を基準として保持し、後から加えられた変更を判別できるようにする考え方です。生成AIによる画像が氾濫するなかで、本物の写真であることを示す手段が求められています。報道やSNSでの真偽判定に関わる基盤技術になりうるものです。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "kepler-computing",
+      "term": "Kepler Computing",
+      "reading": "ケプラー・コンピューティング",
+      "aliases": [],
+      "category": "企業",
+      "short": "チップ設計に新しい手法を持ち込もうとしている企業です。長らく表に出ずに開発を進めてきました。",
+      "detail": "独自の素材と設計手法によって、メモリの供給不足を解消できると主張しています。AI向け需要の急増でメモリ価格が高騰しており、供給のボトルネックが業界全体の制約になっている状況が背景にあります。主張が実証されれば、データセンター増設のコスト構造に影響します。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
