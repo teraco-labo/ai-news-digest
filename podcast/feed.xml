@@ -18,17 +18,32 @@
     <itunes:email>fujisaki@teraco-labo.com</itunes:email>
   </itunes:owner>
   <image>
-    <url>https://teraco-labo.github.io/ai-news-digest/podcast/cover.jpg?v=20260910</url>
+    <url>https://teraco-labo.github.io/ai-news-digest/podcast/cover.jpg?v=20260907</url>
     <title>世界一わかりやすいAIニュース｜てらこ先生</title>
     <link>https://teraco-labo.github.io/ai-news-digest</link>
   </image>
-  <itunes:image href="https://teraco-labo.github.io/ai-news-digest/podcast/cover.jpg?v=20260910"/>
+  <itunes:image href="https://teraco-labo.github.io/ai-news-digest/podcast/cover.jpg?v=20260907"/>
   <itunes:explicit>false</itunes:explicit>
   <itunes:type>episodic</itunes:type>
   <itunes:category text="Technology">
     <itunes:category text="Tech News"/>
   </itunes:category>
   
+  <item>
+    <title>世界一わかりやすいAIニュース - 2026-09-11</title>
+    <itunes:title>世界一わかりやすいAIニュース - 2026-09-11</itunes:title>
+    <description>世界一わかりやすいAIニュース - 2026-09-11。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-11.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
+    <itunes:summary>世界一わかりやすいAIニュース - 2026-09-11。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-11.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
+    <author>fujisaki@teraco-labo.com</author>
+    <itunes:author>てらこ先生</itunes:author>
+    <itunes:episode>67</itunes:episode>
+    <itunes:episodeType>full</itunes:episodeType>
+    <itunes:duration>11:54</itunes:duration>
+    <itunes:explicit>false</itunes:explicit>
+    <enclosure url="https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-11.mp3" length="7148452" type="audio/mpeg"/>
+    <pubDate>Fri, 11 Sep 2026 21:00:00 GMT</pubDate>
+    <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-11.mp3</guid>
+  </item>
   <item>
     <title>世界一わかりやすいAIニュース - 2026-09-10</title>
     <itunes:title>世界一わかりやすいAIニュース - 2026-09-10</itunes:title>
