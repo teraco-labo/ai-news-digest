@@ -18,11 +18,11 @@
     <itunes:email>fujisaki@teraco-labo.com</itunes:email>
   </itunes:owner>
   <image>
-    <url>https://teraco-labo.github.io/ai-news-digest/podcast/cover.jpg?v=20260907</url>
+    <url>https://teraco-labo.github.io/ai-news-digest/podcast/cover.jpg?v=20260912</url>
     <title>世界一わかりやすいAIニュース｜てらこ先生</title>
     <link>https://teraco-labo.github.io/ai-news-digest</link>
   </image>
-  <itunes:image href="https://teraco-labo.github.io/ai-news-digest/podcast/cover.jpg?v=20260907"/>
+  <itunes:image href="https://teraco-labo.github.io/ai-news-digest/podcast/cover.jpg?v=20260912"/>
   <itunes:explicit>false</itunes:explicit>
   <itunes:type>episodic</itunes:type>
   <itunes:category text="Technology">
@@ -913,21 +913,6 @@
     <enclosure url="https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-06-03.mp3" length="6247229" type="audio/mpeg"/>
     <pubDate>Wed, 03 Jun 2026 21:00:00 GMT</pubDate>
     <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-06-03.mp3</guid>
-  </item>
-  <item>
-    <title>世界一わかりやすいAIニュース - 2026-05-29</title>
-    <itunes:title>世界一わかりやすいAIニュース - 2026-05-29</itunes:title>
-    <description>世界一わかりやすいAIニュース - 2026-05-29。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-05-29.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</description>
-    <itunes:summary>世界一わかりやすいAIニュース - 2026-05-29。 この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-05-29.html ／ メールで毎朝受け取る（無料）→ https://teracosensei.substack.com/subscribe</itunes:summary>
-    <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>てらこ先生</itunes:author>
-    <itunes:episode>22</itunes:episode>
-    <itunes:episodeType>full</itunes:episodeType>
-    <itunes:duration>7:59</itunes:duration>
-    <itunes:explicit>false</itunes:explicit>
-    <enclosure url="https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-05-29.mp3" length="4795604" type="audio/mpeg"/>
-    <pubDate>Fri, 29 May 2026 21:00:00 GMT</pubDate>
-    <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-05-29.mp3</guid>
   </item>
 </channel>
 </rss>
