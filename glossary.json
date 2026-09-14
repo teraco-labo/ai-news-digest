@@ -3270,6 +3270,106 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "glass-imaging",
+      "term": "Glass Imaging",
+      "reading": "グラス・イメージング",
+      "aliases": [],
+      "category": "企業",
+      "short": "スマートフォンのカメラ画質を良くする技術を作っている会社です。元 Apple のエンジニア2人が立ち上げました。OpenAI が約3億ドルで買収したと報じられています。",
+      "detail": "創業者2名は Apple でポートレートモード（背景をぼかして人物を際立たせる撮影機能）の開発チームを率いていた人物です。画像処理の中核となる人材と技術をまとめて確保できるため、買収の狙いはハードウェア開発にあるとみられています。OpenAI がソフトウェア企業の枠を超えて事業領域を広げていることを示す取引です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "fathom",
+      "term": "Fathom",
+      "reading": "ファゾム",
+      "aliases": [
+        "ファゾム"
+      ],
+      "category": "企業",
+      "short": "オンライン会議を録音して自動で議事録を作るツールです。無料で使える範囲が広いことで利用者を増やしました。",
+      "detail": "月間アクティブユーザーは40万人を超え、累計で100万人以上が会議の録音に使っています。Y Combinator の出資を受けたスタートアップで、メールアプリの Superhuman に買収されました。会議・メール・タスクをまたいで自動で働くアシスタントを作る流れの一部です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "superhuman",
+      "term": "Superhuman",
+      "reading": "スーパーヒューマン",
+      "aliases": [],
+      "category": "企業",
+      "short": "高速に操作できることを売りにした有料のメールアプリです。最近はAIによる作業の自動化に力を入れています。",
+      "detail": "キーボード操作中心の設計で処理速度を高めたメールクライアントとして知られてきました。議事録ツール Fathom の買収により、メール以外の業務データも扱う生産性プラットフォームへ広げようとしています。エージェント型の働き方（AIが自律的に作業を進める形）を軸にした業界再編の一例です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "ios-27",
+      "term": "iOS 27",
+      "reading": "アイオーエス・にじゅうなな",
+      "aliases": [],
+      "category": "モデル",
+      "short": "iPhone 向けの基本ソフトの新しい版です。長く遅れていた Siri の刷新がようやく入りました。",
+      "detail": "Apple Intelligence を軸にした機能が実用段階に達したかを利用者が判断できる節目のリリースです。Liquid Glass と呼ばれる画面デザインの細部も改良されています。コード解析からは、Siri の応答を外部のAIモデルに差し替えられる仕組みの存在も指摘されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "macos-golden-gate",
+      "term": "macOS Golden Gate 27",
+      "reading": "マックオーエス・ゴールデンゲート",
+      "aliases": [],
+      "category": "モデル",
+      "short": "Mac 向けの基本ソフトの新しい版です。Intel 時代のアプリを動かす仕組みに対応する最後の版になります。",
+      "detail": "iOS 27 と同時に公開され、刷新された Siri を搭載しています。Rosetta（Intel 向けに作られたアプリを Apple 製チップ上で動かす変換の仕組み）に対応する最終バージョンとなるため、旧世代アプリの移行期限が事実上区切られました。業務で古いアプリを使い続けている組織には対応が必要になります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "rosetta",
+      "term": "Rosetta",
+      "reading": "ロゼッタ",
+      "aliases": [],
+      "category": "インフラ",
+      "short": "古い Mac 向けに作られたアプリを、新しい Mac でもそのまま動かすための変換の仕組みです。Apple が用意しています。",
+      "detail": "Intel 製チップ向けに書かれたソフトを Apple 製チップ上で実行できるよう、動作中に命令を変換します。macOS Golden Gate 27 が対応する最後のバージョンとなり、以降は開発者側の対応が必須になります。移行期間を区切ることで Apple がチップ移行を完了させる意図がうかがえます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "liquid-glass",
+      "term": "Liquid Glass",
+      "reading": "リキッドグラス",
+      "aliases": [],
+      "category": "基礎",
+      "short": "Apple の端末で使われている画面デザインの名前です。すりガラスのような質感が特徴です。",
+      "detail": "iOS と macOS に共通して導入されたインターフェースの設計方針で、半透明の層を重ねた見た目を持ちます。iOS 27 および macOS Golden Gate 27 では細部が改良されました。OS 全体の印象を決める要素のため、リリースごとの調整が利用者の評価に直結します。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "manhattan-district-attorney",
+      "term": "マンハッタン地区検事局",
+      "reading": "マンハッタンちくけんじきょく",
+      "aliases": [
+        "Manhattan District Attorney's Office"
+      ],
+      "category": "規制",
+      "short": "ニューヨーク市マンハッタンを管轄する検察の組織です。ディープフェイクサイト12件の差し押さえを実行しました。",
+      "detail": "今回の措置は有害なディープフェイクサイトに対する法的措置として過去最大規模で、対象サイトは合わせて約1,200人を被害者としていました。プラットフォームの自主対応を待たず、ドメインの押収という強制力のある手段を取った点が特徴です。生成AIによる被害に対して、刑事司法がどこまで踏み込めるかを示す先例になります。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
