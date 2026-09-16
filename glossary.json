@@ -3474,6 +3474,108 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "cowork",
+      "term": "Cowork",
+      "reading": "コワーク",
+      "aliases": [],
+      "category": "モデル",
+      "short": "Anthropic が提供する、AIと一緒に作業を進めるための画面です。相談するだけでなく、資料づくりやファイルの操作までその場でこなせます。",
+      "detail": "従来のチャット形式の Claude が「質問して答えをもらう」使い方だったのに対し、Cowork は実際の作業そのものを任せることを想定した環境です。2026年9月、Anthropic はこの Cowork を通常のチャット画面に統合し、会話から作業への移行を切れ目なくしました。まずは Pro と Max の有料プラン契約者に提供されます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "google-home",
+      "term": "Google Home",
+      "reading": "グーグルホーム",
+      "aliases": [],
+      "category": "企業",
+      "short": "Google が提供する、家じゅうの機器をまとめて操作する仕組みです。照明やエアコン、防犯カメラなどをアプリや音声で動かせます。",
+      "detail": "2026年9月、Google は Google Home 向けの MCP サーバーの先行提供を開始しました。これにより Claude や ChatGPT といった外部のAIから、自然な話し言葉で家の機器を操作できるようになります。従来は Google 自身のアシスタントに限られていた操作の窓口が、他社のAIにも開かれる形です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "sk-hynix",
+      "term": "SK Hynix",
+      "reading": "エスケーハイニックス",
+      "aliases": [
+        "SKハイニックス"
+      ],
+      "category": "企業",
+      "short": "韓国の大手半導体メーカーです。コンピューターの記憶装置にあたるメモリ半導体を作っています。",
+      "detail": "AI向けサーバーでは、GPU に大量のデータを高速で送り込む高帯域メモリが性能を左右します。SK Hynix はこの分野の主要な供給元のひとつで、需給の逼迫が続いています。2026年9月、Intel と組んで米国内に製造拠点を設ける協議をしていると報じられましたが、同社は計画は確定していないとしています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "intel",
+      "term": "Intel",
+      "reading": "インテル",
+      "aliases": [],
+      "category": "企業",
+      "short": "米国の老舗半導体メーカーです。パソコン用の頭脳にあたる部品で長く世界首位を占めてきました。",
+      "detail": "AI向けの計算では NVIDIA の GPU に大きく水をあけられ、近年は自社工場を他社の製造受託に開放する方向へ舵を切っています。2026年9月には SK Hynix と米国内でメモリ半導体を作る協議が報じられました。米国内で半導体供給網を完結させようという政策の流れとも重なる動きです。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "mozilla",
+      "term": "Mozilla",
+      "reading": "モジラ",
+      "aliases": [],
+      "category": "企業",
+      "short": "ウェブブラウザ Firefox を開発している非営利団体です。利益より利用者のプライバシーを優先する方針を掲げています。",
+      "detail": "広告収入を主軸とする企業とは異なり、閲覧履歴を収益化しない立場を長く取ってきました。2026年9月には Mistral AI と提携し、多言語対応でプライバシーを守るAIブラウジング機能を打ち出しています。AIブラウザ競争において「データを預けない選択肢」を担う位置づけです。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "firefox",
+      "term": "Firefox",
+      "reading": "ファイアフォックス",
+      "aliases": [],
+      "category": "企業",
+      "short": "Mozilla が開発している無料のウェブブラウザです。閲覧履歴を広告に使わない設計が特徴です。",
+      "detail": "Chrome や Safari と比べて利用者数は少ないものの、プライバシー保護を重んじる層に支持されています。2026年9月の Mistral AI との提携により、AI機能をブラウザに組み込みつつ利用者データを外部に渡さない形を目指しています。AIブラウザが当たり前になる中で、データの扱いを差別化要因にする戦略です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "sponsored-agents",
+      "term": "Sponsored Agents",
+      "reading": "スポンサードエージェント",
+      "aliases": [
+        "スポンサー付きエージェント"
+      ],
+      "category": "ビジネス",
+      "short": "OpenAI が ChatGPT に導入する新しい広告の形です。企業がお金を出したAIの機能が、会話の中に登場します。",
+      "detail": "バナーのような表示広告ではなく、スポンサー企業のエージェントが会話の流れの中で機能を提供する形式です。無料利用者を支える推論コストを賄う収益源として位置づけられています。AIの回答内容に広告主の意向がどこまで反映されるのかという線引きが、利用者の信頼を左右する論点になります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "ternary-llm",
+      "term": "三値LLM",
+      "reading": "さんちLLM",
+      "aliases": [
+        "ternary LLM"
+      ],
+      "category": "基礎",
+      "short": "モデルの中身の数値を -1、0、1 の三つだけで表す軽量化の手法です。扱う数字を極端に減らすことで、少ないメモリで動かせます。",
+      "detail": "三つの状態を表すのに必要な情報量は log2(3)、およそ1.58ビットで、これが1パラメータあたりの理論的な下限と見なされてきました。2026年9月、この1.58ビットをさらに下回る手法が提案され、注目を集めています。手元の端末や安価なサーバーで大規模モデルを動かす道を広げる研究です。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
