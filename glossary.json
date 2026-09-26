@@ -4406,6 +4406,48 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "blue-cross-blue-shield",
+      "term": "Blue Cross Blue Shield",
+      "reading": "ブルークロス・ブルーシールド",
+      "aliases": [
+        "BCBS"
+      ],
+      "category": "企業",
+      "short": "アメリカの大手の医療保険のグループです。多くの人の病院代を支払う側の立場にあります。",
+      "detail": "米国の医療保険会社が加盟する連合体で、医療費を支払う側として病院の請求に目を光らせる立場にあります。今回は病院のAI導入で2年間に9億4200万ドルの追加支出が生じたと主張しました。医療AIの費用対効果を、支払う側がどう評価しているかを示す存在として注目されます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "copilot-plus-pc",
+      "term": "Copilot+ PC",
+      "reading": "コパイロットプラス ピーシー",
+      "aliases": [
+        "Copilot+ PC"
+      ],
+      "category": "インフラ",
+      "short": "Microsoftが、AIを動かす力のあるWindowsパソコンに付けていた名前です。条件を満たした機種だけが名乗れました。",
+      "detail": "MicrosoftがいわゆるAI PCの看板として打ち出したブランドで、端末の中でAIを動かすための性能を条件にしていました。そのブランドが終了したと報じられています。オンデバイスAIをパソコンの売りにする戦略が見直されつつあることを示す動きとして読まれています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "labubu",
+      "term": "Labubu",
+      "reading": "ラブブ",
+      "aliases": [
+        "ラブブ"
+      ],
+      "category": "ビジネス",
+      "short": "世界中で人気になった、いたずらっぽい顔のぬいぐるみキャラクターです。大人のコレクターにも人気があります。",
+      "detail": "Wiredの記事では、MetaのAIサービス「Muse」のマスコットがLabubuに似ていると指摘されました。成人向けとされるAIに子どもが好みそうな見た目を与えることの是非が論点になっています。AI製品のデザインが、どの年齢層を引き寄せるかに影響することを示す例です。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
