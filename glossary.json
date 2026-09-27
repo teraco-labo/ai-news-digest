@@ -4448,6 +4448,103 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "flipkart",
+      "term": "Flipkart",
+      "reading": "フリップカート",
+      "aliases": [],
+      "category": "企業",
+      "short": "インドの大手ネット通販サイトです。アメリカの小売大手Walmartが親会社です。",
+      "detail": "インドのEC市場で最大級のシェアを持つ企業の一つです。GoogleがGeminiやAI Modeからの購入を試験する相手に選んだことで、AIアシスタント経由の買い物をインドで広げる足がかりになっています。巨大な人口を抱えるインド市場で、AIが買い物の入り口になるかを占う事例として注目されます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "walmart",
+      "term": "Walmart",
+      "reading": "ウォルマート",
+      "aliases": [
+        "ウォルマート"
+      ],
+      "category": "企業",
+      "short": "アメリカ最大級のスーパーマーケットチェーンです。インドのネット通販Flipkartも傘下に持っています。",
+      "detail": "世界最大級の小売企業で、店舗販売だけでなくネット通販にも力を入れています。インドではFlipkartを通じて事業を展開しており、今回のGoogleとの試験も間接的にWalmartグループに関わる動きです。小売大手がAIアシスタント経由の販売にどう向き合うかは、今後の買い物のあり方に影響します。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "snl",
+      "term": "SNL",
+      "reading": "エスエヌエル",
+      "aliases": [
+        "Saturday Night Live",
+        "サタデー・ナイト・ライブ"
+      ],
+      "category": "メディア",
+      "short": "アメリカで長く続いている土曜夜のコメディ番組です。政治家や有名人をまねたコントで知られています。",
+      "detail": "時事ネタを素早く取り上げるのが特徴で、番組で扱われること自体がその人物や話題の知名度の高さを示します。今回はAnthropicのDario Amodei CEOがパロディの対象になりました。AI企業の経営者が大衆向けの笑いの題材になったことは、AIが一般の関心事になった象徴といえます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "weekend-update",
+      "term": "Weekend Update",
+      "reading": "ウィークエンド・アップデート",
+      "aliases": [],
+      "category": "メディア",
+      "short": "SNLの中にある、ニュース番組をまねたコーナーです。キャスター役が時事ネタを冗談まじりに伝えます。",
+      "detail": "実在の人物に扮したゲストがキャスターの隣に登場し、話題についてコメントする形式がよく使われます。今回はDario Amodei氏に扮した出演者がAIの脅威について語るコントが放送されました。その週に世間で話題になったことが取り上げられやすいコーナーです。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "donald-trump",
+      "term": "ドナルド・トランプ",
+      "reading": "",
+      "aliases": [
+        "Donald Trump",
+        "トランプ大統領"
+      ],
+      "category": "人物",
+      "short": "アメリカの大統領です。AIを含む国の政策を最終的に決める立場にあります。",
+      "detail": "米国のAI規制や半導体輸出規制などの方針は、大統領の判断に大きく左右されます。今回、AnthropicのDario Amodei CEOと初めて1対1で会食する予定と報じられました。AI企業のトップとの直接対話は、政策の方向性を探るうえで注目されます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "chat-template",
+      "term": "チャットテンプレート",
+      "reading": "",
+      "aliases": [
+        "chat template"
+      ],
+      "category": "基礎",
+      "short": "AIに会話を渡すときの決まった書式です。誰の発言かを区切る目印などが含まれます。",
+      "detail": "LLMはもともと文章の続きを書く仕組みなので、会話として扱わせるには「ここからユーザーの発言」「ここからAIの返答」といった区切りを入れた書式が必要です。この書式がチャットテンプレートで、モデルごとに決まった形があります。今回の研究では、テンプレートを切り替えるだけでモデルが自分について語る口調が変わると報告されており、書式がモデルの振る舞いに与える影響の大きさを示しています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "unsealed-briefs",
+      "term": "準備書面の封印解除",
+      "reading": "",
+      "aliases": [
+        "unsealed briefs",
+        "アンシール"
+      ],
+      "category": "規制",
+      "short": "裁判で非公開にされていた書類が、一般に公開されることです。当事者の主張や証拠が外から見られるようになります。",
+      "detail": "米国の裁判では、企業秘密などを理由に一部の書類が非公開（封印）にされることがあります。作家らがMicrosoftとOpenAIを訴えた著作権訴訟で、こうした準備書面が公開されました。AI企業の学習データの扱いを外部から確かめる手がかりになるため、業界の注目を集めています。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
