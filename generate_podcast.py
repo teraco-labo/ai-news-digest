@@ -74,6 +74,14 @@ _TRANSITIONS = [
 # TTS 発音改善：略語・固有名詞をカタカナに変換
 # ---------------------------------------------------------------------------
 _TTS_REPLACEMENTS = [
+    # --- Teraco Slide（2026-09-28 登録）---
+    ("Teraco Slide", "テラコスライド"),
+    ("TERACO SLIDE", "テラコスライド"),
+    ("TeracoSlide", "テラコスライド"),
+    # --- Teraco Customer（2026-09-20 登録）---
+    ("Teraco Customer", "テラコカスタマー"),
+    ("TERACO CUSTOMER", "テラコカスタマー"),
+    ("TeracoCustomer", "テラコカスタマー"),
     # --- Teraco Hub（2026-09-11 登録）---
     ("Teraco Hub", "テラコハブ"),
     ("TERACO HUB", "テラコハブ"),
