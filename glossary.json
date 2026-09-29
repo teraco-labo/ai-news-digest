@@ -4545,6 +4545,118 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "world-labs",
+      "term": "World Labs",
+      "reading": "ワールドラボ",
+      "aliases": [
+        "ワールド・ラボ"
+      ],
+      "category": "企業",
+      "short": "AI研究者のFei-Fei Li氏が立ち上げたAIの会社です。2026年9月に半導体メーカーのAMDが買い取ることを決めました。",
+      "detail": "AI研究の第一人者として知られるFei-Fei Li氏が創業したスタートアップです。AMDが82億ドルで買収すると発表し、Li氏はAMDの執行副社長兼チーフサイエンティストに就きます。AI向けチップを手がける企業が、モデル開発の力と研究人材をまとめて取り込む大型案件として注目されました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "fei-fei-li",
+      "term": "Fei-Fei Li",
+      "reading": "フェイフェイ・リー",
+      "aliases": [
+        "フェイフェイ・リー",
+        "李飛飛"
+      ],
+      "category": "人物",
+      "short": "AI研究の分野で広く知られる研究者です。World Labsという会社を立ち上げました。",
+      "detail": "自身が創業したWorld LabsがAMDに82億ドルで買収されることになり、Li氏はAMDの執行副社長兼チーフサイエンティストに就任します。チーフサイエンティストは会社の研究の方向性を決める立場です。半導体メーカーの研究戦略を率いる人物として、今後の発言や方針が注目されます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "modal-labs",
+      "term": "Modal Labs",
+      "reading": "モーダルラボ",
+      "aliases": [
+        "Modal"
+      ],
+      "category": "企業",
+      "short": "AIを動かすための計算の場を貸し出している会社です。できあがったAIを実際に使う段階を支えています。",
+      "detail": "AIインフラのスタートアップで、完成したモデルを動かす「推論」の処理を提供する推論プロバイダーです。評価額157.5億ドルで7億5000万ドルを調達する交渉が進んでいると報じられました。評価額は4か月前の3倍以上とされ、推論需要の急拡大を象徴する企業です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "inference-provider",
+      "term": "推論プロバイダー",
+      "reading": "すいろんプロバイダー",
+      "aliases": [
+        "inference provider"
+      ],
+      "category": "インフラ",
+      "short": "できあがったAIを動かすための計算機を、ほかの会社に貸す事業者です。AIを自前の設備なしで使えるようにします。",
+      "detail": "AIは「学習」でつくり、「推論」で実際に使います。推論プロバイダーは後者を請け負い、利用企業は自社でGPUなどを用意せずにモデルを動かせます。AIの利用が広がるほど推論の処理量が増えるため、Modal Labsのように急速に評価額を伸ばす企業が出ています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "webmcp",
+      "term": "WebMCP",
+      "reading": "ウェブエムシーピー",
+      "aliases": [],
+      "category": "使い方",
+      "short": "ブラウザの中で動くAIが、ウェブサイトの機能を使えるようにする仕組みです。Shopifyが買い物の支払い画面にも取り入れました。",
+      "detail": "Shopifyはこの仕組みへの対応を決済画面まで広げ、ブラウザ上のAIエージェントが購入者の許可を得て注文内容を変えたり購入を完了したりできるようにしました。AIエージェントがウェブサイトを「客」として操作する時代の基盤の一つです。EC事業者にとっては、エージェント経由の購入にどう対応するかが新たな検討課題になります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "gemini-gems",
+      "term": "Gems",
+      "reading": "ジェムズ",
+      "aliases": [
+        "Gem",
+        "Geminiの Gems"
+      ],
+      "category": "使い方",
+      "short": "GoogleのAI「Gemini」で、決まった作業専用のAIを自分で作れる機能です。「スキル」という仕組みに置き換えられて終了します。",
+      "detail": "用途ごとに特化したエージェントをつくる機能として提供されてきました。GoogleはMetaのMuseなど汎用型エージェントの広がりを受けて、Gemsを終了し「スキル」へ移行すると決めました。業務でGemsを使っている場合は、スキルへの移し替えが必要になります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "claude-sonnet-5-5",
+      "term": "Sonnet 5.5",
+      "reading": "ソネット5.5",
+      "aliases": [
+        "Claude Sonnet 5.5"
+      ],
+      "category": "モデル",
+      "short": "AnthropicのAI「Claude」の中くらいの性能帯のモデルの最新版です。以前より安く、速く使えることが売りです。",
+      "detail": "Anthropicが中位モデルとして公開したバージョンで、応答の速さと消費トークンの少なさを打ち出しています。同社は「大幅に安く、速い仕事のパートナー」と位置づけています。日常業務や開発で大量に使う場面では、コストを抑えられる点が選ぶ理由になります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "bytedance",
+      "term": "ByteDance",
+      "reading": "バイトダンス",
+      "aliases": [
+        "バイトダンス"
+      ],
+      "category": "企業",
+      "short": "中国の大手IT企業です。アメリカが輸出を禁じたNVIDIA製のAIチップを買えるかどうかが話題になっています。",
+      "detail": "中国政府がByteDanceやAlibabaに対し、禁止されているNVIDIA製チップの購入を認めることを検討していると報じられました。米国の半導体輸出規制が実際にどこまで効いているかを考えるうえで、名前が挙がる企業の一つです。米中のAI開発競争のニュースでたびたび登場します。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
