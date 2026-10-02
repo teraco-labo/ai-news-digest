@@ -4863,6 +4863,96 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "nicolas-maduro",
+      "term": "Nicolás Maduro",
+      "reading": "ニコラス・マドゥロ",
+      "aliases": [
+        "マドゥロ大統領"
+      ],
+      "category": "人物",
+      "short": "南米の国ベネズエラの大統領です。アメリカとの対立が続いてきました。",
+      "detail": "今回の報道では、米国がベネズエラに侵攻し、マドゥロ大統領を拘束したとされています。その決定の前に、トランプ大統領がAIチャットボットのGrokに意見を求めていたことが報じられました。国際政治の重大な判断にAIが関わった可能性を示す出来事として、この人物の名前が出てきます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "synopsys",
+      "term": "Synopsys",
+      "reading": "シノプシス",
+      "aliases": [],
+      "category": "企業",
+      "short": "半導体チップを設計するためのソフトを作っている会社です。チップを作る前の「設計図づくり」を支えています。",
+      "detail": "チップ設計は膨大な数の部品の配置や配線を決める作業で、専門のソフトなしには進められません。「GPT-Synopsys」という発表は、この設計工程にフロンティア級のAIを取り込もうとする動きとして注目されています。AI向けチップの開発スピードそのものに関わる分野のため、AI業界全体への波及が見込まれます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "shopify",
+      "term": "Shopify",
+      "reading": "ショッピファイ",
+      "aliases": [],
+      "category": "企業",
+      "short": "誰でもネットショップを開けるサービスを提供している会社です。お店のページづくりから販売までを手伝ってくれます。",
+      "detail": "多くの事業者が自社のオンラインストアを作るために利用しています。今回発表したCanvasでは、AIエージェントと会話するだけで店舗のデザインを作り込めるようになりました。ネット販売の現場にAIがどこまで入り込むかを占う存在として注目されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "shopify-sidekick",
+      "term": "Sidekick",
+      "reading": "サイドキック",
+      "aliases": [
+        "Shopify Sidekick"
+      ],
+      "category": "使い方",
+      "short": "Shopifyに組み込まれたAIの助手です。話しかけるとお店づくりの作業を代わりに進めてくれます。",
+      "detail": "Shopifyが提供するAIエージェントで、出店者の指示を受けてストアの作成や調整を行います。新しいサイト作成ツールのCanvasでは、Sidekickと会話しながら変更がリアルタイムに反映される様子を確認できます。専門知識がない事業者でも店舗を改善しやすくなる点が実務上の利点です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "stratego",
+      "term": "Stratego",
+      "reading": "ストラテゴ",
+      "aliases": [],
+      "category": "評価",
+      "short": "相手の駒が何なのか見えないまま戦うボードゲームです。相手の手を読む推理が勝負を分けます。",
+      "detail": "多くの情報が隠されているため、AIにとっては長いあいだ攻略が難しいゲームとされてきました。今回の研究では、隠れた駒の正体を推測する専用のニューラルネットワークを追加したことが突破口になりました。情報が不完全な状況での判断力を測る題材として、AI研究でたびたび使われます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "aws",
+      "term": "Amazon Web Services",
+      "reading": "アマゾン・ウェブ・サービス",
+      "aliases": [
+        "AWS"
+      ],
+      "category": "企業",
+      "short": "Amazonのグループで、ネット経由でコンピューターの力を貸し出している事業です。多くの企業のサービスの裏側を支えています。",
+      "detail": "今回は、その中のStrand Labsが意思決定モデルのStrands Decider 2Bを公開しました。大手クラウド事業者が自前のモデルを出すことで、利用企業は同じ基盤の上でAIを組み込みやすくなります。新しいタイプのモデルの普及を左右する存在として、その動きが注目されます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "starship",
+      "term": "Starship",
+      "reading": "スターシップ",
+      "aliases": [],
+      "category": "インフラ",
+      "short": "SpaceXが開発している大型ロケットです。たくさんの荷物を宇宙へ運ぶことを目指しています。",
+      "detail": "Googleは、宇宙にデータセンターを本格的に築くにはStarshipを1,800回打ち上げる必要があると見積もりました。宇宙データセンターの実現性は、こうしたロケットの打ち上げ回数とコストに大きく左右されます。AIの計算基盤を宇宙に広げる構想を読むうえで欠かせない名前です。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
