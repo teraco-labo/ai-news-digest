@@ -102,5 +102,9 @@
  "2026-10-01": {
   "teraco": "Teraco Voice 1.0",
   "mika": "edge-tts ja-JP-NanamiNeural"
+ },
+ "2026-10-02": {
+  "teraco": "Teraco Voice 1.0",
+  "mika": "edge-tts ja-JP-NanamiNeural"
  }
 }
