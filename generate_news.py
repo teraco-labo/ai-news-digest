@@ -613,37 +613,30 @@ def build_email_html(categorized: Dict[str, List[Dict]], date: datetime, include
     date_iso = date.strftime("%Y-%m-%d")
     total_articles = sum(len(v) for v in categorized.values())
 
+    # 冒頭で「テキストで読む／音声で聴く」を選べるようにする。
+    # これまで音声のカードだけがあり、用語解説つきの記事（この番組の核）への入口は
+    # いちばん下の「サイトを見る」だけだった。そこまで読み進めない人が多いので先頭に出す
+    # （2026-10-02 藤崎さんの指摘）。記事を先、音声を後に置く。
+    article_url = f"{SITE_URL}/ai-news-{date_iso}.html"
+    player_url = f"{PODCAST_URL}/podcast/player.html?date={date_iso}"
+    btn = ("display:inline-block;padding:12px 20px;border-radius:8px;text-decoration:none;"
+           "font-weight:bold;font-size:15px;margin:4px 6px 4px 0;")
+    text_btn = (f'<a href="{article_url}" style="{btn}background:#0f172a;color:#ffffff;">'
+                'テキストで読む（用語解説つき）</a>')
     if podcast_available:
-        # プレイヤーページ（速度調整・スキップ・台本表示付き）
-        player_url = f"{PODCAST_URL}/podcast/player.html?date={date_iso}"
-        audio_url  = f"{PODCAST_URL}/podcast/ai-news-{date_iso}.mp3"
-        podcast_box = (
-            '\n  <div class="podcast-box">\n'
-            '    <h3>🎙️ 本日の音声ダイジェスト（重要ニュースを詳しく解説）</h3>\n'
-            f'    <p>厳選ニュースを音声でお届けします。通勤・家事のお供に。</p>\n'
-            f'    <p style="margin:12px 0;">\n'
-            f'      <a href="{player_url}" style="background:#0f172a;color:#60a5fa;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:16px;display:inline-block;">▶ プレイヤーを開く（速度調整・台本付き）</a>\n'
-            f'    </p>\n'
-            f'    <p style="font-size:12px;color:#475569;margin:6px 0;">\n'
-            f'      🎧 <a href="{audio_url}" style="color:#60a5fa;">MP3を直接再生</a>'
-            f' &nbsp;·&nbsp; 💾 <a href="{audio_url}" download style="color:#60a5fa;">ダウンロード</a>'
-            f'    </p>\n'
-            '    <p style="font-size:11px;color:#64748b;">\n'
-            f'      <a href="{PODCAST_URL}/podcast/feed.xml" style="color:#94a3b8;">📡 RSSフィード（Spotify登録用）</a>\n'
-            '    </p>\n'
-            '  </div>\n\n'
-        )
+        audio_btn = (f'<a href="{player_url}" style="{btn}background:#e2e8f0;color:#0f172a;">'
+                     '音声で聴く（約12分）</a>')
+        note = "専門用語にはすべて解説がつきます。通勤や家事の合間には音声版をどうぞ。"
     else:
-        # ポッドキャスト生成失敗時：MP3 リンクを出さない（リンク切れ防止）
-        podcast_box = (
-            '\n  <div class="podcast-box" style="background:#fef3c7;border-left:4px solid #f59e0b;">\n'
-            '    <h3>🎙️ 本日の音声ダイジェスト</h3>\n'
-            '    <p style="color:#78350f;">本日はニュース件数が少なく、音声版の生成をスキップしました。下記のテキスト版をご覧ください。</p>\n'
-            '    <p style="font-size:11px;color:#92400e;">\n'
-            f'      <a href="{PODCAST_URL}/podcast/feed.xml" style="color:#92400e;">📡 過去エピソード（RSS / Spotify）</a>\n'
-            '    </p>\n'
-            '  </div>\n\n'
-        )
+        audio_btn = ""
+        # 失敗の理由を推測で書かない（以前は「件数が少なく」と決め打ちで誤解を招いた）
+        note = "本日の音声版は準備中です。テキスト版をご覧ください。"
+    podcast_box = (
+        '\n  <div class="podcast-box">\n'
+        f'    <p style="margin:0 0 10px 0;">{text_btn}{audio_btn}</p>\n'
+        f'    <p style="font-size:12px;color:#475569;margin:0;">{note}</p>\n'
+        '  </div>\n\n'
+    )
     email_html = email_html.replace("  <!-- PODCAST_PLACEHOLDER -->\n", podcast_box)
 
     # Add articles by category
@@ -677,7 +670,7 @@ def build_email_html(categorized: Dict[str, List[Dict]], date: datetime, include
             if url:
                 email_html += f' &nbsp;·&nbsp; <a href="{url}" style="color:#60a5fa;">元記事</a>'
             if translate_url:
-                email_html += f' &nbsp;·&nbsp; <a href="{translate_url}" style="color:#818cf8;">🇯🇵 日本語で読む</a>'
+                email_html += f' &nbsp;·&nbsp; <a href="{translate_url}" style="color:#818cf8;">日本語で読む</a>'
             email_html += '</div>\n'
             email_html += f'    </div>\n'
 
@@ -701,8 +694,9 @@ def build_email_html(categorized: Dict[str, List[Dict]], date: datetime, include
     email_html += '</body>\n'
     email_html += '</html>'
 
-    # Add recommendations if enabled
-    if use_recommendations:
+    # 「星マークで好みを学習」の案内は出さない。星を付ける画面も好みのデータも無く、
+    # 初期設計の名残で宣伝文だけが毎朝出ていた（2026-10-02 藤崎さんの指摘で撤去）
+    if False and use_recommendations:
         try:
             user_analysis = analyze_user_preferences(categorized)
             recommendations = generate_recommendations(user_analysis)
