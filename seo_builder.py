@@ -154,8 +154,9 @@ def build_home(issues: List[Dict], articles: List[Dict], config: Dict) -> str:
         cards = "".join(
             f'    <a class="issue" href="{it["file"]}">\n'
             f'      <div class="d">{_html.escape(it["label"])}</div>\n'
-            f'      <div class="m">{it["count"]} 記事'
-            + (" · 🎧" if it["podcast"] else "") + "</div>\n    </a>\n"
+            f'      <div class="m">' + " · ".join(x for x in (
+                f'{it["count"]} 記事' if it["count"] else "", "音声あり" if it["podcast"] else "") if x)
+            + "</div>\n    </a>\n"
             for it in issues[1:9]
         )
         recent = ('  <div class="section-label">これまでの号</div>\n'
@@ -239,7 +240,7 @@ def build_archive(issues: List[Dict], config: Dict) -> str:
         for it in by_month[month]:
             meta = f'{it["count"]}記事' if it["count"] else ""
             if it["podcast"]:
-                meta = (meta + " 🎧").strip()
+                meta = (meta + " · 音声あり").strip(" ·")
             sections += (
                 f'    <li><a href="{it["file"]}">{_html.escape(it["label"])}</a>'
                 f'<span class="m">{meta}</span></li>\n'
@@ -253,7 +254,7 @@ def build_archive(issues: List[Dict], config: Dict) -> str:
     <p>{_html.escape(name)} 全 {len(issues)} 号</p>
     <div class="hero-actions">
       <a class="btn btn-ghost" href="./">トップへ戻る</a>
-      <a class="btn btn-ghost" href="terms/">📘 AI用語集</a>
+      <a class="btn btn-ghost" href="terms/">AI用語集</a>
     </div>
     {site_theme.lang_switch(config)}
   </div>

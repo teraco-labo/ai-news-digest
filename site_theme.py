@@ -178,7 +178,6 @@ def subscribe_block(config: dict, prefix: str = "") -> str:
     if embed:
         cards.append(
             '    <div class="sub-card mail sub-embed">\n'
-            '      <span class="sub-ico">✉️</span>\n'
             '      <span class="sub-t">メールマガジンで受け取る</span>\n'
             f'      <span class="sub-d">{_html.escape(nl.get("blurb", ""))}</span>\n'
             f"      {embed}\n"
@@ -187,7 +186,6 @@ def subscribe_block(config: dict, prefix: str = "") -> str:
     elif links["signup_url"]:
         cards.append(
             f'    <a class="sub-card mail" href="{_html.escape(links["signup_url"])}">\n'
-            '      <span class="sub-ico">✉️</span>\n'
             '      <span class="sub-t">メールマガジンで受け取る</span>\n'
             f'      <span class="sub-d">{_html.escape(nl.get("blurb", ""))} 無料・いつでも解除できます</span>\n'
             "    </a>\n"
@@ -207,7 +205,6 @@ def subscribe_block(config: dict, prefix: str = "") -> str:
                        "Apple Podcast で聴く</a>\n")
         cards.append(
             '    <div class="sub-card sub-embed">\n'
-            '      <span class="sub-ico">🎧</span>\n'
             '      <span class="sub-t">ポッドキャストで聴く</span>\n'
             '      <span class="sub-d">通勤中や作業中に。毎朝10〜15分の音声版です</span>\n'
             f"{badges}"
@@ -217,7 +214,6 @@ def subscribe_block(config: dict, prefix: str = "") -> str:
         # 番組登録が済むまでの暫定。アプリへの登録方法を言葉で案内する
         cards.append(
             '    <div class="sub-card sub-embed">\n'
-            '      <span class="sub-ico">🎧</span>\n'
             '      <span class="sub-t">ポッドキャストで聴く</span>\n'
             '      <span class="sub-d">お使いのポッドキャストアプリの「番組を追加」「URLで追加」に、'
             "下のボタンでコピーした番組アドレスを貼り付けてください</span>\n"
@@ -265,7 +261,7 @@ def lang_switch(config: dict, prefix: str = "") -> str:
         else:
             items.append(f'<span class="lang soon" title="準備中">{label}'
                          f'<em>準備中</em></span>')
-    return '<div class="lang-switch"><span class="globe">🌐</span>' + "".join(items) + "</div>"
+    return '<div class="lang-switch">' + "".join(items) + "</div>"
 
 
 def footer_links(config: dict, prefix: str = "") -> str:

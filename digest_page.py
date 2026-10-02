@@ -218,7 +218,7 @@ def _listen(date: datetime, available: bool) -> str:
     return (
         '  <div class="listen" id="listen">\n'
         '    <div class="listen-head">\n'
-        "      <strong>🎧 今日の音声版</strong>\n"
+        "      <strong>今日の音声版</strong>\n"
         "      <span>対話形式・ながら聴き向け（10〜15分）</span>\n"
         "    </div>\n"
         f'    <audio id="pod-audio" controls preload="none" src="podcast/ai-news-{date_iso}.mp3">\n'
