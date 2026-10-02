@@ -280,10 +280,11 @@
     "_note": "メール購読（読者リスト）。provider が substack のときは substack_url（例 https://xxx.substack.com）を入れるだけで、サイトの購読フォーム・プレイヤーの登録リンク・ポッドキャストの説明欄・音声内の案内が全部つながります。signup_url / embed_html を直接入れた場合はそちらが優先。手順は NEWSLETTER_SETUP.md。",
     "enabled": true,
     "provider": "substack",
-    "signup_url": "",
+    "signup_url": "https://teracosensei.substack.com/embed",
     "blurb": "毎朝6時のAIニュースと、週1回のまとめ・解説記事をメールで。専門用語には解説つき。無料・いつでも解除できます",
     "rss_full_body_items": 12,
     "embed_html": "",
-    "substack_url": "https://teracosensei.substack.com"
+    "substack_url": "https://teracosensei.substack.com",
+    "_signup_note": "登録ボタンの行き先。/subscribe は有料プランの選択画面（月額1,000円など）が先に出て、無料で毎朝読みたいAIニュースの読者が身構えるので、メールアドレス欄だけの /embed に向ける（2026-10-02）"
   }
 }

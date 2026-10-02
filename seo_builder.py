@@ -126,12 +126,17 @@ def build_home(issues: List[Dict], articles: List[Dict], config: Dict) -> str:
     ).replace('<meta property="og:type" content="article">',
               '<meta property="og:type" content="website">')
 
-    nav = ['      <a href="terms/">📘 AI用語集</a>\n',
+    nav = ['      <a href="terms/">AI用語集</a>\n',
            '      <a href="articles/">読み物</a>\n',
            '      <a href="archive.html">バックナンバー</a>\n']
     if latest and latest["podcast"]:
-        nav.insert(0, '      <a href="#listen">🎧 音声で聴く</a>\n')
-    nav.append('      <a href="#subscribe">✉️ 毎朝うけとる</a>\n')
+        nav.insert(0, '      <a href="#listen">音声で聴く</a>\n')
+    # 「毎日読みたい方はこちら」をナビの小さな丸ボタンでなく、見出しの直下に大きく置く。
+    # 押すと Substack の登録画面へ1クリック（ページ最下部の登録欄までスクロールさせない）
+    signup = site_theme.newsletter_links(config)["signup_url"]
+    hero_cta = (f'    <div class="hero-actions"><a class="btn btn-primary" href="{_html.escape(signup)}"'
+                ' target="_blank" rel="noopener">毎朝メールで読みたい方はこちら（無料）</a></div>\n'
+                if signup else "")
 
     # 読み物
     reads = ""
@@ -179,7 +184,7 @@ def build_home(issues: List[Dict], articles: List[Dict], config: Dict) -> str:
   <div class="hero-inner">
     <h1>{_html.escape(name)}</h1>
     <p>{_html.escape(site.get("tagline", ""))}</p>
-    <div class="top-nav">
+{hero_cta}    <div class="top-nav">
 {"".join(nav)}    </div>
     {site_theme.lang_switch(config)}
   </div>
