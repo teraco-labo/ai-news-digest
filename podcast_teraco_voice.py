@@ -47,18 +47,72 @@ TERAKO_BOOST_DB = float(os.environ.get("TERAKO_BOOST_DB", -1.0))
 
 
 def _tidy_for_teraco(text: str) -> str:
-    """Teraco Voice 向けの手直し。呼びかけのあとの読点は語尾が伸びるので「！」にする。"""
-    text = preprocess_for_tts(text)
+    """てらこ先生の台詞の下ごしらえ（読み替え辞書だけ）。どの声でも共通。"""
+    return preprocess_for_tts(text)
+
+
+def _exclaim_for_sovits(text: str) -> str:
+    """0円の Teraco Voice だけに使う手直し。呼びかけのあとの読点は語尾が伸びるので「！」にする。
+
+    ElevenLabs の声にこれを渡すと「みなさん！」を元気よく読み、藤崎さんから
+    「冒頭が元気すぎる。そんな人間じゃない。落ち着いた口調で入ってほしい」と指摘された
+    （2026-10-02、スマホニュースのセッションで判明）。なので sovits に渡す直前にだけかける。
+    """
     for name in ("ミカさん", "みなさん", "リスナーのみなさん"):
         text = text.replace(name + "、", name + "！")
     return text
 
 
+ELEVEN_RESERVE = 3000   # 月の残りがこれを切ったら 0円の Teraco Voice に切り替える（他の用途の分を残す）
+
+
+def _eleven():
+    """ElevenLabs（本人の声・有料クローン）の部品。Teraco Studio の設定と鍵を共用する。使えなければ None。"""
+    if os.environ.get("TERACO_VOICE_ENGINE", "") == "free":
+        return None
+    try:
+        sys.path.insert(0, str(Path.home() / ".openclaw/workspace/terako-sensei"))
+        import video_factory as vf
+        import app as studio
+        cfg = studio.load_config()
+        if not vf._eleven_key() or not cfg.get("elevenlabs_voice_id"):
+            return None
+        return vf, cfg
+    except Exception:
+        return None
+
+
 def synth_teraco(jobs, log):
+    """てらこ先生の台詞を作る。2026-10-02 から ElevenLabs の本人の声（C案）を優先し、
+    残りが少ない・失敗したときは、その分だけ 0円の Teraco Voice で作る（番組を止めない）。"""
+    ev = _eleven()
+    if ev:
+        vf, cfg = ev
+        u = vf.eleven_usage()
+        need = sum(len(j["text"]) for j in jobs)
+        left = (u.get("limit", 0) - u.get("used", 0)) if u.get("ok") else 0
+        if u.get("ok") and left - need >= ELEVEN_RESERVE:
+            log.write(f"ElevenLabs（本人の声）で {len(jobs)} 件・約{need}字（今月の残り {left}）\n"); log.flush()
+            rest = []
+            for j in jobs:
+                try:
+                    vf.tts_elevenlabs(j["text"], Path(j["out"]), cfg)
+                except Exception as e:
+                    log.write(f"ElevenLabs 失敗 → 0円の声で作ります: {e}\n"); rest.append(j)
+            if not rest:
+                return
+            jobs = rest
+        else:
+            log.write(f"ElevenLabs の残りが少ないので 0円の声で作ります（残り {left}・今回 約{need}字）\n")
+    _synth_sovits(jobs, log)
+
+
+def _synth_sovits(jobs, log):
     """てらこ先生の台詞をまとめて1回のモデル読み込みで作る（sovits_say.py）。"""
     # 種42（sovits_say.py の既定）はこの声だと20件中16件が空振り（無音・同じ音の繰り返し）になった。
     # 種1019から始めると6件中6件が1回で合格（2026-09-05 実測）。作成時間が約70分→約7分。
     env = dict(os.environ, TERAKO_VOICE=VOICE_KEY, TERAKO_SEED=os.environ.get("TERAKO_SEED", "1019"))
+    jobs = [dict(j, text=_exclaim_for_sovits(j["text"])) for j in jobs]
     r = subprocess.run([str(SOVITS_PY), str(SKILL / "sovits_say.py")],
                        input=json.dumps(jobs, ensure_ascii=False).encode(),
                        capture_output=True, env=env)
