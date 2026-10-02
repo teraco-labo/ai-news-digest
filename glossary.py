@@ -25,7 +25,9 @@ REPO_DIR = Path(__file__).parent
 GLOSSARY_FILE = REPO_DIR / "glossary.json"
 TERMS_DIR = REPO_DIR / "terms"
 
-DEFAULT_LIMIT = 14  # 1ページに付ける説明の上限（付けすぎると本文が読めなくなる）
+DEFAULT_LIMIT = 60  # 1ページに付ける説明の上限。注釈は各語の初出1回だけなので、増やしても
+                    # 同じ語に何度も線が引かれるわけではない。14 では1日9件の記事で頭打ちになり、
+                    # 「すべての専門用語に解説」に届かなかった（2026-10-02 引き上げ）
 
 
 def load() -> Dict:

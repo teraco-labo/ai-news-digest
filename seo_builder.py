@@ -107,7 +107,7 @@ def build_home(issues: List[Dict], articles: List[Dict], config: Dict) -> str:
             categorized = social_kit.load_from_html(latest["date_iso"])
             if sum(len(v) for v in categorized.values()):
                 gcfg = config.get("glossary", {})
-                ann = (glossary.Annotator(limit=int(gcfg.get("max_marks_per_page", 26)))
+                ann = (glossary.Annotator(limit=int(gcfg.get("max_marks_per_page", 60)))
                        if gcfg.get("enabled", True) else None)
                 sections = digest_page.build_sections(
                     categorized, latest["dt"],

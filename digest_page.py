@@ -346,7 +346,7 @@ def render(categorized: Dict[str, List[Dict]], date: datetime,
 
     # 用語マークは3行まとめ→注目→ジャンル別の順に付く。上限に達したら以降は素通し。
     gcfg = config.get("glossary", {})
-    ann = (glossary.Annotator(limit=int(gcfg.get("max_marks_per_page", 26)))
+    ann = (glossary.Annotator(limit=int(gcfg.get("max_marks_per_page", 60)))
            if gcfg.get("enabled", True) else None)
 
     head = monetize.build_head_tags(

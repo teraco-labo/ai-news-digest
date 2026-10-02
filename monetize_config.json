@@ -274,7 +274,8 @@
     "_note": "用語解説の設定。auto_discover を有効にすると、毎朝のキュレーション時に新出用語を検出して glossary.json へ自動追加します。max_marks_per_page は1ページに付ける解説の上限。「今日の3行まとめ」から順に割り当てられます。",
     "enabled": true,
     "auto_discover": true,
-    "max_marks_per_page": 34
+    "max_marks_per_page": 60,
+    "_max_marks_note": "1ページに注釈を付ける語の上限。各語は初出1回だけなので増やしても線だらけにはならない。26では1日10件前後の記事で頭打ちになり「すべての専門用語に解説」に届かなかった（2026-10-02 引き上げ）"
   },
   "newsletter": {
     "_note": "メール購読（読者リスト）。provider が substack のときは substack_url（例 https://xxx.substack.com）を入れるだけで、サイトの購読フォーム・プレイヤーの登録リンク・ポッドキャストの説明欄・音声内の案内が全部つながります。signup_url / embed_html を直接入れた場合はそちらが優先。手順は NEWSLETTER_SETUP.md。",
