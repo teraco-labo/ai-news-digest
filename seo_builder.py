@@ -133,10 +133,7 @@ def build_home(issues: List[Dict], articles: List[Dict], config: Dict) -> str:
         nav.insert(0, '      <a href="#listen">音声で聴く</a>\n')
     # 「毎日読みたい方はこちら」をナビの小さな丸ボタンでなく、見出しの直下に大きく置く。
     # 押すと Substack の登録画面へ1クリック（ページ最下部の登録欄までスクロールさせない）
-    signup = site_theme.newsletter_links(config)["signup_url"]
-    hero_cta = (f'    <div class="hero-actions"><a class="btn btn-primary" href="{_html.escape(signup)}"'
-                ' target="_blank" rel="noopener">毎朝メールで読みたい方はこちら（無料）</a></div>\n'
-                if signup else "")
+    hero_cta = site_theme.subscribe_cta(config)
 
     # 読み物
     reads = ""

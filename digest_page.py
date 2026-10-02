@@ -342,7 +342,7 @@ def render(categorized: Dict[str, List[Dict]], date: datetime,
     date_iso = date.strftime("%Y-%m-%d")
     weekday = WEEKDAYS_JA[date.weekday()]
 
-    listen_nav = '<a href="#listen">🎧 音声で聴く</a>' if podcast_available else ""
+    listen_nav = '\n      <a href="#listen">音声で聴く</a>' if podcast_available else ""
 
     # 用語マークは3行まとめ→注目→ジャンル別の順に付く。上限に達したら以降は素通し。
     gcfg = config.get("glossary", {})
@@ -367,11 +367,11 @@ def render(categorized: Dict[str, List[Dict]], date: datetime,
     <div class="crumbs"><a href="./">{_html.escape(name)}</a></div>
     <h1>{site_theme.issue_label(date)}</h1>
     <p>厳選 {total} 件。{site_theme.PROMISE}。</p>
-    <div class="top-nav">
-      <a href="./">トップ</a>
-      <a href="articles/">読み物</a>
+{site_theme.subscribe_cta(config)}    <div class="top-nav">
+      <a href="./">トップ</a>{listen_nav}
       <a href="terms/">AI用語集</a>
-      <a href="archive.html">バックナンバー</a>{listen_nav}
+      <a href="articles/">読み物</a>
+      <a href="archive.html">バックナンバー</a>
     </div>
     {site_theme.lang_switch(config)}
   </div>

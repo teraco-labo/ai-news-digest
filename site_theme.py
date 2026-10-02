@@ -300,6 +300,17 @@ def issue_label(date) -> str:
     return f"{date.year}年{date.month}月{date.day}日（{WEEKDAYS[date.weekday()]}）のAIニュース"
 
 
+def subscribe_cta(config: dict) -> str:
+    """見出しの直下に置く「毎朝メールで読みたい方はこちら」。トップと記事ページで同じ物を出す。
+    スマホではメールや Spotify から記事ページに直接来る人が多いので、記事ページにも必ず置く。"""
+    signup = newsletter_links(config)["signup_url"]
+    if not signup:
+        return ""
+    return ('    <div class="hero-actions"><a class="btn btn-primary" href="'
+            + _html.escape(signup) + '" target="_blank" rel="noopener">'
+            "毎朝メールで読みたい方はこちら（無料）</a></div>\n")
+
+
 def footer_brand(config: dict) -> str:
     """運営元の通称を、いちばん下に小さく置く。
     見出し・音声の番組名は site.name（世界一わかりやすいAIニュース）を使い、
