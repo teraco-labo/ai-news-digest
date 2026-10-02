@@ -98,7 +98,7 @@ def build(config: dict) -> str:
     body = f"""<div class="hero">
   <div class="hero-inner">
     <div class="crumbs"><a href="../">{esc(name)}</a></div>
-    <h1>🎧 音声版 <span id="hDate"></span></h1>
+    <h1>音声版 <span id="hDate"></span></h1>
     <p>対話形式・ながら聴き向け。てらこ先生とミカが、今日のAIニュースをやさしく解説します。</p>
     <div class="top-nav">
       <a href="../">トップ</a>
@@ -149,8 +149,8 @@ def build(config: dict) -> str:
 </main>
 
 <footer>
-  <strong>{esc(name)}</strong> — 音声版<br>
-  毎朝6時に自動生成・自動配信しています。
+  <strong>{esc(name)}</strong> — {esc(config.get("site", {}).get("author", ""))}<br>
+  {site_theme.FOOTER_NOTE}
   {site_theme.footer_links(config, prefix="../")}
   {site_theme.footer_brand(config)}
 </footer>

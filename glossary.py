@@ -330,8 +330,9 @@ def _digests_mentioning(slug: str, limit: int = 5) -> List[Dict]:
         try:
             if marker in path.read_text(encoding="utf-8", errors="ignore"):
                 d = m.group(1)
+                import site_theme
                 found.append({"file": path.name, "date": d,
-                              "label": f"{d[:4]}年{int(d[5:7])}月{int(d[8:10])}日"})
+                              "label": site_theme.issue_label(d).replace("のAIニュース", "")})
         except Exception:
             continue
         if len(found) >= limit:
@@ -380,7 +381,7 @@ def build_term_page(term: Dict, all_terms: Dict[str, Dict], config: Dict) -> str
     seen_html = ""
     if seen:
         links = "".join(
-            f'    <a href="../{s["file"]}">{s["label"]}のダイジェスト →</a>\n' for s in seen
+            f'    <a href="../{s["file"]}">{s["label"]}のAIニュース →</a>\n' for s in seen
         )
         seen_html = (f'  <div class="lbl" style="margin-top:2rem">この用語が出てきたニュース</div>\n'
                      f'  <div class="seen">\n{links}  </div>\n')
@@ -616,7 +617,7 @@ def build_index_page(terms: List[Dict], config: Dict) -> str:
 <script type="application/json" id="termData">{term_payload}</script>
 <script>{TERM_SEARCH_JS}</script>"""
 
-    return site_theme.page_shell(f"AI用語集 | {name}", head, body,
+    return site_theme.page_shell(f"AI用語集 — {len(terms)}語をわかりやすく | {name}", head, body,
                                  extra_css=GLOSSARY_PAGE_CSS)
 
 

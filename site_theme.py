@@ -285,6 +285,21 @@ def footer_links(config: dict, prefix: str = "") -> str:
     return f'<div class="footer-links">{links}</div>'
 
 
+WEEKDAYS = "月火水木金土日"
+PROMISE = "専門用語ぜんぶ解説つき"
+FOOTER_NOTE = "毎朝6時に配信しています。"
+
+
+def issue_label(date) -> str:
+    """その日の号の呼び名。ページの見出し・タブ・共有・メール件名・Spotify の各回で
+    同じ書き方にするための正本（2026-10-02 藤崎さん「Webとスマホで書き方が違う」）。
+    date は datetime か "YYYY-MM-DD"。"""
+    from datetime import datetime as _dt
+    if isinstance(date, str):
+        date = _dt.strptime(date[:10], "%Y-%m-%d")
+    return f"{date.year}年{date.month}月{date.day}日（{WEEKDAYS[date.weekday()]}）のAIニュース"
+
+
 def footer_brand(config: dict) -> str:
     """運営元の通称を、いちばん下に小さく置く。
     見出し・音声の番組名は site.name（世界一わかりやすいAIニュース）を使い、

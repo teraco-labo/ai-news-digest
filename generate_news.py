@@ -486,7 +486,8 @@ def send_email_draft(email_html: str, target_date: datetime) -> bool:
 
         # Create email message
         msg = MIMEMultipart("alternative")
-        msg["Subject"] = f"世界一わかりやすいAIニュース - {date_str}"
+        import site_theme
+        msg["Subject"] = f"{site_theme.issue_label(target_date)}｜世界一わかりやすいAIニュース"
         msg["From"] = gmail_user
         msg["To"] = email_to
         # 標準の配信停止ヘッダー（メールクライアントの「配信停止」ボタンに対応）

@@ -422,7 +422,7 @@ def update_feed(date: datetime, audio_file: Path) -> None:
     ep_num = existing.get("episode_num") if existing and existing.get("episode_num") else (max(_nums) + 1 if _nums else 1)
     episodes.insert(0, {
         "date":        date_str,
-        "title":       f"世界一わかりやすいAIニュース - {date_str}",
+        "title":       __import__("site_theme").issue_label(date_str),
         "url":         audio_url,
         "size":        size_bytes,
         "duration":    duration_sec,

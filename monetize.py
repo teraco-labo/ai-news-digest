@@ -330,7 +330,8 @@ def apply_to_digest(html_output: str, categorized: Optional[Dict[str, List[Dict]
     page_url = f"{base}/ai-news-{date_iso}.html" if base else ""
 
     total = sum(len(v) for v in (categorized or {}).values())
-    title = f"AI最新ニュースまとめ {date.strftime('%Y年%m月%d日')} | {site.get('name', '')}"
+    import site_theme
+    title = f"{site_theme.issue_label(date)} | {site.get('name', '')}"
     description = (
         f"{date.strftime('%Y年%m月%d日')}のAI関連ニュース{total}件を日本語で要約。"
         "モデル・研究・ビジネス・ポリシー・ツールの5カテゴリで重要ニュースだけを厳選しています。"

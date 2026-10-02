@@ -114,7 +114,7 @@ def build_home(issues: List[Dict], articles: List[Dict], config: Dict) -> str:
                     overview=digest_page.extract_overview(raw),
                     podcast_available=latest["podcast"], ann=ann,
                 )
-                date_label = latest["label"]
+                date_label = site_theme.issue_label(latest["dt"])
         except Exception as e:
             print(f"⚠️  トップページへの最新号の取り込みに失敗: {e}")
 
@@ -191,7 +191,7 @@ def build_home(issues: List[Dict], articles: List[Dict], config: Dict) -> str:
 </div>
 
 <main>
-{f'  <div class="today">{_html.escape(date_label)}のニュース　厳選 {sections["total"]} 件</div>' if date_label else ""}
+{f'  <div class="today">{_html.escape(date_label)}　厳選 {sections["total"]} 件</div>' if date_label else ""}
 {monetize.render_disclosure(config)}
 {sections["lead"]}
 {sections["listen"]}
@@ -206,7 +206,7 @@ def build_home(issues: List[Dict], articles: List[Dict], config: Dict) -> str:
 
 <footer>
   <strong>{_html.escape(name)}</strong> — {_html.escape(site.get("author", ""))}<br>
-  毎朝6時に自動生成・自動配信しています。
+  {site_theme.FOOTER_NOTE}
   {site_theme.footer_links(config)}
   {site_theme.footer_brand(config)}
 </footer>
@@ -474,7 +474,7 @@ def build_feed(issues: List[Dict], articles: List[Dict], config: Dict, limit: in
                 print(f"⚠️  {it['date_iso']} の本文をRSSに載せられませんでした: {e}")
 
         items += f"""  <item>
-    <title>{_html.escape(f'AI最新ニュースまとめ {it["label"]}')}</title>
+    <title>{_html.escape(site_theme.issue_label(it['dt']))}</title>
     <link>{base}/{it['file']}</link>
     <guid isPermaLink="true">{base}/{it['file']}</guid>
     <description>{_html.escape(desc)}</description>

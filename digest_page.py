@@ -352,7 +352,7 @@ def render(categorized: Dict[str, List[Dict]], date: datetime,
     head = monetize.build_head_tags(
         config,
         page_url=f"{base}/ai-news-{date_iso}.html" if base else "",
-        title=f"AI最新ニュースまとめ {date_str} | {name}",
+        title=f"{site_theme.issue_label(date)} | {name}",
         description=(overview[0] if overview else
                      f"{date_str}のAI関連ニュース{total}件を日本語で要約してお届けします。"),
         published=f"{date_iso}T06:00:00+09:00",
@@ -365,8 +365,8 @@ def render(categorized: Dict[str, List[Dict]], date: datetime,
     body = f"""<div class="hero">
   <div class="hero-inner">
     <div class="crumbs"><a href="./">{_html.escape(name)}</a></div>
-    <h1>{date_str}（{weekday}）のAIニュース</h1>
-    <p>厳選 {total} 件。3分で今日のAIがわかります。</p>
+    <h1>{site_theme.issue_label(date)}</h1>
+    <p>厳選 {total} 件。{site_theme.PROMISE}。</p>
     <div class="top-nav">
       <a href="./">トップ</a>
       <a href="articles/">読み物</a>
@@ -385,15 +385,15 @@ def render(categorized: Dict[str, List[Dict]], date: datetime,
 </main>
 
 <footer>
-  <strong>{_html.escape(name)}</strong> — {date_str}（{weekday}）／ {total} 件収録<br>
-  毎朝6時に自動生成しています。
+  <strong>{_html.escape(name)}</strong> — {_html.escape(site.get("author", ""))}<br>
+  {site_theme.FOOTER_NOTE}
   {site_theme.footer_links(config)}
   {site_theme.footer_brand(config)}
 </footer>
 {glossary.assets(ann) if ann else ""}"""
 
     return site_theme.page_shell(
-        f"AI最新ニュースまとめ {date_str} | {name}", head, body,
+        f"{site_theme.issue_label(date)} | {name}", head, body,
         extra_css=DIGEST_CSS + (glossary.TOOLTIP_CSS if ann else ""),
     )
 
