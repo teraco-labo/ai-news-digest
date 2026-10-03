@@ -51,7 +51,40 @@
     "spotify_url": "https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3",
     "apple_url": "",
     "_apps_note": "Spotify / Apple Podcast に番組登録したら、番組ページのURLをここに貼るとサイトの購読ボタンが「Spotifyで聴く」「Apple Podcastで聴く」に変わります。登録手順: 各サービスの配信者向けページ（Spotify for Creators / Apple Podcasts Connect）で feed.xml のURLを提出するだけです。",
-    "_spotify_note": "2026-09-04 に再登録した番組（旧 033cDtX8MpRhSYoxdG9vzg / 4unkGD4h2zJoeFWfKsdBYx は旧URLのフィードのまま更新停止）。"
+    "_spotify_note": "2026-09-04 に再登録した番組（旧 033cDtX8MpRhSYoxdG9vzg / 4unkGD4h2zJoeFWfKsdBYx は旧URLのフィードのまま更新停止）。",
+    "mika_voice": 1,
+    "mika_voices": {
+      "_note": "ミカの声の候補。podcast.mika_voice の番号を変えるだけで切り替わる。0 は無料の edge-tts（Nanami）。1〜3 は ElevenLabs のボイスライブラリの日本語の声で、使うと月の文字数の枠を消費する。設定は2026-10-04に藤崎さんが聴き比べて決めた『最初の設定』（似せ方などを変えても反響は変わらなかった）。枠が足りない・失敗したときは自動で 0 に戻る",
+      "0": {
+        "name": "Nanami（無料・edge-tts）",
+        "engine": "edge"
+      },
+      "1": {
+        "name": "Morioki",
+        "engine": "elevenlabs",
+        "voice_id": "8EkOjt4xTPGMclNlh1pk",
+        "note": "藤崎さんいちばんの好み（2026-10-04 採用）"
+      },
+      "2": {
+        "name": "Kyoko",
+        "engine": "elevenlabs",
+        "voice_id": "4lOQ7A2l7HPuG7UIHiKA",
+        "note": "落ち着いて聞きやすい。声の高さが てらこ先生と近い"
+      },
+      "3": {
+        "name": "Satomi",
+        "engine": "elevenlabs",
+        "voice_id": "wcs09USXSN5Bl7FXohVZ",
+        "note": "落ち着いている。九州"
+      },
+      "settings": {
+        "model": "eleven_v4",
+        "stability": 0.7,
+        "similarity": 0.75,
+        "speaker_boost": true,
+        "speed": 0.95
+      }
+    }
   },
   "disclosure": {
     "enabled": true,

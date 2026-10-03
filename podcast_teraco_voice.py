@@ -187,6 +187,93 @@ def to_pcm(src: Path, dst: Path, boost_db: float = 0.0):
     tmp.unlink(missing_ok=True)
 
 
+MIKA_USED = {"name": "", "eleven": 0, "edge": 0}
+
+
+def _mika_choice() -> dict:
+    """設定（monetize_config.json の podcast.mika_voice）から、今のミカの声を選ぶ。"""
+    try:
+        import monetize
+        pod = monetize.load_config().get("podcast", {})
+        voices = pod.get("mika_voices", {})
+        n = str(os.environ.get("MIKA_VOICE", pod.get("mika_voice", 0)))
+        v = dict(voices.get(n) or voices.get("0") or {"name": "Nanami", "engine": "edge"})
+        v["settings"] = voices.get("settings", {})
+        return v
+    except Exception:
+        return {"name": "Nanami", "engine": "edge", "settings": {}}
+
+
+def _mika_file(tmp: Path, i: int) -> Path:
+    """その台詞のミカの音声。ElevenLabs で作ったもの（wav）を優先し、無ければ edge-tts（mp3）。"""
+    w = tmp / f"m_{i:04d}.wav"
+    return w if w.exists() and w.stat().st_size else tmp / f"m_{i:04d}.mp3"
+
+
+def _eleven_tts_plain(text: str, out: Path, voice_id: str, st: dict):
+    """ElevenLabs のライブラリの声で読む（てらこ先生用の [calm] などの指示は付けない）。"""
+    import urllib.request
+    sys.path.insert(0, str(Path.home() / ".openclaw/workspace/terako-sensei"))
+    import video_factory as vf
+    body = {"text": text, "model_id": st.get("model", "eleven_v4"), "language_code": "ja",
+            "voice_settings": {"stability": st.get("stability", 0.7), "similarity_boost": st.get("similarity", 0.75),
+                               "use_speaker_boost": st.get("speaker_boost", True), "speed": st.get("speed", 0.95)}}
+    req = urllib.request.Request(
+        f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}?output_format=mp3_44100_128",
+        data=json.dumps(body).encode("utf-8"),
+        headers={"xi-api-key": vf._eleven_key(), "Content-Type": "application/json"})
+    mp3 = out.with_suffix(".eleven.mp3")
+    mp3.write_bytes(urllib.request.urlopen(req, timeout=180).read())
+    subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(mp3), "-ar", "44100", "-ac", "1",
+                    "-c:a", "pcm_s16le", str(out)], check=True)
+    mp3.unlink(missing_ok=True)
+
+
+def synth_mika(items, tmp: Path, log):
+    """ミカの台詞を作る。1〜3番は ElevenLabs、0番か使えないときは無料の edge-tts。
+    てらこ先生と同じく、月の残りが ELEVEN_RESERVE を切りそうなら無料の声で作る（番組を止めない）。"""
+    choice = _mika_choice()
+    MIKA_USED["name"] = choice.get("name", "")
+    todo = [(i, t) for i, t in items if not _mika_file(tmp, i).exists()]
+    if not todo:
+        return
+    rest = todo
+    if choice.get("engine") == "elevenlabs" and os.environ.get("TERACO_VOICE_ENGINE", "") != "free":
+        ev = _eleven()
+        need = sum(len(t) for _, t in todo)
+        left = 0
+        if ev:
+            u = ev[0].eleven_usage()
+            left = (u.get("limit", 0) - u.get("used", 0)) if u.get("ok") else 0
+        if ev and left - need >= ELEVEN_RESERVE:
+            log.write(f"ミカ：ElevenLabs の {choice['name']} で {len(todo)} 件・約{need}字（今月の残り {left}）\n"); log.flush()
+            rest = []
+            for i, t in todo:
+                try:
+                    _eleven_tts_plain(_tidy_for_teraco(t), tmp / f"m_{i:04d}.wav",
+                                      choice["voice_id"], choice.get("settings", {}))
+                    MIKA_USED["eleven"] += 1
+                except Exception as e:
+                    log.write(f"ミカ：ElevenLabs 失敗 → 無料の声で作ります: {e}\n"); rest.append((i, t))
+        else:
+            log.write(f"ミカ：ElevenLabs の残りが少ないか使えないので、無料の声で作ります（残り {left}）\n")
+    if rest:
+        log.write(f"ミカ：無料の声（edge-tts）で {len(rest)} 件\n"); log.flush()
+        p = _voice_params_for("ミカ")
+        for i, t in rest:
+            _run_async(_tts_segment_async(t, p["voice"], tmp / f"m_{i:04d}.mp3", rate=p["rate"], pitch=p["pitch"]))
+            MIKA_USED["edge"] += 1
+
+
+def _mika_label() -> str:
+    e, f = MIKA_USED["eleven"], MIKA_USED["edge"]
+    if e and not f:
+        return f"ElevenLabs {MIKA_USED['name']}"
+    if e and f:
+        return f"ElevenLabs {MIKA_USED['name']} {e}件＋edge-tts Nanami {f}件"
+    return "edge-tts ja-JP-NanamiNeural"
+
+
 def build(script_path: Path, out_mp3: Path, log):
     segments = parse_dialogue(script_path.read_text(encoding="utf-8"))
     if not segments:
@@ -208,19 +295,13 @@ def build(script_path: Path, out_mp3: Path, log):
             for j in todo:
                 trim_pauses(Path(j["out"]))
 
-        # 2) ミカ → edge-tts
-        log.write("ミカ（edge-tts）を作成中...\n"); log.flush()
-        for i, (s, t) in enumerate(segments):
-            if s != "ミカ" or (tmp / f"m_{i:04d}.mp3").exists():
-                continue
-            p = _voice_params_for(s)
-            _run_async(_tts_segment_async(t, p["voice"], tmp / f"m_{i:04d}.mp3",
-                                          rate=p["rate"], pitch=p["pitch"]))
+        # 2) ミカ（設定 podcast.mika_voice の番号の声。ElevenLabs が使えないときは無料の edge-tts）
+        synth_mika([(i, t) for i, (s, t) in enumerate(segments) if s == "ミカ"], tmp, log)
 
         # 3) そろえて結合
         entries, prev = [], ""
         for i, (s, _) in enumerate(segments):
-            src = tmp / (f"t_{i:04d}.wav" if s == "てらこ先生" else f"m_{i:04d}.mp3")
+            src = tmp / (f"t_{i:04d}.wav" if s == "てらこ先生" else _mika_file(tmp, i).name)
             if not src.exists() or src.stat().st_size == 0:
                 log.write(f"  ！ {i} 番（{s}）が作れていないので飛ばします\n")
                 continue
@@ -276,7 +357,7 @@ def publish(date_str: str, log) -> int:
     build(script, mp3, log)
     # フィードに載せてよいかの判定（generate_podcast._feed_ready）が voices.json を見るので、
     # update_feed より先に「本人の声にした」と記録しておく
-    voices[date_str] = {"teraco": _voice_label(), "mika": "edge-tts ja-JP-NanamiNeural"}
+    voices[date_str] = {"teraco": _voice_label(), "mika": _mika_label()}
     VOICES_FILE.write_text(json.dumps(voices, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     update_feed(datetime.strptime(date_str, "%Y-%m-%d"), mp3)
     log.write(f"{date_str} を {_voice_label()} に差し替えました\n")
