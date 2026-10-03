@@ -108,7 +108,7 @@
   "mika": "edge-tts ja-JP-NanamiNeural"
  },
  "2026-10-03": {
-  "teraco": "作り済みの台詞を再利用",
-  "mika": "edge-tts ja-JP-NanamiNeural"
+  "teraco": "ElevenLabs（本人の声）",
+  "mika": "ElevenLabs Morioki"
  }
 }
