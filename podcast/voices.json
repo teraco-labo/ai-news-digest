@@ -108,7 +108,7 @@
   "mika": "edge-tts ja-JP-NanamiNeural"
  },
  "2026-10-03": {
-  "teraco": "ElevenLabs（本人の声）30件＋Teraco Voice 1.0 2件",
+  "teraco": "作り済みの台詞を再利用",
   "mika": "edge-tts ja-JP-NanamiNeural"
  }
 }
