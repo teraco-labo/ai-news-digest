@@ -99,7 +99,7 @@ def build(config: dict) -> str:
   <div class="hero-inner">
     <div class="crumbs"><a href="../">{esc(name)}</a></div>
     <h1>音声版 <span id="hDate"></span></h1>
-    <p>対話形式・ながら聴き向け。てらこ先生とミカが、今日のAIニュースをやさしく解説します。</p>
+    <p>対話形式・ながら聴き向け。てらこ先生といろはが、今日のAIニュースをやさしく解説します。</p>
     <div class="top-nav">
       <a href="../">トップ</a>
       <a id="newsLink" href="../">この号を読む</a>
@@ -229,7 +229,7 @@ def build(config: dict) -> str:
   fetch('script-' + iso + '.txt').then(function(r){{ return r.ok ? r.text() : Promise.reject(); }}).then(function(t){{
     var out = [];
     t.split('\\n').forEach(function(line){{
-      var m = line.match(/^\\[(てらこ先生|ミカ)\\]\\s*(.+)$/);
+      var m = line.match(/^\\[(てらこ先生|いろは|ミカ)\\]\\s*(.+)$/);
       if (m) out.push('<div class="turn ' + (m[1] === 'てらこ先生' ? 'terako' : 'mika') + '"><span class="who">' + m[1] + '</span>' + esc(m[2]) + '</div>');
     }});
     document.getElementById('scriptBody').className = '';
