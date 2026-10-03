@@ -82,6 +82,9 @@ def _eleven():
         return None
 
 
+ENGINE_USED = {"eleven": 0, "sovits": 0}   # 今回どの声で何件作ったか（台帳に正しく書くため）
+
+
 def synth_teraco(jobs, log):
     """てらこ先生の台詞を作る。2026-10-02 から ElevenLabs の本人の声（C案）を優先し、
     残りが少ない・失敗したときは、その分だけ 0円の Teraco Voice で作る（番組を止めない）。"""
@@ -97,6 +100,7 @@ def synth_teraco(jobs, log):
             for j in jobs:
                 try:
                     vf.tts_elevenlabs(j["text"], Path(j["out"]), cfg)
+                    ENGINE_USED["eleven"] += 1
                 except Exception as e:
                     log.write(f"ElevenLabs 失敗 → 0円の声で作ります: {e}\n"); rest.append(j)
             if not rest:
@@ -105,6 +109,20 @@ def synth_teraco(jobs, log):
         else:
             log.write(f"ElevenLabs の残りが少ないので 0円の声で作ります（残り {left}・今回 約{need}字）\n")
     _synth_sovits(jobs, log)
+    ENGINE_USED["sovits"] += len(jobs)
+
+
+def _voice_label() -> str:
+    """台帳（voices.json）に書く声の名前。以前は実際の声に関係なく「Teraco Voice 1.0」と
+    書いていて、ElevenLabs で作った日も0円の声に見えた（2026-10-04 に判明）。"""
+    e, f = ENGINE_USED["eleven"], ENGINE_USED["sovits"]
+    if e and not f:
+        return "ElevenLabs（本人の声）"
+    if e and f:
+        return f"ElevenLabs（本人の声）{e}件＋{PRODUCT} {_product_version()} {f}件"
+    if f:
+        return f"{PRODUCT} {_product_version()}"
+    return "作り済みの台詞を再利用"
 
 
 def _synth_sovits(jobs, log):
@@ -251,17 +269,17 @@ def publish(date_str: str, log) -> int:
     script = HERE / "podcast" / f"script-{date_str}.txt"
     mp3    = HERE / "podcast" / f"ai-news-{date_str}.mp3"
     voices = json.loads(VOICES_FILE.read_text(encoding="utf-8")) if VOICES_FILE.exists() else {}
-    if voices.get(date_str, {}).get("teraco") == f"{PRODUCT} {_product_version()}":
+    if date_str in voices:
         log.write(f"{date_str} は差し替え済み\n"); return 3
     if not script.exists() or not mp3.exists():
         log.write(f"{date_str} の台本または音声がまだ無い（クラウド側の配信待ち）\n"); return 2
     build(script, mp3, log)
     # フィードに載せてよいかの判定（generate_podcast._feed_ready）が voices.json を見るので、
     # update_feed より先に「本人の声にした」と記録しておく
-    voices[date_str] = {"teraco": f"{PRODUCT} {_product_version()}", "mika": "edge-tts ja-JP-NanamiNeural"}
+    voices[date_str] = {"teraco": _voice_label(), "mika": "edge-tts ja-JP-NanamiNeural"}
     VOICES_FILE.write_text(json.dumps(voices, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     update_feed(datetime.strptime(date_str, "%Y-%m-%d"), mp3)
-    log.write(f"{date_str} を {PRODUCT} {_product_version()} に差し替えました\n")
+    log.write(f"{date_str} を {_voice_label()} に差し替えました\n")
     return 0
 
 
