@@ -78,12 +78,13 @@
         "note": "落ち着いている。九州"
       },
       "settings": {
-        "model": "eleven_v4",
+        "model": "eleven_multilingual_v2",
         "stability": 0.7,
         "similarity": 0.75,
         "speaker_boost": true,
         "speed": 0.95
-      }
+      },
+      "_model_note": "ミカのモデルはマルチリンガル v2（2026-10-04 藤崎さんが6モデルを聴き比べて「めっちゃ良かった」）。日本語は1文字あたり約0.4クレジット（v4は10/12まで割引で約0.1、以降は約0.4）"
     }
   },
   "disclosure": {

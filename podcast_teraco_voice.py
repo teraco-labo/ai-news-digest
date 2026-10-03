@@ -215,9 +215,12 @@ def _eleven_tts_plain(text: str, out: Path, voice_id: str, st: dict):
     import urllib.request
     sys.path.insert(0, str(Path.home() / ".openclaw/workspace/terako-sensei"))
     import video_factory as vf
-    body = {"text": text, "model_id": st.get("model", "eleven_v4"), "language_code": "ja",
+    model = st.get("model", "eleven_v4")
+    body = {"text": text, "model_id": model, "language_code": "ja",
             "voice_settings": {"stability": st.get("stability", 0.7), "similarity_boost": st.get("similarity", 0.75),
                                "use_speaker_boost": st.get("speaker_boost", True), "speed": st.get("speed", 0.95)}}
+    if model == "eleven_multilingual_v2":
+        body.pop("language_code")   # このモデルは言語を文章から自動で判断する（聴き比べもこの形で作った）
     req = urllib.request.Request(
         f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}?output_format=mp3_44100_128",
         data=json.dumps(body).encode("utf-8"),
