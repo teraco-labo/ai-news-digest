@@ -266,10 +266,10 @@ def build(config: dict) -> str:
     box.querySelector('summary').textContent = '台本（音声に合わせて流れます）';
     body.insertAdjacentHTML('afterbegin', '<div class="sync-note">台詞を押すと、そこから再生します。</div>');
     var now = null;
-    function follow(){{
-      var c = null;
+    function follow(e){{
+      var c = null, force = e && e.type === 'play';
       for (var i = 0; i < lines.length; i++) {{ if (+lines[i].dataset.t <= a.currentTime + 0.1) c = lines[i]; else break; }}
-      if (c === now) return;
+      if (c === now && !force) return;
       if (now) now.classList.remove('now');
       now = c;
       if (now && !a.paused) {{
@@ -280,6 +280,7 @@ def build(config: dict) -> str:
     }}
     a.addEventListener('timeupdate', follow);
     a.addEventListener('seeked', follow);
+    a.addEventListener('play', follow);   // 止めている間に移動してから再生したときも、その台詞まで流す
     lines.forEach(function(l){{ l.addEventListener('click', function(){{ a.currentTime = +l.dataset.t; a.play(); }}); }});
   }}).catch(function(){{
     body.innerHTML = '<div class="status">台本を読み込めませんでした。</div>';
