@@ -35,16 +35,17 @@ except Exception:
 
 
 def _cover_url() -> str:
-    """カバー画像のURL。画像を差し替えた日を ?v= で付ける。
+    """カバー画像のURL。画像の中身から作った印を ?v= で付ける。
 
     Spotify や Apple は一度取り込んだカバーを、同じURLのまま中身が変わっても
-    取り直さない。差し替えた日が変われば別のURLになるので、確実に反映される。
+    取り直さない。中身が変われば別のURLになるので、確実に反映される。
+    （以前は更新日時を使っていたが、git で取り出すたびに日付が変わり、
+    同じ日に差し替えると前のURLのままになっていた。2026-10-04 に変更）
     """
     base = f"{BASE_URL}/podcast/cover.jpg"
     try:
-        from datetime import datetime as _dt
-        stamp = _dt.fromtimestamp((PODCAST_DIR / "cover.jpg").stat().st_mtime).strftime("%Y%m%d")
-        return f"{base}?v={stamp}"
+        import hashlib
+        return f"{base}?v={hashlib.md5((PODCAST_DIR / 'cover.jpg').read_bytes()).hexdigest()[:8]}"
     except Exception:
         return base
 
