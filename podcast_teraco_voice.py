@@ -240,6 +240,49 @@ def _eleven_tts_plain(text: str, out: Path, voice_id: str, st: dict):
     mp3.unlink(missing_ok=True)
 
 
+ASR_PY = Path.home() / ".venvs/speaker/bin/python"
+ASR_OK = 0.88          # 聞き取りと台本の一致がこれ未満なら作り直す（0円の声の検収と同じ線）
+ASR_TRIES = 3
+
+
+def _asr_match(wav: Path, text: str) -> float:
+    """できた音声を音声認識で聞き直し、台本とどれだけ合っているか（0〜1）。検収できない環境では1。"""
+    import difflib, re
+    if not ASR_PY.exists():
+        return 1.0
+    r = subprocess.run([str(ASR_PY), "-c",
+                        "import sys,mlx_whisper;print(mlx_whisper.transcribe(sys.argv[1],"
+                        "path_or_hf_repo='mlx-community/whisper-large-v3-turbo',language='ja')['text'])", str(wav)],
+                       capture_output=True, text=True)
+    heard = (r.stdout or "").strip()
+    if not heard:
+        return 1.0
+    norm = lambda x: re.sub(r"[^ぁ-んァ-ヶ一-龥0-9A-Za-z]", "", x).replace("イロハ", "いろは")
+    return difflib.SequenceMatcher(None, norm(text), norm(heard)).ratio()
+
+
+def _eleven_checked(text_for_tts: str, text_original: str, out: Path, voice_id: str, st: dict, log) -> float:
+    """ElevenLabs で作って聞き直し、ずれていたら最大 ASR_TRIES 回まで作り直す。いちばん合ったものを残す。
+    マルチリンガル v2 は作るたびに読みが揺れ、「慌ただしく動いて」を「泡正しくがらいて」と読んだことがある
+    （2026-10-04。作り直すと一致98%で読めた）。"""
+    best = (-1.0, None)
+    for k in range(ASR_TRIES):
+        cand = out.with_name(out.stem + f".try{k}.wav")
+        _eleven_tts_plain(text_for_tts, cand, voice_id, st)
+        score = _asr_match(cand, text_original)
+        if score > best[0]:
+            if best[1]:
+                best[1].unlink(missing_ok=True)
+            best = (score, cand)
+        else:
+            cand.unlink(missing_ok=True)
+        if score >= ASR_OK:
+            break
+        log.write(f"  {out.name} 聞き取りの一致 {score:.0%} → 作り直します（{k + 1}/{ASR_TRIES}）\n")
+    best[1].rename(out)
+    return best[0]
+
+
 def synth_mika(items, tmp: Path, log):
     """ミカの台詞を作る。1〜3番は ElevenLabs、0番か使えないときは無料の edge-tts。
     てらこ先生と同じく、月の残りが ELEVEN_RESERVE を切りそうなら無料の声で作る（番組を止めない）。"""
@@ -261,8 +304,8 @@ def synth_mika(items, tmp: Path, log):
             rest = []
             for i, t in todo:
                 try:
-                    _eleven_tts_plain(_tidy_for_teraco(t), tmp / f"m_{i:04d}.wav",
-                                      choice["voice_id"], choice.get("settings", {}))
+                    _eleven_checked(_tidy_for_teraco(t), t, tmp / f"m_{i:04d}.wav",
+                                    choice["voice_id"], choice.get("settings", {}), log)
                     MIKA_USED["eleven"] += 1
                 except Exception as e:
                     log.write(f"いろは：ElevenLabs 失敗 → 無料の声で作ります: {e}\n"); rest.append((i, t))
