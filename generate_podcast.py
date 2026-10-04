@@ -75,6 +75,10 @@ _TRANSITIONS = [
 # TTS 発音改善：略語・固有名詞をカタカナに変換
 # ---------------------------------------------------------------------------
 _TTS_REPLACEMENTS = [
+    # --- Teraco Studio（2026-10-05 登録）---
+    ("Teraco Studio", "テラコスタジオ"),
+    ("TERACO STUDIO", "テラコスタジオ"),
+    ("TeracoStudio", "テラコスタジオ"),
     # --- Teraco Health（2026-09-28 登録）---
     ("Teraco Health", "テラコヘルス"),
     ("TERACO HEALTH", "テラコヘルス"),
