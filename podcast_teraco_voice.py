@@ -326,6 +326,11 @@ def build(script_path: Path, out_mp3: Path, log):
     dur = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration",
                           "-of", "csv=p=0", str(out_mp3)], capture_output=True, text=True).stdout.strip()
     log.write(f"できました {out_mp3}  {float(dur or 0)/60:.1f}分\n")
+    # 台本を音声に合わせて流すための秒数（本番の音声 podcast/ai-news-DATE.mp3 のときだけ）
+    if out_mp3.name.startswith("ai-news-") and out_mp3.parent == HERE / "podcast":
+        times = out_mp3.with_name(out_mp3.name.replace("ai-news-", "times-").replace(".mp3", ".json"))
+        if write_times(work, times, len(segments)):
+            log.write(f"台詞の開始秒を書きました {times.name}\n")
 
 
 VOICES_FILE = HERE / "podcast" / "voices.json"   # どの回がどの声で作られたかの台帳（サイトにも載せられる）
@@ -362,6 +367,29 @@ def publish(date_str: str, log) -> int:
     update_feed(datetime.strptime(date_str, "%Y-%m-%d"), mp3)
     log.write(f"{date_str} を {_voice_label()} に差し替えました\n")
     return 0
+
+
+def write_times(work: Path, out_json: Path, n_segments: int) -> bool:
+    """台詞ごとの開始秒を書き出す（プレイヤーが音声に合わせて台本を光らせ、流すのに使う）。
+
+    結合に使った concat.txt を頭から順にたどり、p_NNNN.wav が始まる秒を NNNN 番の台詞に当てる。
+    作れずに飛ばした台詞は null。スマホニュースの build_page._timings と同じ考え方。
+    """
+    import wave
+    lst = work / "concat.txt"
+    if not lst.exists():
+        return False
+    t, times = 0.0, [None] * n_segments
+    for line in lst.read_text().splitlines():
+        p = Path(line.strip()[6:-1])
+        if p.name.startswith("p_"):
+            i = int(p.stem[2:])
+            if i < n_segments:
+                times[i] = round(t, 2)
+        with wave.open(str(p)) as w:
+            t += w.getnframes() / w.getframerate()
+    out_json.write_text(json.dumps(times) + "\n", encoding="utf-8")
+    return True
 
 
 def main():
