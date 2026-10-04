@@ -47,11 +47,8 @@ TERAKO_BOOST_DB = float(os.environ.get("TERAKO_BOOST_DB", -1.0))
 
 
 def _tidy_for_teraco(text: str) -> str:
-    """台詞の下ごしらえ（読み替え辞書）。どの声でも共通。
-
-    アシスタントの名前は読み上げのときだけカタカナにする。ひらがなの「いろは」は作るたびに読みが揺れ、
-    「いろあ」と読んだことがある（2026-10-04 実測。カタカナは安定）。台本・プレイヤーの表示は「いろは」のまま。"""
-    return preprocess_for_tts(text).replace("いろは", "イロハ")
+    """てらこ先生の台詞の下ごしらえ（読み替え辞書だけ）。どの声でも共通。"""
+    return preprocess_for_tts(text)
 
 
 def _exclaim_for_sovits(text: str) -> str:
@@ -61,7 +58,7 @@ def _exclaim_for_sovits(text: str) -> str:
     「冒頭が元気すぎる。そんな人間じゃない。落ち着いた口調で入ってほしい」と指摘された
     （2026-10-02、スマホニュースのセッションで判明）。なので sovits に渡す直前にだけかける。
     """
-    for name in ("いろはさん", "ミカさん", "みなさん", "リスナーのみなさん"):
+    for name in ("ミカさん", "みなさん", "リスナーのみなさん"):
         text = text.replace(name + "、", name + "！")
     return text
 
@@ -218,17 +215,9 @@ def _eleven_tts_plain(text: str, out: Path, voice_id: str, st: dict):
     import urllib.request
     sys.path.insert(0, str(Path.home() / ".openclaw/workspace/terako-sensei"))
     import video_factory as vf
-    model = st.get("model", "eleven_v4")
-    body = {"text": text, "model_id": model, "language_code": "ja",
-            "voice_settings": {"stability": st.get("stability", 0.7), "similarity_boost": st.get("similarity", 0.75)}}
-    # 話す速さ・声の強調は、設定に書いたときだけ付ける。てらこ先生用の値（0.95・強調あり）を
-    # いろはに付けると声が低く遅くなった（2026-10-04 実測：281Hz→231Hz、11.0秒→12.0秒）
-    if "speaker_boost" in st:
-        body["voice_settings"]["use_speaker_boost"] = st["speaker_boost"]
-    if "speed" in st:
-        body["voice_settings"]["speed"] = st["speed"]
-    if model == "eleven_multilingual_v2":
-        body.pop("language_code")   # このモデルは言語を文章から自動で判断する（聴き比べもこの形で作った）
+    body = {"text": text, "model_id": st.get("model", "eleven_v4"), "language_code": "ja",
+            "voice_settings": {"stability": st.get("stability", 0.7), "similarity_boost": st.get("similarity", 0.75),
+                               "use_speaker_boost": st.get("speaker_boost", True), "speed": st.get("speed", 0.95)}}
     req = urllib.request.Request(
         f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}?output_format=mp3_44100_128",
         data=json.dumps(body).encode("utf-8"),
@@ -238,49 +227,6 @@ def _eleven_tts_plain(text: str, out: Path, voice_id: str, st: dict):
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(mp3), "-ar", "44100", "-ac", "1",
                     "-c:a", "pcm_s16le", str(out)], check=True)
     mp3.unlink(missing_ok=True)
-
-
-ASR_PY = Path.home() / ".venvs/speaker/bin/python"
-ASR_OK = 0.88          # 聞き取りと台本の一致がこれ未満なら作り直す（0円の声の検収と同じ線）
-ASR_TRIES = 3
-
-
-def _asr_match(wav: Path, text: str) -> float:
-    """できた音声を音声認識で聞き直し、台本とどれだけ合っているか（0〜1）。検収できない環境では1。"""
-    import difflib, re
-    if not ASR_PY.exists():
-        return 1.0
-    r = subprocess.run([str(ASR_PY), "-c",
-                        "import sys,mlx_whisper;print(mlx_whisper.transcribe(sys.argv[1],"
-                        "path_or_hf_repo='mlx-community/whisper-large-v3-turbo',language='ja')['text'])", str(wav)],
-                       capture_output=True, text=True)
-    heard = (r.stdout or "").strip()
-    if not heard:
-        return 1.0
-    norm = lambda x: re.sub(r"[^ぁ-んァ-ヶ一-龥0-9A-Za-z]", "", x).replace("イロハ", "いろは")
-    return difflib.SequenceMatcher(None, norm(text), norm(heard)).ratio()
-
-
-def _eleven_checked(text_for_tts: str, text_original: str, out: Path, voice_id: str, st: dict, log) -> float:
-    """ElevenLabs で作って聞き直し、ずれていたら最大 ASR_TRIES 回まで作り直す。いちばん合ったものを残す。
-    マルチリンガル v2 は作るたびに読みが揺れ、「慌ただしく動いて」を「泡正しくがらいて」と読んだことがある
-    （2026-10-04。作り直すと一致98%で読めた）。"""
-    best = (-1.0, None)
-    for k in range(ASR_TRIES):
-        cand = out.with_name(out.stem + f".try{k}.wav")
-        _eleven_tts_plain(text_for_tts, cand, voice_id, st)
-        score = _asr_match(cand, text_original)
-        if score > best[0]:
-            if best[1]:
-                best[1].unlink(missing_ok=True)
-            best = (score, cand)
-        else:
-            cand.unlink(missing_ok=True)
-        if score >= ASR_OK:
-            break
-        log.write(f"  {out.name} 聞き取りの一致 {score:.0%} → 作り直します（{k + 1}/{ASR_TRIES}）\n")
-    best[1].rename(out)
-    return best[0]
 
 
 def synth_mika(items, tmp: Path, log):
@@ -300,20 +246,20 @@ def synth_mika(items, tmp: Path, log):
             u = ev[0].eleven_usage()
             left = (u.get("limit", 0) - u.get("used", 0)) if u.get("ok") else 0
         if ev and left - need >= ELEVEN_RESERVE:
-            log.write(f"いろは：ElevenLabs の {choice['name']} で {len(todo)} 件・約{need}字（今月の残り {left}）\n"); log.flush()
+            log.write(f"ミカ：ElevenLabs の {choice['name']} で {len(todo)} 件・約{need}字（今月の残り {left}）\n"); log.flush()
             rest = []
             for i, t in todo:
                 try:
-                    _eleven_checked(_tidy_for_teraco(t), t, tmp / f"m_{i:04d}.wav",
-                                    choice["voice_id"], choice.get("settings", {}), log)
+                    _eleven_tts_plain(_tidy_for_teraco(t), tmp / f"m_{i:04d}.wav",
+                                      choice["voice_id"], choice.get("settings", {}))
                     MIKA_USED["eleven"] += 1
                 except Exception as e:
-                    log.write(f"いろは：ElevenLabs 失敗 → 無料の声で作ります: {e}\n"); rest.append((i, t))
+                    log.write(f"ミカ：ElevenLabs 失敗 → 無料の声で作ります: {e}\n"); rest.append((i, t))
         else:
-            log.write(f"いろは：ElevenLabs の残りが少ないか使えないので、無料の声で作ります（残り {left}）\n")
+            log.write(f"ミカ：ElevenLabs の残りが少ないか使えないので、無料の声で作ります（残り {left}）\n")
     if rest:
-        log.write(f"いろは：無料の声（edge-tts）で {len(rest)} 件\n"); log.flush()
-        p = _voice_params_for("いろは")
+        log.write(f"ミカ：無料の声（edge-tts）で {len(rest)} 件\n"); log.flush()
+        p = _voice_params_for("ミカ")
         for i, t in rest:
             _run_async(_tts_segment_async(t, p["voice"], tmp / f"m_{i:04d}.mp3", rate=p["rate"], pitch=p["pitch"]))
             MIKA_USED["edge"] += 1
@@ -331,9 +277,9 @@ def _mika_label() -> str:
 def build(script_path: Path, out_mp3: Path, log):
     segments = parse_dialogue(script_path.read_text(encoding="utf-8"))
     if not segments:
-        raise SystemExit("台本に [てらこ先生]/[いろは] の行がありません")
+        raise SystemExit("台本に [てらこ先生]/[ミカ] の行がありません")
     n_t = sum(1 for s, _ in segments if s == "てらこ先生")
-    log.write(f"台詞 {len(segments)} 件（てらこ先生 {n_t}／いろは {len(segments) - n_t}）\n")
+    log.write(f"台詞 {len(segments)} 件（てらこ先生 {n_t}／ミカ {len(segments) - n_t}）\n")
 
     work = HERE / "podcast" / ".work" / script_path.stem
     work.mkdir(parents=True, exist_ok=True)
@@ -349,8 +295,8 @@ def build(script_path: Path, out_mp3: Path, log):
             for j in todo:
                 trim_pauses(Path(j["out"]))
 
-        # 2) いろは（2026-10-04 に「ミカ」から改名。設定 podcast.mika_voice の番号の声。ElevenLabs が使えないときは無料の edge-tts）
-        synth_mika([(i, t) for i, (s, t) in enumerate(segments) if s == "いろは"], tmp, log)
+        # 2) ミカ（設定 podcast.mika_voice の番号の声。ElevenLabs が使えないときは無料の edge-tts）
+        synth_mika([(i, t) for i, (s, t) in enumerate(segments) if s == "ミカ"], tmp, log)
 
         # 3) そろえて結合
         entries, prev = [], ""
