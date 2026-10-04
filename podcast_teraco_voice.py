@@ -47,8 +47,11 @@ TERAKO_BOOST_DB = float(os.environ.get("TERAKO_BOOST_DB", -1.0))
 
 
 def _tidy_for_teraco(text: str) -> str:
-    """てらこ先生の台詞の下ごしらえ（読み替え辞書だけ）。どの声でも共通。"""
-    return preprocess_for_tts(text)
+    """台詞の下ごしらえ（読み替え辞書）。どの声でも共通。
+
+    アシスタントの名前は読み上げのときだけカタカナにする。ひらがなの「いろは」は作るたびに読みが揺れ、
+    「いろあ」と読んだことがある（2026-10-04 実測。カタカナは安定）。台本・プレイヤーの表示は「いろは」のまま。"""
+    return preprocess_for_tts(text).replace("いろは", "イロハ")
 
 
 def _exclaim_for_sovits(text: str) -> str:
@@ -217,8 +220,13 @@ def _eleven_tts_plain(text: str, out: Path, voice_id: str, st: dict):
     import video_factory as vf
     model = st.get("model", "eleven_v4")
     body = {"text": text, "model_id": model, "language_code": "ja",
-            "voice_settings": {"stability": st.get("stability", 0.7), "similarity_boost": st.get("similarity", 0.75),
-                               "use_speaker_boost": st.get("speaker_boost", True), "speed": st.get("speed", 0.95)}}
+            "voice_settings": {"stability": st.get("stability", 0.7), "similarity_boost": st.get("similarity", 0.75)}}
+    # 話す速さ・声の強調は、設定に書いたときだけ付ける。てらこ先生用の値（0.95・強調あり）を
+    # いろはに付けると声が低く遅くなった（2026-10-04 実測：281Hz→231Hz、11.0秒→12.0秒）
+    if "speaker_boost" in st:
+        body["voice_settings"]["use_speaker_boost"] = st["speaker_boost"]
+    if "speed" in st:
+        body["voice_settings"]["speed"] = st["speed"]
     if model == "eleven_multilingual_v2":
         body.pop("language_code")   # このモデルは言語を文章から自動で判断する（聴き比べもこの形で作った）
     req = urllib.request.Request(
