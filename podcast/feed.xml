@@ -40,9 +40,9 @@
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>13:01</itunes:duration>
     <itunes:explicit>false</itunes:explicit>
-    <enclosure url="https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-10-04.mp3" length="7814575" type="audio/mpeg"/>
+    <enclosure url="https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-10-04.mp3?v=iroha" length="7814575" type="audio/mpeg"/>
     <pubDate>Sun, 04 Oct 2026 21:00:00 GMT</pubDate>
-    <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-10-04.mp3</guid>
+    <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-10-04.mp3?v=iroha</guid>
   </item>
   <item>
     <title>2026年10月3日（土）のAIニュース</title>
@@ -55,9 +55,9 @@
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:duration>12:36</itunes:duration>
     <itunes:explicit>false</itunes:explicit>
-    <enclosure url="https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-10-03.mp3" length="7570591" type="audio/mpeg"/>
+    <enclosure url="https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-10-03.mp3?v=iroha" length="7570591" type="audio/mpeg"/>
     <pubDate>Sat, 03 Oct 2026 21:00:00 GMT</pubDate>
-    <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-10-03.mp3</guid>
+    <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-10-03.mp3?v=iroha</guid>
   </item>
   <item>
     <title>2026年10月2日（金）のAIニュース</title>
