@@ -58,7 +58,7 @@ def _exclaim_for_sovits(text: str) -> str:
     「冒頭が元気すぎる。そんな人間じゃない。落ち着いた口調で入ってほしい」と指摘された
     （2026-10-02、スマホニュースのセッションで判明）。なので sovits に渡す直前にだけかける。
     """
-    for name in ("ミカさん", "みなさん", "リスナーのみなさん"):
+    for name in ("イロハさん", "ミカさん", "みなさん", "リスナーのみなさん"):
         text = text.replace(name + "、", name + "！")
     return text
 
@@ -246,7 +246,7 @@ def synth_mika(items, tmp: Path, log):
             u = ev[0].eleven_usage()
             left = (u.get("limit", 0) - u.get("used", 0)) if u.get("ok") else 0
         if ev and left - need >= ELEVEN_RESERVE:
-            log.write(f"ミカ：ElevenLabs の {choice['name']} で {len(todo)} 件・約{need}字（今月の残り {left}）\n"); log.flush()
+            log.write(f"イロハ：ElevenLabs の {choice['name']} で {len(todo)} 件・約{need}字（今月の残り {left}）\n"); log.flush()
             rest = []
             for i, t in todo:
                 try:
@@ -254,12 +254,12 @@ def synth_mika(items, tmp: Path, log):
                                       choice["voice_id"], choice.get("settings", {}))
                     MIKA_USED["eleven"] += 1
                 except Exception as e:
-                    log.write(f"ミカ：ElevenLabs 失敗 → 無料の声で作ります: {e}\n"); rest.append((i, t))
+                    log.write(f"イロハ：ElevenLabs 失敗 → 無料の声で作ります: {e}\n"); rest.append((i, t))
         else:
-            log.write(f"ミカ：ElevenLabs の残りが少ないか使えないので、無料の声で作ります（残り {left}）\n")
+            log.write(f"イロハ：ElevenLabs の残りが少ないか使えないので、無料の声で作ります（残り {left}）\n")
     if rest:
-        log.write(f"ミカ：無料の声（edge-tts）で {len(rest)} 件\n"); log.flush()
-        p = _voice_params_for("ミカ")
+        log.write(f"イロハ：無料の声（edge-tts）で {len(rest)} 件\n"); log.flush()
+        p = _voice_params_for("イロハ")
         for i, t in rest:
             _run_async(_tts_segment_async(t, p["voice"], tmp / f"m_{i:04d}.mp3", rate=p["rate"], pitch=p["pitch"]))
             MIKA_USED["edge"] += 1
@@ -277,9 +277,9 @@ def _mika_label() -> str:
 def build(script_path: Path, out_mp3: Path, log):
     segments = parse_dialogue(script_path.read_text(encoding="utf-8"))
     if not segments:
-        raise SystemExit("台本に [てらこ先生]/[ミカ] の行がありません")
+        raise SystemExit("台本に [てらこ先生]/[イロハ] の行がありません")
     n_t = sum(1 for s, _ in segments if s == "てらこ先生")
-    log.write(f"台詞 {len(segments)} 件（てらこ先生 {n_t}／ミカ {len(segments) - n_t}）\n")
+    log.write(f"台詞 {len(segments)} 件（てらこ先生 {n_t}／イロハ {len(segments) - n_t}）\n")
 
     work = HERE / "podcast" / ".work" / script_path.stem
     work.mkdir(parents=True, exist_ok=True)
@@ -295,8 +295,8 @@ def build(script_path: Path, out_mp3: Path, log):
             for j in todo:
                 trim_pauses(Path(j["out"]))
 
-        # 2) ミカ（設定 podcast.mika_voice の番号の声。ElevenLabs が使えないときは無料の edge-tts）
-        synth_mika([(i, t) for i, (s, t) in enumerate(segments) if s == "ミカ"], tmp, log)
+        # 2) イロハ（2026-10-04 に「ミカ」から改名。設定 podcast.mika_voice の番号の声。ElevenLabs が使えないときは無料の edge-tts）
+        synth_mika([(i, t) for i, (s, t) in enumerate(segments) if s == "イロハ"], tmp, log)
 
         # 3) そろえて結合
         entries, prev = [], ""
