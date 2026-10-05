@@ -8,13 +8,6 @@
   <description>AIの最新ニュースを毎朝6時に日本語でお届けします。企業名・ツール名・専門用語にはすべて解説がつくので、予備知識がなくても読むだけで理解が深まります。音声版もあります。</description>
   <language>ja</language>
   <item>
-    <title>AIポッドキャストを毎朝自動生成して4ヶ月。音声代0円で分かった「聴かれる音声」の作り方</title>
-    <link>https://teraco-labo.github.io/ai-news-digest/articles/podcast-auto-generation-ai.html</link>
-    <guid isPermaLink="true">https://teraco-labo.github.io/ai-news-digest/articles/podcast-auto-generation-ai.html</guid>
-    <description>台本生成から音声合成、配信までを全自動にしたAIポッドキャストの運用記録。音声代0円の作り方、途中で切れる・棒読みになる・番組が消えるといった実際に起きた失敗と、その直し方をすべて公開します。</description>
-    <pubDate>Fri, 04 Sep 2026 09:00:00 +0900</pubDate>
-  </item>
-  <item>
     <title>Claude CodeとGitHub Actionsで「毎朝6時に届くAIニュース」を自動生成する仕組みを作った</title>
     <link>https://teraco-labo.github.io/ai-news-digest/articles/claude-code-ai-news-automation.html</link>
     <guid isPermaLink="true">https://teraco-labo.github.io/ai-news-digest/articles/claude-code-ai-news-automation.html</guid>

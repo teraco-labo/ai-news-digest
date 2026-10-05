@@ -23,28 +23,42 @@ OUT_PATH = REPO_DIR / "podcast" / "player.html"
 PLAYER_CSS = """
   .player-wrap { max-width:760px; margin:0 auto; }
   .listen.player { padding:1.5rem 1.6rem 1.4rem; }
-  .p-date { font-size:0.78rem; color:#94a3b8; letter-spacing:0.06em; }
-  .p-title { margin-top:0.2rem; font-size:1.05rem; font-weight:700; color:#fff; }
-  .progress { margin-top:1.1rem; height:6px; background:rgba(255,255,255,0.15);
+  .p-date { font-size:0.78rem; color:#64748b; letter-spacing:0.06em; }
+  .p-title { margin-top:0.2rem; font-size:1.05rem; font-weight:700; color:#0b1f4d; }
+  .p-head { display:flex; align-items:center; gap:1rem; }
+  .p-head img { flex:none; width:84px; height:84px; border-radius:12px; box-shadow:0 4px 14px rgba(29,78,216,0.18); }
+  .progress { margin-top:1.1rem; height:6px; background:#e2e8f0;
     border-radius:3px; cursor:pointer; overflow:hidden; }
-  .progress-fill { height:100%; width:0; background:#22d3ee; border-radius:3px; }
+  .progress-fill { height:100%; width:0; background:linear-gradient(90deg,#38bdf8,#1d4ed8); border-radius:3px; }
   .time-row { display:flex; justify-content:space-between; margin-top:0.4rem;
-    font-size:0.72rem; color:#94a3b8; font-variant-numeric:tabular-nums; }
+    font-size:0.72rem; color:#64748b; font-variant-numeric:tabular-nums; }
   .controls { display:flex; align-items:center; justify-content:center; gap:0.6rem;
     margin:1rem 0 0.4rem; }
-  .ctl { background:none; border:none; color:#e2e8f0; cursor:pointer; padding:0.55rem;
+  .ctl { background:none; border:none; color:#1e3a8a; cursor:pointer; padding:0.55rem;
     border-radius:50%; display:flex; flex-direction:column; align-items:center;
     -webkit-tap-highlight-color:transparent; }
-  .ctl:hover { background:rgba(255,255,255,0.1); }
-  .ctl small { font-size:0.6rem; color:#94a3b8; margin-top:-2px; }
+  .ctl:hover { background:#eff6ff; }
+  .ctl small { font-size:0.6rem; color:#64748b; margin-top:-2px; }
   .ctl.play { width:60px; height:60px; padding:0; justify-content:center;
-    background:#22d3ee; color:#0f172a; box-shadow:0 4px 18px rgba(34,211,238,0.35); }
-  .ctl.play:hover { background:#67e8f9; }
+    background:#1d4ed8; color:#fff; box-shadow:0 6px 18px rgba(29,78,216,0.35); }
+  .ctl.play:hover { background:#2563eb; }
   .ctl svg { display:block; }
   .p-links { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1rem; }
-  .p-links a { padding:0.35rem 0.8rem; border:1px solid rgba(255,255,255,0.25);
-    border-radius:999px; font-size:0.74rem; color:#e2e8f0; text-decoration:none; }
-  .p-links a:hover { background:rgba(255,255,255,0.12); }
+  .p-links a { padding:0.35rem 0.8rem; border:1px solid #cbd5e1;
+    border-radius:999px; font-size:0.74rem; color:#475569; text-decoration:none; }
+  .p-links a:hover { background:#f1f5f9; }
+  .follow { margin-top:1rem; }
+  .follow-btn { display:block; width:100%; padding:0.85rem 1rem; border:0; border-radius:12px; cursor:pointer;
+    background:#facc15; color:#0b1f4d; font:inherit; font-size:1rem; font-weight:800; letter-spacing:0.04em;
+    box-shadow:0 4px 0 #ca8a04; -webkit-tap-highlight-color:transparent; }
+  .follow-btn:active { transform:translateY(2px); box-shadow:0 2px 0 #ca8a04; }
+  .follow-sheet { margin-top:0.7rem; display:grid; gap:0.5rem; }
+  .follow-sheet[hidden] { display:none; }
+  .follow-sheet a { display:block; padding:0.8rem 1rem; border-radius:10px; text-decoration:none;
+    font-weight:700; font-size:0.92rem; text-align:center; }
+  .follow-sheet a.sp { background:#1db954; color:#fff; }
+  .follow-sheet a.ml { background:#fff; color:#1d4ed8; border:2px solid #1d4ed8; }
+  .follow-sheet small { display:block; font-weight:500; font-size:0.72rem; opacity:0.85; margin-top:0.1rem; }
   details.script { max-width:760px; margin:1.5rem auto 0; background:var(--card-bg);
     border:1px solid var(--border); border-radius:8px; overflow:hidden; }
   details.script > summary { list-style:none; cursor:pointer; padding:1rem 1.3rem;
@@ -62,17 +76,19 @@ PLAYER_CSS = """
   .turn.mika .who { color:#db2777; }
   .turn[data-t] { cursor:pointer; transition:background .25s, box-shadow .25s; }
   .turn[data-t]:hover { box-shadow:inset 0 0 0 1px var(--border); }
-  .turn.now { background:rgba(34,211,238,0.16); box-shadow:inset 0 0 0 2px rgba(34,211,238,0.55); }
+  .turn.now { background:#eff6ff; box-shadow:inset 0 0 0 2px #60a5fa; }
   .sync-note { margin:0 1.3rem 0.8rem; font-size:0.75rem; color:var(--text-muted); }
   .mini { position:fixed; left:50%; bottom:12px; transform:translate(-50%, 140%); z-index:50;
     width:min(760px, calc(100% - 24px)); box-sizing:border-box; display:flex; align-items:center; gap:0.8rem;
-    padding:0.55rem 0.9rem; border-radius:999px; background:#0f172a; color:#e2e8f0;
-    box-shadow:0 6px 24px rgba(0,0,0,0.3); transition:transform .25s; }
+    padding:0.55rem 0.9rem; border-radius:999px; background:#fff; color:#0b1f4d; border:1px solid #dbe7fb;
+    box-shadow:0 8px 28px rgba(15,23,42,0.18); transition:transform .25s; }
   .mini.show { transform:translate(-50%, 0); }
-  .mini button { flex:none; width:40px; height:40px; border:0; border-radius:50%; background:#22d3ee;
-    color:#0f172a; display:flex; align-items:center; justify-content:center; cursor:pointer; padding:0; }
-  .mini .m-bar { flex:1; height:4px; border-radius:2px; background:rgba(255,255,255,0.2); overflow:hidden; }
-  .mini .m-fill { height:100%; width:0; background:#22d3ee; }
+  .mini button { flex:none; width:40px; height:40px; border:0; border-radius:50%; background:#1d4ed8;
+    color:#fff; display:flex; align-items:center; justify-content:center; cursor:pointer; padding:0; }
+  .mini .m-bar { flex:1; height:4px; border-radius:2px; background:#e2e8f0; overflow:hidden; }
+  .mini .m-fill { height:100%; width:0; background:#1d4ed8; }
+  .mini .m-follow { flex:none; width:auto; height:auto; padding:0.45rem 0.8rem; border-radius:999px;
+    background:#facc15; color:#0b1f4d; font:inherit; font-size:0.78rem; font-weight:800; }
   .mini .m-time { flex:none; font-size:0.78rem; font-variant-numeric:tabular-nums; }
   .status { padding:1rem 1.3rem; font-size:0.85rem; color:var(--text-muted); }
   .read-cta { max-width:760px; margin:1rem auto 0; display:block; padding:1rem 1.3rem;
@@ -108,6 +124,15 @@ def build(config: dict) -> str:
     mail_link = f'<a href="{esc(mail)}" target="_blank" rel="noopener">メールで毎朝受け取る</a>' if mail else ""
     spotify = (config.get("podcast", {}).get("spotify_url") or "").strip()
     spotify_link = f'<a href="{esc(spotify)}" target="_blank" rel="noopener">Spotify で聴く</a>' if spotify else ""
+    # 「毎日聴く」：気に入った人がその場でフォロー（Spotify）かメール購読へ進めるように（2026-10-05 藤崎さん）
+    follow_opts = ""
+    if spotify:
+        follow_opts += f'<a class="sp" href="{esc(spotify)}" target="_blank" rel="noopener">Spotify でフォローする<small>新しい回が毎朝とどきます</small></a>'
+    if mail:
+        follow_opts += f'<a class="ml" href="{esc(mail)}" target="_blank" rel="noopener">メールで毎朝受け取る<small>無料です</small></a>'
+    follow_block = (f'<div class="follow"><button type="button" class="follow-btn" id="followBtn" aria-expanded="false">毎日聴く</button>'
+                    f'<div class="follow-sheet" id="followSheet" hidden>{follow_opts}</div></div>') if follow_opts else ""
+    mini_follow = '<button type="button" class="m-follow" id="mFollow">毎日聴く</button>' if follow_opts else ""
 
     body = f"""<div class="hero">
   <div class="hero-inner">
@@ -126,8 +151,13 @@ def build(config: dict) -> str:
 <main>
   <div class="player-wrap">
     <div class="listen player">
-      <div class="p-date" id="pDate">読み込み中…</div>
-      <div class="p-title">{esc(name)}</div>
+      <div class="p-head">
+        <img src="cover.jpg" alt="" width="84" height="84">
+        <div>
+          <div class="p-date" id="pDate">読み込み中…</div>
+          <div class="p-title">{esc(name)}</div>
+        </div>
+      </div>
       <audio id="audio" preload="metadata"></audio>
       <div class="progress" id="progress"><div class="progress-fill" id="fill"></div></div>
       <div class="time-row"><span id="cur">0:00</span><span id="dur">--:--</span></div>
@@ -141,10 +171,9 @@ def build(config: dict) -> str:
         <button type="button" class="ctl" id="f30" aria-label="30秒進む">{_SVG_FWD}<small>30</small></button>
       </div>
       <div class="speed-row"><span class="speed-label">再生速度</span>{speed_btns}</div>
+      {follow_block}
       <div class="p-links">
         <a id="mp3Link" href="#">音声ファイルを開く</a>
-        {mail_link}
-        {spotify_link}
         <a href="feed.xml">ポッドキャストアプリ用アドレス</a>
       </div>
     </div>
@@ -162,6 +191,7 @@ def build(config: dict) -> str:
       <button type="button" id="mPlay" aria-label="再生／一時停止"><span id="mIcPlay">{_SVG_PLAY}</span><span id="mIcPause" hidden>{_SVG_PAUSE}</span></button>
       <div class="m-bar"><div class="m-fill" id="mFill"></div></div>
       <span class="m-time" id="mTime">0:00</span>
+      {mini_follow}
     </div>
     <div class="kbd-help">キーボード：スペースで再生／停止、← → で10秒、J / L で30秒</div>
   </div>
@@ -284,6 +314,20 @@ def build(config: dict) -> str:
     lines.forEach(function(l){{ l.addEventListener('click', function(){{ a.currentTime = +l.dataset.t; a.play(); }}); }});
   }}).catch(function(){{
     body.innerHTML = '<div class="status">台本を読み込めませんでした。</div>';
+  }});
+
+  // 「毎日聴く」：押すとフォローとメールの2つを出す。下の小さなバーから押したときは、大きなプレイヤーまで戻して開く
+  var fBtn = document.getElementById('followBtn'), fSheet = document.getElementById('followSheet');
+  function openFollow(){{
+    if (!fBtn) return;
+    fSheet.hidden = false; fBtn.setAttribute('aria-expanded', 'true');
+  }}
+  if (fBtn) fBtn.addEventListener('click', function(){{
+    var open = fSheet.hidden; fSheet.hidden = !open; fBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }});
+  var mF = document.getElementById('mFollow');
+  if (mF) mF.addEventListener('click', function(){{
+    openFollow(); fBtn.scrollIntoView({{ behavior: 'smooth', block: 'center' }});
   }});
 
   // 大きなプレイヤーが画面の外に出たら、下に小さな再生バーを出す（台本を追いながら止められるように）
