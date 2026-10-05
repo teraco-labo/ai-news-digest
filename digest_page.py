@@ -182,82 +182,36 @@ def _lead(overview: List[str], ann=None) -> str:
 
 
 def _listen(date: datetime, available: bool) -> str:
-    """埋め込み音声プレイヤー。
+    """音声プレイヤー（シリーズ共用エンジン series/engine.py）。
 
-    再生速度ボタン付き（選んだ速度はブラウザに記憶され、次の日も同じ速度で再生される）。
-    src は相対パス — 絶対URLだと未デプロイの環境で鳴らないため。
-    購読の案内は「RSS」という言葉を使わず、アプリ名またはコピーボタンで示す。
+    2026-10-05 から、聴く・読むを1枚にまとめた（藤崎さん「両番組の機能を消さずにいいとこ取りで統合、
+    聴くページと読むページも1枚に」）。丸い再生ボタンと巻き戻し・早送りのマーク、速さ7段（記憶あり・wk-speed）、
+    「毎日聴く」、「文字で読む」、画面の外に出たら下に小さな再生バー。台本は _transcript() が記事の下に出す。
+    見た目と行き先は series/shows/ai-news.json。src は相対パス（未デプロイの環境でも鳴るように）。
     """
     if not available:
         return ""
-    date_iso = date.strftime("%Y-%m-%d")
-    cfg = monetize.load_config()
-    pod_cfg = cfg.get("podcast", {})
-    base = monetize.podcast_url()
+    from series import engine as SE
+    show = SE.load_show("ai-news")
+    iso = date.strftime("%Y-%m-%d")
+    return SE.embed_player(show, audio=f"podcast/ai-news-{iso}.mp3", cover="podcast/cover.jpg",
+                           sub=site_theme.issue_label(date), read_target="#yomu") + "\n"
 
-    # 購読の行: Spotify / Apple の番組URLがあればそれを、無ければURLコピーを出す
-    spotify = pod_cfg.get("spotify_url", "").strip()
-    apple = pod_cfg.get("apple_url", "").strip()
-    sub_bits = []
-    if spotify:
-        sub_bits.append(f'<a href="{spotify}">Spotify で聴く</a>')
-    if apple:
-        sub_bits.append(f'<a href="{apple}">Apple Podcast で聴く</a>')
-    if sub_bits:
-        sub_line = "毎朝の配信を購読： " + " ／ ".join(sub_bits)
-    else:
-        feed = f"{base}/podcast/feed.xml"
-        sub_line = (
-            "ポッドキャストアプリで毎朝受け取るには "
-            f'<button type="button" class="copy-feed" data-copy="{feed}" '
-            "onclick=\"navigator.clipboard.writeText(this.dataset.copy)"
-            ".then(()=>{this.textContent='✓ コピーしました';"
-            "setTimeout(()=>this.textContent='番組アドレスをコピー',2000);});\">"
-            "番組アドレスをコピー</button>"
-            " して、アプリの「番組を追加」に貼り付けてください"
-        )
 
-    return (
-        '  <div class="listen" id="listen">\n'
-        '    <div class="listen-head">\n'
-        "      <strong>今日の音声版</strong>\n"
-        "      <span>対話形式・ながら聴き向け（10〜15分）</span>\n"
-        "    </div>\n"
-        f'    <audio id="pod-audio" controls preload="none" src="podcast/ai-news-{date_iso}.mp3">\n'
-        f'      <a href="podcast/ai-news-{date_iso}.mp3">音声ファイルを開く</a>\n'
-        "    </audio>\n"
-        '    <div class="speed-row"><span class="speed-label">再生速度</span>\n'
-        + "".join(
-            f'      <button type="button" class="speed-btn" data-speed="{v}">{label}</button>\n'
-            # 単独プレイヤー(podcast/player.html)と選択肢を揃えること
-            for v, label in [("0.7", "0.7×"), ("0.8", "0.8×"), ("0.9", "0.9×"), ("1", "1×"),
-                             ("1.25", "1.25×"), ("1.5", "1.5×"), ("2", "2×")]
-        )
-        + "    </div>\n"
-        f'    <div class="listen-sub">{sub_line}</div>\n'
-        "  </div>\n"
-        """<script>
-(function(){
-  var audio = document.getElementById('pod-audio');
-  if (!audio) return;
-  var btns = document.querySelectorAll('.speed-btn');
-  function apply(v){
-    audio.playbackRate = parseFloat(v);
-    btns.forEach(function(b){ b.classList.toggle('on', b.dataset.speed === v); });
-    try { localStorage.setItem('wk-speed', v); } catch(e) {}
-  }
-  var saved = '1';
-  try { saved = localStorage.getItem('wk-speed') || '1'; } catch(e) {}
-  if (!document.querySelector('.speed-btn[data-speed="' + saved + '"]')) saved = '1';
-  apply(saved);
-  audio.addEventListener('play', function(){ audio.playbackRate = parseFloat(saved); });
-  btns.forEach(function(b){
-    b.addEventListener('click', function(){ saved = b.dataset.speed; apply(saved); });
-  });
-})();
-</script>
-"""
-    )
+def _transcript(date: datetime, available: bool) -> str:
+    """台本（音声に合わせて今の台詞に色がつき、押すとそこから再生）。開始秒は声の差し替えで変わるので、その場で読む。"""
+    if not available:
+        return ""
+    from series import engine as SE
+    show = SE.load_show("ai-news")
+    iso = date.strftime("%Y-%m-%d")
+    return (SE.embed_transcript(show, script_url=f"podcast/script-{iso}.txt", times_url=f"podcast/times-{iso}.json")
+            + SE.embed_js(show))
+
+
+def player_css() -> str:
+    from series import engine as SE
+    return SE.embed_css(SE.load_show("ai-news"))
 
 
 def _subscribe(config: Dict) -> str:
@@ -324,6 +278,7 @@ def build_sections(categorized: Dict[str, List[Dict]], date: datetime,
     return {
         "lead": lead,
         "listen": _listen(date, podcast_available),
+        "transcript": _transcript(date, podcast_available),
         "top": top_html,
         "genres": genres_html,
         "total": len(items),
@@ -381,9 +336,11 @@ def render(categorized: Dict[str, List[Dict]], date: datetime,
 </div>
 
 <main>
+{sec["listen"]}
+<span id="yomu"></span>
 {lead_html}
-{_listen(date, podcast_available)}
 {"".join(body_parts)}
+{sec["transcript"]}
 {_subscribe(config)}
 </main>
 
@@ -397,7 +354,7 @@ def render(categorized: Dict[str, List[Dict]], date: datetime,
 
     return site_theme.page_shell(
         f"{site_theme.issue_label(date)} | {name}", head, body,
-        extra_css=DIGEST_CSS + (glossary.TOOLTIP_CSS if ann else ""),
+        extra_css=DIGEST_CSS + (glossary.TOOLTIP_CSS if ann else "") + (player_css() if podcast_available else ""),
     )
 
 

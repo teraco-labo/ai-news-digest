@@ -1,0 +1,146 @@
+{
+  "_説明": "AIニュースの番組設定（series/engine.py の組み込み用）。ページの枠は AIニュース独自の site_theme・digest_page のまま、プレイヤー・台本・毎日聴く を共用エンジンで描く",
+  "id": "ai-news",
+  "name": "世界一わかりやすいAIニュース",
+  "name_lines": [
+    "世界一わかりやすいAIニュース"
+  ],
+  "by": "てらこ先生",
+  "brand_sub": "",
+  "base_url": "https://teraco-labo.github.io/ai-news-digest",
+  "description": "AIの最新ニュースを毎朝6時に日本語でお届けします。企業名・ツール名・専門用語にはすべて解説がつくので、予備知識がなくても読むだけで理解が深まります。音声版もあります。",
+  "schedule": "毎朝6時",
+  "issue_word": "{n}号",
+  "cover": "podcast/cover.jpg",
+  "podcast_feed": "podcast/feed.xml",
+  "solo": false,
+  "speakers": {
+    "てらこ先生": "teacher",
+    "イロハ": "partner",
+    "いろは": "partner",
+    "ミカ": "partner"
+  },
+  "speaker_names": {
+    "ミカ": "イロハ",
+    "いろは": "イロハ"
+  },
+  "theme": {
+    "font_url": "",
+    "font_family": "'Noto Sans JP','Inter',sans-serif",
+    "base_size": "16px",
+    "tip_size": "15px",
+    "light": {
+      "bg": "#f8fafc",
+      "card": "#ffffff",
+      "ink": "#1e293b",
+      "ink2": "#64748b",
+      "line": "#e2e8f0",
+      "head": "#1d4ed8",
+      "head_ink": "#ffffff",
+      "accent": "#1d4ed8",
+      "heading": "#1d4ed8",
+      "btn": "#1d4ed8",
+      "btn_ink": "#ffffff",
+      "btn2": "#38bdf8",
+      "soft": "#eff6ff",
+      "now": "#fef3c7",
+      "mark": "#1d4ed8",
+      "pill_border": "#93c5fd",
+      "pill_bg": "#ffffff",
+      "pill_ink": "#1d4ed8",
+      "follow": "#facc15",
+      "follow_ink": "#422006",
+      "follow_edge": "#ca8a04",
+      "chip": "#1d4ed8",
+      "chip_ink": "#ffffff",
+      "hero1": "#f7faff",
+      "hero2": "#e8f1ff",
+      "hero_ink": "#0b1f4d",
+      "hero_sub": "#475569",
+      "ribbon1": "rgba(56,189,248,.35)",
+      "ribbon2": "rgba(29,78,216,.28)"
+    },
+    "dark": null
+  },
+  "player": {
+    "play_label": "音声で聴く",
+    "pause_label": "止める",
+    "speeds": [
+      [
+        "0.7",
+        "0.7×"
+      ],
+      [
+        "0.8",
+        "0.8×"
+      ],
+      [
+        "0.9",
+        "0.9×"
+      ],
+      [
+        "1",
+        "1×"
+      ],
+      [
+        "1.25",
+        "1.25×"
+      ],
+      [
+        "1.5",
+        "1.5×"
+      ],
+      [
+        "2",
+        "2×"
+      ]
+    ],
+    "normal": [
+      "1",
+      "1×"
+    ],
+    "default_speed": "1",
+    "remember_speed": true,
+    "storage_key": "wk-speed",
+    "skips": [
+      10,
+      30
+    ],
+    "keyboard": true,
+    "play_size": "60px"
+  },
+  "follow": {
+    "button": "毎日聴く",
+    "title": "毎日聴くには",
+    "options": [
+      {
+        "kind": "spotify",
+        "label": "Spotify でフォローする",
+        "text": "新しい回が出ると、Spotify にすぐ並びます。",
+        "url": "https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3"
+      },
+      {
+        "kind": "mail",
+        "label": "メールで登録する",
+        "text": "番組の入口をメールでお知らせします。毎回のメールは届きません。登録は無料です。",
+        "url": "https://teracosensei.substack.com/embed"
+      }
+    ]
+  },
+  "contact": null,
+  "read_hint": "台詞を押すと、そこから再生します。",
+  "glossary": {
+    "label": "AI用語集",
+    "limit": 60
+  },
+  "labels": {
+    "archive": "バックナンバー",
+    "latest": "最新の号へ",
+    "review": "",
+    "homework": "",
+    "sources": "",
+    "contents": "",
+    "read": "文字で読む",
+    "script": "台本（音声に合わせて流れます）"
+  }
+}

@@ -97,7 +97,7 @@ def build_home(issues: List[Dict], articles: List[Dict], config: Dict) -> str:
     latest = issues[0] if issues else None
 
     # 最新号の中身を読み戻す
-    sections = {"lead": "", "listen": "", "top": "", "genres": "", "total": 0}
+    sections = {"lead": "", "listen": "", "transcript": "", "top": "", "genres": "", "total": 0}
     ann = None
     date_label = ""
     if latest:
@@ -191,10 +191,12 @@ def build_home(issues: List[Dict], articles: List[Dict], config: Dict) -> str:
 <main>
 {f'  <div class="today">{_html.escape(date_label)}　厳選 {sections["total"]} 件</div>' if date_label else ""}
 {monetize.render_disclosure(config)}
-{sections["lead"]}
 {sections["listen"]}
+<span id="yomu"></span>
+{sections["lead"]}
 {sections["top"]}
 {sections["genres"]}
+{sections.get("transcript", "")}
 {permalink}
 {reads}{offers}{monetize.render_cta(config)}
 {recent}
@@ -210,7 +212,7 @@ def build_home(issues: List[Dict], articles: List[Dict], config: Dict) -> str:
 </footer>
 {glossary.assets(ann) if ann else ""}"""
 
-    extra = digest_page.DIGEST_CSS + HOME_CSS + (glossary.TOOLTIP_CSS if ann else "")
+    extra = digest_page.DIGEST_CSS + HOME_CSS + (glossary.TOOLTIP_CSS if ann else "") + (digest_page.player_css() if sections.get("listen") else "")
     return site_theme.page_shell(
         f"{name} | {site.get('tagline', '')}", head, body, extra_css=extra
     )

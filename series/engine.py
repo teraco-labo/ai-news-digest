@@ -146,12 +146,12 @@ PLAYER_CSS = """
               background:var(--btn); color:var(--btn-ink); box-shadow:0 6px 16px color-mix(in srgb, var(--btn) 40%, transparent); }
   .ctl.play svg { width:34px; height:34px; }
   .play-lbl { text-align:center; font-size:.78em; font-weight:700; color:var(--ink2); margin-top:2px; }
-  .speed-row { margin-top:12px; }
-  .speed-label { display:block; font-size:.75em; color:var(--ink2); font-weight:700; margin-bottom:4px; }
-  .speed-btns { display:grid; grid-template-columns:repeat(auto-fit,minmax(0,1fr)); gap:6px; }
-  .speed-btns .sp { padding:8px 0; border-radius:999px; border:1.5px solid var(--line); background:var(--bg); color:var(--ink);
+  .sx-speed { margin-top:12px; }
+  .sx-speed-label { display:block; font-size:.75em; color:var(--ink2); font-weight:700; margin-bottom:4px; }
+  .sx-speed-btns { display:grid; grid-template-columns:repeat(auto-fit,minmax(0,1fr)); gap:6px; }
+  .sx-speed-btns .sp { padding:8px 0; border-radius:999px; border:1.5px solid var(--line); background:var(--bg); color:var(--ink);
                     font-size:.85em; font-weight:700; font-family:inherit; cursor:pointer; }
-  .speed-btns .sp.on { background:var(--btn); border-color:var(--btn); color:var(--btn-ink); }
+  .sx-speed-btns .sp.on { background:var(--btn); border-color:var(--btn); color:var(--btn-ink); }
   .readbtn { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; margin-top:12px; padding:13px;
              border:2px solid var(--pill-border); border-radius:999px; background:var(--pill-bg); color:var(--pill-ink); font-size:1em;
              font-weight:700; text-decoration:none; }
@@ -340,7 +340,7 @@ def player_html(show: dict, *, audio: str, title: str, cover: str, read_target: 
     <div class="time-row"><span id="cur">0:00</span><span id="dur">--:--</span></div>
     <div class="controls">{back}<button class="ctl play" id="play" type="button" aria-label="{esc(p['play_label'])}">{SVG_PLAY}</button>{fwd}</div>
     <div class="play-lbl" id="playLbl">{esc(p['play_label'])}</div>
-    <div class="speed-row" id="speeds"><span class="speed-label">聴く速さ</span><div class="speed-btns">{speeds}</div></div>
+    <div class="sx-speed" id="speeds"><span class="sx-speed-label">聴く速さ</span><div class="sx-speed-btns">{speeds}</div></div>
     {follow_top}
     <a class="readbtn" href="{read_target}" id="toread">{SVG_READ}<span>{esc(show['labels']['read'])}</span></a>
     {kbd}
@@ -359,7 +359,8 @@ def player_js(show: dict) -> str:
     cfg = json.dumps({"play": p["play_label"], "pause": p["pause_label"], "def": p["default_speed"],
                       "normal": p.get("normal", ["1", "ふつう"]),
                       "remember": bool(p.get("remember_speed")), "key": p.get("storage_key") or "",
-                      "keyboard": bool(p.get("keyboard"))}, ensure_ascii=False)
+                      "keyboard": bool(p.get("keyboard")),
+                      "names": show.get("speaker_names", {}), "roles": show.get("speakers", {})}, ensure_ascii=False)
     return """
 <script>
 (function(){
@@ -409,8 +410,14 @@ def player_js(show: dict) -> str:
   function miniCheck(){ var out = big.getBoundingClientRect().bottom < 0; mini.classList.toggle('show', out); mini.setAttribute('aria-hidden', out ? 'false' : 'true'); }
   addEventListener('scroll', miniCheck, {passive:true}); miniCheck();
   // 本文：今の文に色をつけて画面がついていく。自分でスクロールした直後の8秒は追いかけない
-  var lines = [].slice.call(document.querySelectorAll('.ln[data-t]')), now = null, userAt = 0;
+  var lines = [], now = null, userAt = 0;
   ['wheel','touchmove','keydown'].forEach(function(ev){ addEventListener(ev, function(){ userAt = Date.now(); }, {passive:true}); });
+  function wire(){
+    lines = [].slice.call(document.querySelectorAll('.ln[data-t]'));
+    lines.forEach(function(l){ if (l.dataset.w) return; l.dataset.w = 1; l.addEventListener('click', function(e){
+      if (e.target.closest('.t') || e.target.closest('a')) return;      // 言葉の説明やリンクを押したときは再生しない
+      userAt = 0; a.currentTime = +l.dataset.t; a.play(); }); });
+  }
   function follow(force){
     var c = null;
     for (var i = 0; i < lines.length; i++) { if (+lines[i].dataset.t <= a.currentTime + 0.15) c = lines[i]; else break; }
@@ -423,9 +430,27 @@ def player_js(show: dict) -> str:
   a.addEventListener('timeupdate', function(){ follow(false); });
   a.addEventListener('seeked', function(){ follow(true); });
   a.addEventListener('play', function(){ follow(true); });
-  lines.forEach(function(l){ l.addEventListener('click', function(e){
-    if (e.target.closest('.t') || e.target.closest('a')) return;      // 言葉の説明やリンクを押したときは再生しない
-    userAt = 0; a.currentTime = +l.dataset.t; a.play(); }); });
+  wire();
+  // 台本を後から読み込む番組（AIニュース：声の差し替えで開始秒が変わるため、その場で読む）
+  var box = document.getElementById('sxLines');
+  if (box && box.dataset.script) {
+    var NAMES = C.names || {}, ROLES = C.roles || {};
+    Promise.all([
+      fetch(box.dataset.script, {cache:'no-cache'}).then(function(r){ return r.ok ? r.text() : Promise.reject(); }),
+      fetch(box.dataset.times, {cache:'no-cache'}).then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; })
+    ]).then(function(res){
+      var times = res[1] || [], k = 0, out = [];
+      res[0].split('\\n').forEach(function(line){
+        var m = line.match(/^\\[([^\\]]+)\\]\\s*(.+)$/); if (!m) return;
+        var st = times[k++], who = NAMES[m[1]] || m[1], role = ROLES[m[1]] || 'teacher';
+        var t = (typeof st === 'number') ? ' data-t="' + st + '"' : '';
+        out.push('<div class="ln ' + role + '"' + t + '><span class="who">' + who.replace(/</g,'&lt;') + '</span>'
+                 + m[2].replace(/&/g,'&amp;').replace(/</g,'&lt;') + '</div>');
+      });
+      box.innerHTML = out.length ? out.join('') : '<p class="read-hint">この号の台本はまだありません。</p>';
+      wire(); follow(true);
+    }).catch(function(){ box.innerHTML = '<p class="read-hint">台本を読み込めませんでした。</p>'; });
+  }
   // 「この番組を毎回聴く」
   var fs = document.getElementById('fsheet'), fv = document.getElementById('fveil'), fbs = document.querySelectorAll('.follow');
   if (fs && fbs.length) { var op = function(){ fs.classList.add('on'); fv.classList.add('on'); }, cl = function(){ fs.classList.remove('on'); fv.classList.remove('on'); };
@@ -574,3 +599,52 @@ def sitemap_xml(show: dict, paths: list) -> str:
 
 def robots_txt(show: dict) -> str:
     return f"User-agent: *\nAllow: /\nSitemap: {show['base_url'].rstrip('/')}/sitemap.xml\n"
+
+
+# ─── 組み込み用（AIニュースのように、ページの枠は番組独自のまま使う場合） ─────────
+def _scope(css: str, scope: str) -> str:
+    """CSS の各セレクタの前に scope を付け、番組ページの既存の見た目とぶつからないようにする。
+    画面に固定する部品（#fsheet・#fveil・.mini）は .sx の外に出るので、そのまま（名前が固有なのでぶつからない）。"""
+    out = []
+    for block in css.split("}"):
+        if "{" not in block:
+            out.append(block)
+            continue
+        sel, body = block.split("{", 1)
+        fixed = []
+        for s in (x.strip() for x in sel.split(",")):
+            if not s:
+                continue
+            fixed.append(s if s.startswith(("#fsheet", "#fveil", ".mini", "@")) else f"{scope} {s}")
+        out.append("\n  " + ", ".join(fixed) + " {" + body)
+    return "}".join(out)
+
+
+def embed_css(show: dict) -> str:
+    th = show["theme"]
+    tokens = (f".sx, #fsheet, #fveil, .mini {{ {_tokens(th['light'])} --play-size:{show['player'].get('play_size', '64px')}; }}\n")
+    if th.get("dark"):
+        tokens += (f"@media (prefers-color-scheme: dark) {{ :root:not([data-theme=\"light\"]) .sx, :root:not([data-theme=\"light\"]) #fsheet,"
+                   f" :root:not([data-theme=\"light\"]) .mini {{ {_tokens(th['dark'])} }} }}\n")
+    base = ".sx { color:var(--ink); } .sx .read-hint { font-size:.85em; color:var(--ink2); margin-top:4px; }\n" \
+           ".sx h2.sx-h { margin:28px 0 8px; font-size:1.1em; color:var(--heading); border-left:5px solid var(--mark); padding-left:10px; }\n"
+    return tokens + base + _scope(PLAYER_CSS, ".sx")
+
+
+def embed_player(show: dict, *, audio: str, cover: str, sub: str, read_target: str = "#yomu", anchor: str = "listen") -> str:
+    """プレイヤー（毎日聴く・文字で読むつき）と、下の小さな再生バー・毎日聴くの案内（シート）。"""
+    sheet = follow_html(show).split("</button>", 1)[1] if show.get("follow") else ""   # 下の大きなボタンは使わず、案内だけ
+    return (f'<div class="sx" id="{anchor}">'
+            + player_html(show, audio=audio, title=show["name"], cover=cover, read_target=read_target, sub=sub)
+            + f"</div>\n{sheet}")
+
+
+def embed_transcript(show: dict, *, script_url: str, times_url: str) -> str:
+    L = show["labels"]
+    return (f'<section class="sx"><h2 class="sx-h" id="script">{esc(L.get("script", "台本"))}</h2>'
+            f'<p class="read-hint">{esc(show.get("read_hint", ""))}</p>'
+            f'<div id="sxLines" data-script="{esc(script_url)}" data-times="{esc(times_url)}"><p class="read-hint">読み込み中…</p></div></section>')
+
+
+def embed_js(show: dict) -> str:
+    return player_js(show)
