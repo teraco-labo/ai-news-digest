@@ -23,6 +23,7 @@ from datetime import datetime
 from typing import Dict, List, Optional
 
 import glossary
+import podcast_store
 import monetize
 import site_theme
 
@@ -187,14 +188,15 @@ def _listen(date: datetime, available: bool) -> str:
     2026-10-05 から、聴く・読むを1枚にまとめた（藤崎さん「両番組の機能を消さずにいいとこ取りで統合、
     聴くページと読むページも1枚に」）。丸い再生ボタンと巻き戻し・早送りのマーク、速さ7段（記憶あり・wk-speed）、
     「毎日聴く」、「文字で読む」、画面の外に出たら下に小さな再生バー。台本は _transcript() が記事の下に出す。
-    見た目と行き先は series/shows/ai-news.json。src は相対パス（未デプロイの環境でも鳴るように）。
+    見た目と行き先は series/shows/ai-news.json。src は R2 の絶対URL（2026-10-05 から音声は R2）。
+    R2 に無い日だけ相対パス（未デプロイの環境でも鳴るように）。
     """
     if not available:
         return ""
     from series import engine as SE
     show = SE.load_show("ai-news")
     iso = date.strftime("%Y-%m-%d")
-    return SE.embed_player(show, audio=f"podcast/ai-news-{iso}.mp3", cover="podcast/cover.jpg",
+    return SE.embed_player(show, audio=podcast_store.audio_url(iso, relative=True), cover="podcast/cover.jpg",
                            sub=site_theme.issue_label(date), read_target="#yomu") + "\n"
 
 

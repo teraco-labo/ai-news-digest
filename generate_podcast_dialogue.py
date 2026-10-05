@@ -665,10 +665,11 @@ def generate_podcast(articles_by_category: Dict[str, List[Dict]], date: datetime
     size_mb = output_file.stat().st_size / 1_048_576
     print(f"  ✓ {output_file.name} ({size_mb:.1f} MB)")
     print(f"  📁 ローカル: {output_file.resolve()}")
-    print(f"  🌐 公開URL: {BASE_URL}/podcast/{output_file.name}")
 
-    # 4. RSS フィード更新
+    # 4. RSS フィード更新（音声を R2 へ上げるのもここ）
     update_feed(date, output_file)
+    import podcast_store
+    print(f"  🌐 公開URL: {podcast_store.audio_url(date_str)}")
 
     return True
 

@@ -357,7 +357,10 @@ def publish(date_str: str, log) -> int:
     voices = json.loads(VOICES_FILE.read_text(encoding="utf-8")) if VOICES_FILE.exists() else {}
     if date_str in voices:
         log.write(f"{date_str} は差し替え済み\n"); return 3
-    if not script.exists() or not mp3.exists():
+    # クラウド側の配信が済んだかは「台本があり、台帳か手元に音声がある」で見る
+    # （2026-10-05 から音声は R2 に置き、リポジトリには入らない）
+    import podcast_store
+    if not script.exists() or not podcast_store.has_audio(date_str):
         log.write(f"{date_str} の台本または音声がまだ無い（クラウド側の配信待ち）\n"); return 2
     build(script, mp3, log)
     # フィードに載せてよいかの判定（generate_podcast._feed_ready）が voices.json を見るので、

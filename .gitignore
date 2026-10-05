@@ -52,3 +52,7 @@ pwa-reserve/test_manual_instructions.md
 
 podcast/.work/
 .work-samples/
+
+# ポッドキャスト音声は Cloudflare R2 に置く（2026-10-05〜）。リポジトリが1GBを超えないように。
+# R2 へ上げられなかった日だけ、生成側が git add -f でサイトに置く（podcast_store.site_files）
+podcast/ai-news-*.mp3

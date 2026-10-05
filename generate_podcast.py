@@ -395,7 +395,11 @@ def update_feed(date: datetime, audio_file: Path) -> None:
             pass
 
     date_str   = date.strftime("%Y-%m-%d")
-    audio_url  = f"{BASE_URL}/podcast/{audio_file.name}"
+    # 音声は Cloudflare R2 に置く（上げられなければサイトの podcast/ に置く保険つき）。
+    # 置き場所と URL の決め方は podcast_store.py に一本化してある
+    import podcast_store
+    podcast_store.publish(date_str)
+    audio_url  = podcast_store.audio_url(date_str)
     size_bytes = audio_file.stat().st_size
 
     # ffprobe で正確な duration を取得（ビットレートが可変でも正しい値）
@@ -425,10 +429,15 @@ def update_feed(date: datetime, audio_file: Path) -> None:
     # 61で止まったままだった（2026-09-05 に発見。当面は番号がそこから続く）
     _nums = [int(e.get("episode_num") or 0) for e in episodes]
     ep_num = existing.get("episode_num") if existing and existing.get("episode_num") else (max(_nums) + 1 if _nums else 1)
+    # guid（Spotify などが各回を見分ける目印）は、その回を最初に作ったときの値を引き継ぐ。
+    # 以前は音声URLをそのまま guid にしていたので、置き場所を R2 に移しても
+    # guid が変わらないよう、ここで固定する（変わると全話が新しい回として重複する）
+    guid = (existing or {}).get("guid") or (existing or {}).get("url") or audio_url
     episodes.insert(0, {
         "date":        date_str,
         "title":       __import__("site_theme").issue_label(date_str),
         "url":         audio_url,
+        "guid":        guid,
         "size":        size_bytes,
         "duration":    duration_sec,
         "episode_num": ep_num,
@@ -475,7 +484,7 @@ def update_feed(date: datetime, audio_file: Path) -> None:
     <itunes:explicit>false</itunes:explicit>
     <enclosure url="{ep['url']}" length="{ep.get('size', 0)}" type="audio/mpeg"/>
     <pubDate>{pub}</pubDate>
-    <guid isPermaLink="false">{ep['url']}</guid>
+    <guid isPermaLink="false">{ep.get('guid') or ep['url']}</guid>
   </item>"""
 
     feed_xml = f"""<?xml version="1.0" encoding="UTF-8"?>
@@ -548,10 +557,11 @@ def generate_podcast(articles_by_category: Dict[str, List[Dict]], date: datetime
     size_mb = output_file.stat().st_size / 1_048_576
     print(f"  ✓ {output_file.name} ({size_mb:.1f} MB)")
     print(f"  📁 ローカルパス: {output_file.resolve()}")
-    print(f"  🌐 公開URL: {BASE_URL}/podcast/{output_file.name}")
 
-    # 3. RSS 更新
+    # 3. RSS 更新（音声を R2 へ上げるのもここ）
     update_feed(date, output_file)
+    import podcast_store
+    print(f"  🌐 公開URL: {podcast_store.audio_url(date_str)}")
 
     return True
 

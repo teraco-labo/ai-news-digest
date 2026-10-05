@@ -101,6 +101,10 @@ jobs:
           GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
           GMAIL_APP_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          # ポッドキャスト音声の置き場所（Cloudflare R2）。未設定・失敗時はサイトに置く保険つき
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
           # GITHUB_TOKEN を渡すことで Python 内で push → 待機 → メール送信の順が保証される
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |

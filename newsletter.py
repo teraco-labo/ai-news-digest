@@ -23,6 +23,7 @@ from typing import Dict, List, Optional
 
 import glossary
 import monetize
+import podcast_store
 import social_kit
 
 REPO_DIR = Path(__file__).parent
@@ -150,7 +151,7 @@ def build_html(date_iso: str, config: Optional[Dict] = None,
     rest = [a for a in articles if a not in top]
 
     audio = ""
-    if (REPO_DIR / "podcast" / f"ai-news-{date_iso}.mp3").exists() and pod_base:
+    if podcast_store.has_audio(date_iso) and pod_base:
         audio = (
             f'<div style="margin:0 0 28px;padding:16px 18px;background:#0f172a;'
             f'border-radius:8px;font-family:{FONT};">'
@@ -158,7 +159,7 @@ def build_html(date_iso: str, config: Optional[Dict] = None,
             f"🎧 音声版もあります</div>"
             f'<div style="font-size:12px;color:#cbd5e1;margin:0 0 12px;">'
             f"通勤中や作業中に、対話形式で聴けます（10〜15分）</div>"
-            f'<a href="{pod_base}/podcast/ai-news-{date_iso}.mp3" '
+            f'<a href="{podcast_store.audio_url(date_iso)}" '
             f'style="display:inline-block;padding:9px 18px;background:#22d3ee;color:#0f172a;'
             f'font-size:13px;font-weight:700;border-radius:6px;text-decoration:none;">'
             f"再生する →</a></div>"

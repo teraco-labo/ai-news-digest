@@ -18,6 +18,7 @@ from pathlib import Path
 
 import digest_page
 import monetize
+import podcast_store
 import social_kit
 
 REPO_DIR = Path(__file__).parent
@@ -80,7 +81,7 @@ def rerender(date_iso: str, verbose: bool = True) -> bool:
         return _inject_nav_only(path, raw, verbose)
 
     date = datetime.strptime(date_iso, "%Y-%m-%d")
-    podcast_ok = (REPO_DIR / "podcast" / f"ai-news-{date_iso}.mp3").exists()
+    podcast_ok = podcast_store.has_audio(date_iso)  # 音声は R2。台帳で判定する
 
     html = digest_page.render(categorized, date, overview=_overview(raw),
                               podcast_available=podcast_ok)

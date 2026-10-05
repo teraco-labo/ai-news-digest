@@ -27,6 +27,7 @@ import article_builder
 import digest_page
 import glossary
 import monetize
+import podcast_store
 import site_theme
 
 JST = timezone(timedelta(hours=9))
@@ -72,7 +73,8 @@ def collect_issues() -> List[Dict]:
             "file": path.name,
             "count": count,
             "label": f"{dt.year}年{dt.month}月{dt.day}日（{WEEKDAYS_JA[dt.weekday()]}）",
-            "podcast": (REPO_DIR / "podcast" / f"ai-news-{date_iso}.mp3").exists(),
+            # 音声は R2 に置くので、手元のファイルではなく台帳（podcast/audio.json）で判定する
+            "podcast": podcast_store.has_audio(date_iso),
         })
 
     issues.sort(key=lambda x: x["date_iso"], reverse=True)

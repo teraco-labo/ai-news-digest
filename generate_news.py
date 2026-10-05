@@ -775,6 +775,11 @@ def commit_and_push(date: datetime):
             ).stdout.strip() or "main"
 
         subprocess.run(["git", "add", "-A"], check=True, capture_output=True)
+        # 音声（mp3）は .gitignore で外してある（置き場所は Cloudflare R2）。
+        # R2 へ上げられなかった日だけはサイトに置くので、無理やり（-f）コミットに入れる
+        import podcast_store
+        for f in podcast_store.site_files():
+            subprocess.run(["git", "add", "-f", f], check=True, capture_output=True)
         subprocess.run(
             ["git", "commit", "-m", f"feat: AI News Digest {date_str}"],
             check=True,
@@ -842,11 +847,11 @@ def main():
     except Exception as e:
         print(f"⚠️  Podcast generation error: {e}")
 
-    # MP3 が物理的に存在しているかを最終チェック
-    expected_mp3 = REPO_DIR / "podcast" / f"ai-news-{target_date.strftime('%Y-%m-%d')}.mp3"
-    if not (expected_mp3.exists() and expected_mp3.stat().st_size > 0):
+    # 音声が本当にできたかを最終チェック（R2 に上げた日も台帳 podcast/audio.json で分かる）
+    import podcast_store
+    if not podcast_store.has_audio(target_date.strftime('%Y-%m-%d')):
         if podcast_ok:
-            print(f"⚠️  MP3 が見つからないため podcast_ok=False に修正: {expected_mp3.name}")
+            print("⚠️  音声が見つからないため podcast_ok=False に修正")
         podcast_ok = False
 
     print(f"   ポッドキャスト: {'✓ 生成成功' if podcast_ok else '✗ 生成失敗（メールではリンクを省略）'}")
