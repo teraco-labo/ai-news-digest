@@ -114,18 +114,18 @@
     "title": "毎日聴くには",
     "options": [
       {
-        "kind": "spotify",
-        "label": "Spotify でフォローする",
-        "text": "新しい回が出ると、Spotify にすぐ並びます。",
-        "url": "https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3"
-      },
-      {
         "kind": "mail",
         "label": "メールで登録する",
         "text": "番組の入口をメールでお知らせします。毎回のメールは届きません。登録は無料です。",
         "url": "https://teracosensei.substack.com/embed"
       }
-    ]
+    ],
+    "small": {
+      "text": "Spotify を使っている人は",
+      "link": "こちらからフォロー",
+      "url": "https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3"
+    },
+    "_note": "2026-10-05 藤崎さん：まずメール（Substack）登録へ誘導し、Spotify はその下に小さく案内。スマホニュースと同じ形"
   },
   "contact": null,
   "read_hint": "台詞を押すと、そこから再生します。",
