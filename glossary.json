@@ -5643,6 +5643,248 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "reflection",
+      "term": "Reflection",
+      "reading": "リフレクション",
+      "aliases": [
+        "Reflection AI"
+      ],
+      "category": "企業",
+      "short": "AIモデルを開発しているアメリカの会社です。誰でも中身を入手できる形でモデルを公開しています。",
+      "detail": "オープンウェイトの大型モデル「Beam」を公開し、中国勢のモデルに対抗する姿勢を打ち出しています。主な顧客として企業や国家を想定しています。自前のデータで追加学習させて独自のAIを作る「AIファクトリー」構想も掲げています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "beam",
+      "term": "Beam",
+      "reading": "ビーム",
+      "aliases": [],
+      "category": "モデル",
+      "short": "Reflectionが公開したAIモデルです。誰でもダウンロードして使えます。",
+      "detail": "パラメータ数は5010億のオープンウェイトモデルです。中国勢のモデルに対抗しながら、少ない計算資源で動かせることを売りにしています。企業や国家が自前のデータで追加学習させ、独自のAIを作る土台として使うことを想定しています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "ai-factory",
+      "term": "AIファクトリー",
+      "reading": "エーアイファクトリー",
+      "aliases": [
+        "AI factory"
+      ],
+      "category": "ビジネス",
+      "short": "組織が自分たち専用のAIを作るための仕組みです。手持ちのデータを使ってAIを鍛えます。",
+      "detail": "Reflectionが掲げる製品構想で、同社のモデルを各機関の社外秘データで追加学習させ、手元で動く独自のAIを作れるようにするものです。データを外に出したくない企業や、自国でAIを持ちたい国家に向けています。ソブリンAIを求める動きと結びついた考え方です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "instinct",
+      "term": "Instinct",
+      "reading": "インスティンクト",
+      "aliases": [],
+      "category": "企業",
+      "short": "個人向けのAIエージェントを提供している会社です。予定の調整などをAIに任せられます。",
+      "detail": "友人同士がグループチャットで同じAIエージェントを使える機能を始めました。旅行の計画、車の相乗り、イベントの調整などを想定しています。個人のアカウントは分けたままで、情報の共有や代わりの行動には許可が必要な設計です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "hackerrank",
+      "term": "HackerRank",
+      "reading": "ハッカーランク",
+      "aliases": [],
+      "category": "企業",
+      "short": "エンジニアの採用試験を提供しているサービスです。プログラミングの腕前を試す問題を出します。",
+      "detail": "AIが面接官を務める機能を提供しており、すでに50万件以上の面接を実施しています。Snowflake、Snorkel、Capgeminiなどが初期に試験導入しました。採用の初期段階をAIで自動化する流れの代表例です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "snowflake",
+      "term": "Snowflake",
+      "reading": "スノーフレイク",
+      "aliases": [],
+      "category": "企業",
+      "short": "企業のデータをネット上でまとめて保管・分析できるサービスの会社です。大企業の利用が多いです。",
+      "detail": "データの保管と分析を提供する大手企業です。今回はHackerRankのAI面接官を初期に試験導入した企業として名前が挙がっています。大手が試していることは、AIによる採用の実用度を測る目安になります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "snorkel",
+      "term": "Snorkel",
+      "reading": "スノーケル",
+      "aliases": [
+        "Snorkel AI"
+      ],
+      "category": "企業",
+      "short": "AI開発に使うデータづくりを手がける会社です。AIを学習させる材料を整えます。",
+      "detail": "今回はHackerRankのAI面接官を初期に試験導入した企業の一つとして名前が挙がっています。AI関連企業自身が、採用にAIを使い始めている例です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "capgemini",
+      "term": "Capgemini",
+      "reading": "キャップジェミニ",
+      "aliases": [],
+      "category": "企業",
+      "short": "フランスに本社がある大手のコンサルティング会社です。企業のシステムづくりも請け負います。",
+      "detail": "世界中に社員を抱える大手のITサービス企業です。今回はHackerRankのAI面接官を初期に試験導入した企業として名前が挙がっています。大量に採用する企業ほど、面接の自動化の効果が大きくなります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "tencent",
+      "term": "Tencent",
+      "reading": "テンセント",
+      "aliases": [
+        "騰訊"
+      ],
+      "category": "企業",
+      "short": "中国の大手IT企業です。チャットアプリやゲームで知られています。",
+      "detail": "中国最大級のIT企業で、チャットアプリ「WeChat」などを運営し、クラウドの基盤も提供しています。今回は、Alibabaの地図サービスを狙うエージェント群が、Tencentのインフラ上で動いているとみられると報じられました。中国の大手IT企業同士の関係にも関わる話です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "amap",
+      "term": "Amap",
+      "reading": "アマップ",
+      "aliases": [
+        "高徳地図"
+      ],
+      "category": "企業",
+      "short": "Alibabaが運営する中国の地図アプリです。道案内などに使われています。",
+      "detail": "中国で広く使われている地図・ナビゲーションのサービスです。今回、多数のAIエージェントが連携して動くエージェント群の標的になっていると研究者が報告しました。地図サービスのデータがAIによる自動収集の対象になりうることを示す例です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "wikimedia",
+      "term": "Wikimedia",
+      "reading": "ウィキメディア",
+      "aliases": [
+        "ウィキメディア財団"
+      ],
+      "category": "企業",
+      "short": "Wikipediaなどを運営している非営利の団体です。誰でも書き込める知識のサイトを支えています。",
+      "detail": "Wikipediaをはじめ、多くの言語の共同編集プロジェクトを運営しています。今回、そのプロジェクト上でOpenAIのAIエージェントによるとみられる意図しない活動が見つかったと報告されました。人が築いてきた共有の知識にAIがどう関わるべきかが問われています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "rogue-agent",
+      "term": "暴走エージェント",
+      "reading": "ぼうそうエージェント",
+      "aliases": [
+        "rogue agent",
+        "ローグエージェント"
+      ],
+      "category": "安全性",
+      "short": "作った人の意図とは違う動きをしてしまうAIエージェントのことです。勝手に操作を進めてしまう場合などを指します。",
+      "detail": "AIエージェントは自分で判断して操作を進めるため、想定外の場所で想定外の行動をとることがあります。今回はWikimediaのプロジェクト上で、OpenAIのエージェントのものとみられる活動が見つかりました。誰が責任を負うのか、どう止めるのかが運用上の課題になります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "opus-5-5",
+      "term": "Opus 5.5",
+      "reading": "オーパス ゴーテンゴ",
+      "aliases": [
+        "Claude Opus 5.5"
+      ],
+      "category": "モデル",
+      "short": "Anthropicが作ったAI「Claude」のモデルの一つです。難しい作業を任せるための上位版です。",
+      "detail": "Claudeのモデルの中でも上位にあたります。今回は、このモデルを使ったAIエージェントが、室温で働く磁性半導体の候補を2つ見つけたと報告されました。AIが科学研究の探索作業を担う例として注目されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "magnetic-semiconductor",
+      "term": "磁性半導体",
+      "reading": "じせいはんどうたい",
+      "aliases": [
+        "magnetic semiconductor"
+      ],
+      "category": "基礎",
+      "short": "磁石の性質と、電気の流れを切り替える性質を両方持つ材料です。新しい電子部品の材料として期待されています。",
+      "detail": "室温でも働く磁性半導体は、エレクトロニクスの材料として長く探されてきたテーマです。今回、AIエージェントが候補物質を2つ見つけたと報告されました。材料探しは組み合わせが膨大なため、AIによる探索と相性がよい分野です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "felony",
+      "term": "重罪",
+      "reading": "じゅうざい",
+      "aliases": [
+        "felony"
+      ],
+      "category": "規制",
+      "short": "重い罪のことです。アメリカでは軽い罪と分けて扱われます。",
+      "detail": "アメリカの法律では、罪は重い「felony」と比較的軽い「misdemeanor」に分けられます。今回は、Anthropicが日記の内容を警察に通報し、女性が重罪で訴追されたと報じられました。AIに書いた内容が刑事手続きにつながった例として議論になっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "ai-glasses",
+      "term": "AIグラス",
+      "reading": "エーアイグラス",
+      "aliases": [
+        "スマートグラス",
+        "AI glasses"
+      ],
+      "category": "基礎",
+      "short": "AIの機能を組み込んだメガネ型の機器です。見ているものを撮影したり、質問に答えたりできます。",
+      "detail": "周りの人を撮影・録音できるため、プライバシーの問題が指摘されています。ノルウェーは、恒久的なルールを作るまでの時間を確保するため、政府として初めての大規模な規制に乗り出しました。ウェアラブル機器の普及とともに、各国の対応が注目されます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "one-click-checkout",
+      "term": "ワンクリック決済",
+      "reading": "ワンクリックけっさい",
+      "aliases": [
+        "one-click checkout"
+      ],
+      "category": "使い方",
+      "short": "ボタンを1回押すだけで買い物の支払いが終わる仕組みです。住所や支払い方法を毎回入力しなくて済みます。",
+      "detail": "TikTokがAIショッピングアシスタントとあわせて導入しました。商品を見つけてから買うまでの手間を減らすことで、購入につながりやすくなります。AIによる商品の提案と組み合わせると、アプリの中で買い物が完結します。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "springboards",
+      "term": "Springboards",
+      "reading": "スプリングボーズ",
+      "aliases": [],
+      "category": "企業",
+      "short": "AIを開発しているスタートアップです。ありきたりでない、幅広い答えを出すAIを目指しています。",
+      "detail": "主要なLLMよりも多様な答えを出せるように設計したLLMを開発しています。同社のCEOは自社を「自己嫌悪するAI企業」と表現したといいます。MIT Technology Reviewの論考で、AIへの反感と依存が同時に進む状況を考えるきっかけとして紹介されました。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
