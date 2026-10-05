@@ -167,6 +167,7 @@ PLAYER_CSS = """
             border:none; border-radius:16px; background:var(--head); color:#fff; font-size:1.1em; font-weight:700;
             font-family:inherit; cursor:pointer; }
   .follow svg { width:24px; height:24px; }
+  .follow.follow-top { margin-top:10px; padding:12px; font-size:1em; background:var(--card); color:var(--heading); border:2px dashed var(--head); }
   #fveil { position:fixed; inset:0; z-index:80; background:rgba(0,0,0,.4); display:none; }
   #fsheet { position:fixed; left:0; right:0; bottom:0; z-index:81; max-width:680px; margin:0 auto; background:var(--card);
             color:var(--ink); border-radius:18px 18px 0 0; padding:22px 18px calc(26px + env(safe-area-inset-bottom, 0px));
@@ -284,7 +285,7 @@ def follow_html(show: dict) -> str:
     sm = f.get("small")
     small = (f'<p class="small">{esc(sm["text"])} <a href="{esc(sm["url"])}">{esc(sm["link"])}</a></p>' if sm else "")
     return f"""
-  <button class="follow" id="follow" type="button">{SVG_HEART}<span>{esc(f['button'])}</span></button>
+  <button class="follow" type="button">{SVG_HEART}<span>{esc(f['button'])}</span></button>
   <div id="fveil"></div>
   <div id="fsheet" role="dialog" aria-modal="true" aria-labelledby="fsheet-h">
     <h3 id="fsheet-h">{esc(f['title'])}</h3>{ways}{small}
@@ -305,6 +306,7 @@ def player_html(show: dict, *, audio: str, title: str, cover: str, read_target: 
     <div class="p-head"><img src="{esc(cover)}" alt="" width="64" height="64"><div class="ttl">{esc(show['name'])}<br><small style="font-weight:500;color:var(--ink2)">{esc(sub)}</small></div></div>
     <button class="bigplay" id="play" type="button">{SVG_PLAY}<span>{esc(p['play_label'])}</span></button>
     <a class="readbtn" href="{read_target}" id="toread">{SVG_READ}<span>{esc(show['labels']['read'])}</span></a>
+    {f'<button class="follow follow-top" type="button">{SVG_HEART}<span>{esc(show["follow"]["button"])}</span></button>' if show.get("follow") else ""}
     <div class="progress" id="progress" role="slider" aria-label="再生位置" tabindex="0"><div class="fill" id="fill"></div></div>
     <div class="time-row"><span id="cur">0:00</span><span id="dur">--:--</span></div>
     <div class="skips">{skip_btns}</div>
@@ -392,9 +394,9 @@ def player_js(show: dict) -> str:
     if (e.target.closest('.t') || e.target.closest('a')) return;      // 言葉の説明やリンクを押したときは再生しない
     userAt = 0; a.currentTime = +l.dataset.t; a.play(); }); });
   // 「この番組を毎回聴く」
-  var fs = document.getElementById('fsheet'), fv = document.getElementById('fveil'), fb = document.getElementById('follow');
-  if (fb) { var op = function(){ fs.classList.add('on'); fv.classList.add('on'); }, cl = function(){ fs.classList.remove('on'); fv.classList.remove('on'); };
-    fb.addEventListener('click', op); document.getElementById('fclose').addEventListener('click', cl); fv.addEventListener('click', cl);
+  var fs = document.getElementById('fsheet'), fv = document.getElementById('fveil'), fbs = document.querySelectorAll('.follow');
+  if (fs && fbs.length) { var op = function(){ fs.classList.add('on'); fv.classList.add('on'); }, cl = function(){ fs.classList.remove('on'); fv.classList.remove('on'); };
+    fbs.forEach(function(b){ b.addEventListener('click', op); }); document.getElementById('fclose').addEventListener('click', cl); fv.addEventListener('click', cl);
     document.addEventListener('keydown', function(e){ if (e.key === 'Escape') cl(); }); }
 })();
 </script>
