@@ -79,21 +79,30 @@ def _tokens(d: dict) -> str:
 def theme_css(show: dict) -> str:
     th = show["theme"]
     return f"""
-  :root {{ {_tokens(th['light'])} --card-bg:var(--card); --border:var(--line); --text:var(--ink); --text-muted:var(--ink2); }}
+  :root {{ {_tokens(th['light'])} --play-size:{show['player'].get('play_size', '64px')}; --card-bg:var(--card); --border:var(--line); --text:var(--ink); --text-muted:var(--ink2); }}
   @media (prefers-color-scheme: dark) {{ :root:not([data-theme="light"]) {{ {_tokens(th['dark'])} color-scheme:dark; }} }}
   :root[data-theme="dark"] {{ {_tokens(th['dark'])} color-scheme:dark; }}
   * {{ box-sizing:border-box; margin:0; padding:0; }}
   body {{ background:var(--bg); color:var(--ink); font-family:{th['font_family']}; font-size:{th['base_size']};
-         line-height:1.85; -webkit-text-size-adjust:100%; }}
+         font-weight:{th.get('body_weight', '400')}; line-height:1.85; -webkit-text-size-adjust:100%; }}
   a {{ color:var(--heading); }}
-  header.top {{ background:var(--head); color:var(--head-ink); padding:20px 16px 18px; text-align:center; }}
-  header.top a {{ color:var(--head-ink); text-decoration:none; }}
-  header.top .sub {{ font-size:.8em; opacity:.85; }}
-  header.top .name {{ font-size:1.3em; font-weight:700; line-height:1.3; }}
-  header.top .when {{ margin-top:6px; font-size:.85em; }}
+  .hero {{ position:relative; overflow:hidden; background:linear-gradient(180deg,var(--hero1),var(--hero2));
+          color:var(--hero-ink); padding:28px 16px 30px; border-bottom:1px solid var(--line); }}
+  .hero::before, .hero::after {{ content:""; position:absolute; border-radius:999px; pointer-events:none; }}
+  .hero::before {{ right:-160px; bottom:-40px; width:620px; height:120px; transform:rotate(-14deg);
+                  background:linear-gradient(90deg,transparent,var(--ribbon1)); }}
+  .hero::after {{ right:-120px; bottom:-90px; width:560px; height:90px; transform:rotate(-14deg);
+                 background:linear-gradient(90deg,transparent,var(--ribbon2)); }}
+  .hero-inner {{ position:relative; z-index:1; max-width:680px; margin:0 auto; }}
+  .crumbs {{ font-size:.78em; color:var(--hero-sub); margin-bottom:6px; }}
+  .crumbs a {{ color:var(--hero-sub); text-decoration:none; }}
+  .hero h1 {{ font-size:1.45em; font-weight:{th.get('heading_weight', '700')}; line-height:1.4; text-wrap:balance; }}
+  .hero p {{ margin-top:6px; font-size:.9em; color:var(--hero-sub); }}
+  .top-nav {{ margin-top:14px; display:flex; flex-wrap:wrap; gap:8px; }}
+  .top-nav a {{ padding:6px 14px; border-radius:999px; border:1.5px solid var(--pill-border); background:var(--pill-bg);
+               color:var(--pill-ink); font-size:.8em; font-weight:700; text-decoration:none; }}
   main {{ max-width:680px; margin:0 auto; padding:18px 16px 110px; }}
-  h1 {{ font-size:1.32em; line-height:1.45; text-wrap:balance; }}
-  h2 {{ margin:32px 0 8px; font-size:1.16em; color:var(--heading); border-left:6px solid var(--mark); padding-left:10px; text-wrap:balance; }}
+  h2 {{ margin:32px 0 8px; font-size:1.16em; font-weight:{th.get('heading_weight', '700')}; color:var(--heading); border-left:6px solid var(--mark); padding-left:10px; text-wrap:balance; }}
   .card {{ background:var(--card); border:1px solid var(--line); border-radius:18px; padding:16px; margin-top:16px; }}
   .lbl {{ display:inline-block; font-size:.72em; font-weight:700; color:#fff; background:var(--head); border-radius:6px; padding:0 8px; margin-top:6px; }}
   .card ul {{ padding-left:1.2em; }}
@@ -110,39 +119,43 @@ def theme_css(show: dict) -> str:
   #tip {{ font-size:{th['tip_size']} !important; line-height:1.8 !important; }}
   #sheet .tip-n {{ font-size:1.1em !important; }}
   #sheet .tip-s {{ font-size:.95em !important; color:var(--ink) !important; }}
-  #sheet .tip-m {{ font-size:.95em !important; padding:14px !important; background:var(--head) !important; }}
+  #sheet .tip-m {{ font-size:.95em !important; padding:14px !important; background:var(--chip) !important; color:var(--chip-ink) !important; }}
   :focus-visible {{ outline:3px solid var(--mark); outline-offset:2px; }}
   @media (prefers-reduced-motion:reduce) {{ * {{ transition:none !important; scroll-behavior:auto !important; }} }}
 """
 
 
 PLAYER_CSS = """
-  .player { background:var(--card); border:2px solid var(--line); border-radius:20px; padding:16px; margin-top:16px; }
-  .p-head { display:flex; gap:12px; align-items:center; }
-  .p-head img { width:64px; height:64px; border-radius:12px; flex:none; }
-  .p-head .ttl { font-weight:700; line-height:1.45; }
-  .bigplay { display:flex; align-items:center; justify-content:center; gap:12px; width:100%; margin-top:14px; padding:16px;
-             border:none; border-radius:16px; background:var(--btn); color:var(--btn-ink); font-size:1.2em; font-weight:700;
-             font-family:inherit; cursor:pointer; }
-  .bigplay svg { width:28px; height:28px; }
-  .readbtn { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; margin-top:10px; padding:13px;
-             border:3px solid var(--head); border-radius:16px; background:var(--card); color:var(--heading); font-size:1.1em;
+  .player { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:18px 16px 16px; margin-top:-14px;
+             position:relative; z-index:2; box-shadow:0 6px 24px rgba(0,0,0,.06); }
+  .p-head { display:flex; gap:14px; align-items:center; }
+  .p-head img { width:84px; height:84px; border-radius:12px; flex:none; box-shadow:0 4px 14px rgba(0,0,0,.12); }
+  .p-date { font-size:.8em; color:var(--ink2); }
+  .p-title { font-weight:700; line-height:1.4; }
+  .progress { position:relative; height:10px; background:var(--line); border-radius:5px; margin-top:18px; cursor:pointer; touch-action:none; }
+  .progress .fill { position:absolute; left:0; top:0; bottom:0; width:0; background:linear-gradient(90deg,var(--btn2),var(--btn)); border-radius:5px; }
+  .progress .knob { position:absolute; top:50%; left:0; width:20px; height:20px; margin:-10px 0 0 -10px; border-radius:50%;
+                    background:var(--btn); border:3px solid var(--card); box-shadow:0 1px 4px rgba(0,0,0,.25); }
+  .time-row { display:flex; justify-content:space-between; font-size:.75em; color:var(--ink2); margin-top:6px; font-variant-numeric:tabular-nums; }
+  .controls { display:flex; align-items:center; justify-content:center; gap:4px; margin-top:6px; }
+  .ctl { display:flex; flex-direction:column; align-items:center; background:none; border:none; color:var(--ink); cursor:pointer;
+         padding:8px; border-radius:12px; font-family:inherit; }
+  .ctl svg { width:30px; height:30px; display:block; }
+  .ctl small { font-size:.6em; color:var(--ink2); font-weight:700; margin-top:-1px; }
+  .ctl.play { width:var(--play-size); height:var(--play-size); margin:0 10px; padding:0; justify-content:center; border-radius:50%;
+              background:var(--btn); color:var(--btn-ink); box-shadow:0 6px 16px color-mix(in srgb, var(--btn) 40%, transparent); }
+  .ctl.play svg { width:34px; height:34px; }
+  .play-lbl { text-align:center; font-size:.78em; font-weight:700; color:var(--ink2); margin-top:2px; }
+  .speed-row { margin-top:12px; }
+  .speed-label { display:block; font-size:.75em; color:var(--ink2); font-weight:700; margin-bottom:4px; }
+  .speed-btns { display:grid; grid-template-columns:repeat(auto-fit,minmax(0,1fr)); gap:6px; }
+  .speed-btns .sp { padding:8px 0; border-radius:999px; border:1.5px solid var(--line); background:var(--bg); color:var(--ink);
+                    font-size:.85em; font-weight:700; font-family:inherit; cursor:pointer; }
+  .speed-btns .sp.on { background:var(--btn); border-color:var(--btn); color:var(--btn-ink); }
+  .readbtn { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; margin-top:12px; padding:13px;
+             border:2px solid var(--pill-border); border-radius:999px; background:var(--pill-bg); color:var(--pill-ink); font-size:1em;
              font-weight:700; text-decoration:none; }
-  .readbtn svg { width:24px; height:24px; }
-  .progress { position:relative; height:12px; background:var(--line); border-radius:6px; margin-top:16px; cursor:pointer; touch-action:none; }
-  .progress .fill { position:absolute; left:0; top:0; bottom:0; width:0; background:var(--btn); border-radius:6px; }
-  .time-row { display:flex; justify-content:space-between; font-size:.78em; color:var(--ink2); margin-top:4px; font-variant-numeric:tabular-nums; }
-  .skips { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin-top:8px; }
-  .skips button { border:2px solid var(--line); background:var(--card); color:var(--ink); border-radius:12px; padding:6px 0;
-                  font-family:inherit; cursor:pointer; line-height:1.3; }
-  .skips button b { display:block; font-size:.9em; }
-  .skips button small { display:block; font-size:.68em; color:var(--ink2); font-weight:700; }
-  .speed { margin-top:12px; }
-  .speed-k { display:flex; justify-content:space-between; font-size:.7em; color:var(--ink2); padding:0 2px; }
-  .speed-row { display:flex; gap:6px; margin-top:2px; }
-  .speed-row button { flex:1; border:2px solid var(--line); background:var(--card); color:var(--ink); border-radius:10px;
-                      padding:8px 0; font-size:.85em; font-weight:700; font-family:inherit; cursor:pointer; }
-  .speed-row button.on { background:var(--head); border-color:var(--head); color:#fff; }
+  .readbtn svg { width:22px; height:22px; }
   .kbd { margin-top:10px; font-size:.7em; color:var(--ink2); display:none; }
   @media (hover:hover) and (pointer:fine) { .kbd { display:block; } }
   .mini { position:fixed; left:0; right:0; bottom:0; z-index:50; background:var(--card); border-top:1px solid var(--line);
@@ -152,7 +165,9 @@ PLAYER_CSS = """
   .mini button { flex:none; border:none; border-radius:12px; font-family:inherit; font-weight:700; cursor:pointer; }
   .mini .m-play { width:52px; height:44px; background:var(--btn); color:var(--btn-ink); }
   .mini .m-play svg { width:24px; height:24px; }
-  .mini .m-back { padding:0 10px; height:44px; background:var(--bg); color:var(--ink); font-size:.75em; border:1px solid var(--line); }
+  .mini .m-back { position:relative; width:44px; height:44px; background:transparent; color:var(--ink); }
+  .mini .m-back svg { width:36px; height:36px; }
+  .mini .m-back span { position:absolute; left:0; right:0; top:50%; transform:translateY(-46%); font-size:.55em; font-weight:700; }
   .mini .m-bar { flex:1; height:8px; background:var(--line); border-radius:4px; overflow:hidden; }
   .mini .m-fill { height:100%; width:0; background:var(--btn); }
   .mini .m-time { flex:none; font-size:.72em; color:var(--ink2); font-variant-numeric:tabular-nums; }
@@ -163,11 +178,12 @@ PLAYER_CSS = """
   .ln .who { display:block; font-size:.68em; font-weight:700; color:var(--ink2); }
   .ln.partner { background:color-mix(in srgb, var(--soft) 55%, transparent); }
   .ln.partner.now { background:var(--now); }
-  .follow { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; margin-top:28px; padding:16px;
-            border:none; border-radius:16px; background:var(--head); color:#fff; font-size:1.1em; font-weight:700;
-            font-family:inherit; cursor:pointer; }
+  .follow { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; margin-top:28px; padding:14px;
+            border:none; border-radius:999px; background:var(--follow); color:var(--follow-ink); font-size:1.05em; font-weight:700;
+            font-family:inherit; cursor:pointer; box-shadow:0 3px 0 var(--follow-edge); }
+  .follow:active { transform:translateY(2px); box-shadow:0 1px 0 var(--follow-edge); }
   .follow svg { width:24px; height:24px; }
-  .follow.follow-top { margin-top:10px; padding:12px; font-size:1em; background:var(--card); color:var(--heading); border:2px dashed var(--head); }
+  .follow.follow-top { margin-top:14px; }
   #fveil { position:fixed; inset:0; z-index:80; background:rgba(0,0,0,.4); display:none; }
   #fsheet { position:fixed; left:0; right:0; bottom:0; z-index:81; max-width:680px; margin:0 auto; background:var(--card);
             color:var(--ink); border-radius:18px 18px 0 0; padding:22px 18px calc(26px + env(safe-area-inset-bottom, 0px));
@@ -199,7 +215,7 @@ TERMS_CSS = """
   .term-sort { display:flex; gap:6px; flex-wrap:wrap; }
   .term-sort button { font:inherit; font-size:.8em; padding:8px 14px; border-radius:999px; border:2px solid var(--line);
                       background:var(--card); color:var(--ink); cursor:pointer; }
-  .term-sort button[aria-pressed="true"] { background:var(--head); border-color:var(--head); color:#fff; }
+  .term-sort button[aria-pressed="true"] { background:var(--chip); border-color:var(--chip); color:var(--chip-ink); }
   .term-count { margin-top:10px; font-size:.78em; color:var(--ink2); }
   .term-index-group { margin-top:22px; }
   .term-index-group h2 { margin-top:0; }
@@ -216,6 +232,9 @@ TERMS_CSS = """
 
 SVG_PLAY = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>'
 SVG_PAUSE = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>'
+SVG_BACK = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">'
+            '<path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>')
+SVG_FWD = SVG_BACK.replace('<svg ', '<svg style="transform:scaleX(-1)" ')
 SVG_READ = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 5h16v2H4zm0 4h16v2H4zm0 4h10v2H4zm0 4h16v2H4z"/></svg>'
 SVG_HEART = ('<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3'
              'c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>')
@@ -262,10 +281,16 @@ def shell(show: dict, *, title: str, head: str, body: str, prefix: str, extra_cs
 """
 
 
-def top_header(show: dict, prefix: str, when: str) -> str:
-    lines = "<br>".join(esc(x) for x in show.get("name_lines", [show["name"]]))
-    return (f'<header class="top"><a href="{prefix}"><div class="sub">{esc(show.get("brand_sub", ""))}</div>'
-            f'<div class="name">{lines}</div></a><div class="when">{esc(when)}</div></header>')
+def top_header(show: dict, prefix: str, when: str, title: str = "", crumbs: bool = True) -> str:
+    """AIニュースと同じ「ヒーロー」：淡いグラデーション・左寄せの太い題名・丸いボタンの並び・右下のリボン。"""
+    L = show["labels"]
+    nav = (f'<a href="{prefix}">トップ</a><a href="{prefix}archive.html">{esc(L["archive"])}</a>'
+           f'<a href="{prefix}terms/">{esc(show["glossary"]["label"])}</a>')
+    crumb = f'<div class="crumbs"><a href="{prefix}">{esc(show["name"])}</a></div>' if crumbs and title else ""
+    h1 = esc(title) if title else esc(show["name"])
+    sub = esc(when) if title else esc(show.get("tagline", ""))
+    return (f'<header class="hero"><div class="hero-inner">{crumb}<h1>{h1}</h1><p>{sub}</p>'
+            f'<nav class="top-nav">{nav}</nav></div></header>')
 
 
 def footer(show: dict) -> str:
@@ -295,29 +320,35 @@ def follow_html(show: dict) -> str:
 
 # ─── プレイヤー ───────────────────────────────────────────
 def player_html(show: dict, *, audio: str, title: str, cover: str, read_target: str = "#yomu", sub: str = "") -> str:
+    """AIニュースのプレイヤーと同じ並び。丸い再生ボタンの左右に巻き戻し・早送りのマーク、
+    その下に「ふつう（1倍）」を真ん中にした速さの列。押している速さをもう一度押すとふつうに戻る。"""
     p = show["player"]
     skips = p.get("skips", [10, 30])
-    skip_btns = "".join(f'<button type="button" data-skip="{-s}"><b>{s}秒</b><small>もどる</small></button>' for s in sorted(skips, reverse=True)) + \
-        "".join(f'<button type="button" data-skip="{s}"><b>{s}秒</b><small>すすむ</small></button>' for s in sorted(skips))
-    speeds = "".join(f'<button type="button" data-r="{v}">{esc(lbl)}</button>' for v, lbl in p["speeds"])
+    def sk(sec, back):
+        return (f'<button type="button" class="ctl" data-skip="{-sec if back else sec}" aria-label="{sec}秒{"もどる" if back else "すすむ"}">'
+                f'{SVG_BACK if back else SVG_FWD}<small>{sec}</small></button>')
+    back = "".join(sk(s_, True) for s_ in sorted(skips, reverse=True))
+    fwd = "".join(sk(s_, False) for s_ in sorted(skips))
+    speeds = "".join(f'<button type="button" class="sp" data-r="{v}">{esc(lbl)}</button>' for v, lbl in p["speeds"])
     kbd = '<p class="kbd">キーボード：スペースで再生／停止、← → で10秒、J / L で30秒</p>' if p.get("keyboard") else ""
+    follow_top = (f'<button class="follow follow-top" type="button">{SVG_HEART}<span>{esc(show["follow"]["button"])}</span></button>'
+                  if show.get("follow") else "")
     return f"""
   <div class="player" id="player">
-    <div class="p-head"><img src="{esc(cover)}" alt="" width="64" height="64"><div class="ttl">{esc(show['name'])}<br><small style="font-weight:500;color:var(--ink2)">{esc(sub)}</small></div></div>
-    <button class="bigplay" id="play" type="button">{SVG_PLAY}<span>{esc(p['play_label'])}</span></button>
-    <a class="readbtn" href="{read_target}" id="toread">{SVG_READ}<span>{esc(show['labels']['read'])}</span></a>
-    {f'<button class="follow follow-top" type="button">{SVG_HEART}<span>{esc(show["follow"]["button"])}</span></button>' if show.get("follow") else ""}
-    <div class="progress" id="progress" role="slider" aria-label="再生位置" tabindex="0"><div class="fill" id="fill"></div></div>
+    <div class="p-head"><img src="{esc(cover)}" alt="" width="84" height="84"><div><div class="p-date">{esc(sub)}</div><div class="p-title">{esc(show['name'])}</div></div></div>
+    <div class="progress" id="progress" role="slider" aria-label="再生位置" tabindex="0"><div class="fill" id="fill"></div><div class="knob" id="knob"></div></div>
     <div class="time-row"><span id="cur">0:00</span><span id="dur">--:--</span></div>
-    <div class="skips">{skip_btns}</div>
-    <div class="speed"><div class="speed-k"><span>ゆっくり</span><span>聴く速さ</span><span>はやく</span></div>
-      <div class="speed-row" id="speeds">{speeds}</div></div>
+    <div class="controls">{back}<button class="ctl play" id="play" type="button" aria-label="{esc(p['play_label'])}">{SVG_PLAY}</button>{fwd}</div>
+    <div class="play-lbl" id="playLbl">{esc(p['play_label'])}</div>
+    <div class="speed-row" id="speeds"><span class="speed-label">聴く速さ</span><div class="speed-btns">{speeds}</div></div>
+    {follow_top}
+    <a class="readbtn" href="{read_target}" id="toread">{SVG_READ}<span>{esc(show['labels']['read'])}</span></a>
     {kbd}
   </div>
   <audio id="audio" src="{esc(audio)}" preload="metadata"></audio>
   <div class="mini" id="mini" aria-hidden="true">
     <button type="button" class="m-play" id="mplay" aria-label="再生／一時停止">{SVG_PLAY}</button>
-    <button type="button" class="m-back" data-skip="-10">10秒もどる</button>
+    <button type="button" class="m-back" data-skip="-10" aria-label="10秒もどる">{SVG_BACK}<span>10</span></button>
     <div class="m-bar"><div class="m-fill" id="mfill"></div></div>
     <span class="m-time" id="mtime">0:00</span>
   </div>"""
@@ -326,6 +357,7 @@ def player_html(show: dict, *, audio: str, title: str, cover: str, read_target: 
 def player_js(show: dict) -> str:
     p = show["player"]
     cfg = json.dumps({"play": p["play_label"], "pause": p["pause_label"], "def": p["default_speed"],
+                      "normal": p.get("normal", ["1", "ふつう"]),
                       "remember": bool(p.get("remember_speed")), "key": p.get("storage_key") or "",
                       "keyboard": bool(p.get("keyboard"))}, ensure_ascii=False)
     return """
@@ -336,7 +368,8 @@ def player_js(show: dict) -> str:
   var a = document.getElementById('audio'), play = document.getElementById('play'), mplay = document.getElementById('mplay');
   function fmt(s){ if (!isFinite(s)) return '--:--'; s = Math.floor(s); return Math.floor(s/60) + ':' + ('0' + s%%60).slice(-2); }
   function ui(){ var on = !a.paused;
-    play.innerHTML = (on ? PAUSE : PLAY) + '<span>' + (on ? C.pause : C.play) + '</span>';
+    play.innerHTML = on ? PAUSE : PLAY; play.setAttribute('aria-label', on ? C.pause : C.play);
+    document.getElementById('playLbl').textContent = on ? C.pause : C.play;
     mplay.innerHTML = on ? PAUSE : PLAY; }
   ui();
   function toggle(){ a.paused ? a.play() : a.pause(); }
@@ -348,7 +381,7 @@ def player_js(show: dict) -> str:
   a.addEventListener('loadedmetadata', function(){ document.getElementById('dur').textContent = fmt(a.duration); });
   a.addEventListener('timeupdate', function(){
     var r = a.duration ? a.currentTime / a.duration * 100 : 0;
-    fill.style.width = r + '%%'; mfill.style.width = r + '%%';
+    fill.style.width = r + '%%'; mfill.style.width = r + '%%'; document.getElementById('knob').style.left = r + '%%';
     document.getElementById('cur').textContent = fmt(a.currentTime);
     document.getElementById('mtime').textContent = fmt(a.currentTime) + ' / ' + fmt(a.duration);
   });
@@ -357,12 +390,12 @@ def player_js(show: dict) -> str:
   prog.addEventListener('click', function(e){ seekAt(e.clientX); });
   prog.addEventListener('keydown', function(e){ if (e.key === 'ArrowLeft') skip(-10); if (e.key === 'ArrowRight') skip(10); });
   // 速さ：番組ごとの設定。覚える番組（AIニュース）は保存、毎回1倍の番組（スマホニュース）は保存しない
-  var rate = C.def, sps = [].slice.call(document.querySelectorAll('#speeds button'));
+  var rate = C.def, sps = [].slice.call(document.querySelectorAll('#speeds .sp'));
   if (C.remember && C.key) { try { var s = localStorage.getItem(C.key); if (s && sps.some(function(b){ return b.dataset.r === s; })) rate = s; } catch(e) {} }
   function setRate(v){ rate = v; a.playbackRate = parseFloat(v); a.preservesPitch = true;
-    sps.forEach(function(b){ b.classList.toggle('on', b.dataset.r === v); });
+    sps.forEach(function(b){ b.classList.toggle('on', b.dataset.r === v); b.setAttribute('aria-pressed', b.dataset.r === v ? 'true' : 'false'); });
     if (C.remember && C.key) { try { localStorage.setItem(C.key, v); } catch(e) {} } }
-  sps.forEach(function(b){ b.addEventListener('click', function(){ setRate(b.dataset.r); }); });
+  sps.forEach(function(b){ b.addEventListener('click', function(){ setRate(rate === b.dataset.r ? C.normal[0] : b.dataset.r); }); });  // もう一度押すとふつうに戻る
   setRate(rate);
   a.addEventListener('play', function(){ a.playbackRate = parseFloat(rate); });
   if (C.keyboard) document.addEventListener('keydown', function(e){
@@ -434,9 +467,8 @@ def episode_html(show: dict, ep: dict, terms: dict, prefix: str) -> str:
         sources = (f'<div class="src"><b>{esc(L["sources"])}</b><ul>'
                    + "".join(f'<li><a href="{esc(s["url"])}">{esc(s["label"])}</a></li>' for s in ep["sources"]) + "</ul></div>")
     when = f"{date_ja(ep['date'])}・{show['issue_word'].format(n=ep['number'])}"
-    body = f"""{top_header(show, prefix, when)}
+    body = f"""{top_header(show, prefix, when, title=ep['title'])}
 <main>
-  <h1>{esc(ep['title'])}</h1>
 {player_html(show, audio=ep['audio'], title=ep['title'], cover=ep['cover'], sub=when)}
   {contents}
   <h2 class="read-h" id="yomu">{esc(L['read'])}</h2>
@@ -469,8 +501,8 @@ def redirect_html(to: str) -> str:
 def archive_html(show: dict, eps: list) -> str:
     rows = "".join(f'<a href="episodes/{e["date"]}/"><div class="d">{date_ja(e["date"])}・{show["issue_word"].format(n=e["number"])}</div>'
                    f'<div class="ti">{esc(e["title"])}</div></a>' for e in eps)
-    body = f"""{top_header(show, "", show["labels"]["archive"])}
-<main><h1>{esc(show["labels"]["archive"])}</h1><p class="read-hint">{esc(show.get("schedule", ""))}に新しい回が出ます。</p>
+    body = f"""{top_header(show, "", show.get("schedule", "") + "に新しい回が出ます", title=show["labels"]["archive"])}
+<main><p class="read-hint" style="display:none">{esc(show.get("schedule", ""))}に新しい回が出ます。</p>
 <div class="arch">{rows}</div>
 <div class="links"><a href="terms/">{esc(show['glossary']['label'])}</a><a href="./">{esc(show['labels']['latest'])}</a></div>
 {footer(show)}</main>"""
@@ -493,8 +525,8 @@ def term_html(show: dict, t: dict, terms: dict, titles: dict, repo: Path) -> str
     name = t["term"] + (f"（{t['reading']}）" if t.get("reading") else "")
     rel = "".join(f'<a href="{r}.html">{esc(terms[r]["term"])}</a>' for r in t.get("related", []) if r in terms)
     seen = "".join(f'<a href="../episodes/{d}/">{date_ja(d)}　{esc(titles.get(d, ""))}</a>' for d in _mentions(repo, t["slug"]))
-    body = f"""{top_header(show, "../", "ことばの解説")}
-<main><h1>{esc(name)}</h1>
+    body = f"""{top_header(show, "../", "ことばの解説", title=name)}
+<main>
   <div class="easy"><span class="klbl">ひとことで言うと</span><p>{esc(t['short'])}</p></div>
   <div class="detail"><span class="klbl">もう少しくわしく</span><p>{ann(t.get('detail') or t['short'])}</p></div>
   {f'<div class="detail"><span class="klbl">いっしょに知りたい言葉</span><div class="chips">{rel}</div></div>' if rel else ''}
@@ -511,8 +543,8 @@ def terms_index_html(show: dict, terms: dict) -> str:
     g = show["glossary"]
     data = json.dumps([{"slug": t["slug"], "term": t["term"], "short": t["short"], "category": t.get("category", "その他"),
                         "reading": t.get("reading", ""), "aliases": t.get("aliases", [])} for t in terms.values()], ensure_ascii=False)
-    body = f"""{top_header(show, "../", f"ことば {len(terms)}語")}
-<main><h1>{esc(g['label'])}</h1><p class="read-hint">{esc(g.get('index_lead', ''))}</p>
+    body = f"""{top_header(show, "../", g.get('index_lead', '') + f"（{len(terms)}語）", title=g['label'])}
+<main>
   <div class="term-toolbar">
     <input type="search" id="termSearch" class="term-search" placeholder="{esc(g.get('search_placeholder', ''))}" aria-label="言葉をさがす">
     <div class="term-sort" role="group" aria-label="並び替え">

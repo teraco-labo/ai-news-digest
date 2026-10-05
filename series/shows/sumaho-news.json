@@ -21,68 +21,107 @@
     "イロハ": "partner"
   },
   "theme": {
-    "font_url": "https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700&display=swap",
-    "font_family": "\"Zen Kaku Gothic New\",\"Hiragino Sans\",sans-serif",
+    "font_url": "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&display=swap",
+    "font_family": "'Noto Sans JP','Hiragino Sans',sans-serif",
     "base_size": "19px",
     "tip_size": "17px",
     "light": {
-      "bg": "#F6F4EE",
+      "bg": "#FFFBEF",
       "card": "#FFFFFF",
-      "ink": "#22251F",
-      "ink2": "#55594F",
-      "line": "#E2DED2",
-      "head": "#1E4D3B",
-      "head_ink": "#FFFFFF",
-      "accent": "#A9481A",
-      "heading": "#1E4D3B",
-      "btn": "#E8792B",
+      "ink": "#3D261D",
+      "ink2": "#7A5A48",
+      "line": "#F1E3C6",
+      "head": "#F9B050",
+      "head_ink": "#3D261D",
+      "accent": "#B8560F",
+      "heading": "#A04A10",
+      "btn": "#E8720C",
       "btn_ink": "#FFFFFF",
-      "soft": "#FCEBDC",
-      "now": "#FFE7A8",
-      "mark": "#E8792B"
+      "soft": "#FFF0D6",
+      "now": "#FFE08A",
+      "mark": "#F59A2E",
+      "leaf": "#CFE3A3",
+      "leaf_ink": "#33461A",
+      "chip": "#3D261D",
+      "chip_ink": "#FFFBEF",
+      "hero1": "#FFFDF6",
+      "hero2": "#FFE8C2",
+      "hero_ink": "#3D261D",
+      "hero_sub": "#7A5A48",
+      "ribbon1": "rgba(249,176,80,.55)",
+      "ribbon2": "rgba(156,196,107,.50)",
+      "btn2": "#F9B050",
+      "pill_border": "#F3C27E",
+      "pill_bg": "#FFFFFF",
+      "pill_ink": "#8A3F0B",
+      "follow": "#CFE3A3",
+      "follow_ink": "#33461A",
+      "follow_edge": "#9CC46B"
     },
     "dark": {
-      "bg": "#141915",
-      "card": "#1E2420",
-      "ink": "#ECEDE8",
-      "ink2": "#B5B9AE",
-      "line": "#333A34",
-      "head": "#1E4D3B",
-      "head_ink": "#FFFFFF",
-      "accent": "#F3A56F",
-      "heading": "#8CC7A6",
-      "btn": "#E8792B",
+      "bg": "#1E1712",
+      "card": "#2A211A",
+      "ink": "#F6EBDD",
+      "ink2": "#CDB9A5",
+      "line": "#43362B",
+      "head": "#5A3A1E",
+      "head_ink": "#FFE3C0",
+      "accent": "#F7B267",
+      "heading": "#F7B267",
+      "btn": "#E8720C",
       "btn_ink": "#FFFFFF",
       "soft": "#3A2A1C",
-      "now": "#5C4A12",
-      "mark": "#E8792B"
-    }
+      "now": "#5C4512",
+      "mark": "#F59A2E",
+      "leaf": "#3F5726",
+      "leaf_ink": "#E5F2CC",
+      "chip": "#F6EBDD",
+      "chip_ink": "#1E1712",
+      "hero1": "#2A1E14",
+      "hero2": "#3A2716",
+      "hero_ink": "#FFE9CF",
+      "hero_sub": "#E2C8AE",
+      "ribbon1": "rgba(249,176,80,.35)",
+      "ribbon2": "rgba(156,196,107,.30)",
+      "btn2": "#F9B050",
+      "pill_border": "#6B4A2A",
+      "pill_bg": "#2A211A",
+      "pill_ink": "#F7B267",
+      "follow": "#3F5726",
+      "follow_ink": "#E5F2CC",
+      "follow_edge": "#2C3D1A"
+    },
+    "body_weight": "500",
+    "heading_weight": "900"
   },
   "player": {
-    "layout": "pill",
     "play_label": "音声で聴く",
     "pause_label": "止める",
     "speeds": [
       [
-        "0.8",
-        "0.8倍"
+        "0.7",
+        "0.7×"
       ],
       [
-        "0.9",
-        "0.9倍"
+        "0.8",
+        "0.8×"
       ],
       [
         "1",
         "ふつう"
       ],
       [
-        "1.1",
-        "1.1倍"
+        "1.2",
+        "1.2×"
       ],
       [
-        "1.2",
-        "1.2倍"
+        "1.5",
+        "1.5×"
       ]
+    ],
+    "normal": [
+      "1",
+      "ふつう"
     ],
     "default_speed": "1",
     "remember_speed": false,
@@ -91,7 +130,8 @@
       10,
       30
     ],
-    "keyboard": true
+    "keyboard": true,
+    "play_size": "72px"
   },
   "follow": {
     "button": "この番組を毎回聴く",
@@ -100,7 +140,7 @@
       {
         "kind": "mail",
         "label": "メールで受け取る",
-        "text": "メールアドレスを登録すると、番組からのお知らせがメールで届きます。登録は無料です。",
+        "text": "メールアドレスを登録すると、番組の入口をメールでお知らせします。新しい回のたびにメールが届くことはありません。登録は無料です。",
         "url": "https://teracosensei.substack.com/s/sumaho-news"
       }
     ],
@@ -130,5 +170,6 @@
     "sources": "今日の情報のもと",
     "contents": "今日の内容",
     "read": "文字で読む"
-  }
+  },
+  "tagline": "スマホ教室のてらこ先生が、ゆっくりやさしくお話しします。"
 }
