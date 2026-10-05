@@ -796,6 +796,9 @@ def commit_and_push(date: datetime):
         print(f"⚠️  Git error: {e.stderr.decode()}")
 
 
+REPO_ROOT_FOR_GUARD = Path(__file__).resolve().parent
+
+
 def main():
     """Main execution."""
     # Parse command line arguments
@@ -809,6 +812,13 @@ def main():
             sys.exit(1)
 
     print(f"\n📰 Generating AI News Digest for {target_date.strftime('%Y-%m-%d')}")
+
+    # GitHub の定時実行（6時の予定）は毎日2〜4時間遅れる。2026-10-06 から Mac が5時40分に
+    # 手動の実行で先に起こすので、遅れて来た定時の実行は、その日の号がもうあれば何もしない
+    # （同じ号を作り直したり、メールが2通届いたりしないように）
+    if os.getenv("GITHUB_EVENT_NAME") == "schedule" and (REPO_ROOT_FOR_GUARD / f"ai-news-{target_date.strftime('%Y-%m-%d')}.html").exists():
+        print("今日の号は作成済み（Mac から起こした実行で完了）なので、定時の実行は何もしません")
+        return
 
     # Step 1: Fetch articles from free RSS feeds
     print("\n1️⃣  Fetching articles from RSS feeds...")
