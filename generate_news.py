@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import html as _html
 import os
 import re
 import json
@@ -553,6 +554,41 @@ def update_index_html(date: datetime):
     print(f"✓ Updated index.html → {latest_file}")
 
 
+SUMAHO_URL = "https://teraco-labo.github.io/teraco-sumaho-news"
+
+
+def _sumaho_box(date: datetime) -> str:
+    """火曜・金曜は、兄弟番組「世界一わかりやすいスマホニュース」の今朝の回も同じメールで知らせる。
+
+    スマホニュースはこのMacの定時ジョブが6時に公開する。このメールの方が先に出ることもあるので、
+    今朝の回がまだ一覧に無ければ番組のトップ（いつも最新の回が開く）へ案内する（2026-10-05 藤崎さん）。
+    """
+    if date.weekday() not in (1, 4):   # 火・金
+        return ""
+    import json as _json, urllib.request as _ur
+    iso = date.strftime("%Y-%m-%d")
+    title, link = "", f"{SUMAHO_URL}/"
+    try:
+        with _ur.urlopen(f"{SUMAHO_URL}/episodes.json", timeout=10) as res:
+            eps = _json.load(res)
+        ep = next((e for e in eps if e.get("date") == iso), None)
+        if ep:
+            title, link = ep.get("title", ""), ep.get("page") or link
+    except Exception:
+        pass
+    btn = ("display:inline-block;padding:10px 18px;border-radius:999px;text-decoration:none;"
+           "font-weight:bold;font-size:14px;background:#e8720c;color:#ffffff;")
+    head = _html.escape(title) if title else "今朝の回"
+    return (
+        '  <div style="margin:0 0 24px 0;padding:16px 18px;background:#fff7ea;border:1px solid #f3c27e;border-radius:12px;">\n'
+        '    <p style="margin:0;font-size:12px;font-weight:bold;color:#8a3f0b;">世界一わかりやすいスマホニュース</p>\n'
+        f'    <p style="margin:4px 0 10px 0;font-size:15px;font-weight:bold;color:#3d261d;">{head}</p>\n'
+        f'    <p style="margin:0;"><a href="{link}" style="{btn}">スマホニュースを聴く</a></p>\n'
+        '  </div>\n\n'
+    )
+
+
+
 def build_email_html(categorized: Dict[str, List[Dict]], date: datetime, include_recommendations: bool = True, podcast_available: bool = True) -> str:
     """Build HTML email content with styled articles."""
     date_str = date.strftime("%Y年%m月%d日")
@@ -573,9 +609,9 @@ def build_email_html(categorized: Dict[str, List[Dict]], date: datetime, include
 <style>
   body { font-family: 'Hiragino Sans', 'Helvetica Neue', sans-serif; max-width: 600px; margin: 0; padding: 20px; background: #f5f5f5; }
   .container { background: white; border-radius: 8px; padding: 30px; }
-  .header { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #60a5fa; padding: 20px; border-radius: 8px; margin-bottom: 30px; text-align: center; }
+  .header { background: #eef4ff; border: 1px solid #dbe7fb; color: #0b1f4d; padding: 20px; border-radius: 12px; margin-bottom: 24px; text-align: center; }
   .header h1 { margin: 0; font-size: 24px; }
-  .header p { margin: 5px 0 0 0; font-size: 12px; color: #94a3b8; }
+  .header p { margin: 5px 0 0 0; font-size: 12px; color: #475569; }
   .section { margin-bottom: 30px; }
   .section-title { font-size: 16px; font-weight: bold; color: #1e293b; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0; }
   .article { margin-bottom: 15px; padding: 12px; background: #f8fafc; border-left: 3px solid #60a5fa; border-radius: 4px; }
@@ -618,25 +654,27 @@ def build_email_html(categorized: Dict[str, List[Dict]], date: datetime, include
     # これまで音声のカードだけがあり、用語解説つきの記事（この番組の核）への入口は
     # いちばん下の「サイトを見る」だけだった。そこまで読み進めない人が多いので先頭に出す
     # （2026-10-02 藤崎さんの指摘）。記事を先、音声を後に置く。
+    # 2026-10-05 から「聴く・読む」は記事のページ1枚（音声は #listen）。メールもそこへ向ける
     article_url = f"{SITE_URL}/ai-news-{date_iso}.html"
-    player_url = f"{PODCAST_URL}/podcast/player.html?date={date_iso}"
-    btn = ("display:inline-block;padding:12px 20px;border-radius:8px;text-decoration:none;"
+    listen_url = f"{article_url}#listen"
+    btn = ("display:inline-block;padding:12px 20px;border-radius:999px;text-decoration:none;"
            "font-weight:bold;font-size:15px;margin:4px 6px 4px 0;")
-    text_btn = (f'<a href="{article_url}" style="{btn}background:#0f172a;color:#ffffff;">'
-                'テキストで読む（用語解説つき）</a>')
+    text_btn = (f'<a href="{article_url}" style="{btn}background:#ffffff;color:#1d4ed8;border:2px solid #1d4ed8;">'
+                '文字で読む（用語解説つき）</a>')
     if podcast_available:
-        audio_btn = (f'<a href="{player_url}" style="{btn}background:#e2e8f0;color:#0f172a;">'
-                     '音声で聴く（約12分）</a>')
-        note = "専門用語にはすべて解説がつきます。通勤や家事の合間には音声版をどうぞ。"
+        audio_btn = (f'<a href="{listen_url}" style="{btn}background:#1d4ed8;color:#ffffff;border:2px solid #1d4ed8;">'
+                     '音声で聴く</a>')
+        note = "1つのページで、聴きながら台本と用語解説も読めます。"
     else:
         audio_btn = ""
         # 失敗の理由を推測で書かない（以前は「件数が少なく」と決め打ちで誤解を招いた）
-        note = "本日の音声版は準備中です。テキスト版をご覧ください。"
+        note = "本日の音声版は準備中です。文字でご覧ください。"
     podcast_box = (
         '\n  <div class="podcast-box">\n'
-        f'    <p style="margin:0 0 10px 0;">{text_btn}{audio_btn}</p>\n'
+        f'    <p style="margin:0 0 10px 0;">{audio_btn}{text_btn}</p>\n'
         f'    <p style="font-size:12px;color:#475569;margin:0;">{note}</p>\n'
         '  </div>\n\n'
+        + _sumaho_box(date)
     )
     email_html = email_html.replace("  <!-- PODCAST_PLACEHOLDER -->\n", podcast_box)
 
