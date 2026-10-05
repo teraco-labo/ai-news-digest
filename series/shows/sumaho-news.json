@@ -1,0 +1,126 @@
+{
+  "_説明": "スマホニュースの番組設定。series/engine.py がこれを読んでページを作る。色・文字・速さ・行き先など番組ごとに違うものはすべてここに置く",
+  "id": "sumaho-news",
+  "name": "世界一わかりやすいスマホニュース",
+  "name_lines": [
+    "世界一わかりやすい",
+    "スマホニュース"
+  ],
+  "by": "てらこ先生",
+  "brand_sub": "てらこ先生の",
+  "base_url": "https://teraco-labo.github.io/teraco-sumaho-news",
+  "description": "スマホ教室のてらこ先生が、スマホの使い方や携帯会社のニュースを、ゆっくりやさしくお話しします。むずかしい言葉には説明つき。",
+  "schedule": "毎週 火曜・金曜の朝",
+  "issue_word": "第{n}回",
+  "cover": "cover.jpg",
+  "podcast_feed": "feed.xml",
+  "solo": true,
+  "speakers": {
+    "てらこ先生": "teacher",
+    "ミカ": "partner",
+    "イロハ": "partner"
+  },
+  "theme": {
+    "font_url": "https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700&display=swap",
+    "font_family": "\"Zen Kaku Gothic New\",\"Hiragino Sans\",sans-serif",
+    "base_size": "19px",
+    "tip_size": "17px",
+    "light": {
+      "bg": "#F6F4EE",
+      "card": "#FFFFFF",
+      "ink": "#22251F",
+      "ink2": "#55594F",
+      "line": "#E2DED2",
+      "head": "#1E4D3B",
+      "head_ink": "#FFFFFF",
+      "accent": "#A9481A",
+      "heading": "#1E4D3B",
+      "btn": "#E8792B",
+      "btn_ink": "#FFFFFF",
+      "soft": "#FCEBDC",
+      "now": "#FFE7A8",
+      "mark": "#E8792B"
+    },
+    "dark": {
+      "bg": "#141915",
+      "card": "#1E2420",
+      "ink": "#ECEDE8",
+      "ink2": "#B5B9AE",
+      "line": "#333A34",
+      "head": "#1E4D3B",
+      "head_ink": "#FFFFFF",
+      "accent": "#F3A56F",
+      "heading": "#8CC7A6",
+      "btn": "#E8792B",
+      "btn_ink": "#FFFFFF",
+      "soft": "#3A2A1C",
+      "now": "#5C4A12",
+      "mark": "#E8792B"
+    }
+  },
+  "player": {
+    "layout": "pill",
+    "play_label": "音声で聴く",
+    "pause_label": "止める",
+    "speeds": [
+      [
+        "0.8",
+        "0.8倍"
+      ],
+      [
+        "1",
+        "ふつう"
+      ],
+      [
+        "1.2",
+        "1.2倍"
+      ]
+    ],
+    "default_speed": "1",
+    "remember_speed": false,
+    "storage_key": "",
+    "skips": [
+      10,
+      30
+    ],
+    "keyboard": true
+  },
+  "follow": {
+    "button": "この番組を毎回聴く",
+    "title": "毎回聴くには",
+    "options": [
+      {
+        "kind": "mail",
+        "label": "メールで受け取る",
+        "text": "メールアドレスを登録すると、番組からのお知らせがメールで届きます。登録は無料です。",
+        "url": "https://teracosensei.substack.com/s/sumaho-news"
+      }
+    ],
+    "small": {
+      "text": "Spotify を使っている人は",
+      "link": "こちらからフォロー",
+      "url": "https://open.spotify.com/show/3jx1jEp9mOCeTlMFiGSuad"
+    }
+  },
+  "contact": {
+    "text": "わからないことは、教室で一緒に確かめましょう。",
+    "link": "スマホ教室TERACO の公式LINE",
+    "url": "https://lin.ee/tkYJ7Cw"
+  },
+  "read_hint": "線が引いてある言葉を押すと、説明が出ます。文を押すと、そこから聴けます。",
+  "glossary": {
+    "label": "用語集",
+    "limit": 60,
+    "index_lead": "番組に出てきた言葉を、やさしく説明しています。",
+    "search_placeholder": "言葉をさがす（例：アプリ、SMS）"
+  },
+  "labels": {
+    "archive": "これまでの回",
+    "latest": "最新の回へ",
+    "review": "今日のおさらい",
+    "homework": "今日やってみること",
+    "sources": "今日の情報のもと",
+    "contents": "今日の内容",
+    "read": "文字で読む"
+  }
+}
