@@ -96,53 +96,35 @@
 
 ## 7. 残っている作業（持ち主のアカウント作業待ち）
 
-### 7-0. いま進行中：ポッドキャスト音声を Cloudflare R2 へ移す（2026-10-04 決定）
+### 7-0. ポッドキャスト音声を Cloudflare R2 へ移す（2026-10-05 ほぼ完了）
 
-**なぜやるか**：音声 mp3 をリポジトリ（`podcast/`）に直接入れていて、10/4 時点で
-116本・約717MB。GitHub はリポジトリを1GB以内に推奨しており、毎日約6MB増えるので
-数か月で超える。R2 は保存10GB/月まで無料・**配信の転送料が無料**（読み出し1,000万回/月まで無料）で、
-この規模なら数年は0円。持ち主は「それやろう」と承認済み。
-Googleドライブは共有リンクが音声ファイル直リンクにならず、ポッドキャストアプリが取得できないので不採用
-（ドライブは社内の保管・共有用、一般向け配信は Cloudflare、という使い分けで説明済み）。
+**なぜ**：mp3 をリポジトリに入れ続けると GitHub の推奨上限1GBを数か月で超える。
+R2 は保存10GB・転送料無料で当面0円。持ち主承認済み（2026-10-04）。
 
-**経緯**：スマホ（クラウドセッション）から始めたため、持ち主のブラウザを操作できず、
-持ち主の希望で Mac のローカルセッションに移ることにした。
-持ち主は Cloudflare に**アカウント作成・ログイン済み**。
-持ち主の Chrome には **Claude in Chrome が入っていて、普段からブラウザ操作を任せている**。
-ローカルセッションでは、表の2〜4の画面操作をこちらで代行する（カード番号の入力だけは本人に頼む）。
+**済んだこと（2026-10-05、Mac のローカルセッション）**
+- R2 有効化（カード登録は持ち主本人）、バケット `ai-news-podcast`（APAC・標準）、公開URL
+  `https://pub-59f9285441114b44af1b246d89bf3b21.r2.dev`（r2.dev＝開発用・レート制限あり）
+- アカウントAPIトークン「ai-news-digest podcast」（Admin Read & Write・無期限）
+- 鍵の置き場：GitHub Secrets（`R2_ACCOUNT_ID` / `R2_ACCESS_KEY_ID` / `R2_SECRET_ACCESS_KEY` / `CLOUDFLARE_API_TOKEN`）と
+  **Mac のキーチェーン**（サービス名 `teraco-r2`、アカウント名は同じ4つ）。値は会話に出していない
+- `podcast_store.py` を新設。音声URLの決め方・R2 へのアップロード・台帳 `podcast/audio.json` を一本化。
+  R2 に上げられない日は従来どおり `podcast/` に置く保険（台帳 where=site、コミット時 `git add -f`）
+- 音声の有無の判定を台帳に変更（seo_builder / generate_news / rerender / newsletter / podcast_teraco_voice）
+- `update_feed` の中で R2 へ上げる（クラウドの朝の処理も、Mac の本人の声への差し替えも同じ道を通る）
+- **guid は固定**：episodes.json に `guid`（元のURL）を保存し、feed.xml の guid はそれを使う。移行前後で60件一致を確認
+- 既存115本をアップロード、feed.xml の enclosure 60件と過去号115ページの音声URLを R2 に差し替え（本番反映・取得確認済み）
+- `.gitignore` に `podcast/ai-news-*.mp3`。workflow に R2 の Secrets を渡す。requirements に boto3
+- Mac の差し替えジョブ `~/ai-office/bin/teraco-voice-podcast.sh` を、mp3 をコミットしない形に変更
+  （元は `.bak-20261005`）。作業用の複製 `~/ai-office/work/ai-news-digest/venv` に boto3 を入れた
+- gh の認証には workflow 権限が無いので、workflow ファイルを含む push は SSH（`git@github.com:`）で行った
 
-**持ち主側の作業（本人しかできない／Claude がブラウザを代行する場合も、カード入力だけは本人）**
-
-| # | 作業 | 状態 |
-|---|---|---|
-| 1 | Cloudflare アカウント作成・ログイン | ✅ 済 |
-| 2 | R2 を有効化（クレジットカード登録が必須。無料枠内なら請求0円と説明済み） | ⏳ 未 |
-| 3 | R2 の「Manage API tokens」→「Create Account API token」、権限 **Admin Read & Write** で作成（表示は一度きり） | ⏳ 未 |
-| 4 | GitHub の Secrets（https://github.com/teraco-labo/ai-news-digest/settings/secrets/actions）に4つ登録：`R2_ACCESS_KEY_ID` / `R2_SECRET_ACCESS_KEY` / `CLOUDFLARE_API_TOKEN`（Token value）/ `R2_ACCOUNT_ID`（ダッシュボードURLの32文字） | ⏳ 未 |
-
-**鍵（Secret Access Key 等）はチャットに貼らせない**と持ち主に伝えてある（会話記録に残るため）。
-ローカルで使う場合も、ファイルに書くなら `.gitignore` 済みの場所に限る。
-
-**こちら側の作業（持ち主の登録が済んだら）**
-
-1. バケット作成（名前案 `ai-news-podcast`）＋公開アクセスを有効化。最初は r2.dev の公開URLで開始。
-   r2.dev は「開発用・レート制限あり」なので、将来は独自ドメイン（Cloudflare の DNS 管理下が必要）に移すのが筋。
-   ここは持ち主にまだ説明していない
-2. 既存 mp3 116本を R2 へアップロード（`cover.jpg` などの画像・`player.html`・`feed.xml` はサイト側に残す）
-3. 毎朝の処理（`.github/workflows/generate-news.yml`）で、生成した mp3 を R2 に置くように変更。
-   S3互換 API なので boto3 で可（エンドポイント `https://<ACCOUNT_ID>.r2.cloudflarestorage.com`）
-4. 音声URLの参照先を差し替え：`generate_podcast.py:398` の `audio_url`、
-   `generate_podcast*.py` の「公開URL」表示、`player.html` 内の音声URL、`podcast/feed.xml` の enclosure
-5. 本番 https://teraco-labo.github.io/ai-news-digest/ と Spotify で再生確認してから、リポジトリの mp3 を消す
-
-**注意点**
-- `podcast/feed.xml` は **Spotify 登録済み**。enclosure の URL を変えるのは問題ないが、
-  各回の `<guid>` は絶対に変えない（変えると全話が新エピソード扱いで重複する）
-- `seo_builder.py:75` と `generate_news.py:808` は「ローカルに mp3 があるか」で音声の有無を判定している。
-  mp3 をリポジトリから消すと音声無しと判定されるので、判定方法も直す
-- リポジトリから mp3 を消しても**過去の履歴には717MBが残る**。履歴の書き換えは
-  持ち主の同意なしにやらない（今回の目的は「これ以上増やさない」で達成できる）
-- 見た目に関わる変更をしたら CLAUDE.md のとおりプレビュー2点セットを提示する
+**残り**
+1. 10/6 朝の自動実行と Mac の差し替えで、新しい回が R2 に載るか確認（`podcast/audio.json` の where が r2、
+   GitHub Actions のログに「音声を R2 へ」）
+2. Spotify で新しい回と過去の回が再生でき、重複していないことを確認
+3. 確認できたら、リポジトリの mp3 を `git rm --cached` で消す（R2 にあることは `python3 podcast_store.py check` で確認）。
+   **過去の履歴（約720MB）の書き換えは持ち主の同意なしにやらない**
+4. 将来：r2.dev から独自ドメイン（Cloudflare の DNS 管理下が必要）へ。まだ持ち主に説明していない
 
 ### 7-1. それ以外（以前からの持ち越し）
 
