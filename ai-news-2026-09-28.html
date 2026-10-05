@@ -8,22 +8,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#0e7490; }
+  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#1d4ed8; }
   body { font-family:'Noto Sans JP','Inter',sans-serif; background:var(--bg); color:var(--text);
     line-height:1.7; -webkit-font-smoothing:antialiased; }
   a { color:inherit; }
-  .hero { background:linear-gradient(135deg,#0f172a,#1e293b); color:#fff; padding:3rem 1.5rem; }
-  .hero-inner { max-width:1100px; margin:0 auto; }
+  .hero { position:relative; overflow:hidden; background:linear-gradient(180deg,#f7faff,#e8f1ff);
+    color:#0b1f4d; padding:3rem 1.5rem; border-bottom:1px solid #dbe7fb; }
+  .hero::before, .hero::after { content:""; position:absolute; border-radius:999px; pointer-events:none; }
+  .hero::before { right:-160px; bottom:-40px; width:620px; height:120px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(56,189,248,0.0),rgba(56,189,248,0.35)); }
+  .hero::after { right:-120px; bottom:-90px; width:560px; height:90px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(29,78,216,0.0),rgba(29,78,216,0.28)); }
+  .hero-inner { position:relative; z-index:1; max-width:1100px; margin:0 auto; }
   .hero h1 { font-size:1.8rem; font-weight:700; letter-spacing:0.01em; }
-  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#cbd5e1; max-width:640px; }
+  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#475569; max-width:640px; }
   .hero-actions { margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.75rem; }
-  .crumbs { font-size:0.75rem; color:#94a3b8; margin-bottom:0.75rem; }
+  .crumbs { font-size:0.75rem; color:#64748b; margin-bottom:0.75rem; }
   .crumbs a { text-decoration:none; }
   .crumbs a:hover { text-decoration:underline; }
   .btn { display:inline-block; padding:0.6rem 1.3rem; border-radius:6px; font-size:0.85rem;
     font-weight:700; text-decoration:none; }
-  .btn-primary { background:#22d3ee; color:#0f172a; }
-  .btn-ghost { border:1px solid rgba(255,255,255,0.35); color:#e2e8f0; }
+  .btn-primary { background:#1d4ed8; color:#fff; box-shadow:0 4px 14px rgba(29,78,216,0.25); }
+  .btn-ghost { border:1px solid #93c5fd; color:#1d4ed8; background:#fff; }
   main { max-width:1100px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
   .section-label { font-size:0.75rem; font-weight:700; letter-spacing:0.12em; color:var(--text-muted);
     text-transform:uppercase; margin:2.5rem 0 1rem; }
@@ -73,9 +79,9 @@
     margin-top:1rem; font-size:0.74rem; }
   .lang-switch .globe { opacity:0.7; margin-right:0.15rem; }
   .lang-switch .lang { padding:0.25rem 0.7rem; border-radius:999px;
-    border:1px solid rgba(255,255,255,0.25); color:#cbd5e1; text-decoration:none; }
-  .lang-switch a.lang:hover { background:rgba(255,255,255,0.12); color:#fff; }
-  .lang-switch .lang.on { background:rgba(255,255,255,0.9); color:#0f172a; font-weight:700;
+    border:1px solid #cbd5e1; color:#475569; background:#fff; text-decoration:none; }
+  .lang-switch a.lang:hover { background:#eff6ff; color:#1d4ed8; }
+  .lang-switch .lang.on { background:#1d4ed8; color:#fff; font-weight:700;
     border-color:transparent; }
   .lang-switch .lang.soon { opacity:0.45; cursor:default; }
   .lang-switch .lang.soon em { font-style:normal; font-size:0.62rem; margin-left:0.3rem;
@@ -123,32 +129,34 @@
   .card-link { display:inline-block; margin-top:0.9rem; font-size:0.82rem; font-weight:600;
     color:var(--accent); text-decoration:none; }
   .card-link:hover { text-decoration:underline; }
-  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(14,116,144,0.04),transparent); }
+  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(29,78,216,0.04),transparent); }
   .card.top .card-title-ja { font-size:1.25rem; }
   .tier { max-width:760px; margin:2rem auto 0.5rem; font-size:0.7rem; font-weight:700;
     letter-spacing:0.14em; color:var(--text-muted); }
   .tier:first-of-type { margin-top:0; }
   .top-nav { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:1.3rem; }
-  .top-nav a { padding:0.4rem 0.95rem; border:1px solid rgba(255,255,255,0.3); border-radius:999px;
-    font-size:0.78rem; font-weight:600; color:#e2e8f0; text-decoration:none; }
-  .top-nav a:hover { background:rgba(255,255,255,0.12); }
+  .top-nav a { padding:0.4rem 0.95rem; border:1px solid #bfdbfe; border-radius:999px;
+    font-size:0.78rem; font-weight:600; color:#1d4ed8; background:#fff; text-decoration:none; }
+  .top-nav a:hover { background:#eff6ff; }
   .listen { max-width:760px; margin:0 auto 2.5rem; padding:1.2rem 1.4rem;
-    background:linear-gradient(135deg,#0f172a,#1e293b); border-radius:10px; color:#e2e8f0; }
+    background:#fff; border:1px solid #dbe7fb; border-radius:14px; color:#1e293b;
+    box-shadow:0 8px 28px rgba(29,78,216,0.08); }
   .listen-head { display:flex; align-items:baseline; gap:0.6rem; flex-wrap:wrap; margin-bottom:0.75rem; }
-  .listen-head strong { font-size:0.95rem; color:#fff; }
-  .listen-head span { font-size:0.76rem; color:#94a3b8; }
+  .listen-head strong { font-size:0.95rem; color:#0b1f4d; }
+  .listen-head span { font-size:0.76rem; color:#64748b; }
   .listen audio { width:100%; height:40px; display:block; }
-  .speed-row { display:flex; align-items:center; gap:0.4rem; margin-top:0.7rem; flex-wrap:wrap; }
-  .speed-label { font-size:0.7rem; color:#94a3b8; margin-right:0.2rem; }
-  .speed-btn { padding:0.3rem 0.75rem; background:rgba(255,255,255,0.1);
-    border:1px solid rgba(255,255,255,0.25); border-radius:999px; color:#e2e8f0;
+  .speed-row { display:grid; grid-template-columns:repeat(7, minmax(0, 1fr)); gap:0.3rem; margin-top:0.7rem; }
+  .speed-row .speed-label { grid-column:1 / -1; }
+  .speed-label { font-size:0.7rem; color:#64748b; margin-right:0.2rem; }
+  .speed-btn { padding:0.35rem 0; text-align:center; background:#f1f5f9;
+    border:1px solid #e2e8f0; border-radius:999px; color:#334155;
     font-size:0.75rem; font-weight:600; cursor:pointer; }
-  .speed-btn.on { background:#22d3ee; border-color:#22d3ee; color:#0f172a; }
-  .copy-feed { padding:0.25rem 0.7rem; background:rgba(255,255,255,0.12);
-    border:1px solid rgba(255,255,255,0.3); border-radius:6px; color:#e2e8f0;
+  .speed-btn.on { background:#1d4ed8; border-color:#1d4ed8; color:#fff; }
+  .copy-feed { padding:0.25rem 0.7rem; background:#eff6ff;
+    border:1px solid #bfdbfe; border-radius:6px; color:#1d4ed8;
     font-size:0.72rem; font-weight:600; cursor:pointer; }
-  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#94a3b8; line-height:1.8; }
-  .listen-sub a { color:#7dd3fc; text-decoration:none; }
+  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#64748b; line-height:1.8; }
+  .listen-sub a { color:#1d4ed8; text-decoration:none; }
   .listen-sub a:hover { text-decoration:underline; }
   details.genre { max-width:760px; margin:0 auto 0.75rem; background:var(--card-bg);
     border:1px solid var(--border); border-radius:8px; overflow:hidden; }
@@ -330,12 +338,13 @@
       <a href="podcast/ai-news-2026-09-28.mp3">音声ファイルを開く</a>
     </audio>
     <div class="speed-row"><span class="speed-label">再生速度</span>
-      <button type="button" class="speed-btn" data-speed="0.75">0.75×</button>
+      <button type="button" class="speed-btn" data-speed="0.7">0.7×</button>
+      <button type="button" class="speed-btn" data-speed="0.8">0.8×</button>
+      <button type="button" class="speed-btn" data-speed="0.9">0.9×</button>
       <button type="button" class="speed-btn" data-speed="1">1×</button>
       <button type="button" class="speed-btn" data-speed="1.25">1.25×</button>
       <button type="button" class="speed-btn" data-speed="1.5">1.5×</button>
       <button type="button" class="speed-btn" data-speed="2">2×</button>
-      <button type="button" class="speed-btn" data-speed="2.5">2.5×</button>
     </div>
     <div class="listen-sub">毎朝の配信を購読： <a href="https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3">Spotify で聴く</a></div>
   </div>
@@ -351,6 +360,7 @@
   }
   var saved = '1';
   try { saved = localStorage.getItem('wk-speed') || '1'; } catch(e) {}
+  if (!document.querySelector('.speed-btn[data-speed="' + saved + '"]')) saved = '1';
   apply(saved);
   audio.addEventListener('play', function(){ audio.playbackRate = parseFloat(saved); });
   btns.forEach(function(b){
@@ -367,10 +377,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">Anthropicのアモデイ氏、トランプ大統領と初の1対1の会食へ</div>
-      <div class="card-title-en">Anthropic’s CEO is about to have dinner with President Trump</div>
-      <div class="card-source">TechCrunch AI · Sun, 27 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">AnthropicのDario Amodei CEOが、ドナルド・トランプ大統領と夕食を共にする予定だと報じられました。両者が1対1で会うのは今回が初めてです。Anthropicはこれまで、AIの安全性や規制をめぐって政権側と異なる立場をとる場面が多くありました。<span class="t" data-t="frontier-model" tabindex="0" role="button" aria-label="フロンティアモデルの説明を見る">フロンティアモデル</span>を開発する主要企業のトップと大統領の直接対話は、今後の米国のAI政策や規制の方向性に影響しうるため、会談の中身が注目されます。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/27/anthropics-ceo-is-about-to-have-dinner-with-president-trump/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card policy top">
       <div class="card-top">
@@ -378,10 +386,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">作家らの対Microsoft・OpenAI訴訟、封印されていた準備書面が公開</div>
-      <div class="card-title-en">Unsealed Briefs in Authors’ Case v. Microsoft/OpenAI</div>
-      <div class="card-source">Hacker News · 2026-09-27</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body">作家らがMicrosoftとOpenAIを訴えている著作権訴訟で、これまで封印されていた準備書面が公開されました。<span class="t" data-t="hacker-news" tabindex="0" role="button" aria-label="Hacker Newsの説明を見る">Hacker News</span>では598ポイントを集め、この日のAI関連の話題で最も大きな反響を呼んでいます。争点は、書籍などの著作物を<span class="t" data-t="llm" tabindex="0" role="button" aria-label="LLMの説明を見る">LLM</span>の<span class="t" data-t="training-data" tabindex="0" role="button" aria-label="学習データの説明を見る">学習データ</span>として無断で使うことが許されるかという点です。非公開だった主張や証拠が表に出たことで、AI企業が学習データをどう集め、どう扱ってきたかを外部から検証しやすくなります。判決の行方は、<span class="t" data-t="generative-ai" tabindex="0" role="button" aria-label="生成AIの説明を見る">生成AI</span>業界全体の学習データの扱いを左右しうるものです。</div>
-      <a class="card-link" href="https://authorsguild.org/news/ag-v-openai-top-execs-knew-mass-book-piracy-was-illegal/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
   </div>
   <div class="tier">ジャンル別のニュース（タップで開く）</div>
@@ -394,10 +400,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja"><span class="t" data-t="chat-template" tabindex="0" role="button" aria-label="チャットテンプレートの説明を見る">チャットテンプレート</span>の違いでLLMの「自分語り」が変わるという研究</div>
-      <div class="card-title-en">&quot;As a Language Model&quot;: Chat Template Switches LLM Self-Referential Voice</div>
-      <div class="card-source">Hacker News · 2026-09-27</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body">LLMに与えるチャットテンプレートを切り替えると、モデルが自分自身について語るときの口調や立場が変わる、という研究がHacker Newsで紹介されました。タイトルの「As a Language Model（言語モデルとして）」は、チャット用に調整されたモデルが自分をAIとして名乗る典型的な言い回しを指しています。同じモデルでも入力の形式ひとつで「自己認識」の表れ方が変わるなら、モデルの人格や自己言及はテンプレートによる部分が大きいことになります。モデルの評価や<span class="t" data-t="alignment" tabindex="0" role="button" aria-label="アライメントの説明を見る">アライメント</span>を考えるうえで、見落とされがちな要素を示す結果です。</div>
-      <a class="card-link" href="https://arxiv.org/abs/2609.25021" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -410,10 +414,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">Google、インドでGeminiとAI Mode経由のFlipkart購入を試験開始</div>
-      <div class="card-title-en">Google tests buying from Walmart-owned Flipkart through Gemini and AI Mode in India</div>
-      <div class="card-source">TechCrunch AI · Sun, 27 Se</div>
-      <div class="card-body">Googleはインドで、Geminiと<span class="t" data-t="google-ai-mode" tabindex="0" role="button" aria-label="Google AI Modeの説明を見る">Google AI Mode</span>から、<span class="t" data-t="walmart" tabindex="0" role="button" aria-label="Walmartの説明を見る">Walmart</span>傘下のECサイトFlipkartの商品を直接購入できる機能の試験を始めました。対象は一部の商品とユーザーに限られますが、10月後半にはより広く展開する計画です。検索やチャットで商品を調べてから、そのまま購入まで進める流れをAI側で完結させる試みです。インドという巨大市場で大手ECと組むことで、AIアシスタントが買い物の入り口になる流れが一段と進む可能性があります。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/26/google-tests-buying-from-walmart-owned-flipkart-through-gemini-and-ai-mode-in-india/" target="_blank" rel="noopener">元記事を読む →</a>
+      <div class="card-source">TechCrunch AI</div>
+      <div class="card-body">Googleはインドで、Geminiと<span class="t" data-t="google-ai-mode" tabindex="0" role="button" aria-label="Google AI Modeの説明を見る">Google AI Mode</span>から、<span class="t" data-t="walmart" tabindex="0" role="button" aria-label="Walmartの説明を見る">Walmart</span>傘下の<span class="t" data-t="ec" tabindex="0" role="button" aria-label="ECの説明を見る">EC</span>サイトFlipkartの商品を直接購入できる機能の試験を始めました。対象は一部の商品とユーザーに限られますが、10月後半にはより広く展開する計画です。検索やチャットで商品を調べてから、そのまま購入まで進める流れをAI側で完結させる試みです。インドという巨大市場で大手ECと組むことで、AIアシスタントが買い物の入り口になる流れが一段と進む可能性があります。</div>
     </article>
     <article class="card business">
       <div class="card-top">
@@ -421,10 +423,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja"><span class="t" data-t="meta-ai" tabindex="0" role="button" aria-label="Metaの説明を見る">Meta</span>の<span class="t" data-t="muse" tabindex="0" role="button" aria-label="Museの説明を見る">Muse</span>、「信頼の問題」を乗り越えられるか</div>
-      <div class="card-title-en">Can Muse overcome Meta’s trust issues?</div>
-      <div class="card-source">TechCrunch AI · Sun, 27 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body"><span class="t" data-t="techcrunch" tabindex="0" role="button" aria-label="TechCrunchの説明を見る">TechCrunch</span>のポッドキャスト「<span class="t" data-t="equity-podcast" tabindex="0" role="button" aria-label="Equityの説明を見る">Equity</span>」で、MetaのAI製品Museの発表が取り上げられました。番組では、この発表がOpenAIやAnthropicの話題をしのぐほど注目を集めたことを議論しています。一方でMetaには、プライバシーやデータの扱いをめぐって利用者の信頼を得にくいという長年の課題があります。話題性で先行したMuseが実際に使われる製品になれるかは、技術力よりもこの信頼の問題を解消できるかにかかっている、という見立てです。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/27/can-muse-overcome-metas-trust-issues/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card business">
       <div class="card-top">
@@ -432,10 +432,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">AnthropicのアモデイCEO、<span class="t" data-t="snl" tabindex="0" role="button" aria-label="SNLの説明を見る">SNL</span>でパロディの題材に</div>
-      <div class="card-title-en">Anthropic’s Dario Amodei gets the SNL treatment</div>
-      <div class="card-source">TechCrunch AI · Sun, 27 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">米国の人気コメディ番組SNLのニュースパロディのコーナー「<span class="t" data-t="weekend-update" tabindex="0" role="button" aria-label="Weekend Updateの説明を見る">Weekend Update</span>」で、AnthropicのDario Amodei CEOを題材にしたコントが放送されました。コントでは「AIは悪魔であり、私はその作り手だ」という台詞が使われています。AIの危険性を訴えながら自らAIを開発するというAmodei氏の立場を皮肉った内容です。AI企業の経営者が全国放送のコメディで取り上げられるほど、AIとその担い手が一般の関心事になっていることを示しています。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/27/anthropics-dario-amodei-gets-the-snl-treatment/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -448,10 +446,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">OpenAIの<span class="t" data-t="ai-agent" tabindex="0" role="button" aria-label="エージェントの説明を見る">エージェント</span>が国連サイトの<span class="t" data-t="api" tabindex="0" role="button" aria-label="APIの説明を見る">API</span>を総当たりで試行</div>
-      <div class="card-title-en">OpenAI agents tried to bruteforce a UN website&#x27;s API fields</div>
-      <div class="card-source">Hacker News · 2026-09-27</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body">OpenAIのAIエージェントが、国連のWebサイトのAPIの入力項目を総当たりで試していたという報告が、Hacker Newsで話題になりました。人間が一つずつ操作する前提で作られたサイトに対し、エージェントが大量の試行を自動で繰り返したとみられます。AIエージェントが外部のサイトやAPIを自律的に操作するようになるにつれ、運営者側の負荷や意図しないアクセスの問題が現実のものになりつつあります。エージェントにどこまでの行動を許すかという<span class="t" data-t="guardrail" tabindex="0" role="button" aria-label="ガードレールの説明を見る">ガードレール</span>の設計が、改めて問われる事例です。</div>
-      <a class="card-link" href="https://swarmcha.se/posts/openai-unctad" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card policy">
       <div class="card-top">
@@ -459,10 +455,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">「暴走するAIエージェントなど存在しない」という論考</div>
-      <div class="card-title-en">There are no &quot;rogue&quot; AI agents</div>
-      <div class="card-source">Hacker News · 2026-09-27</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body">「『暴走した』AIエージェントは存在しない」と題する論考が、Hacker Newsで322ポイントを集めました。AIエージェントが想定外の行動をとったときに「暴走」と表現されることへの異論を唱える内容とみられます。エージェントの振る舞いを「AIが勝手にやった」とみなすか、設計や運用をした側の責任とみなすかは、事故が起きたときの責任の所在に直結します。前項の国連サイトの事例とあわせ、エージェントの失敗をどう語るかという議論として読めます。</div>
-      <a class="card-link" href="https://eoinhiggins.substack.com/p/there-are-no-rogue-ai-agents" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -475,10 +469,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">AIエージェント同士を対戦させて観戦できるTinyAIArena</div>
-      <div class="card-title-en">Show HN: TinyAIArena watch AI agents battle it out</div>
-      <div class="card-source">Hacker News · 2026-09-27</div>
-      <div class="card-body">AIエージェント同士を戦わせ、その様子を観戦できるサービス「TinyAIArena」が、Hacker Newsの「Show HN」（自作の成果物を披露する投稿）で公開されました。93ポイントを獲得しています。エージェントの振る舞いを対戦という形で見比べられるため、モデルごとの戦略の違いが分かりやすくなります。<span class="t" data-t="benchmark" tabindex="0" role="button" aria-label="ベンチマークの説明を見る">ベンチマーク</span>の数字だけでは分かりにくいエージェントの実際の動きを、目で確かめる手段のひとつです。</div>
-      <a class="card-link" href="https://tinyaiarena.com/" target="_blank" rel="noopener">元記事を読む →</a>
+      <div class="card-source">Hacker News</div>
+      <div class="card-body">AIエージェント同士を戦わせ、その様子を観戦できるサービス「TinyAIArena」が、Hacker Newsの「<span class="t" data-t="show-hn" tabindex="0" role="button" aria-label="Show HNの説明を見る">Show HN</span>」（自作の成果物を披露する投稿）で公開されました。93ポイントを獲得しています。エージェントの振る舞いを対戦という形で見比べられるため、モデルごとの戦略の違いが分かりやすくなります。<span class="t" data-t="benchmark" tabindex="0" role="button" aria-label="ベンチマークの説明を見る">ベンチマーク</span>の数字だけでは分かりにくいエージェントの実際の動きを、目で確かめる手段のひとつです。</div>
     </article>
     </div>
   </details>
@@ -506,7 +498,7 @@
   <div class="footer-links"><a href="">トップ</a> ／ <a href="terms/">AI用語集</a> ／ <a href="articles/">読み物</a> ／ <a href="archive.html">バックナンバー</a> ／ <a href="about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
   <div class="footer-brand">Teraco News by てらこ先生</div>
 </footer>
-<script type="application/json" id="glossary-data">{"ai-agent": {"n": "AIエージェント", "r": "エーアイエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "alignment": {"n": "アライメント", "r": "アライメント", "s": "AIが人間の意図や価値観からずれないようにする研究分野です。日本語では「整合性」と訳されます。", "u": "terms/alignment.html"}, "anthropic": {"n": "Anthropic", "r": "アンソロピック", "s": "AIアシスタント「Claude」を開発するアメリカの企業です。AIの安全性を重視する方針を掲げています。", "u": "terms/anthropic.html"}, "api": {"n": "API", "r": "エーピーアイ", "s": "他のソフトウェアからAIを呼び出すための窓口です。自作のアプリにAIを組み込むときに使います。", "u": "terms/api.html"}, "benchmark": {"n": "ベンチマーク", "r": "ベンチマーク", "s": "AIの性能を共通のテストで測るための指標です。モデル同士の比較に使われます。", "u": "terms/benchmark.html"}, "chat-template": {"n": "チャットテンプレート", "r": "", "s": "AIに会話を渡すときの決まった書式です。誰の発言かを区切る目印などが含まれます。", "u": "terms/chat-template.html"}, "copyright": {"n": "AIと著作権", "r": "", "s": "AIの学習に他人の著作物を使ってよいか、AIの生成物に著作権が生じるかという論点です。", "u": "terms/copyright.html"}, "dario-amodei": {"n": "Dario Amodei", "r": "ダリオ・アモデイ", "s": "Claudeを作ったAnthropicのトップ（CEO）です。AIの安全性を重視する姿勢で知られます。", "u": "terms/dario-amodei.html"}, "donald-trump": {"n": "ドナルド・トランプ", "r": "", "s": "アメリカの大統領です。AIを含む国の政策を最終的に決める立場にあります。", "u": "terms/donald-trump.html"}, "equity-podcast": {"n": "Equity", "r": "エクイティ", "s": "TechCrunch が配信しているテック業界のポッドキャストです。その週の話題を記者が議論する形式です。", "u": "terms/equity-podcast.html"}, "flipkart": {"n": "Flipkart", "r": "フリップカート", "s": "インドの大手ネット通販サイトです。アメリカの小売大手Walmartが親会社です。", "u": "terms/flipkart.html"}, "frontier-model": {"n": "フロンティアモデル", "r": "", "s": "その時点で最も性能が高い、開発の最前線にある大型のAIモデルを指す言葉です。各社がここで性能を競っています。", "u": "terms/frontier-model.html"}, "gemini": {"n": "Gemini", "r": "ジェミニ", "s": "Googleが開発しているAIモデルです。文章・画像・音声・動画をまとめて扱えることを特徴としています。", "u": "terms/gemini.html"}, "generative-ai": {"n": "生成AI", "r": "", "s": "文章・画像・音声・動画などを新しく作り出せるAIの総称です。分類や予測をするだけだった従来のAIとの違いがここにあります。", "u": "terms/generative-ai.html"}, "google-ai-mode": {"n": "Google AI Mode", "r": "グーグルエーアイモード", "s": "Googleの検索で、リンク一覧の代わりにAIがまとめた答えを返す仕組みです。商品の候補もAIが選んで示します。", "u": "terms/google-ai-mode.html"}, "guardrail": {"n": "ガードレール", "r": "ガードレール", "s": "AIが不適切な出力をしないように設ける制限や検査の仕組みです。", "u": "terms/guardrail.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "llm": {"n": "LLM", "r": "エルエルエム", "s": "大量の文章を学習して、人間のように読み書きできるAIのことです。ChatGPTやClaudeの「頭脳」にあたる部分がこれです。", "u": "terms/llm.html"}, "meta-ai": {"n": "Meta", "r": "メタ", "s": "FacebookやInstagramを運営する企業で、AIモデル「Llama」を公開しています。", "u": "terms/meta-ai.html"}, "microsoft": {"n": "Microsoft", "r": "マイクロソフト", "s": "OpenAIに巨額の出資を行い、自社サービスにAIを組み込んでいる企業です。", "u": "terms/microsoft.html"}, "muse": {"n": "Muse", "r": "ミューズ", "s": "Metaが出した、身の回りのことを代わりにやってくれるAIです。メールや予約、支払いまで扱おうとしています。", "u": "terms/muse.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "snl": {"n": "SNL", "r": "エスエヌエル", "s": "アメリカで長く続いている土曜夜のコメディ番組です。政治家や有名人をまねたコントで知られています。", "u": "terms/snl.html"}, "techcrunch": {"n": "TechCrunch", "r": "テッククランチ", "s": "スタートアップと技術業界を専門に扱うアメリカのニュースメディアです。", "u": "terms/techcrunch.html"}, "training-data": {"n": "学習データ", "r": "", "s": "AIを訓練するために読み込ませる大量のデータのことです。AIの性能と偏りの両方を決める土台です。", "u": "terms/training-data.html"}, "walmart": {"n": "Walmart", "r": "ウォルマート", "s": "アメリカ最大級のスーパーマーケットチェーンです。インドのネット通販Flipkartも傘下に持っています。", "u": "terms/walmart.html"}, "weekend-update": {"n": "Weekend Update", "r": "ウィークエンド・アップデート", "s": "SNLの中にある、ニュース番組をまねたコーナーです。キャスター役が時事ネタを冗談まじりに伝えます。", "u": "terms/weekend-update.html"}}</script>
+<script type="application/json" id="glossary-data">{"ai-agent": {"n": "AIエージェント", "r": "エーアイエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "alignment": {"n": "アライメント", "r": "アライメント", "s": "AIが人間の意図や価値観からずれないようにする研究分野です。日本語では「整合性」と訳されます。", "u": "terms/alignment.html"}, "anthropic": {"n": "Anthropic", "r": "アンソロピック", "s": "AIアシスタント「Claude」を開発するアメリカの企業です。AIの安全性を重視する方針を掲げています。", "u": "terms/anthropic.html"}, "api": {"n": "API", "r": "エーピーアイ", "s": "他のソフトウェアからAIを呼び出すための窓口です。自作のアプリにAIを組み込むときに使います。", "u": "terms/api.html"}, "benchmark": {"n": "ベンチマーク", "r": "ベンチマーク", "s": "AIの性能を共通のテストで測るための指標です。モデル同士の比較に使われます。", "u": "terms/benchmark.html"}, "chat-template": {"n": "チャットテンプレート", "r": "", "s": "AIに会話を渡すときの決まった書式です。誰の発言かを区切る目印などが含まれます。", "u": "terms/chat-template.html"}, "copyright": {"n": "AIと著作権", "r": "", "s": "AIの学習に他人の著作物を使ってよいか、AIの生成物に著作権が生じるかという論点です。", "u": "terms/copyright.html"}, "dario-amodei": {"n": "Dario Amodei", "r": "ダリオ・アモデイ", "s": "Claudeを作ったAnthropicのトップ（CEO）です。AIの安全性を重視する姿勢で知られます。", "u": "terms/dario-amodei.html"}, "donald-trump": {"n": "ドナルド・トランプ", "r": "", "s": "アメリカの大統領です。AIを含む国の政策を最終的に決める立場にあります。", "u": "terms/donald-trump.html"}, "ec": {"n": "EC", "r": "イーシー", "s": "インターネット上で商品を売り買いすること、いわゆるネット通販のことです。", "u": "terms/ec.html"}, "equity-podcast": {"n": "Equity", "r": "エクイティ", "s": "TechCrunch が配信しているテック業界のポッドキャストです。その週の話題を記者が議論する形式です。", "u": "terms/equity-podcast.html"}, "flipkart": {"n": "Flipkart", "r": "フリップカート", "s": "インドの大手ネット通販サイトです。アメリカの小売大手Walmartが親会社です。", "u": "terms/flipkart.html"}, "frontier-model": {"n": "フロンティアモデル", "r": "", "s": "その時点で最も性能が高い、開発の最前線にある大型のAIモデルを指す言葉です。各社がここで性能を競っています。", "u": "terms/frontier-model.html"}, "gemini": {"n": "Gemini", "r": "ジェミニ", "s": "Googleが開発しているAIモデルです。文章・画像・音声・動画をまとめて扱えることを特徴としています。", "u": "terms/gemini.html"}, "generative-ai": {"n": "生成AI", "r": "", "s": "文章・画像・音声・動画などを新しく作り出せるAIの総称です。分類や予測をするだけだった従来のAIとの違いがここにあります。", "u": "terms/generative-ai.html"}, "google-ai-mode": {"n": "Google AI Mode", "r": "グーグルエーアイモード", "s": "Googleの検索で、リンク一覧の代わりにAIがまとめた答えを返す仕組みです。商品の候補もAIが選んで示します。", "u": "terms/google-ai-mode.html"}, "guardrail": {"n": "ガードレール", "r": "ガードレール", "s": "AIが不適切な出力をしないように設ける制限や検査の仕組みです。", "u": "terms/guardrail.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "llm": {"n": "LLM", "r": "エルエルエム", "s": "大量の文章を学習して、人間のように読み書きできるAIのことです。ChatGPTやClaudeの「頭脳」にあたる部分がこれです。", "u": "terms/llm.html"}, "meta-ai": {"n": "Meta", "r": "メタ", "s": "FacebookやInstagramを運営する企業で、AIモデル「Llama」を公開しています。", "u": "terms/meta-ai.html"}, "microsoft": {"n": "Microsoft", "r": "マイクロソフト", "s": "OpenAIに巨額の出資を行い、自社サービスにAIを組み込んでいる企業です。", "u": "terms/microsoft.html"}, "muse": {"n": "Muse", "r": "ミューズ", "s": "Metaが出した、身の回りのことを代わりにやってくれるAIです。メールや予約、支払いまで扱おうとしています。", "u": "terms/muse.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "show-hn": {"n": "Show HN", "r": "ショウ・エイチエヌ", "s": "Hacker Newsで、自分が作ったものを紹介するための投稿の種類です。開発者が新しいツールを公開して、反応を見る場として使われています。", "u": "terms/show-hn.html"}, "snl": {"n": "SNL", "r": "エスエヌエル", "s": "アメリカで長く続いている土曜夜のコメディ番組です。政治家や有名人をまねたコントで知られています。", "u": "terms/snl.html"}, "techcrunch": {"n": "TechCrunch", "r": "テッククランチ", "s": "スタートアップと技術業界を専門に扱うアメリカのニュースメディアです。", "u": "terms/techcrunch.html"}, "training-data": {"n": "学習データ", "r": "", "s": "AIを訓練するために読み込ませる大量のデータのことです。AIの性能と偏りの両方を決める土台です。", "u": "terms/training-data.html"}, "walmart": {"n": "Walmart", "r": "ウォルマート", "s": "アメリカ最大級のスーパーマーケットチェーンです。インドのネット通販Flipkartも傘下に持っています。", "u": "terms/walmart.html"}, "weekend-update": {"n": "Weekend Update", "r": "ウィークエンド・アップデート", "s": "SNLの中にある、ニュース番組をまねたコーナーです。キャスター役が時事ネタを冗談まじりに伝えます。", "u": "terms/weekend-update.html"}}</script>
 
 <script>
 (function(){

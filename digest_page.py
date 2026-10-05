@@ -86,9 +86,10 @@ DIGEST_CSS = """
   .listen-head strong { font-size:0.95rem; color:#0b1f4d; }
   .listen-head span { font-size:0.76rem; color:#64748b; }
   .listen audio { width:100%; height:40px; display:block; }
-  .speed-row { display:flex; align-items:center; gap:0.4rem; margin-top:0.7rem; flex-wrap:wrap; }
+  .speed-row { display:grid; grid-template-columns:repeat(7, minmax(0, 1fr)); gap:0.3rem; margin-top:0.7rem; }
+  .speed-row .speed-label { grid-column:1 / -1; }
   .speed-label { font-size:0.7rem; color:#64748b; margin-right:0.2rem; }
-  .speed-btn { padding:0.3rem 0.75rem; background:#f1f5f9;
+  .speed-btn { padding:0.35rem 0; text-align:center; background:#f1f5f9;
     border:1px solid #e2e8f0; border-radius:999px; color:#334155;
     font-size:0.75rem; font-weight:600; cursor:pointer; }
   .speed-btn.on { background:#1d4ed8; border-color:#1d4ed8; color:#fff; }
@@ -229,8 +230,8 @@ def _listen(date: datetime, available: bool) -> str:
         + "".join(
             f'      <button type="button" class="speed-btn" data-speed="{v}">{label}</button>\n'
             # 単独プレイヤー(podcast/player.html)と選択肢を揃えること
-            for v, label in [("0.75", "0.75×"), ("1", "1×"), ("1.25", "1.25×"),
-                             ("1.5", "1.5×"), ("2", "2×"), ("2.5", "2.5×")]
+            for v, label in [("0.7", "0.7×"), ("0.8", "0.8×"), ("0.9", "0.9×"), ("1", "1×"),
+                             ("1.25", "1.25×"), ("1.5", "1.5×"), ("2", "2×")]
         )
         + "    </div>\n"
         f'    <div class="listen-sub">{sub_line}</div>\n'
@@ -247,6 +248,7 @@ def _listen(date: datetime, available: bool) -> str:
   }
   var saved = '1';
   try { saved = localStorage.getItem('wk-speed') || '1'; } catch(e) {}
+  if (!document.querySelector('.speed-btn[data-speed="' + saved + '"]')) saved = '1';
   apply(saved);
   audio.addEventListener('play', function(){ audio.playbackRate = parseFloat(saved); });
   btns.forEach(function(b){

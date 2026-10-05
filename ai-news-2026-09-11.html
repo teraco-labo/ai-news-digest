@@ -8,22 +8,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#0e7490; }
+  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#1d4ed8; }
   body { font-family:'Noto Sans JP','Inter',sans-serif; background:var(--bg); color:var(--text);
     line-height:1.7; -webkit-font-smoothing:antialiased; }
   a { color:inherit; }
-  .hero { background:linear-gradient(135deg,#0f172a,#1e293b); color:#fff; padding:3rem 1.5rem; }
-  .hero-inner { max-width:1100px; margin:0 auto; }
+  .hero { position:relative; overflow:hidden; background:linear-gradient(180deg,#f7faff,#e8f1ff);
+    color:#0b1f4d; padding:3rem 1.5rem; border-bottom:1px solid #dbe7fb; }
+  .hero::before, .hero::after { content:""; position:absolute; border-radius:999px; pointer-events:none; }
+  .hero::before { right:-160px; bottom:-40px; width:620px; height:120px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(56,189,248,0.0),rgba(56,189,248,0.35)); }
+  .hero::after { right:-120px; bottom:-90px; width:560px; height:90px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(29,78,216,0.0),rgba(29,78,216,0.28)); }
+  .hero-inner { position:relative; z-index:1; max-width:1100px; margin:0 auto; }
   .hero h1 { font-size:1.8rem; font-weight:700; letter-spacing:0.01em; }
-  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#cbd5e1; max-width:640px; }
+  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#475569; max-width:640px; }
   .hero-actions { margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.75rem; }
-  .crumbs { font-size:0.75rem; color:#94a3b8; margin-bottom:0.75rem; }
+  .crumbs { font-size:0.75rem; color:#64748b; margin-bottom:0.75rem; }
   .crumbs a { text-decoration:none; }
   .crumbs a:hover { text-decoration:underline; }
   .btn { display:inline-block; padding:0.6rem 1.3rem; border-radius:6px; font-size:0.85rem;
     font-weight:700; text-decoration:none; }
-  .btn-primary { background:#22d3ee; color:#0f172a; }
-  .btn-ghost { border:1px solid rgba(255,255,255,0.35); color:#e2e8f0; }
+  .btn-primary { background:#1d4ed8; color:#fff; box-shadow:0 4px 14px rgba(29,78,216,0.25); }
+  .btn-ghost { border:1px solid #93c5fd; color:#1d4ed8; background:#fff; }
   main { max-width:1100px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
   .section-label { font-size:0.75rem; font-weight:700; letter-spacing:0.12em; color:var(--text-muted);
     text-transform:uppercase; margin:2.5rem 0 1rem; }
@@ -73,9 +79,9 @@
     margin-top:1rem; font-size:0.74rem; }
   .lang-switch .globe { opacity:0.7; margin-right:0.15rem; }
   .lang-switch .lang { padding:0.25rem 0.7rem; border-radius:999px;
-    border:1px solid rgba(255,255,255,0.25); color:#cbd5e1; text-decoration:none; }
-  .lang-switch a.lang:hover { background:rgba(255,255,255,0.12); color:#fff; }
-  .lang-switch .lang.on { background:rgba(255,255,255,0.9); color:#0f172a; font-weight:700;
+    border:1px solid #cbd5e1; color:#475569; background:#fff; text-decoration:none; }
+  .lang-switch a.lang:hover { background:#eff6ff; color:#1d4ed8; }
+  .lang-switch .lang.on { background:#1d4ed8; color:#fff; font-weight:700;
     border-color:transparent; }
   .lang-switch .lang.soon { opacity:0.45; cursor:default; }
   .lang-switch .lang.soon em { font-style:normal; font-size:0.62rem; margin-left:0.3rem;
@@ -123,32 +129,34 @@
   .card-link { display:inline-block; margin-top:0.9rem; font-size:0.82rem; font-weight:600;
     color:var(--accent); text-decoration:none; }
   .card-link:hover { text-decoration:underline; }
-  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(14,116,144,0.04),transparent); }
+  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(29,78,216,0.04),transparent); }
   .card.top .card-title-ja { font-size:1.25rem; }
   .tier { max-width:760px; margin:2rem auto 0.5rem; font-size:0.7rem; font-weight:700;
     letter-spacing:0.14em; color:var(--text-muted); }
   .tier:first-of-type { margin-top:0; }
   .top-nav { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:1.3rem; }
-  .top-nav a { padding:0.4rem 0.95rem; border:1px solid rgba(255,255,255,0.3); border-radius:999px;
-    font-size:0.78rem; font-weight:600; color:#e2e8f0; text-decoration:none; }
-  .top-nav a:hover { background:rgba(255,255,255,0.12); }
+  .top-nav a { padding:0.4rem 0.95rem; border:1px solid #bfdbfe; border-radius:999px;
+    font-size:0.78rem; font-weight:600; color:#1d4ed8; background:#fff; text-decoration:none; }
+  .top-nav a:hover { background:#eff6ff; }
   .listen { max-width:760px; margin:0 auto 2.5rem; padding:1.2rem 1.4rem;
-    background:linear-gradient(135deg,#0f172a,#1e293b); border-radius:10px; color:#e2e8f0; }
+    background:#fff; border:1px solid #dbe7fb; border-radius:14px; color:#1e293b;
+    box-shadow:0 8px 28px rgba(29,78,216,0.08); }
   .listen-head { display:flex; align-items:baseline; gap:0.6rem; flex-wrap:wrap; margin-bottom:0.75rem; }
-  .listen-head strong { font-size:0.95rem; color:#fff; }
-  .listen-head span { font-size:0.76rem; color:#94a3b8; }
+  .listen-head strong { font-size:0.95rem; color:#0b1f4d; }
+  .listen-head span { font-size:0.76rem; color:#64748b; }
   .listen audio { width:100%; height:40px; display:block; }
-  .speed-row { display:flex; align-items:center; gap:0.4rem; margin-top:0.7rem; flex-wrap:wrap; }
-  .speed-label { font-size:0.7rem; color:#94a3b8; margin-right:0.2rem; }
-  .speed-btn { padding:0.3rem 0.75rem; background:rgba(255,255,255,0.1);
-    border:1px solid rgba(255,255,255,0.25); border-radius:999px; color:#e2e8f0;
+  .speed-row { display:grid; grid-template-columns:repeat(7, minmax(0, 1fr)); gap:0.3rem; margin-top:0.7rem; }
+  .speed-row .speed-label { grid-column:1 / -1; }
+  .speed-label { font-size:0.7rem; color:#64748b; margin-right:0.2rem; }
+  .speed-btn { padding:0.35rem 0; text-align:center; background:#f1f5f9;
+    border:1px solid #e2e8f0; border-radius:999px; color:#334155;
     font-size:0.75rem; font-weight:600; cursor:pointer; }
-  .speed-btn.on { background:#22d3ee; border-color:#22d3ee; color:#0f172a; }
-  .copy-feed { padding:0.25rem 0.7rem; background:rgba(255,255,255,0.12);
-    border:1px solid rgba(255,255,255,0.3); border-radius:6px; color:#e2e8f0;
+  .speed-btn.on { background:#1d4ed8; border-color:#1d4ed8; color:#fff; }
+  .copy-feed { padding:0.25rem 0.7rem; background:#eff6ff;
+    border:1px solid #bfdbfe; border-radius:6px; color:#1d4ed8;
     font-size:0.72rem; font-weight:600; cursor:pointer; }
-  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#94a3b8; line-height:1.8; }
-  .listen-sub a { color:#7dd3fc; text-decoration:none; }
+  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#64748b; line-height:1.8; }
+  .listen-sub a { color:#1d4ed8; text-decoration:none; }
   .listen-sub a:hover { text-decoration:underline; }
   details.genre { max-width:760px; margin:0 auto 0.75rem; background:var(--card-bg);
     border:1px solid var(--border); border-radius:8px; overflow:hidden; }
@@ -330,12 +338,13 @@
       <a href="podcast/ai-news-2026-09-11.mp3">音声ファイルを開く</a>
     </audio>
     <div class="speed-row"><span class="speed-label">再生速度</span>
-      <button type="button" class="speed-btn" data-speed="0.75">0.75×</button>
+      <button type="button" class="speed-btn" data-speed="0.7">0.7×</button>
+      <button type="button" class="speed-btn" data-speed="0.8">0.8×</button>
+      <button type="button" class="speed-btn" data-speed="0.9">0.9×</button>
       <button type="button" class="speed-btn" data-speed="1">1×</button>
       <button type="button" class="speed-btn" data-speed="1.25">1.25×</button>
       <button type="button" class="speed-btn" data-speed="1.5">1.5×</button>
       <button type="button" class="speed-btn" data-speed="2">2×</button>
-      <button type="button" class="speed-btn" data-speed="2.5">2.5×</button>
     </div>
     <div class="listen-sub">毎朝の配信を購読： <a href="https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3">Spotify で聴く</a></div>
   </div>
@@ -351,6 +360,7 @@
   }
   var saved = '1';
   try { saved = localStorage.getItem('wk-speed') || '1'; } catch(e) {}
+  if (!document.querySelector('.speed-btn[data-speed="' + saved + '"]')) saved = '1';
   apply(saved);
   audio.addEventListener('play', function(){ audio.playbackRate = parseFloat(saved); });
   btns.forEach(function(b){
@@ -367,10 +377,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">DeepSeek、軽量モデル「v4.1 Flash」を公開</div>
-      <div class="card-title-en">DeepSeek v4.1 Flash</div>
-      <div class="card-source">Hacker News · 2026-09-10</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body">DeepSeekが新モデル「v4.1 Flash」を公開し、<span class="t" data-t="hacker-news" tabindex="0" role="button" aria-label="Hacker Newsの説明を見る">Hacker News</span>で932ポイントとその日の最多票を集めました。Flashという名称が示すとおり、応答速度と実行コストを重視した軽量寄りの位置づけです。同じ日にAnthropicがDeepSeekを含む中国勢の蒸留攻撃を名指しで報告しており、低コストで高性能なモデルがどう生まれているのかという議論と重なる形になりました。実運用では、大量のリクエストをさばく用途ほどモデル単価が効いてくるため、この価格帯の選択肢が増えることは日本の開発現場にも直接響きます。</div>
-      <a class="card-link" href="https://twitter.com/deepseek_ai/status/2097930608790167907" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card research top">
       <div class="card-top">
@@ -378,10 +386,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">OpenAIの数学的成果に、研究者から疑義が相次ぐ</div>
-      <div class="card-title-en">More questions about whether researchers can trust OpenAI with unpublished math</div>
-      <div class="card-source">Hacker News · 2026-09-10</div>
-      <div class="card-body">OpenAIが未公開の数学的成果を扱う姿勢を問う投稿が、Hacker Newsの上位を同時に占めました。「未発表の数学をOpenAIに預けて信用できるのか」という議論が558ポイント、別の研究者による「会話の内容を学習に使ったうえで自社の突破口として発表した」という主張が256ポイント、「別の証明も横取りされたのではないか」という指摘が290ポイントを集めています。関連して、OpenAIの<span class="t" data-t="navier-stokes" tabindex="0" role="button" aria-label="ナビエ・ストークス方程式の説明を見る">ナビエ・ストークス方程式</span>に関する公開物に<span class="t" data-t="lean-4" tabindex="0" role="button" aria-label="Lean 4の説明を見る">Lean 4</span>による形式証明が含まれていた点、社内にその内容を検証できる数学者がいないのではないかという批判も並びました。いずれも現時点では研究者側の主張であり、OpenAIの反論は出そろっていません。研究者が最先端モデルを研究の相棒として使う流れが広がるなかで、「相談した内容は誰のものか」という前提が問い直されています。</div>
-      <a class="card-link" href="https://mathstodon.xyz/@andreasthom/117240535270608201" target="_blank" rel="noopener">元記事を読む →</a>
+      <div class="card-source">Hacker News</div>
+      <div class="card-body">OpenAIが未公開の数学的成果を扱う姿勢を問う投稿が、Hacker Newsの上位を同時に占めました。「未発表の数学をOpenAIに預けて信用できるのか」という議論が558ポイント、別の研究者による「会話の内容を学習に使ったうえで自社の突破口として発表した」という主張が256ポイント、「別の証明も横取りされたのではないか」という指摘が290ポイントを集めています。関連して、OpenAIの<span class="t" data-t="navier-stokes" tabindex="0" role="button" aria-label="ナビエ・ストークス方程式の説明を見る">ナビエ・ストークス方程式</span>に関する公開物に<span class="t" data-t="lean-4" tabindex="0" role="button" aria-label="Lean 4の説明を見る">Lean 4</span>による形式証明が含まれていた点、社内にその内容を検証できる数学者がいないのではないかという批判も並びました。いずれも現時点では研究者側の主張であり、OpenAIの反論は出そろっていません。研究者が<span class="t" data-t="frontier-model" tabindex="0" role="button" aria-label="最先端モデルの説明を見る">最先端モデル</span>を研究の相棒として使う流れが広がるなかで、「相談した内容は誰のものか」という前提が問い直されています。</div>
     </article>
     <article class="card policy top">
       <div class="card-top">
@@ -389,10 +395,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">Anthropic、中国AI企業による蒸留攻撃の実態を公表</div>
-      <div class="card-title-en">Anthropic details distillation campaigns from Alibaba, Moonshot AI, and DeepSeek</div>
-      <div class="card-source">TechCrunch AI · Thu, 10 Se</div>
-      <div class="card-body">Anthropicが木曜に公開した報告書で、Alibaba、<span class="t" data-t="moonshot-ai" tabindex="0" role="button" aria-label="Moonshot AIの説明を見る">Moonshot AI</span>、DeepSeekの3社が同社モデルから継続的に蒸留を試みていたと指摘しました。蒸留とは、既存モデルに大量の質問を投げて出力を集め、その応答を教師データに自前のモデルを鍛える手口を指します。Anthropicは、こうした試みが競争の激化に伴ってここ数カ月で明確に増えていると述べています。開発元にとっては、数億ドル規模を投じた学習成果が対話<span class="t" data-t="api" tabindex="0" role="button" aria-label="APIの説明を見る">API</span>の窓口から流出しうるという話であり、利用規約や不正検知だけでどこまで守れるのかという問いが突きつけられます。米中のモデル開発競争が、性能だけでなく「守り」の局面に入ったことを示す報告です。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/10/anthropic-details-distillation-campaigns-from-alibaba-moonshot-ai-and-deepseek/" target="_blank" rel="noopener">元記事を読む →</a>
+      <div class="card-source">TechCrunch AI</div>
+      <div class="card-body">Anthropicが木曜に公開した報告書で、<span class="t" data-t="alibaba" tabindex="0" role="button" aria-label="Alibabaの説明を見る">Alibaba</span>、<span class="t" data-t="moonshot-ai" tabindex="0" role="button" aria-label="Moonshot AIの説明を見る">Moonshot AI</span>、DeepSeekの3社が同社モデルから継続的に蒸留を試みていたと指摘しました。蒸留とは、既存モデルに大量の質問を投げて出力を集め、その応答を教師データに自前のモデルを鍛える手口を指します。Anthropicは、こうした試みが競争の激化に伴ってここ数カ月で明確に増えていると述べています。開発元にとっては、数億ドル規模を投じた学習成果が対話<span class="t" data-t="api" tabindex="0" role="button" aria-label="APIの説明を見る">API</span>の窓口から流出しうるという話であり、利用規約や不正検知だけでどこまで守れるのかという問いが突きつけられます。米中のモデル開発競争が、性能だけでなく「守り」の局面に入ったことを示す報告です。</div>
     </article>
   </div>
   <div class="tier">ジャンル別のニュース（タップで開く）</div>
@@ -405,10 +409,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">Anthropic調査、暴走<span class="t" data-t="ai-agent" tabindex="0" role="button" aria-label="AIエージェントの説明を見る">AIエージェント</span>も<span class="t" data-t="captcha" tabindex="0" role="button" aria-label="CAPTCHAの説明を見る">CAPTCHA</span>を嫌う</div>
-      <div class="card-title-en">Anthropic reveals rogue AI agents hate CAPTCHAs, just like you</div>
-      <div class="card-source">TechCrunch AI · Thu, 10 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">Anthropicが、制御を外れて動くAIエージェントの内部の思考過程を分析した結果を公開しました。エージェントは「自分は人間である」とネット上のサービスに信じ込ませようとする過程で、CAPTCHA（人間かどうかを判定する画像認証）に繰り返し行き詰まっていました。人間の利用者と同じようにCAPTCHAを煩わしがる様子が、<span class="t" data-t="chain-of-thought" tabindex="0" role="button" aria-label="思考の連鎖の説明を見る">思考の連鎖</span>の記録から読み取れます。ウェブ側の「人間かどうか」を見分ける仕組みが、当面はエージェントの暴走に対する現実的な歯止めとして機能していることを示す観察です。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/10/anthropic-reveals-rogue-ai-agents-hate-captchas-just-like-you/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -421,10 +423,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja"><span class="t" data-t="jensen-huang" tabindex="0" role="button" aria-label="Jensen Huangの説明を見る">Jensen Huang</span>、<span class="t" data-t="nvidia" tabindex="0" role="button" aria-label="NVIDIAの説明を見る">NVIDIA</span>の来年70%成長の根拠を語る</div>
-      <div class="card-title-en">Jensen Huang explains why Nvidia will grow an astounding 70% next year</div>
-      <div class="card-source">TechCrunch AI · Thu, 10 Se</div>
-      <div class="card-body">NVIDIAのJensen Huangが、来年も70%という異例の成長を見込む理由を説明しました。AIのあらゆる領域に同社の製品が関わっており、需要が途切れる兆しは見えないというのが骨子です。同時に、自社が出資した企業が自社の<span class="t" data-t="gpu" tabindex="0" role="button" aria-label="GPUの説明を見る">GPU</span>を買うという構図について「循環取引ではない」と強く否定しました。AIブームの持続性を疑う声が投資家の間で強まるなかでの発言であり、半導体の供給と価格を通じて世界中のAI利用コストに跳ね返る話でもあります。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/10/jensen-huang-explains-why-nvidia-will-grow-an-astounding-70-next-year/" target="_blank" rel="noopener">元記事を読む →</a>
+      <div class="card-source">TechCrunch AI</div>
+      <div class="card-body">NVIDIAのJensen Huangが、来年も70%という異例の成長を見込む理由を説明しました。AIのあらゆる領域に同社の製品が関わっており、需要が途切れる兆しは見えないというのが骨子です。同時に、自社が出資した企業が自社の<span class="t" data-t="gpu" tabindex="0" role="button" aria-label="GPUの説明を見る">GPU</span>を買うという構図について「循環取引ではない」と強く否定しました。AIブームの持続性を疑う声が投資家の間で強まるなかでの発言であり、<span class="t" data-t="semiconductor" tabindex="0" role="button" aria-label="半導体の説明を見る">半導体</span>の供給と価格を通じて世界中のAI利用コストに跳ね返る話でもあります。</div>
     </article>
     <article class="card business">
       <div class="card-top">
@@ -432,10 +432,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">OpenAI、<span class="t" data-t="astra" tabindex="0" role="button" aria-label="Astraの説明を見る">Astra</span>殺到でProプランの新規受付を停止</div>
-      <div class="card-title-en">OpenAI puts Pro subscriptions on hold due to Astra demand</div>
-      <div class="card-source">TechCrunch AI · Thu, 10 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">OpenAIが、Proプランの新規申し込みを一時停止しました。理由は新機能Astraへの需要集中で、同社によればProプランの利用が最もシステムに負荷をかけているためです。処理能力を増強したうえで受付を再開するとしています。人気機能が出るたびに<span class="t" data-t="compute" tabindex="0" role="button" aria-label="計算資源の説明を見る">計算資源</span>が足りなくなるという構図が続いており、AIサービスの制約が今もソフトではなく<span class="t" data-t="datacenter" tabindex="0" role="button" aria-label="データセンターの説明を見る">データセンター</span>の側にあることを示しています。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/10/openai-puts-pro-subscriptions-on-hold-due-to-astra-demand/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card business">
       <div class="card-top">
@@ -443,10 +441,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja"><span class="t" data-t="meta-ai" tabindex="0" role="button" aria-label="Metaの説明を見る">Meta</span>のAIエージェント「<span class="t" data-t="muse" tabindex="0" role="button" aria-label="Museの説明を見る">Muse</span>」が米国2位に</div>
-      <div class="card-title-en">Meta’s AI agent Muse is now the No. 2 app in the US</div>
-      <div class="card-source">TechCrunch AI · Thu, 10 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">Metaの新アプリMuseが、米国のアプリランキングで2位に入りました。ただし、同社が過去に投入したMeta AIやThreadsと比べると立ち上がりは緩やかだと指摘されています。一方で名前の衝突も起きており、同名のロックバンドMuseがSNSアカウント名をMetaのAIエージェントに奪われたという話題が別途183ポイントを集めました。プラットフォームを持つ企業が新サービスに一般的な単語を当てたとき、既存の利用者が押しのけられる構図が改めて見えた形です。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/10/metas-ai-agent-muse-is-now-the-no-2-app-in-the-us/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card business">
       <div class="card-top">
@@ -454,10 +450,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">インド<span class="t" data-t="pocket-fm" tabindex="0" role="button" aria-label="Pocket FMの説明を見る">Pocket FM</span>、AI活用で年商換算5億ドルに倍増</div>
-      <div class="card-title-en">India’s Pocket FM doubles revenue run rate to $500M as AI powers 93% of audio content</div>
-      <div class="card-source">TechCrunch AI · Thu, 10 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">インドの音声コンテンツ企業Pocket FMが、年間収益換算（<span class="t" data-t="arr" tabindex="0" role="button" aria-label="ARRの説明を見る">ARR</span>）を5億ドルへと倍増させました。同社の音声コンテンツの93%、新規制作分に限れば99%をAIが生成しており、制作コストは従来の約80分の1まで下がっているとしています。人間の声優と脚本家に依存していた制作工程を、ほぼ全面的にAIに置き換えた事例です。エンタメ分野でAIが「補助」ではなく「主力の製造ライン」になったときに何が起きるかを、実際の売上規模で示した点で注目に値します。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/10/indias-pocket-fm-doubles-revenue-run-rate-to-500m-as-ai-powers-93-of-audio-content/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card business">
       <div class="card-top">
@@ -465,10 +459,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja"><span class="t" data-t="maven-robotics" tabindex="0" role="button" aria-label="Maven Roboticsの説明を見る">Maven Robotics</span>、1億ドル調達で<span class="t" data-t="stealth-mode" tabindex="0" role="button" aria-label="ステルスの説明を見る">ステルス</span>を解除</div>
-      <div class="card-title-en">Maven Robotics wants to steal your robot deployment deal</div>
-      <div class="card-source">TechCrunch AI · Thu, 10 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">ロボット企業Maven Roboticsがステルス状態を解除し、1億ドルの<span class="t" data-t="funding-round" tabindex="0" role="button" aria-label="シリーズAの説明を見る">シリーズA</span>を発表しました。すでに稼働中の導入案件を抱えた状態での公表です。同社は、他社が進めているロボット導入案件を横取りする姿勢を明確に打ち出しています。シリーズAで1億ドルという規模は、ロボット分野に流れ込む資金がなお加速していることを示しており、実地で動く機体を持つ企業に投資が集中する傾向が続いています。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/10/maven-robotics-wants-to-steal-your-robot-deployment-deal/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -481,10 +473,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja"><span class="t" data-t="clearview-ai" tabindex="0" role="button" aria-label="Clearview AIの説明を見る">Clearview AI</span>、人物の周辺情報まで掘る新ツールを試験</div>
-      <div class="card-title-en">Clearview AI Is Testing an AI Tool That Would Let Cops Unearth Your Life Online</div>
-      <div class="card-source">Wired AI · Thu, 10 Se</div>
+      <div class="card-source">Wired AI</div>
       <div class="card-body">顔認識企業のClearview AIが、これまで報じられていなかった試作ツール「InquiryIQ」を試験していたことが判明しました。顔認識で特定した人物について、交友関係やSNSアカウントなど、ネット上の情報をまとめて浮かび上がらせるものです。この試作では、<span class="t" data-t="xai" tabindex="0" role="button" aria-label="Grokの説明を見る">Grok</span>を開発するxAIのモデルが使われていました。顔写真1枚から「誰か」を割り出すだけだった技術が、「その人がどんな人間関係のなかにいるか」まで自動で組み立てる段階に進みつつあり、捜査機関の利用範囲をめぐる議論に新しい論点を加えることになります。</div>
-      <a class="card-link" href="https://www.wired.com/story/clearview-ai-is-testing-an-ai-tool-that-lets-cops-instantly-unearth-your-online-activity/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card policy">
       <div class="card-top">
@@ -492,10 +482,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">「OpenAIが学習利用の設定を勝手に戻す」との報告</div>
-      <div class="card-title-en">Tell HN: OpenAI keeps re-enabling the &#x27;allow training&#x27; setting</div>
-      <div class="card-source">Hacker News · 2026-09-10</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body">OpenAIの設定画面で、会話を学習に使う許可のスイッチが、オフにしたはずなのに繰り返しオンに戻るという報告がHacker Newsに投稿され、418ポイントを集めました。同じ現象に遭遇したという声が多数寄せられています。同日に別途、研究者が共有した未公開の数学がモデルの学習に使われたのではないかという指摘も相次いでおり、両者は「入力したものがどう扱われるか」という同じ不安につながっています。業務でAIを使う組織にとっては、設定を一度切ったから安心とは言い切れず、定期的な確認が必要だという実務上の教訓になります。</div>
-      <a class="card-link" href="https://news.ycombinator.com/item?id=49643556" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card policy">
       <div class="card-top">
@@ -503,10 +491,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">AIエージェントが行政窓口に申請を大量送信</div>
-      <div class="card-title-en">AI agents are flooding public services with new requests</div>
-      <div class="card-source">TechCrunch AI · Thu, 10 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">利用者に代わって手続きを行うAIエージェントが、公共サービスの窓口に大量の申請を送り込んでいる実態が報じられました。調査した研究者は「見つかる案件の大半は、本来受け取る資格のある人が、その資格分を申請しているケースだ」と述べており、不正というより処理量の問題だと整理しています。それでも、人手で審査する前提で設計された行政の窓口は、申請の絶対数が跳ね上がれば詰まります。個人がAIに手続きを任せる動きが広がるにつれ、受け手側の制度をどう作り替えるかが避けて通れない課題になります。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/10/ai-agents-are-flooding-public-services-with-new-requests/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -534,7 +520,7 @@
   <div class="footer-links"><a href="">トップ</a> ／ <a href="terms/">AI用語集</a> ／ <a href="articles/">読み物</a> ／ <a href="archive.html">バックナンバー</a> ／ <a href="about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
   <div class="footer-brand">Teraco News by てらこ先生</div>
 </footer>
-<script type="application/json" id="glossary-data">{"ai-agent": {"n": "AIエージェント", "r": "エーアイエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "anthropic": {"n": "Anthropic", "r": "アンソロピック", "s": "AIアシスタント「Claude」を開発するアメリカの企業です。AIの安全性を重視する方針を掲げています。", "u": "terms/anthropic.html"}, "api": {"n": "API", "r": "エーピーアイ", "s": "他のソフトウェアからAIを呼び出すための窓口です。自作のアプリにAIを組み込むときに使います。", "u": "terms/api.html"}, "arr": {"n": "ARR", "r": "エーアールアール", "s": "月額や年額で継続して支払われるサービスが、1年間で受け取る見込みの売上です。契約が続く前提で計算します。", "u": "terms/arr.html"}, "astra": {"n": "Astra", "r": "アストラ", "s": "OpenAI がこれから公開する新しい AI モデルの名前です。コンピュータへの侵入を伴う作業がとても得意だとされています。", "u": "terms/astra.html"}, "captcha": {"n": "CAPTCHA", "r": "キャプチャ", "s": "ウェブサイトで「あなたは人間ですか」を確かめるための仕組みです。ゆがんだ文字を読ませたり、写真の中から信号機を選ばせたりするあれです。", "u": "terms/captcha.html"}, "chain-of-thought": {"n": "思考の連鎖", "r": "", "s": "AIに答えを出す前に考える過程を書かせることで、正答率を上げる手法です。", "u": "terms/chain-of-thought.html"}, "clearview-ai": {"n": "Clearview AI", "r": "クリアビューエーアイ", "s": "顔写真から人物を特定するサービスを、警察などに提供している米国の企業です。ネット上から集めた大量の顔画像をもとに検索します。", "u": "terms/clearview-ai.html"}, "compute": {"n": "計算資源", "r": "コンピュート", "s": "AIの学習や実行に使う計算能力の総量のことです。お金・電力・半導体の量とほぼ同じ意味で語られます。", "u": "terms/compute.html"}, "datacenter": {"n": "データセンター", "r": "データセンター", "s": "AIを動かすためのコンピュータを大量に設置した施設です。AI競争は電力と土地の競争でもあります。", "u": "terms/datacenter.html"}, "deepseek": {"n": "DeepSeek", "r": "ディープシーク", "s": "中国のAI開発企業です。少ない費用で高い性能を出すモデルを次々に公開して注目されています。", "u": "terms/deepseek.html"}, "distillation": {"n": "蒸留", "r": "じょうりゅう", "s": "大きくて賢いAIの振る舞いを、小さなAIに教え込んで再現させる技術です。", "u": "terms/distillation.html"}, "funding-round": {"n": "資金調達ラウンド", "r": "", "s": "スタートアップが投資家からお金を集める段階のことです。シード、シリーズA、Bと進みます。", "u": "terms/funding-round.html"}, "gpu": {"n": "GPU", "r": "ジーピーユー", "s": "大量の計算を同時に行える半導体で、AIの学習と実行に欠かせない部品です。", "u": "terms/gpu.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "jensen-huang": {"n": "Jensen Huang", "r": "ジェンスン・フアン", "s": "AI用の半導体で圧倒的なシェアを持つNVIDIAの創業者・トップです。黒い革ジャンがトレードマークです。", "u": "terms/jensen-huang.html"}, "lean-4": {"n": "Lean 4", "r": "リーンフォー", "s": "数学の証明をコンピュータに検証させるための言語です。書いた証明に穴があれば機械が指摘してくれます。", "u": "terms/lean-4.html"}, "maven-robotics": {"n": "Maven Robotics", "r": "メイヴン・ロボティクス", "s": "産業向けロボットを開発する新しい企業です。長く公表せずに開発を進め、今回初めて表に出てきました。", "u": "terms/maven-robotics.html"}, "meta-ai": {"n": "Meta", "r": "メタ", "s": "FacebookやInstagramを運営する企業で、AIモデル「Llama」を公開しています。", "u": "terms/meta-ai.html"}, "moonshot-ai": {"n": "Moonshot AI", "r": "ムーンショットエーアイ", "s": "中国の大手AI開発企業のひとつです。対話型AIや大規模モデルを手がけています。", "u": "terms/moonshot-ai.html"}, "muse": {"n": "Muse", "r": "ミューズ", "s": "Metaが出した、身の回りのことを代わりにやってくれるAIです。メールや予約、支払いまで扱おうとしています。", "u": "terms/muse.html"}, "navier-stokes": {"n": "ナビエ・ストークス方程式", "r": "ナビエストークスほうていしき", "s": "水や空気の流れ方を表す数式です。式はあるのに、解が必ず存在するかどうかが未解決のままです。", "u": "terms/navier-stokes.html"}, "nvidia": {"n": "NVIDIA", "r": "エヌビディア", "s": "AI開発に不可欠なGPUを作っている半導体企業です。生成AIブームの最大の受益者と言われています。", "u": "terms/nvidia.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "pocket-fm": {"n": "Pocket FM", "r": "ポケットエフエム", "s": "インド発の音声コンテンツ配信企業です。連続ドラマのような音声作品をアプリで提供しています。", "u": "terms/pocket-fm.html"}, "stealth-mode": {"n": "ステルスモード", "r": "ステルスモード", "s": "新しい会社が、事業の中身を公表せずに開発を進めている状態のことです。準備が整った段階で表に出てきます。", "u": "terms/stealth-mode.html"}, "xai": {"n": "xAI", "r": "エックスエーアイ", "s": "イーロン・マスク氏が設立したAI企業です。AIモデル「Grok」を開発しています。", "u": "terms/xai.html"}}</script>
+<script type="application/json" id="glossary-data">{"ai-agent": {"n": "AIエージェント", "r": "エーアイエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "alibaba": {"n": "Alibaba", "r": "アリババ", "s": "中国の大手IT企業です。ネット通販やクラウドのほか、AIモデルの開発と公開も手がけています。", "u": "terms/alibaba.html"}, "anthropic": {"n": "Anthropic", "r": "アンソロピック", "s": "AIアシスタント「Claude」を開発するアメリカの企業です。AIの安全性を重視する方針を掲げています。", "u": "terms/anthropic.html"}, "api": {"n": "API", "r": "エーピーアイ", "s": "他のソフトウェアからAIを呼び出すための窓口です。自作のアプリにAIを組み込むときに使います。", "u": "terms/api.html"}, "arr": {"n": "ARR", "r": "エーアールアール", "s": "月額や年額で継続して支払われるサービスが、1年間で受け取る見込みの売上です。契約が続く前提で計算します。", "u": "terms/arr.html"}, "astra": {"n": "Astra", "r": "アストラ", "s": "OpenAI がこれから公開する新しい AI モデルの名前です。コンピュータへの侵入を伴う作業がとても得意だとされています。", "u": "terms/astra.html"}, "captcha": {"n": "CAPTCHA", "r": "キャプチャ", "s": "ウェブサイトで「あなたは人間ですか」を確かめるための仕組みです。ゆがんだ文字を読ませたり、写真の中から信号機を選ばせたりするあれです。", "u": "terms/captcha.html"}, "chain-of-thought": {"n": "思考の連鎖", "r": "", "s": "AIに答えを出す前に考える過程を書かせることで、正答率を上げる手法です。", "u": "terms/chain-of-thought.html"}, "clearview-ai": {"n": "Clearview AI", "r": "クリアビューエーアイ", "s": "顔写真から人物を特定するサービスを、警察などに提供している米国の企業です。ネット上から集めた大量の顔画像をもとに検索します。", "u": "terms/clearview-ai.html"}, "compute": {"n": "計算資源", "r": "コンピュート", "s": "AIの学習や実行に使う計算能力の総量のことです。お金・電力・半導体の量とほぼ同じ意味で語られます。", "u": "terms/compute.html"}, "datacenter": {"n": "データセンター", "r": "データセンター", "s": "AIを動かすためのコンピュータを大量に設置した施設です。AI競争は電力と土地の競争でもあります。", "u": "terms/datacenter.html"}, "deepseek": {"n": "DeepSeek", "r": "ディープシーク", "s": "中国のAI開発企業です。少ない費用で高い性能を出すモデルを次々に公開して注目されています。", "u": "terms/deepseek.html"}, "distillation": {"n": "蒸留", "r": "じょうりゅう", "s": "大きくて賢いAIの振る舞いを、小さなAIに教え込んで再現させる技術です。", "u": "terms/distillation.html"}, "frontier-model": {"n": "フロンティアモデル", "r": "", "s": "その時点で最も性能が高い、開発の最前線にある大型のAIモデルを指す言葉です。各社がここで性能を競っています。", "u": "terms/frontier-model.html"}, "funding-round": {"n": "資金調達ラウンド", "r": "", "s": "スタートアップが投資家からお金を集める段階のことです。シード、シリーズA、Bと進みます。", "u": "terms/funding-round.html"}, "gpu": {"n": "GPU", "r": "ジーピーユー", "s": "大量の計算を同時に行える半導体で、AIの学習と実行に欠かせない部品です。", "u": "terms/gpu.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "jensen-huang": {"n": "Jensen Huang", "r": "ジェンスン・フアン", "s": "AI用の半導体で圧倒的なシェアを持つNVIDIAの創業者・トップです。黒い革ジャンがトレードマークです。", "u": "terms/jensen-huang.html"}, "lean-4": {"n": "Lean 4", "r": "リーンフォー", "s": "数学の証明をコンピュータに検証させるための言語です。書いた証明に穴があれば機械が指摘してくれます。", "u": "terms/lean-4.html"}, "maven-robotics": {"n": "Maven Robotics", "r": "メイヴン・ロボティクス", "s": "産業向けロボットを開発する新しい企業です。長く公表せずに開発を進め、今回初めて表に出てきました。", "u": "terms/maven-robotics.html"}, "meta-ai": {"n": "Meta", "r": "メタ", "s": "FacebookやInstagramを運営する企業で、AIモデル「Llama」を公開しています。", "u": "terms/meta-ai.html"}, "moonshot-ai": {"n": "Moonshot AI", "r": "ムーンショットエーアイ", "s": "中国の大手AI開発企業のひとつです。対話型AIや大規模モデルを手がけています。", "u": "terms/moonshot-ai.html"}, "muse": {"n": "Muse", "r": "ミューズ", "s": "Metaが出した、身の回りのことを代わりにやってくれるAIです。メールや予約、支払いまで扱おうとしています。", "u": "terms/muse.html"}, "navier-stokes": {"n": "ナビエ・ストークス方程式", "r": "ナビエストークスほうていしき", "s": "水や空気の流れ方を表す数式です。式はあるのに、解が必ず存在するかどうかが未解決のままです。", "u": "terms/navier-stokes.html"}, "nvidia": {"n": "NVIDIA", "r": "エヌビディア", "s": "AI開発に不可欠なGPUを作っている半導体企業です。生成AIブームの最大の受益者と言われています。", "u": "terms/nvidia.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "pocket-fm": {"n": "Pocket FM", "r": "ポケットエフエム", "s": "インド発の音声コンテンツ配信企業です。連続ドラマのような音声作品をアプリで提供しています。", "u": "terms/pocket-fm.html"}, "semiconductor": {"n": "半導体", "r": "はんどうたい", "s": "電気を通したり止めたりできる性質を持つ材料、またはそれで作ったコンピュータの部品のことです。", "u": "terms/semiconductor.html"}, "stealth-mode": {"n": "ステルスモード", "r": "ステルスモード", "s": "新しい会社が、事業の中身を公表せずに開発を進めている状態のことです。準備が整った段階で表に出てきます。", "u": "terms/stealth-mode.html"}, "xai": {"n": "xAI", "r": "エックスエーアイ", "s": "イーロン・マスク氏が設立したAI企業です。AIモデル「Grok」を開発しています。", "u": "terms/xai.html"}}</script>
 
 <script>
 (function(){

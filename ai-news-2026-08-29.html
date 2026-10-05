@@ -8,22 +8,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#0e7490; }
+  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#1d4ed8; }
   body { font-family:'Noto Sans JP','Inter',sans-serif; background:var(--bg); color:var(--text);
     line-height:1.7; -webkit-font-smoothing:antialiased; }
   a { color:inherit; }
-  .hero { background:linear-gradient(135deg,#0f172a,#1e293b); color:#fff; padding:3rem 1.5rem; }
-  .hero-inner { max-width:1100px; margin:0 auto; }
+  .hero { position:relative; overflow:hidden; background:linear-gradient(180deg,#f7faff,#e8f1ff);
+    color:#0b1f4d; padding:3rem 1.5rem; border-bottom:1px solid #dbe7fb; }
+  .hero::before, .hero::after { content:""; position:absolute; border-radius:999px; pointer-events:none; }
+  .hero::before { right:-160px; bottom:-40px; width:620px; height:120px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(56,189,248,0.0),rgba(56,189,248,0.35)); }
+  .hero::after { right:-120px; bottom:-90px; width:560px; height:90px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(29,78,216,0.0),rgba(29,78,216,0.28)); }
+  .hero-inner { position:relative; z-index:1; max-width:1100px; margin:0 auto; }
   .hero h1 { font-size:1.8rem; font-weight:700; letter-spacing:0.01em; }
-  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#cbd5e1; max-width:640px; }
+  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#475569; max-width:640px; }
   .hero-actions { margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.75rem; }
-  .crumbs { font-size:0.75rem; color:#94a3b8; margin-bottom:0.75rem; }
+  .crumbs { font-size:0.75rem; color:#64748b; margin-bottom:0.75rem; }
   .crumbs a { text-decoration:none; }
   .crumbs a:hover { text-decoration:underline; }
   .btn { display:inline-block; padding:0.6rem 1.3rem; border-radius:6px; font-size:0.85rem;
     font-weight:700; text-decoration:none; }
-  .btn-primary { background:#22d3ee; color:#0f172a; }
-  .btn-ghost { border:1px solid rgba(255,255,255,0.35); color:#e2e8f0; }
+  .btn-primary { background:#1d4ed8; color:#fff; box-shadow:0 4px 14px rgba(29,78,216,0.25); }
+  .btn-ghost { border:1px solid #93c5fd; color:#1d4ed8; background:#fff; }
   main { max-width:1100px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
   .section-label { font-size:0.75rem; font-weight:700; letter-spacing:0.12em; color:var(--text-muted);
     text-transform:uppercase; margin:2.5rem 0 1rem; }
@@ -73,9 +79,9 @@
     margin-top:1rem; font-size:0.74rem; }
   .lang-switch .globe { opacity:0.7; margin-right:0.15rem; }
   .lang-switch .lang { padding:0.25rem 0.7rem; border-radius:999px;
-    border:1px solid rgba(255,255,255,0.25); color:#cbd5e1; text-decoration:none; }
-  .lang-switch a.lang:hover { background:rgba(255,255,255,0.12); color:#fff; }
-  .lang-switch .lang.on { background:rgba(255,255,255,0.9); color:#0f172a; font-weight:700;
+    border:1px solid #cbd5e1; color:#475569; background:#fff; text-decoration:none; }
+  .lang-switch a.lang:hover { background:#eff6ff; color:#1d4ed8; }
+  .lang-switch .lang.on { background:#1d4ed8; color:#fff; font-weight:700;
     border-color:transparent; }
   .lang-switch .lang.soon { opacity:0.45; cursor:default; }
   .lang-switch .lang.soon em { font-style:normal; font-size:0.62rem; margin-left:0.3rem;
@@ -83,6 +89,8 @@
   .footer-links { margin-top:0.9rem; font-size:0.75rem; }
   .footer-links a { color:var(--text-muted); text-decoration:none; }
   .footer-links a:hover { color:var(--accent); text-decoration:underline; }
+  .footer-brand { margin-top:1.1rem; font-size:0.68rem; letter-spacing:0.04em;
+    color:var(--text-muted); opacity:0.55; }
   @media (max-width:640px){ .issue-list{columns:1;} .hero h1{font-size:1.4rem;} }
 
   :root {
@@ -121,32 +129,34 @@
   .card-link { display:inline-block; margin-top:0.9rem; font-size:0.82rem; font-weight:600;
     color:var(--accent); text-decoration:none; }
   .card-link:hover { text-decoration:underline; }
-  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(14,116,144,0.04),transparent); }
+  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(29,78,216,0.04),transparent); }
   .card.top .card-title-ja { font-size:1.25rem; }
   .tier { max-width:760px; margin:2rem auto 0.5rem; font-size:0.7rem; font-weight:700;
     letter-spacing:0.14em; color:var(--text-muted); }
   .tier:first-of-type { margin-top:0; }
   .top-nav { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:1.3rem; }
-  .top-nav a { padding:0.4rem 0.95rem; border:1px solid rgba(255,255,255,0.3); border-radius:999px;
-    font-size:0.78rem; font-weight:600; color:#e2e8f0; text-decoration:none; }
-  .top-nav a:hover { background:rgba(255,255,255,0.12); }
+  .top-nav a { padding:0.4rem 0.95rem; border:1px solid #bfdbfe; border-radius:999px;
+    font-size:0.78rem; font-weight:600; color:#1d4ed8; background:#fff; text-decoration:none; }
+  .top-nav a:hover { background:#eff6ff; }
   .listen { max-width:760px; margin:0 auto 2.5rem; padding:1.2rem 1.4rem;
-    background:linear-gradient(135deg,#0f172a,#1e293b); border-radius:10px; color:#e2e8f0; }
+    background:#fff; border:1px solid #dbe7fb; border-radius:14px; color:#1e293b;
+    box-shadow:0 8px 28px rgba(29,78,216,0.08); }
   .listen-head { display:flex; align-items:baseline; gap:0.6rem; flex-wrap:wrap; margin-bottom:0.75rem; }
-  .listen-head strong { font-size:0.95rem; color:#fff; }
-  .listen-head span { font-size:0.76rem; color:#94a3b8; }
+  .listen-head strong { font-size:0.95rem; color:#0b1f4d; }
+  .listen-head span { font-size:0.76rem; color:#64748b; }
   .listen audio { width:100%; height:40px; display:block; }
-  .speed-row { display:flex; align-items:center; gap:0.4rem; margin-top:0.7rem; flex-wrap:wrap; }
-  .speed-label { font-size:0.7rem; color:#94a3b8; margin-right:0.2rem; }
-  .speed-btn { padding:0.3rem 0.75rem; background:rgba(255,255,255,0.1);
-    border:1px solid rgba(255,255,255,0.25); border-radius:999px; color:#e2e8f0;
+  .speed-row { display:grid; grid-template-columns:repeat(7, minmax(0, 1fr)); gap:0.3rem; margin-top:0.7rem; }
+  .speed-row .speed-label { grid-column:1 / -1; }
+  .speed-label { font-size:0.7rem; color:#64748b; margin-right:0.2rem; }
+  .speed-btn { padding:0.35rem 0; text-align:center; background:#f1f5f9;
+    border:1px solid #e2e8f0; border-radius:999px; color:#334155;
     font-size:0.75rem; font-weight:600; cursor:pointer; }
-  .speed-btn.on { background:#22d3ee; border-color:#22d3ee; color:#0f172a; }
-  .copy-feed { padding:0.25rem 0.7rem; background:rgba(255,255,255,0.12);
-    border:1px solid rgba(255,255,255,0.3); border-radius:6px; color:#e2e8f0;
+  .speed-btn.on { background:#1d4ed8; border-color:#1d4ed8; color:#fff; }
+  .copy-feed { padding:0.25rem 0.7rem; background:#eff6ff;
+    border:1px solid #bfdbfe; border-radius:6px; color:#1d4ed8;
     font-size:0.72rem; font-weight:600; cursor:pointer; }
-  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#94a3b8; line-height:1.8; }
-  .listen-sub a { color:#7dd3fc; text-decoration:none; }
+  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#64748b; line-height:1.8; }
+  .listen-sub a { color:#1d4ed8; text-decoration:none; }
   .listen-sub a:hover { text-decoration:underline; }
   details.genre { max-width:760px; margin:0 auto 0.75rem; background:var(--card-bg);
     border:1px solid var(--border); border-radius:8px; overflow:hidden; }
@@ -313,7 +323,7 @@
   <div class="lead">
     <div class="lead-label">今日の3行まとめ</div>
     <ol>
-      <li><span class="t" data-t="anthropic" tabindex="0" role="button" aria-label="Anthropicの説明を見る">Anthropic</span>への「供給網リスク」認定を違法とする判決が出ました。</li>
+      <li><span class="t" data-t="anthropic" tabindex="0" role="button" aria-label="Anthropicの説明を見る">Anthropic</span>への「<span class="t" data-t="supply-chain-risk" tabindex="0" role="button" aria-label="供給網リスクの説明を見る">供給網リスク</span>」認定を違法とする判決が出ました。</li>
       <li>AIインフラへの資金流入は続き、<span class="t" data-t="lambda" tabindex="0" role="button" aria-label="Lambdaの説明を見る">Lambda</span>が10億ドルを借り入れました。</li>
       <li><span class="t" data-t="open-weight" tabindex="0" role="button" aria-label="オープンウェイトの説明を見る">オープンウェイト</span>のモデルと企業が、買収と注目の中心になっています。</li>
     </ol>
@@ -328,13 +338,15 @@
       <a href="podcast/ai-news-2026-08-29.mp3">音声ファイルを開く</a>
     </audio>
     <div class="speed-row"><span class="speed-label">再生速度</span>
-      <button type="button" class="speed-btn" data-speed="0.75">0.75×</button>
+      <button type="button" class="speed-btn" data-speed="0.7">0.7×</button>
+      <button type="button" class="speed-btn" data-speed="0.8">0.8×</button>
+      <button type="button" class="speed-btn" data-speed="0.9">0.9×</button>
       <button type="button" class="speed-btn" data-speed="1">1×</button>
       <button type="button" class="speed-btn" data-speed="1.25">1.25×</button>
       <button type="button" class="speed-btn" data-speed="1.5">1.5×</button>
       <button type="button" class="speed-btn" data-speed="2">2×</button>
     </div>
-    <div class="listen-sub">ポッドキャストアプリで毎朝受け取るには <button type="button" class="copy-feed" data-copy="https://teraco-labo.github.io/ai-news-digest/podcast/feed.xml" onclick="navigator.clipboard.writeText(this.dataset.copy).then(()=>{this.textContent='✓ コピーしました';setTimeout(()=>this.textContent='番組アドレスをコピー',2000);});">番組アドレスをコピー</button> して、アプリの「番組を追加」に貼り付けてください</div>
+    <div class="listen-sub">毎朝の配信を購読： <a href="https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3">Spotify で聴く</a></div>
   </div>
 <script>
 (function(){
@@ -348,6 +360,7 @@
   }
   var saved = '1';
   try { saved = localStorage.getItem('wk-speed') || '1'; } catch(e) {}
+  if (!document.querySelector('.speed-btn[data-speed="' + saved + '"]')) saved = '1';
   apply(saved);
   audio.addEventListener('play', function(){ audio.playbackRate = parseFloat(saved); });
   btns.forEach(function(b){
@@ -383,7 +396,7 @@
       </div>
       <div class="card-title-ja">Anthropicへの「供給網リスク」指定は違法、米連邦地裁が判断</div>
       <div class="card-source">TechCrunch AI</div>
-      <div class="card-body">米連邦地裁は、トランプ政権がAnthropicを国防総省（ペンタゴン）の「供給網リスク」企業に指定したのは違法だとする判断を示しました。Anthropicは自律型致死兵器や大規模監視への技術提供を拒否しており、その姿勢が政権側から問題視された経緯があります。同社がワシントンで起こした2件目の訴訟は現在も係属中で、今回の判決はその前哨戦にあたります。Hacker Newsでも322ポイントを集め、業界の関心の高さがうかがえます。AI企業が「自社の技術を何に使わせないか」を貫けるかどうかの前例になる点で重要です。</div>
+      <div class="card-body">米連邦地裁は、トランプ政権がAnthropicを<span class="t" data-t="pentagon" tabindex="0" role="button" aria-label="国防総省の説明を見る">国防総省</span>（ペンタゴン）の「供給網リスク」企業に指定したのは違法だとする判断を示しました。Anthropicは自律型致死兵器や大規模監視への技術提供を拒否しており、その姿勢が政権側から問題視された経緯があります。同社がワシントンで起こした2件目の訴訟は現在も係属中で、今回の判決はその前哨戦にあたります。Hacker Newsでも322ポイントを集め、業界の関心の高さがうかがえます。AI企業が「自社の技術を何に使わせないか」を貫けるかどうかの前例になる点で重要です。</div>
     </article>
   </div>
   <div class="tier">ジャンル別のニュース（タップで開く）</div>
@@ -409,7 +422,7 @@
         <span class="card-label business">ビジネス</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">Lambdaが10億ドルを借り入れ、<span class="t" data-t="nvidia" tabindex="0" role="button" aria-label="NVIDIAの説明を見る">NVIDIA</span>のAIチップを追加調達</div>
+      <div class="card-title-ja">Lambdaが10億ドルを借り入れ、<span class="t" data-t="nvidia" tabindex="0" role="button" aria-label="NVIDIAの説明を見る">NVIDIA</span>のAI<span class="t" data-t="semiconductor" tabindex="0" role="button" aria-label="チップの説明を見る">チップ</span>を追加調達</div>
       <div class="card-source">TechCrunch AI</div>
       <div class="card-body">AI向けの<span class="t" data-t="compute" tabindex="0" role="button" aria-label="計算資源の説明を見る">計算資源</span>を貸し出す「<span class="t" data-t="neocloud" tabindex="0" role="button" aria-label="ネオクラウドの説明を見る">ネオクラウド</span>」企業のLambdaが、10億ドル（約1,500億円規模）の民間債務を調達しました。資金はNVIDIAのAIチップの購入にあて、<span class="t" data-t="microsoft" tabindex="0" role="button" aria-label="Microsoftの説明を見る">Microsoft</span>へ貸し出す計画です。Lambdaにとって一連の借り入れの最新の一手であり、AIブームを支えるための費用がいかに大きいかを裏づけています。株式ではなく借金でチップを買う構図が広がっており、需要が鈍った際のリスクも同時に積み上がっています。</div>
     </article>
@@ -461,7 +474,7 @@
       </div>
       <div class="card-title-ja">MetaのAIグラス、録画ランプを隠しての撮影を制限</div>
       <div class="card-source">Ars Technica</div>
-      <div class="card-body">Metaが、AI搭載スマートグラスで撮影中を示す安全ランプを指などで覆った場合に録画を止める仕様変更を行いました。これまではランプを隠したまま撮影を続けられ、周囲の同意なく記録できてしまう点が問題視されていました。相手に気づかれずに撮れてしまう「不気味さ」を、わずかながら和らげる修正です。ウェアラブル端末が常時カメラを持つ時代に、同意をどう担保するかという課題が製品仕様の形で表れています。</div>
+      <div class="card-body">Metaが、AI搭載スマートグラスで撮影中を示す安全ランプを指などで覆った場合に録画を止める仕様変更を行いました。これまではランプを隠したまま撮影を続けられ、周囲の同意なく記録できてしまう点が問題視されていました。相手に気づかれずに撮れてしまう「不気味さ」を、わずかながら和らげる修正です。<span class="t" data-t="wearable" tabindex="0" role="button" aria-label="ウェアラブル端末の説明を見る">ウェアラブル端末</span>が常時カメラを持つ時代に、同意をどう担保するかという課題が製品仕様の形で表れています。</div>
     </article>
     </div>
   </details>
@@ -491,10 +504,15 @@
 
   <div class="section-label">毎朝うけとる</div>
   <div class="sub-grid">
+    <div class="sub-card mail sub-embed">
+      <span class="sub-t">メールマガジンで受け取る</span>
+      <span class="sub-d">毎朝6時のAIニュースと、週1回のまとめ・解説記事をメールで。専門用語には解説つき。無料・いつでも解除できます</span>
+      <iframe src="https://teracosensei.substack.com/embed" width="100%" height="150" style="border:1px solid var(--border);border-radius:6px;background:#fff;" frameborder="0" scrolling="no" title="メールマガジン登録"></iframe>
+    </div>
     <div class="sub-card sub-embed">
       <span class="sub-t">ポッドキャストで聴く</span>
-      <span class="sub-d">お使いのポッドキャストアプリの「番組を追加」「URLで追加」に、下のボタンでコピーした番組アドレスを貼り付けてください</span>
-      <button type="button" class="sub-copy" data-copy="https://teraco-labo.github.io/ai-news-digest/podcast/feed.xml" onclick="navigator.clipboard.writeText(this.dataset.copy).then(()=>{this.textContent='✓ コピーしました';setTimeout(()=>this.textContent='番組アドレスをコピー',2000);});">番組アドレスをコピー</button>
+      <span class="sub-d">通勤中や作業中に。毎朝10〜15分の音声版です</span>
+      <a class="sub-badge spotify" href="https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3">Spotify で聴く</a>
     </div>
   </div>
   <p class="sub-advanced">上級者向け：<a href="feed.xml">RSS配信</a>（サイトの更新を自動で受け取るための仕組みです。Feedly などのRSSリーダーをお使いの方はこちらを登録してください）</p>
@@ -505,8 +523,9 @@
   <strong>世界一わかりやすいAIニュース</strong> — てらこ先生<br>
   毎朝6時に配信しています。
   <div class="footer-links"><a href="">トップ</a> ／ <a href="terms/">AI用語集</a> ／ <a href="articles/">読み物</a> ／ <a href="archive.html">バックナンバー</a> ／ <a href="about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
+  <div class="footer-brand">Teraco News by てらこ先生</div>
 </footer>
-<script type="application/json" id="glossary-data">{"agentic-coding": {"n": "エージェント型コーディング", "r": "", "s": "AIが自分でファイルを読み書きし、テストを実行しながらプログラムを完成させる開発の進め方です。", "u": "terms/agentic-coding.html"}, "ai-slop": {"n": "AIスロップ", "r": "エーアイスロップ", "s": "AIに作らせただけの、中身が薄い文章やコードのことです。数だけ多くて役に立たないものを指す、やや否定的な言い方です。", "u": "terms/ai-slop.html"}, "alignment": {"n": "アライメント", "r": "アライメント", "s": "AIが人間の意図や価値観からずれないようにする研究分野です。日本語では「整合性」と訳されます。", "u": "terms/alignment.html"}, "anthropic": {"n": "Anthropic", "r": "アンソロピック", "s": "AIアシスタント「Claude」を開発するアメリカの企業です。AIの安全性を重視する方針を掲げています。", "u": "terms/anthropic.html"}, "api": {"n": "API", "r": "エーピーアイ", "s": "他のソフトウェアからAIを呼び出すための窓口です。自作のアプリにAIを組み込むときに使います。", "u": "terms/api.html"}, "benchmark": {"n": "ベンチマーク", "r": "ベンチマーク", "s": "AIの性能を共通のテストで測るための指標です。モデル同士の比較に使われます。", "u": "terms/benchmark.html"}, "cara": {"n": "Cara", "r": "カーラ", "s": "イラストレーターなど創作者が作品を掲載するサイトです。自分の作品をAIの学習に使われたくない人向けに作られました。", "u": "terms/cara.html"}, "compute": {"n": "計算資源", "r": "コンピュート", "s": "AIの学習や実行に使う計算能力の総量のことです。お金・電力・半導体の量とほぼ同じ意味で語られます。", "u": "terms/compute.html"}, "cursor": {"n": "Cursor", "r": "カーソル", "s": "AIがコードを書くのを手伝うプログラミング用のエディタです。", "u": "terms/cursor.html"}, "datacenter": {"n": "データセンター", "r": "データセンター", "s": "AIを動かすためのコンピュータを大量に設置した施設です。AI競争は電力と土地の競争でもあります。", "u": "terms/datacenter.html"}, "glm": {"n": "GLM", "r": "ジーエルエム", "s": "Z.aiが開発しているAIモデルのシリーズ名です。番号付きで新しい版が次々に公開されています。", "u": "terms/glm.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "lambda": {"n": "Lambda", "r": "ラムダ", "s": "AI用の高性能な計算機を貸し出す米国の会社です。自前でチップを買い集め、他社に時間貸ししています。", "u": "terms/lambda.html"}, "meta-ai": {"n": "Meta", "r": "メタ", "s": "FacebookやInstagramを運営する企業で、AIモデル「Llama」を公開しています。", "u": "terms/meta-ai.html"}, "microsoft": {"n": "Microsoft", "r": "マイクロソフト", "s": "OpenAIに巨額の出資を行い、自社サービスにAIを組み込んでいる企業です。", "u": "terms/microsoft.html"}, "neocloud": {"n": "ネオクラウド", "r": "ネオクラウド", "s": "AI向けの計算機を大量に持ち、時間貸しする新しいタイプの事業者のことです。大手クラウドとは違い、AIの計算に絞ってサービスを提供します。", "u": "terms/neocloud.html"}, "nvidia": {"n": "NVIDIA", "r": "エヌビディア", "s": "AI開発に不可欠なGPUを作っている半導体企業です。生成AIブームの最大の受益者と言われています。", "u": "terms/nvidia.html"}, "open-source": {"n": "オープンソース", "r": "オープンソース", "s": "ソフトウェアの中身が公開され、誰でも自由に使ったり改良したりできる形態のことです。", "u": "terms/open-source.html"}, "open-weight": {"n": "オープンウェイト", "r": "オープンウェイト", "s": "モデルの中身（重み）が公開されていて、誰でもダウンロードして動かせる形態のことです。", "u": "terms/open-weight.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "spacex": {"n": "SpaceX", "r": "スペースエックス", "s": "ロケットと人工衛星を作っているアメリカの会社です。Elon Musk が率いています。", "u": "terms/spacex.html"}, "training-data": {"n": "学習データ", "r": "", "s": "AIを訓練するために読み込ませる大量のデータのことです。AIの性能と偏りの両方を決める土台です。", "u": "terms/training-data.html"}}</script>
+<script type="application/json" id="glossary-data">{"agentic-coding": {"n": "エージェント型コーディング", "r": "", "s": "AIが自分でファイルを読み書きし、テストを実行しながらプログラムを完成させる開発の進め方です。", "u": "terms/agentic-coding.html"}, "ai-slop": {"n": "AIスロップ", "r": "エーアイスロップ", "s": "AIに作らせただけの、中身が薄い文章やコードのことです。数だけ多くて役に立たないものを指す、やや否定的な言い方です。", "u": "terms/ai-slop.html"}, "alignment": {"n": "アライメント", "r": "アライメント", "s": "AIが人間の意図や価値観からずれないようにする研究分野です。日本語では「整合性」と訳されます。", "u": "terms/alignment.html"}, "anthropic": {"n": "Anthropic", "r": "アンソロピック", "s": "AIアシスタント「Claude」を開発するアメリカの企業です。AIの安全性を重視する方針を掲げています。", "u": "terms/anthropic.html"}, "api": {"n": "API", "r": "エーピーアイ", "s": "他のソフトウェアからAIを呼び出すための窓口です。自作のアプリにAIを組み込むときに使います。", "u": "terms/api.html"}, "benchmark": {"n": "ベンチマーク", "r": "ベンチマーク", "s": "AIの性能を共通のテストで測るための指標です。モデル同士の比較に使われます。", "u": "terms/benchmark.html"}, "cara": {"n": "Cara", "r": "カーラ", "s": "イラストレーターなど創作者が作品を掲載するサイトです。自分の作品をAIの学習に使われたくない人向けに作られました。", "u": "terms/cara.html"}, "compute": {"n": "計算資源", "r": "コンピュート", "s": "AIの学習や実行に使う計算能力の総量のことです。お金・電力・半導体の量とほぼ同じ意味で語られます。", "u": "terms/compute.html"}, "cursor": {"n": "Cursor", "r": "カーソル", "s": "AIがコードを書くのを手伝うプログラミング用のエディタです。", "u": "terms/cursor.html"}, "datacenter": {"n": "データセンター", "r": "データセンター", "s": "AIを動かすためのコンピュータを大量に設置した施設です。AI競争は電力と土地の競争でもあります。", "u": "terms/datacenter.html"}, "glm": {"n": "GLM", "r": "ジーエルエム", "s": "Z.aiが開発しているAIモデルのシリーズ名です。番号付きで新しい版が次々に公開されています。", "u": "terms/glm.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "lambda": {"n": "Lambda", "r": "ラムダ", "s": "AI用の高性能な計算機を貸し出す米国の会社です。自前でチップを買い集め、他社に時間貸ししています。", "u": "terms/lambda.html"}, "meta-ai": {"n": "Meta", "r": "メタ", "s": "FacebookやInstagramを運営する企業で、AIモデル「Llama」を公開しています。", "u": "terms/meta-ai.html"}, "microsoft": {"n": "Microsoft", "r": "マイクロソフト", "s": "OpenAIに巨額の出資を行い、自社サービスにAIを組み込んでいる企業です。", "u": "terms/microsoft.html"}, "neocloud": {"n": "ネオクラウド", "r": "ネオクラウド", "s": "AI向けの計算機を大量に持ち、時間貸しする新しいタイプの事業者のことです。大手クラウドとは違い、AIの計算に絞ってサービスを提供します。", "u": "terms/neocloud.html"}, "nvidia": {"n": "NVIDIA", "r": "エヌビディア", "s": "AI開発に不可欠なGPUを作っている半導体企業です。生成AIブームの最大の受益者と言われています。", "u": "terms/nvidia.html"}, "open-source": {"n": "オープンソース", "r": "オープンソース", "s": "ソフトウェアの中身が公開され、誰でも自由に使ったり改良したりできる形態のことです。", "u": "terms/open-source.html"}, "open-weight": {"n": "オープンウェイト", "r": "オープンウェイト", "s": "モデルの中身（重み）が公開されていて、誰でもダウンロードして動かせる形態のことです。", "u": "terms/open-weight.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "pentagon": {"n": "ペンタゴン（米国防総省）", "r": "ペンタゴン", "s": "アメリカの軍事を統括する政府機関です。庁舎が五角形をしていることからこの通称で呼ばれます。", "u": "terms/pentagon.html"}, "semiconductor": {"n": "半導体", "r": "はんどうたい", "s": "電気を通したり止めたりできる性質を持つ材料、またはそれで作ったコンピュータの部品のことです。", "u": "terms/semiconductor.html"}, "spacex": {"n": "SpaceX", "r": "スペースエックス", "s": "ロケットと人工衛星を作っているアメリカの会社です。Elon Musk が率いています。", "u": "terms/spacex.html"}, "supply-chain-risk": {"n": "サプライチェーンリスク指定", "r": "サプライチェーンリスクしてい", "s": "政府が「この会社の製品やサービスを使うのは危ない」と公式に位置づけることです。指定されると、政府との取引から外されるおそれがあります。", "u": "terms/supply-chain-risk.html"}, "training-data": {"n": "学習データ", "r": "", "s": "AIを訓練するために読み込ませる大量のデータのことです。AIの性能と偏りの両方を決める土台です。", "u": "terms/training-data.html"}, "wearable": {"n": "ウェアラブル", "r": "", "s": "身に着けて使う小さな機器のことです。腕時計型や指輪型があり、持ち歩かなくても常に一緒にいられるのが特徴です。", "u": "terms/wearable.html"}}</script>
 
 <script>
 (function(){

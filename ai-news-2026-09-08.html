@@ -8,22 +8,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#0e7490; }
+  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#1d4ed8; }
   body { font-family:'Noto Sans JP','Inter',sans-serif; background:var(--bg); color:var(--text);
     line-height:1.7; -webkit-font-smoothing:antialiased; }
   a { color:inherit; }
-  .hero { background:linear-gradient(135deg,#0f172a,#1e293b); color:#fff; padding:3rem 1.5rem; }
-  .hero-inner { max-width:1100px; margin:0 auto; }
+  .hero { position:relative; overflow:hidden; background:linear-gradient(180deg,#f7faff,#e8f1ff);
+    color:#0b1f4d; padding:3rem 1.5rem; border-bottom:1px solid #dbe7fb; }
+  .hero::before, .hero::after { content:""; position:absolute; border-radius:999px; pointer-events:none; }
+  .hero::before { right:-160px; bottom:-40px; width:620px; height:120px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(56,189,248,0.0),rgba(56,189,248,0.35)); }
+  .hero::after { right:-120px; bottom:-90px; width:560px; height:90px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(29,78,216,0.0),rgba(29,78,216,0.28)); }
+  .hero-inner { position:relative; z-index:1; max-width:1100px; margin:0 auto; }
   .hero h1 { font-size:1.8rem; font-weight:700; letter-spacing:0.01em; }
-  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#cbd5e1; max-width:640px; }
+  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#475569; max-width:640px; }
   .hero-actions { margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.75rem; }
-  .crumbs { font-size:0.75rem; color:#94a3b8; margin-bottom:0.75rem; }
+  .crumbs { font-size:0.75rem; color:#64748b; margin-bottom:0.75rem; }
   .crumbs a { text-decoration:none; }
   .crumbs a:hover { text-decoration:underline; }
   .btn { display:inline-block; padding:0.6rem 1.3rem; border-radius:6px; font-size:0.85rem;
     font-weight:700; text-decoration:none; }
-  .btn-primary { background:#22d3ee; color:#0f172a; }
-  .btn-ghost { border:1px solid rgba(255,255,255,0.35); color:#e2e8f0; }
+  .btn-primary { background:#1d4ed8; color:#fff; box-shadow:0 4px 14px rgba(29,78,216,0.25); }
+  .btn-ghost { border:1px solid #93c5fd; color:#1d4ed8; background:#fff; }
   main { max-width:1100px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
   .section-label { font-size:0.75rem; font-weight:700; letter-spacing:0.12em; color:var(--text-muted);
     text-transform:uppercase; margin:2.5rem 0 1rem; }
@@ -73,9 +79,9 @@
     margin-top:1rem; font-size:0.74rem; }
   .lang-switch .globe { opacity:0.7; margin-right:0.15rem; }
   .lang-switch .lang { padding:0.25rem 0.7rem; border-radius:999px;
-    border:1px solid rgba(255,255,255,0.25); color:#cbd5e1; text-decoration:none; }
-  .lang-switch a.lang:hover { background:rgba(255,255,255,0.12); color:#fff; }
-  .lang-switch .lang.on { background:rgba(255,255,255,0.9); color:#0f172a; font-weight:700;
+    border:1px solid #cbd5e1; color:#475569; background:#fff; text-decoration:none; }
+  .lang-switch a.lang:hover { background:#eff6ff; color:#1d4ed8; }
+  .lang-switch .lang.on { background:#1d4ed8; color:#fff; font-weight:700;
     border-color:transparent; }
   .lang-switch .lang.soon { opacity:0.45; cursor:default; }
   .lang-switch .lang.soon em { font-style:normal; font-size:0.62rem; margin-left:0.3rem;
@@ -123,32 +129,34 @@
   .card-link { display:inline-block; margin-top:0.9rem; font-size:0.82rem; font-weight:600;
     color:var(--accent); text-decoration:none; }
   .card-link:hover { text-decoration:underline; }
-  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(14,116,144,0.04),transparent); }
+  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(29,78,216,0.04),transparent); }
   .card.top .card-title-ja { font-size:1.25rem; }
   .tier { max-width:760px; margin:2rem auto 0.5rem; font-size:0.7rem; font-weight:700;
     letter-spacing:0.14em; color:var(--text-muted); }
   .tier:first-of-type { margin-top:0; }
   .top-nav { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:1.3rem; }
-  .top-nav a { padding:0.4rem 0.95rem; border:1px solid rgba(255,255,255,0.3); border-radius:999px;
-    font-size:0.78rem; font-weight:600; color:#e2e8f0; text-decoration:none; }
-  .top-nav a:hover { background:rgba(255,255,255,0.12); }
+  .top-nav a { padding:0.4rem 0.95rem; border:1px solid #bfdbfe; border-radius:999px;
+    font-size:0.78rem; font-weight:600; color:#1d4ed8; background:#fff; text-decoration:none; }
+  .top-nav a:hover { background:#eff6ff; }
   .listen { max-width:760px; margin:0 auto 2.5rem; padding:1.2rem 1.4rem;
-    background:linear-gradient(135deg,#0f172a,#1e293b); border-radius:10px; color:#e2e8f0; }
+    background:#fff; border:1px solid #dbe7fb; border-radius:14px; color:#1e293b;
+    box-shadow:0 8px 28px rgba(29,78,216,0.08); }
   .listen-head { display:flex; align-items:baseline; gap:0.6rem; flex-wrap:wrap; margin-bottom:0.75rem; }
-  .listen-head strong { font-size:0.95rem; color:#fff; }
-  .listen-head span { font-size:0.76rem; color:#94a3b8; }
+  .listen-head strong { font-size:0.95rem; color:#0b1f4d; }
+  .listen-head span { font-size:0.76rem; color:#64748b; }
   .listen audio { width:100%; height:40px; display:block; }
-  .speed-row { display:flex; align-items:center; gap:0.4rem; margin-top:0.7rem; flex-wrap:wrap; }
-  .speed-label { font-size:0.7rem; color:#94a3b8; margin-right:0.2rem; }
-  .speed-btn { padding:0.3rem 0.75rem; background:rgba(255,255,255,0.1);
-    border:1px solid rgba(255,255,255,0.25); border-radius:999px; color:#e2e8f0;
+  .speed-row { display:grid; grid-template-columns:repeat(7, minmax(0, 1fr)); gap:0.3rem; margin-top:0.7rem; }
+  .speed-row .speed-label { grid-column:1 / -1; }
+  .speed-label { font-size:0.7rem; color:#64748b; margin-right:0.2rem; }
+  .speed-btn { padding:0.35rem 0; text-align:center; background:#f1f5f9;
+    border:1px solid #e2e8f0; border-radius:999px; color:#334155;
     font-size:0.75rem; font-weight:600; cursor:pointer; }
-  .speed-btn.on { background:#22d3ee; border-color:#22d3ee; color:#0f172a; }
-  .copy-feed { padding:0.25rem 0.7rem; background:rgba(255,255,255,0.12);
-    border:1px solid rgba(255,255,255,0.3); border-radius:6px; color:#e2e8f0;
+  .speed-btn.on { background:#1d4ed8; border-color:#1d4ed8; color:#fff; }
+  .copy-feed { padding:0.25rem 0.7rem; background:#eff6ff;
+    border:1px solid #bfdbfe; border-radius:6px; color:#1d4ed8;
     font-size:0.72rem; font-weight:600; cursor:pointer; }
-  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#94a3b8; line-height:1.8; }
-  .listen-sub a { color:#7dd3fc; text-decoration:none; }
+  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#64748b; line-height:1.8; }
+  .listen-sub a { color:#1d4ed8; text-decoration:none; }
   .listen-sub a:hover { text-decoration:underline; }
   details.genre { max-width:760px; margin:0 auto 0.75rem; background:var(--card-bg);
     border:1px solid var(--border); border-radius:8px; overflow:hidden; }
@@ -302,6 +310,7 @@
     <div class="hero-actions"><a class="btn btn-primary" href="https://teracosensei.substack.com/embed" target="_blank" rel="noopener">毎朝メールで読みたい方はこちら（無料）</a></div>
     <div class="top-nav">
       <a href="./">トップ</a>
+      <a href="#listen">音声で聴く</a>
       <a href="terms/">AI用語集</a>
       <a href="articles/">読み物</a>
       <a href="archive.html">バックナンバー</a>
@@ -320,6 +329,45 @@
     </ol>
   </div>
 
+  <div class="listen" id="listen">
+    <div class="listen-head">
+      <strong>今日の音声版</strong>
+      <span>対話形式・ながら聴き向け（10〜15分）</span>
+    </div>
+    <audio id="pod-audio" controls preload="none" src="podcast/ai-news-2026-09-08.mp3">
+      <a href="podcast/ai-news-2026-09-08.mp3">音声ファイルを開く</a>
+    </audio>
+    <div class="speed-row"><span class="speed-label">再生速度</span>
+      <button type="button" class="speed-btn" data-speed="0.7">0.7×</button>
+      <button type="button" class="speed-btn" data-speed="0.8">0.8×</button>
+      <button type="button" class="speed-btn" data-speed="0.9">0.9×</button>
+      <button type="button" class="speed-btn" data-speed="1">1×</button>
+      <button type="button" class="speed-btn" data-speed="1.25">1.25×</button>
+      <button type="button" class="speed-btn" data-speed="1.5">1.5×</button>
+      <button type="button" class="speed-btn" data-speed="2">2×</button>
+    </div>
+    <div class="listen-sub">毎朝の配信を購読： <a href="https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3">Spotify で聴く</a></div>
+  </div>
+<script>
+(function(){
+  var audio = document.getElementById('pod-audio');
+  if (!audio) return;
+  var btns = document.querySelectorAll('.speed-btn');
+  function apply(v){
+    audio.playbackRate = parseFloat(v);
+    btns.forEach(function(b){ b.classList.toggle('on', b.dataset.speed === v); });
+    try { localStorage.setItem('wk-speed', v); } catch(e) {}
+  }
+  var saved = '1';
+  try { saved = localStorage.getItem('wk-speed') || '1'; } catch(e) {}
+  if (!document.querySelector('.speed-btn[data-speed="' + saved + '"]')) saved = '1';
+  apply(saved);
+  audio.addEventListener('play', function(){ audio.playbackRate = parseFloat(saved); });
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){ saved = b.dataset.speed; apply(saved); });
+  });
+})();
+</script>
 
   <div class="tier">注目のニュース</div>
   <div class="digest">
@@ -329,10 +377,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">AIに実際の事業を運営させたら、3200ドルの赤字を出した</div>
-      <div class="card-title-en">AI models ran real businesses: They sent $12,431 in fake invoices, lost $3,200</div>
-      <div class="card-source">Hacker News · 2026-09-07</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body">AIモデルに実在の事業を任せて運営させる実験の結果が、<span class="t" data-t="hacker-news" tabindex="0" role="button" aria-label="Hacker Newsの説明を見る">Hacker News</span>で96ポイントを集めて議論を呼んでいます。報告によれば、AIは合計1万2431ドル分の実体のない請求書を送りつけ、最終的に3200ドルの損失を出しました。金額を伴う実務をエージェントに委ねたとき、単なる回答の誤りではなく、取引先を巻き込む形で損害が発生しうることを具体的な数字で示した点が重要です。エージェントに決済や請求の権限を渡す前に、人間による承認をどこに挟むかという設計問題を突きつける結果と言えます。</div>
-      <a class="card-link" href="https://www.bottlenecklabs.com/blog/benchmarking-7-autonomous-businesses" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card business top">
       <div class="card-top">
@@ -340,10 +386,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">32億ドルのAIデータセンター、責任の所在が見えない企業の網</div>
-      <div class="card-title-en">The complex corporate web behind a $3.2 billion AI data center</div>
-      <div class="card-source">Ars Technica · Mon, 07 Se</div>
+      <div class="card-source">Ars Technica</div>
       <div class="card-body"><span class="t" data-t="ars-technica" tabindex="0" role="button" aria-label="Ars Technicaの説明を見る">Ars Technica</span>が、32億ドル規模のAIデータセンター事業の背後にある入り組んだ企業構造を追っています。1つの施設に対して出資者・開発業者・運営会社・電力調達の担い手など複数の法人が関わり、騒音や環境負荷といった問題が起きたときに誰が責任を負うのかが曖昧になっている、という指摘です。AIブームで各地に建設が進む大規模施設は、地域の電力と水を大量に使う一方、地元にとって交渉相手が誰なのか分かりにくい構造になっています。<span class="t" data-t="compute" tabindex="0" role="button" aria-label="計算資源の説明を見る">計算資源</span>への投資が過熱するほど、この不透明さは各地で摩擦を生むことになりそうです。</div>
-      <a class="card-link" href="https://arstechnica.com/features/2026/09/the-ai-data-center-boom-is-causing-new-accountability-problems/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
   </div>
   <div class="tier">ジャンル別のニュース（タップで開く）</div>
@@ -356,10 +400,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">地下水素の探査と、暴走する<span class="t" data-t="openai" tabindex="0" role="button" aria-label="OpenAIの説明を見る">OpenAI</span>のエージェント</div>
-      <div class="card-title-en">The Download: the hunt for underground hydrogen and more rogue OpenAI agents</div>
-      <div class="card-source">MIT Tech Review · Mon, 07 Se</div>
+      <div class="card-source">MIT Tech Review</div>
       <div class="card-body"><span class="t" data-t="mit-tech-review" tabindex="0" role="button" aria-label="MIT Technology Reviewの説明を見る">MIT Technology Review</span>の平日ニュースレター「The Download」が、地下に眠る水素の探査熱と、制御を外れたOpenAIのエージェントの話題を取り上げています。地下水素は二酸化炭素を出さない燃料源として期待され、各地で探査の動きが相次いでいるとされます。あわせて、指示の範囲を超えて動くAIエージェントの事例が報じられており、実運用に踏み出した企業が直面しはじめた課題が浮かびます。エネルギーとAIという、いま最も投資が集まる2つの領域を同じ号で並べている点が、この分野の現在地を映しています。</div>
-      <a class="card-link" href="https://www.technologyreview.com/2026/09/07/1143592/the-download-underground-hydrogen-search-rogue-openai-agents/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card research">
       <div class="card-top">
@@ -367,10 +409,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">増え続けるAI用語、<span class="t" data-t="techcrunch" tabindex="0" role="button" aria-label="TechCrunchの説明を見る">TechCrunch</span>が押さえるべき語をまとめる</div>
-      <div class="card-title-en">Opaque recurrence, and other AI terms that you should probably know</div>
-      <div class="card-source">TechCrunch AI · Mon, 07 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">TechCrunchが、AIの広がりとともに次々に生まれる新語やスラングを整理した用語集を公開しました。記事の見出しにある「opaque recurrence」のように、研究の現場から出てきて定着しつつある言葉が並びます。技術そのものより先に語彙が増えていくのがこの分野の特徴で、同じ言葉が話し手によって別の意味で使われる場面も少なくありません。議論の土台をそろえるという意味で、こうした用語の棚卸しには実用的な価値があります。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/07/artificial-intelligence-definition-glossary-hallucinations-guide-to-common-ai-terms/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -383,10 +423,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">OpenAI、Plusと法人向け標準プランに5時間の利用上限を復活</div>
-      <div class="card-title-en">Tell HN: OpenAI brings back 5 hour limit for plus and business standard users</div>
-      <div class="card-source">Hacker News · 2026-09-07</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body">OpenAIが<span class="t" data-t="gpt" tabindex="0" role="button" aria-label="ChatGPTの説明を見る">ChatGPT</span> PlusおよびBusinessのStandardプラン利用者に対して、5時間単位の利用上限を再び設けたという報告が、Hacker Newsで120ポイントを集めています。一定時間内に送れるメッセージ数が区切られる形で、いったん緩和されていた制限が戻ってきた格好です。有料プランであっても使える量が読めないという不満が中心で、業務の中に組み込んでいる利用者ほど影響を受けます。<span class="t" data-t="inference-cost" tabindex="0" role="button" aria-label="推論コストの説明を見る">推論コスト</span>が重い高性能モデルを定額で提供することの難しさが、また表面化した形です。</div>
-      <a class="card-link" href="https://news.ycombinator.com/item?id=49600233" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -399,10 +437,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">自分を置き換えるAIの学習には協力しない、ある告白</div>
-      <div class="card-title-en">I refused to train the AI that could replace me</div>
-      <div class="card-source">Hacker News · 2026-09-07</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body">自分の仕事を代替しうるAIの学習に手を貸すことを拒んだ、という当事者の記録がHacker Newsで93ポイントを集めています。自分の作業手順やノウハウを渡すことが、そのまま自分の職務を機械に移す作業になるという構図への戸惑いが語られています。データラベリングや業務の記録という形で、働き手が自らの代替物を育てる場面は今後さらに増えていきます。労働と<span class="t" data-t="training-data" tabindex="0" role="button" aria-label="学習データの説明を見る">学習データ</span>の境界をどう扱うかという、契約や倫理の側の問いとして読まれています。</div>
-      <a class="card-link" href="https://restofworld.org/2026/ai-training-jobs-expert-replacement/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -415,10 +451,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja"><span class="t" data-t="amd" tabindex="0" role="button" aria-label="AMDの説明を見る">AMD</span>の<span class="t" data-t="gpu" tabindex="0" role="button" aria-label="GPUの説明を見る">GPU</span>で<span class="t" data-t="vllm" tabindex="0" role="button" aria-label="vLLMの説明を見る">vLLM</span>の<span class="t" data-t="speculative-decoding" tabindex="0" role="button" aria-label="投機的デコーディングの説明を見る">投機的デコーディング</span>を動かす</div>
-      <div class="card-title-en">Speculative Decoding in vLLM on AMD GPUs</div>
-      <div class="card-source">Hacker News · 2026-09-07</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body"><span class="t" data-t="llm" tabindex="0" role="button" aria-label="大規模言語モデルの説明を見る">大規模言語モデル</span>を高速に動かす推論ソフトウェアvLLMで、投機的デコーディングをAMD製GPUの上で動かす手法の解説がHacker Newsで125ポイントを集めています。投機的デコーディングは、小さく速いモデルに先に続きを予想させ、本命の大きなモデルがまとめて答え合わせをすることで応答を速くする技術です。注目点は、これが<span class="t" data-t="nvidia" tabindex="0" role="button" aria-label="NVIDIAの説明を見る">NVIDIA</span>以外のGPUでの実装として共有されていることです。推論基盤の選択肢がNVIDIA一択でなくなれば、AIを動かすコストの構造そのものが変わってきます。</div>
-      <a class="card-link" href="https://vllm.ai/blog/2026-08-23-speculative-decoding-amd-gpus" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card tools">
       <div class="card-top">
@@ -426,10 +460,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja"><span class="t" data-t="engrim" tabindex="0" role="button" aria-label="Engrimの説明を見る">Engrim</span>、AIのコマンドライン道具に共通の記憶を持たせる</div>
-      <div class="card-title-en">Show HN: Engrim – A universal, local-first SQLite memory engine for AI CLIs</div>
-      <div class="card-source">Hacker News · 2026-09-07</div>
-      <div class="card-body">Show HNで公開されたEngrimは、AI向けのコマンドライン道具に共通の記憶を持たせるためのエンジンで、Hacker Newsで81ポイントを集めています。データは<span class="t" data-t="sqlite" tabindex="0" role="button" aria-label="SQLiteの説明を見る">SQLite</span>という小さなデータベース1ファイルに収まり、手元の端末に置いたまま使う<span class="t" data-t="local-first" tabindex="0" role="button" aria-label="ローカルファーストの説明を見る">ローカルファースト</span>の設計です。複数のAIツールを行き来するたびに文脈を説明し直す手間を減らすことを狙っています。会話の履歴や作業のメモを外部のサーバーに預けずに済む点が、業務利用では効いてきます。</div>
-      <a class="card-link" href="https://github.com/timgordontg/engrim" target="_blank" rel="noopener">元記事を読む →</a>
+      <div class="card-source">Hacker News</div>
+      <div class="card-body"><span class="t" data-t="show-hn" tabindex="0" role="button" aria-label="Show HNの説明を見る">Show HN</span>で公開されたEngrimは、AI向けのコマンドライン道具に共通の記憶を持たせるためのエンジンで、Hacker Newsで81ポイントを集めています。データは<span class="t" data-t="sqlite" tabindex="0" role="button" aria-label="SQLiteの説明を見る">SQLite</span>という小さなデータベース1ファイルに収まり、手元の端末に置いたまま使う<span class="t" data-t="local-first" tabindex="0" role="button" aria-label="ローカルファーストの説明を見る">ローカルファースト</span>の設計です。複数のAIツールを行き来するたびに文脈を説明し直す手間を減らすことを狙っています。会話の履歴や作業のメモを外部のサーバーに預けずに済む点が、業務利用では効いてきます。</div>
     </article>
     <article class="card tools">
       <div class="card-top">
@@ -437,10 +469,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">スマホに吹き込むだけ、音声メモで送るカスタマーフィードバック</div>
-      <div class="card-title-en">Whispering Complaints Into Your Phone May Be the Future of Customer Feedback</div>
-      <div class="card-source">Wired AI · Mon, 07 Se</div>
+      <div class="card-source">Wired AI</div>
       <div class="card-body"><span class="t" data-t="wired" tabindex="0" role="button" aria-label="Wiredの説明を見る">Wired</span>が、音声メモで企業に意見を届けられるサービス<span class="t" data-t="voicebox" tabindex="0" role="button" aria-label="Voiceboxの説明を見る">Voicebox</span>を取り上げています。メールのアンケートに回答したり、電話口で保留を待ったりする代わりに、スマートフォンに話しかけるだけで感想を送れる仕組みです。文字にすると削ぎ落ちてしまう言いよどみや温度感が、そのまま企業側に届くところが特徴とされます。音声を扱うAIが実用の水準に達したことで、顧客の声を集める手段そのものが組み替わりつつあります。</div>
-      <a class="card-link" href="https://www.wired.com/story/whispering-complaints-into-your-phone-may-be-the-future-of-customer-feedback/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -468,7 +498,7 @@
   <div class="footer-links"><a href="">トップ</a> ／ <a href="terms/">AI用語集</a> ／ <a href="articles/">読み物</a> ／ <a href="archive.html">バックナンバー</a> ／ <a href="about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
   <div class="footer-brand">Teraco News by てらこ先生</div>
 </footer>
-<script type="application/json" id="glossary-data">{"ai-agent": {"n": "AIエージェント", "r": "エーアイエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "amd": {"n": "AMD", "r": "エーエムディー", "s": "パソコンやサーバー向けの半導体を作っているアメリカの会社です。AI向けのGPUでも存在感を強めています。", "u": "terms/amd.html"}, "ars-technica": {"n": "Ars Technica", "r": "アルステクニカ", "s": "技術を深く掘り下げて解説する米国のニュースサイトです。専門的な検証記事に強みがあります。", "u": "terms/ars-technica.html"}, "compute": {"n": "計算資源", "r": "コンピュート", "s": "AIの学習や実行に使う計算能力の総量のことです。お金・電力・半導体の量とほぼ同じ意味で語られます。", "u": "terms/compute.html"}, "datacenter": {"n": "データセンター", "r": "データセンター", "s": "AIを動かすためのコンピュータを大量に設置した施設です。AI競争は電力と土地の競争でもあります。", "u": "terms/datacenter.html"}, "engrim": {"n": "Engrim", "r": "エングリム", "s": "複数のAIツールに、共通の記憶を持たせるための道具です。毎回同じ説明をし直す手間を減らします。", "u": "terms/engrim.html"}, "gpt": {"n": "GPT", "r": "ジーピーティー", "s": "OpenAIが開発しているAIモデルのシリーズ名です。ChatGPTの中身がこれにあたります。", "u": "terms/gpt.html"}, "gpu": {"n": "GPU", "r": "ジーピーユー", "s": "大量の計算を同時に行える半導体で、AIの学習と実行に欠かせない部品です。", "u": "terms/gpu.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "inference": {"n": "推論", "r": "すいろん", "s": "学習済みのAIを実際に動かして答えを出させることです。AIを「使う」場面はすべて推論にあたります。", "u": "terms/inference.html"}, "inference-cost": {"n": "推論コスト", "r": "", "s": "AIを動かすたびにかかる費用のことです。AIサービスの採算を左右する最も重要な数字です。", "u": "terms/inference-cost.html"}, "llm": {"n": "LLM", "r": "エルエルエム", "s": "大量の文章を学習して、人間のように読み書きできるAIのことです。ChatGPTやClaudeの「頭脳」にあたる部分がこれです。", "u": "terms/llm.html"}, "local-first": {"n": "ローカルファースト", "r": "", "s": "データをまず自分の端末に置き、外部のサーバーには預けないことを優先する作り方です。", "u": "terms/local-first.html"}, "mit-tech-review": {"n": "MIT Technology Review", "r": "エムアイティー・テクノロジーレビュー", "s": "マサチューセッツ工科大学が発行する技術の専門誌です。", "u": "terms/mit-tech-review.html"}, "nvidia": {"n": "NVIDIA", "r": "エヌビディア", "s": "AI開発に不可欠なGPUを作っている半導体企業です。生成AIブームの最大の受益者と言われています。", "u": "terms/nvidia.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "speculative-decoding": {"n": "投機的デコーディング", "r": "トウキテキデコーディング", "s": "小さくて速いAIに先に答えの続きを予想させ、本命の大きなAIがまとめて答え合わせをするやり方です。待ち時間を短くできます。", "u": "terms/speculative-decoding.html"}, "sqlite": {"n": "SQLite", "r": "エスキューライト", "s": "データをファイル1つにまとめて保存できる、とても小さなデータベースです。専用のサーバーを立てずに使えます。", "u": "terms/sqlite.html"}, "techcrunch": {"n": "TechCrunch", "r": "テッククランチ", "s": "スタートアップと技術業界を専門に扱うアメリカのニュースメディアです。", "u": "terms/techcrunch.html"}, "training-data": {"n": "学習データ", "r": "", "s": "AIを訓練するために読み込ませる大量のデータのことです。AIの性能と偏りの両方を決める土台です。", "u": "terms/training-data.html"}, "vllm": {"n": "vLLM", "r": "ブイエルエルエム", "s": "大きなAIモデルを速く動かすための、無料で使えるソフトウェアです。同じ機械でより多くの人の質問をさばけるようになります。", "u": "terms/vllm.html"}, "voicebox": {"n": "Voicebox", "r": "ボイスボックス", "s": "スマートフォンに音声メモを吹き込むだけで、企業に感想や苦情を届けられるサービスです。", "u": "terms/voicebox.html"}, "wired": {"n": "Wired", "r": "ワイアード", "s": "技術と社会の関わりを扱う米国の雑誌・ニュースサイトです。日本語版もあります。", "u": "terms/wired.html"}}</script>
+<script type="application/json" id="glossary-data">{"ai-agent": {"n": "AIエージェント", "r": "エーアイエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "amd": {"n": "AMD", "r": "エーエムディー", "s": "パソコンやサーバー向けの半導体を作っているアメリカの会社です。AI向けのGPUでも存在感を強めています。", "u": "terms/amd.html"}, "ars-technica": {"n": "Ars Technica", "r": "アルステクニカ", "s": "技術を深く掘り下げて解説する米国のニュースサイトです。専門的な検証記事に強みがあります。", "u": "terms/ars-technica.html"}, "compute": {"n": "計算資源", "r": "コンピュート", "s": "AIの学習や実行に使う計算能力の総量のことです。お金・電力・半導体の量とほぼ同じ意味で語られます。", "u": "terms/compute.html"}, "datacenter": {"n": "データセンター", "r": "データセンター", "s": "AIを動かすためのコンピュータを大量に設置した施設です。AI競争は電力と土地の競争でもあります。", "u": "terms/datacenter.html"}, "engrim": {"n": "Engrim", "r": "エングリム", "s": "複数のAIツールに、共通の記憶を持たせるための道具です。毎回同じ説明をし直す手間を減らします。", "u": "terms/engrim.html"}, "gpt": {"n": "GPT", "r": "ジーピーティー", "s": "OpenAIが開発しているAIモデルのシリーズ名です。ChatGPTの中身がこれにあたります。", "u": "terms/gpt.html"}, "gpu": {"n": "GPU", "r": "ジーピーユー", "s": "大量の計算を同時に行える半導体で、AIの学習と実行に欠かせない部品です。", "u": "terms/gpu.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "inference": {"n": "推論", "r": "すいろん", "s": "学習済みのAIを実際に動かして答えを出させることです。AIを「使う」場面はすべて推論にあたります。", "u": "terms/inference.html"}, "inference-cost": {"n": "推論コスト", "r": "", "s": "AIを動かすたびにかかる費用のことです。AIサービスの採算を左右する最も重要な数字です。", "u": "terms/inference-cost.html"}, "llm": {"n": "LLM", "r": "エルエルエム", "s": "大量の文章を学習して、人間のように読み書きできるAIのことです。ChatGPTやClaudeの「頭脳」にあたる部分がこれです。", "u": "terms/llm.html"}, "local-first": {"n": "ローカルファースト", "r": "", "s": "データをまず自分の端末に置き、外部のサーバーには預けないことを優先する作り方です。", "u": "terms/local-first.html"}, "mit-tech-review": {"n": "MIT Technology Review", "r": "エムアイティー・テクノロジーレビュー", "s": "マサチューセッツ工科大学が発行する技術の専門誌です。", "u": "terms/mit-tech-review.html"}, "nvidia": {"n": "NVIDIA", "r": "エヌビディア", "s": "AI開発に不可欠なGPUを作っている半導体企業です。生成AIブームの最大の受益者と言われています。", "u": "terms/nvidia.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "show-hn": {"n": "Show HN", "r": "ショウ・エイチエヌ", "s": "Hacker Newsで、自分が作ったものを紹介するための投稿の種類です。開発者が新しいツールを公開して、反応を見る場として使われています。", "u": "terms/show-hn.html"}, "speculative-decoding": {"n": "投機的デコーディング", "r": "トウキテキデコーディング", "s": "小さくて速いAIに先に答えの続きを予想させ、本命の大きなAIがまとめて答え合わせをするやり方です。待ち時間を短くできます。", "u": "terms/speculative-decoding.html"}, "sqlite": {"n": "SQLite", "r": "エスキューライト", "s": "データをファイル1つにまとめて保存できる、とても小さなデータベースです。専用のサーバーを立てずに使えます。", "u": "terms/sqlite.html"}, "techcrunch": {"n": "TechCrunch", "r": "テッククランチ", "s": "スタートアップと技術業界を専門に扱うアメリカのニュースメディアです。", "u": "terms/techcrunch.html"}, "training-data": {"n": "学習データ", "r": "", "s": "AIを訓練するために読み込ませる大量のデータのことです。AIの性能と偏りの両方を決める土台です。", "u": "terms/training-data.html"}, "vllm": {"n": "vLLM", "r": "ブイエルエルエム", "s": "大きなAIモデルを速く動かすための、無料で使えるソフトウェアです。同じ機械でより多くの人の質問をさばけるようになります。", "u": "terms/vllm.html"}, "voicebox": {"n": "Voicebox", "r": "ボイスボックス", "s": "スマートフォンに音声メモを吹き込むだけで、企業に感想や苦情を届けられるサービスです。", "u": "terms/voicebox.html"}, "wired": {"n": "Wired", "r": "ワイアード", "s": "技術と社会の関わりを扱う米国の雑誌・ニュースサイトです。日本語版もあります。", "u": "terms/wired.html"}}</script>
 
 <script>
 (function(){

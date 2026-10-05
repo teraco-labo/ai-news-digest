@@ -8,22 +8,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#0e7490; }
+  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#1d4ed8; }
   body { font-family:'Noto Sans JP','Inter',sans-serif; background:var(--bg); color:var(--text);
     line-height:1.7; -webkit-font-smoothing:antialiased; }
   a { color:inherit; }
-  .hero { background:linear-gradient(135deg,#0f172a,#1e293b); color:#fff; padding:3rem 1.5rem; }
-  .hero-inner { max-width:1100px; margin:0 auto; }
+  .hero { position:relative; overflow:hidden; background:linear-gradient(180deg,#f7faff,#e8f1ff);
+    color:#0b1f4d; padding:3rem 1.5rem; border-bottom:1px solid #dbe7fb; }
+  .hero::before, .hero::after { content:""; position:absolute; border-radius:999px; pointer-events:none; }
+  .hero::before { right:-160px; bottom:-40px; width:620px; height:120px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(56,189,248,0.0),rgba(56,189,248,0.35)); }
+  .hero::after { right:-120px; bottom:-90px; width:560px; height:90px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(29,78,216,0.0),rgba(29,78,216,0.28)); }
+  .hero-inner { position:relative; z-index:1; max-width:1100px; margin:0 auto; }
   .hero h1 { font-size:1.8rem; font-weight:700; letter-spacing:0.01em; }
-  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#cbd5e1; max-width:640px; }
+  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#475569; max-width:640px; }
   .hero-actions { margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.75rem; }
-  .crumbs { font-size:0.75rem; color:#94a3b8; margin-bottom:0.75rem; }
+  .crumbs { font-size:0.75rem; color:#64748b; margin-bottom:0.75rem; }
   .crumbs a { text-decoration:none; }
   .crumbs a:hover { text-decoration:underline; }
   .btn { display:inline-block; padding:0.6rem 1.3rem; border-radius:6px; font-size:0.85rem;
     font-weight:700; text-decoration:none; }
-  .btn-primary { background:#22d3ee; color:#0f172a; }
-  .btn-ghost { border:1px solid rgba(255,255,255,0.35); color:#e2e8f0; }
+  .btn-primary { background:#1d4ed8; color:#fff; box-shadow:0 4px 14px rgba(29,78,216,0.25); }
+  .btn-ghost { border:1px solid #93c5fd; color:#1d4ed8; background:#fff; }
   main { max-width:1100px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
   .section-label { font-size:0.75rem; font-weight:700; letter-spacing:0.12em; color:var(--text-muted);
     text-transform:uppercase; margin:2.5rem 0 1rem; }
@@ -73,9 +79,9 @@
     margin-top:1rem; font-size:0.74rem; }
   .lang-switch .globe { opacity:0.7; margin-right:0.15rem; }
   .lang-switch .lang { padding:0.25rem 0.7rem; border-radius:999px;
-    border:1px solid rgba(255,255,255,0.25); color:#cbd5e1; text-decoration:none; }
-  .lang-switch a.lang:hover { background:rgba(255,255,255,0.12); color:#fff; }
-  .lang-switch .lang.on { background:rgba(255,255,255,0.9); color:#0f172a; font-weight:700;
+    border:1px solid #cbd5e1; color:#475569; background:#fff; text-decoration:none; }
+  .lang-switch a.lang:hover { background:#eff6ff; color:#1d4ed8; }
+  .lang-switch .lang.on { background:#1d4ed8; color:#fff; font-weight:700;
     border-color:transparent; }
   .lang-switch .lang.soon { opacity:0.45; cursor:default; }
   .lang-switch .lang.soon em { font-style:normal; font-size:0.62rem; margin-left:0.3rem;
@@ -123,32 +129,34 @@
   .card-link { display:inline-block; margin-top:0.9rem; font-size:0.82rem; font-weight:600;
     color:var(--accent); text-decoration:none; }
   .card-link:hover { text-decoration:underline; }
-  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(14,116,144,0.04),transparent); }
+  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(29,78,216,0.04),transparent); }
   .card.top .card-title-ja { font-size:1.25rem; }
   .tier { max-width:760px; margin:2rem auto 0.5rem; font-size:0.7rem; font-weight:700;
     letter-spacing:0.14em; color:var(--text-muted); }
   .tier:first-of-type { margin-top:0; }
   .top-nav { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:1.3rem; }
-  .top-nav a { padding:0.4rem 0.95rem; border:1px solid rgba(255,255,255,0.3); border-radius:999px;
-    font-size:0.78rem; font-weight:600; color:#e2e8f0; text-decoration:none; }
-  .top-nav a:hover { background:rgba(255,255,255,0.12); }
+  .top-nav a { padding:0.4rem 0.95rem; border:1px solid #bfdbfe; border-radius:999px;
+    font-size:0.78rem; font-weight:600; color:#1d4ed8; background:#fff; text-decoration:none; }
+  .top-nav a:hover { background:#eff6ff; }
   .listen { max-width:760px; margin:0 auto 2.5rem; padding:1.2rem 1.4rem;
-    background:linear-gradient(135deg,#0f172a,#1e293b); border-radius:10px; color:#e2e8f0; }
+    background:#fff; border:1px solid #dbe7fb; border-radius:14px; color:#1e293b;
+    box-shadow:0 8px 28px rgba(29,78,216,0.08); }
   .listen-head { display:flex; align-items:baseline; gap:0.6rem; flex-wrap:wrap; margin-bottom:0.75rem; }
-  .listen-head strong { font-size:0.95rem; color:#fff; }
-  .listen-head span { font-size:0.76rem; color:#94a3b8; }
+  .listen-head strong { font-size:0.95rem; color:#0b1f4d; }
+  .listen-head span { font-size:0.76rem; color:#64748b; }
   .listen audio { width:100%; height:40px; display:block; }
-  .speed-row { display:flex; align-items:center; gap:0.4rem; margin-top:0.7rem; flex-wrap:wrap; }
-  .speed-label { font-size:0.7rem; color:#94a3b8; margin-right:0.2rem; }
-  .speed-btn { padding:0.3rem 0.75rem; background:rgba(255,255,255,0.1);
-    border:1px solid rgba(255,255,255,0.25); border-radius:999px; color:#e2e8f0;
+  .speed-row { display:grid; grid-template-columns:repeat(7, minmax(0, 1fr)); gap:0.3rem; margin-top:0.7rem; }
+  .speed-row .speed-label { grid-column:1 / -1; }
+  .speed-label { font-size:0.7rem; color:#64748b; margin-right:0.2rem; }
+  .speed-btn { padding:0.35rem 0; text-align:center; background:#f1f5f9;
+    border:1px solid #e2e8f0; border-radius:999px; color:#334155;
     font-size:0.75rem; font-weight:600; cursor:pointer; }
-  .speed-btn.on { background:#22d3ee; border-color:#22d3ee; color:#0f172a; }
-  .copy-feed { padding:0.25rem 0.7rem; background:rgba(255,255,255,0.12);
-    border:1px solid rgba(255,255,255,0.3); border-radius:6px; color:#e2e8f0;
+  .speed-btn.on { background:#1d4ed8; border-color:#1d4ed8; color:#fff; }
+  .copy-feed { padding:0.25rem 0.7rem; background:#eff6ff;
+    border:1px solid #bfdbfe; border-radius:6px; color:#1d4ed8;
     font-size:0.72rem; font-weight:600; cursor:pointer; }
-  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#94a3b8; line-height:1.8; }
-  .listen-sub a { color:#7dd3fc; text-decoration:none; }
+  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#64748b; line-height:1.8; }
+  .listen-sub a { color:#1d4ed8; text-decoration:none; }
   .listen-sub a:hover { text-decoration:underline; }
   details.genre { max-width:760px; margin:0 auto 0.75rem; background:var(--card-bg);
     border:1px solid var(--border); border-radius:8px; overflow:hidden; }
@@ -330,12 +338,13 @@
       <a href="podcast/ai-news-2026-10-04.mp3">音声ファイルを開く</a>
     </audio>
     <div class="speed-row"><span class="speed-label">再生速度</span>
-      <button type="button" class="speed-btn" data-speed="0.75">0.75×</button>
+      <button type="button" class="speed-btn" data-speed="0.7">0.7×</button>
+      <button type="button" class="speed-btn" data-speed="0.8">0.8×</button>
+      <button type="button" class="speed-btn" data-speed="0.9">0.9×</button>
       <button type="button" class="speed-btn" data-speed="1">1×</button>
       <button type="button" class="speed-btn" data-speed="1.25">1.25×</button>
       <button type="button" class="speed-btn" data-speed="1.5">1.5×</button>
       <button type="button" class="speed-btn" data-speed="2">2×</button>
-      <button type="button" class="speed-btn" data-speed="2.5">2.5×</button>
     </div>
     <div class="listen-sub">毎朝の配信を購読： <a href="https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3">Spotify で聴く</a></div>
   </div>
@@ -351,6 +360,7 @@
   }
   var saved = '1';
   try { saved = localStorage.getItem('wk-speed') || '1'; } catch(e) {}
+  if (!document.querySelector('.speed-btn[data-speed="' + saved + '"]')) saved = '1';
   apply(saved);
   audio.addEventListener('play', function(){ audio.playbackRate = parseFloat(saved); });
   btns.forEach(function(b){
@@ -367,10 +377,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">OpenAIの安全性担当社員が辞職、「社風が壊れている」と告発</div>
-      <div class="card-title-en">OpenAI safety employee resigns, claiming the company’s ‘culture is broken’</div>
-      <div class="card-source">TechCrunch AI · Sat, 03 Oc</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">OpenAIで安全性に関わっていた<span class="t" data-t="david-robinson" tabindex="0" role="button" aria-label="David Robinsonの説明を見る">David Robinson</span>氏が辞職し、同社の「文化は壊れている」と公に訴えました。本人も、大手AI企業の社員が辞め際に重大な警告を発するという構図は「ありがちな話」だと認めたうえで、あえて声を上げています。本人による手記「I Quit OpenAI Because Its Culture Is Broken」も<span class="t" data-t="hacker-news" tabindex="0" role="button" aria-label="Hacker Newsの説明を見る">Hacker News</span>で105ポイントを集め、技術者コミュニティでも議論を呼んでいます。安全性の担当者が相次いで内部の問題を指摘する流れは、<span class="t" data-t="frontier-model" tabindex="0" role="button" aria-label="フロンティアモデルの説明を見る">フロンティアモデル</span>を開発する企業の統治体制や、安全性への取り組みが実際にどこまで機能しているのかを問い直すきっかけになります。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/10/03/openai-safety-employee-resigns-claiming-the-companys-culture-is-broken/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card tools top">
       <div class="card-top">
@@ -378,10 +386,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">Meta、AIエージェントMuseのコードを無償公開　テレビや家電への搭載狙う</div>
-      <div class="card-title-en">Meta wants your next gadget to be Muse-infused</div>
-      <div class="card-source">TechCrunch AI · Sat, 03 Oc</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">MetaはAIエージェントMuseをテレビやトースターのような家電にまで広げるため、そのコードを無償で提供する方針を打ち出しました。自社のアプリやデバイスにとどめず、他社の製品に組み込んでもらうことで、身の回りのあらゆる機器の窓口をMuseにする狙いです。無償公開によってメーカーは導入のハードルが下がり、Metaは利用者との接点を一気に増やせます。AIアシスタントの主戦場がスマホから家電全般に広がりつつあることを示す動きで、同じ領域を狙う他社の戦略にも影響しそうです。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/10/02/meta-wants-you-to-build-your-own-muse-gadget/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
   </div>
   <div class="tier">ジャンル別のニュース（タップで開く）</div>
@@ -394,10 +400,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">ドイツ発の独自LLM「<span class="t" data-t="kolibri" tabindex="0" role="button" aria-label="Kolibriの説明を見る">Kolibri</span>」、<span class="t" data-t="aleph-alpha" tabindex="0" role="button" aria-label="Aleph Alphaの説明を見る">Aleph Alpha</span>がその仕組みを解説</div>
-      <div class="card-title-en">Aleph Alpha Kolibri: How the sovereign German LLM works</div>
-      <div class="card-source">Hacker News · 2026-10-03</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body">ドイツのAI企業Aleph Alphaが、自国発の「ソブリン」LLMとして開発したKolibriの仕組みを解説した記事が、Hacker Newsで409ポイントを集めて注目されています。米国や中国の大手企業に頼らず、自国で管理できるAI基盤を持とうとする欧州の動きを象徴する取り組みです。今回の解説は、こうしたモデルが技術的にどう作られているのかを具体的に知る手がかりになります。データの扱いや依存先のリスクを気にする政府や企業にとって、<span class="t" data-t="sovereign-ai" tabindex="0" role="button" aria-label="ソブリンAIの説明を見る">ソブリンAI</span>が現実的な選択肢になりうるかを測る材料になります。</div>
-      <a class="card-link" href="https://tej.as/blog/aleph-alpha-kolibri" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -410,10 +414,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja"><span class="t" data-t="aws" tabindex="0" role="button" aria-label="AWSの説明を見る">AWS</span>、<span class="t" data-t="datacenter" tabindex="0" role="button" aria-label="データセンターの説明を見る">データセンター</span>への反発に反論　<span class="t" data-t="nda" tabindex="0" role="button" aria-label="秘密保持契約の説明を見る">秘密保持契約</span>はもう使わないと表明</div>
-      <div class="card-title-en">Amazon responds to data center backlash, says it no longer uses NDAs</div>
-      <div class="card-source">TechCrunch AI · Sat, 03 Oc</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">Amazon Web ServicesのCEOが、各地で広がるデータセンターへの不信感に反論し、建設などにあたって秘密保持契約（NDA）はもう使っていないと述べました。AI需要の拡大でデータセンターの建設が急増する一方、地域住民の間では電力や水の使い方、計画が見えにくいことへの警戒が強まっています。NDAの不使用を打ち出したのは、透明性を示して地域の反発を和らげる狙いとみられます。AIインフラの拡張が技術や資金の問題だけでなく、地域の合意を得られるかという課題に直面していることを示すニュースです。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/10/03/amazon-responds-to-data-center-backlash-says-it-no-longer-uses-ndas/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card business">
       <div class="card-top">
@@ -421,10 +423,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">発売7年の<span class="t" data-t="nvidia-shield-tv" tabindex="0" role="button" aria-label="Nvidia Shield TVの説明を見る">Nvidia Shield TV</span>が100ドル値上げ　AI需要でメモリ高騰</div>
-      <div class="card-title-en">The Nvidia Shield TV Is 7 Years Old. It Just Got a $100 Price Hike</div>
-      <div class="card-source">Wired AI · Sat, 03 Oc</div>
+      <div class="card-source">Wired AI</div>
       <div class="card-body">発売から7年が経つ<span class="t" data-t="streaming-device" tabindex="0" role="button" aria-label="ストリーミング端末の説明を見る">ストリーミング端末</span>Nvidia Shield TVが、100ドル値上げされました。<span class="t" data-t="wired" tabindex="0" role="button" aria-label="Wiredの説明を見る">Wired</span>によると、AI需要の拡大でメモリを使う製品全般の価格が急騰しており、古い端末も例外ではなくなっています。データセンター向けにメモリが大量に買われることで、AIと直接関係のない一般向けの機器にまで値上げの波が及んでいる形です。AIブームのコストが、消費者の身近な製品価格にも跳ね返り始めていることを示す例です。</div>
-      <a class="card-link" href="https://www.wired.com/story/7-year-old-tv-now-100-dollars-more-expensive-thank-ai/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -437,10 +437,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">MetaのMuse、友人や家族の詳細なプロフィールを自動で作成</div>
-      <div class="card-title-en">Muse Creates Detailed Profiles of All Your Friends and Family</div>
-      <div class="card-source">Wired AI · Sat, 03 Oc</div>
+      <div class="card-source">Wired AI</div>
       <div class="card-body">すでに数百万回ダウンロードされているMetaのAIエージェントMuseが、利用者の友人や家族について詳しいプロフィールを作り上げていることをWiredが報じました。Museに用事を任せるほど便利になる一方で、その代償としてプライバシーを差し出す構造になっていると指摘しています。問題は本人だけでなく、同意していない周囲の人の情報まで蓄積される点です。Metaがコードの無償公開で家電への展開を進める中、エージェントがどこまで個人情報を集めてよいのかという線引きは、今後の規制や利用判断の焦点になりそうです。</div>
-      <a class="card-link" href="https://www.wired.com/story/muse-creates-detailed-profiles-of-all-your-friends-and-family/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -453,10 +451,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja"><span class="t" data-t="pop-os" tabindex="0" role="button" aria-label="Pop!_OSの説明を見る">Pop!_OS</span>、<span class="t" data-t="codebase" tabindex="0" role="button" aria-label="コードベースの説明を見る">コードベース</span>の大部分でAI生成コードを禁止</div>
-      <div class="card-title-en">Pop!_OS bans AI-generated code from much of its codebase</div>
-      <div class="card-source">Hacker News · 2026-10-03</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body"><span class="t" data-t="linux" tabindex="0" role="button" aria-label="Linuxの説明を見る">Linux</span>系OSのPop!_OSが、コードベースの大部分でAIが生成したコードの受け入れを禁止する方針を打ち出しました。この話題はHacker Newsで94ポイントを集め、開発者の間で議論になっています。<span class="t" data-t="agentic-coding" tabindex="0" role="button" aria-label="AIコーディングの説明を見る">AIコーディング</span>ツールが急速に広がる一方、品質やライセンス、保守の負担を理由にAI生成コードを制限する<span class="t" data-t="open-source" tabindex="0" role="button" aria-label="オープンソースの説明を見る">オープンソース</span>プロジェクトも出てきています。AIを使った開発がどこまで受け入れられるのか、プロジェクトごとに線引きが分かれ始めていることを示す事例です。</div>
-      <a class="card-link" href="https://www.neowin.net/news/system76-bans-ai-generated-code-across-many-of-its-cosmic-codebases/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card tools">
       <div class="card-top">
@@ -464,10 +460,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">テキストメッセージで使えるAIエージェントまとめ</div>
-      <div class="card-title-en">All the AI agents that can live in your text messages</div>
-      <div class="card-source">TechCrunch AI · Sat, 03 Oc</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body"><span class="t" data-t="techcrunch" tabindex="0" role="button" aria-label="TechCrunchの説明を見る">TechCrunch</span>が、普段のテキストメッセージの中で使えるAIエージェントのうち主なものを一覧にまとめました。汎用的なアシスタントから、家族向け、旅行向け、仕事向けに特化したものまで幅広く取り上げています。専用アプリを入れなくても、使い慣れたメッセージ画面からAIに頼みごとができる点が共通の売りです。AIエージェントが日常のやりとりの中に入り込みつつある現状を把握するのに役立つまとめです。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/10/03/all-the-ai-agents-that-can-live-in-your-text-messages/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>

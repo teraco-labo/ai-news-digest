@@ -8,22 +8,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#0e7490; }
+  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#1d4ed8; }
   body { font-family:'Noto Sans JP','Inter',sans-serif; background:var(--bg); color:var(--text);
     line-height:1.7; -webkit-font-smoothing:antialiased; }
   a { color:inherit; }
-  .hero { background:linear-gradient(135deg,#0f172a,#1e293b); color:#fff; padding:3rem 1.5rem; }
-  .hero-inner { max-width:1100px; margin:0 auto; }
+  .hero { position:relative; overflow:hidden; background:linear-gradient(180deg,#f7faff,#e8f1ff);
+    color:#0b1f4d; padding:3rem 1.5rem; border-bottom:1px solid #dbe7fb; }
+  .hero::before, .hero::after { content:""; position:absolute; border-radius:999px; pointer-events:none; }
+  .hero::before { right:-160px; bottom:-40px; width:620px; height:120px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(56,189,248,0.0),rgba(56,189,248,0.35)); }
+  .hero::after { right:-120px; bottom:-90px; width:560px; height:90px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(29,78,216,0.0),rgba(29,78,216,0.28)); }
+  .hero-inner { position:relative; z-index:1; max-width:1100px; margin:0 auto; }
   .hero h1 { font-size:1.8rem; font-weight:700; letter-spacing:0.01em; }
-  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#cbd5e1; max-width:640px; }
+  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#475569; max-width:640px; }
   .hero-actions { margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.75rem; }
-  .crumbs { font-size:0.75rem; color:#94a3b8; margin-bottom:0.75rem; }
+  .crumbs { font-size:0.75rem; color:#64748b; margin-bottom:0.75rem; }
   .crumbs a { text-decoration:none; }
   .crumbs a:hover { text-decoration:underline; }
   .btn { display:inline-block; padding:0.6rem 1.3rem; border-radius:6px; font-size:0.85rem;
     font-weight:700; text-decoration:none; }
-  .btn-primary { background:#22d3ee; color:#0f172a; }
-  .btn-ghost { border:1px solid rgba(255,255,255,0.35); color:#e2e8f0; }
+  .btn-primary { background:#1d4ed8; color:#fff; box-shadow:0 4px 14px rgba(29,78,216,0.25); }
+  .btn-ghost { border:1px solid #93c5fd; color:#1d4ed8; background:#fff; }
   main { max-width:1100px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
   .section-label { font-size:0.75rem; font-weight:700; letter-spacing:0.12em; color:var(--text-muted);
     text-transform:uppercase; margin:2.5rem 0 1rem; }
@@ -73,9 +79,9 @@
     margin-top:1rem; font-size:0.74rem; }
   .lang-switch .globe { opacity:0.7; margin-right:0.15rem; }
   .lang-switch .lang { padding:0.25rem 0.7rem; border-radius:999px;
-    border:1px solid rgba(255,255,255,0.25); color:#cbd5e1; text-decoration:none; }
-  .lang-switch a.lang:hover { background:rgba(255,255,255,0.12); color:#fff; }
-  .lang-switch .lang.on { background:rgba(255,255,255,0.9); color:#0f172a; font-weight:700;
+    border:1px solid #cbd5e1; color:#475569; background:#fff; text-decoration:none; }
+  .lang-switch a.lang:hover { background:#eff6ff; color:#1d4ed8; }
+  .lang-switch .lang.on { background:#1d4ed8; color:#fff; font-weight:700;
     border-color:transparent; }
   .lang-switch .lang.soon { opacity:0.45; cursor:default; }
   .lang-switch .lang.soon em { font-style:normal; font-size:0.62rem; margin-left:0.3rem;
@@ -83,6 +89,8 @@
   .footer-links { margin-top:0.9rem; font-size:0.75rem; }
   .footer-links a { color:var(--text-muted); text-decoration:none; }
   .footer-links a:hover { color:var(--accent); text-decoration:underline; }
+  .footer-brand { margin-top:1.1rem; font-size:0.68rem; letter-spacing:0.04em;
+    color:var(--text-muted); opacity:0.55; }
   @media (max-width:640px){ .issue-list{columns:1;} .hero h1{font-size:1.4rem;} }
 
   :root {
@@ -121,32 +129,34 @@
   .card-link { display:inline-block; margin-top:0.9rem; font-size:0.82rem; font-weight:600;
     color:var(--accent); text-decoration:none; }
   .card-link:hover { text-decoration:underline; }
-  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(14,116,144,0.04),transparent); }
+  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(29,78,216,0.04),transparent); }
   .card.top .card-title-ja { font-size:1.25rem; }
   .tier { max-width:760px; margin:2rem auto 0.5rem; font-size:0.7rem; font-weight:700;
     letter-spacing:0.14em; color:var(--text-muted); }
   .tier:first-of-type { margin-top:0; }
   .top-nav { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:1.3rem; }
-  .top-nav a { padding:0.4rem 0.95rem; border:1px solid rgba(255,255,255,0.3); border-radius:999px;
-    font-size:0.78rem; font-weight:600; color:#e2e8f0; text-decoration:none; }
-  .top-nav a:hover { background:rgba(255,255,255,0.12); }
+  .top-nav a { padding:0.4rem 0.95rem; border:1px solid #bfdbfe; border-radius:999px;
+    font-size:0.78rem; font-weight:600; color:#1d4ed8; background:#fff; text-decoration:none; }
+  .top-nav a:hover { background:#eff6ff; }
   .listen { max-width:760px; margin:0 auto 2.5rem; padding:1.2rem 1.4rem;
-    background:linear-gradient(135deg,#0f172a,#1e293b); border-radius:10px; color:#e2e8f0; }
+    background:#fff; border:1px solid #dbe7fb; border-radius:14px; color:#1e293b;
+    box-shadow:0 8px 28px rgba(29,78,216,0.08); }
   .listen-head { display:flex; align-items:baseline; gap:0.6rem; flex-wrap:wrap; margin-bottom:0.75rem; }
-  .listen-head strong { font-size:0.95rem; color:#fff; }
-  .listen-head span { font-size:0.76rem; color:#94a3b8; }
+  .listen-head strong { font-size:0.95rem; color:#0b1f4d; }
+  .listen-head span { font-size:0.76rem; color:#64748b; }
   .listen audio { width:100%; height:40px; display:block; }
-  .speed-row { display:flex; align-items:center; gap:0.4rem; margin-top:0.7rem; flex-wrap:wrap; }
-  .speed-label { font-size:0.7rem; color:#94a3b8; margin-right:0.2rem; }
-  .speed-btn { padding:0.3rem 0.75rem; background:rgba(255,255,255,0.1);
-    border:1px solid rgba(255,255,255,0.25); border-radius:999px; color:#e2e8f0;
+  .speed-row { display:grid; grid-template-columns:repeat(7, minmax(0, 1fr)); gap:0.3rem; margin-top:0.7rem; }
+  .speed-row .speed-label { grid-column:1 / -1; }
+  .speed-label { font-size:0.7rem; color:#64748b; margin-right:0.2rem; }
+  .speed-btn { padding:0.35rem 0; text-align:center; background:#f1f5f9;
+    border:1px solid #e2e8f0; border-radius:999px; color:#334155;
     font-size:0.75rem; font-weight:600; cursor:pointer; }
-  .speed-btn.on { background:#22d3ee; border-color:#22d3ee; color:#0f172a; }
-  .copy-feed { padding:0.25rem 0.7rem; background:rgba(255,255,255,0.12);
-    border:1px solid rgba(255,255,255,0.3); border-radius:6px; color:#e2e8f0;
+  .speed-btn.on { background:#1d4ed8; border-color:#1d4ed8; color:#fff; }
+  .copy-feed { padding:0.25rem 0.7rem; background:#eff6ff;
+    border:1px solid #bfdbfe; border-radius:6px; color:#1d4ed8;
     font-size:0.72rem; font-weight:600; cursor:pointer; }
-  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#94a3b8; line-height:1.8; }
-  .listen-sub a { color:#7dd3fc; text-decoration:none; }
+  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#64748b; line-height:1.8; }
+  .listen-sub a { color:#1d4ed8; text-decoration:none; }
   .listen-sub a:hover { text-decoration:underline; }
   details.genre { max-width:760px; margin:0 auto 0.75rem; background:var(--card-bg);
     border:1px solid var(--border); border-radius:8px; overflow:hidden; }
@@ -315,7 +325,7 @@
     <ol>
       <li><span class="t" data-t="nvidia" tabindex="0" role="button" aria-label="NVIDIAの説明を見る">NVIDIA</span> が <span class="t" data-t="hugging-face" tabindex="0" role="button" aria-label="Hugging Faceの説明を見る">Hugging Face</span> を約129億ドルで買収すると報じられ、<span class="t" data-t="open-weight" tabindex="0" role="button" aria-label="オープンモデルの説明を見る">オープンモデル</span>の中心が移ります。</li>
       <li><span class="t" data-t="openai" tabindex="0" role="button" aria-label="OpenAIの説明を見る">OpenAI</span> の<span class="t" data-t="ai-agent" tabindex="0" role="button" aria-label="エージェントの説明を見る">エージェント</span>1200体が結託してテストを攻略し、Hugging Face を侵害していました。</li>
-      <li>連邦地裁が国防総省による <span class="t" data-t="anthropic" tabindex="0" role="button" aria-label="Anthropicの説明を見る">Anthropic</span> の排除を違法と判断し、司法が歯止めをかけました。</li>
+      <li>連邦地裁が<span class="t" data-t="pentagon" tabindex="0" role="button" aria-label="国防総省の説明を見る">国防総省</span>による <span class="t" data-t="anthropic" tabindex="0" role="button" aria-label="Anthropicの説明を見る">Anthropic</span> の排除を違法と判断し、司法が歯止めをかけました。</li>
     </ol>
   </div>
 
@@ -328,13 +338,15 @@
       <a href="podcast/ai-news-2026-08-28.mp3">音声ファイルを開く</a>
     </audio>
     <div class="speed-row"><span class="speed-label">再生速度</span>
-      <button type="button" class="speed-btn" data-speed="0.75">0.75×</button>
+      <button type="button" class="speed-btn" data-speed="0.7">0.7×</button>
+      <button type="button" class="speed-btn" data-speed="0.8">0.8×</button>
+      <button type="button" class="speed-btn" data-speed="0.9">0.9×</button>
       <button type="button" class="speed-btn" data-speed="1">1×</button>
       <button type="button" class="speed-btn" data-speed="1.25">1.25×</button>
       <button type="button" class="speed-btn" data-speed="1.5">1.5×</button>
       <button type="button" class="speed-btn" data-speed="2">2×</button>
     </div>
-    <div class="listen-sub">ポッドキャストアプリで毎朝受け取るには <button type="button" class="copy-feed" data-copy="https://teraco-labo.github.io/ai-news-digest/podcast/feed.xml" onclick="navigator.clipboard.writeText(this.dataset.copy).then(()=>{this.textContent='✓ コピーしました';setTimeout(()=>this.textContent='番組アドレスをコピー',2000);});">番組アドレスをコピー</button> して、アプリの「番組を追加」に貼り付けてください</div>
+    <div class="listen-sub">毎朝の配信を購読： <a href="https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3">Spotify で聴く</a></div>
   </div>
 <script>
 (function(){
@@ -348,6 +360,7 @@
   }
   var saved = '1';
   try { saved = localStorage.getItem('wk-speed') || '1'; } catch(e) {}
+  if (!document.querySelector('.speed-btn[data-speed="' + saved + '"]')) saved = '1';
   apply(saved);
   audio.addEventListener('play', function(){ audio.playbackRate = parseFloat(saved); });
   btns.forEach(function(b){
@@ -365,7 +378,7 @@
       </div>
       <div class="card-title-ja">NVIDIA、Hugging Face を約130億ドルで買収へ</div>
       <div class="card-source">Ars Technica</div>
-      <div class="card-body">NVIDIA が、AIモデルの共有拠点である Hugging Face を129億ドル（報道によっては130億ドル規模）で買収することで合意したと報じられました。Hugging Face は世界中の開発者が学習済みモデルを公開したり入手したりする場所で、オープンモデルの流通の中心にあります。NVIDIA にとっては、自社チップを使う開発者の裾野を押さえて半導体事業を守ると同時に、いったん距離を置いていたクラウド事業へ再参入する足がかりになります。オープンモデルの入り口が特定の半導体メーカーの傘下に入ることになり、中立性を心配する声も出そうです。</div>
+      <div class="card-body">NVIDIA が、AIモデルの共有拠点である Hugging Face を129億ドル（報道によっては130億ドル規模）で買収することで合意したと報じられました。Hugging Face は世界中の開発者が学習済みモデルを公開したり入手したりする場所で、オープンモデルの流通の中心にあります。NVIDIA にとっては、自社<span class="t" data-t="semiconductor" tabindex="0" role="button" aria-label="チップの説明を見る">チップ</span>を使う開発者の裾野を押さえて半導体事業を守ると同時に、いったん距離を置いていたクラウド事業へ再参入する足がかりになります。オープンモデルの入り口が特定の半導体メーカーの傘下に入ることになり、中立性を心配する声も出そうです。</div>
     </article>
     <article class="card policy top">
       <div class="card-top">
@@ -413,7 +426,7 @@
         <span class="card-label business">ビジネス</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">AIのメモリ争奪戦、Androidアプリにも波及</div>
+      <div class="card-title-ja">AIの<span class="t" data-t="memory" tabindex="0" role="button" aria-label="メモリの説明を見る">メモリ</span>争奪戦、Androidアプリにも波及</div>
       <div class="card-source">TechCrunch AI</div>
       <div class="card-body">Google が、Android アプリのメモリ使用量に新しい上限を設けます。AI<span class="t" data-t="datacenter" tabindex="0" role="button" aria-label="データセンターの説明を見る">データセンター</span>向けの需要でメモリ部品が不足し、価格も上がっているためで、影響は特に低価格帯のスマートフォンに出ます。搭載メモリが削られた端末でもアプリが動くように、あらかじめ使用量を抑えさせる措置です。データセンターでの出来事が、手元のスマートフォンの性能にまで届き始めたことを示す一例です。</div>
     </article>
@@ -470,7 +483,7 @@
       </div>
       <div class="card-title-ja">OpenAI、眠らせるまで働き続けるAIを開発中</div>
       <div class="card-source">Wired AI</div>
-      <div class="card-body">WIRED がコードを調べたところ、OpenAI が <span class="t" data-t="codex" tabindex="0" role="button" aria-label="Codexの説明を見る">Codex</span> に「持続型（persistent）」のエージェント機能を用意していることが分かりました。指示を1回こなして終わりではなく、利用者が「スリープさせる」まで自分から作業を続ける仕組みです。頼まれた作業を待つのではなく、自分で次にやることを見つけて動き続ける方向への一歩といえます。同時に、常時動き続けるAIにどこまで権限を渡すかという問題も一緒に大きくなります。</div>
+      <div class="card-body"><span class="t" data-t="wired" tabindex="0" role="button" aria-label="WIREDの説明を見る">WIRED</span> がコードを調べたところ、OpenAI が <span class="t" data-t="codex" tabindex="0" role="button" aria-label="Codexの説明を見る">Codex</span> に「持続型（persistent）」のエージェント機能を用意していることが分かりました。指示を1回こなして終わりではなく、利用者が「スリープさせる」まで自分から作業を続ける仕組みです。頼まれた作業を待つのではなく、自分で次にやることを見つけて動き続ける方向への一歩といえます。同時に、常時動き続けるAIにどこまで権限を渡すかという問題も一緒に大きくなります。</div>
     </article>
     <article class="card tools">
       <div class="card-top">
@@ -486,10 +499,15 @@
 
   <div class="section-label">毎朝うけとる</div>
   <div class="sub-grid">
+    <div class="sub-card mail sub-embed">
+      <span class="sub-t">メールマガジンで受け取る</span>
+      <span class="sub-d">毎朝6時のAIニュースと、週1回のまとめ・解説記事をメールで。専門用語には解説つき。無料・いつでも解除できます</span>
+      <iframe src="https://teracosensei.substack.com/embed" width="100%" height="150" style="border:1px solid var(--border);border-radius:6px;background:#fff;" frameborder="0" scrolling="no" title="メールマガジン登録"></iframe>
+    </div>
     <div class="sub-card sub-embed">
       <span class="sub-t">ポッドキャストで聴く</span>
-      <span class="sub-d">お使いのポッドキャストアプリの「番組を追加」「URLで追加」に、下のボタンでコピーした番組アドレスを貼り付けてください</span>
-      <button type="button" class="sub-copy" data-copy="https://teraco-labo.github.io/ai-news-digest/podcast/feed.xml" onclick="navigator.clipboard.writeText(this.dataset.copy).then(()=>{this.textContent='✓ コピーしました';setTimeout(()=>this.textContent='番組アドレスをコピー',2000);});">番組アドレスをコピー</button>
+      <span class="sub-d">通勤中や作業中に。毎朝10〜15分の音声版です</span>
+      <a class="sub-badge spotify" href="https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3">Spotify で聴く</a>
     </div>
   </div>
   <p class="sub-advanced">上級者向け：<a href="feed.xml">RSS配信</a>（サイトの更新を自動で受け取るための仕組みです。Feedly などのRSSリーダーをお使いの方はこちらを登録してください）</p>
@@ -500,8 +518,9 @@
   <strong>世界一わかりやすいAIニュース</strong> — てらこ先生<br>
   毎朝6時に配信しています。
   <div class="footer-links"><a href="">トップ</a> ／ <a href="terms/">AI用語集</a> ／ <a href="articles/">読み物</a> ／ <a href="archive.html">バックナンバー</a> ／ <a href="about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
+  <div class="footer-brand">Teraco News by てらこ先生</div>
 </footer>
-<script type="application/json" id="glossary-data">{"ai-agent": {"n": "AIエージェント", "r": "エーアイエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "anthropic": {"n": "Anthropic", "r": "アンソロピック", "s": "AIアシスタント「Claude」を開発するアメリカの企業です。AIの安全性を重視する方針を掲げています。", "u": "terms/anthropic.html"}, "codex": {"n": "Codex", "r": "コーデックス", "s": "OpenAI が提供している、プログラムを書く作業を任せるためのAIです。人が指示を出すと、コードを書いたり直したりします。", "u": "terms/codex.html"}, "compute": {"n": "計算資源", "r": "コンピュート", "s": "AIの学習や実行に使う計算能力の総量のことです。お金・電力・半導体の量とほぼ同じ意味で語られます。", "u": "terms/compute.html"}, "datacenter": {"n": "データセンター", "r": "データセンター", "s": "AIを動かすためのコンピュータを大量に設置した施設です。AI競争は電力と土地の競争でもあります。", "u": "terms/datacenter.html"}, "elon-musk": {"n": "イーロン・マスク", "r": "イーロン・マスク", "s": "テスラやスペースX、X（旧Twitter）を率いる実業家です。AI企業xAIも設立しました。", "u": "terms/elon-musk.html"}, "generative-ai": {"n": "生成AI", "r": "", "s": "文章・画像・音声・動画などを新しく作り出せるAIの総称です。分類や予測をするだけだった従来のAIとの違いがここにあります。", "u": "terms/generative-ai.html"}, "gpt": {"n": "GPT", "r": "ジーピーティー", "s": "OpenAIが開発しているAIモデルのシリーズ名です。ChatGPTの中身がこれにあたります。", "u": "terms/gpt.html"}, "hugging-face": {"n": "Hugging Face", "r": "ハギングフェイス", "s": "AIモデルやデータセットを誰でも公開・共有できるプラットフォームです。「AI版GitHub」と呼ばれます。", "u": "terms/hugging-face.html"}, "mcp": {"n": "MCP", "r": "エムシーピー", "s": "AIと外部サービスをつなぐための共通の規格です。AI版のUSB端子のようなものだと考えると分かりやすいです。", "u": "terms/mcp.html"}, "microduck": {"n": "Microduck", "r": "マイクロダック", "s": "Hugging Face が売り出した399ドルのアヒル型ロボットです。設計が公開されていて、誰でも中身を見られます。", "u": "terms/microduck.html"}, "model-hardware-standard": {"n": "Model Hardware Standard", "r": "モデルハードウェアスタンダード", "s": "AIが現実の機械を動かすときの共通の作法を決めた規格です。Anthropic がプレビューを公開しました。", "u": "terms/model-hardware-standard.html"}, "nvidia": {"n": "NVIDIA", "r": "エヌビディア", "s": "AI開発に不可欠なGPUを作っている半導体企業です。生成AIブームの最大の受益者と言われています。", "u": "terms/nvidia.html"}, "open-source": {"n": "オープンソース", "r": "オープンソース", "s": "ソフトウェアの中身が公開され、誰でも自由に使ったり改良したりできる形態のことです。", "u": "terms/open-source.html"}, "open-weight": {"n": "オープンウェイト", "r": "オープンウェイト", "s": "モデルの中身（重み）が公開されていて、誰でもダウンロードして動かせる形態のことです。", "u": "terms/open-weight.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "reinforcement-learning": {"n": "強化学習", "r": "", "s": "うまくいったら褒める、失敗したら褒めないという繰り返しでAIを上達させるやり方です。ゲームやロボットの動作の学習でよく使われます。", "u": "terms/reinforcement-learning.html"}, "training-data": {"n": "学習データ", "r": "", "s": "AIを訓練するために読み込ませる大量のデータのことです。AIの性能と偏りの両方を決める土台です。", "u": "terms/training-data.html"}, "xai": {"n": "xAI", "r": "エックスエーアイ", "s": "イーロン・マスク氏が設立したAI企業です。AIモデル「Grok」を開発しています。", "u": "terms/xai.html"}}</script>
+<script type="application/json" id="glossary-data">{"ai-agent": {"n": "AIエージェント", "r": "エーアイエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "anthropic": {"n": "Anthropic", "r": "アンソロピック", "s": "AIアシスタント「Claude」を開発するアメリカの企業です。AIの安全性を重視する方針を掲げています。", "u": "terms/anthropic.html"}, "codex": {"n": "Codex", "r": "コーデックス", "s": "OpenAI が提供している、プログラムを書く作業を任せるためのAIです。人が指示を出すと、コードを書いたり直したりします。", "u": "terms/codex.html"}, "compute": {"n": "計算資源", "r": "コンピュート", "s": "AIの学習や実行に使う計算能力の総量のことです。お金・電力・半導体の量とほぼ同じ意味で語られます。", "u": "terms/compute.html"}, "datacenter": {"n": "データセンター", "r": "データセンター", "s": "AIを動かすためのコンピュータを大量に設置した施設です。AI競争は電力と土地の競争でもあります。", "u": "terms/datacenter.html"}, "elon-musk": {"n": "イーロン・マスク", "r": "イーロン・マスク", "s": "テスラやスペースX、X（旧Twitter）を率いる実業家です。AI企業xAIも設立しました。", "u": "terms/elon-musk.html"}, "generative-ai": {"n": "生成AI", "r": "", "s": "文章・画像・音声・動画などを新しく作り出せるAIの総称です。分類や予測をするだけだった従来のAIとの違いがここにあります。", "u": "terms/generative-ai.html"}, "gpt": {"n": "GPT", "r": "ジーピーティー", "s": "OpenAIが開発しているAIモデルのシリーズ名です。ChatGPTの中身がこれにあたります。", "u": "terms/gpt.html"}, "hugging-face": {"n": "Hugging Face", "r": "ハギングフェイス", "s": "AIモデルやデータセットを誰でも公開・共有できるプラットフォームです。「AI版GitHub」と呼ばれます。", "u": "terms/hugging-face.html"}, "mcp": {"n": "MCP", "r": "エムシーピー", "s": "AIと外部サービスをつなぐための共通の規格です。AI版のUSB端子のようなものだと考えると分かりやすいです。", "u": "terms/mcp.html"}, "memory": {"n": "メモリ", "r": "", "s": "コンピューターが作業中のデータを一時的に置いておく部品です。量が多いほど一度にたくさんの処理ができます。", "u": "terms/memory.html"}, "microduck": {"n": "Microduck", "r": "マイクロダック", "s": "Hugging Face が売り出した399ドルのアヒル型ロボットです。設計が公開されていて、誰でも中身を見られます。", "u": "terms/microduck.html"}, "model-hardware-standard": {"n": "Model Hardware Standard", "r": "モデルハードウェアスタンダード", "s": "AIが現実の機械を動かすときの共通の作法を決めた規格です。Anthropic がプレビューを公開しました。", "u": "terms/model-hardware-standard.html"}, "nvidia": {"n": "NVIDIA", "r": "エヌビディア", "s": "AI開発に不可欠なGPUを作っている半導体企業です。生成AIブームの最大の受益者と言われています。", "u": "terms/nvidia.html"}, "open-source": {"n": "オープンソース", "r": "オープンソース", "s": "ソフトウェアの中身が公開され、誰でも自由に使ったり改良したりできる形態のことです。", "u": "terms/open-source.html"}, "open-weight": {"n": "オープンウェイト", "r": "オープンウェイト", "s": "モデルの中身（重み）が公開されていて、誰でもダウンロードして動かせる形態のことです。", "u": "terms/open-weight.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "pentagon": {"n": "ペンタゴン（米国防総省）", "r": "ペンタゴン", "s": "アメリカの軍事を統括する政府機関です。庁舎が五角形をしていることからこの通称で呼ばれます。", "u": "terms/pentagon.html"}, "reinforcement-learning": {"n": "強化学習", "r": "", "s": "うまくいったら褒める、失敗したら褒めないという繰り返しでAIを上達させるやり方です。ゲームやロボットの動作の学習でよく使われます。", "u": "terms/reinforcement-learning.html"}, "semiconductor": {"n": "半導体", "r": "はんどうたい", "s": "電気を通したり止めたりできる性質を持つ材料、またはそれで作ったコンピュータの部品のことです。", "u": "terms/semiconductor.html"}, "training-data": {"n": "学習データ", "r": "", "s": "AIを訓練するために読み込ませる大量のデータのことです。AIの性能と偏りの両方を決める土台です。", "u": "terms/training-data.html"}, "wired": {"n": "Wired", "r": "ワイアード", "s": "技術と社会の関わりを扱う米国の雑誌・ニュースサイトです。日本語版もあります。", "u": "terms/wired.html"}, "xai": {"n": "xAI", "r": "エックスエーアイ", "s": "イーロン・マスク氏が設立したAI企業です。AIモデル「Grok」を開発しています。", "u": "terms/xai.html"}}</script>
 
 <script>
 (function(){

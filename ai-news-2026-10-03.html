@@ -8,22 +8,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#0e7490; }
+  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#1d4ed8; }
   body { font-family:'Noto Sans JP','Inter',sans-serif; background:var(--bg); color:var(--text);
     line-height:1.7; -webkit-font-smoothing:antialiased; }
   a { color:inherit; }
-  .hero { background:linear-gradient(135deg,#0f172a,#1e293b); color:#fff; padding:3rem 1.5rem; }
-  .hero-inner { max-width:1100px; margin:0 auto; }
+  .hero { position:relative; overflow:hidden; background:linear-gradient(180deg,#f7faff,#e8f1ff);
+    color:#0b1f4d; padding:3rem 1.5rem; border-bottom:1px solid #dbe7fb; }
+  .hero::before, .hero::after { content:""; position:absolute; border-radius:999px; pointer-events:none; }
+  .hero::before { right:-160px; bottom:-40px; width:620px; height:120px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(56,189,248,0.0),rgba(56,189,248,0.35)); }
+  .hero::after { right:-120px; bottom:-90px; width:560px; height:90px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(29,78,216,0.0),rgba(29,78,216,0.28)); }
+  .hero-inner { position:relative; z-index:1; max-width:1100px; margin:0 auto; }
   .hero h1 { font-size:1.8rem; font-weight:700; letter-spacing:0.01em; }
-  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#cbd5e1; max-width:640px; }
+  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#475569; max-width:640px; }
   .hero-actions { margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.75rem; }
-  .crumbs { font-size:0.75rem; color:#94a3b8; margin-bottom:0.75rem; }
+  .crumbs { font-size:0.75rem; color:#64748b; margin-bottom:0.75rem; }
   .crumbs a { text-decoration:none; }
   .crumbs a:hover { text-decoration:underline; }
   .btn { display:inline-block; padding:0.6rem 1.3rem; border-radius:6px; font-size:0.85rem;
     font-weight:700; text-decoration:none; }
-  .btn-primary { background:#22d3ee; color:#0f172a; }
-  .btn-ghost { border:1px solid rgba(255,255,255,0.35); color:#e2e8f0; }
+  .btn-primary { background:#1d4ed8; color:#fff; box-shadow:0 4px 14px rgba(29,78,216,0.25); }
+  .btn-ghost { border:1px solid #93c5fd; color:#1d4ed8; background:#fff; }
   main { max-width:1100px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
   .section-label { font-size:0.75rem; font-weight:700; letter-spacing:0.12em; color:var(--text-muted);
     text-transform:uppercase; margin:2.5rem 0 1rem; }
@@ -73,9 +79,9 @@
     margin-top:1rem; font-size:0.74rem; }
   .lang-switch .globe { opacity:0.7; margin-right:0.15rem; }
   .lang-switch .lang { padding:0.25rem 0.7rem; border-radius:999px;
-    border:1px solid rgba(255,255,255,0.25); color:#cbd5e1; text-decoration:none; }
-  .lang-switch a.lang:hover { background:rgba(255,255,255,0.12); color:#fff; }
-  .lang-switch .lang.on { background:rgba(255,255,255,0.9); color:#0f172a; font-weight:700;
+    border:1px solid #cbd5e1; color:#475569; background:#fff; text-decoration:none; }
+  .lang-switch a.lang:hover { background:#eff6ff; color:#1d4ed8; }
+  .lang-switch .lang.on { background:#1d4ed8; color:#fff; font-weight:700;
     border-color:transparent; }
   .lang-switch .lang.soon { opacity:0.45; cursor:default; }
   .lang-switch .lang.soon em { font-style:normal; font-size:0.62rem; margin-left:0.3rem;
@@ -123,32 +129,34 @@
   .card-link { display:inline-block; margin-top:0.9rem; font-size:0.82rem; font-weight:600;
     color:var(--accent); text-decoration:none; }
   .card-link:hover { text-decoration:underline; }
-  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(14,116,144,0.04),transparent); }
+  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(29,78,216,0.04),transparent); }
   .card.top .card-title-ja { font-size:1.25rem; }
   .tier { max-width:760px; margin:2rem auto 0.5rem; font-size:0.7rem; font-weight:700;
     letter-spacing:0.14em; color:var(--text-muted); }
   .tier:first-of-type { margin-top:0; }
   .top-nav { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:1.3rem; }
-  .top-nav a { padding:0.4rem 0.95rem; border:1px solid rgba(255,255,255,0.3); border-radius:999px;
-    font-size:0.78rem; font-weight:600; color:#e2e8f0; text-decoration:none; }
-  .top-nav a:hover { background:rgba(255,255,255,0.12); }
+  .top-nav a { padding:0.4rem 0.95rem; border:1px solid #bfdbfe; border-radius:999px;
+    font-size:0.78rem; font-weight:600; color:#1d4ed8; background:#fff; text-decoration:none; }
+  .top-nav a:hover { background:#eff6ff; }
   .listen { max-width:760px; margin:0 auto 2.5rem; padding:1.2rem 1.4rem;
-    background:linear-gradient(135deg,#0f172a,#1e293b); border-radius:10px; color:#e2e8f0; }
+    background:#fff; border:1px solid #dbe7fb; border-radius:14px; color:#1e293b;
+    box-shadow:0 8px 28px rgba(29,78,216,0.08); }
   .listen-head { display:flex; align-items:baseline; gap:0.6rem; flex-wrap:wrap; margin-bottom:0.75rem; }
-  .listen-head strong { font-size:0.95rem; color:#fff; }
-  .listen-head span { font-size:0.76rem; color:#94a3b8; }
+  .listen-head strong { font-size:0.95rem; color:#0b1f4d; }
+  .listen-head span { font-size:0.76rem; color:#64748b; }
   .listen audio { width:100%; height:40px; display:block; }
-  .speed-row { display:flex; align-items:center; gap:0.4rem; margin-top:0.7rem; flex-wrap:wrap; }
-  .speed-label { font-size:0.7rem; color:#94a3b8; margin-right:0.2rem; }
-  .speed-btn { padding:0.3rem 0.75rem; background:rgba(255,255,255,0.1);
-    border:1px solid rgba(255,255,255,0.25); border-radius:999px; color:#e2e8f0;
+  .speed-row { display:grid; grid-template-columns:repeat(7, minmax(0, 1fr)); gap:0.3rem; margin-top:0.7rem; }
+  .speed-row .speed-label { grid-column:1 / -1; }
+  .speed-label { font-size:0.7rem; color:#64748b; margin-right:0.2rem; }
+  .speed-btn { padding:0.35rem 0; text-align:center; background:#f1f5f9;
+    border:1px solid #e2e8f0; border-radius:999px; color:#334155;
     font-size:0.75rem; font-weight:600; cursor:pointer; }
-  .speed-btn.on { background:#22d3ee; border-color:#22d3ee; color:#0f172a; }
-  .copy-feed { padding:0.25rem 0.7rem; background:rgba(255,255,255,0.12);
-    border:1px solid rgba(255,255,255,0.3); border-radius:6px; color:#e2e8f0;
+  .speed-btn.on { background:#1d4ed8; border-color:#1d4ed8; color:#fff; }
+  .copy-feed { padding:0.25rem 0.7rem; background:#eff6ff;
+    border:1px solid #bfdbfe; border-radius:6px; color:#1d4ed8;
     font-size:0.72rem; font-weight:600; cursor:pointer; }
-  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#94a3b8; line-height:1.8; }
-  .listen-sub a { color:#7dd3fc; text-decoration:none; }
+  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#64748b; line-height:1.8; }
+  .listen-sub a { color:#1d4ed8; text-decoration:none; }
   .listen-sub a:hover { text-decoration:underline; }
   details.genre { max-width:760px; margin:0 auto 0.75rem; background:var(--card-bg);
     border:1px solid var(--border); border-radius:8px; overflow:hidden; }
@@ -330,12 +338,13 @@
       <a href="podcast/ai-news-2026-10-03.mp3">音声ファイルを開く</a>
     </audio>
     <div class="speed-row"><span class="speed-label">再生速度</span>
-      <button type="button" class="speed-btn" data-speed="0.75">0.75×</button>
+      <button type="button" class="speed-btn" data-speed="0.7">0.7×</button>
+      <button type="button" class="speed-btn" data-speed="0.8">0.8×</button>
+      <button type="button" class="speed-btn" data-speed="0.9">0.9×</button>
       <button type="button" class="speed-btn" data-speed="1">1×</button>
       <button type="button" class="speed-btn" data-speed="1.25">1.25×</button>
       <button type="button" class="speed-btn" data-speed="1.5">1.5×</button>
       <button type="button" class="speed-btn" data-speed="2">2×</button>
-      <button type="button" class="speed-btn" data-speed="2.5">2.5×</button>
     </div>
     <div class="listen-sub">毎朝の配信を購読： <a href="https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3">Spotify で聴く</a></div>
   </div>
@@ -351,6 +360,7 @@
   }
   var saved = '1';
   try { saved = localStorage.getItem('wk-speed') || '1'; } catch(e) {}
+  if (!document.querySelector('.speed-btn[data-speed="' + saved + '"]')) saved = '1';
   apply(saved);
   audio.addEventListener('play', function(){ audio.playbackRate = parseFloat(saved); });
   btns.forEach(function(b){
@@ -367,10 +377,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">AIは「スーパーインテリジェンス」に改称、それでも購入者は2%</div>
-      <div class="card-title-en">Call it AI, call it Super Intelligence, only 2% of consumers are buying it</div>
-      <div class="card-source">TechCrunch AI · Fri, 02 Oc</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">ホワイトハウスに<span class="t" data-t="mark-zuckerberg" tabindex="0" role="button" aria-label="Zuckerbergの説明を見る">Zuckerberg</span>、Bezos、Musk、<span class="t" data-t="anthropic" tabindex="0" role="button" aria-label="Anthropicの説明を見る">Anthropic</span>の<span class="t" data-t="dario-amodei" tabindex="0" role="button" aria-label="Dario Amodeiの説明を見る">Dario Amodei</span>ら主要テック企業のトップがほぼ全員集まり、AI安全に関する誓約に署名しました。<span class="t" data-t="donald-trump" tabindex="0" role="button" aria-label="トランプ大統領の説明を見る">トランプ大統領</span>はこの誓約を「<span class="t" data-t="morally-binding" tabindex="0" role="button" aria-label="道義的に拘束力の説明を見る">道義的に拘束力</span>がある」と表現し、あわせてAIを公式に「スーパーインテリジェンス」と呼び替える<span class="t" data-t="executive-order" tabindex="0" role="button" aria-label="大統領令の説明を見る">大統領令</span>にも署名しています。長年AIという言葉を熱心に使ってきた経営者たちが改称に異を唱えなかったことについて、<span class="t" data-t="wired" tabindex="0" role="button" aria-label="Wiredの説明を見る">Wired</span>は政権への「忠誠テスト」だったと論じています。一方で<span class="t" data-t="techcrunch" tabindex="0" role="button" aria-label="TechCrunchの説明を見る">TechCrunch</span>は、呼び名がどうであれ実際にAIにお金を払っている消費者は2%にとどまると指摘しました。政治的な演出と、消費者市場での普及の遅さとの落差が浮き彫りになった一週間です。</div>
-      <a class="card-link" href="https://techcrunch.com/podcast/call-it-ai-call-it-super-intelligence-only-2-of-consumers-are-buying-it/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card policy top">
       <div class="card-top">
@@ -378,10 +386,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">Apple、AIエージェントのリスクを理由にmacOSの<span class="t" data-t="full-disk-access" tabindex="0" role="button" aria-label="フルディスクアクセスの説明を見る">フルディスクアクセス</span>を厳格化</div>
-      <div class="card-title-en">Apple says it’s tightening macOS ‘Full Disk Access’ controls due to new risks from AI agents</div>
-      <div class="card-source">TechCrunch AI · Fri, 02 Oc</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">AppleはmacOSの「Full Disk Access（フルディスクアクセス）」権限について、新たな管理機能を追加すると発表しました。この権限を持つアプリはユーザーのファイル、メッセージ、メール、閲覧履歴に広くアクセスできます。Appleは、AIエージェントの能力が高まるにつれ、こうした広範なアクセスを与えることの危険性が増していると警告しています。PCを自律的に操作するエージェントが普及しつつある中、OSメーカーが権限設計そのものを見直し始めた点で、エージェントを開発・導入する側にも影響が及びそうです。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/10/02/apple-says-its-tightening-macos-full-disk-access-controls-due-to-new-risks-from-ai-agents/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card policy top">
       <div class="card-top">
@@ -389,10 +395,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">ChatGPTのMacアプリに脆弱性、機密データ流出のおそれ</div>
-      <div class="card-title-en">A Flaw in ChatGPT’s Mac App Could Have Let Hackers Grab Sensitive Data</div>
-      <div class="card-source">Wired AI · Fri, 02 Oc</div>
+      <div class="card-source">Wired AI</div>
       <div class="card-body">ChatGPTのMac向けアプリに、攻撃者が機密データを取得できた可能性のある脆弱性が見つかり、すでに修正されました。これまではAIエージェントが攻撃に悪用される能力に注目が集まってきましたが、今回の件はAIソフトウェア自体が狙われやすい標的であることを示しています。AIアプリは会話履歴や業務データなど重要な情報を扱うため、攻撃者にとって魅力的な入口になります。AIツールを業務に入れる企業は、アプリの更新管理や権限設定を含めて、通常のソフトウェアと同等以上のセキュリティ対策が求められます。</div>
-      <a class="card-link" href="https://www.wired.com/story/a-flaw-in-chatgpts-mac-app-could-have-let-hackers-grab-sensitive-data/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
   </div>
   <div class="tier">ジャンル別のニュース（タップで開く）</div>
@@ -405,10 +409,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja"><span class="t" data-t="trillium-labs" tabindex="0" role="button" aria-label="Trillium Labsの説明を見る">Trillium Labs</span>、リスクの高いAI研究をあえて公開で進める</div>
-      <div class="card-title-en">These AI Experts Want to Do High-Stakes Research Out in the Open</div>
-      <div class="card-source">Wired AI · Fri, 02 Oc</div>
+      <div class="card-source">Wired AI</div>
       <div class="card-body">多くのフロンティアラボがリスクの高い研究を社内に閉じている中、Trillium Labsはその成果を積極的に公開する方針を打ち出しています。対象とするのは、AIの自己改善やモデルの振る舞いといった、安全性の議論で特に注目される領域です。危険とされる研究ほど外部の目が届きにくいという問題に対し、透明性を高めることで検証可能性を確保しようとする試みです。公開による悪用リスクとの兼ね合いをどう扱うかが、今後の評価の分かれ目になりそうです。</div>
-      <a class="card-link" href="https://www.wired.com/story/trillium-labs-wants-to-do-high-risk-ai-research-in-the-open/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card research">
       <div class="card-top">
@@ -416,10 +418,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja"><span class="t" data-t="alphago" tabindex="0" role="button" aria-label="AlphaGoの説明を見る">AlphaGo</span>開発者が論考「LLMは推論していない」</div>
-      <div class="card-title-en">Don’t be fooled—LLMs don’t reason</div>
-      <div class="card-source">MIT Tech Review · Fri, 02 Oc</div>
+      <div class="card-source">MIT Tech Review</div>
       <div class="card-body">2016年3月にソウルで行われたAlphaGoとトップ棋士の対局で、開発に携わった筆者が、対局2局目の「<span class="t" data-t="move-37" tabindex="0" role="button" aria-label="Move 37の説明を見る">Move 37</span>（37手目）」を振り返りながらLLMの能力を論じています。当時、一見ありえない悪手に見えたこの一手は、解説者の一部からミスと受け取られたほどでした。筆者はこの経験を踏まえ、LLMが見せる推論のような振る舞いにだまされてはいけないと主張しています。推論モデルが次々に登場する今、「AIは本当に考えているのか」という問いに、ゲームAIの最前線にいた当事者が投げかける異論として読む価値があります。</div>
-      <a class="card-link" href="https://www.technologyreview.com/2026/10/02/1145639/dont-be-fooled-llms-dont-reason/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card research">
       <div class="card-top">
@@ -427,10 +427,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">情報の大半が隠れたゲーム<span class="t" data-t="stratego" tabindex="0" role="button" aria-label="Strategoの説明を見る">Stratego</span>で、AIがついに壁を越える</div>
-      <div class="card-title-en">With most information hidden, the game Stratego had stumped AI until now</div>
-      <div class="card-source">Hacker News · 2026-10-02</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body">相手の駒の正体が見えないボードゲームStrategoは、これまでAIにとって攻略の難しいゲームとされてきました。この難所をAIが乗り越えたとする話題が、<span class="t" data-t="hacker-news" tabindex="0" role="button" aria-label="Hacker Newsの説明を見る">Hacker News</span>で159ポイントを集めています。囲碁やチェスと違い、<span class="t" data-t="imperfect-information-game" tabindex="0" role="button" aria-label="不完全な情報の説明を見る">不完全な情報</span>のもとで駆け引きやはったりを扱う必要がある点が、AIにとっての難しさでした。不確実な状況での意思決定は交渉や安全保障など現実の問題にも通じるため、ゲームAI研究の節目として注目されています。</div>
-      <a class="card-link" href="https://arstechnica.com/science/2026/10/ai-finally-beat-the-best-stratego-player-in-history-and-did-it-on-a-budget/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -443,10 +441,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja"><span class="t" data-t="sean-parker" tabindex="0" role="button" aria-label="Sean Parkerの説明を見る">Sean Parker</span>、Stability AIを音楽中心の会社に再構築</div>
-      <div class="card-title-en">Sean Parker is rebuilding Stability AI around music</div>
-      <div class="card-source">TechCrunch AI · Fri, 02 Oc</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">Sean Parker氏が、画像<span class="t" data-t="generative-ai" tabindex="0" role="button" aria-label="生成AIの説明を見る">生成AI</span>で知られるStability AIを音楽を軸にした会社へと作り直そうとしています。かつて音楽業界に「許可より先に動き、あとで許しを請う」やり方を見せつけた人物ですが、今回はレコード会社の承認と資金を得たうえでの再参入です。生成AIと音楽業界は<span class="t" data-t="copyright" tabindex="0" role="button" aria-label="著作権の説明を見る">著作権</span>をめぐって対立が続いてきただけに、権利者側と手を組む形での展開は注目に値します。<span class="t" data-t="stable-diffusion" tabindex="0" role="button" aria-label="Stable Diffusionの説明を見る">Stable Diffusion</span>で知られた同社にとっては、事業の柱を大きく切り替える動きになります。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/10/02/sean-parker-is-rebuilding-stability-ai-around-music/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card business">
       <div class="card-top">
@@ -454,10 +450,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja"><span class="t" data-t="palantir" tabindex="0" role="button" aria-label="Palantirの説明を見る">Palantir</span>の勤務表AIで看護師から「安全上の問題」の声</div>
-      <div class="card-title-en">AI Is Making a Mess of Nurses’ Schedules. They Say It’s a Safety Issue</div>
-      <div class="card-source">Wired AI · Fri, 02 Oc</div>
+      <div class="card-source">Wired AI</div>
       <div class="card-body">大手病院グループと放射線科のネットワークが、勤務スケジュールの効率化のためにPalantirのソフトウェアを導入しました。しかし看護師などのスタッフからは、新システムがミスや燃え尽き、不満を引き起こしているとの声が上がっています。現場は、勤務表の混乱が患者の安全にも関わる問題だと訴えています。医療のように人手と安全が直結する現場では、AIによる業務最適化が必ずしも現場の負担軽減につながらないことを示す事例です。</div>
-      <a class="card-link" href="https://www.wired.com/story/ai-making-mess-of-nurses-schedules-they-say-its-a-safety-issue/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card business">
       <div class="card-top">
@@ -465,10 +459,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">Amazonの10億ドルの<span class="t" data-t="datacenter" tabindex="0" role="button" aria-label="データセンターの説明を見る">データセンター</span>対策、さらなる反発を招く</div>
-      <div class="card-title-en">Amazon’s $1B plan to combat data center backlash draws more backlash</div>
-      <div class="card-source">Ars Technica · Fri, 02 Oc</div>
+      <div class="card-source">Ars Technica</div>
       <div class="card-body">Amazonは、各地で広がるデータセンター建設への反発に対応するため、10億ドル規模の計画を打ち出しました。地元との<span class="t" data-t="nda" tabindex="0" role="button" aria-label="秘密保持契約の説明を見る">秘密保持契約</span>（NDA）をやめる点は評価されています。一方で、データセンターによる汚染を過小評価しているとして厳しい批判も受けています。AI需要でデータセンターの建設が加速する中、地域社会との関係づくりがインフラ拡大の大きな壁になりつつあることを示しています。</div>
-      <a class="card-link" href="https://arstechnica.com/tech-policy/2026/10/amazons-1b-plan-to-combat-data-center-backlash-draws-more-backlash/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -481,10 +473,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja"><span class="t" data-t="circuit-breaker-labs" tabindex="0" role="button" aria-label="Circuit Breaker Labsの説明を見る">Circuit Breaker Labs</span>、AIの心理的被害を試す「<span class="t" data-t="crash-test-dummy" tabindex="0" role="button" aria-label="衝突試験用ダミーの説明を見る">衝突試験用ダミー</span>」を開発</div>
-      <div class="card-title-en">Circuit Breaker Labs hopes to make AI safer for your kids (and you)</div>
-      <div class="card-source">TechCrunch AI · Fri, 02 Oc</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">Circuit Breaker Labsは、AIが利用者に与える心理的な害を事前に検証するための「クラッシュテストダミー」を作りました。AIが人類を滅ぼすかといった遠い将来のリスクが語られがちな一方で、すでにAIによって心理的な被害を受けた人がいるという現実に焦点を当てています。自動車の衝突試験のように、模擬的な利用者で<span class="t" data-t="chatbot" tabindex="0" role="button" aria-label="チャットボットの説明を見る">チャットボット</span>の応答を試し、子どもを含む利用者にとっての危険を洗い出す狙いです。AIコンパニオンやチャットボットの安全性が社会問題化する中で、検証手法の整備は規制や業界基準にもつながりうる取り組みです。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/10/02/circuit-breaker-labs-hopes-to-make-ai-safer-for-your-kids-and-you/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card policy">
       <div class="card-top">
@@ -492,10 +482,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja"><span class="t" data-t="pope-leo-xiv" tabindex="0" role="button" aria-label="教皇レオ14世の説明を見る">教皇レオ14世</span>、AI生成アートに否定的な見解</div>
-      <div class="card-title-en">Pope Leo XIV is not a fan of AI-generated art</div>
-      <div class="card-source">TechCrunch AI · Fri, 02 Oc</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">ローマ教皇レオ14世が、AIが生成する画像やアートについて否定的な考えを示しました。教皇は「芸術と、他者が作った数百万枚の画像をもとに機械が統計的計算で生成するものとの間には、美的な違い以前に<span class="t" data-t="ontological" tabindex="0" role="button" aria-label="存在論的の説明を見る">存在論的</span>な違いがある」と記しています。さらに「アルゴリズムには人間性のひらめきが欠けている」とも述べました。宗教界の最高権威の一人による発言として、AIと創作をめぐる倫理や著作権の議論に影響を与えそうです。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/10/02/pope-leo-xiv-is-not-a-fan-of-ai-generated-art/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -508,10 +496,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja"><span class="t" data-t="redis" tabindex="0" role="button" aria-label="Redisの説明を見る">Redis</span>の作者、LLMをローカルで動かす「<span class="t" data-t="ds4" tabindex="0" role="button" aria-label="ds4の説明を見る">ds4</span>」を公開</div>
-      <div class="card-title-en">From the creator of Redis; run LLM locally with ds4</div>
-      <div class="card-source">Hacker News · 2026-10-02</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body">データベースソフトRedisの作者が、LLMを手元のマシンで実行するためのツール「ds4」を公開し、Hacker Newsで127ポイントを集めています。クラウドの<span class="t" data-t="api" tabindex="0" role="button" aria-label="APIの説明を見る">API</span>に頼らずにモデルを動かせるため、費用やデータの持ち出しを気にする開発者の関心を集めています。著名な<span class="t" data-t="open-source" tabindex="0" role="button" aria-label="オープンソースの説明を見る">オープンソース</span>開発者が手がけたことも、注目度を押し上げています。ローカルでLLMを動かす選択肢が広がることは、個人開発者や小規模チームにとって実用的な意味があります。</div>
-      <a class="card-link" href="https://dwarfstar.sh/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>

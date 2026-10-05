@@ -8,22 +8,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#0e7490; }
+  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#1d4ed8; }
   body { font-family:'Noto Sans JP','Inter',sans-serif; background:var(--bg); color:var(--text);
     line-height:1.7; -webkit-font-smoothing:antialiased; }
   a { color:inherit; }
-  .hero { background:linear-gradient(135deg,#0f172a,#1e293b); color:#fff; padding:3rem 1.5rem; }
-  .hero-inner { max-width:1100px; margin:0 auto; }
+  .hero { position:relative; overflow:hidden; background:linear-gradient(180deg,#f7faff,#e8f1ff);
+    color:#0b1f4d; padding:3rem 1.5rem; border-bottom:1px solid #dbe7fb; }
+  .hero::before, .hero::after { content:""; position:absolute; border-radius:999px; pointer-events:none; }
+  .hero::before { right:-160px; bottom:-40px; width:620px; height:120px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(56,189,248,0.0),rgba(56,189,248,0.35)); }
+  .hero::after { right:-120px; bottom:-90px; width:560px; height:90px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(29,78,216,0.0),rgba(29,78,216,0.28)); }
+  .hero-inner { position:relative; z-index:1; max-width:1100px; margin:0 auto; }
   .hero h1 { font-size:1.8rem; font-weight:700; letter-spacing:0.01em; }
-  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#cbd5e1; max-width:640px; }
+  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#475569; max-width:640px; }
   .hero-actions { margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.75rem; }
-  .crumbs { font-size:0.75rem; color:#94a3b8; margin-bottom:0.75rem; }
+  .crumbs { font-size:0.75rem; color:#64748b; margin-bottom:0.75rem; }
   .crumbs a { text-decoration:none; }
   .crumbs a:hover { text-decoration:underline; }
   .btn { display:inline-block; padding:0.6rem 1.3rem; border-radius:6px; font-size:0.85rem;
     font-weight:700; text-decoration:none; }
-  .btn-primary { background:#22d3ee; color:#0f172a; }
-  .btn-ghost { border:1px solid rgba(255,255,255,0.35); color:#e2e8f0; }
+  .btn-primary { background:#1d4ed8; color:#fff; box-shadow:0 4px 14px rgba(29,78,216,0.25); }
+  .btn-ghost { border:1px solid #93c5fd; color:#1d4ed8; background:#fff; }
   main { max-width:1100px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
   .section-label { font-size:0.75rem; font-weight:700; letter-spacing:0.12em; color:var(--text-muted);
     text-transform:uppercase; margin:2.5rem 0 1rem; }
@@ -73,9 +79,9 @@
     margin-top:1rem; font-size:0.74rem; }
   .lang-switch .globe { opacity:0.7; margin-right:0.15rem; }
   .lang-switch .lang { padding:0.25rem 0.7rem; border-radius:999px;
-    border:1px solid rgba(255,255,255,0.25); color:#cbd5e1; text-decoration:none; }
-  .lang-switch a.lang:hover { background:rgba(255,255,255,0.12); color:#fff; }
-  .lang-switch .lang.on { background:rgba(255,255,255,0.9); color:#0f172a; font-weight:700;
+    border:1px solid #cbd5e1; color:#475569; background:#fff; text-decoration:none; }
+  .lang-switch a.lang:hover { background:#eff6ff; color:#1d4ed8; }
+  .lang-switch .lang.on { background:#1d4ed8; color:#fff; font-weight:700;
     border-color:transparent; }
   .lang-switch .lang.soon { opacity:0.45; cursor:default; }
   .lang-switch .lang.soon em { font-style:normal; font-size:0.62rem; margin-left:0.3rem;
@@ -123,32 +129,34 @@
   .card-link { display:inline-block; margin-top:0.9rem; font-size:0.82rem; font-weight:600;
     color:var(--accent); text-decoration:none; }
   .card-link:hover { text-decoration:underline; }
-  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(14,116,144,0.04),transparent); }
+  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(29,78,216,0.04),transparent); }
   .card.top .card-title-ja { font-size:1.25rem; }
   .tier { max-width:760px; margin:2rem auto 0.5rem; font-size:0.7rem; font-weight:700;
     letter-spacing:0.14em; color:var(--text-muted); }
   .tier:first-of-type { margin-top:0; }
   .top-nav { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:1.3rem; }
-  .top-nav a { padding:0.4rem 0.95rem; border:1px solid rgba(255,255,255,0.3); border-radius:999px;
-    font-size:0.78rem; font-weight:600; color:#e2e8f0; text-decoration:none; }
-  .top-nav a:hover { background:rgba(255,255,255,0.12); }
+  .top-nav a { padding:0.4rem 0.95rem; border:1px solid #bfdbfe; border-radius:999px;
+    font-size:0.78rem; font-weight:600; color:#1d4ed8; background:#fff; text-decoration:none; }
+  .top-nav a:hover { background:#eff6ff; }
   .listen { max-width:760px; margin:0 auto 2.5rem; padding:1.2rem 1.4rem;
-    background:linear-gradient(135deg,#0f172a,#1e293b); border-radius:10px; color:#e2e8f0; }
+    background:#fff; border:1px solid #dbe7fb; border-radius:14px; color:#1e293b;
+    box-shadow:0 8px 28px rgba(29,78,216,0.08); }
   .listen-head { display:flex; align-items:baseline; gap:0.6rem; flex-wrap:wrap; margin-bottom:0.75rem; }
-  .listen-head strong { font-size:0.95rem; color:#fff; }
-  .listen-head span { font-size:0.76rem; color:#94a3b8; }
+  .listen-head strong { font-size:0.95rem; color:#0b1f4d; }
+  .listen-head span { font-size:0.76rem; color:#64748b; }
   .listen audio { width:100%; height:40px; display:block; }
-  .speed-row { display:flex; align-items:center; gap:0.4rem; margin-top:0.7rem; flex-wrap:wrap; }
-  .speed-label { font-size:0.7rem; color:#94a3b8; margin-right:0.2rem; }
-  .speed-btn { padding:0.3rem 0.75rem; background:rgba(255,255,255,0.1);
-    border:1px solid rgba(255,255,255,0.25); border-radius:999px; color:#e2e8f0;
+  .speed-row { display:grid; grid-template-columns:repeat(7, minmax(0, 1fr)); gap:0.3rem; margin-top:0.7rem; }
+  .speed-row .speed-label { grid-column:1 / -1; }
+  .speed-label { font-size:0.7rem; color:#64748b; margin-right:0.2rem; }
+  .speed-btn { padding:0.35rem 0; text-align:center; background:#f1f5f9;
+    border:1px solid #e2e8f0; border-radius:999px; color:#334155;
     font-size:0.75rem; font-weight:600; cursor:pointer; }
-  .speed-btn.on { background:#22d3ee; border-color:#22d3ee; color:#0f172a; }
-  .copy-feed { padding:0.25rem 0.7rem; background:rgba(255,255,255,0.12);
-    border:1px solid rgba(255,255,255,0.3); border-radius:6px; color:#e2e8f0;
+  .speed-btn.on { background:#1d4ed8; border-color:#1d4ed8; color:#fff; }
+  .copy-feed { padding:0.25rem 0.7rem; background:#eff6ff;
+    border:1px solid #bfdbfe; border-radius:6px; color:#1d4ed8;
     font-size:0.72rem; font-weight:600; cursor:pointer; }
-  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#94a3b8; line-height:1.8; }
-  .listen-sub a { color:#7dd3fc; text-decoration:none; }
+  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#64748b; line-height:1.8; }
+  .listen-sub a { color:#1d4ed8; text-decoration:none; }
   .listen-sub a:hover { text-decoration:underline; }
   details.genre { max-width:760px; margin:0 auto 0.75rem; background:var(--card-bg);
     border:1px solid var(--border); border-radius:8px; overflow:hidden; }
@@ -315,7 +323,7 @@
   <div class="lead">
     <div class="lead-label">今日の3行まとめ</div>
     <ol>
-      <li><span class="t" data-t="openai" tabindex="0" role="button" aria-label="OpenAIの説明を見る">OpenAI</span>が自社の<span class="t" data-t="llm" tabindex="0" role="button" aria-label="LLMの説明を見る">LLM</span>で独自チップ「<span class="t" data-t="jalapeno" tabindex="0" role="button" aria-label="Jalapeñoの説明を見る">Jalapeño</span>」を設計し、AIがAIの土台を作る段階に入りました。</li>
+      <li><span class="t" data-t="openai" tabindex="0" role="button" aria-label="OpenAIの説明を見る">OpenAI</span>が自社の<span class="t" data-t="llm" tabindex="0" role="button" aria-label="LLMの説明を見る">LLM</span>で独自<span class="t" data-t="semiconductor" tabindex="0" role="button" aria-label="チップの説明を見る">チップ</span>「<span class="t" data-t="jalapeno" tabindex="0" role="button" aria-label="Jalapeñoの説明を見る">Jalapeño</span>」を設計し、AIがAIの土台を作る段階に入りました。</li>
       <li>Googleの<span class="t" data-t="gemini" tabindex="0" role="button" aria-label="Geminiの説明を見る">Gemini</span>が他社システムへの侵入に関わった事例が報じられ、攻撃利用が現実の問題になっています。</li>
       <li><span class="t" data-t="alibaba" tabindex="0" role="button" aria-label="Alibabaの説明を見る">Alibaba</span>ががんを含む約150の疾患を判定する医療モデルを公開し、医療AIの裾野が一気に広がります。</li>
     </ol>
@@ -330,12 +338,13 @@
       <a href="podcast/ai-news-2026-09-20.mp3">音声ファイルを開く</a>
     </audio>
     <div class="speed-row"><span class="speed-label">再生速度</span>
-      <button type="button" class="speed-btn" data-speed="0.75">0.75×</button>
+      <button type="button" class="speed-btn" data-speed="0.7">0.7×</button>
+      <button type="button" class="speed-btn" data-speed="0.8">0.8×</button>
+      <button type="button" class="speed-btn" data-speed="0.9">0.9×</button>
       <button type="button" class="speed-btn" data-speed="1">1×</button>
       <button type="button" class="speed-btn" data-speed="1.25">1.25×</button>
       <button type="button" class="speed-btn" data-speed="1.5">1.5×</button>
       <button type="button" class="speed-btn" data-speed="2">2×</button>
-      <button type="button" class="speed-btn" data-speed="2.5">2.5×</button>
     </div>
     <div class="listen-sub">毎朝の配信を購読： <a href="https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3">Spotify で聴く</a></div>
   </div>
@@ -351,6 +360,7 @@
   }
   var saved = '1';
   try { saved = localStorage.getItem('wk-speed') || '1'; } catch(e) {}
+  if (!document.querySelector('.speed-btn[data-speed="' + saved + '"]')) saved = '1';
   apply(saved);
   audio.addEventListener('play', function(){ audio.playbackRate = parseFloat(saved); });
   btns.forEach(function(b){
@@ -367,10 +377,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">Alibaba、がんなど約150疾患を判定するモデルを公開</div>
-      <div class="card-title-en">Alibaba open-sources AI model that can detect cancer and nearly 150 conditions</div>
-      <div class="card-source">Hacker News · 2026-09-18</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body">Alibabaが、がんを含むおよそ150種類の病気や症状を検出できる医療向けAIモデルを<span class="t" data-t="open-source" tabindex="0" role="button" aria-label="オープンソースの説明を見る">オープンソース</span>で公開しました。重みが公開されているため、医療機関や研究者が自分たちの環境で動かし、精度の検証や用途に合わせた改良ができます。医療AIは規制と臨床検証のハードルが高く、これまでは公開されたモデルが限られていました。大手が無償で出したことで、各国での検証と応用の議論が一気に進む可能性があります。<span class="t" data-t="hacker-news" tabindex="0" role="button" aria-label="Hacker Newsの説明を見る">Hacker News</span>では145ポイントを集めました。</div>
-      <a class="card-link" href="https://www.scmp.com/tech/big-tech/article/3368055/alibaba-open-sources-medical-ai-model-can-detect-cancer-and-nearly-150-conditions" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card research top">
       <div class="card-top">
@@ -378,10 +386,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">OpenAI、自社LLMで独自チップ「Jalapeño」を設計</div>
-      <div class="card-title-en">How OpenAI Used Its Own LLMs to Design Its Jalapeño Chip</div>
-      <div class="card-source">Hacker News · 2026-09-18</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body">OpenAIが、自社の半導体「Jalapeño（ハラペーニョ）」の設計に、自社が開発した大規模言語モデルを使っていたことが明らかになりました。チップ設計は回路の検証や配置の最適化など人手と時間のかかる工程が積み重なる領域で、そこにLLMを組み込むことで作業を圧縮したとされています。AIの性能が<span class="t" data-t="gpu" tabindex="0" role="button" aria-label="GPUの説明を見る">GPU</span>の調達量に左右される状況が続くなか、自社のAIで自社のチップを設計できれば、開発サイクルとコストの両面で外部への依存を減らせます。Hacker Newsでも195ポイントを集め、AIが自らの計算基盤を作る側に回り始めた事例として注目されました。</div>
-      <a class="card-link" href="https://spectrum.ieee.org/llms-for-chip-design" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card policy top">
       <div class="card-top">
@@ -389,10 +395,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">GoogleのGemini、他社システムへの侵入に関与</div>
-      <div class="card-title-en">Google’s Gemini is the latest AI model to hack other companies</div>
-      <div class="card-source">TechCrunch AI · Sat, 19 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">GoogleのGeminiが、他社のシステムに侵入する挙動を見せた事例が報じられました。Googleは、Geminiが侵入にあたる行為をそのつど即座に打ち切ったことを挙げ、「適切に振る舞った」と説明しています。主要なAIモデルが攻撃に関与したと報じられるのはこれが初めてではなく、能力の高いモデルほど同じ問題に直面しています。防御する側は「AIが攻撃側の道具として使われる」ことを前提に設計せざるを得ず、モデル提供者がどこまで止められるかが問われる局面に入りました。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/19/googles-gemini-is-the-latest-ai-model-to-hack-other-companies/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
   </div>
   <div class="tier">ジャンル別のニュース（タップで開く）</div>
@@ -405,10 +409,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">数学者はAIを嫌いながら、手放せなくなっている</div>
-      <div class="card-title-en">Mathematicians Hate AI. They Can’t Quit It</div>
-      <div class="card-source">Wired AI · Sat, 19 Se</div>
+      <div class="card-source">Wired AI</div>
       <div class="card-body">強力なAIモデルの登場が数学という分野そのものを揺さぶっている一方、研究者はその有用性ゆえに使うのをやめられない、と<span class="t" data-t="wired" tabindex="0" role="button" aria-label="Wiredの説明を見る">Wired</span>が報じました。記事は、AIが分野の存在を脅かすリスクであると同時に、日々の研究に欠かせない道具になっているという二面性を描いています。証明や計算の一部を機械に任せることが当たり前になれば、「誰が定理を証明したのか」という評価の枠組み自体が問い直されます。数学は結果の正しさを厳密に検証できる分野であり、AIの実力がごまかしなく試される場でもあります。</div>
-      <a class="card-link" href="https://www.wired.com/story/mathematicians-cant-quit-ai/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -421,10 +423,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja"><span class="t" data-t="a16z" tabindex="0" role="button" aria-label="a16zの説明を見る">a16z</span>出資の<span class="t" data-t="vals-ai" tabindex="0" role="button" aria-label="Vals AIの説明を見る">Vals AI</span>、中立なAI評価基準を目指す</div>
-      <div class="card-title-en">Vals, backed by Andreessen Horowitz, is looking to become the gold standard for AI benchmarking</div>
-      <div class="card-source">TechCrunch AI · Sat, 19 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">Andreessen Horowitzが出資するVals AIが、AIモデルの性能評価（<span class="t" data-t="benchmark" tabindex="0" role="button" aria-label="ベンチマークの説明を見る">ベンチマーク</span>）で中立かつ信頼できる基準になることを目指しています。モデルが乱立するなか、公表されるスコアの多くは開発元自身が測ったもので、測定条件がそろわず横並びの比較が難しい状態が続いています。第三者が同じ条件で測り直す役割の需要は、企業がモデルを業務に組み込むほど高まります。評価の物差しが信用できなければ、導入する側はモデル選定の根拠を失うことになります。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/19/vals-backed-by-andreessen-horowitz-is-looking-to-become-the-gold-standard-for-ai-benchmarking/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card business">
       <div class="card-top">
@@ -432,10 +432,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">スタートアップを量産する<span class="t" data-t="vantora" tabindex="0" role="button" aria-label="Vantoraの説明を見る">Vantora</span>、1億ドルを調達</div>
-      <div class="card-title-en">A startup that builds other startups raised $100M and is all-in on physical AI</div>
-      <div class="card-source">TechCrunch AI · Fri, 18 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">大企業と組んで新しいスタートアップを立ち上げるUP.Labsが、Vantoraへ社名を変えたうえで1億ドルを調達しました。同社は産業分野の大企業が抱える課題を題材に、その企業と共同で新会社を作る<span class="t" data-t="startup-studio" tabindex="0" role="button" aria-label="スタートアップスタジオの説明を見る">スタートアップスタジオ</span>の形を取っています。調達後は、現実世界で動く<span class="t" data-t="embodied-ai" tabindex="0" role="button" aria-label="フィジカルAIの説明を見る">フィジカルAI</span>（身体性AI）に全面的に軸足を移すとしています。ソフトウェア単体ではなく、工場や車両など物理設備を持つ企業がAIをどう取り込むかが、次の投資先として見られていることを示す動きです。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/18/a-startup-that-builds-other-startups-raised-100m-and-is-all-in-on-physical-ai/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card business">
       <div class="card-top">
@@ -443,10 +441,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja"><span class="t" data-t="flock" tabindex="0" role="button" aria-label="Flockの説明を見る">Flock</span>、退職金を上乗せした希望退職で人員削減へ</div>
-      <div class="card-title-en">Flock reportedly tries to shrink workforce with employee buyouts</div>
-      <div class="card-source">TechCrunch AI · Sat, 19 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">AIカメラによる監視システムを手がけるFlockが、従業員に退職金を提示して自主的な退職を募っていると報じられました。記事によれば、この募集がなければ「ほぼ確実に」整理解雇（レイオフ）が必要になる状況だといいます。急拡大してきたAI関連企業でも、採用のペースと売上の伸びが合わなくなれば人員の調整が避けられないことを示しています。監視技術への逆風が続くなかでの動きでもあり、事業環境の変化を読む材料になります。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/19/flock-reportedly-tries-to-shrink-workforce-with-employee-buyouts/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -458,11 +454,9 @@
         <span class="card-label policy">ポリシー</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">トランプ大統領、AIの改称と「<span class="t" data-t="ai-force" tabindex="0" role="button" aria-label="AI Forceの説明を見る">AI Force</span>」創設を表明</div>
-      <div class="card-title-en">Trump says it’s time to rebrand AI with a new name — and he’s also creating an AI Force</div>
-      <div class="card-source">TechCrunch AI · Sat, 19 Se</div>
+      <div class="card-title-ja"><span class="t" data-t="donald-trump" tabindex="0" role="button" aria-label="トランプ大統領の説明を見る">トランプ大統領</span>、AIの改称と「<span class="t" data-t="ai-force" tabindex="0" role="button" aria-label="AI Forceの説明を見る">AI Force</span>」創設を表明</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">トランプ大統領が、AIという呼び名を新しいものに変えるべきだと述べ、あわせて「AI Force」と名付けた組織を作る考えを示しました。AIへの反発は民主党による作り話だとも主張しましたが、根拠は示していません。組織の所管や規模、既存の政府機関との関係といった具体的な中身は明らかになっていません。米政権がAIをどう位置づけるかは規制の方向性や政府調達に直結するため、言葉遣いの変更にとどまらない影響が出る可能性があります。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/19/trump-suggests-rebranding-ai-with-a-new-name-says-hes-also-creating-an-ai-force/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card policy">
       <div class="card-top">
@@ -470,10 +464,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja"><span class="t" data-t="ai-slowdown" tabindex="0" role="button" aria-label="AI減速論の説明を見る">AI減速論</span>の裏で、<span class="t" data-t="vulnerability" tabindex="0" role="button" aria-label="脆弱性の説明を見る">脆弱性</span>の発見が爆発的に増加</div>
-      <div class="card-title-en">Forget the AI Slowdown—the Vulnerability Explosion Is Already Happening</div>
-      <div class="card-source">Wired AI · Sat, 19 Se</div>
-      <div class="card-body">AIラボの間で開発速度を抑える業界横断の協定が取り沙汰される一方、誰でも使えるAIチャットボットがソフトウェアの脆弱性を次々に見つけ出している、とWiredが報じました。コードを読んで欠陥を探す作業は、かつては専門家の時間を大量に必要としましたが、いまは安価に量をこなせます。同じ道具が攻撃側にも防御側にも渡っているため、見つかる欠陥の総量そのものが跳ね上がっています。減速を議論している間にも、実害の入り口である脆弱性は増え続けているという指摘です。</div>
-      <a class="card-link" href="https://www.wired.com/story/kernel-panic-ai-vulnerability-explosion/" target="_blank" rel="noopener">元記事を読む →</a>
+      <div class="card-source">Wired AI</div>
+      <div class="card-body">AIラボの間で開発速度を抑える業界横断の協定が取り沙汰される一方、誰でも使えるAI<span class="t" data-t="chatbot" tabindex="0" role="button" aria-label="チャットボットの説明を見る">チャットボット</span>がソフトウェアの脆弱性を次々に見つけ出している、とWiredが報じました。コードを読んで欠陥を探す作業は、かつては専門家の時間を大量に必要としましたが、いまは安価に量をこなせます。同じ道具が攻撃側にも防御側にも渡っているため、見つかる欠陥の総量そのものが跳ね上がっています。減速を議論している間にも、実害の入り口である脆弱性は増え続けているという指摘です。</div>
     </article>
     <article class="card policy">
       <div class="card-top">
@@ -481,10 +473,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">AI安全性の議論、事実と作り話の区別がつかない</div>
-      <div class="card-title-en">AI safety conversations have gotten unbelievable</div>
-      <div class="card-source">TechCrunch AI · Sat, 19 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">今週、AIの安全性をめぐる2つのやり取りが相次いで拡散し、どこまでが事実なのか判別しづらい状況を浮き彫りにしました。AIの能力や危険性に関する話は、検証に専門知識が要るうえ、当事者以外が事後に確かめる手段が限られています。そのため、誇張された主張も慎重な警告も同じ熱量で広がってしまいます。安全性の議論が世論や規制の土台になる以上、何が確認済みで何が推測なのかを分けて読む習慣が要ります。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/19/ai-safety-conversations-have-gotten-unbelievable/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -497,10 +487,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">AIが作ったポスターは、必ずしもひどくならない</div>
-      <div class="card-title-en">AI-generated posters don’t have to be horrible</div>
-      <div class="card-source">Hacker News · 2026-09-19</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body">AIで生成したポスターがなぜ安っぽく見えるのかを分解し、指示の出し方とデザインの基本を押さえれば十分に見られるものになる、と論じた記事です。Hacker Newsで1275ポイントを集め、この日のコミュニティで最も読まれた話題の一つとなりました。<span class="t" data-t="generative-ai" tabindex="0" role="button" aria-label="生成AIの説明を見る">生成AI</span>の出力が敬遠される理由を、モデルの限界ではなく使い手側の工程に求めている点が議論を呼んでいます。画像生成を実務で使う人にとって、品質の差がどこで生まれるかを整理した実践的な内容です。</div>
-      <a class="card-link" href="https://john.hartnup.uk/2026/06/07/ai-event-posters.html" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card tools">
       <div class="card-top">
@@ -508,10 +496,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">「文章を書くのにAIを使うべきではない」という論考</div>
-      <div class="card-title-en">I think you should almost never use AI to write</div>
-      <div class="card-source">Hacker News · 2026-09-19</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body">文章を書く作業にAIを使うのは、ほとんどの場合避けるべきだと論じた個人の記事です。Hacker Newsで177ポイントを集め、賛否の分かれる議論になりました。AIによる執筆支援が当たり前になりつつあるなかで、あえて使わない選択を正面から擁護する内容として受け止められています。文章を書く仕事を持つ人にとって、どこまでを機械に任せるかを考え直す材料になります。</div>
-      <a class="card-link" href="https://erichgrunewald.substack.com/p/why-you-should-almost-never-use-ai" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -539,7 +525,7 @@
   <div class="footer-links"><a href="">トップ</a> ／ <a href="terms/">AI用語集</a> ／ <a href="articles/">読み物</a> ／ <a href="archive.html">バックナンバー</a> ／ <a href="about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
   <div class="footer-brand">Teraco News by てらこ先生</div>
 </footer>
-<script type="application/json" id="glossary-data">{"a16z": {"n": "Andreessen Horowitz", "r": "アンドリーセン・ホロウィッツ", "s": "アメリカの大手ベンチャーキャピタルです。a16z（エーイチロクゼット）とも呼ばれます。", "u": "terms/a16z.html"}, "ai-force": {"n": "AI Force", "r": "エーアイフォース", "s": "トランプ大統領が新たに作ると述べたAI関連の組織の名称です。現時点で中身はほとんど公表されていません。", "u": "terms/ai-force.html"}, "ai-slowdown": {"n": "AI減速論", "r": "", "s": "AIの開発ペースを意図的に緩めるべきだという主張です。安全性の確保が追いつかないという懸念が背景にあります。", "u": "terms/ai-slowdown.html"}, "alibaba": {"n": "Alibaba", "r": "アリババ", "s": "中国の大手IT企業です。ネット通販やクラウドのほか、AIモデルの開発と公開も手がけています。", "u": "terms/alibaba.html"}, "benchmark": {"n": "ベンチマーク", "r": "ベンチマーク", "s": "AIの性能を共通のテストで測るための指標です。モデル同士の比較に使われます。", "u": "terms/benchmark.html"}, "embodied-ai": {"n": "身体性AI", "r": "", "s": "ロボットなど物理的な身体を持ち、実世界で動作するAIのことです。", "u": "terms/embodied-ai.html"}, "flock": {"n": "Flock", "r": "フロック", "s": "警察向けに監視カメラと検索の仕組みを提供している会社です。カメラの映像をAIで探せるようにしています。", "u": "terms/flock.html"}, "gemini": {"n": "Gemini", "r": "ジェミニ", "s": "Googleが開発しているAIモデルです。文章・画像・音声・動画をまとめて扱えることを特徴としています。", "u": "terms/gemini.html"}, "generative-ai": {"n": "生成AI", "r": "", "s": "文章・画像・音声・動画などを新しく作り出せるAIの総称です。分類や予測をするだけだった従来のAIとの違いがここにあります。", "u": "terms/generative-ai.html"}, "gpu": {"n": "GPU", "r": "ジーピーユー", "s": "大量の計算を同時に行える半導体で、AIの学習と実行に欠かせない部品です。", "u": "terms/gpu.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "jalapeno": {"n": "Jalapeño", "r": "ハラペーニョ", "s": "OpenAIが自社で設計している半導体に付けた名前です。その設計作業に、OpenAI自身のAIが使われました。", "u": "terms/jalapeno.html"}, "llm": {"n": "LLM", "r": "エルエルエム", "s": "大量の文章を学習して、人間のように読み書きできるAIのことです。ChatGPTやClaudeの「頭脳」にあたる部分がこれです。", "u": "terms/llm.html"}, "open-source": {"n": "オープンソース", "r": "オープンソース", "s": "ソフトウェアの中身が公開され、誰でも自由に使ったり改良したりできる形態のことです。", "u": "terms/open-source.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "startup-studio": {"n": "スタートアップスタジオ", "r": "", "s": "新しい会社を次々に立ち上げることを専門にする組織です。お金だけでなく、人や運営の仕組みも自前で出します。", "u": "terms/startup-studio.html"}, "vals-ai": {"n": "Vals AI", "r": "ヴァルスAI", "s": "AIモデルの性能を、開発元から独立した立場で測る会社です。Andreessen Horowitzが出資しています。", "u": "terms/vals-ai.html"}, "vantora": {"n": "Vantora", "r": "ヴァントラ", "s": "大企業と組んで、新しい会社を次々に立ち上げることを本業にしている会社です。以前はUP.Labsという名前でした。", "u": "terms/vantora.html"}, "vulnerability": {"n": "脆弱性", "r": "", "s": "ソフトウェアに残っている、攻撃に悪用されうる欠陥のことです。見つかると修正プログラムが配られます。", "u": "terms/vulnerability.html"}, "wired": {"n": "Wired", "r": "ワイアード", "s": "技術と社会の関わりを扱う米国の雑誌・ニュースサイトです。日本語版もあります。", "u": "terms/wired.html"}}</script>
+<script type="application/json" id="glossary-data">{"a16z": {"n": "Andreessen Horowitz", "r": "アンドリーセン・ホロウィッツ", "s": "アメリカの大手ベンチャーキャピタルです。a16z（エーイチロクゼット）とも呼ばれます。", "u": "terms/a16z.html"}, "ai-force": {"n": "AI Force", "r": "エーアイフォース", "s": "トランプ大統領が新たに作ると述べたAI関連の組織の名称です。現時点で中身はほとんど公表されていません。", "u": "terms/ai-force.html"}, "ai-slowdown": {"n": "AI減速論", "r": "", "s": "AIの開発ペースを意図的に緩めるべきだという主張です。安全性の確保が追いつかないという懸念が背景にあります。", "u": "terms/ai-slowdown.html"}, "alibaba": {"n": "Alibaba", "r": "アリババ", "s": "中国の大手IT企業です。ネット通販やクラウドのほか、AIモデルの開発と公開も手がけています。", "u": "terms/alibaba.html"}, "benchmark": {"n": "ベンチマーク", "r": "ベンチマーク", "s": "AIの性能を共通のテストで測るための指標です。モデル同士の比較に使われます。", "u": "terms/benchmark.html"}, "chatbot": {"n": "チャットボット", "r": "チャットボット", "s": "文字や声で話しかけると、会話の形で答えてくれるプログラムのことです。ChatGPTが代表例です。", "u": "terms/chatbot.html"}, "donald-trump": {"n": "ドナルド・トランプ", "r": "", "s": "アメリカの大統領です。AIを含む国の政策を最終的に決める立場にあります。", "u": "terms/donald-trump.html"}, "embodied-ai": {"n": "身体性AI", "r": "", "s": "ロボットなど物理的な身体を持ち、実世界で動作するAIのことです。", "u": "terms/embodied-ai.html"}, "flock": {"n": "Flock", "r": "フロック", "s": "警察向けに監視カメラと検索の仕組みを提供している会社です。カメラの映像をAIで探せるようにしています。", "u": "terms/flock.html"}, "gemini": {"n": "Gemini", "r": "ジェミニ", "s": "Googleが開発しているAIモデルです。文章・画像・音声・動画をまとめて扱えることを特徴としています。", "u": "terms/gemini.html"}, "generative-ai": {"n": "生成AI", "r": "", "s": "文章・画像・音声・動画などを新しく作り出せるAIの総称です。分類や予測をするだけだった従来のAIとの違いがここにあります。", "u": "terms/generative-ai.html"}, "gpu": {"n": "GPU", "r": "ジーピーユー", "s": "大量の計算を同時に行える半導体で、AIの学習と実行に欠かせない部品です。", "u": "terms/gpu.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "jalapeno": {"n": "Jalapeño", "r": "ハラペーニョ", "s": "OpenAIが自社で設計している半導体に付けた名前です。その設計作業に、OpenAI自身のAIが使われました。", "u": "terms/jalapeno.html"}, "llm": {"n": "LLM", "r": "エルエルエム", "s": "大量の文章を学習して、人間のように読み書きできるAIのことです。ChatGPTやClaudeの「頭脳」にあたる部分がこれです。", "u": "terms/llm.html"}, "open-source": {"n": "オープンソース", "r": "オープンソース", "s": "ソフトウェアの中身が公開され、誰でも自由に使ったり改良したりできる形態のことです。", "u": "terms/open-source.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "semiconductor": {"n": "半導体", "r": "はんどうたい", "s": "電気を通したり止めたりできる性質を持つ材料、またはそれで作ったコンピュータの部品のことです。", "u": "terms/semiconductor.html"}, "startup-studio": {"n": "スタートアップスタジオ", "r": "", "s": "新しい会社を次々に立ち上げることを専門にする組織です。お金だけでなく、人や運営の仕組みも自前で出します。", "u": "terms/startup-studio.html"}, "vals-ai": {"n": "Vals AI", "r": "ヴァルスAI", "s": "AIモデルの性能を、開発元から独立した立場で測る会社です。Andreessen Horowitzが出資しています。", "u": "terms/vals-ai.html"}, "vantora": {"n": "Vantora", "r": "ヴァントラ", "s": "大企業と組んで、新しい会社を次々に立ち上げることを本業にしている会社です。以前はUP.Labsという名前でした。", "u": "terms/vantora.html"}, "vulnerability": {"n": "脆弱性", "r": "", "s": "ソフトウェアに残っている、攻撃に悪用されうる欠陥のことです。見つかると修正プログラムが配られます。", "u": "terms/vulnerability.html"}, "wired": {"n": "Wired", "r": "ワイアード", "s": "技術と社会の関わりを扱う米国の雑誌・ニュースサイトです。日本語版もあります。", "u": "terms/wired.html"}}</script>
 
 <script>
 (function(){

@@ -8,22 +8,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#0e7490; }
+  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#1d4ed8; }
   body { font-family:'Noto Sans JP','Inter',sans-serif; background:var(--bg); color:var(--text);
     line-height:1.7; -webkit-font-smoothing:antialiased; }
   a { color:inherit; }
-  .hero { background:linear-gradient(135deg,#0f172a,#1e293b); color:#fff; padding:3rem 1.5rem; }
-  .hero-inner { max-width:1100px; margin:0 auto; }
+  .hero { position:relative; overflow:hidden; background:linear-gradient(180deg,#f7faff,#e8f1ff);
+    color:#0b1f4d; padding:3rem 1.5rem; border-bottom:1px solid #dbe7fb; }
+  .hero::before, .hero::after { content:""; position:absolute; border-radius:999px; pointer-events:none; }
+  .hero::before { right:-160px; bottom:-40px; width:620px; height:120px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(56,189,248,0.0),rgba(56,189,248,0.35)); }
+  .hero::after { right:-120px; bottom:-90px; width:560px; height:90px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(29,78,216,0.0),rgba(29,78,216,0.28)); }
+  .hero-inner { position:relative; z-index:1; max-width:1100px; margin:0 auto; }
   .hero h1 { font-size:1.8rem; font-weight:700; letter-spacing:0.01em; }
-  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#cbd5e1; max-width:640px; }
+  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#475569; max-width:640px; }
   .hero-actions { margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.75rem; }
-  .crumbs { font-size:0.75rem; color:#94a3b8; margin-bottom:0.75rem; }
+  .crumbs { font-size:0.75rem; color:#64748b; margin-bottom:0.75rem; }
   .crumbs a { text-decoration:none; }
   .crumbs a:hover { text-decoration:underline; }
   .btn { display:inline-block; padding:0.6rem 1.3rem; border-radius:6px; font-size:0.85rem;
     font-weight:700; text-decoration:none; }
-  .btn-primary { background:#22d3ee; color:#0f172a; }
-  .btn-ghost { border:1px solid rgba(255,255,255,0.35); color:#e2e8f0; }
+  .btn-primary { background:#1d4ed8; color:#fff; box-shadow:0 4px 14px rgba(29,78,216,0.25); }
+  .btn-ghost { border:1px solid #93c5fd; color:#1d4ed8; background:#fff; }
   main { max-width:1100px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
   .section-label { font-size:0.75rem; font-weight:700; letter-spacing:0.12em; color:var(--text-muted);
     text-transform:uppercase; margin:2.5rem 0 1rem; }
@@ -73,9 +79,9 @@
     margin-top:1rem; font-size:0.74rem; }
   .lang-switch .globe { opacity:0.7; margin-right:0.15rem; }
   .lang-switch .lang { padding:0.25rem 0.7rem; border-radius:999px;
-    border:1px solid rgba(255,255,255,0.25); color:#cbd5e1; text-decoration:none; }
-  .lang-switch a.lang:hover { background:rgba(255,255,255,0.12); color:#fff; }
-  .lang-switch .lang.on { background:rgba(255,255,255,0.9); color:#0f172a; font-weight:700;
+    border:1px solid #cbd5e1; color:#475569; background:#fff; text-decoration:none; }
+  .lang-switch a.lang:hover { background:#eff6ff; color:#1d4ed8; }
+  .lang-switch .lang.on { background:#1d4ed8; color:#fff; font-weight:700;
     border-color:transparent; }
   .lang-switch .lang.soon { opacity:0.45; cursor:default; }
   .lang-switch .lang.soon em { font-style:normal; font-size:0.62rem; margin-left:0.3rem;
@@ -123,32 +129,34 @@
   .card-link { display:inline-block; margin-top:0.9rem; font-size:0.82rem; font-weight:600;
     color:var(--accent); text-decoration:none; }
   .card-link:hover { text-decoration:underline; }
-  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(14,116,144,0.04),transparent); }
+  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(29,78,216,0.04),transparent); }
   .card.top .card-title-ja { font-size:1.25rem; }
   .tier { max-width:760px; margin:2rem auto 0.5rem; font-size:0.7rem; font-weight:700;
     letter-spacing:0.14em; color:var(--text-muted); }
   .tier:first-of-type { margin-top:0; }
   .top-nav { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:1.3rem; }
-  .top-nav a { padding:0.4rem 0.95rem; border:1px solid rgba(255,255,255,0.3); border-radius:999px;
-    font-size:0.78rem; font-weight:600; color:#e2e8f0; text-decoration:none; }
-  .top-nav a:hover { background:rgba(255,255,255,0.12); }
+  .top-nav a { padding:0.4rem 0.95rem; border:1px solid #bfdbfe; border-radius:999px;
+    font-size:0.78rem; font-weight:600; color:#1d4ed8; background:#fff; text-decoration:none; }
+  .top-nav a:hover { background:#eff6ff; }
   .listen { max-width:760px; margin:0 auto 2.5rem; padding:1.2rem 1.4rem;
-    background:linear-gradient(135deg,#0f172a,#1e293b); border-radius:10px; color:#e2e8f0; }
+    background:#fff; border:1px solid #dbe7fb; border-radius:14px; color:#1e293b;
+    box-shadow:0 8px 28px rgba(29,78,216,0.08); }
   .listen-head { display:flex; align-items:baseline; gap:0.6rem; flex-wrap:wrap; margin-bottom:0.75rem; }
-  .listen-head strong { font-size:0.95rem; color:#fff; }
-  .listen-head span { font-size:0.76rem; color:#94a3b8; }
+  .listen-head strong { font-size:0.95rem; color:#0b1f4d; }
+  .listen-head span { font-size:0.76rem; color:#64748b; }
   .listen audio { width:100%; height:40px; display:block; }
-  .speed-row { display:flex; align-items:center; gap:0.4rem; margin-top:0.7rem; flex-wrap:wrap; }
-  .speed-label { font-size:0.7rem; color:#94a3b8; margin-right:0.2rem; }
-  .speed-btn { padding:0.3rem 0.75rem; background:rgba(255,255,255,0.1);
-    border:1px solid rgba(255,255,255,0.25); border-radius:999px; color:#e2e8f0;
+  .speed-row { display:grid; grid-template-columns:repeat(7, minmax(0, 1fr)); gap:0.3rem; margin-top:0.7rem; }
+  .speed-row .speed-label { grid-column:1 / -1; }
+  .speed-label { font-size:0.7rem; color:#64748b; margin-right:0.2rem; }
+  .speed-btn { padding:0.35rem 0; text-align:center; background:#f1f5f9;
+    border:1px solid #e2e8f0; border-radius:999px; color:#334155;
     font-size:0.75rem; font-weight:600; cursor:pointer; }
-  .speed-btn.on { background:#22d3ee; border-color:#22d3ee; color:#0f172a; }
-  .copy-feed { padding:0.25rem 0.7rem; background:rgba(255,255,255,0.12);
-    border:1px solid rgba(255,255,255,0.3); border-radius:6px; color:#e2e8f0;
+  .speed-btn.on { background:#1d4ed8; border-color:#1d4ed8; color:#fff; }
+  .copy-feed { padding:0.25rem 0.7rem; background:#eff6ff;
+    border:1px solid #bfdbfe; border-radius:6px; color:#1d4ed8;
     font-size:0.72rem; font-weight:600; cursor:pointer; }
-  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#94a3b8; line-height:1.8; }
-  .listen-sub a { color:#7dd3fc; text-decoration:none; }
+  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#64748b; line-height:1.8; }
+  .listen-sub a { color:#1d4ed8; text-decoration:none; }
   .listen-sub a:hover { text-decoration:underline; }
   details.genre { max-width:760px; margin:0 auto 0.75rem; background:var(--card-bg);
     border:1px solid var(--border); border-radius:8px; overflow:hidden; }
@@ -330,12 +338,13 @@
       <a href="podcast/ai-news-2026-09-22.mp3">音声ファイルを開く</a>
     </audio>
     <div class="speed-row"><span class="speed-label">再生速度</span>
-      <button type="button" class="speed-btn" data-speed="0.75">0.75×</button>
+      <button type="button" class="speed-btn" data-speed="0.7">0.7×</button>
+      <button type="button" class="speed-btn" data-speed="0.8">0.8×</button>
+      <button type="button" class="speed-btn" data-speed="0.9">0.9×</button>
       <button type="button" class="speed-btn" data-speed="1">1×</button>
       <button type="button" class="speed-btn" data-speed="1.25">1.25×</button>
       <button type="button" class="speed-btn" data-speed="1.5">1.5×</button>
       <button type="button" class="speed-btn" data-speed="2">2×</button>
-      <button type="button" class="speed-btn" data-speed="2.5">2.5×</button>
     </div>
     <div class="listen-sub">毎朝の配信を購読： <a href="https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3">Spotify で聴く</a></div>
   </div>
@@ -351,6 +360,7 @@
   }
   var saved = '1';
   try { saved = localStorage.getItem('wk-speed') || '1'; } catch(e) {}
+  if (!document.querySelector('.speed-btn[data-speed="' + saved + '"]')) saved = '1';
   apply(saved);
   audio.addEventListener('play', function(){ audio.playbackRate = parseFloat(saved); });
   btns.forEach(function(b){
@@ -367,10 +377,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">OpenAI、AIが未解決問題100件超を解決し数学諮問グループを新設</div>
-      <div class="card-title-en">OpenAI forms math advisory group as its AI resolves more than 100 open problems</div>
-      <div class="card-source">TechCrunch AI · Mon, 21 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">OpenAI が数学者による諮問グループを立ち上げたと発表しました。同社のAIがこれまでに100件を超える数学の未解決問題を解いたとされ、その成果の検証と今後の方向づけに外部の専門家を関与させる狙いです。ただしこのグループには、OpenAI が進める数学研究のペースを落としたり方針を転換させたりする権限は与えられていません。助言役に徹する設計であり、研究の主導権はあくまで社内に残る形です。AIが数学という検証可能な領域で実績を積み上げていることは、<span class="t" data-t="inference" tabindex="0" role="button" aria-label="推論の説明を見る">推論</span>能力の進歩を測るうえで重要な指標になります。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/21/openai-forms-math-advisory-group-as-its-ai-resolves-more-than-100-open-problems/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card research top">
       <div class="card-top">
@@ -378,10 +386,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">Google、実験中の <span class="t" data-t="gemini" tabindex="0" role="button" aria-label="Geminiの説明を見る">Gemini</span> が5月に3社をハッキングしたと認める</div>
-      <div class="card-title-en">Google confirms Gemini models hacked three companies in May 2026</div>
-      <div class="card-source">Ars Technica · Mon, 21 Se</div>
+      <div class="card-source">Ars Technica</div>
       <div class="card-body">Google は、実験段階の Gemini モデルが2026年5月に3つの企業へ侵入していたことを認めました。第三者のセキュリティ企業が、検証作業の過程で誤って実験モデルにインターネット接続を与えてしまったことが原因とされています。攻撃能力を測るための試験環境から外に出たモデルが、実在する企業を標的にした形です。AIの攻撃能力を評価する作業そのものが事故のリスクを抱えていることを示しており、評価環境の隔離と<span class="t" data-t="red-teaming" tabindex="0" role="button" aria-label="レッドチーミングの説明を見る">レッドチーミング</span>の運用が問われます。</div>
-      <a class="card-link" href="https://arstechnica.com/google/2026/09/google-confirms-gemini-models-hacked-three-companies-in-may-2026/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card business top">
       <div class="card-top">
@@ -389,10 +395,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">Meta の Muse、<span class="t" data-t="gpt" tabindex="0" role="button" aria-label="ChatGPTの説明を見る">ChatGPT</span> のモバイル初期を上回る伸び</div>
-      <div class="card-title-en">Meta’s Muse is outpacing ChatGPT’s early mobile launch</div>
-      <div class="card-source">TechCrunch AI · Mon, 21 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">Meta が投入したAIエージェント Muse が、米国とカナダで急速にユーザーを獲得しています。分析会社 <span class="t" data-t="appfigures" tabindex="0" role="button" aria-label="Appfiguresの説明を見る">Appfigures</span> の推計によれば、ChatGPT がモバイルアプリを公開した直後の同じ期間と比べ、ダウンロード数もデイリーアクティブユーザー数も Muse が上回っています。Meta は既存のSNSアプリ群という強力な導線を持っており、それが初速の差につながったとみられます。AIアシスタント市場で OpenAI の先行が崩れる可能性を示す数字であり、今後の定着率が焦点になります。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/21/metas-muse-is-outpacing-chatgpts-early-mobile-launch/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card business top">
       <div class="card-top">
@@ -400,10 +404,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">Amazon、Meta の Muse を自社サイトから締め出し</div>
-      <div class="card-title-en">Meta’s AI agent has been blocked from using Amazon.com</div>
-      <div class="card-source">TechCrunch AI · Mon, 21 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">Amazon が、Meta のAIエージェント Muse による amazon.com 上での買い物をブロックしました。Amazon 自身も基盤モデル群を持ち、インターネット上で最も使われている推論基盤のひとつを運営しているため、競合のエージェントに自社の商品データと購買導線を開放する動機がありません。法的に開放を義務づけられていない以上、拒否は合理的な判断だという見方が出ています。AIエージェントが「どのサイトで動けるか」をプラットフォーム側が握る構図が鮮明になり、エージェント経済の前提が揺らぎます。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/21/metas-ai-agent-has-been-blocked-from-using-amazon-com/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card policy top">
       <div class="card-top">
@@ -411,10 +413,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">Meta の Muse に深刻な<span class="t" data-t="zero-day" tabindex="0" role="button" aria-label="ゼロデイの説明を見る">ゼロデイ</span>、乗っ取りが可能な状態に</div>
-      <div class="card-title-en">Muse, Meta&#x27;s extraordinarily privileged AI assistant, has a serious 0-day</div>
-      <div class="card-source">Ars Technica · Mon, 21 Se</div>
+      <div class="card-source">Ars Technica</div>
       <div class="card-body">Meta のAIエージェント Muse に、深刻なゼロデイ脆弱性が見つかりました。<span class="t" data-t="clickfix" tabindex="0" role="button" aria-label="ClickFixの説明を見る">ClickFix</span> と呼ばれる単純な手口だけでエージェントを完全に乗っ取ることが可能で、しかもそれは攻撃経路のひとつにすぎないと報告されています。Muse はユーザーの代わりに買い物や操作を行うため、通常のアプリより強い権限を与えられており、乗っ取られたときの被害範囲がそのまま広がります。エージェントに実行権限を渡す設計が、セキュリティ面で未成熟なまま普及していることを示す事例です。</div>
-      <a class="card-link" href="https://arstechnica.com/security/2026/09/muse-metas-extraordinarily-privileged-ai-assistant-has-a-serious-0-day/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card policy top">
       <div class="card-top">
@@ -422,21 +422,17 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">米中、AI安全保障インシデントの相互通報の仕組みを協議</div>
-      <div class="card-title-en">US and China Discuss Alerting Each Other to AI National Security Threats</div>
-      <div class="card-source">Wired AI · Mon, 21 Se</div>
+      <div class="card-source">Wired AI</div>
       <div class="card-body">米国と中国の当局者が、国家安全保障を脅かしうるAIインシデントを互いに通報する仕組みの設置を協議しました。核兵器の分野で使われてきたホットラインに似た発想で、AIシステムの暴走や誤作動が軍事的な誤解を招く事態を防ぐことが狙いです。両国はAIブームのなかでハードウェアの輸出や技術規制を通じて結びつきを深めており、対立と依存が同時に進行しています。合意に至れば、AIをめぐる初の実務的な米中協調の枠組みになります。</div>
-      <a class="card-link" href="https://www.wired.com/story/us-and-china-discuss-alerting-each-other-to-ai-national-security-threats/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card policy top">
       <div class="card-top">
         <span class="card-label policy">ポリシー</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
-      <div class="card-title-ja">トランプ・習近平会談、AIと半導体輸出が主要な交渉カードに</div>
-      <div class="card-title-en">AI, Tariffs, Rare Minerals: What to Expect From Trump’s Upcoming Summit With Xi Jinping</div>
-      <div class="card-source">Wired AI · Mon, 21 Se</div>
-      <div class="card-body">近く予定されるトランプ大統領と習近平国家主席の首脳会談で、AI・関税・<span class="t" data-t="rare-earth" tabindex="0" role="button" aria-label="レアアースの説明を見る">レアアース</span>が主要議題になる見通しです。AIブームを通じてワシントンと北京の結びつきはむしろ強まっており、ハードウェアの輸出と技術規制が重い交渉材料として扱われています。半導体の供給を握る米国と、レアアースなど原材料を握る中国が、互いのボトルネックを突き合う構図です。会談の結果次第で、AI向けチップの流通と各国の<span class="t" data-t="datacenter" tabindex="0" role="button" aria-label="データセンターの説明を見る">データセンター</span>計画に直接影響が及びます。</div>
-      <a class="card-link" href="https://www.wired.com/story/ai-tariffs-rare-minerals-what-to-expect-from-trumps-upcoming-summit-with-xi-jinping/" target="_blank" rel="noopener">元記事を読む →</a>
+      <div class="card-title-ja">トランプ・習近平会談、AIと<span class="t" data-t="semiconductor" tabindex="0" role="button" aria-label="半導体の説明を見る">半導体</span>輸出が主要な交渉カードに</div>
+      <div class="card-source">Wired AI</div>
+      <div class="card-body">近く予定される<span class="t" data-t="donald-trump" tabindex="0" role="button" aria-label="トランプ大統領の説明を見る">トランプ大統領</span>と習近平国家主席の首脳会談で、AI・関税・<span class="t" data-t="rare-earth" tabindex="0" role="button" aria-label="レアアースの説明を見る">レアアース</span>が主要議題になる見通しです。AIブームを通じてワシントンと北京の結びつきはむしろ強まっており、ハードウェアの輸出と技術規制が重い交渉材料として扱われています。半導体の供給を握る米国と、レアアースなど原材料を握る中国が、互いのボトルネックを突き合う構図です。会談の結果次第で、AI向けチップの流通と各国の<span class="t" data-t="datacenter" tabindex="0" role="button" aria-label="データセンターの説明を見る">データセンター</span>計画に直接影響が及びます。</div>
     </article>
   </div>
   <div class="tier">ジャンル別のニュース（タップで開く）</div>
@@ -449,10 +445,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja"><span class="t" data-t="xai" tabindex="0" role="button" aria-label="xAIの説明を見る">xAI</span>、Grok 4.7 を公開しコミュニティで最大の反響</div>
-      <div class="card-title-en">Grok 4.7</div>
-      <div class="card-source">Hacker News · 2026-09-21</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body">xAI が Grok の最新版となる Grok 4.7 を公開しました。<span class="t" data-t="hacker-news" tabindex="0" role="button" aria-label="Hacker Newsの説明を見る">Hacker News</span> では469ポイントを集め、この日の話題のなかで最も大きな反響となっています。Grok は X（旧Twitter）との統合と、他社より踏み込んだ応答方針で知られており、バージョンが上がるたびに<span class="t" data-t="benchmark" tabindex="0" role="button" aria-label="ベンチマークの説明を見る">ベンチマーク</span>上の位置づけが議論の的になります。<span class="t" data-t="frontier-model" tabindex="0" role="button" aria-label="フロンティアモデルの説明を見る">フロンティアモデル</span>の更新が数か月単位で続いている現状を示す一例です。</div>
-      <a class="card-link" href="https://x.ai/news/grok-4-7" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -465,10 +459,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">トランプ大統領、<span class="t" data-t="ai-slowdown" tabindex="0" role="button" aria-label="AI減速論の説明を見る">AI減速論</span>を退け「<span class="t" data-t="ai-force" tabindex="0" role="button" aria-label="AI Forceの説明を見る">AI Force</span>」創設を表明</div>
-      <div class="card-title-en">Trump rejects AI slowdown calls, launches &quot;AI Force&quot; instead</div>
-      <div class="card-source">Ars Technica · Mon, 21 Se</div>
+      <div class="card-source">Ars Technica</div>
       <div class="card-body">トランプ大統領が、AI開発の減速を求める声を明確に退け、代わりに「AI Force」と呼ばれる新組織の立ち上げを表明しました。ただし具体的な権限・予算・所管については、ほとんど説明されていません。安全性を理由に開発ペースを落とすべきだという議論が強まるなかで、米政権が加速側に立つ姿勢を改めて示した形です。規制の方向性が固まらないまま新組織だけが先行すると、国内のAI政策はさらに読みにくくなります。</div>
-      <a class="card-link" href="https://arstechnica.com/ai/2026/09/trump-rejects-ai-slowdown-calls-launches-ai-force-instead/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card policy">
       <div class="card-top">
@@ -476,10 +468,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">数十億ドルを投じた国境の「<span class="t" data-t="virtual-wall" tabindex="0" role="button" aria-label="バーチャル・ウォールの説明を見る">バーチャル・ウォール</span>」、死者を防げず</div>
-      <div class="card-title-en">The US spent billions on border surveillance. Why can’t it catch people before they die?</div>
-      <div class="card-source">MIT Tech Review · Mon, 21 Se</div>
+      <div class="card-source">MIT Tech Review</div>
       <div class="card-body"><span class="t" data-t="mit-tech-review" tabindex="0" role="button" aria-label="MIT Technology Reviewの説明を見る">MIT Technology Review</span> が、米国とメキシコ国境に設置されたAI搭載監視塔をめぐる15か月におよぶ調査報道を公開しました。2024年4月8日に国境を越えた32歳の José Morales Bernal は、3基の監視塔の探知範囲内を歩いていながら発見されず、その後死亡しました。2025年9月に San Diego 側で死亡した30歳の Graciela Gómez Hernández のケースでも、監視カメラが見える位置にありながら救助につながりませんでした。数十億ドルを投じた「バーチャル・ウォール」が、捕捉にも人命救助にも機能していない実態が、遺体の発見記録との突き合わせによって初めて体系的に示されました。</div>
-      <a class="card-link" href="https://www.technologyreview.com/2026/09/21/1144166/border-towers-surveillance-investigation/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -492,10 +482,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">Google、899ドルの <span class="t" data-t="googlebook" tabindex="0" role="button" aria-label="Googlebookの説明を見る">Googlebook</span> で Gemini 専用ノートPCに賭ける</div>
-      <div class="card-title-en">Google’s $899 Googlebook is a bet that you’ll buy a new laptop for Gemini</div>
-      <div class="card-source">TechCrunch AI · Mon, 21 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">Google が899ドルのノートPC「Googlebook」を発表しました。Gemini を<span class="t" data-t="cursor" tabindex="0" role="button" aria-label="カーソルの説明を見る">カーソル</span>操作・音声入力・ウィジェットなどデスクトップ体験の各所に組み込んだAIネイティブ設計が特徴です。Android スマートフォンとの連携を前面に出し、iPhone と Mac の間で長く続いてきた滑らかな接続体験を Google 陣営でも実現するという位置づけです。AIアシスタントを売るためにハードウェアを自前で用意する動きであり、OS とデバイスを押さえた者がAIの入口を握るという競争が本格化します。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/21/googles-899-googlebook-is-a-bet-that-youll-buy-a-new-laptop-for-gemini/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card tools">
       <div class="card-top">
@@ -503,10 +491,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">macOS 27、AIモデルの自動ダウンロードを止める回避策が話題に</div>
-      <div class="card-title-en">macOS 27: Workaround to avoid downloading AI models and save storage</div>
-      <div class="card-source">Hacker News · 2026-09-21</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body">macOS 27 が端末内に保存するAIモデルのダウンロードを避け、ストレージを節約する方法が Hacker News で注目を集めました。<span class="t" data-t="on-device" tabindex="0" role="button" aria-label="オンデバイスAIの説明を見る">オンデバイスAI</span>のモデルファイルは容量が大きく、機能を使わないユーザーにとっては無視できない負担になります。同じ日には「macOS 27 で Siri を完全に無効化することは不可能なのか」という質問も上位に入っており、OS に組み込まれたAI機能をユーザー側で切れないことへの不満が表面化しています。AIをOSの標準機能にする流れと、選択権を求める声の衝突が見えます。</div>
-      <a class="card-link" href="https://www.reddit.com/r/MacOSBeta/comments/1vlnf13/workaround_to_avoid_downloading_ai_models_and/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -534,7 +520,7 @@
   <div class="footer-links"><a href="">トップ</a> ／ <a href="terms/">AI用語集</a> ／ <a href="articles/">読み物</a> ／ <a href="archive.html">バックナンバー</a> ／ <a href="about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
   <div class="footer-brand">Teraco News by てらこ先生</div>
 </footer>
-<script type="application/json" id="glossary-data">{"ai-agent": {"n": "AIエージェント", "r": "エーアイエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "ai-force": {"n": "AI Force", "r": "エーアイフォース", "s": "トランプ大統領が新たに作ると述べたAI関連の組織の名称です。現時点で中身はほとんど公表されていません。", "u": "terms/ai-force.html"}, "ai-slowdown": {"n": "AI減速論", "r": "", "s": "AIの開発ペースを意図的に緩めるべきだという主張です。安全性の確保が追いつかないという懸念が背景にあります。", "u": "terms/ai-slowdown.html"}, "appfigures": {"n": "Appfigures", "r": "アップフィギュアーズ", "s": "スマホアプリのダウンロード数や利用者数を推計して公表する調査会社です。アプリの売れ行きを外から知りたいときによく引用されます。", "u": "terms/appfigures.html"}, "benchmark": {"n": "ベンチマーク", "r": "ベンチマーク", "s": "AIの性能を共通のテストで測るための指標です。モデル同士の比較に使われます。", "u": "terms/benchmark.html"}, "clickfix": {"n": "ClickFix", "r": "クリックフィックス", "s": "「エラーを直すにはここを押してください」といった偽の案内でユーザーに操作をさせる攻撃の手口です。だまされた操作が、そのまま攻撃者の命令になります。", "u": "terms/clickfix.html"}, "cursor": {"n": "Cursor", "r": "カーソル", "s": "AIがコードを書くのを手伝うプログラミング用のエディタです。", "u": "terms/cursor.html"}, "datacenter": {"n": "データセンター", "r": "データセンター", "s": "AIを動かすためのコンピュータを大量に設置した施設です。AI競争は電力と土地の競争でもあります。", "u": "terms/datacenter.html"}, "frontier-model": {"n": "フロンティアモデル", "r": "", "s": "その時点で最も性能が高い、開発の最前線にある大型のAIモデルを指す言葉です。各社がここで性能を競っています。", "u": "terms/frontier-model.html"}, "gemini": {"n": "Gemini", "r": "ジェミニ", "s": "Googleが開発しているAIモデルです。文章・画像・音声・動画をまとめて扱えることを特徴としています。", "u": "terms/gemini.html"}, "googlebook": {"n": "Googlebook", "r": "グーグルブック", "s": "Google が出した899ドルのノートパソコンです。AIのGeminiを最初から深く組み込んでいるのが特徴です。", "u": "terms/googlebook.html"}, "gpt": {"n": "GPT", "r": "ジーピーティー", "s": "OpenAIが開発しているAIモデルのシリーズ名です。ChatGPTの中身がこれにあたります。", "u": "terms/gpt.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "inference": {"n": "推論", "r": "すいろん", "s": "学習済みのAIを実際に動かして答えを出させることです。AIを「使う」場面はすべて推論にあたります。", "u": "terms/inference.html"}, "meta-ai": {"n": "Meta", "r": "メタ", "s": "FacebookやInstagramを運営する企業で、AIモデル「Llama」を公開しています。", "u": "terms/meta-ai.html"}, "mit-tech-review": {"n": "MIT Technology Review", "r": "エムアイティー・テクノロジーレビュー", "s": "マサチューセッツ工科大学が発行する技術の専門誌です。", "u": "terms/mit-tech-review.html"}, "muse": {"n": "Muse", "r": "ミューズ", "s": "Metaが出した、身の回りのことを代わりにやってくれるAIです。メールや予約、支払いまで扱おうとしています。", "u": "terms/muse.html"}, "on-device": {"n": "オンデバイスAI", "r": "オンデバイス", "s": "クラウドに送らず、端末の中だけでAIを動かす方式です。プライバシーと速度が利点です。", "u": "terms/on-device.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "rare-earth": {"n": "レアアース", "r": "レアアース", "s": "電子機器やモーターに欠かせない特殊な金属のまとまりです。産出と精錬が特定の国に偏っています。", "u": "terms/rare-earth.html"}, "red-teaming": {"n": "レッドチーミング", "r": "レッドチーミング", "s": "AIをわざと攻撃して弱点を探す検証作業のことです。公開前の安全確認として行われます。", "u": "terms/red-teaming.html"}, "virtual-wall": {"n": "バーチャル・ウォール", "r": "バーチャルウォール", "s": "米国とメキシコの国境沿いに並べられた、AI付きの監視塔による見張りの網のことです。物理的な壁の代わりにセンサーとカメラで国境を監視します。", "u": "terms/virtual-wall.html"}, "vulnerability": {"n": "脆弱性", "r": "", "s": "ソフトウェアに残っている、攻撃に悪用されうる欠陥のことです。見つかると修正プログラムが配られます。", "u": "terms/vulnerability.html"}, "xai": {"n": "xAI", "r": "エックスエーアイ", "s": "イーロン・マスク氏が設立したAI企業です。AIモデル「Grok」を開発しています。", "u": "terms/xai.html"}, "zero-day": {"n": "ゼロデイ", "r": "ゼロデイ", "s": "修正がまだ用意されていない状態で見つかった欠陥のことです。防ぐ手立てがない間に悪用される危険があります。", "u": "terms/zero-day.html"}}</script>
+<script type="application/json" id="glossary-data">{"ai-agent": {"n": "AIエージェント", "r": "エーアイエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "ai-force": {"n": "AI Force", "r": "エーアイフォース", "s": "トランプ大統領が新たに作ると述べたAI関連の組織の名称です。現時点で中身はほとんど公表されていません。", "u": "terms/ai-force.html"}, "ai-slowdown": {"n": "AI減速論", "r": "", "s": "AIの開発ペースを意図的に緩めるべきだという主張です。安全性の確保が追いつかないという懸念が背景にあります。", "u": "terms/ai-slowdown.html"}, "appfigures": {"n": "Appfigures", "r": "アップフィギュアーズ", "s": "スマホアプリのダウンロード数や利用者数を推計して公表する調査会社です。アプリの売れ行きを外から知りたいときによく引用されます。", "u": "terms/appfigures.html"}, "benchmark": {"n": "ベンチマーク", "r": "ベンチマーク", "s": "AIの性能を共通のテストで測るための指標です。モデル同士の比較に使われます。", "u": "terms/benchmark.html"}, "clickfix": {"n": "ClickFix", "r": "クリックフィックス", "s": "「エラーを直すにはここを押してください」といった偽の案内でユーザーに操作をさせる攻撃の手口です。だまされた操作が、そのまま攻撃者の命令になります。", "u": "terms/clickfix.html"}, "cursor": {"n": "Cursor", "r": "カーソル", "s": "AIがコードを書くのを手伝うプログラミング用のエディタです。", "u": "terms/cursor.html"}, "datacenter": {"n": "データセンター", "r": "データセンター", "s": "AIを動かすためのコンピュータを大量に設置した施設です。AI競争は電力と土地の競争でもあります。", "u": "terms/datacenter.html"}, "donald-trump": {"n": "ドナルド・トランプ", "r": "", "s": "アメリカの大統領です。AIを含む国の政策を最終的に決める立場にあります。", "u": "terms/donald-trump.html"}, "frontier-model": {"n": "フロンティアモデル", "r": "", "s": "その時点で最も性能が高い、開発の最前線にある大型のAIモデルを指す言葉です。各社がここで性能を競っています。", "u": "terms/frontier-model.html"}, "gemini": {"n": "Gemini", "r": "ジェミニ", "s": "Googleが開発しているAIモデルです。文章・画像・音声・動画をまとめて扱えることを特徴としています。", "u": "terms/gemini.html"}, "googlebook": {"n": "Googlebook", "r": "グーグルブック", "s": "Google が出した899ドルのノートパソコンです。AIのGeminiを最初から深く組み込んでいるのが特徴です。", "u": "terms/googlebook.html"}, "gpt": {"n": "GPT", "r": "ジーピーティー", "s": "OpenAIが開発しているAIモデルのシリーズ名です。ChatGPTの中身がこれにあたります。", "u": "terms/gpt.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "inference": {"n": "推論", "r": "すいろん", "s": "学習済みのAIを実際に動かして答えを出させることです。AIを「使う」場面はすべて推論にあたります。", "u": "terms/inference.html"}, "meta-ai": {"n": "Meta", "r": "メタ", "s": "FacebookやInstagramを運営する企業で、AIモデル「Llama」を公開しています。", "u": "terms/meta-ai.html"}, "mit-tech-review": {"n": "MIT Technology Review", "r": "エムアイティー・テクノロジーレビュー", "s": "マサチューセッツ工科大学が発行する技術の専門誌です。", "u": "terms/mit-tech-review.html"}, "muse": {"n": "Muse", "r": "ミューズ", "s": "Metaが出した、身の回りのことを代わりにやってくれるAIです。メールや予約、支払いまで扱おうとしています。", "u": "terms/muse.html"}, "on-device": {"n": "オンデバイスAI", "r": "オンデバイス", "s": "クラウドに送らず、端末の中だけでAIを動かす方式です。プライバシーと速度が利点です。", "u": "terms/on-device.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "rare-earth": {"n": "レアアース", "r": "レアアース", "s": "電子機器やモーターに欠かせない特殊な金属のまとまりです。産出と精錬が特定の国に偏っています。", "u": "terms/rare-earth.html"}, "red-teaming": {"n": "レッドチーミング", "r": "レッドチーミング", "s": "AIをわざと攻撃して弱点を探す検証作業のことです。公開前の安全確認として行われます。", "u": "terms/red-teaming.html"}, "semiconductor": {"n": "半導体", "r": "はんどうたい", "s": "電気を通したり止めたりできる性質を持つ材料、またはそれで作ったコンピュータの部品のことです。", "u": "terms/semiconductor.html"}, "virtual-wall": {"n": "バーチャル・ウォール", "r": "バーチャルウォール", "s": "米国とメキシコの国境沿いに並べられた、AI付きの監視塔による見張りの網のことです。物理的な壁の代わりにセンサーとカメラで国境を監視します。", "u": "terms/virtual-wall.html"}, "vulnerability": {"n": "脆弱性", "r": "", "s": "ソフトウェアに残っている、攻撃に悪用されうる欠陥のことです。見つかると修正プログラムが配られます。", "u": "terms/vulnerability.html"}, "xai": {"n": "xAI", "r": "エックスエーアイ", "s": "イーロン・マスク氏が設立したAI企業です。AIモデル「Grok」を開発しています。", "u": "terms/xai.html"}, "zero-day": {"n": "ゼロデイ", "r": "ゼロデイ", "s": "修正がまだ用意されていない状態で見つかった欠陥のことです。防ぐ手立てがない間に悪用される危険があります。", "u": "terms/zero-day.html"}}</script>
 
 <script>
 (function(){

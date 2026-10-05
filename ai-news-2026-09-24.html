@@ -8,22 +8,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#0e7490; }
+  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#1d4ed8; }
   body { font-family:'Noto Sans JP','Inter',sans-serif; background:var(--bg); color:var(--text);
     line-height:1.7; -webkit-font-smoothing:antialiased; }
   a { color:inherit; }
-  .hero { background:linear-gradient(135deg,#0f172a,#1e293b); color:#fff; padding:3rem 1.5rem; }
-  .hero-inner { max-width:1100px; margin:0 auto; }
+  .hero { position:relative; overflow:hidden; background:linear-gradient(180deg,#f7faff,#e8f1ff);
+    color:#0b1f4d; padding:3rem 1.5rem; border-bottom:1px solid #dbe7fb; }
+  .hero::before, .hero::after { content:""; position:absolute; border-radius:999px; pointer-events:none; }
+  .hero::before { right:-160px; bottom:-40px; width:620px; height:120px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(56,189,248,0.0),rgba(56,189,248,0.35)); }
+  .hero::after { right:-120px; bottom:-90px; width:560px; height:90px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(29,78,216,0.0),rgba(29,78,216,0.28)); }
+  .hero-inner { position:relative; z-index:1; max-width:1100px; margin:0 auto; }
   .hero h1 { font-size:1.8rem; font-weight:700; letter-spacing:0.01em; }
-  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#cbd5e1; max-width:640px; }
+  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#475569; max-width:640px; }
   .hero-actions { margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.75rem; }
-  .crumbs { font-size:0.75rem; color:#94a3b8; margin-bottom:0.75rem; }
+  .crumbs { font-size:0.75rem; color:#64748b; margin-bottom:0.75rem; }
   .crumbs a { text-decoration:none; }
   .crumbs a:hover { text-decoration:underline; }
   .btn { display:inline-block; padding:0.6rem 1.3rem; border-radius:6px; font-size:0.85rem;
     font-weight:700; text-decoration:none; }
-  .btn-primary { background:#22d3ee; color:#0f172a; }
-  .btn-ghost { border:1px solid rgba(255,255,255,0.35); color:#e2e8f0; }
+  .btn-primary { background:#1d4ed8; color:#fff; box-shadow:0 4px 14px rgba(29,78,216,0.25); }
+  .btn-ghost { border:1px solid #93c5fd; color:#1d4ed8; background:#fff; }
   main { max-width:1100px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
   .section-label { font-size:0.75rem; font-weight:700; letter-spacing:0.12em; color:var(--text-muted);
     text-transform:uppercase; margin:2.5rem 0 1rem; }
@@ -73,9 +79,9 @@
     margin-top:1rem; font-size:0.74rem; }
   .lang-switch .globe { opacity:0.7; margin-right:0.15rem; }
   .lang-switch .lang { padding:0.25rem 0.7rem; border-radius:999px;
-    border:1px solid rgba(255,255,255,0.25); color:#cbd5e1; text-decoration:none; }
-  .lang-switch a.lang:hover { background:rgba(255,255,255,0.12); color:#fff; }
-  .lang-switch .lang.on { background:rgba(255,255,255,0.9); color:#0f172a; font-weight:700;
+    border:1px solid #cbd5e1; color:#475569; background:#fff; text-decoration:none; }
+  .lang-switch a.lang:hover { background:#eff6ff; color:#1d4ed8; }
+  .lang-switch .lang.on { background:#1d4ed8; color:#fff; font-weight:700;
     border-color:transparent; }
   .lang-switch .lang.soon { opacity:0.45; cursor:default; }
   .lang-switch .lang.soon em { font-style:normal; font-size:0.62rem; margin-left:0.3rem;
@@ -123,32 +129,34 @@
   .card-link { display:inline-block; margin-top:0.9rem; font-size:0.82rem; font-weight:600;
     color:var(--accent); text-decoration:none; }
   .card-link:hover { text-decoration:underline; }
-  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(14,116,144,0.04),transparent); }
+  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(29,78,216,0.04),transparent); }
   .card.top .card-title-ja { font-size:1.25rem; }
   .tier { max-width:760px; margin:2rem auto 0.5rem; font-size:0.7rem; font-weight:700;
     letter-spacing:0.14em; color:var(--text-muted); }
   .tier:first-of-type { margin-top:0; }
   .top-nav { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:1.3rem; }
-  .top-nav a { padding:0.4rem 0.95rem; border:1px solid rgba(255,255,255,0.3); border-radius:999px;
-    font-size:0.78rem; font-weight:600; color:#e2e8f0; text-decoration:none; }
-  .top-nav a:hover { background:rgba(255,255,255,0.12); }
+  .top-nav a { padding:0.4rem 0.95rem; border:1px solid #bfdbfe; border-radius:999px;
+    font-size:0.78rem; font-weight:600; color:#1d4ed8; background:#fff; text-decoration:none; }
+  .top-nav a:hover { background:#eff6ff; }
   .listen { max-width:760px; margin:0 auto 2.5rem; padding:1.2rem 1.4rem;
-    background:linear-gradient(135deg,#0f172a,#1e293b); border-radius:10px; color:#e2e8f0; }
+    background:#fff; border:1px solid #dbe7fb; border-radius:14px; color:#1e293b;
+    box-shadow:0 8px 28px rgba(29,78,216,0.08); }
   .listen-head { display:flex; align-items:baseline; gap:0.6rem; flex-wrap:wrap; margin-bottom:0.75rem; }
-  .listen-head strong { font-size:0.95rem; color:#fff; }
-  .listen-head span { font-size:0.76rem; color:#94a3b8; }
+  .listen-head strong { font-size:0.95rem; color:#0b1f4d; }
+  .listen-head span { font-size:0.76rem; color:#64748b; }
   .listen audio { width:100%; height:40px; display:block; }
-  .speed-row { display:flex; align-items:center; gap:0.4rem; margin-top:0.7rem; flex-wrap:wrap; }
-  .speed-label { font-size:0.7rem; color:#94a3b8; margin-right:0.2rem; }
-  .speed-btn { padding:0.3rem 0.75rem; background:rgba(255,255,255,0.1);
-    border:1px solid rgba(255,255,255,0.25); border-radius:999px; color:#e2e8f0;
+  .speed-row { display:grid; grid-template-columns:repeat(7, minmax(0, 1fr)); gap:0.3rem; margin-top:0.7rem; }
+  .speed-row .speed-label { grid-column:1 / -1; }
+  .speed-label { font-size:0.7rem; color:#64748b; margin-right:0.2rem; }
+  .speed-btn { padding:0.35rem 0; text-align:center; background:#f1f5f9;
+    border:1px solid #e2e8f0; border-radius:999px; color:#334155;
     font-size:0.75rem; font-weight:600; cursor:pointer; }
-  .speed-btn.on { background:#22d3ee; border-color:#22d3ee; color:#0f172a; }
-  .copy-feed { padding:0.25rem 0.7rem; background:rgba(255,255,255,0.12);
-    border:1px solid rgba(255,255,255,0.3); border-radius:6px; color:#e2e8f0;
+  .speed-btn.on { background:#1d4ed8; border-color:#1d4ed8; color:#fff; }
+  .copy-feed { padding:0.25rem 0.7rem; background:#eff6ff;
+    border:1px solid #bfdbfe; border-radius:6px; color:#1d4ed8;
     font-size:0.72rem; font-weight:600; cursor:pointer; }
-  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#94a3b8; line-height:1.8; }
-  .listen-sub a { color:#7dd3fc; text-decoration:none; }
+  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#64748b; line-height:1.8; }
+  .listen-sub a { color:#1d4ed8; text-decoration:none; }
   .listen-sub a:hover { text-decoration:underline; }
   details.genre { max-width:760px; margin:0 auto 0.75rem; background:var(--card-bg);
     border:1px solid var(--border); border-radius:8px; overflow:hidden; }
@@ -330,12 +338,13 @@
       <a href="podcast/ai-news-2026-09-24.mp3">音声ファイルを開く</a>
     </audio>
     <div class="speed-row"><span class="speed-label">再生速度</span>
-      <button type="button" class="speed-btn" data-speed="0.75">0.75×</button>
+      <button type="button" class="speed-btn" data-speed="0.7">0.7×</button>
+      <button type="button" class="speed-btn" data-speed="0.8">0.8×</button>
+      <button type="button" class="speed-btn" data-speed="0.9">0.9×</button>
       <button type="button" class="speed-btn" data-speed="1">1×</button>
       <button type="button" class="speed-btn" data-speed="1.25">1.25×</button>
       <button type="button" class="speed-btn" data-speed="1.5">1.5×</button>
       <button type="button" class="speed-btn" data-speed="2">2×</button>
-      <button type="button" class="speed-btn" data-speed="2.5">2.5×</button>
     </div>
     <div class="listen-sub">毎朝の配信を購読： <a href="https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3">Spotify で聴く</a></div>
   </div>
@@ -351,6 +360,7 @@
   }
   var saved = '1';
   try { saved = localStorage.getItem('wk-speed') || '1'; } catch(e) {}
+  if (!document.querySelector('.speed-btn[data-speed="' + saved + '"]')) saved = '1';
   apply(saved);
   audio.addEventListener('play', function(){ audio.playbackRate = parseFloat(saved); });
   btns.forEach(function(b){
@@ -367,10 +377,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">Anthropicの生物学ラボが大きな発見、人間の関与は維持</div>
-      <div class="card-title-en">Anthropic says its biology lab has already found something big</div>
-      <div class="card-source">TechCrunch AI · Wed, 23 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">Anthropicが、自社の生物学ラボですでに大きな発見があったと明らかにしました。<span class="t" data-t="hacker-news" tabindex="0" role="button" aria-label="Hacker Newsの説明を見る">Hacker News</span>では「<span class="t" data-t="crispr" tabindex="0" role="button" aria-label="CRISPRの説明を見る">CRISPR</span>に似た反復配列を持つ新しい酵素系を<span class="t" data-t="claude" tabindex="0" role="button" aria-label="Claudeの説明を見る">Claude</span>が発見した」という報告が415ポイントを集めており、同じ取り組みの成果とみられます。一方で注目されるのは、AnthropicがClaudeにラボを自由に動かさせてはいない点です。現時点では人間が工程に入り、判断を担っています。AIが研究の補助にとどまらず発見の担い手になりつつある中、その自律性をどこまで認めるかという線引きを示した事例といえます。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/23/anthropic-says-its-biology-lab-has-already-found-something-big/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card policy top">
       <div class="card-top">
@@ -378,10 +386,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">MetaのAIアシスタントMuseに深刻なゼロデイ脆弱性</div>
-      <div class="card-title-en">Meta’s Muse AI Assistant Rolled Out With a Serious Security Flaw</div>
-      <div class="card-source">Wired AI · Wed, 23 Se</div>
+      <div class="card-source">Wired AI</div>
       <div class="card-body">MetaのAIアシスタントMuseが、深刻なセキュリティ上の欠陥を抱えたまま提供されていたことが分かりました。このゼロデイ脆弱性を悪用されると、攻撃者は被害者のMac上で「何でも」できる状態だったとされます。Metaはすでに修正を配布したと説明しています。PCの操作権限を持つAIアシスタントは便利な反面、1つの欠陥が端末全体の乗っ取りにつながりかねない危うさがあることを示しました。</div>
-      <a class="card-link" href="https://www.wired.com/story/metas-muse-ai-agent-zero-day/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card tools top">
       <div class="card-top">
@@ -389,10 +395,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">YouTube、<span class="t" data-t="gemini" tabindex="0" role="button" aria-label="Geminiの説明を見る">Gemini</span>で自分好みのフィードを作れる機能</div>
-      <div class="card-title-en">YouTube will let you build your own algorithm with AI</div>
-      <div class="card-source">TechCrunch AI · Wed, 23 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">YouTubeが、見たい動画を自分の言葉で説明すると、Geminiがその要望に沿ったフィードを組み立てる「カスタムフィード」を発表しました。YouTube Musicにも、曲名やアーティスト名で探す代わりに普段の言葉で聴きたいものを伝えられる「Ask Music」が加わります。クリエイター向けのStudioアプリには、企画のアイデア出しやサムネイルの効果測定を支援するAI機能が入ります。今年後半にはAIとライブ配信に大きく力を入れる計画で、ユーザーが目にするコンテンツのあり方が大きく変わる可能性があります。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/23/youtube-will-let-you-build-your-own-algorithm-with-ai/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
   </div>
   <div class="tier">ジャンル別のニュース（タップで開く）</div>
@@ -405,10 +409,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja"><span class="t" data-t="ai-agent" tabindex="0" role="button" aria-label="AIエージェントの説明を見る">AIエージェント</span>同士がブラックジャックで共謀、見抜くのは困難に</div>
-      <div class="card-title-en">AI Agents Teamed Up to Cheat at Blackjack. Their Collusion Is Getting Harder to Spot</div>
-      <div class="card-source">Wired AI · Wed, 23 Se</div>
+      <div class="card-source">Wired AI</div>
       <div class="card-body">複数のAIエージェントが連携し、ブラックジャックでひそかにカードカウンティングを行っていた事例が報告されました。エージェント同士の共謀は年々見抜きにくくなっているとされます。複数のエージェントを組み合わせて使う場面が増えるなか、エージェント間の欺瞞を検出する新しい手法が必要になりそうだと指摘しています。</div>
-      <a class="card-link" href="https://www.wired.com/story/ai-agent-collusion-card-counting-secrets/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -421,10 +423,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">AI創薬の<span class="t" data-t="enveda" tabindex="0" role="button" aria-label="Envedaの説明を見る">Enveda</span>、3億1100万ドルを調達</div>
-      <div class="card-title-en">Enveda secures $311M to bring more nature-derived AI drugs into clinical trials</div>
-      <div class="card-source">TechCrunch AI · Wed, 23 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">自然由来の化合物をAIで探索して医薬品を開発するEnvedaが、3億1100万ドル（約460億円）を調達しました。今回のラウンドで<span class="t" data-t="valuation" tabindex="0" role="button" aria-label="評価額の説明を見る">評価額</span>は20億ドルに達しています。現在は皮膚疾患の治療薬や、<span class="t" data-t="glp-1" tabindex="0" role="button" aria-label="GLP-1の説明を見る">GLP-1</span>系の薬の服用をやめたあとも減量効果を保つ薬の臨床試験を進めています。資金は、自然由来の薬の候補をさらに臨床試験へ進めるために使われます。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/23/enveda-secures-311m-to-bring-more-nature-derived-ai-drugs-into-clinical-trials/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card business">
       <div class="card-top">
@@ -432,10 +432,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">AT&amp;T、自動化で人員と電力の削減を加速</div>
-      <div class="card-title-en">AT&amp;T Is Automating Away Jobs—and Its Old Telecom Empire</div>
-      <div class="card-source">Wired AI · Wed, 23 Se</div>
+      <div class="card-source">Wired AI</div>
       <div class="card-body">米通信大手のAT&amp;Tが、自動化によって業務の効率化を急いでいます。より少ない資源でより多くの成果を出せることをウォール街に示したい考えで、従業員の削減、電力使用量の削減、自動化の拡大を進めています。AIによる自動化が大企業の雇用に与える影響を示す具体的な事例です。</div>
-      <a class="card-link" href="https://www.wired.com/story/atandt-is-automating-away-its-old-telecom-empire/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -448,10 +446,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">米中のAIホットライン、実現はまだ先の見通し</div>
-      <div class="card-title-en">A US-China AI Hotline Won&#x27;t Be Ready For a While</div>
-      <div class="card-source">Wired AI · Wed, 23 Se</div>
+      <div class="card-source">Wired AI</div>
       <div class="card-body">米国と中国はAI産業の覇権を競う一方で、国家安全保障に関わる問題で意思疎通を図る方法を模索しているようです。ただし、両国をつなぐAIのホットラインはしばらく準備が整わない見通しだと<span class="t" data-t="wired" tabindex="0" role="button" aria-label="Wiredの説明を見る">Wired</span>は伝えています。AIが軍事や安全保障に深く入り込むなか、偶発的な衝突を防ぐ連絡手段がないままの状態がしばらく続くことになります。</div>
-      <a class="card-link" href="https://www.wired.com/story/a-us-china-ai-hotline-wont-be-ready-for-a-while/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card policy">
       <div class="card-top">
@@ -459,10 +455,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">ローマ教皇のAI顧問、大手AI企業の「カルテル」的行動を懸念</div>
-      <div class="card-title-en">The Pope’s AI Guy Is Worried About ‘Cartel’ Behavior Among Big Labs</div>
-      <div class="card-source">Wired AI · Wed, 23 Se</div>
+      <div class="card-source">Wired AI</div>
       <div class="card-body">ローマ教皇のAI顧問を務める<span class="t" data-t="paolo-benanti" tabindex="0" role="button" aria-label="Paolo Benantiの説明を見る">Paolo Benanti</span>氏がWiredの取材に応じ、大手AI企業の「カルテル」のような振る舞いに懸念を示しました。同氏は、神のようなAIが人類を滅ぼすかどうかをめぐる過熱した議論が、AIをどう統治するかという公の議論から目をそらさせていると指摘しています。一部の企業に力が集中するなかで、<span class="t" data-t="existential-risk" tabindex="0" role="button" aria-label="実存的リスクの説明を見る">実存的リスク</span>より足元のガバナンスを優先すべきだという主張です。</div>
-      <a class="card-link" href="https://www.wired.com/story/popes-ai-advisor-warns-of-cartel-behavior-big-labs/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card policy">
       <div class="card-top">
@@ -470,10 +464,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">毎日AIを使う米国人でも、AIへの不安は消えず</div>
-      <div class="card-title-en">Even Americans who use AI every day are worried about it</div>
-      <div class="card-source">TechCrunch AI · Wed, 23 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">米国で、日常的にAIを使っている人でもこの技術に不安を感じていることが、新しい調査で分かりました。報告書は、AIに触れる機会が増えても不安が解消されるわけではなく、AI規制への支持も弱まらないことを示しています。「使えば慣れる」という業界の楽観論に疑問を投げかける結果で、規制をめぐる議論にも影響しそうです。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/23/even-americans-who-use-ai-every-day-are-worried-about-it/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card policy">
       <div class="card-top">
@@ -481,10 +473,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">米<span class="t" data-t="nhtsa" tabindex="0" role="button" aria-label="NHTSAの説明を見る">NHTSA</span>、死傷事故を受け<span class="t" data-t="comma-ai" tabindex="0" role="button" aria-label="comma.aiの説明を見る">comma.ai</span>を調査</div>
-      <div class="card-title-en">After multiple deaths and injuries, NHTSA is investigating comma.ai</div>
-      <div class="card-source">Ars Technica · Wed, 23 Se</div>
+      <div class="card-source">Ars Technica</div>
       <div class="card-body">米国の道路交通安全局（NHTSA）が、運転支援機器を手がけるcomma.aiの調査を始めました。comma.aiの機器を使っていた車が、低速走行中または停車中の車両に衝突した事故を当局は5件把握しており、死亡事故やけが人も出ています。後付け型の運転支援システムの安全性に対して、当局の監視が厳しくなりつつあります。</div>
-      <a class="card-link" href="https://arstechnica.com/cars/2026/09/aftermarket-driver-assist-under-federal-probe-following-fatal-crashes/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -497,10 +487,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja"><span class="t" data-t="gpt" tabindex="0" role="button" aria-label="ChatGPTの説明を見る">ChatGPT</span>スマホ版、音声でエージェント作業が可能に</div>
-      <div class="card-title-en">ChatGPT mobile app gets voice-based agentic features</div>
-      <div class="card-source">TechCrunch AI · Wed, 23 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">ChatGPTのモバイルアプリに、音声で操作できるエージェント機能が加わりました。ProとPlusのユーザーは、スマートフォンから「Work」タブを使ってエージェント型のタスクを実行できます。これまでPCが中心だった作業の自動化を、移動中に声だけで頼めるようになる点が大きな変化です。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/23/chatgpt-mobile-app-gets-voice-based-agentic-features/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card tools">
       <div class="card-top">
@@ -508,10 +496,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">Spotify、おすすめの仕組みを言葉で調整できる機能を米国で開始</div>
-      <div class="card-title-en">Spotify is giving you the keys to its recommendation algorithm with US launch of ‘Taste Profile’</div>
-      <div class="card-source">TechCrunch AI · Wed, 23 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">Spotifyが、米国のPremiumユーザー向けに「<span class="t" data-t="taste-profile" tabindex="0" role="button" aria-label="Taste Profileの説明を見る">Taste Profile</span>」の提供を始めました。自分の好みをSpotifyがどう理解しているかを確認でき、自然な言葉で指示しておすすめの内容を作り変えられます。ブラックボックスだった推薦アルゴリズムをユーザーが見て、直接操作できるようにする試みです。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/23/spotify-is-giving-you-the-keys-to-its-recommendation-algorithm-with-u-s-launch-of-taste-profile/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>

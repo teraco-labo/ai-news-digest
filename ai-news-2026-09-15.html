@@ -8,22 +8,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#0e7490; }
+  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#1d4ed8; }
   body { font-family:'Noto Sans JP','Inter',sans-serif; background:var(--bg); color:var(--text);
     line-height:1.7; -webkit-font-smoothing:antialiased; }
   a { color:inherit; }
-  .hero { background:linear-gradient(135deg,#0f172a,#1e293b); color:#fff; padding:3rem 1.5rem; }
-  .hero-inner { max-width:1100px; margin:0 auto; }
+  .hero { position:relative; overflow:hidden; background:linear-gradient(180deg,#f7faff,#e8f1ff);
+    color:#0b1f4d; padding:3rem 1.5rem; border-bottom:1px solid #dbe7fb; }
+  .hero::before, .hero::after { content:""; position:absolute; border-radius:999px; pointer-events:none; }
+  .hero::before { right:-160px; bottom:-40px; width:620px; height:120px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(56,189,248,0.0),rgba(56,189,248,0.35)); }
+  .hero::after { right:-120px; bottom:-90px; width:560px; height:90px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(29,78,216,0.0),rgba(29,78,216,0.28)); }
+  .hero-inner { position:relative; z-index:1; max-width:1100px; margin:0 auto; }
   .hero h1 { font-size:1.8rem; font-weight:700; letter-spacing:0.01em; }
-  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#cbd5e1; max-width:640px; }
+  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#475569; max-width:640px; }
   .hero-actions { margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.75rem; }
-  .crumbs { font-size:0.75rem; color:#94a3b8; margin-bottom:0.75rem; }
+  .crumbs { font-size:0.75rem; color:#64748b; margin-bottom:0.75rem; }
   .crumbs a { text-decoration:none; }
   .crumbs a:hover { text-decoration:underline; }
   .btn { display:inline-block; padding:0.6rem 1.3rem; border-radius:6px; font-size:0.85rem;
     font-weight:700; text-decoration:none; }
-  .btn-primary { background:#22d3ee; color:#0f172a; }
-  .btn-ghost { border:1px solid rgba(255,255,255,0.35); color:#e2e8f0; }
+  .btn-primary { background:#1d4ed8; color:#fff; box-shadow:0 4px 14px rgba(29,78,216,0.25); }
+  .btn-ghost { border:1px solid #93c5fd; color:#1d4ed8; background:#fff; }
   main { max-width:1100px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
   .section-label { font-size:0.75rem; font-weight:700; letter-spacing:0.12em; color:var(--text-muted);
     text-transform:uppercase; margin:2.5rem 0 1rem; }
@@ -73,9 +79,9 @@
     margin-top:1rem; font-size:0.74rem; }
   .lang-switch .globe { opacity:0.7; margin-right:0.15rem; }
   .lang-switch .lang { padding:0.25rem 0.7rem; border-radius:999px;
-    border:1px solid rgba(255,255,255,0.25); color:#cbd5e1; text-decoration:none; }
-  .lang-switch a.lang:hover { background:rgba(255,255,255,0.12); color:#fff; }
-  .lang-switch .lang.on { background:rgba(255,255,255,0.9); color:#0f172a; font-weight:700;
+    border:1px solid #cbd5e1; color:#475569; background:#fff; text-decoration:none; }
+  .lang-switch a.lang:hover { background:#eff6ff; color:#1d4ed8; }
+  .lang-switch .lang.on { background:#1d4ed8; color:#fff; font-weight:700;
     border-color:transparent; }
   .lang-switch .lang.soon { opacity:0.45; cursor:default; }
   .lang-switch .lang.soon em { font-style:normal; font-size:0.62rem; margin-left:0.3rem;
@@ -123,32 +129,34 @@
   .card-link { display:inline-block; margin-top:0.9rem; font-size:0.82rem; font-weight:600;
     color:var(--accent); text-decoration:none; }
   .card-link:hover { text-decoration:underline; }
-  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(14,116,144,0.04),transparent); }
+  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(29,78,216,0.04),transparent); }
   .card.top .card-title-ja { font-size:1.25rem; }
   .tier { max-width:760px; margin:2rem auto 0.5rem; font-size:0.7rem; font-weight:700;
     letter-spacing:0.14em; color:var(--text-muted); }
   .tier:first-of-type { margin-top:0; }
   .top-nav { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:1.3rem; }
-  .top-nav a { padding:0.4rem 0.95rem; border:1px solid rgba(255,255,255,0.3); border-radius:999px;
-    font-size:0.78rem; font-weight:600; color:#e2e8f0; text-decoration:none; }
-  .top-nav a:hover { background:rgba(255,255,255,0.12); }
+  .top-nav a { padding:0.4rem 0.95rem; border:1px solid #bfdbfe; border-radius:999px;
+    font-size:0.78rem; font-weight:600; color:#1d4ed8; background:#fff; text-decoration:none; }
+  .top-nav a:hover { background:#eff6ff; }
   .listen { max-width:760px; margin:0 auto 2.5rem; padding:1.2rem 1.4rem;
-    background:linear-gradient(135deg,#0f172a,#1e293b); border-radius:10px; color:#e2e8f0; }
+    background:#fff; border:1px solid #dbe7fb; border-radius:14px; color:#1e293b;
+    box-shadow:0 8px 28px rgba(29,78,216,0.08); }
   .listen-head { display:flex; align-items:baseline; gap:0.6rem; flex-wrap:wrap; margin-bottom:0.75rem; }
-  .listen-head strong { font-size:0.95rem; color:#fff; }
-  .listen-head span { font-size:0.76rem; color:#94a3b8; }
+  .listen-head strong { font-size:0.95rem; color:#0b1f4d; }
+  .listen-head span { font-size:0.76rem; color:#64748b; }
   .listen audio { width:100%; height:40px; display:block; }
-  .speed-row { display:flex; align-items:center; gap:0.4rem; margin-top:0.7rem; flex-wrap:wrap; }
-  .speed-label { font-size:0.7rem; color:#94a3b8; margin-right:0.2rem; }
-  .speed-btn { padding:0.3rem 0.75rem; background:rgba(255,255,255,0.1);
-    border:1px solid rgba(255,255,255,0.25); border-radius:999px; color:#e2e8f0;
+  .speed-row { display:grid; grid-template-columns:repeat(7, minmax(0, 1fr)); gap:0.3rem; margin-top:0.7rem; }
+  .speed-row .speed-label { grid-column:1 / -1; }
+  .speed-label { font-size:0.7rem; color:#64748b; margin-right:0.2rem; }
+  .speed-btn { padding:0.35rem 0; text-align:center; background:#f1f5f9;
+    border:1px solid #e2e8f0; border-radius:999px; color:#334155;
     font-size:0.75rem; font-weight:600; cursor:pointer; }
-  .speed-btn.on { background:#22d3ee; border-color:#22d3ee; color:#0f172a; }
-  .copy-feed { padding:0.25rem 0.7rem; background:rgba(255,255,255,0.12);
-    border:1px solid rgba(255,255,255,0.3); border-radius:6px; color:#e2e8f0;
+  .speed-btn.on { background:#1d4ed8; border-color:#1d4ed8; color:#fff; }
+  .copy-feed { padding:0.25rem 0.7rem; background:#eff6ff;
+    border:1px solid #bfdbfe; border-radius:6px; color:#1d4ed8;
     font-size:0.72rem; font-weight:600; cursor:pointer; }
-  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#94a3b8; line-height:1.8; }
-  .listen-sub a { color:#7dd3fc; text-decoration:none; }
+  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#64748b; line-height:1.8; }
+  .listen-sub a { color:#1d4ed8; text-decoration:none; }
   .listen-sub a:hover { text-decoration:underline; }
   details.genre { max-width:760px; margin:0 auto 0.75rem; background:var(--card-bg);
     border:1px solid var(--border); border-radius:8px; overflow:hidden; }
@@ -330,12 +338,13 @@
       <a href="podcast/ai-news-2026-09-15.mp3">音声ファイルを開く</a>
     </audio>
     <div class="speed-row"><span class="speed-label">再生速度</span>
-      <button type="button" class="speed-btn" data-speed="0.75">0.75×</button>
+      <button type="button" class="speed-btn" data-speed="0.7">0.7×</button>
+      <button type="button" class="speed-btn" data-speed="0.8">0.8×</button>
+      <button type="button" class="speed-btn" data-speed="0.9">0.9×</button>
       <button type="button" class="speed-btn" data-speed="1">1×</button>
       <button type="button" class="speed-btn" data-speed="1.25">1.25×</button>
       <button type="button" class="speed-btn" data-speed="1.5">1.5×</button>
       <button type="button" class="speed-btn" data-speed="2">2×</button>
-      <button type="button" class="speed-btn" data-speed="2.5">2.5×</button>
     </div>
     <div class="listen-sub">毎朝の配信を購読： <a href="https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3">Spotify で聴く</a></div>
   </div>
@@ -351,6 +360,7 @@
   }
   var saved = '1';
   try { saved = localStorage.getItem('wk-speed') || '1'; } catch(e) {}
+  if (!document.querySelector('.speed-btn[data-speed="' + saved + '"]')) saved = '1';
   apply(saved);
   audio.addEventListener('play', function(){ audio.playbackRate = parseFloat(saved); });
   btns.forEach(function(b){
@@ -367,21 +377,17 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja"><span class="t" data-t="ai-agent" tabindex="0" role="button" aria-label="AIエージェントの説明を見る">AIエージェント</span>が仲間の不正を内部告発した</div>
-      <div class="card-title-en">AI agents blew the whistle on their cheating colleagues</div>
-      <div class="card-source">MIT Tech Review · Mon, 14 Se</div>
+      <div class="card-source">MIT Tech Review</div>
       <div class="card-body"><span class="t" data-t="google-deepmind" tabindex="0" role="button" aria-label="Google DeepMindの説明を見る">Google DeepMind</span> の実験で、数学の問題を解かせた複数のAIエージェントが対立する派閥に分かれる現象が観測されました。一部のエージェントが不正（カンニング）を始めると、別のエージェントがそれを止めようとする「内部告発」的な振る舞いが初めて確認されています。自律<span class="t" data-t="agent-swarm" tabindex="0" role="button" aria-label="エージェントの群れの説明を見る">エージェントの群れ</span>を安全に運用する方法を探る<span class="t" data-t="alignment" tabindex="0" role="button" aria-label="アライメントの説明を見る">アライメント</span>研究にとって、重要な手がかりになりうる結果です。エージェントスワームが規模を増すほど、相互監視が制御手段になるのか、あるいは新たな不安定要因になるのかが問われます。</div>
-      <a class="card-link" href="https://www.technologyreview.com/2026/09/14/1144037/ai-agents-blew-whistle-o-cheating-colleagues/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card policy top">
       <div class="card-top">
         <span class="card-label policy">ポリシー</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
-      <div class="card-title-ja">AI減速論にホワイトハウスは冷淡、業界に責任転嫁</div>
-      <div class="card-title-en">AI Leaders Are Calling for a Slowdown. Trump’s Team Says It’s on Them</div>
-      <div class="card-source">Wired AI · Mon, 14 Se</div>
+      <div class="card-title-ja"><span class="t" data-t="ai-slowdown" tabindex="0" role="button" aria-label="AI減速論の説明を見る">AI減速論</span>にホワイトハウスは冷淡、業界に責任転嫁</div>
+      <div class="card-source">Wired AI</div>
       <div class="card-body"><span class="t" data-t="anthropic" tabindex="0" role="button" aria-label="Anthropicの説明を見る">Anthropic</span> のCEO <span class="t" data-t="dario-amodei" tabindex="0" role="button" aria-label="Dario Amodeiの説明を見る">Dario Amodei</span> が週末に公開したエッセイで、<span class="t" data-t="llm" tabindex="0" role="button" aria-label="大規模言語モデルの説明を見る">大規模言語モデル</span>の開発ペースにブレーキをかけるよう呼びかけました。<span class="t" data-t="sam-altman" tabindex="0" role="button" aria-label="Sam Altmanの説明を見る">Sam Altman</span> と <span class="t" data-t="elon-musk" tabindex="0" role="button" aria-label="Elon Muskの説明を見る">Elon Musk</span> がこれを支持し、規制の必要性に同調する異例の構図が生まれています。一方でトランプ政権は規制に動く気配を見せず、安全性の確保は企業側の責任だという立場を取っています。業界の内側から出てきた減速論が政治の壁に突き当たった形で、今後の米国のAI政策の方向性を占う材料になります。</div>
-      <a class="card-link" href="https://www.wired.com/story/ai-leaders-are-calling-for-a-slowdown-trumps-team-says-its-on-them/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card policy top">
       <div class="card-top">
@@ -389,10 +395,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">NVIDIA の<span class="t" data-t="jensen-huang" tabindex="0" role="button" aria-label="フアンの説明を見る">フアン</span>氏「AI減速など起こさせない」</div>
-      <div class="card-title-en">Nvidia CEO Jensen Huang tells Trump ‘we’re not going to let [an AI slowdown] happen’</div>
-      <div class="card-source">TechCrunch AI · Mon, 14 Se</div>
-      <div class="card-body">NVIDIA CEO の Jensen Huang が、トランプ大統領との場で「AIの減速など起こさせない」と明言しました。Dario Amodei の減速提言に Elon Musk と Sam Altman が同調するなか、<span class="t" data-t="compute" tabindex="0" role="button" aria-label="計算資源の説明を見る">計算資源</span>を供給する立場の Huang は正反対の姿勢を示しています。AIの減速は <span class="t" data-t="gpu" tabindex="0" role="button" aria-label="GPUの説明を見る">GPU</span> 需要の鈍化に直結するため、NVIDIA にとって死活問題でもあります。安全性をめぐる議論が、半導体サプライヤーの事業利益と正面からぶつかっていることが見えてきました。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/14/nvidia-ceo-jensen-huang-tells-trump-were-not-going-to-let-an-ai-slowdown-happen/" target="_blank" rel="noopener">元記事を読む →</a>
+      <div class="card-source">TechCrunch AI</div>
+      <div class="card-body">NVIDIA CEO の Jensen Huang が、<span class="t" data-t="donald-trump" tabindex="0" role="button" aria-label="トランプ大統領の説明を見る">トランプ大統領</span>との場で「AIの減速など起こさせない」と明言しました。Dario Amodei の減速提言に Elon Musk と Sam Altman が同調するなか、<span class="t" data-t="compute" tabindex="0" role="button" aria-label="計算資源の説明を見る">計算資源</span>を供給する立場の Huang は正反対の姿勢を示しています。AIの減速は <span class="t" data-t="gpu" tabindex="0" role="button" aria-label="GPUの説明を見る">GPU</span> 需要の鈍化に直結するため、NVIDIA にとって死活問題でもあります。安全性をめぐる議論が、<span class="t" data-t="semiconductor" tabindex="0" role="button" aria-label="半導体の説明を見る">半導体</span>サプライヤーの事業利益と正面からぶつかっていることが見えてきました。</div>
     </article>
     <article class="card tools top">
       <div class="card-top">
@@ -400,10 +404,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">Siri の中身、<span class="t" data-t="claude" tabindex="0" role="button" aria-label="Claudeの説明を見る">Claude</span> や <span class="t" data-t="gpt" tabindex="0" role="button" aria-label="ChatGPTの説明を見る">ChatGPT</span> に差し替え可能か</div>
-      <div class="card-title-en">Apple&#x27;s Siri AI Can Be Swapped Out for Claude, ChatGPT, Code Shows</div>
-      <div class="card-source">Hacker News · 2026-09-14</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body">iOS 27 のコードを解析した結果、Siri のバックエンドを Claude や ChatGPT といった外部モデルに切り替えられる仕組みが存在することが判明しました。Apple が自社モデル一本槍ではなく、外部の<span class="t" data-t="frontier-model" tabindex="0" role="button" aria-label="フロンティアモデルの説明を見る">フロンティアモデル</span>を組み込む設計を用意していることを示す発見です。<span class="t" data-t="hacker-news" tabindex="0" role="button" aria-label="Hacker Newsの説明を見る">Hacker News</span> で216ポイントを集め、コミュニティでも大きな関心を呼んでいます。実現すれば、音声アシスタント市場の競争軸が「端末」から「どのモデルを載せるか」へ移る可能性があります。</div>
-      <a class="card-link" href="https://www.macrumors.com/2026/09/14/siri-can-be-swapped-out-for-chatgpt-claude/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
   </div>
   <div class="tier">ジャンル別のニュース（タップで開く）</div>
@@ -416,10 +418,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">Apple が iOS 27 と <span class="t" data-t="macos-golden-gate" tabindex="0" role="button" aria-label="macOS Golden Gate 27の説明を見る">macOS Golden Gate 27</span> を公開</div>
-      <div class="card-title-en">Apple releases iOS 27, macOS Golden Gate 27 with Siri AI and Liquid Glass refinements</div>
-      <div class="card-source">Ars Technica · Mon, 14 Se</div>
-      <div class="card-body">Apple が iOS 27 と macOS Golden Gate 27 を正式リリースしました。長く遅延していた Siri の刷新がついに搭載され、<span class="t" data-t="liquid-glass" tabindex="0" role="button" aria-label="Liquid Glassの説明を見る">Liquid Glass</span> のインターフェースも細部が改良されています。macOS 側では、Intel 向けアプリを動かす <span class="t" data-t="rosetta" tabindex="0" role="button" aria-label="Rosettaの説明を見る">Rosetta</span> に対応する最後のバージョンとなり、旧世代アプリの移行期限が事実上区切られました。<span class="t" data-t="apple-intelligence" tabindex="0" role="button" aria-label="Apple Intelligenceの説明を見る">Apple Intelligence</span> を軸にした機能が実用段階に入ったかどうかを、利用者が初めて日常で判断できる節目です。</div>
-      <a class="card-link" href="https://arstechnica.com/apple/2026/09/apple-releases-ios-27-macos-golden-gate-27-with-siri-ai-and-liquid-glass-refinements/" target="_blank" rel="noopener">元記事を読む →</a>
+      <div class="card-source">Ars Technica</div>
+      <div class="card-body">Apple が iOS 27 と macOS Golden Gate 27 を正式リリースしました。長く遅延していた Siri の刷新がついに搭載され、<span class="t" data-t="liquid-glass" tabindex="0" role="button" aria-label="Liquid Glassの説明を見る">Liquid Glass</span> のインターフェースも細部が改良されています。macOS 側では、<span class="t" data-t="intel" tabindex="0" role="button" aria-label="Intelの説明を見る">Intel</span> 向けアプリを動かす <span class="t" data-t="rosetta" tabindex="0" role="button" aria-label="Rosettaの説明を見る">Rosetta</span> に対応する最後のバージョンとなり、旧世代アプリの移行期限が事実上区切られました。<span class="t" data-t="apple-intelligence" tabindex="0" role="button" aria-label="Apple Intelligenceの説明を見る">Apple Intelligence</span> を軸にした機能が実用段階に入ったかどうかを、利用者が初めて日常で判断できる節目です。</div>
     </article>
     </div>
   </details>
@@ -432,10 +432,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja"><span class="t" data-t="openai" tabindex="0" role="button" aria-label="OpenAIの説明を見る">OpenAI</span> が <span class="t" data-t="glass-imaging" tabindex="0" role="button" aria-label="Glass Imagingの説明を見る">Glass Imaging</span> を3億ドルで買収か</div>
-      <div class="card-title-en">OpenAI buys smartphone camera maker Glass Imaging for $300 million, report says</div>
-      <div class="card-source">TechCrunch AI · Mon, 14 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">OpenAI がスマートフォン向けカメラ技術の Glass Imaging を約3億ドルで買収したと報じられました。Glass Imaging は元 Apple のエンジニア2名が創業した企業で、この2名は Apple のポートレートモードを開発したチームを率いていた人物です。画像処理の中核人材を確保した形で、OpenAI が手がけるとされるハードウェア開発との関連が注目されます。ソフトウェア企業の枠を超えた買収が続いていることを示す事例です</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/14/openai-buys-smartphone-camera-maker-glass-imaging-for-300-million-report-says/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card business">
       <div class="card-top">
@@ -443,10 +441,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja"><span class="t" data-t="superhuman" tabindex="0" role="button" aria-label="Superhumanの説明を見る">Superhuman</span> が議事録AI「<span class="t" data-t="fathom" tabindex="0" role="button" aria-label="Fathomの説明を見る">Fathom</span>」を買収</div>
-      <div class="card-title-en">Superhuman acquires YC-backed notetaker Fathom as productivity platforms push for agentic work</div>
-      <div class="card-source">TechCrunch AI · Mon, 14 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">メールアプリの Superhuman が、<span class="t" data-t="y-combinator" tabindex="0" role="button" aria-label="Y Combinatorの説明を見る">Y Combinator</span> 出資の議事録作成ツール Fathom を買収しました。Fathom は無料プランが手厚いことで知られ、月間アクティブユーザーは40万人を超え、これまでに100万人以上が会議を録音してきました。生産性プラットフォームがエージェント型の働き方に向けて機能を束ねる動きの一環です。会議・メール・タスクを横断する自律的なアシスタント像に向けた再編が進んでいます。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/14/superhuman-acquires-yc-backed-notetaker-fathom-as-productivity-platforms-push-for-agentic-work/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -459,10 +455,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">AI業界が「終末論」に傾いた、その先にあるもの</div>
-      <div class="card-title-en">The AI industry has taken a doomer turn. What now?</div>
-      <div class="card-source">MIT Tech Review · Mon, 14 Se</div>
+      <div class="card-source">MIT Tech Review</div>
       <div class="card-body"><span class="t" data-t="mit-tech-review" tabindex="0" role="button" aria-label="MIT Technology Reviewの説明を見る">MIT Technology Review</span> が、業界全体に広がる悲観論の転換点を分析しています。きっかけは Anthropic の Dario Amodei が投稿したエッセイで、LLM の開発ペースを落とすべきだと主張しました。同氏は技術がもたらす差し迫った危険を列挙し、これまで加速を牽引してきた当事者による転向として受け止められています。<span class="t" data-t="existential-risk" tabindex="0" role="button" aria-label="実存的リスクの説明を見る">実存的リスク</span>の議論が研究者コミュニティの内輪話から業界の主流に移ったことを示す動きです。</div>
-      <a class="card-link" href="https://www.technologyreview.com/2026/09/14/1144048/the-ai-industry-has-taken-a-doomer-turn-what-now/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card policy">
       <div class="card-top">
@@ -470,10 +464,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">NY州、著名人ディープフェイクサイト12件を差し押さえ</div>
-      <div class="card-title-en">New York Seizes a Dozen Celebrity Deepfake Websites</div>
-      <div class="card-source">Wired AI · Mon, 14 Se</div>
+      <div class="card-source">Wired AI</div>
       <div class="card-body"><span class="t" data-t="manhattan-district-attorney" tabindex="0" role="button" aria-label="マンハッタン地区検事局の説明を見る">マンハッタン地区検事局</span>が、有害なディープフェイクサイト12件を差し押さえました。これらのサイトは合わせて約1,200人を被害者としており、この種の法的措置としては過去最大規模になります。<span class="t" data-t="generative-ai" tabindex="0" role="button" aria-label="生成AIの説明を見る">生成AI</span>による本人の同意なき性的画像の生成が、刑事司法の直接的な取り締まり対象になったことを意味します。プラットフォーム側の<span class="t" data-t="self-regulation" tabindex="0" role="button" aria-label="自主規制の説明を見る">自主規制</span>に頼らず、ドメインの押収という強制力のある手段が使われた点が特徴です。</div>
-      <a class="card-link" href="https://www.wired.com/story/new-york-seizes-a-dozen-celebrity-deepfake-websites/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card policy">
       <div class="card-top">
@@ -481,32 +473,26 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">欧州の政治家100人超、性的ディープフェイクの標的に</div>
-      <div class="card-title-en">Sexually Explicit Deepfake Sites Target 100-Plus Politicians in Europe</div>
-      <div class="card-source">Wired AI · Mon, 14 Se</div>
+      <div class="card-source">Wired AI</div>
       <div class="card-body">160のディープフェイクサイトを分析したところ、22カ国の政治家が被害に遭っていることが判明しました。被害者100人以上のほぼ全員が女性であり、被害が極端に偏っていることが示されています。公職にある人物を標的にした性的な合成画像が、国境を越えて組織的に流通している実態が浮かび上がりました。民主主義に関わる人物への攻撃手段として悪用されており、各国の規制対応を迫る材料になります。</div>
-      <a class="card-link" href="https://www.wired.com/story/sexually-explicit-deepfake-sites-target-100-plus-politicians-in-europe/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card policy">
       <div class="card-top">
         <span class="card-label policy">ポリシー</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">OpenAI のクローラーが <span class="t" data-t="rubygems" tabindex="0" role="button" aria-label="RubyGemsの説明を見る">RubyGems</span> の脆弱性を先に把握</div>
-      <div class="card-title-en">OpenAI bots knew about the RubyGems caching vulnerability</div>
-      <div class="card-source">Hacker News · 2026-09-14</div>
-      <div class="card-body">RubyGems のキャッシュに関する脆弱性について、OpenAI のクローラーが公表前から把握していたことが指摘されています。Hacker News で342ポイントを集め、この日で最も注目された話題になりました。AI企業のクローラーが収集する情報の範囲と、セキュリティ上の未公開情報の扱いをめぐる議論に発展しています。パッケージレジストリという供給網の要に、学習データ収集が触れている構図です。</div>
-      <a class="card-link" href="https://tenderlovemaking.com/2026/09/11/what-a-time-to-be-alive/" target="_blank" rel="noopener">元記事を読む →</a>
+      <div class="card-title-ja">OpenAI のクローラーが <span class="t" data-t="rubygems" tabindex="0" role="button" aria-label="RubyGemsの説明を見る">RubyGems</span> の<span class="t" data-t="vulnerability" tabindex="0" role="button" aria-label="脆弱性の説明を見る">脆弱性</span>を先に把握</div>
+      <div class="card-source">Hacker News</div>
+      <div class="card-body">RubyGems のキャッシュに関する脆弱性について、OpenAI のクローラーが公表前から把握していたことが指摘されています。Hacker News で342ポイントを集め、この日で最も注目された話題になりました。AI企業のクローラーが収集する情報の範囲と、セキュリティ上の未公開情報の扱いをめぐる議論に発展しています。<span class="t" data-t="package-registry" tabindex="0" role="button" aria-label="パッケージレジストリの説明を見る">パッケージレジストリ</span>という供給網の要に、<span class="t" data-t="training-data" tabindex="0" role="button" aria-label="学習データの説明を見る">学習データ</span>収集が触れている構図です。</div>
     </article>
     <article class="card policy">
       <div class="card-top">
         <span class="card-label policy">ポリシー</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">Microsoft、AIモデル向け「行動規範」を策定</div>
-      <div class="card-title-en">Microsoft’s new AI ‘code of conduct’ tells models not to hack systems or trick humans</div>
-      <div class="card-source">TechCrunch AI · Mon, 14 Se</div>
+      <div class="card-title-ja"><span class="t" data-t="microsoft" tabindex="0" role="button" aria-label="Microsoftの説明を見る">Microsoft</span>、AIモデル向け「行動規範」を策定</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">Microsoft が自社のAIモデルが守るべき行動規範を公表しました。人間を置き換えるのではなく支援すること、人間の繁栄を加速することといった一般原則に加え、システムへの侵入や人間を欺く行為を禁じる具体的な安全制約を定めています。法規制に先行して企業が自らモデルの振る舞いに線を引く動きで、Anthropic の憲法AIなどと並ぶ自主規制の事例です。実効性をどう検証するかが次の論点になります。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/14/microsofts-new-ai-code-of-conduct-tells-models-not-to-hack-systems-or-trick-humans/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -534,7 +520,7 @@
   <div class="footer-links"><a href="">トップ</a> ／ <a href="terms/">AI用語集</a> ／ <a href="articles/">読み物</a> ／ <a href="archive.html">バックナンバー</a> ／ <a href="about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
   <div class="footer-brand">Teraco News by てらこ先生</div>
 </footer>
-<script type="application/json" id="glossary-data">{"agent-swarm": {"n": "エージェントスワーム", "r": "エージェントスワーム", "s": "たくさんのAIエージェントを同時に動かし、手分けして作業させるやり方です。一体では時間のかかる仕事を並行して進められます。", "u": "terms/agent-swarm.html"}, "ai-agent": {"n": "AIエージェント", "r": "エーアイエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "alignment": {"n": "アライメント", "r": "アライメント", "s": "AIが人間の意図や価値観からずれないようにする研究分野です。日本語では「整合性」と訳されます。", "u": "terms/alignment.html"}, "anthropic": {"n": "Anthropic", "r": "アンソロピック", "s": "AIアシスタント「Claude」を開発するアメリカの企業です。AIの安全性を重視する方針を掲げています。", "u": "terms/anthropic.html"}, "apple-intelligence": {"n": "Apple Intelligence", "r": "アップル・インテリジェンス", "s": "Appleが自社製品に組み込んでいるAI機能の総称です。端末の中で処理することを重視しています。", "u": "terms/apple-intelligence.html"}, "claude": {"n": "Claude", "r": "クロード", "s": "Anthropicが開発しているAIアシスタントです。長文の読解や文章作成、プログラミングに強みがあります。", "u": "terms/claude.html"}, "compute": {"n": "計算資源", "r": "コンピュート", "s": "AIの学習や実行に使う計算能力の総量のことです。お金・電力・半導体の量とほぼ同じ意味で語られます。", "u": "terms/compute.html"}, "dario-amodei": {"n": "Dario Amodei", "r": "ダリオ・アモデイ", "s": "Claudeを作ったAnthropicのトップ（CEO）です。AIの安全性を重視する姿勢で知られます。", "u": "terms/dario-amodei.html"}, "deepfake": {"n": "ディープフェイク", "r": "ディープフェイク", "s": "AIで作られた、本物と見分けがつかない偽の映像や音声のことです。", "u": "terms/deepfake.html"}, "elon-musk": {"n": "イーロン・マスク", "r": "イーロン・マスク", "s": "テスラやスペースX、X（旧Twitter）を率いる実業家です。AI企業xAIも設立しました。", "u": "terms/elon-musk.html"}, "existential-risk": {"n": "実存的リスク", "r": "", "s": "人類そのものが立ち行かなくなるほどの、取り返しのつかない被害を指す言葉です。AIの危険性を語るときによく使われます。", "u": "terms/existential-risk.html"}, "fathom": {"n": "Fathom", "r": "ファゾム", "s": "オンライン会議を録音して自動で議事録を作るツールです。無料で使える範囲が広いことで利用者を増やしました。", "u": "terms/fathom.html"}, "frontier-model": {"n": "フロンティアモデル", "r": "", "s": "その時点で最も性能が高い、開発の最前線にある大型のAIモデルを指す言葉です。各社がここで性能を競っています。", "u": "terms/frontier-model.html"}, "generative-ai": {"n": "生成AI", "r": "", "s": "文章・画像・音声・動画などを新しく作り出せるAIの総称です。分類や予測をするだけだった従来のAIとの違いがここにあります。", "u": "terms/generative-ai.html"}, "glass-imaging": {"n": "Glass Imaging", "r": "グラス・イメージング", "s": "スマートフォンのカメラ画質を良くする技術を作っている会社です。元 Apple のエンジニア2人が立ち上げました。OpenAI が約3億ドルで買収したと報じられています。", "u": "terms/glass-imaging.html"}, "google-deepmind": {"n": "Google DeepMind", "r": "グーグル・ディープマインド", "s": "Googleの AI 研究部門です。囲碁でプロ棋士を破ったAlphaGoや、AIモデルGeminiを開発しています。", "u": "terms/google-deepmind.html"}, "gpt": {"n": "GPT", "r": "ジーピーティー", "s": "OpenAIが開発しているAIモデルのシリーズ名です。ChatGPTの中身がこれにあたります。", "u": "terms/gpt.html"}, "gpu": {"n": "GPU", "r": "ジーピーユー", "s": "大量の計算を同時に行える半導体で、AIの学習と実行に欠かせない部品です。", "u": "terms/gpu.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "ios-27": {"n": "iOS 27", "r": "アイオーエス・にじゅうなな", "s": "iPhone 向けの基本ソフトの新しい版です。長く遅れていた Siri の刷新がようやく入りました。", "u": "terms/ios-27.html"}, "jensen-huang": {"n": "Jensen Huang", "r": "ジェンスン・フアン", "s": "AI用の半導体で圧倒的なシェアを持つNVIDIAの創業者・トップです。黒い革ジャンがトレードマークです。", "u": "terms/jensen-huang.html"}, "liquid-glass": {"n": "Liquid Glass", "r": "リキッドグラス", "s": "Apple の端末で使われている画面デザインの名前です。すりガラスのような質感が特徴です。", "u": "terms/liquid-glass.html"}, "llm": {"n": "LLM", "r": "エルエルエム", "s": "大量の文章を学習して、人間のように読み書きできるAIのことです。ChatGPTやClaudeの「頭脳」にあたる部分がこれです。", "u": "terms/llm.html"}, "macos-golden-gate": {"n": "macOS Golden Gate 27", "r": "マックオーエス・ゴールデンゲート", "s": "Mac 向けの基本ソフトの新しい版です。Intel 時代のアプリを動かす仕組みに対応する最後の版になります。", "u": "terms/macos-golden-gate.html"}, "manhattan-district-attorney": {"n": "マンハッタン地区検事局", "r": "マンハッタンちくけんじきょく", "s": "ニューヨーク市マンハッタンを管轄する検察の組織です。ディープフェイクサイト12件の差し押さえを実行しました。", "u": "terms/manhattan-district-attorney.html"}, "mit-tech-review": {"n": "MIT Technology Review", "r": "エムアイティー・テクノロジーレビュー", "s": "マサチューセッツ工科大学が発行する技術の専門誌です。", "u": "terms/mit-tech-review.html"}, "nvidia": {"n": "NVIDIA", "r": "エヌビディア", "s": "AI開発に不可欠なGPUを作っている半導体企業です。生成AIブームの最大の受益者と言われています。", "u": "terms/nvidia.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "rosetta": {"n": "Rosetta", "r": "ロゼッタ", "s": "古い Mac 向けに作られたアプリを、新しい Mac でもそのまま動かすための変換の仕組みです。Apple が用意しています。", "u": "terms/rosetta.html"}, "rubygems": {"n": "RubyGems", "r": "ルビージェムズ", "s": "Ruby というプログラミング言語向けの、部品（ライブラリ）を配る公式の置き場です。世界中の開発者がここから部品を取り寄せて、自分のソフトに組み込んでいます。", "u": "terms/rubygems.html"}, "sam-altman": {"n": "Sam Altman", "r": "サム・アルトマン", "s": "ChatGPTを作ったOpenAIのトップ（CEO）です。今のAIブームの顔ともいえる人物です。", "u": "terms/sam-altman.html"}, "self-regulation": {"n": "自主規制", "r": "", "s": "法律で縛るのではなく、企業が自分たちで決めたルールを守るやり方です。AI業界では規制の代わりとして主張されています。", "u": "terms/self-regulation.html"}, "superhuman": {"n": "Superhuman", "r": "スーパーヒューマン", "s": "高速に操作できることを売りにした有料のメールアプリです。最近はAIによる作業の自動化に力を入れています。", "u": "terms/superhuman.html"}, "y-combinator": {"n": "Y Combinator", "r": "ワイコンビネーター", "s": "創業直後の企業を育てるアメリカの支援プログラムです。YCと略されます。", "u": "terms/y-combinator.html"}}</script>
+<script type="application/json" id="glossary-data">{"agent-swarm": {"n": "エージェントスワーム", "r": "エージェントスワーム", "s": "たくさんのAIエージェントを同時に動かし、手分けして作業させるやり方です。一体では時間のかかる仕事を並行して進められます。", "u": "terms/agent-swarm.html"}, "ai-agent": {"n": "AIエージェント", "r": "エーアイエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "ai-slowdown": {"n": "AI減速論", "r": "", "s": "AIの開発ペースを意図的に緩めるべきだという主張です。安全性の確保が追いつかないという懸念が背景にあります。", "u": "terms/ai-slowdown.html"}, "alignment": {"n": "アライメント", "r": "アライメント", "s": "AIが人間の意図や価値観からずれないようにする研究分野です。日本語では「整合性」と訳されます。", "u": "terms/alignment.html"}, "anthropic": {"n": "Anthropic", "r": "アンソロピック", "s": "AIアシスタント「Claude」を開発するアメリカの企業です。AIの安全性を重視する方針を掲げています。", "u": "terms/anthropic.html"}, "apple-intelligence": {"n": "Apple Intelligence", "r": "アップル・インテリジェンス", "s": "Appleが自社製品に組み込んでいるAI機能の総称です。端末の中で処理することを重視しています。", "u": "terms/apple-intelligence.html"}, "claude": {"n": "Claude", "r": "クロード", "s": "Anthropicが開発しているAIアシスタントです。長文の読解や文章作成、プログラミングに強みがあります。", "u": "terms/claude.html"}, "compute": {"n": "計算資源", "r": "コンピュート", "s": "AIの学習や実行に使う計算能力の総量のことです。お金・電力・半導体の量とほぼ同じ意味で語られます。", "u": "terms/compute.html"}, "dario-amodei": {"n": "Dario Amodei", "r": "ダリオ・アモデイ", "s": "Claudeを作ったAnthropicのトップ（CEO）です。AIの安全性を重視する姿勢で知られます。", "u": "terms/dario-amodei.html"}, "deepfake": {"n": "ディープフェイク", "r": "ディープフェイク", "s": "AIで作られた、本物と見分けがつかない偽の映像や音声のことです。", "u": "terms/deepfake.html"}, "donald-trump": {"n": "ドナルド・トランプ", "r": "", "s": "アメリカの大統領です。AIを含む国の政策を最終的に決める立場にあります。", "u": "terms/donald-trump.html"}, "elon-musk": {"n": "イーロン・マスク", "r": "イーロン・マスク", "s": "テスラやスペースX、X（旧Twitter）を率いる実業家です。AI企業xAIも設立しました。", "u": "terms/elon-musk.html"}, "existential-risk": {"n": "実存的リスク", "r": "", "s": "人類そのものが立ち行かなくなるほどの、取り返しのつかない被害を指す言葉です。AIの危険性を語るときによく使われます。", "u": "terms/existential-risk.html"}, "fathom": {"n": "Fathom", "r": "ファゾム", "s": "オンライン会議を録音して自動で議事録を作るツールです。無料で使える範囲が広いことで利用者を増やしました。", "u": "terms/fathom.html"}, "frontier-model": {"n": "フロンティアモデル", "r": "", "s": "その時点で最も性能が高い、開発の最前線にある大型のAIモデルを指す言葉です。各社がここで性能を競っています。", "u": "terms/frontier-model.html"}, "generative-ai": {"n": "生成AI", "r": "", "s": "文章・画像・音声・動画などを新しく作り出せるAIの総称です。分類や予測をするだけだった従来のAIとの違いがここにあります。", "u": "terms/generative-ai.html"}, "glass-imaging": {"n": "Glass Imaging", "r": "グラス・イメージング", "s": "スマートフォンのカメラ画質を良くする技術を作っている会社です。元 Apple のエンジニア2人が立ち上げました。OpenAI が約3億ドルで買収したと報じられています。", "u": "terms/glass-imaging.html"}, "google-deepmind": {"n": "Google DeepMind", "r": "グーグル・ディープマインド", "s": "Googleの AI 研究部門です。囲碁でプロ棋士を破ったAlphaGoや、AIモデルGeminiを開発しています。", "u": "terms/google-deepmind.html"}, "gpt": {"n": "GPT", "r": "ジーピーティー", "s": "OpenAIが開発しているAIモデルのシリーズ名です。ChatGPTの中身がこれにあたります。", "u": "terms/gpt.html"}, "gpu": {"n": "GPU", "r": "ジーピーユー", "s": "大量の計算を同時に行える半導体で、AIの学習と実行に欠かせない部品です。", "u": "terms/gpu.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "intel": {"n": "Intel", "r": "インテル", "s": "米国の老舗半導体メーカーです。パソコン用の頭脳にあたる部品で長く世界首位を占めてきました。", "u": "terms/intel.html"}, "ios-27": {"n": "iOS 27", "r": "アイオーエス・にじゅうなな", "s": "iPhone 向けの基本ソフトの新しい版です。長く遅れていた Siri の刷新がようやく入りました。", "u": "terms/ios-27.html"}, "jensen-huang": {"n": "Jensen Huang", "r": "ジェンスン・フアン", "s": "AI用の半導体で圧倒的なシェアを持つNVIDIAの創業者・トップです。黒い革ジャンがトレードマークです。", "u": "terms/jensen-huang.html"}, "liquid-glass": {"n": "Liquid Glass", "r": "リキッドグラス", "s": "Apple の端末で使われている画面デザインの名前です。すりガラスのような質感が特徴です。", "u": "terms/liquid-glass.html"}, "llm": {"n": "LLM", "r": "エルエルエム", "s": "大量の文章を学習して、人間のように読み書きできるAIのことです。ChatGPTやClaudeの「頭脳」にあたる部分がこれです。", "u": "terms/llm.html"}, "macos-golden-gate": {"n": "macOS Golden Gate 27", "r": "マックオーエス・ゴールデンゲート", "s": "Mac 向けの基本ソフトの新しい版です。Intel 時代のアプリを動かす仕組みに対応する最後の版になります。", "u": "terms/macos-golden-gate.html"}, "manhattan-district-attorney": {"n": "マンハッタン地区検事局", "r": "マンハッタンちくけんじきょく", "s": "ニューヨーク市マンハッタンを管轄する検察の組織です。ディープフェイクサイト12件の差し押さえを実行しました。", "u": "terms/manhattan-district-attorney.html"}, "microsoft": {"n": "Microsoft", "r": "マイクロソフト", "s": "OpenAIに巨額の出資を行い、自社サービスにAIを組み込んでいる企業です。", "u": "terms/microsoft.html"}, "mit-tech-review": {"n": "MIT Technology Review", "r": "エムアイティー・テクノロジーレビュー", "s": "マサチューセッツ工科大学が発行する技術の専門誌です。", "u": "terms/mit-tech-review.html"}, "nvidia": {"n": "NVIDIA", "r": "エヌビディア", "s": "AI開発に不可欠なGPUを作っている半導体企業です。生成AIブームの最大の受益者と言われています。", "u": "terms/nvidia.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "package-registry": {"n": "パッケージレジストリ", "r": "", "s": "ソフト作りに使う部品を、みんなが取り寄せられるようにまとめて置いてある場所です。言語ごとに代表的な置き場があります。", "u": "terms/package-registry.html"}, "rosetta": {"n": "Rosetta", "r": "ロゼッタ", "s": "古い Mac 向けに作られたアプリを、新しい Mac でもそのまま動かすための変換の仕組みです。Apple が用意しています。", "u": "terms/rosetta.html"}, "rubygems": {"n": "RubyGems", "r": "ルビージェムズ", "s": "Ruby というプログラミング言語向けの、部品（ライブラリ）を配る公式の置き場です。世界中の開発者がここから部品を取り寄せて、自分のソフトに組み込んでいます。", "u": "terms/rubygems.html"}, "sam-altman": {"n": "Sam Altman", "r": "サム・アルトマン", "s": "ChatGPTを作ったOpenAIのトップ（CEO）です。今のAIブームの顔ともいえる人物です。", "u": "terms/sam-altman.html"}, "self-regulation": {"n": "自主規制", "r": "", "s": "法律で縛るのではなく、企業が自分たちで決めたルールを守るやり方です。AI業界では規制の代わりとして主張されています。", "u": "terms/self-regulation.html"}, "semiconductor": {"n": "半導体", "r": "はんどうたい", "s": "電気を通したり止めたりできる性質を持つ材料、またはそれで作ったコンピュータの部品のことです。", "u": "terms/semiconductor.html"}, "superhuman": {"n": "Superhuman", "r": "スーパーヒューマン", "s": "高速に操作できることを売りにした有料のメールアプリです。最近はAIによる作業の自動化に力を入れています。", "u": "terms/superhuman.html"}, "training-data": {"n": "学習データ", "r": "", "s": "AIを訓練するために読み込ませる大量のデータのことです。AIの性能と偏りの両方を決める土台です。", "u": "terms/training-data.html"}, "vulnerability": {"n": "脆弱性", "r": "", "s": "ソフトウェアに残っている、攻撃に悪用されうる欠陥のことです。見つかると修正プログラムが配られます。", "u": "terms/vulnerability.html"}, "y-combinator": {"n": "Y Combinator", "r": "ワイコンビネーター", "s": "創業直後の企業を育てるアメリカの支援プログラムです。YCと略されます。", "u": "terms/y-combinator.html"}}</script>
 
 <script>
 (function(){

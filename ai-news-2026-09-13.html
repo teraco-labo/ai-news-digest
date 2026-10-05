@@ -8,22 +8,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#0e7490; }
+  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#1d4ed8; }
   body { font-family:'Noto Sans JP','Inter',sans-serif; background:var(--bg); color:var(--text);
     line-height:1.7; -webkit-font-smoothing:antialiased; }
   a { color:inherit; }
-  .hero { background:linear-gradient(135deg,#0f172a,#1e293b); color:#fff; padding:3rem 1.5rem; }
-  .hero-inner { max-width:1100px; margin:0 auto; }
+  .hero { position:relative; overflow:hidden; background:linear-gradient(180deg,#f7faff,#e8f1ff);
+    color:#0b1f4d; padding:3rem 1.5rem; border-bottom:1px solid #dbe7fb; }
+  .hero::before, .hero::after { content:""; position:absolute; border-radius:999px; pointer-events:none; }
+  .hero::before { right:-160px; bottom:-40px; width:620px; height:120px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(56,189,248,0.0),rgba(56,189,248,0.35)); }
+  .hero::after { right:-120px; bottom:-90px; width:560px; height:90px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(29,78,216,0.0),rgba(29,78,216,0.28)); }
+  .hero-inner { position:relative; z-index:1; max-width:1100px; margin:0 auto; }
   .hero h1 { font-size:1.8rem; font-weight:700; letter-spacing:0.01em; }
-  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#cbd5e1; max-width:640px; }
+  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#475569; max-width:640px; }
   .hero-actions { margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.75rem; }
-  .crumbs { font-size:0.75rem; color:#94a3b8; margin-bottom:0.75rem; }
+  .crumbs { font-size:0.75rem; color:#64748b; margin-bottom:0.75rem; }
   .crumbs a { text-decoration:none; }
   .crumbs a:hover { text-decoration:underline; }
   .btn { display:inline-block; padding:0.6rem 1.3rem; border-radius:6px; font-size:0.85rem;
     font-weight:700; text-decoration:none; }
-  .btn-primary { background:#22d3ee; color:#0f172a; }
-  .btn-ghost { border:1px solid rgba(255,255,255,0.35); color:#e2e8f0; }
+  .btn-primary { background:#1d4ed8; color:#fff; box-shadow:0 4px 14px rgba(29,78,216,0.25); }
+  .btn-ghost { border:1px solid #93c5fd; color:#1d4ed8; background:#fff; }
   main { max-width:1100px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
   .section-label { font-size:0.75rem; font-weight:700; letter-spacing:0.12em; color:var(--text-muted);
     text-transform:uppercase; margin:2.5rem 0 1rem; }
@@ -73,9 +79,9 @@
     margin-top:1rem; font-size:0.74rem; }
   .lang-switch .globe { opacity:0.7; margin-right:0.15rem; }
   .lang-switch .lang { padding:0.25rem 0.7rem; border-radius:999px;
-    border:1px solid rgba(255,255,255,0.25); color:#cbd5e1; text-decoration:none; }
-  .lang-switch a.lang:hover { background:rgba(255,255,255,0.12); color:#fff; }
-  .lang-switch .lang.on { background:rgba(255,255,255,0.9); color:#0f172a; font-weight:700;
+    border:1px solid #cbd5e1; color:#475569; background:#fff; text-decoration:none; }
+  .lang-switch a.lang:hover { background:#eff6ff; color:#1d4ed8; }
+  .lang-switch .lang.on { background:#1d4ed8; color:#fff; font-weight:700;
     border-color:transparent; }
   .lang-switch .lang.soon { opacity:0.45; cursor:default; }
   .lang-switch .lang.soon em { font-style:normal; font-size:0.62rem; margin-left:0.3rem;
@@ -123,32 +129,34 @@
   .card-link { display:inline-block; margin-top:0.9rem; font-size:0.82rem; font-weight:600;
     color:var(--accent); text-decoration:none; }
   .card-link:hover { text-decoration:underline; }
-  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(14,116,144,0.04),transparent); }
+  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(29,78,216,0.04),transparent); }
   .card.top .card-title-ja { font-size:1.25rem; }
   .tier { max-width:760px; margin:2rem auto 0.5rem; font-size:0.7rem; font-weight:700;
     letter-spacing:0.14em; color:var(--text-muted); }
   .tier:first-of-type { margin-top:0; }
   .top-nav { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:1.3rem; }
-  .top-nav a { padding:0.4rem 0.95rem; border:1px solid rgba(255,255,255,0.3); border-radius:999px;
-    font-size:0.78rem; font-weight:600; color:#e2e8f0; text-decoration:none; }
-  .top-nav a:hover { background:rgba(255,255,255,0.12); }
+  .top-nav a { padding:0.4rem 0.95rem; border:1px solid #bfdbfe; border-radius:999px;
+    font-size:0.78rem; font-weight:600; color:#1d4ed8; background:#fff; text-decoration:none; }
+  .top-nav a:hover { background:#eff6ff; }
   .listen { max-width:760px; margin:0 auto 2.5rem; padding:1.2rem 1.4rem;
-    background:linear-gradient(135deg,#0f172a,#1e293b); border-radius:10px; color:#e2e8f0; }
+    background:#fff; border:1px solid #dbe7fb; border-radius:14px; color:#1e293b;
+    box-shadow:0 8px 28px rgba(29,78,216,0.08); }
   .listen-head { display:flex; align-items:baseline; gap:0.6rem; flex-wrap:wrap; margin-bottom:0.75rem; }
-  .listen-head strong { font-size:0.95rem; color:#fff; }
-  .listen-head span { font-size:0.76rem; color:#94a3b8; }
+  .listen-head strong { font-size:0.95rem; color:#0b1f4d; }
+  .listen-head span { font-size:0.76rem; color:#64748b; }
   .listen audio { width:100%; height:40px; display:block; }
-  .speed-row { display:flex; align-items:center; gap:0.4rem; margin-top:0.7rem; flex-wrap:wrap; }
-  .speed-label { font-size:0.7rem; color:#94a3b8; margin-right:0.2rem; }
-  .speed-btn { padding:0.3rem 0.75rem; background:rgba(255,255,255,0.1);
-    border:1px solid rgba(255,255,255,0.25); border-radius:999px; color:#e2e8f0;
+  .speed-row { display:grid; grid-template-columns:repeat(7, minmax(0, 1fr)); gap:0.3rem; margin-top:0.7rem; }
+  .speed-row .speed-label { grid-column:1 / -1; }
+  .speed-label { font-size:0.7rem; color:#64748b; margin-right:0.2rem; }
+  .speed-btn { padding:0.35rem 0; text-align:center; background:#f1f5f9;
+    border:1px solid #e2e8f0; border-radius:999px; color:#334155;
     font-size:0.75rem; font-weight:600; cursor:pointer; }
-  .speed-btn.on { background:#22d3ee; border-color:#22d3ee; color:#0f172a; }
-  .copy-feed { padding:0.25rem 0.7rem; background:rgba(255,255,255,0.12);
-    border:1px solid rgba(255,255,255,0.3); border-radius:6px; color:#e2e8f0;
+  .speed-btn.on { background:#1d4ed8; border-color:#1d4ed8; color:#fff; }
+  .copy-feed { padding:0.25rem 0.7rem; background:#eff6ff;
+    border:1px solid #bfdbfe; border-radius:6px; color:#1d4ed8;
     font-size:0.72rem; font-weight:600; cursor:pointer; }
-  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#94a3b8; line-height:1.8; }
-  .listen-sub a { color:#7dd3fc; text-decoration:none; }
+  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#64748b; line-height:1.8; }
+  .listen-sub a { color:#1d4ed8; text-decoration:none; }
   .listen-sub a:hover { text-decoration:underline; }
   details.genre { max-width:760px; margin:0 auto 0.75rem; background:var(--card-bg);
     border:1px solid var(--border); border-radius:8px; overflow:hidden; }
@@ -330,12 +338,13 @@
       <a href="podcast/ai-news-2026-09-13.mp3">音声ファイルを開く</a>
     </audio>
     <div class="speed-row"><span class="speed-label">再生速度</span>
-      <button type="button" class="speed-btn" data-speed="0.75">0.75×</button>
+      <button type="button" class="speed-btn" data-speed="0.7">0.7×</button>
+      <button type="button" class="speed-btn" data-speed="0.8">0.8×</button>
+      <button type="button" class="speed-btn" data-speed="0.9">0.9×</button>
       <button type="button" class="speed-btn" data-speed="1">1×</button>
       <button type="button" class="speed-btn" data-speed="1.25">1.25×</button>
       <button type="button" class="speed-btn" data-speed="1.5">1.5×</button>
       <button type="button" class="speed-btn" data-speed="2">2×</button>
-      <button type="button" class="speed-btn" data-speed="2.5">2.5×</button>
     </div>
     <div class="listen-sub">毎朝の配信を購読： <a href="https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3">Spotify で聴く</a></div>
   </div>
@@ -351,6 +360,7 @@
   }
   var saved = '1';
   try { saved = localStorage.getItem('wk-speed') || '1'; } catch(e) {}
+  if (!document.querySelector('.speed-btn[data-speed="' + saved + '"]')) saved = '1';
   apply(saved);
   audio.addEventListener('play', function(){ audio.playbackRate = parseFloat(saved); });
   btns.forEach(function(b){
@@ -367,10 +377,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">Anthropic・Amodei氏、AI開発を意図的に減速させる案を提示</div>
-      <div class="card-title-en">Anthropic CEO outlines plan to slow AI development</div>
-      <div class="card-source">TechCrunch AI · Sat, 12 Se</div>
-      <div class="card-body">AnthropicのCEOである<span class="t" data-t="dario-amodei" tabindex="0" role="button" aria-label="Dario Amodeiの説明を見る">Dario Amodei</span>氏が、AI開発の速度を意図的に落とすための具体的な考え方を示しました。注目すべきは、競合であるOpenAIの<span class="t" data-t="sam-altman" tabindex="0" role="button" aria-label="Sam Altmanの説明を見る">Sam Altman</span>氏も「フロンティア（最先端の開発競争）のペースを整える」という方向性に同調していると見られる点です。記事では、その「減速」が実際にはどういう形を取り得るのか、各社が足並みをそろえる仕組みが成立するのかが論点として整理されています。これまで各社は性能競争の先頭を取り合ってきたため、最大手2社のトップが同じ言葉で減速を語り始めたこと自体が転換点です。規制当局が動く前に業界側が自主的な速度制限を設計できるかどうかは、今後の規制のかたちにも直結します。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/12/anthropic-ceo-outlines-plan-to-pace-the-frontier/" target="_blank" rel="noopener">元記事を読む →</a>
+      <div class="card-source">TechCrunch AI</div>
+      <div class="card-body">AnthropicのCEOである<span class="t" data-t="dario-amodei" tabindex="0" role="button" aria-label="Dario Amodeiの説明を見る">Dario Amodei</span>氏が、AI開発の速度を意図的に落とすための具体的な考え方を示しました。注目すべきは、競合であるOpenAIの<span class="t" data-t="sam-altman" tabindex="0" role="button" aria-label="Sam Altmanの説明を見る">Sam Altman</span>氏も「フロンティア（最先端の開発競争）のペースを整える」という方向性に同調していると見られる点です。記事では、その「減速」が実際にはどういう形を取り得るのか、各社が足並みをそろえる仕組みが成立するのかが論点として整理されています。これまで各社は性能競争の先頭を取り合ってきたため、最大手2社のトップが同じ言葉で減速を語り始めたこと自体が転換点です。<span class="t" data-t="regulator" tabindex="0" role="button" aria-label="規制当局の説明を見る">規制当局</span>が動く前に業界側が自主的な速度制限を設計できるかどうかは、今後の規制のかたちにも直結します。</div>
     </article>
     <article class="card policy top">
       <div class="card-top">
@@ -378,10 +386,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">OpenAIのエージェント、<span class="t" data-t="rubygems" tabindex="0" role="button" aria-label="RubyGemsの説明を見る">RubyGems</span>に無断で攻撃的行為との指摘</div>
-      <div class="card-title-en">OpenAI agents carried out an undisclosed attack on RubyGems</div>
-      <div class="card-source">Hacker News · 2026-09-11</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body">OpenAIのエージェントがRubyGems（Ruby言語向けの部品を配布する公式の置き場）に対し、事前の通知なく攻撃的な行為を行っていたという指摘が公開され、<span class="t" data-t="hacker-news" tabindex="0" role="button" aria-label="Hacker Newsの説明を見る">Hacker News</span>で917ポイントを集めて本日最大の反響となりました。問題視されているのは、運営側に知らせないまま自動化された働きかけが外部インフラに及んでいた点です。AIエージェントが人間の代理で外部サービスに手を出す場面が急速に増える一方、相手方への事前連絡や同意のルールが追いついていない実態が浮き彫りになっています。対象が世界中の開発現場が日々依存している基盤だったため、議論は「エージェントを運用する側の作法をどう定めるか」へと広がっています。</div>
-      <a class="card-link" href="https://www.rubyhack.ai/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card policy top">
       <div class="card-top">
@@ -389,10 +395,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">Claudeの悪用、侵入から生物兵器まで拡大と<span class="t" data-t="wired" tabindex="0" role="button" aria-label="Wiredの説明を見る">Wired</span>報じる</div>
-      <div class="card-title-en">From Hacks to Bioweapons, Claude Misuse Is Now Everywhere</div>
-      <div class="card-source">Wired AI · Sat, 12 Se</div>
+      <div class="card-source">Wired AI</div>
       <div class="card-body">Wiredが、Claudeを悪用した事例がシステムへの侵入から生物兵器に関する情報の引き出しまで広範囲に及んでいると報じました。同じ記事では、米政府がインターネット最大級の闇市場を停止させたこと、<span class="t" data-t="ransomware" tabindex="0" role="button" aria-label="ランサムウェアの説明を見る">ランサムウェア</span>集団<span class="t" data-t="conti" tabindex="0" role="button" aria-label="Contiの説明を見る">Conti</span>のメンバーに実刑判決が下ったこと、<span class="t" data-t="meta-ai" tabindex="0" role="button" aria-label="Metaの説明を見る">Meta</span>が児童虐待を描いたAI生成動画の流通を止められていないことも併せて取り上げられています。安全対策に最も投資してきたとされるAnthropicのモデルでも悪用が日常的に観測されている点が、この記事の重さです。モデル側の対策だけでは防ぎきれないという前提で、事業者・プラットフォーム・法執行のどこで止めるかという設計が問われ始めています。</div>
-      <a class="card-link" href="https://www.wired.com/story/security-news-this-week-from-hacks-to-bioweapons-claude-misuse-is-now-everywhere/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
   </div>
   <div class="tier">ジャンル別のニュース（タップで開く）</div>
@@ -405,10 +409,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">Altman氏「2026年の上場は賢明でない」OpenAIは今年見送り</div>
-      <div class="card-title-en">OpenAI’s Sam Altman says it would be ‘ill-advised’ to go public in 2026</div>
-      <div class="card-source">TechCrunch AI · Sat, 12 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">OpenAIのCEOであるSam Altman氏が、2026年中の株式公開（<span class="t" data-t="ipo" tabindex="0" role="button" aria-label="IPOの説明を見る">IPO</span>）は「賢明でない（ill-advised）」と述べ、今年の上場を見送る考えを示しました。OpenAIはすでに秘密扱いでの上場申請を済ませており、手続き上は準備が進んでいる状態です。それでもトップ自身が時期を否定したことで、市場が期待していた大型上場は少なくとも1年先送りとなります。巨額の<span class="t" data-t="compute" tabindex="0" role="button" aria-label="計算資源の説明を見る">計算資源</span>投資を続けるOpenAIにとって、<span class="t" data-t="funding-round" tabindex="0" role="button" aria-label="資金調達の説明を見る">資金調達</span>手段を上場以外にどう組み立てるかが次の焦点です。AI関連株の相場全体に影響する案件のため、投資家側も判断の前提を組み替える必要が出てきます。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/12/openais-sam-altman-says-it-would-be-ill-advised-to-go-public-in-2026/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card business">
       <div class="card-top">
@@ -416,10 +418,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">Mecka AI、Sequoia主導で評価額5億ドル規模へ</div>
-      <div class="card-title-en">Mecka AI nears $500M valuation in Sequoia-led deal amid rush for robot training data</div>
-      <div class="card-source">TechCrunch AI · Fri, 11 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">創業2年のMecka AIが、<span class="t" data-t="sequoia-capital" tabindex="0" role="button" aria-label="Sequoia Capitalの説明を見る">Sequoia Capital</span>主導のラウンドで評価額5億ドル（約750億円規模）に迫る条件で資金調達をまとめつつあります。同社はシリーズA（初期の本格的な資金調達）を発表してからわずか数か月でこの話がまとまっており、評価の上がり方が異例の速さです。狙われているのはロボットの<span class="t" data-t="training-data" tabindex="0" role="button" aria-label="学習データの説明を見る">学習データ</span>で、実機を動かすための動作データが不足している現状が価格を押し上げています。テキストや画像のデータがひととおり使い尽くされつつある中、次の希少資源は「身体を動かした記録」だという見立てが投資側に共有されていることを示す案件です。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/11/mecka-ai-nears-500m-valuation-in-sequoia-led-deal-amid-rush-for-robot-training-data/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card business">
       <div class="card-top">
@@ -427,10 +427,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">「<span class="t" data-t="nvidia" tabindex="0" role="button" aria-label="NVIDIAの説明を見る">NVIDIA</span>はAIの中央銀行だ」という論考が話題</div>
-      <div class="card-title-en">Nvidia is the central bank of AI</div>
-      <div class="card-source">Hacker News · 2026-09-12</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body">NVIDIAをAI経済における「中央銀行」に見立てた論考が、Hacker Newsで332ポイントを集めて議論を呼んでいます。<span class="t" data-t="gpu" tabindex="0" role="button" aria-label="GPUの説明を見る">GPU</span>の生産量と、どの顧客にどれだけ割り当てるかを一社が握っているため、各社がどれだけ計算資源を使えるかを実質的にNVIDIAが決めている、という整理です。中央銀行が通貨の量を調整するのと同じように、NVIDIAは計算資源という通貨の供給量を調整している、という比喩が軸になっています。各社の設備投資計画がNVIDIAの供給スケジュール次第で動く構造は、AI業界の景気そのものが一社の判断に左右されることを意味します。</div>
-      <a class="card-link" href="https://www.economist.com/interactive/briefing/2026/09/03/nvidia-is-the-central-bank-of-ai" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -443,10 +441,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">Google、<span class="t" data-t="open-source" tabindex="0" role="button" aria-label="オープンソースの説明を見る">オープンソース</span>のコードを作者名なしで流用と指摘</div>
-      <div class="card-title-en">Google stole open source code without crediting the authors (Artemis/Minitap)</div>
-      <div class="card-source">Hacker News · 2026-09-12</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body">Googleが公開した<span class="t" data-t="artemis-google" tabindex="0" role="button" aria-label="Artemisの説明を見る">Artemis</span>というプロジェクトが、オープンソースの<span class="t" data-t="minitap" tabindex="0" role="button" aria-label="Minitapの説明を見る">Minitap</span>のコードを作者の表示（クレジット）なしに取り込んでいるという指摘が投稿され、Hacker Newsで134ポイントを集めました。オープンソースは無償で使える代わりに、作者名やライセンスの表示を条件にしているものが多く、そこを外すとライセンス違反になり得ます。大手がAIエージェント関連の開発を急ぐ中で、外部のコードを取り込む速度に対して権利処理が追いついていない例として受け止められています。学習データの扱いと同じ構図が、コードそのものの流用という形でも表面化しているのが今回の論点です。</div>
-      <a class="card-link" href="https://www.minitap.ai/blog/i-expected-better-from-google" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -474,7 +470,7 @@
   <div class="footer-links"><a href="">トップ</a> ／ <a href="terms/">AI用語集</a> ／ <a href="articles/">読み物</a> ／ <a href="archive.html">バックナンバー</a> ／ <a href="about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
   <div class="footer-brand">Teraco News by てらこ先生</div>
 </footer>
-<script type="application/json" id="glossary-data">{"ai-agent": {"n": "AIエージェント", "r": "エーアイエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "anthropic": {"n": "Anthropic", "r": "アンソロピック", "s": "AIアシスタント「Claude」を開発するアメリカの企業です。AIの安全性を重視する方針を掲げています。", "u": "terms/anthropic.html"}, "artemis-google": {"n": "Artemis", "r": "アルテミス", "s": "Google が公開したプロジェクトの名前です。今回、他人のオープンソースのコードを作者名を示さずに取り込んでいると指摘されている側です。", "u": "terms/artemis-google.html"}, "claude": {"n": "Claude", "r": "クロード", "s": "Anthropicが開発しているAIアシスタントです。長文の読解や文章作成、プログラミングに強みがあります。", "u": "terms/claude.html"}, "compute": {"n": "計算資源", "r": "コンピュート", "s": "AIの学習や実行に使う計算能力の総量のことです。お金・電力・半導体の量とほぼ同じ意味で語られます。", "u": "terms/compute.html"}, "conti": {"n": "Conti", "r": "コンティ", "s": "企業のデータを勝手に暗号化して身代金を要求していた犯罪グループの名前です。今回、その関係者に実刑判決が出ました。", "u": "terms/conti.html"}, "dario-amodei": {"n": "Dario Amodei", "r": "ダリオ・アモデイ", "s": "Claudeを作ったAnthropicのトップ（CEO）です。AIの安全性を重視する姿勢で知られます。", "u": "terms/dario-amodei.html"}, "funding-round": {"n": "資金調達ラウンド", "r": "", "s": "スタートアップが投資家からお金を集める段階のことです。シード、シリーズA、Bと進みます。", "u": "terms/funding-round.html"}, "gpu": {"n": "GPU", "r": "ジーピーユー", "s": "大量の計算を同時に行える半導体で、AIの学習と実行に欠かせない部品です。", "u": "terms/gpu.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "ipo": {"n": "IPO", "r": "アイピーオー", "s": "企業が株式を証券取引所に上場し、誰でも売買できるようにすることです。新規株式公開ともいいます。", "u": "terms/ipo.html"}, "mecka-ai": {"n": "Mecka AI", "r": "メッカエーアイ", "s": "ロボットに動きを覚えさせるためのデータを作っている、создан2年目の新しい会社です。Sequoia Capitalが主導する出資で、会社の値段が約5億ドルに届こうとしています。", "u": "terms/mecka-ai.html"}, "meta-ai": {"n": "Meta", "r": "メタ", "s": "FacebookやInstagramを運営する企業で、AIモデル「Llama」を公開しています。", "u": "terms/meta-ai.html"}, "minitap": {"n": "Minitap", "r": "ミニタップ", "s": "誰でも自由に使えるかたちで公開されているソフトのプロジェクトです。今回、コードを作者名なしで使われたと指摘している側です。", "u": "terms/minitap.html"}, "nvidia": {"n": "NVIDIA", "r": "エヌビディア", "s": "AI開発に不可欠なGPUを作っている半導体企業です。生成AIブームの最大の受益者と言われています。", "u": "terms/nvidia.html"}, "open-source": {"n": "オープンソース", "r": "オープンソース", "s": "ソフトウェアの中身が公開され、誰でも自由に使ったり改良したりできる形態のことです。", "u": "terms/open-source.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "ransomware": {"n": "ランサムウェア", "r": "", "s": "パソコンやサーバーの中身を勝手に暗号化して開けなくし、元に戻す代わりにお金を要求する攻撃です。病院や工場が止まる被害も起きています。", "u": "terms/ransomware.html"}, "robot-data": {"n": "ロボットデータ", "r": "ロボットデータ", "s": "ロボットに動き方を覚えさせるために集める、実際の動作の記録です。カメラの映像や、関節をどう動かしたかといった情報が含まれます。", "u": "terms/robot-data.html"}, "rubygems": {"n": "RubyGems", "r": "ルビージェムズ", "s": "Ruby というプログラミング言語向けの、部品（ライブラリ）を配る公式の置き場です。世界中の開発者がここから部品を取り寄せて、自分のソフトに組み込んでいます。", "u": "terms/rubygems.html"}, "sam-altman": {"n": "Sam Altman", "r": "サム・アルトマン", "s": "ChatGPTを作ったOpenAIのトップ（CEO）です。今のAIブームの顔ともいえる人物です。", "u": "terms/sam-altman.html"}, "sequoia-capital": {"n": "Sequoia Capital", "r": "セコイア・キャピタル", "s": "スタートアップにお金を出して育てる、アメリカの著名な投資会社です。会社の立ち上げ段階から関わることもあります。", "u": "terms/sequoia-capital.html"}, "training-data": {"n": "学習データ", "r": "", "s": "AIを訓練するために読み込ませる大量のデータのことです。AIの性能と偏りの両方を決める土台です。", "u": "terms/training-data.html"}, "valuation": {"n": "評価額", "r": "ひょうかがく", "s": "投資を受ける際に算定される企業の価値のことです。「10億ドルの評価額で調達」のように使われます。", "u": "terms/valuation.html"}, "wired": {"n": "Wired", "r": "ワイアード", "s": "技術と社会の関わりを扱う米国の雑誌・ニュースサイトです。日本語版もあります。", "u": "terms/wired.html"}}</script>
+<script type="application/json" id="glossary-data">{"ai-agent": {"n": "AIエージェント", "r": "エーアイエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "anthropic": {"n": "Anthropic", "r": "アンソロピック", "s": "AIアシスタント「Claude」を開発するアメリカの企業です。AIの安全性を重視する方針を掲げています。", "u": "terms/anthropic.html"}, "artemis-google": {"n": "Artemis", "r": "アルテミス", "s": "Google が公開したプロジェクトの名前です。今回、他人のオープンソースのコードを作者名を示さずに取り込んでいると指摘されている側です。", "u": "terms/artemis-google.html"}, "claude": {"n": "Claude", "r": "クロード", "s": "Anthropicが開発しているAIアシスタントです。長文の読解や文章作成、プログラミングに強みがあります。", "u": "terms/claude.html"}, "compute": {"n": "計算資源", "r": "コンピュート", "s": "AIの学習や実行に使う計算能力の総量のことです。お金・電力・半導体の量とほぼ同じ意味で語られます。", "u": "terms/compute.html"}, "conti": {"n": "Conti", "r": "コンティ", "s": "企業のデータを勝手に暗号化して身代金を要求していた犯罪グループの名前です。今回、その関係者に実刑判決が出ました。", "u": "terms/conti.html"}, "dario-amodei": {"n": "Dario Amodei", "r": "ダリオ・アモデイ", "s": "Claudeを作ったAnthropicのトップ（CEO）です。AIの安全性を重視する姿勢で知られます。", "u": "terms/dario-amodei.html"}, "funding-round": {"n": "資金調達ラウンド", "r": "", "s": "スタートアップが投資家からお金を集める段階のことです。シード、シリーズA、Bと進みます。", "u": "terms/funding-round.html"}, "gpu": {"n": "GPU", "r": "ジーピーユー", "s": "大量の計算を同時に行える半導体で、AIの学習と実行に欠かせない部品です。", "u": "terms/gpu.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "ipo": {"n": "IPO", "r": "アイピーオー", "s": "企業が株式を証券取引所に上場し、誰でも売買できるようにすることです。新規株式公開ともいいます。", "u": "terms/ipo.html"}, "mecka-ai": {"n": "Mecka AI", "r": "メッカエーアイ", "s": "ロボットに動きを覚えさせるためのデータを作っている、создан2年目の新しい会社です。Sequoia Capitalが主導する出資で、会社の値段が約5億ドルに届こうとしています。", "u": "terms/mecka-ai.html"}, "meta-ai": {"n": "Meta", "r": "メタ", "s": "FacebookやInstagramを運営する企業で、AIモデル「Llama」を公開しています。", "u": "terms/meta-ai.html"}, "minitap": {"n": "Minitap", "r": "ミニタップ", "s": "誰でも自由に使えるかたちで公開されているソフトのプロジェクトです。今回、コードを作者名なしで使われたと指摘している側です。", "u": "terms/minitap.html"}, "nvidia": {"n": "NVIDIA", "r": "エヌビディア", "s": "AI開発に不可欠なGPUを作っている半導体企業です。生成AIブームの最大の受益者と言われています。", "u": "terms/nvidia.html"}, "open-source": {"n": "オープンソース", "r": "オープンソース", "s": "ソフトウェアの中身が公開され、誰でも自由に使ったり改良したりできる形態のことです。", "u": "terms/open-source.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "ransomware": {"n": "ランサムウェア", "r": "", "s": "パソコンやサーバーの中身を勝手に暗号化して開けなくし、元に戻す代わりにお金を要求する攻撃です。病院や工場が止まる被害も起きています。", "u": "terms/ransomware.html"}, "regulator": {"n": "規制当局", "r": "きせいとうきょく", "s": "企業が法律やルールを守っているかを見張り、必要なら調査や処分をする国の役所のことです。", "u": "terms/regulator.html"}, "robot-data": {"n": "ロボットデータ", "r": "ロボットデータ", "s": "ロボットに動き方を覚えさせるために集める、実際の動作の記録です。カメラの映像や、関節をどう動かしたかといった情報が含まれます。", "u": "terms/robot-data.html"}, "rubygems": {"n": "RubyGems", "r": "ルビージェムズ", "s": "Ruby というプログラミング言語向けの、部品（ライブラリ）を配る公式の置き場です。世界中の開発者がここから部品を取り寄せて、自分のソフトに組み込んでいます。", "u": "terms/rubygems.html"}, "sam-altman": {"n": "Sam Altman", "r": "サム・アルトマン", "s": "ChatGPTを作ったOpenAIのトップ（CEO）です。今のAIブームの顔ともいえる人物です。", "u": "terms/sam-altman.html"}, "sequoia-capital": {"n": "Sequoia Capital", "r": "セコイア・キャピタル", "s": "スタートアップにお金を出して育てる、アメリカの著名な投資会社です。会社の立ち上げ段階から関わることもあります。", "u": "terms/sequoia-capital.html"}, "training-data": {"n": "学習データ", "r": "", "s": "AIを訓練するために読み込ませる大量のデータのことです。AIの性能と偏りの両方を決める土台です。", "u": "terms/training-data.html"}, "valuation": {"n": "評価額", "r": "ひょうかがく", "s": "投資を受ける際に算定される企業の価値のことです。「10億ドルの評価額で調達」のように使われます。", "u": "terms/valuation.html"}, "wired": {"n": "Wired", "r": "ワイアード", "s": "技術と社会の関わりを扱う米国の雑誌・ニュースサイトです。日本語版もあります。", "u": "terms/wired.html"}}</script>
 
 <script>
 (function(){

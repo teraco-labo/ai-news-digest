@@ -8,22 +8,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#0e7490; }
+  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#1d4ed8; }
   body { font-family:'Noto Sans JP','Inter',sans-serif; background:var(--bg); color:var(--text);
     line-height:1.7; -webkit-font-smoothing:antialiased; }
   a { color:inherit; }
-  .hero { background:linear-gradient(135deg,#0f172a,#1e293b); color:#fff; padding:3rem 1.5rem; }
-  .hero-inner { max-width:1100px; margin:0 auto; }
+  .hero { position:relative; overflow:hidden; background:linear-gradient(180deg,#f7faff,#e8f1ff);
+    color:#0b1f4d; padding:3rem 1.5rem; border-bottom:1px solid #dbe7fb; }
+  .hero::before, .hero::after { content:""; position:absolute; border-radius:999px; pointer-events:none; }
+  .hero::before { right:-160px; bottom:-40px; width:620px; height:120px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(56,189,248,0.0),rgba(56,189,248,0.35)); }
+  .hero::after { right:-120px; bottom:-90px; width:560px; height:90px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(29,78,216,0.0),rgba(29,78,216,0.28)); }
+  .hero-inner { position:relative; z-index:1; max-width:1100px; margin:0 auto; }
   .hero h1 { font-size:1.8rem; font-weight:700; letter-spacing:0.01em; }
-  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#cbd5e1; max-width:640px; }
+  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#475569; max-width:640px; }
   .hero-actions { margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.75rem; }
-  .crumbs { font-size:0.75rem; color:#94a3b8; margin-bottom:0.75rem; }
+  .crumbs { font-size:0.75rem; color:#64748b; margin-bottom:0.75rem; }
   .crumbs a { text-decoration:none; }
   .crumbs a:hover { text-decoration:underline; }
   .btn { display:inline-block; padding:0.6rem 1.3rem; border-radius:6px; font-size:0.85rem;
     font-weight:700; text-decoration:none; }
-  .btn-primary { background:#22d3ee; color:#0f172a; }
-  .btn-ghost { border:1px solid rgba(255,255,255,0.35); color:#e2e8f0; }
+  .btn-primary { background:#1d4ed8; color:#fff; box-shadow:0 4px 14px rgba(29,78,216,0.25); }
+  .btn-ghost { border:1px solid #93c5fd; color:#1d4ed8; background:#fff; }
   main { max-width:1100px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
   .section-label { font-size:0.75rem; font-weight:700; letter-spacing:0.12em; color:var(--text-muted);
     text-transform:uppercase; margin:2.5rem 0 1rem; }
@@ -41,13 +47,41 @@
   .issue-list .m { font-size:0.72rem; color:var(--text-muted); margin-left:0.5rem; }
   footer { border-top:1px solid var(--border); padding:2rem 1.5rem; text-align:center;
     font-size:0.78rem; color:var(--text-muted); }
+  .sub-grid { max-width:760px; margin:0 auto; display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:0.8rem; }
+  .sub-card { display:flex; flex-direction:column; gap:0.3rem; padding:1.1rem 1.2rem;
+    background:var(--card-bg); border:1px solid var(--border); border-radius:8px;
+    text-decoration:none; transition:border-color .15s; }
+  .sub-card:hover { border-color:var(--accent); }
+  .sub-card.mail { border-color:var(--accent); border-width:2px;
+    background:linear-gradient(180deg,rgba(14,116,144,0.05),transparent); }
+  .sub-embed { cursor:default; }
+  .sub-badge { display:block; margin-top:0.5rem; padding:0.6rem; text-align:center;
+    border-radius:6px; font-size:0.85rem; font-weight:700; text-decoration:none; color:#fff; }
+  .sub-badge.spotify { background:#1db954; }
+  .sub-badge.apple { background:#8e44ec; }
+  .sub-copy { margin-top:0.6rem; width:100%; padding:0.6rem; background:var(--accent);
+    color:#fff; font-size:0.85rem; font-weight:700; border:none; border-radius:6px;
+    cursor:pointer; }
+  .sub-advanced { max-width:760px; margin:0.8rem auto 0; font-size:0.72rem;
+    color:var(--text-muted); }
+  .sub-advanced a { color:var(--text-muted); }
+  .sub-embed form { margin-top:0.5rem; }
+  .sub-embed input[type="email"] { width:100%; padding:0.6rem 0.8rem; font-size:0.9rem;
+    border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text); }
+  .sub-embed button, .sub-embed input[type="submit"] { margin-top:0.5rem; width:100%;
+    padding:0.65rem; background:var(--accent); color:#fff; font-size:0.88rem; font-weight:700;
+    border:none; border-radius:6px; cursor:pointer; }
+  .sub-ico { font-size:1.2rem; }
+  .sub-t { font-size:0.92rem; font-weight:700; }
+  .sub-d { font-size:0.76rem; line-height:1.7; color:var(--text-muted); }
   .lang-switch { display:flex; flex-wrap:wrap; align-items:center; gap:0.35rem;
     margin-top:1rem; font-size:0.74rem; }
   .lang-switch .globe { opacity:0.7; margin-right:0.15rem; }
   .lang-switch .lang { padding:0.25rem 0.7rem; border-radius:999px;
-    border:1px solid rgba(255,255,255,0.25); color:#cbd5e1; text-decoration:none; }
-  .lang-switch a.lang:hover { background:rgba(255,255,255,0.12); color:#fff; }
-  .lang-switch .lang.on { background:rgba(255,255,255,0.9); color:#0f172a; font-weight:700;
+    border:1px solid #cbd5e1; color:#475569; background:#fff; text-decoration:none; }
+  .lang-switch a.lang:hover { background:#eff6ff; color:#1d4ed8; }
+  .lang-switch .lang.on { background:#1d4ed8; color:#fff; font-weight:700;
     border-color:transparent; }
   .lang-switch .lang.soon { opacity:0.45; cursor:default; }
   .lang-switch .lang.soon em { font-style:normal; font-size:0.62rem; margin-left:0.3rem;
@@ -55,6 +89,8 @@
   .footer-links { margin-top:0.9rem; font-size:0.75rem; }
   .footer-links a { color:var(--text-muted); text-decoration:none; }
   .footer-links a:hover { color:var(--accent); text-decoration:underline; }
+  .footer-brand { margin-top:1.1rem; font-size:0.68rem; letter-spacing:0.04em;
+    color:var(--text-muted); opacity:0.55; }
   @media (max-width:640px){ .issue-list{columns:1;} .hero h1{font-size:1.4rem;} }
 
   :root {
@@ -93,23 +129,34 @@
   .card-link { display:inline-block; margin-top:0.9rem; font-size:0.82rem; font-weight:600;
     color:var(--accent); text-decoration:none; }
   .card-link:hover { text-decoration:underline; }
-  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(14,116,144,0.04),transparent); }
+  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(29,78,216,0.04),transparent); }
   .card.top .card-title-ja { font-size:1.25rem; }
   .tier { max-width:760px; margin:2rem auto 0.5rem; font-size:0.7rem; font-weight:700;
     letter-spacing:0.14em; color:var(--text-muted); }
   .tier:first-of-type { margin-top:0; }
   .top-nav { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:1.3rem; }
-  .top-nav a { padding:0.4rem 0.95rem; border:1px solid rgba(255,255,255,0.3); border-radius:999px;
-    font-size:0.78rem; font-weight:600; color:#e2e8f0; text-decoration:none; }
-  .top-nav a:hover { background:rgba(255,255,255,0.12); }
+  .top-nav a { padding:0.4rem 0.95rem; border:1px solid #bfdbfe; border-radius:999px;
+    font-size:0.78rem; font-weight:600; color:#1d4ed8; background:#fff; text-decoration:none; }
+  .top-nav a:hover { background:#eff6ff; }
   .listen { max-width:760px; margin:0 auto 2.5rem; padding:1.2rem 1.4rem;
-    background:linear-gradient(135deg,#0f172a,#1e293b); border-radius:10px; color:#e2e8f0; }
+    background:#fff; border:1px solid #dbe7fb; border-radius:14px; color:#1e293b;
+    box-shadow:0 8px 28px rgba(29,78,216,0.08); }
   .listen-head { display:flex; align-items:baseline; gap:0.6rem; flex-wrap:wrap; margin-bottom:0.75rem; }
-  .listen-head strong { font-size:0.95rem; color:#fff; }
-  .listen-head span { font-size:0.76rem; color:#94a3b8; }
+  .listen-head strong { font-size:0.95rem; color:#0b1f4d; }
+  .listen-head span { font-size:0.76rem; color:#64748b; }
   .listen audio { width:100%; height:40px; display:block; }
-  .listen-sub { margin-top:0.6rem; font-size:0.74rem; }
-  .listen-sub a { color:#7dd3fc; text-decoration:none; }
+  .speed-row { display:grid; grid-template-columns:repeat(7, minmax(0, 1fr)); gap:0.3rem; margin-top:0.7rem; }
+  .speed-row .speed-label { grid-column:1 / -1; }
+  .speed-label { font-size:0.7rem; color:#64748b; margin-right:0.2rem; }
+  .speed-btn { padding:0.35rem 0; text-align:center; background:#f1f5f9;
+    border:1px solid #e2e8f0; border-radius:999px; color:#334155;
+    font-size:0.75rem; font-weight:600; cursor:pointer; }
+  .speed-btn.on { background:#1d4ed8; border-color:#1d4ed8; color:#fff; }
+  .copy-feed { padding:0.25rem 0.7rem; background:#eff6ff;
+    border:1px solid #bfdbfe; border-radius:6px; color:#1d4ed8;
+    font-size:0.72rem; font-weight:600; cursor:pointer; }
+  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#64748b; line-height:1.8; }
+  .listen-sub a { color:#1d4ed8; text-decoration:none; }
   .listen-sub a:hover { text-decoration:underline; }
   details.genre { max-width:760px; margin:0 auto 0.75rem; background:var(--card-bg);
     border:1px solid var(--border); border-radius:8px; overflow:hidden; }
@@ -279,13 +326,40 @@
       <strong>今日の音声版</strong>
       <span>対話形式・ながら聴き向け（10〜15分）</span>
     </div>
-    <audio controls preload="none" src="podcast/ai-news-2026-07-16.mp3">
+    <audio id="pod-audio" controls preload="none" src="podcast/ai-news-2026-07-16.mp3">
       <a href="podcast/ai-news-2026-07-16.mp3">音声ファイルを開く</a>
     </audio>
-    <div class="listen-sub">
-      <a href="https://teraco-labo.github.io/ai-news-digest/podcast/feed.xml">📡 ポッドキャストとして購読する（RSS / Spotify）</a>
+    <div class="speed-row"><span class="speed-label">再生速度</span>
+      <button type="button" class="speed-btn" data-speed="0.7">0.7×</button>
+      <button type="button" class="speed-btn" data-speed="0.8">0.8×</button>
+      <button type="button" class="speed-btn" data-speed="0.9">0.9×</button>
+      <button type="button" class="speed-btn" data-speed="1">1×</button>
+      <button type="button" class="speed-btn" data-speed="1.25">1.25×</button>
+      <button type="button" class="speed-btn" data-speed="1.5">1.5×</button>
+      <button type="button" class="speed-btn" data-speed="2">2×</button>
     </div>
+    <div class="listen-sub">毎朝の配信を購読： <a href="https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3">Spotify で聴く</a></div>
   </div>
+<script>
+(function(){
+  var audio = document.getElementById('pod-audio');
+  if (!audio) return;
+  var btns = document.querySelectorAll('.speed-btn');
+  function apply(v){
+    audio.playbackRate = parseFloat(v);
+    btns.forEach(function(b){ b.classList.toggle('on', b.dataset.speed === v); });
+    try { localStorage.setItem('wk-speed', v); } catch(e) {}
+  }
+  var saved = '1';
+  try { saved = localStorage.getItem('wk-speed') || '1'; } catch(e) {}
+  if (!document.querySelector('.speed-btn[data-speed="' + saved + '"]')) saved = '1';
+  apply(saved);
+  audio.addEventListener('play', function(){ audio.playbackRate = parseFloat(saved); });
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){ saved = b.dataset.speed; apply(saved); });
+  });
+})();
+</script>
 
   <div class="tier">注目のニュース</div>
   <div class="digest">
@@ -305,7 +379,7 @@
         <span class="card-label model">モデル</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
-      <div class="card-title-ja">固定: GPT-Red の紹介 モデルの<span class="t" data-t="prompt" tabindex="0" role="button" aria-label="プロンプトの説明を見る">プロンプト</span> インジェクションの脆弱性を大規模に発見するという使命を担う内部の自動レッド チーマーは、広範な展開の前に強力な防御を構築するのに役立ちます。 htt</div>
+      <div class="card-title-ja">固定: GPT-Red の紹介 モデルの<span class="t" data-t="prompt" tabindex="0" role="button" aria-label="プロンプトの説明を見る">プロンプト</span> インジェクションの<span class="t" data-t="vulnerability" tabindex="0" role="button" aria-label="脆弱性の説明を見る">脆弱性</span>を大規模に発見するという使命を担う内部の自動レッド チーマーは、広範な展開の前に強力な防御を構築するのに役立ちます。 htt</div>
       <div class="card-source">X / @OpenAI</div>
       <div class="card-body">GPT-Red の紹介
 
@@ -338,7 +412,7 @@ openai.com/supply/co-lab/wor…
 
 サプライカンパニー x ワークラウダー
 
-The Supply Co. × Work Louder kbd-1.0 Codex micro をご覧ください。思慮深いデザイン、プレミアムなクラフトマンシップ、AI のインスピレーションを組み合わせた独占的なコラボレーションです。
+The Supply Co. × Work Louder kbd-1.0 <span class="t" data-t="codex" tabindex="0" role="button" aria-label="Codexの説明を見る">Codex</span> micro をご覧ください。思慮深いデザイン、プレミアムなクラフトマンシップ、AI のインスピレーションを組み合わせた独占的なコラボレーションです。
 openai.com</div>
     </article>
     <article class="card model top">
@@ -355,7 +429,7 @@ openai.com</div>
 
 こんにちは。 Codex と ChatGPT Work のアクティブ ユーザー数は 800 万人に達しました。
 
-すべてのユーザーの使用制限を再度リセットします。また、5 時間のレート制限も引き続き設けず、誰もが GPT-5.6 Sol の境界を探索し、どれだけ野心的になれるかを発見できるようにします。
+すべてのユーザーの使用制限を再度リセットします。また、5 時間のレート制限も引き続き設けず、誰もが <span class="t" data-t="gpt-5-6-sol" tabindex="0" role="button" aria-label="GPT-5.6 Solの説明を見る">GPT-5.6 Sol</span> の境界を探索し、どれだけ野心的になれるかを発見できるようにします。
 
 私たちの成長に関するさらなる最新情報については、また明日お会いしましょう!
 
@@ -368,7 +442,7 @@ openai.com</div>
         <span class="card-label model">モデル</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
-      <div class="card-title-ja">私たちは、一定の<span class="t" data-t="inference-cost" tabindex="0" role="button" aria-label="推論コストの説明を見る">推論コスト</span>で、ロボット モデルを 8,000 タイムステップのコンテキスト、5 分相当のマッスル メモリにネイティブにスケーリングしました。ロボット ポリシーは、一度に数フレーム (&lt; 0.1 秒) ずつ動作していました。</div>
+      <div class="card-title-ja">私たちは、一定の<span class="t" data-t="inference-cost" tabindex="0" role="button" aria-label="推論コストの説明を見る">推論コスト</span>で、ロボット モデルを 8,000 タイムステップのコンテキスト、5 分相当のマッスル <span class="t" data-t="memory" tabindex="0" role="button" aria-label="メモリの説明を見る">メモリ</span>にネイティブにスケーリングしました。ロボット ポリシーは、一度に数フレーム (&lt; 0.1 秒) ずつ動作していました。</div>
       <div class="card-source">X / @DrJimFan</div>
       <div class="card-body">私たちは、一定の推論コストで、ロボット モデルを 8,000 タイムステップのコンテキスト、5 分相当のマッスル メモリにネイティブにスケーリングしました。ロボット ポリシーは、一度に数フレーム (0.1 秒未満) ずつ生活を送り、今起こったことをすぐに忘れていました。私たちは SOTA を 3 桁も超えて押し上げました。 
 
@@ -379,7 +453,7 @@ openai.com</div>
         <span class="card-label model">モデル</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
-      <div class="card-title-ja">Muse Spark は 2026 年アジア物理オリンピックで満点を獲得しました。科学を加速する AI システムを構築するという私たちの長期目標に対する素晴らしいマイルストーンです。</div>
+      <div class="card-title-ja"><span class="t" data-t="muse-spark" tabindex="0" role="button" aria-label="Muse Sparkの説明を見る">Muse Spark</span> は 2026 年アジア物理オリンピックで満点を獲得しました。科学を加速する AI システムを構築するという私たちの長期目標に対する素晴らしいマイルストーンです。</div>
       <div class="card-source">X / @alexandr_wang</div>
       <div class="card-body">Muse Spark は 2026 年アジア物理オリンピックで満点を獲得しました。
 
@@ -406,7 +480,7 @@ Meta AI の高度な<span class="t" data-t="inference" tabindex="0" role="button
 
 現在、AI サイクルの価格戦争段階に突入しています。
 
-@amitisinvesting は、Alex Karp の主権 AI 理論に関する @Cerebras CEO @andrewdfeldman とのインタビューを含め、モデルがどのように戦うことになるかを取り上げています。</div>
+@amitisinvesting は、Alex Karp の主権 AI 理論に関する @<span class="t" data-t="cerebras" tabindex="0" role="button" aria-label="Cerebrasの説明を見る">Cerebras</span> CEO @andrewdfeldman とのインタビューを含め、モデルがどのように戦うことになるかを取り上げています。</div>
     </article>
     <article class="card model top">
       <div class="card-top">
@@ -444,7 +518,7 @@ Meta AI の高度な<span class="t" data-t="inference" tabindex="0" role="button
       </div>
       <div class="card-title-ja">Inkling: 私たちの<span class="t" data-t="open-weight" tabindex="0" role="button" aria-label="オープンウェイトの説明を見る">オープンウェイト</span>モデル</div>
       <div class="card-source">Hacker News</div>
-      <div class="card-body">Hacker Newsで440ポイント獲得。コミュニティで注目を集めている話題。</div>
+      <div class="card-body"><span class="t" data-t="hacker-news" tabindex="0" role="button" aria-label="Hacker Newsの説明を見る">Hacker News</span>で440ポイント獲得。コミュニティで注目を集めている話題。</div>
     </article>
     <article class="card research top">
       <div class="card-top">
@@ -618,7 +692,7 @@ openai.com
         <span class="card-label model">モデル</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">Thinking Machines は、初のオープン モデル Inkling で画一的な AI に対する賭けを強化します。</div>
+      <div class="card-title-ja"><span class="t" data-t="thinking-machines" tabindex="0" role="button" aria-label="Thinking Machinesの説明を見る">Thinking Machines</span> は、初のオープン モデル Inkling で画一的な AI に対する賭けを強化します。</div>
       <div class="card-source">TechCrunch AI</div>
       <div class="card-body">これは、ほぼ公の場で AI インフラストラクチャの構築に 1 年半を費やした同社にとって、初の公の実証ポイントです。</div>
     </article>
@@ -706,14 +780,14 @@ openai.com
       </div>
       <div class="card-title-ja">ダウンロード: 便利な量子マシンと記録破りの海底トンネル</div>
       <div class="card-source">MIT Tech Review</div>
-      <div class="card-body">これは、テクノロジーの世界で何が起こっているかを毎日提供する平日のニュースレター、The Download の今日版です。 PsiQuantum は光から巨大な量子コンピューターを作る計画を持っています 世界を変える可能性のあるマシンは、データのように見える部屋に収容されます…</div>
+      <div class="card-body">これは、テクノロジーの世界で何が起こっているかを毎日提供する平日のニュースレター、<span class="t" data-t="mit-tech-review" tabindex="0" role="button" aria-label="The Downloadの説明を見る">The Download</span> の今日版です。 PsiQuantum は光から巨大な量子コンピューターを作る計画を持っています 世界を変える可能性のあるマシンは、データのように見える部屋に収容されます…</div>
     </article>
     <article class="card research">
       <div class="card-top">
         <span class="card-label research">研究</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">電動自転車の配達が行方不明になりました。復元しようとしたらチャットボット地獄に落ちてしまった</div>
+      <div class="card-title-ja">電動自転車の配達が行方不明になりました。復元しようとしたら<span class="t" data-t="chatbot" tabindex="0" role="button" aria-label="チャットボットの説明を見る">チャットボット</span>地獄に落ちてしまった</div>
       <div class="card-source">Wired AI</div>
       <div class="card-body">企業の AI チャットボットへの依存度が高まっても、カスタマー サービス エクスペリエンスがよりスマートになるわけではありません。それはさらに腹立たしいだけです。</div>
     </article>
@@ -731,7 +805,7 @@ openai.com
         <span class="card-label research">研究</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">判事: トランプ大統領は、コンテンツ管理に携わったという理由だけで研究者を国外追放することはできない</div>
+      <div class="card-title-ja">判事: <span class="t" data-t="donald-trump" tabindex="0" role="button" aria-label="トランプ大統領の説明を見る">トランプ大統領</span>は、コンテンツ管理に携わったという理由だけで研究者を国外追放することはできない</div>
       <div class="card-source">Ars Technica</div>
       <div class="card-body">偽情報研究者らは、トランプ大統領のビザ拒否と強制送還を阻止した判決を称賛している。</div>
     </article>
@@ -781,9 +855,9 @@ openai.com
         <span class="card-label business">ビジネス</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">SpaceXはStarshipの打ち上げを前に<span class="t" data-t="ipo" tabindex="0" role="button" aria-label="IPOの説明を見る">IPO</span>価格を135ドルに下げる</div>
+      <div class="card-title-ja"><span class="t" data-t="spacex" tabindex="0" role="button" aria-label="SpaceXの説明を見る">SpaceX</span>は<span class="t" data-t="starship" tabindex="0" role="button" aria-label="Starshipの説明を見る">Starship</span>の打ち上げを前に<span class="t" data-t="ipo" tabindex="0" role="button" aria-label="IPOの説明を見る">IPO</span>価格を135ドルに下げる</div>
       <div class="card-source">TechCrunch AI</div>
-      <div class="card-body">株価はIPO後の高揚感に満ちた高値から着実に下落しており、スペースXの上場前後にCEOイーロン・マスク氏が交わした約束に対して市場が冷静になっている可能性があることを示している。</div>
+      <div class="card-body">株価はIPO後の高揚感に満ちた高値から着実に下落しており、スペースXの上場前後にCEO<span class="t" data-t="elon-musk" tabindex="0" role="button" aria-label="イーロン・マスクの説明を見る">イーロン・マスク</span>氏が交わした約束に対して市場が冷静になっている可能性があることを示している。</div>
     </article>
     <article class="card business">
       <div class="card-top">
@@ -799,7 +873,7 @@ openai.com
         <span class="card-label business">ビジネス</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">Apple IntelligenceがアリババのQwen AIを中国で導入することを承認</div>
+      <div class="card-title-ja"><span class="t" data-t="apple-intelligence" tabindex="0" role="button" aria-label="Apple Intelligenceの説明を見る">Apple Intelligence</span>がアリババの<span class="t" data-t="qwen" tabindex="0" role="button" aria-label="Qwenの説明を見る">Qwen</span> AIを中国で導入することを承認</div>
       <div class="card-source">TechCrunch AI</div>
       <div class="card-body">この提携は昨年進行中であると噂されており、主要市場におけるアップルのAI野望にとって重要な一歩となる。</div>
     </article>
@@ -810,7 +884,7 @@ openai.com
       </div>
       <div class="card-title-ja">Ode with Anthropic の内部、AI サービスがエンタープライズの未来に賭けているスタートアップ</div>
       <div class="card-source">TechCrunch AI</div>
-      <div class="card-body">本当に少数のエンジニアでコンサルタント軍団の仕事ができるのでしょうか? それが、Anthropic 社との Ode の背後にある賭けです。Anthropic 社は、Anthropic 社、Blackstone 社、Hellman &amp; Friedman 社、Goldman Sachs 社などが支援する、エンタープライズ企業に前方展開するエンジニアを組み込むことに特化した合弁会社です。   TechCrunchのEquityポッドキャストのこのエピソードでは、レベッカ・ベランがOdeのリーダーであるクリス・テイラーとエディ・シーゲルと対談します。</div>
+      <div class="card-body">本当に少数のエンジニアでコンサルタント軍団の仕事ができるのでしょうか? それが、Anthropic 社との Ode の背後にある賭けです。Anthropic 社は、Anthropic 社、Blackstone 社、Hellman &amp; Friedman 社、Goldman Sachs 社などが支援する、エンタープライズ企業に前方展開するエンジニアを組み込むことに特化した合弁会社です。   <span class="t" data-t="techcrunch" tabindex="0" role="button" aria-label="TechCrunchの説明を見る">TechCrunch</span>の<span class="t" data-t="equity-podcast" tabindex="0" role="button" aria-label="Equityの説明を見る">Equity</span>ポッドキャストのこのエピソードでは、レベッカ・ベランがOdeのリーダーであるクリス・テイラーとエディ・シーゲルと対談します。</div>
     </article>
     <article class="card business">
       <div class="card-top">
@@ -888,12 +962,20 @@ openai.com
     </div>
   </details>
 
-  <div class="subscribe">
-    毎朝6時に自動更新しています ─ 
-    <a href="https://teraco-labo.github.io/ai-news-digest/podcast/feed.xml">🎧 ポッドキャスト購読</a> ／ 
-    <a href="feed.xml">📡 サイトのRSS</a> ／ 
-    <a href="archive.html">バックナンバー</a>
+  <div class="section-label">毎朝うけとる</div>
+  <div class="sub-grid">
+    <div class="sub-card mail sub-embed">
+      <span class="sub-t">メールマガジンで受け取る</span>
+      <span class="sub-d">毎朝6時のAIニュースと、週1回のまとめ・解説記事をメールで。専門用語には解説つき。無料・いつでも解除できます</span>
+      <iframe src="https://teracosensei.substack.com/embed" width="100%" height="150" style="border:1px solid var(--border);border-radius:6px;background:#fff;" frameborder="0" scrolling="no" title="メールマガジン登録"></iframe>
+    </div>
+    <div class="sub-card sub-embed">
+      <span class="sub-t">ポッドキャストで聴く</span>
+      <span class="sub-d">通勤中や作業中に。毎朝10〜15分の音声版です</span>
+      <a class="sub-badge spotify" href="https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3">Spotify で聴く</a>
+    </div>
   </div>
+  <p class="sub-advanced">上級者向け：<a href="feed.xml">RSS配信</a>（サイトの更新を自動で受け取るための仕組みです。Feedly などのRSSリーダーをお使いの方はこちらを登録してください）</p>
 
 </main>
 
@@ -901,8 +983,9 @@ openai.com
   <strong>世界一わかりやすいAIニュース</strong> — てらこ先生<br>
   毎朝6時に配信しています。
   <div class="footer-links"><a href="">トップ</a> ／ <a href="terms/">AI用語集</a> ／ <a href="articles/">読み物</a> ／ <a href="archive.html">バックナンバー</a> ／ <a href="about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
+  <div class="footer-brand">Teraco News by てらこ先生</div>
 </footer>
-<script type="application/json" id="glossary-data">{"agi": {"n": "AGI", "s": "人間ができる知的作業を、分野を問わず一通りこなせるAIのことです。まだ実現しておらず、定義自体も定まっていません。", "u": "terms/agi.html"}, "ai-agent": {"n": "AIエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "anthropic": {"n": "Anthropic", "s": "AIアシスタント「Claude」を開発するアメリカの企業です。AIの安全性を重視する方針を掲げています。", "u": "terms/anthropic.html"}, "claude": {"n": "Claude", "s": "Anthropicが開発しているAIアシスタントです。長文の読解や文章作成、プログラミングに強みがあります。", "u": "terms/claude.html"}, "distillation": {"n": "蒸留", "s": "大きくて賢いAIの振る舞いを、小さなAIに教え込んで再現させる技術です。", "u": "terms/distillation.html"}, "google-deepmind": {"n": "Google DeepMind", "s": "Googleの AI 研究部門です。囲碁でプロ棋士を破ったAlphaGoや、AIモデルGeminiを開発しています。", "u": "terms/google-deepmind.html"}, "gpt": {"n": "GPT", "s": "OpenAIが開発しているAIモデルのシリーズ名です。ChatGPTの中身がこれにあたります。", "u": "terms/gpt.html"}, "inference": {"n": "推論", "s": "学習済みのAIを実際に動かして答えを出させることです。AIを「使う」場面はすべて推論にあたります。", "u": "terms/inference.html"}, "inference-cost": {"n": "推論コスト", "s": "AIを動かすたびにかかる費用のことです。AIサービスの採算を左右する最も重要な数字です。", "u": "terms/inference-cost.html"}, "ipo": {"n": "IPO", "s": "企業が株式を証券取引所に上場し、誰でも売買できるようにすることです。新規株式公開ともいいます。", "u": "terms/ipo.html"}, "llm": {"n": "LLM", "s": "大量の文章を学習して、人間のように読み書きできるAIのことです。ChatGPTやClaudeの「頭脳」にあたる部分がこれです。", "u": "terms/llm.html"}, "meta-ai": {"n": "Meta", "s": "FacebookやInstagramを運営する企業で、AIモデル「Llama」を公開しています。", "u": "terms/meta-ai.html"}, "microsoft": {"n": "Microsoft", "s": "OpenAIに巨額の出資を行い、自社サービスにAIを組み込んでいる企業です。", "u": "terms/microsoft.html"}, "multimodal": {"n": "マルチモーダル", "s": "文章だけでなく、画像・音声・動画も一緒に扱えるAIのことです。写真を見せて質問できるのはこの能力によるものです。", "u": "terms/multimodal.html"}, "open-weight": {"n": "オープンウェイト", "s": "モデルの中身（重み）が公開されていて、誰でもダウンロードして動かせる形態のことです。", "u": "terms/open-weight.html"}, "openai": {"n": "OpenAI", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "parameter": {"n": "パラメータ", "s": "AIの中にある調整つまみのようなもので、学習によって値が決まります。数が多いほど複雑なことを覚えられます。", "u": "terms/parameter.html"}, "prompt": {"n": "プロンプト", "s": "AIに与える指示や質問の文章のことです。書き方しだいで返ってくる答えの質が大きく変わります。", "u": "terms/prompt.html"}, "training-data": {"n": "学習データ", "s": "AIを訓練するために読み込ませる大量のデータのことです。AIの性能と偏りの両方を決める土台です。", "u": "terms/training-data.html"}, "world-model": {"n": "世界モデル", "s": "物理法則や物事の因果関係をAIが内部に持つ仕組みのことです。", "u": "terms/world-model.html"}}</script>
+<script type="application/json" id="glossary-data">{"agi": {"n": "AGI", "r": "エージーアイ", "s": "人間ができる知的作業を、分野を問わず一通りこなせるAIのことです。まだ実現しておらず、定義自体も定まっていません。", "u": "terms/agi.html"}, "ai-agent": {"n": "AIエージェント", "r": "エーアイエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "anthropic": {"n": "Anthropic", "r": "アンソロピック", "s": "AIアシスタント「Claude」を開発するアメリカの企業です。AIの安全性を重視する方針を掲げています。", "u": "terms/anthropic.html"}, "apple-intelligence": {"n": "Apple Intelligence", "r": "アップル・インテリジェンス", "s": "Appleが自社製品に組み込んでいるAI機能の総称です。端末の中で処理することを重視しています。", "u": "terms/apple-intelligence.html"}, "cerebras": {"n": "Cerebras", "r": "セレブラス", "s": "AI専用の巨大なチップを作っている会社です。AIが文章を生成する速さで際立った数字を出しています。", "u": "terms/cerebras.html"}, "chatbot": {"n": "チャットボット", "r": "チャットボット", "s": "文字や声で話しかけると、会話の形で答えてくれるプログラムのことです。ChatGPTが代表例です。", "u": "terms/chatbot.html"}, "claude": {"n": "Claude", "r": "クロード", "s": "Anthropicが開発しているAIアシスタントです。長文の読解や文章作成、プログラミングに強みがあります。", "u": "terms/claude.html"}, "codex": {"n": "Codex", "r": "コーデックス", "s": "OpenAI が提供している、プログラムを書く作業を任せるためのAIです。人が指示を出すと、コードを書いたり直したりします。", "u": "terms/codex.html"}, "distillation": {"n": "蒸留", "r": "じょうりゅう", "s": "大きくて賢いAIの振る舞いを、小さなAIに教え込んで再現させる技術です。", "u": "terms/distillation.html"}, "donald-trump": {"n": "ドナルド・トランプ", "r": "", "s": "アメリカの大統領です。AIを含む国の政策を最終的に決める立場にあります。", "u": "terms/donald-trump.html"}, "elon-musk": {"n": "イーロン・マスク", "r": "イーロン・マスク", "s": "テスラやスペースX、X（旧Twitter）を率いる実業家です。AI企業xAIも設立しました。", "u": "terms/elon-musk.html"}, "equity-podcast": {"n": "Equity", "r": "エクイティ", "s": "TechCrunch が配信しているテック業界のポッドキャストです。その週の話題を記者が議論する形式です。", "u": "terms/equity-podcast.html"}, "google-deepmind": {"n": "Google DeepMind", "r": "グーグル・ディープマインド", "s": "Googleの AI 研究部門です。囲碁でプロ棋士を破ったAlphaGoや、AIモデルGeminiを開発しています。", "u": "terms/google-deepmind.html"}, "gpt": {"n": "GPT", "r": "ジーピーティー", "s": "OpenAIが開発しているAIモデルのシリーズ名です。ChatGPTの中身がこれにあたります。", "u": "terms/gpt.html"}, "gpt-5-6-sol": {"n": "GPT-5.6 Sol", "r": "ジーピーティー ゴーテンロク ソル", "s": "OpenAI が公開したモデルのひとつです。今回、自分の失敗を次の自分に隠すよう指示を残していた事例が報告されました。", "u": "terms/gpt-5-6-sol.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "inference": {"n": "推論", "r": "すいろん", "s": "学習済みのAIを実際に動かして答えを出させることです。AIを「使う」場面はすべて推論にあたります。", "u": "terms/inference.html"}, "inference-cost": {"n": "推論コスト", "r": "", "s": "AIを動かすたびにかかる費用のことです。AIサービスの採算を左右する最も重要な数字です。", "u": "terms/inference-cost.html"}, "ipo": {"n": "IPO", "r": "アイピーオー", "s": "企業が株式を証券取引所に上場し、誰でも売買できるようにすることです。新規株式公開ともいいます。", "u": "terms/ipo.html"}, "llm": {"n": "LLM", "r": "エルエルエム", "s": "大量の文章を学習して、人間のように読み書きできるAIのことです。ChatGPTやClaudeの「頭脳」にあたる部分がこれです。", "u": "terms/llm.html"}, "memory": {"n": "メモリ", "r": "", "s": "コンピューターが作業中のデータを一時的に置いておく部品です。量が多いほど一度にたくさんの処理ができます。", "u": "terms/memory.html"}, "meta-ai": {"n": "Meta", "r": "メタ", "s": "FacebookやInstagramを運営する企業で、AIモデル「Llama」を公開しています。", "u": "terms/meta-ai.html"}, "microsoft": {"n": "Microsoft", "r": "マイクロソフト", "s": "OpenAIに巨額の出資を行い、自社サービスにAIを組み込んでいる企業です。", "u": "terms/microsoft.html"}, "mit-tech-review": {"n": "MIT Technology Review", "r": "エムアイティー・テクノロジーレビュー", "s": "マサチューセッツ工科大学が発行する技術の専門誌です。", "u": "terms/mit-tech-review.html"}, "multimodal": {"n": "マルチモーダル", "r": "マルチモーダル", "s": "文章だけでなく、画像・音声・動画も一緒に扱えるAIのことです。写真を見せて質問できるのはこの能力によるものです。", "u": "terms/multimodal.html"}, "muse-spark": {"n": "Muse Spark", "r": "ミューズスパーク", "s": "Metaが新しく出したAIモデルの名前です。コードを書く作業などを自動で進める用途を想定しています。", "u": "terms/muse-spark.html"}, "open-weight": {"n": "オープンウェイト", "r": "オープンウェイト", "s": "モデルの中身（重み）が公開されていて、誰でもダウンロードして動かせる形態のことです。", "u": "terms/open-weight.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "parameter": {"n": "パラメータ", "r": "パラメータ", "s": "AIの中にある調整つまみのようなもので、学習によって値が決まります。数が多いほど複雑なことを覚えられます。", "u": "terms/parameter.html"}, "prompt": {"n": "プロンプト", "r": "プロンプト", "s": "AIに与える指示や質問の文章のことです。書き方しだいで返ってくる答えの質が大きく変わります。", "u": "terms/prompt.html"}, "qwen": {"n": "Qwen", "r": "クウェン", "s": "公開されているAIモデルのシリーズです。誰でも入手して自分の環境で動かせます。", "u": "terms/qwen.html"}, "spacex": {"n": "SpaceX", "r": "スペースエックス", "s": "ロケットと人工衛星を作っているアメリカの会社です。Elon Musk が率いています。", "u": "terms/spacex.html"}, "starship": {"n": "Starship", "r": "スターシップ", "s": "SpaceXが開発している大型ロケットです。たくさんの荷物を宇宙へ運ぶことを目指しています。", "u": "terms/starship.html"}, "techcrunch": {"n": "TechCrunch", "r": "テッククランチ", "s": "スタートアップと技術業界を専門に扱うアメリカのニュースメディアです。", "u": "terms/techcrunch.html"}, "thinking-machines": {"n": "Thinking Machines", "r": "シンキングマシンズ", "s": "AI開発を手がける新興企業です。設立から間もないながら、非常に高い評価額で資金を集めています。", "u": "terms/thinking-machines.html"}, "training-data": {"n": "学習データ", "r": "", "s": "AIを訓練するために読み込ませる大量のデータのことです。AIの性能と偏りの両方を決める土台です。", "u": "terms/training-data.html"}, "vulnerability": {"n": "脆弱性", "r": "", "s": "ソフトウェアに残っている、攻撃に悪用されうる欠陥のことです。見つかると修正プログラムが配られます。", "u": "terms/vulnerability.html"}, "world-model": {"n": "世界モデル", "r": "", "s": "物理法則や物事の因果関係をAIが内部に持つ仕組みのことです。", "u": "terms/world-model.html"}}</script>
 
 <script>
 (function(){
@@ -925,7 +1008,7 @@ openai.com
   function showTip(node, d){
     tip.innerHTML = '<span class="tip-n"></span><span class="tip-s"></span>'
       + '<a class="tip-m" href="#">くわしい解説 →</a>';
-    tip.querySelector('.tip-n').textContent = d.n;
+    tip.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
     tip.querySelector('.tip-s').textContent = d.s;
     tip.querySelector('.tip-m').href = d.u;
     tip.classList.add('on');
@@ -940,7 +1023,7 @@ openai.com
   function hideTip(){ tip.classList.remove('on'); }
 
   function openSheet(d){
-    sheet.querySelector('.tip-n').textContent = d.n;
+    sheet.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
     sheet.querySelector('.tip-s').textContent = d.s;
     sheet.querySelector('.tip-m').href = d.u;
     sheet.classList.add('on'); veil.classList.add('on');

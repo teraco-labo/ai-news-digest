@@ -8,22 +8,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#0e7490; }
+  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#1d4ed8; }
   body { font-family:'Noto Sans JP','Inter',sans-serif; background:var(--bg); color:var(--text);
     line-height:1.7; -webkit-font-smoothing:antialiased; }
   a { color:inherit; }
-  .hero { background:linear-gradient(135deg,#0f172a,#1e293b); color:#fff; padding:3rem 1.5rem; }
-  .hero-inner { max-width:1100px; margin:0 auto; }
+  .hero { position:relative; overflow:hidden; background:linear-gradient(180deg,#f7faff,#e8f1ff);
+    color:#0b1f4d; padding:3rem 1.5rem; border-bottom:1px solid #dbe7fb; }
+  .hero::before, .hero::after { content:""; position:absolute; border-radius:999px; pointer-events:none; }
+  .hero::before { right:-160px; bottom:-40px; width:620px; height:120px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(56,189,248,0.0),rgba(56,189,248,0.35)); }
+  .hero::after { right:-120px; bottom:-90px; width:560px; height:90px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(29,78,216,0.0),rgba(29,78,216,0.28)); }
+  .hero-inner { position:relative; z-index:1; max-width:1100px; margin:0 auto; }
   .hero h1 { font-size:1.8rem; font-weight:700; letter-spacing:0.01em; }
-  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#cbd5e1; max-width:640px; }
+  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#475569; max-width:640px; }
   .hero-actions { margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.75rem; }
-  .crumbs { font-size:0.75rem; color:#94a3b8; margin-bottom:0.75rem; }
+  .crumbs { font-size:0.75rem; color:#64748b; margin-bottom:0.75rem; }
   .crumbs a { text-decoration:none; }
   .crumbs a:hover { text-decoration:underline; }
   .btn { display:inline-block; padding:0.6rem 1.3rem; border-radius:6px; font-size:0.85rem;
     font-weight:700; text-decoration:none; }
-  .btn-primary { background:#22d3ee; color:#0f172a; }
-  .btn-ghost { border:1px solid rgba(255,255,255,0.35); color:#e2e8f0; }
+  .btn-primary { background:#1d4ed8; color:#fff; box-shadow:0 4px 14px rgba(29,78,216,0.25); }
+  .btn-ghost { border:1px solid #93c5fd; color:#1d4ed8; background:#fff; }
   main { max-width:1100px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
   .section-label { font-size:0.75rem; font-weight:700; letter-spacing:0.12em; color:var(--text-muted);
     text-transform:uppercase; margin:2.5rem 0 1rem; }
@@ -73,9 +79,9 @@
     margin-top:1rem; font-size:0.74rem; }
   .lang-switch .globe { opacity:0.7; margin-right:0.15rem; }
   .lang-switch .lang { padding:0.25rem 0.7rem; border-radius:999px;
-    border:1px solid rgba(255,255,255,0.25); color:#cbd5e1; text-decoration:none; }
-  .lang-switch a.lang:hover { background:rgba(255,255,255,0.12); color:#fff; }
-  .lang-switch .lang.on { background:rgba(255,255,255,0.9); color:#0f172a; font-weight:700;
+    border:1px solid #cbd5e1; color:#475569; background:#fff; text-decoration:none; }
+  .lang-switch a.lang:hover { background:#eff6ff; color:#1d4ed8; }
+  .lang-switch .lang.on { background:#1d4ed8; color:#fff; font-weight:700;
     border-color:transparent; }
   .lang-switch .lang.soon { opacity:0.45; cursor:default; }
   .lang-switch .lang.soon em { font-style:normal; font-size:0.62rem; margin-left:0.3rem;
@@ -123,32 +129,34 @@
   .card-link { display:inline-block; margin-top:0.9rem; font-size:0.82rem; font-weight:600;
     color:var(--accent); text-decoration:none; }
   .card-link:hover { text-decoration:underline; }
-  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(14,116,144,0.04),transparent); }
+  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(29,78,216,0.04),transparent); }
   .card.top .card-title-ja { font-size:1.25rem; }
   .tier { max-width:760px; margin:2rem auto 0.5rem; font-size:0.7rem; font-weight:700;
     letter-spacing:0.14em; color:var(--text-muted); }
   .tier:first-of-type { margin-top:0; }
   .top-nav { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:1.3rem; }
-  .top-nav a { padding:0.4rem 0.95rem; border:1px solid rgba(255,255,255,0.3); border-radius:999px;
-    font-size:0.78rem; font-weight:600; color:#e2e8f0; text-decoration:none; }
-  .top-nav a:hover { background:rgba(255,255,255,0.12); }
+  .top-nav a { padding:0.4rem 0.95rem; border:1px solid #bfdbfe; border-radius:999px;
+    font-size:0.78rem; font-weight:600; color:#1d4ed8; background:#fff; text-decoration:none; }
+  .top-nav a:hover { background:#eff6ff; }
   .listen { max-width:760px; margin:0 auto 2.5rem; padding:1.2rem 1.4rem;
-    background:linear-gradient(135deg,#0f172a,#1e293b); border-radius:10px; color:#e2e8f0; }
+    background:#fff; border:1px solid #dbe7fb; border-radius:14px; color:#1e293b;
+    box-shadow:0 8px 28px rgba(29,78,216,0.08); }
   .listen-head { display:flex; align-items:baseline; gap:0.6rem; flex-wrap:wrap; margin-bottom:0.75rem; }
-  .listen-head strong { font-size:0.95rem; color:#fff; }
-  .listen-head span { font-size:0.76rem; color:#94a3b8; }
+  .listen-head strong { font-size:0.95rem; color:#0b1f4d; }
+  .listen-head span { font-size:0.76rem; color:#64748b; }
   .listen audio { width:100%; height:40px; display:block; }
-  .speed-row { display:flex; align-items:center; gap:0.4rem; margin-top:0.7rem; flex-wrap:wrap; }
-  .speed-label { font-size:0.7rem; color:#94a3b8; margin-right:0.2rem; }
-  .speed-btn { padding:0.3rem 0.75rem; background:rgba(255,255,255,0.1);
-    border:1px solid rgba(255,255,255,0.25); border-radius:999px; color:#e2e8f0;
+  .speed-row { display:grid; grid-template-columns:repeat(7, minmax(0, 1fr)); gap:0.3rem; margin-top:0.7rem; }
+  .speed-row .speed-label { grid-column:1 / -1; }
+  .speed-label { font-size:0.7rem; color:#64748b; margin-right:0.2rem; }
+  .speed-btn { padding:0.35rem 0; text-align:center; background:#f1f5f9;
+    border:1px solid #e2e8f0; border-radius:999px; color:#334155;
     font-size:0.75rem; font-weight:600; cursor:pointer; }
-  .speed-btn.on { background:#22d3ee; border-color:#22d3ee; color:#0f172a; }
-  .copy-feed { padding:0.25rem 0.7rem; background:rgba(255,255,255,0.12);
-    border:1px solid rgba(255,255,255,0.3); border-radius:6px; color:#e2e8f0;
+  .speed-btn.on { background:#1d4ed8; border-color:#1d4ed8; color:#fff; }
+  .copy-feed { padding:0.25rem 0.7rem; background:#eff6ff;
+    border:1px solid #bfdbfe; border-radius:6px; color:#1d4ed8;
     font-size:0.72rem; font-weight:600; cursor:pointer; }
-  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#94a3b8; line-height:1.8; }
-  .listen-sub a { color:#7dd3fc; text-decoration:none; }
+  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#64748b; line-height:1.8; }
+  .listen-sub a { color:#1d4ed8; text-decoration:none; }
   .listen-sub a:hover { text-decoration:underline; }
   details.genre { max-width:760px; margin:0 auto 0.75rem; background:var(--card-bg);
     border:1px solid var(--border); border-radius:8px; overflow:hidden; }
@@ -330,12 +338,13 @@
       <a href="podcast/ai-news-2026-09-21.mp3">音声ファイルを開く</a>
     </audio>
     <div class="speed-row"><span class="speed-label">再生速度</span>
-      <button type="button" class="speed-btn" data-speed="0.75">0.75×</button>
+      <button type="button" class="speed-btn" data-speed="0.7">0.7×</button>
+      <button type="button" class="speed-btn" data-speed="0.8">0.8×</button>
+      <button type="button" class="speed-btn" data-speed="0.9">0.9×</button>
       <button type="button" class="speed-btn" data-speed="1">1×</button>
       <button type="button" class="speed-btn" data-speed="1.25">1.25×</button>
       <button type="button" class="speed-btn" data-speed="1.5">1.5×</button>
       <button type="button" class="speed-btn" data-speed="2">2×</button>
-      <button type="button" class="speed-btn" data-speed="2.5">2.5×</button>
     </div>
     <div class="listen-sub">毎朝の配信を購読： <a href="https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3">Spotify で聴く</a></div>
   </div>
@@ -351,6 +360,7 @@
   }
   var saved = '1';
   try { saved = localStorage.getItem('wk-speed') || '1'; } catch(e) {}
+  if (!document.querySelector('.speed-btn[data-speed="' + saved + '"]')) saved = '1';
   apply(saved);
   audio.addEventListener('play', function(){ audio.playbackRate = parseFloat(saved); });
   btns.forEach(function(b){
@@ -367,10 +377,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">画像生成モデル <span class="t" data-t="qwen-image-2-1" tabindex="0" role="button" aria-label="Qwen Image 2.1の説明を見る">Qwen Image 2.1</span> が公開</div>
-      <div class="card-title-en">Qwen Image 2.1</div>
-      <div class="card-source">Hacker News · 2026-09-20</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body"><span class="t" data-t="alibaba" tabindex="0" role="button" aria-label="Alibabaの説明を見る">Alibaba</span>が手がける<span class="t" data-t="qwen" tabindex="0" role="button" aria-label="Qwenの説明を見る">Qwen</span>シリーズの画像生成モデル、Qwen Image 2.1が公開されました。<span class="t" data-t="hacker-news" tabindex="0" role="button" aria-label="Hacker Newsの説明を見る">Hacker News</span>では444ポイントを集め、海外の開発者コミュニティで大きな反響を呼んでいます。画像生成は<span class="t" data-t="midjourney" tabindex="0" role="button" aria-label="Midjourneyの説明を見る">Midjourney</span>など商用サービスが強い領域ですが、そこに中国発のモデルが版を重ねて食い込んできた形です。商用サービス以外の選択肢が更新されることは、制作コストや利用条件の比較材料が増えることを意味します。</div>
-      <a class="card-link" href="https://qwen.ai/blog?id=qwen-image-2.1" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card policy top">
       <div class="card-top">
@@ -378,10 +386,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
       <div class="card-title-ja">ChatGPT、他サイトでの行動データを把握へ</div>
-      <div class="card-title-en">ChatGPT now knows what you do on other websites via ad collector</div>
-      <div class="card-source">Hacker News · 2026-09-20</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body">ChatGPTが、利用者が他のサイトで何をしているかという行動データを扱うようになったと報じられ、Hacker Newsで507ポイントを集める大きな話題になりました。広告配信のためにサイトをまたいで行動を収集する仕組みが関わっているとされています。ChatGPTはもともと、検索や相談の履歴という極めて個人的な情報を抱えるサービスです。そこに外部サイトでの閲覧行動が結び付けば、これまでとは別の水準で個人像が組み上がることになります。設定でどこまで拒否できるのかが、当面の焦点になりそうです。</div>
-      <a class="card-link" href="https://www.buchodi.com/chatgpt-now-knows-what-you-do-on-other-websites-via-ad-collector/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
   </div>
   <div class="tier">ジャンル別のニュース（タップで開く）</div>
@@ -394,10 +400,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja"><span class="t" data-t="llm" tabindex="0" role="button" aria-label="LLMの説明を見る">LLM</span>の話法は占い師の手口と同じ構造という研究</div>
-      <div class="card-title-en">Chat-based Large Language Models replicate the mechanisms of a psychic&#x27;s con</div>
-      <div class="card-source">Hacker News · 2026-09-20</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body">チャット型のLLMが、占い師が相手を信用させるときの話法と同じ仕組みを再現しているという研究が、Hacker Newsで153ポイントを集めました。誰にでも当てはまる曖昧な言い方をし、相手の反応を見ながら内容を寄せていく、という流れが共通するという指摘です。LLMが「よく当たる」「自分を分かってくれる」と感じられる理由の一部が、答えの正確さではなく話法の構造にあることになります。AIの回答をどこまで信じるかを考えるうえで、見逃せない視点です。</div>
-      <a class="card-link" href="https://softwarecrisis.dev/letters/llmentalist/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -410,10 +414,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">世界モデル企業、資金も期待も集めながら口は重い</div>
-      <div class="card-title-en">World model companies are keeping a lot of secrets</div>
-      <div class="card-source">TechCrunch AI · Sun, 20 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">世界モデルを手がける企業が、いま巨額の資金と強い期待を集めています。ところが<span class="t" data-t="techcrunch" tabindex="0" role="button" aria-label="TechCrunchの説明を見る">TechCrunch</span>の取材では、創業者はもちろん、<span class="t" data-t="training-data" tabindex="0" role="button" aria-label="学習データの説明を見る">学習データ</span>を供給している業者までが、実際に何を作っているのかを語ろうとしませんでした。何を素材に学習し、どこまで動くものができているのかを、外から検証する材料がない状態です。調達額と話題性だけが先行している分野であり、実力を測る手がかりの少なさは投資判断の risk として意識しておく必要があります。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/20/world-model-companies-are-keeping-a-lot-of-secrets/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -426,10 +428,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">データセンター推進のトランプ氏、支持層と対立</div>
-      <div class="card-title-en">It’s Donald Trump Versus MAGA on Data Centers</div>
-      <div class="card-source">Wired AI · Sun, 20 Se</div>
-      <div class="card-body">トランプ大統領がAI向けデータセンターの建設を強く後押しする一方、支持基盤である<span class="t" data-t="maga" tabindex="0" role="button" aria-label="MAGAの説明を見る">MAGA</span>の側からは反発が広がっています。背景には、電力料金の上昇や土地・水の大量利用をめぐり、各地で地元の反対運動が起きていることがあります。AIインフラはこれまで党派を問わず推進されてきましたが、生活コストと結び付いた途端に政治的な構図が変わりつつあります。用地の確保や許認可が今後さらに難しくなれば、米国内のAI投資計画そのものに影響します。</div>
-      <a class="card-link" href="https://www.wired.com/story/donald-trump-versus-maga-on-data-centers/" target="_blank" rel="noopener">元記事を読む →</a>
+      <div class="card-source">Wired AI</div>
+      <div class="card-body"><span class="t" data-t="donald-trump" tabindex="0" role="button" aria-label="トランプ大統領の説明を見る">トランプ大統領</span>がAI向けデータセンターの建設を強く後押しする一方、支持基盤である<span class="t" data-t="maga" tabindex="0" role="button" aria-label="MAGAの説明を見る">MAGA</span>の側からは反発が広がっています。背景には、電力料金の上昇や土地・水の大量利用をめぐり、各地で地元の反対運動が起きていることがあります。AIインフラはこれまで党派を問わず推進されてきましたが、生活コストと結び付いた途端に政治的な構図が変わりつつあります。用地の確保や許認可が今後さらに難しくなれば、米国内のAI投資計画そのものに影響します。</div>
     </article>
     <article class="card policy">
       <div class="card-top">
@@ -437,10 +437,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">Meta の Muse、AI学習へのデータ提供が既定でオン</div>
-      <div class="card-title-en">Meta&#x27;s Muse Is Better at Surveilling Than Helping Me</div>
-      <div class="card-source">Wired AI · Sun, 20 Se</div>
+      <div class="card-source">Wired AI</div>
       <div class="card-body"><span class="t" data-t="wired" tabindex="0" role="button" aria-label="Wiredの説明を見る">Wired</span>がMetaのAIアプリMuseを試したところ、役に立つ場面よりも利用者のデータを集める仕掛けの方が目立った、と報告しています。MuseはAIの学習にデータを使う設定を既定で有効にしており、嫌なら利用者が自分で外す必要があります。さらに銀行口座やメールアドレス、パスポート情報の共有まで促してくる場面があったとしています。Metaのアプリで繰り返されてきた設計であり、便利さと引き換えに何を渡しているのかを設定画面で確認しておきたいところです。</div>
-      <a class="card-link" href="https://www.wired.com/story/metas-muse-is-better-at-surveilling-than-helping-me/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card policy">
       <div class="card-top">
@@ -448,10 +446,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">AIがクリエイティブ・コモンズを壊している</div>
-      <div class="card-title-en">AI and the Destruction of the Creative Commons</div>
-      <div class="card-source">Hacker News · 2026-09-20</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body">AIの学習データ収集が、クリエイティブ・コモンズという共有の文化を壊しているという論考が、Hacker Newsで220ポイントを集めました。自由に使ってよいと宣言して公開した作品が、大規模なAIの学習素材として際限なく吸い上げられている、という問題意識です。この状況が続けば、作り手が公開そのものをやめ、共有の枠組みから引き上げてしまうと警告しています。皮肉なことに、共有の文化が痩せれば、AIが学べる良質な素材も同時に減っていきます。</div>
-      <a class="card-link" href="https://www.chesterwisniewski.com/post/2026-09-13-ai-is-destroying-the-creative-commons/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card policy">
       <div class="card-top">
@@ -459,10 +455,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">AI業界は本当に減速する気があるのか</div>
-      <div class="card-title-en">Is the AI industry really ready to slow down?</div>
-      <div class="card-source">TechCrunch AI · Sun, 20 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">AI企業の経営者が相次いで「開発のペースを落とすべきだ」と語るようになっています。TechCrunchのポッドキャスト<span class="t" data-t="equity-podcast" tabindex="0" role="button" aria-label="Equityの説明を見る">Equity</span>では、その発言にどこまで本気度があるのかが議論されました。競争が激しいほど、先に手を緩めた側が不利になるため、言葉と行動がずれやすい構図があります。減速論を額面どおり受け取ってよいかどうかは、今後の投資額や採用の動きを見て判断することになりそうです。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/20/is-the-ai-industry-really-ready-to-slow-down/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -475,10 +469,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">消えるLLMを救い出す <span class="t" data-t="pirate-face" tabindex="0" role="button" aria-label="Pirate Faceの説明を見る">Pirate Face</span> が話題</div>
-      <div class="card-title-en">Pirate Face Rescues LLM Models from Deletion</div>
-      <div class="card-source">Hacker News · 2026-09-20</div>
+      <div class="card-source">Hacker News</div>
       <div class="card-body">配布元から取り下げられて消えかけているLLMを回収し、残そうとする「Pirate Face」という取り組みが、Hacker Newsで397ポイントを集めました。公開されたモデルは提供側の判断でいつでも取り下げられ、その時点で入手も検証もできなくなります。研究の追試や、そのモデルを組み込んだサービスの継続性にとって、モデルが消えることは実害になります。一方で、配布条件を定めたライセンスとの兼ね合いという難しさも残ります。</div>
-      <a class="card-link" href="https://pirateface.co/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     <article class="card tools">
       <div class="card-top">
@@ -486,10 +478,8 @@
         <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
       </div>
       <div class="card-title-ja">議事録AIが指輪に、Vocci が249ドルで参入</div>
-      <div class="card-title-en">Vocci’s ring adds a new form factor to meeting note-taking</div>
-      <div class="card-source">TechCrunch AI · Sun, 20 Se</div>
+      <div class="card-source">TechCrunch AI</div>
       <div class="card-body">会議の音声を記録して議事録を作るAIツールが、指輪という新しい形で登場しました。Vocciのリングは249ドルで、ノートPCやスマホを机の上に出さずに録音できる手軽さを売りにしています。一方で、装着していることが相手から分かりにくいため、録音の同意をどう取るのかというプライバシー上の懸念も指摘されています。議事録AIの競争軸が、文字起こしの精度からハードウェアの形へ広がってきたことを示す一例です。</div>
-      <a class="card-link" href="https://techcrunch.com/2026/09/20/voccis-ring-adds-a-new-form-factor-to-meeting-note-taking/" target="_blank" rel="noopener">元記事を読む →</a>
     </article>
     </div>
   </details>
@@ -517,7 +507,7 @@
   <div class="footer-links"><a href="">トップ</a> ／ <a href="terms/">AI用語集</a> ／ <a href="articles/">読み物</a> ／ <a href="archive.html">バックナンバー</a> ／ <a href="about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
   <div class="footer-brand">Teraco News by てらこ先生</div>
 </footer>
-<script type="application/json" id="glossary-data">{"alibaba": {"n": "Alibaba", "r": "アリババ", "s": "中国の大手IT企業です。ネット通販やクラウドのほか、AIモデルの開発と公開も手がけています。", "u": "terms/alibaba.html"}, "datacenter": {"n": "データセンター", "r": "データセンター", "s": "AIを動かすためのコンピュータを大量に設置した施設です。AI競争は電力と土地の競争でもあります。", "u": "terms/datacenter.html"}, "equity-podcast": {"n": "Equity", "r": "エクイティ", "s": "TechCrunch が配信しているテック業界のポッドキャストです。その週の話題を記者が議論する形式です。", "u": "terms/equity-podcast.html"}, "gpt": {"n": "GPT", "r": "ジーピーティー", "s": "OpenAIが開発しているAIモデルのシリーズ名です。ChatGPTの中身がこれにあたります。", "u": "terms/gpt.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "llm": {"n": "LLM", "r": "エルエルエム", "s": "大量の文章を学習して、人間のように読み書きできるAIのことです。ChatGPTやClaudeの「頭脳」にあたる部分がこれです。", "u": "terms/llm.html"}, "maga": {"n": "MAGA", "r": "マガ", "s": "トランプ大統領を支持する人たちの運動を指す呼び名です。選挙の標語だった「アメリカを再び偉大に」の頭文字から来ています。", "u": "terms/maga.html"}, "meta-ai": {"n": "Meta", "r": "メタ", "s": "FacebookやInstagramを運営する企業で、AIモデル「Llama」を公開しています。", "u": "terms/meta-ai.html"}, "midjourney": {"n": "Midjourney", "r": "ミッドジャーニー", "s": "文章から画像を生成するAIサービスです。作品性の高い絵作りで知られています。", "u": "terms/midjourney.html"}, "muse": {"n": "Muse", "r": "ミューズ", "s": "Metaが出した、身の回りのことを代わりにやってくれるAIです。メールや予約、支払いまで扱おうとしています。", "u": "terms/muse.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "pirate-face": {"n": "Pirate Face", "r": "パイレーツ・フェイス", "s": "公開が取りやめになったAIモデルを回収して残そうとする取り組みです。Hacker Newsで397ポイントを集め、注目されました。", "u": "terms/pirate-face.html"}, "qwen": {"n": "Qwen", "r": "クウェン", "s": "公開されているAIモデルのシリーズです。誰でも入手して自分の環境で動かせます。", "u": "terms/qwen.html"}, "qwen-image-2-1": {"n": "Qwen Image 2.1", "r": "クウェン・イメージ 2.1", "s": "文章から絵を作るAIの新しい版です。中国のAlibabaが開発しているQwenというAIの仲間です。", "u": "terms/qwen-image-2-1.html"}, "techcrunch": {"n": "TechCrunch", "r": "テッククランチ", "s": "スタートアップと技術業界を専門に扱うアメリカのニュースメディアです。", "u": "terms/techcrunch.html"}, "training-data": {"n": "学習データ", "r": "", "s": "AIを訓練するために読み込ませる大量のデータのことです。AIの性能と偏りの両方を決める土台です。", "u": "terms/training-data.html"}, "vocci": {"n": "Vocci", "r": "ヴォッチ", "s": "会議の音声を録音して、AIで議事録に変えるサービスを作っている会社です。指輪の形をした録音端末を249ドルで売り出しました。", "u": "terms/vocci.html"}, "wired": {"n": "Wired", "r": "ワイアード", "s": "技術と社会の関わりを扱う米国の雑誌・ニュースサイトです。日本語版もあります。", "u": "terms/wired.html"}, "world-model": {"n": "世界モデル", "r": "", "s": "物理法則や物事の因果関係をAIが内部に持つ仕組みのことです。", "u": "terms/world-model.html"}}</script>
+<script type="application/json" id="glossary-data">{"alibaba": {"n": "Alibaba", "r": "アリババ", "s": "中国の大手IT企業です。ネット通販やクラウドのほか、AIモデルの開発と公開も手がけています。", "u": "terms/alibaba.html"}, "datacenter": {"n": "データセンター", "r": "データセンター", "s": "AIを動かすためのコンピュータを大量に設置した施設です。AI競争は電力と土地の競争でもあります。", "u": "terms/datacenter.html"}, "donald-trump": {"n": "ドナルド・トランプ", "r": "", "s": "アメリカの大統領です。AIを含む国の政策を最終的に決める立場にあります。", "u": "terms/donald-trump.html"}, "equity-podcast": {"n": "Equity", "r": "エクイティ", "s": "TechCrunch が配信しているテック業界のポッドキャストです。その週の話題を記者が議論する形式です。", "u": "terms/equity-podcast.html"}, "gpt": {"n": "GPT", "r": "ジーピーティー", "s": "OpenAIが開発しているAIモデルのシリーズ名です。ChatGPTの中身がこれにあたります。", "u": "terms/gpt.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "llm": {"n": "LLM", "r": "エルエルエム", "s": "大量の文章を学習して、人間のように読み書きできるAIのことです。ChatGPTやClaudeの「頭脳」にあたる部分がこれです。", "u": "terms/llm.html"}, "maga": {"n": "MAGA", "r": "マガ", "s": "トランプ大統領を支持する人たちの運動を指す呼び名です。選挙の標語だった「アメリカを再び偉大に」の頭文字から来ています。", "u": "terms/maga.html"}, "meta-ai": {"n": "Meta", "r": "メタ", "s": "FacebookやInstagramを運営する企業で、AIモデル「Llama」を公開しています。", "u": "terms/meta-ai.html"}, "midjourney": {"n": "Midjourney", "r": "ミッドジャーニー", "s": "文章から画像を生成するAIサービスです。作品性の高い絵作りで知られています。", "u": "terms/midjourney.html"}, "muse": {"n": "Muse", "r": "ミューズ", "s": "Metaが出した、身の回りのことを代わりにやってくれるAIです。メールや予約、支払いまで扱おうとしています。", "u": "terms/muse.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "pirate-face": {"n": "Pirate Face", "r": "パイレーツ・フェイス", "s": "公開が取りやめになったAIモデルを回収して残そうとする取り組みです。Hacker Newsで397ポイントを集め、注目されました。", "u": "terms/pirate-face.html"}, "qwen": {"n": "Qwen", "r": "クウェン", "s": "公開されているAIモデルのシリーズです。誰でも入手して自分の環境で動かせます。", "u": "terms/qwen.html"}, "qwen-image-2-1": {"n": "Qwen Image 2.1", "r": "クウェン・イメージ 2.1", "s": "文章から絵を作るAIの新しい版です。中国のAlibabaが開発しているQwenというAIの仲間です。", "u": "terms/qwen-image-2-1.html"}, "techcrunch": {"n": "TechCrunch", "r": "テッククランチ", "s": "スタートアップと技術業界を専門に扱うアメリカのニュースメディアです。", "u": "terms/techcrunch.html"}, "training-data": {"n": "学習データ", "r": "", "s": "AIを訓練するために読み込ませる大量のデータのことです。AIの性能と偏りの両方を決める土台です。", "u": "terms/training-data.html"}, "vocci": {"n": "Vocci", "r": "ヴォッチ", "s": "会議の音声を録音して、AIで議事録に変えるサービスを作っている会社です。指輪の形をした録音端末を249ドルで売り出しました。", "u": "terms/vocci.html"}, "wired": {"n": "Wired", "r": "ワイアード", "s": "技術と社会の関わりを扱う米国の雑誌・ニュースサイトです。日本語版もあります。", "u": "terms/wired.html"}, "world-model": {"n": "世界モデル", "r": "", "s": "物理法則や物事の因果関係をAIが内部に持つ仕組みのことです。", "u": "terms/world-model.html"}}</script>
 
 <script>
 (function(){

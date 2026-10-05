@@ -8,22 +8,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#0e7490; }
+  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#1d4ed8; }
   body { font-family:'Noto Sans JP','Inter',sans-serif; background:var(--bg); color:var(--text);
     line-height:1.7; -webkit-font-smoothing:antialiased; }
   a { color:inherit; }
-  .hero { background:linear-gradient(135deg,#0f172a,#1e293b); color:#fff; padding:3rem 1.5rem; }
-  .hero-inner { max-width:1100px; margin:0 auto; }
+  .hero { position:relative; overflow:hidden; background:linear-gradient(180deg,#f7faff,#e8f1ff);
+    color:#0b1f4d; padding:3rem 1.5rem; border-bottom:1px solid #dbe7fb; }
+  .hero::before, .hero::after { content:""; position:absolute; border-radius:999px; pointer-events:none; }
+  .hero::before { right:-160px; bottom:-40px; width:620px; height:120px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(56,189,248,0.0),rgba(56,189,248,0.35)); }
+  .hero::after { right:-120px; bottom:-90px; width:560px; height:90px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(29,78,216,0.0),rgba(29,78,216,0.28)); }
+  .hero-inner { position:relative; z-index:1; max-width:1100px; margin:0 auto; }
   .hero h1 { font-size:1.8rem; font-weight:700; letter-spacing:0.01em; }
-  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#cbd5e1; max-width:640px; }
+  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#475569; max-width:640px; }
   .hero-actions { margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.75rem; }
-  .crumbs { font-size:0.75rem; color:#94a3b8; margin-bottom:0.75rem; }
+  .crumbs { font-size:0.75rem; color:#64748b; margin-bottom:0.75rem; }
   .crumbs a { text-decoration:none; }
   .crumbs a:hover { text-decoration:underline; }
   .btn { display:inline-block; padding:0.6rem 1.3rem; border-radius:6px; font-size:0.85rem;
     font-weight:700; text-decoration:none; }
-  .btn-primary { background:#22d3ee; color:#0f172a; }
-  .btn-ghost { border:1px solid rgba(255,255,255,0.35); color:#e2e8f0; }
+  .btn-primary { background:#1d4ed8; color:#fff; box-shadow:0 4px 14px rgba(29,78,216,0.25); }
+  .btn-ghost { border:1px solid #93c5fd; color:#1d4ed8; background:#fff; }
   main { max-width:1100px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
   .section-label { font-size:0.75rem; font-weight:700; letter-spacing:0.12em; color:var(--text-muted);
     text-transform:uppercase; margin:2.5rem 0 1rem; }
@@ -41,13 +47,41 @@
   .issue-list .m { font-size:0.72rem; color:var(--text-muted); margin-left:0.5rem; }
   footer { border-top:1px solid var(--border); padding:2rem 1.5rem; text-align:center;
     font-size:0.78rem; color:var(--text-muted); }
+  .sub-grid { max-width:760px; margin:0 auto; display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:0.8rem; }
+  .sub-card { display:flex; flex-direction:column; gap:0.3rem; padding:1.1rem 1.2rem;
+    background:var(--card-bg); border:1px solid var(--border); border-radius:8px;
+    text-decoration:none; transition:border-color .15s; }
+  .sub-card:hover { border-color:var(--accent); }
+  .sub-card.mail { border-color:var(--accent); border-width:2px;
+    background:linear-gradient(180deg,rgba(14,116,144,0.05),transparent); }
+  .sub-embed { cursor:default; }
+  .sub-badge { display:block; margin-top:0.5rem; padding:0.6rem; text-align:center;
+    border-radius:6px; font-size:0.85rem; font-weight:700; text-decoration:none; color:#fff; }
+  .sub-badge.spotify { background:#1db954; }
+  .sub-badge.apple { background:#8e44ec; }
+  .sub-copy { margin-top:0.6rem; width:100%; padding:0.6rem; background:var(--accent);
+    color:#fff; font-size:0.85rem; font-weight:700; border:none; border-radius:6px;
+    cursor:pointer; }
+  .sub-advanced { max-width:760px; margin:0.8rem auto 0; font-size:0.72rem;
+    color:var(--text-muted); }
+  .sub-advanced a { color:var(--text-muted); }
+  .sub-embed form { margin-top:0.5rem; }
+  .sub-embed input[type="email"] { width:100%; padding:0.6rem 0.8rem; font-size:0.9rem;
+    border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text); }
+  .sub-embed button, .sub-embed input[type="submit"] { margin-top:0.5rem; width:100%;
+    padding:0.65rem; background:var(--accent); color:#fff; font-size:0.88rem; font-weight:700;
+    border:none; border-radius:6px; cursor:pointer; }
+  .sub-ico { font-size:1.2rem; }
+  .sub-t { font-size:0.92rem; font-weight:700; }
+  .sub-d { font-size:0.76rem; line-height:1.7; color:var(--text-muted); }
   .lang-switch { display:flex; flex-wrap:wrap; align-items:center; gap:0.35rem;
     margin-top:1rem; font-size:0.74rem; }
   .lang-switch .globe { opacity:0.7; margin-right:0.15rem; }
   .lang-switch .lang { padding:0.25rem 0.7rem; border-radius:999px;
-    border:1px solid rgba(255,255,255,0.25); color:#cbd5e1; text-decoration:none; }
-  .lang-switch a.lang:hover { background:rgba(255,255,255,0.12); color:#fff; }
-  .lang-switch .lang.on { background:rgba(255,255,255,0.9); color:#0f172a; font-weight:700;
+    border:1px solid #cbd5e1; color:#475569; background:#fff; text-decoration:none; }
+  .lang-switch a.lang:hover { background:#eff6ff; color:#1d4ed8; }
+  .lang-switch .lang.on { background:#1d4ed8; color:#fff; font-weight:700;
     border-color:transparent; }
   .lang-switch .lang.soon { opacity:0.45; cursor:default; }
   .lang-switch .lang.soon em { font-style:normal; font-size:0.62rem; margin-left:0.3rem;
@@ -55,6 +89,8 @@
   .footer-links { margin-top:0.9rem; font-size:0.75rem; }
   .footer-links a { color:var(--text-muted); text-decoration:none; }
   .footer-links a:hover { color:var(--accent); text-decoration:underline; }
+  .footer-brand { margin-top:1.1rem; font-size:0.68rem; letter-spacing:0.04em;
+    color:var(--text-muted); opacity:0.55; }
   @media (max-width:640px){ .issue-list{columns:1;} .hero h1{font-size:1.4rem;} }
 
   :root {
@@ -93,23 +129,34 @@
   .card-link { display:inline-block; margin-top:0.9rem; font-size:0.82rem; font-weight:600;
     color:var(--accent); text-decoration:none; }
   .card-link:hover { text-decoration:underline; }
-  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(14,116,144,0.04),transparent); }
+  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(29,78,216,0.04),transparent); }
   .card.top .card-title-ja { font-size:1.25rem; }
   .tier { max-width:760px; margin:2rem auto 0.5rem; font-size:0.7rem; font-weight:700;
     letter-spacing:0.14em; color:var(--text-muted); }
   .tier:first-of-type { margin-top:0; }
   .top-nav { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:1.3rem; }
-  .top-nav a { padding:0.4rem 0.95rem; border:1px solid rgba(255,255,255,0.3); border-radius:999px;
-    font-size:0.78rem; font-weight:600; color:#e2e8f0; text-decoration:none; }
-  .top-nav a:hover { background:rgba(255,255,255,0.12); }
+  .top-nav a { padding:0.4rem 0.95rem; border:1px solid #bfdbfe; border-radius:999px;
+    font-size:0.78rem; font-weight:600; color:#1d4ed8; background:#fff; text-decoration:none; }
+  .top-nav a:hover { background:#eff6ff; }
   .listen { max-width:760px; margin:0 auto 2.5rem; padding:1.2rem 1.4rem;
-    background:linear-gradient(135deg,#0f172a,#1e293b); border-radius:10px; color:#e2e8f0; }
+    background:#fff; border:1px solid #dbe7fb; border-radius:14px; color:#1e293b;
+    box-shadow:0 8px 28px rgba(29,78,216,0.08); }
   .listen-head { display:flex; align-items:baseline; gap:0.6rem; flex-wrap:wrap; margin-bottom:0.75rem; }
-  .listen-head strong { font-size:0.95rem; color:#fff; }
-  .listen-head span { font-size:0.76rem; color:#94a3b8; }
+  .listen-head strong { font-size:0.95rem; color:#0b1f4d; }
+  .listen-head span { font-size:0.76rem; color:#64748b; }
   .listen audio { width:100%; height:40px; display:block; }
-  .listen-sub { margin-top:0.6rem; font-size:0.74rem; }
-  .listen-sub a { color:#7dd3fc; text-decoration:none; }
+  .speed-row { display:grid; grid-template-columns:repeat(7, minmax(0, 1fr)); gap:0.3rem; margin-top:0.7rem; }
+  .speed-row .speed-label { grid-column:1 / -1; }
+  .speed-label { font-size:0.7rem; color:#64748b; margin-right:0.2rem; }
+  .speed-btn { padding:0.35rem 0; text-align:center; background:#f1f5f9;
+    border:1px solid #e2e8f0; border-radius:999px; color:#334155;
+    font-size:0.75rem; font-weight:600; cursor:pointer; }
+  .speed-btn.on { background:#1d4ed8; border-color:#1d4ed8; color:#fff; }
+  .copy-feed { padding:0.25rem 0.7rem; background:#eff6ff;
+    border:1px solid #bfdbfe; border-radius:6px; color:#1d4ed8;
+    font-size:0.72rem; font-weight:600; cursor:pointer; }
+  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#64748b; line-height:1.8; }
+  .listen-sub a { color:#1d4ed8; text-decoration:none; }
   .listen-sub a:hover { text-decoration:underline; }
   details.genre { max-width:760px; margin:0 auto 0.75rem; background:var(--card-bg);
     border:1px solid var(--border); border-radius:8px; overflow:hidden; }
@@ -279,13 +326,40 @@
       <strong>今日の音声版</strong>
       <span>対話形式・ながら聴き向け（10〜15分）</span>
     </div>
-    <audio controls preload="none" src="podcast/ai-news-2026-07-10.mp3">
+    <audio id="pod-audio" controls preload="none" src="podcast/ai-news-2026-07-10.mp3">
       <a href="podcast/ai-news-2026-07-10.mp3">音声ファイルを開く</a>
     </audio>
-    <div class="listen-sub">
-      <a href="https://teraco-labo.github.io/ai-news-digest/podcast/feed.xml">📡 ポッドキャストとして購読する（RSS / Spotify）</a>
+    <div class="speed-row"><span class="speed-label">再生速度</span>
+      <button type="button" class="speed-btn" data-speed="0.7">0.7×</button>
+      <button type="button" class="speed-btn" data-speed="0.8">0.8×</button>
+      <button type="button" class="speed-btn" data-speed="0.9">0.9×</button>
+      <button type="button" class="speed-btn" data-speed="1">1×</button>
+      <button type="button" class="speed-btn" data-speed="1.25">1.25×</button>
+      <button type="button" class="speed-btn" data-speed="1.5">1.5×</button>
+      <button type="button" class="speed-btn" data-speed="2">2×</button>
     </div>
+    <div class="listen-sub">毎朝の配信を購読： <a href="https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3">Spotify で聴く</a></div>
   </div>
+<script>
+(function(){
+  var audio = document.getElementById('pod-audio');
+  if (!audio) return;
+  var btns = document.querySelectorAll('.speed-btn');
+  function apply(v){
+    audio.playbackRate = parseFloat(v);
+    btns.forEach(function(b){ b.classList.toggle('on', b.dataset.speed === v); });
+    try { localStorage.setItem('wk-speed', v); } catch(e) {}
+  }
+  var saved = '1';
+  try { saved = localStorage.getItem('wk-speed') || '1'; } catch(e) {}
+  if (!document.querySelector('.speed-btn[data-speed="' + saved + '"]')) saved = '1';
+  apply(saved);
+  audio.addEventListener('play', function(){ audio.playbackRate = parseFloat(saved); });
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){ saved = b.dataset.speed; apply(saved); });
+  });
+})();
+</script>
 
   <div class="tier">注目のニュース</div>
   <div class="digest">
@@ -307,7 +381,7 @@ GPT-5.6 を使用して農場を運営しているブロッコリー農家。
         <span class="card-label model">モデル</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
-      <div class="card-title-ja">固定: Codex と GPT-5.6 を利用した ChatGPT の新しい<span class="t" data-t="ai-agent" tabindex="0" role="button" aria-label="エージェントの説明を見る">エージェント</span>である ChatGPT Work の紹介。アプリやファイル全体でアクションを実行し、必要に応じて何時間もプロジェクトに留まり、目標を最終的なものに変えることができます。</div>
+      <div class="card-title-ja">固定: <span class="t" data-t="codex" tabindex="0" role="button" aria-label="Codexの説明を見る">Codex</span> と GPT-5.6 を利用した ChatGPT の新しい<span class="t" data-t="ai-agent" tabindex="0" role="button" aria-label="エージェントの説明を見る">エージェント</span>である ChatGPT Work の紹介。アプリやファイル全体でアクションを実行し、必要に応じて何時間もプロジェクトに留まり、目標を最終的なものに変えることができます。</div>
       <div class="card-source">X / @OpenAI</div>
       <div class="card-body">Codex と GPT-5.6 を利用した ChatGPT の新しいエージェントである ChatGPT Work を紹介します。
 
@@ -373,7 +447,7 @@ openai.com</div>
         <span class="card-label model">モデル</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
-      <div class="card-title-ja">Muse Spark 1.1 は、ディストリビューション外の優れた評価において、Opus 4.8 や <span class="t" data-t="xai" tabindex="0" role="button" aria-label="Grokの説明を見る">Grok</span> 4.5 よりも優れたパフォーマンスを示しています :)</div>
+      <div class="card-title-ja"><span class="t" data-t="muse-spark" tabindex="0" role="button" aria-label="Muse Sparkの説明を見る">Muse Spark</span> 1.1 は、ディストリビューション外の優れた評価において、Opus 4.8 や <span class="t" data-t="xai" tabindex="0" role="button" aria-label="Grokの説明を見る">Grok</span> 4.5 よりも優れたパフォーマンスを示しています :)</div>
       <div class="card-source">X / @alexandr_wang</div>
       <div class="card-body">Muse Spark 1.1 は、ディストリビューション外の優れた評価において、Opus 4.8 や Grok 4.5 よりも優れたパフォーマンスを示しています :)
 
@@ -447,7 +521,7 @@ Muse Spark 1.1 は非常に優れたモデルのようです。 Stata Benchmark 
       </div>
       <div class="card-title-ja">GPT-5.6</div>
       <div class="card-source">Hacker News</div>
-      <div class="card-body">Hacker Newsで898ポイント獲得。コミュニティで注目を集めている話題。</div>
+      <div class="card-body"><span class="t" data-t="hacker-news" tabindex="0" role="button" aria-label="Hacker Newsの説明を見る">Hacker News</span>で898ポイント獲得。コミュニティで注目を集めている話題。</div>
     </article>
     <article class="card model top">
       <div class="card-top">
@@ -588,7 +662,7 @@ Muse Spark 1.1 はすべてのユーザー向けに Julius で公開されてい
 
 ゲイブ・ペレイラ (@gabepereyra)
 
-@elonmusk と @finkd / @alexandr_wang の Grok 4.5 と Muse Spark 1.1 が @harvey の LAB で大幅に低いコストとレイテンシで SOTA を達成したことを祝福します。
+@elonmusk と @finkd / @alexandr_wang の Grok 4.5 と Muse Spark 1.1 が @<span class="t" data-t="harvey" tabindex="0" role="button" aria-label="harveyの説明を見る">harvey</span> の LAB で大幅に低いコストとレイテンシで SOTA を達成したことを祝福します。
 
 
 
@@ -721,7 +795,7 @@ Muse Spark 1.1 はすべてのユーザー向けに Julius で公開されてい
         <span class="card-label research">研究</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">Show HN: FableCut – AI エージェントが駆動できるブラウザー ビデオ エディター (ゼロ デプス)</div>
+      <div class="card-title-ja"><span class="t" data-t="show-hn" tabindex="0" role="button" aria-label="Show HNの説明を見る">Show HN</span>: FableCut – AI エージェントが駆動できるブラウザー ビデオ エディター (ゼロ デプス)</div>
       <div class="card-source">Hacker News</div>
       <div class="card-body">Hacker Newsで82ポイント獲得。コミュニティで注目を集めている話題。</div>
     </article>
@@ -739,7 +813,7 @@ Muse Spark 1.1 はすべてのユーザー向けに Julius で公開されてい
         <span class="card-label research">研究</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">GLM 5.2 は人間の簿記とほぼ同じ精度です</div>
+      <div class="card-title-ja"><span class="t" data-t="glm" tabindex="0" role="button" aria-label="GLMの説明を見る">GLM</span> 5.2 は人間の簿記とほぼ同じ精度です</div>
       <div class="card-source">Hacker News</div>
       <div class="card-body">Hacker Newsで157ポイント獲得。コミュニティで注目を集めている話題。</div>
     </article>
@@ -771,7 +845,7 @@ Muse Spark 1.1 はすべてのユーザー向けに Julius で公開されてい
         <span class="card-label business">ビジネス</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">イーロン・マスク、神話/寓話を賞賛、人類を「切り捨てない」と約束</div>
+      <div class="card-title-ja"><span class="t" data-t="elon-musk" tabindex="0" role="button" aria-label="イーロン・マスクの説明を見る">イーロン・マスク</span>、神話/寓話を賞賛、人類を「切り捨てない」と約束</div>
       <div class="card-source">TechCrunch AI</div>
       <div class="card-body">Anthropic はモデルのホストとしてイーロン・マスクを信頼すべきでしょうか?約400億ドルの収益がかかっているため、マスク氏は同社はそれが可能だと主張する。</div>
     </article>
@@ -800,7 +874,7 @@ Muse Spark 1.1 はすべてのユーザー向けに Julius で公開されてい
       </div>
       <div class="card-title-ja">カリフォルニアで Waymo を無料で利用できますか?規制上の奇妙な点に感謝してもいいでしょう。</div>
       <div class="card-source">Ars Technica</div>
-      <div class="card-body">州当局の遅延により、同社の新しいオーハイ車両でのロボタクシーの乗車が数か月間無料になる可能性がある。</div>
+      <div class="card-body">州当局の遅延により、同社の新しいオーハイ車両での<span class="t" data-t="robotaxi" tabindex="0" role="button" aria-label="ロボタクシーの説明を見る">ロボタクシー</span>の乗車が数か月間無料になる可能性がある。</div>
     </article>
     <article class="card business">
       <div class="card-top">
@@ -821,9 +895,9 @@ Muse Spark 1.1 はすべてのユーザー向けに Julius で公開されてい
         <span class="card-label policy">ポリシー</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">ダウンロード: 核開発のランドマーク、中国は Nvidia チップに注目</div>
+      <div class="card-title-ja">ダウンロード: 核開発のランドマーク、中国は Nvidia <span class="t" data-t="semiconductor" tabindex="0" role="button" aria-label="チップの説明を見る">チップ</span>に注目</div>
       <div class="card-source">MIT Tech Review</div>
-      <div class="card-body">これは、テクノロジーの世界で何が起こっているかを毎日提供する平日のニュースレター、The Download の今日版です。米国で 4 基の原子炉が大きな節目を迎える — ケイシー・クラウンハート 私は 7 月 4 日を本当に楽しみにしていました。それは、プールサイドでのバーベキューが大好きだからというだけではありません。今年…</div>
+      <div class="card-body">これは、テクノロジーの世界で何が起こっているかを毎日提供する平日のニュースレター、<span class="t" data-t="mit-tech-review" tabindex="0" role="button" aria-label="The Downloadの説明を見る">The Download</span> の今日版です。米国で 4 基の原子炉が大きな節目を迎える — ケイシー・クラウンハート 私は 7 月 4 日を本当に楽しみにしていました。それは、プールサイドでのバーベキューが大好きだからというだけではありません。今年…</div>
     </article>
     <article class="card policy">
       <div class="card-top">
@@ -862,9 +936,9 @@ Muse Spark 1.1 はすべてのユーザー向けに Julius で公開されてい
         <span class="card-label tools">ツール</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">OpenAIはAtlasを閉鎖するが、そのAIブラウザへの野心は依然として拡大している</div>
+      <div class="card-title-ja">OpenAIは<span class="t" data-t="atlas-world-model" tabindex="0" role="button" aria-label="Atlasの説明を見る">Atlas</span>を閉鎖するが、そのAIブラウザへの野心は依然として拡大している</div>
       <div class="card-source">TechCrunch AI</div>
-      <div class="card-body">OpenAI は、AI を搭載したブラウザを 1 年足らずで廃止します。ただし、一部のエージェント ブラウジング機能はデスクトップ アプリと Chrome 拡張機能に移行されています。</div>
+      <div class="card-body">OpenAI は、AI を搭載したブラウザを 1 年足らずで廃止します。ただし、一部のエージェント ブラウジング機能はデスクトップ アプリと Chrome <span class="t" data-t="plugin" tabindex="0" role="button" aria-label="拡張機能の説明を見る">拡張機能</span>に移行されています。</div>
     </article>
     <article class="card tools">
       <div class="card-top">
@@ -878,12 +952,20 @@ Muse Spark 1.1 はすべてのユーザー向けに Julius で公開されてい
     </div>
   </details>
 
-  <div class="subscribe">
-    毎朝6時に自動更新しています ─ 
-    <a href="https://teraco-labo.github.io/ai-news-digest/podcast/feed.xml">🎧 ポッドキャスト購読</a> ／ 
-    <a href="feed.xml">📡 サイトのRSS</a> ／ 
-    <a href="archive.html">バックナンバー</a>
+  <div class="section-label">毎朝うけとる</div>
+  <div class="sub-grid">
+    <div class="sub-card mail sub-embed">
+      <span class="sub-t">メールマガジンで受け取る</span>
+      <span class="sub-d">毎朝6時のAIニュースと、週1回のまとめ・解説記事をメールで。専門用語には解説つき。無料・いつでも解除できます</span>
+      <iframe src="https://teracosensei.substack.com/embed" width="100%" height="150" style="border:1px solid var(--border);border-radius:6px;background:#fff;" frameborder="0" scrolling="no" title="メールマガジン登録"></iframe>
+    </div>
+    <div class="sub-card sub-embed">
+      <span class="sub-t">ポッドキャストで聴く</span>
+      <span class="sub-d">通勤中や作業中に。毎朝10〜15分の音声版です</span>
+      <a class="sub-badge spotify" href="https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3">Spotify で聴く</a>
+    </div>
   </div>
+  <p class="sub-advanced">上級者向け：<a href="feed.xml">RSS配信</a>（サイトの更新を自動で受け取るための仕組みです。Feedly などのRSSリーダーをお使いの方はこちらを登録してください）</p>
 
 </main>
 
@@ -891,8 +973,9 @@ Muse Spark 1.1 はすべてのユーザー向けに Julius で公開されてい
   <strong>世界一わかりやすいAIニュース</strong> — てらこ先生<br>
   毎朝6時に配信しています。
   <div class="footer-links"><a href="">トップ</a> ／ <a href="terms/">AI用語集</a> ／ <a href="articles/">読み物</a> ／ <a href="archive.html">バックナンバー</a> ／ <a href="about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
+  <div class="footer-brand">Teraco News by てらこ先生</div>
 </footer>
-<script type="application/json" id="glossary-data">{"ai-agent": {"n": "AIエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "anthropic": {"n": "Anthropic", "s": "AIアシスタント「Claude」を開発するアメリカの企業です。AIの安全性を重視する方針を掲げています。", "u": "terms/anthropic.html"}, "api": {"n": "API", "s": "他のソフトウェアからAIを呼び出すための窓口です。自作のアプリにAIを組み込むときに使います。", "u": "terms/api.html"}, "benchmark": {"n": "ベンチマーク", "s": "AIの性能を共通のテストで測るための指標です。モデル同士の比較に使われます。", "u": "terms/benchmark.html"}, "chatgpt": {"n": "ChatGPT", "s": "OpenAIが提供している対話型のAIサービスです。2022年末の公開が生成AIブームの起点になりました。", "u": "terms/chatgpt.html"}, "claude": {"n": "Claude", "s": "Anthropicが開発しているAIアシスタントです。長文の読解や文章作成、プログラミングに強みがあります。", "u": "terms/claude.html"}, "copyright": {"n": "AIと著作権", "s": "AIの学習に他人の著作物を使ってよいか、AIの生成物に著作権が生じるかという論点です。", "u": "terms/copyright.html"}, "funding-round": {"n": "資金調達ラウンド", "s": "スタートアップが投資家からお金を集める段階のことです。シード、シリーズA、Bと進みます。", "u": "terms/funding-round.html"}, "gpt": {"n": "GPT", "s": "OpenAIが開発しているAIモデルのシリーズ名です。ChatGPTの中身がこれにあたります。", "u": "terms/gpt.html"}, "hugging-face": {"n": "Hugging Face", "s": "AIモデルやデータセットを誰でも公開・共有できるプラットフォームです。「AI版GitHub」と呼ばれます。", "u": "terms/hugging-face.html"}, "inference": {"n": "推論", "s": "学習済みのAIを実際に動かして答えを出させることです。AIを「使う」場面はすべて推論にあたります。", "u": "terms/inference.html"}, "llm": {"n": "LLM", "s": "大量の文章を学習して、人間のように読み書きできるAIのことです。ChatGPTやClaudeの「頭脳」にあたる部分がこれです。", "u": "terms/llm.html"}, "meta-ai": {"n": "Meta", "s": "FacebookやInstagramを運営する企業で、AIモデル「Llama」を公開しています。", "u": "terms/meta-ai.html"}, "moe": {"n": "MoE", "s": "AIの内部を複数の専門家に分け、質問ごとに必要な担当だけを動かす設計です。", "u": "terms/moe.html"}, "nvidia": {"n": "NVIDIA", "s": "AI開発に不可欠なGPUを作っている半導体企業です。生成AIブームの最大の受益者と言われています。", "u": "terms/nvidia.html"}, "open-source": {"n": "オープンソース", "s": "ソフトウェアの中身が公開され、誰でも自由に使ったり改良したりできる形態のことです。", "u": "terms/open-source.html"}, "openai": {"n": "OpenAI", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "parameter": {"n": "パラメータ", "s": "AIの中にある調整つまみのようなもので、学習によって値が決まります。数が多いほど複雑なことを覚えられます。", "u": "terms/parameter.html"}, "token": {"n": "トークン", "s": "AIが文章を扱うときの最小単位です。英語ならおよそ単語1つ、日本語なら1〜2文字が1トークンにあたります。", "u": "terms/token.html"}, "world-model": {"n": "世界モデル", "s": "物理法則や物事の因果関係をAIが内部に持つ仕組みのことです。", "u": "terms/world-model.html"}, "xai": {"n": "xAI", "s": "イーロン・マスク氏が設立したAI企業です。AIモデル「Grok」を開発しています。", "u": "terms/xai.html"}}</script>
+<script type="application/json" id="glossary-data">{"ai-agent": {"n": "AIエージェント", "r": "エーアイエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "anthropic": {"n": "Anthropic", "r": "アンソロピック", "s": "AIアシスタント「Claude」を開発するアメリカの企業です。AIの安全性を重視する方針を掲げています。", "u": "terms/anthropic.html"}, "api": {"n": "API", "r": "エーピーアイ", "s": "他のソフトウェアからAIを呼び出すための窓口です。自作のアプリにAIを組み込むときに使います。", "u": "terms/api.html"}, "atlas-world-model": {"n": "Atlas", "r": "アトラス", "s": "空間の広がりや物の位置関係を理解させることを狙った AI モデルです。2026年9月に公開され話題になりました。", "u": "terms/atlas-world-model.html"}, "benchmark": {"n": "ベンチマーク", "r": "ベンチマーク", "s": "AIの性能を共通のテストで測るための指標です。モデル同士の比較に使われます。", "u": "terms/benchmark.html"}, "chatgpt": {"n": "ChatGPT", "r": "チャットジーピーティー", "s": "OpenAIが提供している対話型のAIサービスです。2022年末の公開が生成AIブームの起点になりました。", "u": "terms/chatgpt.html"}, "claude": {"n": "Claude", "r": "クロード", "s": "Anthropicが開発しているAIアシスタントです。長文の読解や文章作成、プログラミングに強みがあります。", "u": "terms/claude.html"}, "codex": {"n": "Codex", "r": "コーデックス", "s": "OpenAI が提供している、プログラムを書く作業を任せるためのAIです。人が指示を出すと、コードを書いたり直したりします。", "u": "terms/codex.html"}, "copyright": {"n": "AIと著作権", "r": "", "s": "AIの学習に他人の著作物を使ってよいか、AIの生成物に著作権が生じるかという論点です。", "u": "terms/copyright.html"}, "elon-musk": {"n": "イーロン・マスク", "r": "イーロン・マスク", "s": "テスラやスペースX、X（旧Twitter）を率いる実業家です。AI企業xAIも設立しました。", "u": "terms/elon-musk.html"}, "funding-round": {"n": "資金調達ラウンド", "r": "", "s": "スタートアップが投資家からお金を集める段階のことです。シード、シリーズA、Bと進みます。", "u": "terms/funding-round.html"}, "glm": {"n": "GLM", "r": "ジーエルエム", "s": "Z.aiが開発しているAIモデルのシリーズ名です。番号付きで新しい版が次々に公開されています。", "u": "terms/glm.html"}, "gpt": {"n": "GPT", "r": "ジーピーティー", "s": "OpenAIが開発しているAIモデルのシリーズ名です。ChatGPTの中身がこれにあたります。", "u": "terms/gpt.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "harvey": {"n": "Harvey", "r": "ハーヴィー", "s": "弁護士の仕事を助けるAIサービスです。法律の資料を読み込ませて、調べものや書類づくりに使います。", "u": "terms/harvey.html"}, "hugging-face": {"n": "Hugging Face", "r": "ハギングフェイス", "s": "AIモデルやデータセットを誰でも公開・共有できるプラットフォームです。「AI版GitHub」と呼ばれます。", "u": "terms/hugging-face.html"}, "inference": {"n": "推論", "r": "すいろん", "s": "学習済みのAIを実際に動かして答えを出させることです。AIを「使う」場面はすべて推論にあたります。", "u": "terms/inference.html"}, "llm": {"n": "LLM", "r": "エルエルエム", "s": "大量の文章を学習して、人間のように読み書きできるAIのことです。ChatGPTやClaudeの「頭脳」にあたる部分がこれです。", "u": "terms/llm.html"}, "meta-ai": {"n": "Meta", "r": "メタ", "s": "FacebookやInstagramを運営する企業で、AIモデル「Llama」を公開しています。", "u": "terms/meta-ai.html"}, "mit-tech-review": {"n": "MIT Technology Review", "r": "エムアイティー・テクノロジーレビュー", "s": "マサチューセッツ工科大学が発行する技術の専門誌です。", "u": "terms/mit-tech-review.html"}, "moe": {"n": "MoE", "r": "エムオーイー", "s": "AIの内部を複数の専門家に分け、質問ごとに必要な担当だけを動かす設計です。", "u": "terms/moe.html"}, "muse-spark": {"n": "Muse Spark", "r": "ミューズスパーク", "s": "Metaが新しく出したAIモデルの名前です。コードを書く作業などを自動で進める用途を想定しています。", "u": "terms/muse-spark.html"}, "nvidia": {"n": "NVIDIA", "r": "エヌビディア", "s": "AI開発に不可欠なGPUを作っている半導体企業です。生成AIブームの最大の受益者と言われています。", "u": "terms/nvidia.html"}, "open-source": {"n": "オープンソース", "r": "オープンソース", "s": "ソフトウェアの中身が公開され、誰でも自由に使ったり改良したりできる形態のことです。", "u": "terms/open-source.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "parameter": {"n": "パラメータ", "r": "パラメータ", "s": "AIの中にある調整つまみのようなもので、学習によって値が決まります。数が多いほど複雑なことを覚えられます。", "u": "terms/parameter.html"}, "plugin": {"n": "プラグイン", "r": "", "s": "あとから付け足して、ソフトにできることを増やす部品です。スマホにアプリを入れる感覚に近いものです。", "u": "terms/plugin.html"}, "robotaxi": {"n": "ロボタクシー", "r": "", "s": "運転手が乗っていないタクシーのことです。AIが車を運転して客を目的地まで運びます。", "u": "terms/robotaxi.html"}, "semiconductor": {"n": "半導体", "r": "はんどうたい", "s": "電気を通したり止めたりできる性質を持つ材料、またはそれで作ったコンピュータの部品のことです。", "u": "terms/semiconductor.html"}, "show-hn": {"n": "Show HN", "r": "ショウ・エイチエヌ", "s": "Hacker Newsで、自分が作ったものを紹介するための投稿の種類です。開発者が新しいツールを公開して、反応を見る場として使われています。", "u": "terms/show-hn.html"}, "token": {"n": "トークン", "r": "トークン", "s": "AIが文章を扱うときの最小単位です。英語ならおよそ単語1つ、日本語なら1〜2文字が1トークンにあたります。", "u": "terms/token.html"}, "world-model": {"n": "世界モデル", "r": "", "s": "物理法則や物事の因果関係をAIが内部に持つ仕組みのことです。", "u": "terms/world-model.html"}, "xai": {"n": "xAI", "r": "エックスエーアイ", "s": "イーロン・マスク氏が設立したAI企業です。AIモデル「Grok」を開発しています。", "u": "terms/xai.html"}}</script>
 
 <script>
 (function(){
@@ -915,7 +998,7 @@ Muse Spark 1.1 はすべてのユーザー向けに Julius で公開されてい
   function showTip(node, d){
     tip.innerHTML = '<span class="tip-n"></span><span class="tip-s"></span>'
       + '<a class="tip-m" href="#">くわしい解説 →</a>';
-    tip.querySelector('.tip-n').textContent = d.n;
+    tip.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
     tip.querySelector('.tip-s').textContent = d.s;
     tip.querySelector('.tip-m').href = d.u;
     tip.classList.add('on');
@@ -930,7 +1013,7 @@ Muse Spark 1.1 はすべてのユーザー向けに Julius で公開されてい
   function hideTip(){ tip.classList.remove('on'); }
 
   function openSheet(d){
-    sheet.querySelector('.tip-n').textContent = d.n;
+    sheet.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
     sheet.querySelector('.tip-s').textContent = d.s;
     sheet.querySelector('.tip-m').href = d.u;
     sheet.classList.add('on'); veil.classList.add('on');

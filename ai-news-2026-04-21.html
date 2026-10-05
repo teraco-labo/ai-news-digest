@@ -8,22 +8,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#0e7490; }
+  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#1d4ed8; }
   body { font-family:'Noto Sans JP','Inter',sans-serif; background:var(--bg); color:var(--text);
     line-height:1.7; -webkit-font-smoothing:antialiased; }
   a { color:inherit; }
-  .hero { background:linear-gradient(135deg,#0f172a,#1e293b); color:#fff; padding:3rem 1.5rem; }
-  .hero-inner { max-width:1100px; margin:0 auto; }
+  .hero { position:relative; overflow:hidden; background:linear-gradient(180deg,#f7faff,#e8f1ff);
+    color:#0b1f4d; padding:3rem 1.5rem; border-bottom:1px solid #dbe7fb; }
+  .hero::before, .hero::after { content:""; position:absolute; border-radius:999px; pointer-events:none; }
+  .hero::before { right:-160px; bottom:-40px; width:620px; height:120px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(56,189,248,0.0),rgba(56,189,248,0.35)); }
+  .hero::after { right:-120px; bottom:-90px; width:560px; height:90px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(29,78,216,0.0),rgba(29,78,216,0.28)); }
+  .hero-inner { position:relative; z-index:1; max-width:1100px; margin:0 auto; }
   .hero h1 { font-size:1.8rem; font-weight:700; letter-spacing:0.01em; }
-  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#cbd5e1; max-width:640px; }
+  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#475569; max-width:640px; }
   .hero-actions { margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.75rem; }
-  .crumbs { font-size:0.75rem; color:#94a3b8; margin-bottom:0.75rem; }
+  .crumbs { font-size:0.75rem; color:#64748b; margin-bottom:0.75rem; }
   .crumbs a { text-decoration:none; }
   .crumbs a:hover { text-decoration:underline; }
   .btn { display:inline-block; padding:0.6rem 1.3rem; border-radius:6px; font-size:0.85rem;
     font-weight:700; text-decoration:none; }
-  .btn-primary { background:#22d3ee; color:#0f172a; }
-  .btn-ghost { border:1px solid rgba(255,255,255,0.35); color:#e2e8f0; }
+  .btn-primary { background:#1d4ed8; color:#fff; box-shadow:0 4px 14px rgba(29,78,216,0.25); }
+  .btn-ghost { border:1px solid #93c5fd; color:#1d4ed8; background:#fff; }
   main { max-width:1100px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
   .section-label { font-size:0.75rem; font-weight:700; letter-spacing:0.12em; color:var(--text-muted);
     text-transform:uppercase; margin:2.5rem 0 1rem; }
@@ -41,13 +47,41 @@
   .issue-list .m { font-size:0.72rem; color:var(--text-muted); margin-left:0.5rem; }
   footer { border-top:1px solid var(--border); padding:2rem 1.5rem; text-align:center;
     font-size:0.78rem; color:var(--text-muted); }
+  .sub-grid { max-width:760px; margin:0 auto; display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:0.8rem; }
+  .sub-card { display:flex; flex-direction:column; gap:0.3rem; padding:1.1rem 1.2rem;
+    background:var(--card-bg); border:1px solid var(--border); border-radius:8px;
+    text-decoration:none; transition:border-color .15s; }
+  .sub-card:hover { border-color:var(--accent); }
+  .sub-card.mail { border-color:var(--accent); border-width:2px;
+    background:linear-gradient(180deg,rgba(14,116,144,0.05),transparent); }
+  .sub-embed { cursor:default; }
+  .sub-badge { display:block; margin-top:0.5rem; padding:0.6rem; text-align:center;
+    border-radius:6px; font-size:0.85rem; font-weight:700; text-decoration:none; color:#fff; }
+  .sub-badge.spotify { background:#1db954; }
+  .sub-badge.apple { background:#8e44ec; }
+  .sub-copy { margin-top:0.6rem; width:100%; padding:0.6rem; background:var(--accent);
+    color:#fff; font-size:0.85rem; font-weight:700; border:none; border-radius:6px;
+    cursor:pointer; }
+  .sub-advanced { max-width:760px; margin:0.8rem auto 0; font-size:0.72rem;
+    color:var(--text-muted); }
+  .sub-advanced a { color:var(--text-muted); }
+  .sub-embed form { margin-top:0.5rem; }
+  .sub-embed input[type="email"] { width:100%; padding:0.6rem 0.8rem; font-size:0.9rem;
+    border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text); }
+  .sub-embed button, .sub-embed input[type="submit"] { margin-top:0.5rem; width:100%;
+    padding:0.65rem; background:var(--accent); color:#fff; font-size:0.88rem; font-weight:700;
+    border:none; border-radius:6px; cursor:pointer; }
+  .sub-ico { font-size:1.2rem; }
+  .sub-t { font-size:0.92rem; font-weight:700; }
+  .sub-d { font-size:0.76rem; line-height:1.7; color:var(--text-muted); }
   .lang-switch { display:flex; flex-wrap:wrap; align-items:center; gap:0.35rem;
     margin-top:1rem; font-size:0.74rem; }
   .lang-switch .globe { opacity:0.7; margin-right:0.15rem; }
   .lang-switch .lang { padding:0.25rem 0.7rem; border-radius:999px;
-    border:1px solid rgba(255,255,255,0.25); color:#cbd5e1; text-decoration:none; }
-  .lang-switch a.lang:hover { background:rgba(255,255,255,0.12); color:#fff; }
-  .lang-switch .lang.on { background:rgba(255,255,255,0.9); color:#0f172a; font-weight:700;
+    border:1px solid #cbd5e1; color:#475569; background:#fff; text-decoration:none; }
+  .lang-switch a.lang:hover { background:#eff6ff; color:#1d4ed8; }
+  .lang-switch .lang.on { background:#1d4ed8; color:#fff; font-weight:700;
     border-color:transparent; }
   .lang-switch .lang.soon { opacity:0.45; cursor:default; }
   .lang-switch .lang.soon em { font-style:normal; font-size:0.62rem; margin-left:0.3rem;
@@ -55,6 +89,8 @@
   .footer-links { margin-top:0.9rem; font-size:0.75rem; }
   .footer-links a { color:var(--text-muted); text-decoration:none; }
   .footer-links a:hover { color:var(--accent); text-decoration:underline; }
+  .footer-brand { margin-top:1.1rem; font-size:0.68rem; letter-spacing:0.04em;
+    color:var(--text-muted); opacity:0.55; }
   @media (max-width:640px){ .issue-list{columns:1;} .hero h1{font-size:1.4rem;} }
 
   :root {
@@ -93,23 +129,34 @@
   .card-link { display:inline-block; margin-top:0.9rem; font-size:0.82rem; font-weight:600;
     color:var(--accent); text-decoration:none; }
   .card-link:hover { text-decoration:underline; }
-  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(14,116,144,0.04),transparent); }
+  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(29,78,216,0.04),transparent); }
   .card.top .card-title-ja { font-size:1.25rem; }
   .tier { max-width:760px; margin:2rem auto 0.5rem; font-size:0.7rem; font-weight:700;
     letter-spacing:0.14em; color:var(--text-muted); }
   .tier:first-of-type { margin-top:0; }
   .top-nav { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:1.3rem; }
-  .top-nav a { padding:0.4rem 0.95rem; border:1px solid rgba(255,255,255,0.3); border-radius:999px;
-    font-size:0.78rem; font-weight:600; color:#e2e8f0; text-decoration:none; }
-  .top-nav a:hover { background:rgba(255,255,255,0.12); }
+  .top-nav a { padding:0.4rem 0.95rem; border:1px solid #bfdbfe; border-radius:999px;
+    font-size:0.78rem; font-weight:600; color:#1d4ed8; background:#fff; text-decoration:none; }
+  .top-nav a:hover { background:#eff6ff; }
   .listen { max-width:760px; margin:0 auto 2.5rem; padding:1.2rem 1.4rem;
-    background:linear-gradient(135deg,#0f172a,#1e293b); border-radius:10px; color:#e2e8f0; }
+    background:#fff; border:1px solid #dbe7fb; border-radius:14px; color:#1e293b;
+    box-shadow:0 8px 28px rgba(29,78,216,0.08); }
   .listen-head { display:flex; align-items:baseline; gap:0.6rem; flex-wrap:wrap; margin-bottom:0.75rem; }
-  .listen-head strong { font-size:0.95rem; color:#fff; }
-  .listen-head span { font-size:0.76rem; color:#94a3b8; }
+  .listen-head strong { font-size:0.95rem; color:#0b1f4d; }
+  .listen-head span { font-size:0.76rem; color:#64748b; }
   .listen audio { width:100%; height:40px; display:block; }
-  .listen-sub { margin-top:0.6rem; font-size:0.74rem; }
-  .listen-sub a { color:#7dd3fc; text-decoration:none; }
+  .speed-row { display:grid; grid-template-columns:repeat(7, minmax(0, 1fr)); gap:0.3rem; margin-top:0.7rem; }
+  .speed-row .speed-label { grid-column:1 / -1; }
+  .speed-label { font-size:0.7rem; color:#64748b; margin-right:0.2rem; }
+  .speed-btn { padding:0.35rem 0; text-align:center; background:#f1f5f9;
+    border:1px solid #e2e8f0; border-radius:999px; color:#334155;
+    font-size:0.75rem; font-weight:600; cursor:pointer; }
+  .speed-btn.on { background:#1d4ed8; border-color:#1d4ed8; color:#fff; }
+  .copy-feed { padding:0.25rem 0.7rem; background:#eff6ff;
+    border:1px solid #bfdbfe; border-radius:6px; color:#1d4ed8;
+    font-size:0.72rem; font-weight:600; cursor:pointer; }
+  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#64748b; line-height:1.8; }
+  .listen-sub a { color:#1d4ed8; text-decoration:none; }
   .listen-sub a:hover { text-decoration:underline; }
   details.genre { max-width:760px; margin:0 auto 0.75rem; background:var(--card-bg);
     border:1px solid var(--border); border-radius:8px; overflow:hidden; }
@@ -279,13 +326,40 @@
       <strong>今日の音声版</strong>
       <span>対話形式・ながら聴き向け（10〜15分）</span>
     </div>
-    <audio controls preload="none" src="podcast/ai-news-2026-04-21.mp3">
+    <audio id="pod-audio" controls preload="none" src="podcast/ai-news-2026-04-21.mp3">
       <a href="podcast/ai-news-2026-04-21.mp3">音声ファイルを開く</a>
     </audio>
-    <div class="listen-sub">
-      <a href="https://teraco-labo.github.io/ai-news-digest/podcast/feed.xml">📡 ポッドキャストとして購読する（RSS / Spotify）</a>
+    <div class="speed-row"><span class="speed-label">再生速度</span>
+      <button type="button" class="speed-btn" data-speed="0.7">0.7×</button>
+      <button type="button" class="speed-btn" data-speed="0.8">0.8×</button>
+      <button type="button" class="speed-btn" data-speed="0.9">0.9×</button>
+      <button type="button" class="speed-btn" data-speed="1">1×</button>
+      <button type="button" class="speed-btn" data-speed="1.25">1.25×</button>
+      <button type="button" class="speed-btn" data-speed="1.5">1.5×</button>
+      <button type="button" class="speed-btn" data-speed="2">2×</button>
     </div>
+    <div class="listen-sub">毎朝の配信を購読： <a href="https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3">Spotify で聴く</a></div>
   </div>
+<script>
+(function(){
+  var audio = document.getElementById('pod-audio');
+  if (!audio) return;
+  var btns = document.querySelectorAll('.speed-btn');
+  function apply(v){
+    audio.playbackRate = parseFloat(v);
+    btns.forEach(function(b){ b.classList.toggle('on', b.dataset.speed === v); });
+    try { localStorage.setItem('wk-speed', v); } catch(e) {}
+  }
+  var saved = '1';
+  try { saved = localStorage.getItem('wk-speed') || '1'; } catch(e) {}
+  if (!document.querySelector('.speed-btn[data-speed="' + saved + '"]')) saved = '1';
+  apply(saved);
+  audio.addEventListener('play', function(){ audio.playbackRate = parseFloat(saved); });
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){ saved = b.dataset.speed; apply(saved); });
+  });
+})();
+</script>
 
   <div class="tier">注目のニュース</div>
   <div class="digest">
@@ -323,7 +397,7 @@
       </div>
       <div class="card-title-ja">社会的支援ロボット工学の開拓者、マヤ・マタリッチ教授</div>
       <div class="card-source">Ieee.org</div>
-      <div class="card-body">USC(南カリフォルニア大学)のマヤ・マタリッチ教授は、2005年に社会的支援ロボット工学という新しい研究分野を定義し、確立しました。コンピュータサイエンス、神経科学、小児科の専門家として、ロボット工学と人間のインタラクションの融合領域の発展をリードしています。</div>
+      <div class="card-body">USC(南カリフォルニア大学)のマヤ・マタリッチ教授は、2005年に社会的支援ロボット工学という新しい研究分野を定義し、確立しました。コンピュータサイエンス、<span class="t" data-t="neuroscience" tabindex="0" role="button" aria-label="神経科学の説明を見る">神経科学</span>、小児科の専門家として、ロボット工学と人間のインタラクションの融合領域の発展をリードしています。</div>
     </article>
     <article class="card business top">
       <div class="card-top">
@@ -404,7 +478,7 @@
       </div>
       <div class="card-title-ja">米政府機関、禁止にもかかわらずAnthropicのツールを継続使用</div>
       <div class="card-source">TechRadar</div>
-      <div class="card-body">米国防総省がサプライチェーンリスクの懸念からAnthropicの製品使用を禁止する一方で、米政府の安全保障機関は依然としてMythos Previewを含むAnthropicの製品を使用し続けている。政府機関と企業間の対立が続く中での矛盾した対応が明らかになった。</div>
+      <div class="card-body">米<span class="t" data-t="pentagon" tabindex="0" role="button" aria-label="国防総省の説明を見る">国防総省</span>がサプライチェーンリスクの懸念からAnthropicの製品使用を禁止する一方で、米政府の安全保障機関は依然としてMythos Previewを含むAnthropicの製品を使用し続けている。政府機関と企業間の対立が続く中での矛盾した対応が明らかになった。</div>
     </article>
     <article class="card policy top">
       <div class="card-top">
@@ -413,7 +487,7 @@
       </div>
       <div class="card-title-ja">医療現場でのAI活用における懸念事項と倫理的課題</div>
       <div class="card-source">Acrlog.org</div>
-      <div class="card-body">医療分野におけるチャットボットやAIツールの導入に伴う懸念や課題について、医療図書館員の視点から論じるゲスト記事。医療AIの倫理的問題、患者安全、規制の必要性など、政策レベルでの検討が必要な重要なテーマを扱っています。</div>
+      <div class="card-body">医療分野における<span class="t" data-t="chatbot" tabindex="0" role="button" aria-label="チャットボットの説明を見る">チャットボット</span>やAIツールの導入に伴う懸念や課題について、医療図書館員の視点から論じるゲスト記事。医療AIの倫理的問題、患者安全、規制の必要性など、政策レベルでの検討が必要な重要なテーマを扱っています。</div>
     </article>
   </div>
   <div class="tier">ジャンル別のニュース（タップで開く）</div>
@@ -527,7 +601,7 @@
       </div>
       <div class="card-title-ja">Google CloudとパートナーがAI活用を展示するイベント開催</div>
       <div class="card-source">SiliconANGLE News</div>
-      <div class="card-body">Google Cloudおよびその提携企業であるQuantiphiなどのAIファーストのデジタルエンジニアリング企業が、4月22日から23日に開催されるイベントで人工知能の活用事例を紹介。ハイパースケーラーのAI技術がパートナー企業を通じて顧客に提供される実況例が展開される。</div>
+      <div class="card-body">Google Cloudおよびその提携企業であるQuantiphiなどのAIファーストのデジタルエンジニアリング企業が、4月22日から23日に開催されるイベントで人工知能の活用事例を紹介。<span class="t" data-t="hyperscaler" tabindex="0" role="button" aria-label="ハイパースケーラーの説明を見る">ハイパースケーラー</span>のAI技術がパートナー企業を通じて顧客に提供される実況例が展開される。</div>
     </article>
     </div>
   </details>
@@ -539,7 +613,7 @@
         <span class="card-label policy">ポリシー</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">豪規制当局、Anthropicの新モデル監視へ　銀行リスク懸念</div>
+      <div class="card-title-ja">豪<span class="t" data-t="regulator" tabindex="0" role="button" aria-label="規制当局の説明を見る">規制当局</span>、Anthropicの新モデル監視へ　銀行リスク懸念</div>
       <div class="card-source">iTnews</div>
       <div class="card-body">オーストラリア証券投資委員会（ASIC）とオーストラリア審慎規制庁（APRA）が、Anthropicの新型AI言語モデル「Mythos」の金融セクターへの潜在的なリスクを監視している。銀行業務に対する影響を評価するため、規制当局が積極的に対応している。</div>
     </article>
@@ -564,7 +638,7 @@
       </div>
       <div class="card-title-ja">Amazon SageMakerにG7eインスタンスが登場、<span class="t" data-t="generative-ai" tabindex="0" role="button" aria-label="生成AIの説明を見る">生成AI</span><span class="t" data-t="inference" tabindex="0" role="button" aria-label="推論の説明を見る">推論</span>を高速化</div>
       <div class="card-source">Amazon.com</div>
-      <div class="card-body">AmazonはSageMaker AI上で<span class="t" data-t="nvidia" tabindex="0" role="button" aria-label="NVIDIAの説明を見る">NVIDIA</span> RTX PRO 6000 <span class="t" data-t="blackwell" tabindex="0" role="button" aria-label="Blackwellの説明を見る">Blackwell</span> Server Edition <span class="t" data-t="gpu" tabindex="0" role="button" aria-label="GPUの説明を見る">GPU</span>を搭載したG7eインスタンスの提供を開始しました。1～8個のGPUノードを柔軟に選択でき、各GPUは96GBのメモリを備えています。これにより生成AI推論のパフォーマンスと効率が向上します。</div>
+      <div class="card-body">AmazonはSageMaker AI上で<span class="t" data-t="nvidia" tabindex="0" role="button" aria-label="NVIDIAの説明を見る">NVIDIA</span> RTX PRO 6000 <span class="t" data-t="blackwell" tabindex="0" role="button" aria-label="Blackwellの説明を見る">Blackwell</span> Server Edition <span class="t" data-t="gpu" tabindex="0" role="button" aria-label="GPUの説明を見る">GPU</span>を搭載したG7eインスタンスの提供を開始しました。1～8個のGPUノードを柔軟に選択でき、各GPUは96GBの<span class="t" data-t="memory" tabindex="0" role="button" aria-label="メモリの説明を見る">メモリ</span>を備えています。これにより生成AI推論のパフォーマンスと効率が向上します。</div>
     </article>
     <article class="card tools">
       <div class="card-top">
@@ -587,12 +661,20 @@
     </div>
   </details>
 
-  <div class="subscribe">
-    毎朝6時に自動更新しています ─ 
-    <a href="https://teraco-labo.github.io/ai-news-digest/podcast/feed.xml">🎧 ポッドキャスト購読</a> ／ 
-    <a href="feed.xml">📡 サイトのRSS</a> ／ 
-    <a href="archive.html">バックナンバー</a>
+  <div class="section-label">毎朝うけとる</div>
+  <div class="sub-grid">
+    <div class="sub-card mail sub-embed">
+      <span class="sub-t">メールマガジンで受け取る</span>
+      <span class="sub-d">毎朝6時のAIニュースと、週1回のまとめ・解説記事をメールで。専門用語には解説つき。無料・いつでも解除できます</span>
+      <iframe src="https://teracosensei.substack.com/embed" width="100%" height="150" style="border:1px solid var(--border);border-radius:6px;background:#fff;" frameborder="0" scrolling="no" title="メールマガジン登録"></iframe>
+    </div>
+    <div class="sub-card sub-embed">
+      <span class="sub-t">ポッドキャストで聴く</span>
+      <span class="sub-d">通勤中や作業中に。毎朝10〜15分の音声版です</span>
+      <a class="sub-badge spotify" href="https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3">Spotify で聴く</a>
+    </div>
   </div>
+  <p class="sub-advanced">上級者向け：<a href="feed.xml">RSS配信</a>（サイトの更新を自動で受け取るための仕組みです。Feedly などのRSSリーダーをお使いの方はこちらを登録してください）</p>
 
 </main>
 
@@ -600,8 +682,9 @@
   <strong>世界一わかりやすいAIニュース</strong> — てらこ先生<br>
   毎朝6時に配信しています。
   <div class="footer-links"><a href="">トップ</a> ／ <a href="terms/">AI用語集</a> ／ <a href="articles/">読み物</a> ／ <a href="archive.html">バックナンバー</a> ／ <a href="about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
+  <div class="footer-brand">Teraco News by てらこ先生</div>
 </footer>
-<script type="application/json" id="glossary-data">{"anthropic": {"n": "Anthropic", "s": "AIアシスタント「Claude」を開発するアメリカの企業です。AIの安全性を重視する方針を掲げています。", "u": "terms/anthropic.html"}, "benchmark": {"n": "ベンチマーク", "s": "AIの性能を共通のテストで測るための指標です。モデル同士の比較に使われます。", "u": "terms/benchmark.html"}, "blackwell": {"n": "Blackwell", "s": "NVIDIAのAI用GPUの世代名です。世代ごとに研究者の名前が付けられており、その最新版にあたります。", "u": "terms/blackwell.html"}, "generative-ai": {"n": "生成AI", "s": "文章・画像・音声・動画などを新しく作り出せるAIの総称です。分類や予測をするだけだった従来のAIとの違いがここにあります。", "u": "terms/generative-ai.html"}, "gpu": {"n": "GPU", "s": "大量の計算を同時に行える半導体で、AIの学習と実行に欠かせない部品です。", "u": "terms/gpu.html"}, "inference": {"n": "推論", "s": "学習済みのAIを実際に動かして答えを出させることです。AIを「使う」場面はすべて推論にあたります。", "u": "terms/inference.html"}, "multimodal": {"n": "マルチモーダル", "s": "文章だけでなく、画像・音声・動画も一緒に扱えるAIのことです。写真を見せて質問できるのはこの能力によるものです。", "u": "terms/multimodal.html"}, "nvidia": {"n": "NVIDIA", "s": "AI開発に不可欠なGPUを作っている半導体企業です。生成AIブームの最大の受益者と言われています。", "u": "terms/nvidia.html"}}</script>
+<script type="application/json" id="glossary-data">{"anthropic": {"n": "Anthropic", "r": "アンソロピック", "s": "AIアシスタント「Claude」を開発するアメリカの企業です。AIの安全性を重視する方針を掲げています。", "u": "terms/anthropic.html"}, "benchmark": {"n": "ベンチマーク", "r": "ベンチマーク", "s": "AIの性能を共通のテストで測るための指標です。モデル同士の比較に使われます。", "u": "terms/benchmark.html"}, "blackwell": {"n": "Blackwell", "r": "ブラックウェル", "s": "NVIDIAのAI用GPUの世代名です。世代ごとに研究者の名前が付けられており、その最新版にあたります。", "u": "terms/blackwell.html"}, "chatbot": {"n": "チャットボット", "r": "チャットボット", "s": "文字や声で話しかけると、会話の形で答えてくれるプログラムのことです。ChatGPTが代表例です。", "u": "terms/chatbot.html"}, "generative-ai": {"n": "生成AI", "r": "", "s": "文章・画像・音声・動画などを新しく作り出せるAIの総称です。分類や予測をするだけだった従来のAIとの違いがここにあります。", "u": "terms/generative-ai.html"}, "gpu": {"n": "GPU", "r": "ジーピーユー", "s": "大量の計算を同時に行える半導体で、AIの学習と実行に欠かせない部品です。", "u": "terms/gpu.html"}, "hyperscaler": {"n": "ハイパースケーラー", "r": "ハイパースケーラー", "s": "世界規模の巨大なデータセンターを持つ、大手のクラウド企業のことです。AIを動かすための計算設備の多くをこうした企業が持っています。", "u": "terms/hyperscaler.html"}, "inference": {"n": "推論", "r": "すいろん", "s": "学習済みのAIを実際に動かして答えを出させることです。AIを「使う」場面はすべて推論にあたります。", "u": "terms/inference.html"}, "memory": {"n": "メモリ", "r": "", "s": "コンピューターが作業中のデータを一時的に置いておく部品です。量が多いほど一度にたくさんの処理ができます。", "u": "terms/memory.html"}, "multimodal": {"n": "マルチモーダル", "r": "マルチモーダル", "s": "文章だけでなく、画像・音声・動画も一緒に扱えるAIのことです。写真を見せて質問できるのはこの能力によるものです。", "u": "terms/multimodal.html"}, "neuroscience": {"n": "神経科学", "r": "しんけいかがく", "s": "脳や神経がどのように働き、考えや感覚を生み出しているかを調べる学問です。", "u": "terms/neuroscience.html"}, "nvidia": {"n": "NVIDIA", "r": "エヌビディア", "s": "AI開発に不可欠なGPUを作っている半導体企業です。生成AIブームの最大の受益者と言われています。", "u": "terms/nvidia.html"}, "pentagon": {"n": "ペンタゴン（米国防総省）", "r": "ペンタゴン", "s": "アメリカの軍事を統括する政府機関です。庁舎が五角形をしていることからこの通称で呼ばれます。", "u": "terms/pentagon.html"}, "regulator": {"n": "規制当局", "r": "きせいとうきょく", "s": "企業が法律やルールを守っているかを見張り、必要なら調査や処分をする国の役所のことです。", "u": "terms/regulator.html"}}</script>
 
 <script>
 (function(){
@@ -624,7 +707,7 @@
   function showTip(node, d){
     tip.innerHTML = '<span class="tip-n"></span><span class="tip-s"></span>'
       + '<a class="tip-m" href="#">くわしい解説 →</a>';
-    tip.querySelector('.tip-n').textContent = d.n;
+    tip.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
     tip.querySelector('.tip-s').textContent = d.s;
     tip.querySelector('.tip-m').href = d.u;
     tip.classList.add('on');
@@ -639,7 +722,7 @@
   function hideTip(){ tip.classList.remove('on'); }
 
   function openSheet(d){
-    sheet.querySelector('.tip-n').textContent = d.n;
+    sheet.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
     sheet.querySelector('.tip-s').textContent = d.s;
     sheet.querySelector('.tip-m').href = d.u;
     sheet.classList.add('on'); veil.classList.add('on');

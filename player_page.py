@@ -47,12 +47,12 @@ PLAYER_CSS = """
   .p-links a { padding:0.35rem 0.8rem; border:1px solid #cbd5e1;
     border-radius:999px; font-size:0.74rem; color:#475569; text-decoration:none; }
   .p-links a:hover { background:#f1f5f9; }
-  .follow { margin-top:1rem; }
-  .follow-btn { display:block; width:100%; padding:0.85rem 1rem; border:0; border-radius:12px; cursor:pointer;
-    background:#facc15; color:#0b1f4d; font:inherit; font-size:1rem; font-weight:800; letter-spacing:0.04em;
-    box-shadow:0 4px 0 #ca8a04; -webkit-tap-highlight-color:transparent; }
-  .follow-btn:active { transform:translateY(2px); box-shadow:0 2px 0 #ca8a04; }
-  .follow-sheet { margin-top:0.7rem; display:grid; gap:0.5rem; }
+  .follow { margin-top:1rem; text-align:center; }
+  .follow-btn { display:inline-block; padding:0.5rem 1.6rem; border:0; border-radius:999px; cursor:pointer;
+    background:#facc15; color:#0b1f4d; font:inherit; font-size:0.88rem; font-weight:800; letter-spacing:0.04em;
+    box-shadow:0 3px 0 #ca8a04; -webkit-tap-highlight-color:transparent; }
+  .follow-btn:active { transform:translateY(2px); box-shadow:0 1px 0 #ca8a04; }
+  .follow-sheet { margin-top:0.7rem; display:grid; gap:0.5rem; text-align:left; }
   .follow-sheet[hidden] { display:none; }
   .follow-sheet a { display:block; padding:0.8rem 1rem; border-radius:10px; text-decoration:none;
     font-weight:700; font-size:0.92rem; text-align:center; }
@@ -114,8 +114,9 @@ def build(config: dict) -> str:
     site = config.get("site", {})
     name = site.get("name", "世界一わかりやすいAIニュース")
     esc = _html.escape
-    speeds = [("0.75", "0.75×"), ("1", "1×"), ("1.25", "1.25×"),
-              ("1.5", "1.5×"), ("2", "2×"), ("2.5", "2.5×")]
+    # 1倍を真ん中に、遅い側と速い側に3段ずつ（2026-10-05 藤崎さん。2.5倍は外した）
+    speeds = [("0.7", "0.7×"), ("0.8", "0.8×"), ("0.9", "0.9×"), ("1", "1×"),
+              ("1.25", "1.25×"), ("1.5", "1.5×"), ("2", "2×")]
     speed_btns = "".join(
         f'<button type="button" class="speed-btn" data-speed="{v}">{label}</button>'
         for v, label in speeds
@@ -256,6 +257,7 @@ def build(config: dict) -> str:
   // 再生速度：記事ページ内のプレイヤーと同じ保存キーを使い、どのページでも同じ速度になる
   var btns = document.querySelectorAll('.speed-btn'), saved = '1';
   try {{ saved = localStorage.getItem('wk-speed') || '1'; }} catch(e) {{}}
+  if (!document.querySelector('.speed-btn[data-speed="' + saved + '"]')) saved = '1';   // 選択肢から外した速さ（2.5倍など）が残っていたら1倍に
   function apply(v){{
     a.playbackRate = parseFloat(v); saved = v;
     btns.forEach(function(b){{ b.classList.toggle('on', b.dataset.speed === v); }});
