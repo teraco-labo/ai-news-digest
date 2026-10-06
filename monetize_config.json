@@ -297,6 +297,11 @@
     "enabled": true,
     "disclaimer": "本サイトで紹介している商品・サービスの提供元は各事業者です。購入・お申し込み後のサポート、返金、解約などのお問い合わせは、各サービスの提供元へ直接ご連絡ください。本サイトの運営者は契約の当事者ではないため、これらに対応することができません。"
   },
+  "podcast_script": {
+    "_note": "ポッドキャスト台本の作り手。backend: 'claude-code' は Claude Code CLI（Max プランのサブスク枠・追加費用なし）を優先し、使えない日は Gemini → ルールベースの順に切り替えます。'gemini' にすると Claude を使わず Gemini から始めます（Gemini API は 2026-10-12 から前払い制）。cli_model は opus / sonnet / haiku。",
+    "backend": "claude-code",
+    "cli_model": "opus"
+  },
   "curation": {
     "_note": "掲載記事の選別と日本語化。backend: 'auto' は Claude Code CLI（サブスク枠）を優先し、無ければ ANTHROPIC_API_KEY の従量課金 API に切り替えます。'claude-code' = CLI のみ / 'api' = API のみ。cli_model は CLI 用のエイリアス（opus / sonnet / haiku）、model は API 用のモデルIDです。無効にすると従来のキーワード分類＋機械翻訳に戻ります。",
     "enabled": true,

@@ -12,7 +12,7 @@ import re
 import tempfile
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Dict, List, Optional, Tuple
 
 from generate_podcast import (
     PODCAST_DIR, BASE_URL, PODCAST_EMAIL,
@@ -165,32 +165,34 @@ _DIALOGUE_SYSTEM_PROMPT = """\
 
 
 # ---------------------------------------------------------------------------
-# Gemini による対話台本生成
+# 対話台本の生成（Claude → Gemini → ルールベース）
 # ---------------------------------------------------------------------------
+# 2026-10-06 に台本係を Gemini から Claude（Max プランのサブスク枠）へ切り替えた。
+# 理由：Gemini API は 2026-10-12 から前払い制になり、切り替えないと使えなくなる。
+# Claude は記事の選別（curate.py）と同じ枠で動くので追加の費用がかからない。
+# 作り比べでは、Claude は文が短く決まりを守る一方で短めに仕上がりがちだったので、
+# 決まりの長さに届かないときは1回だけ書き足しを頼む。
 
-def build_dialogue_script(articles_by_category: Dict[str, List[Dict]], date: datetime) -> str:
-    """Gemini 2.0 Flash で2人対話形式の台本を生成する。失敗時はフォールバック。"""
-    api_key = os.environ.get("GEMINI_API_KEY", "").strip()
-    if not api_key:
-        print("  ⚠️  GEMINI_API_KEY 未設定。フォールバック台本を使用。")
-        return _fallback_script(articles_by_category, date)
+SCRIPT_MIN_CHARS = 4000   # 決まりは 4000〜4800 字。これを下回ったら1回だけ書き足しを頼む
 
+
+def _script_config() -> Dict:
     try:
-        from google import genai as google_genai
-        from google.genai import types as genai_types
-    except ImportError:
-        print("  ⚠️  google-genai 未インストール。pip install google-genai")
-        return _fallback_script(articles_by_category, date)
+        import monetize
+        return monetize.load_config().get("podcast_script", {}) or {}
+    except Exception:
+        return {}
 
-    client = google_genai.Client(api_key=api_key)
 
+def _build_user_prompt(articles_by_category: Dict[str, List[Dict]], date: datetime) -> str:
+    """素材ニュースを整形して、台本係への頼み文を作る（Claude・Gemini 共通）。"""
     date_str = date.strftime("%Y年%m月%d日")
     weekday  = WEEKDAYS_JA[date.weekday()]
     selected = select_top_articles(articles_by_category)
 
     # ---- 記事データを整形してプロンプトに渡す ----
     # 機械翻訳された日本語ではなく、英語の原文（タイトル・概要）を渡す。
-    # Gemini 自身に内容を理解させ、自然な日本語の話し言葉に噛み砕かせることで
+    # 台本係（AI）自身に内容を理解させ、自然な日本語の話し言葉に噛み砕かせることで
     # 「翻訳調」を防ぐ。
     news_text = f"【{date_str}（{weekday}曜日）の素材ニュース一覧（主に英語原文）】\n\n"
     for category, cat_name in CATEGORIES_JA.items():
@@ -235,6 +237,89 @@ def build_dialogue_script(articles_by_category: Dict[str, List[Dict]], date: dat
         f"上記の素材（多くは英語）を理解し、{date_str}版の「世界一わかりやすいAIニュース」台本を作ってください。"
         "英語をそのまま直訳するのではなく、内容をかみくだいて、日本語のラジオで自然に話す言葉に置き換えてください。"
     )
+
+    return user_prompt
+
+
+def _has_dialogue_tags(script: str) -> bool:
+    return "[てらこ先生]" in script or "[イロハ]" in script or "[ミカ]" in script
+
+
+def _script_via_claude(user_prompt: str) -> Optional[str]:
+    """Claude Code CLI（Max プランのサブスク枠）で台本を作る。使えなければ None。"""
+    import shutil
+    import subprocess
+
+    cfg = _script_config()
+    if cfg.get("backend") == "gemini":
+        return None
+    exe = shutil.which("claude")
+    if not exe:
+        print("  ⚠️  Claude Code CLI が見つかりません → Gemini を試します")
+        return None
+    model = cfg.get("cli_model", "opus")
+
+    # 失効した API キーが環境に残っていると OAuth トークンより優先されて 401 になる（curate.py と同じ対処）
+    env = os.environ.copy()
+    if env.get("CLAUDE_CODE_OAUTH_TOKEN"):
+        for k in ("ANTHROPIC_API_KEY", "CLAUDE_API_KEY", "ANTHROPIC_AUTH_TOKEN"):
+            env.pop(k, None)
+
+    prompt = user_prompt
+    best: Optional[str] = None
+    for attempt in range(1, 3):
+        print(f"  Claude（{model}・サブスク枠）で台本生成中... (試行 {attempt}/2)")
+        try:
+            proc = subprocess.run(
+                [exe, "-p", "--output-format", "json", "--model", model,
+                 "--system-prompt", _DIALOGUE_SYSTEM_PROMPT],
+                input=prompt, capture_output=True, text=True, timeout=900, env=env,
+            )
+        except Exception as e:
+            print(f"  ⚠️  Claude Code CLI の実行に失敗: {e}")
+            return best
+        if proc.returncode != 0:
+            detail = ""
+            try:
+                detail = str(json.loads(proc.stdout).get("result", ""))
+            except Exception:
+                detail = (proc.stdout or "").strip()
+            print(f"  ⚠️  Claude Code CLI がエラー（exit {proc.returncode}）: {detail[:300]} {(proc.stderr or '')[:300]}")
+            return best
+        try:
+            script = str(json.loads(proc.stdout).get("result", "")).strip()
+        except Exception:
+            script = (proc.stdout or "").strip()
+        if not script or not _has_dialogue_tags(script):
+            print(f"  ⚠️  対話タグが見つかりません（{len(script)} 文字）")
+            continue
+        if best is None or len(script) > len(best):
+            best = script
+        if len(script) >= SCRIPT_MIN_CHARS:
+            print(f"  ✓ 台本生成完了（Claude）: {len(script)} 文字")
+            return script
+        print(f"  ⚠️  台本が短い（{len(script)} 字）→ 書き足しを頼みます")
+        prompt = (user_prompt + f"\n\n補足：前回の台本は {len(script)} 字で、決まり（4000〜4800字）より短すぎました。"
+                  "取り上げる話題は変えずに、各話題で「なぜ大事か」「身近な例」を1〜2往復ずつ足して、"
+                  "合計4200〜4600字にしてください。")
+    if best:
+        print(f"  ✓ 台本生成完了（Claude・短め）: {len(best)} 文字")
+    return best
+
+
+def _script_via_gemini(user_prompt: str, date: datetime) -> Optional[str]:
+    """Gemini Flash で台本を作る（Claude が使えない日の予備）。使えなければ None。
+    Gemini API は 2026-10-12 から前払い制。前払いにしていなければここは失敗して飛ばされる。"""
+    api_key = os.environ.get("GEMINI_API_KEY", "").strip()
+    if not api_key:
+        return None
+    try:
+        from google import genai as google_genai
+        from google.genai import types as genai_types
+    except ImportError:
+        print("  ⚠️  google-genai 未インストール")
+        return None
+    client = google_genai.Client(api_key=api_key)
 
     # 最大3回まで再試行（空レスポンス・一時的エラーへの対策）
     for attempt in range(1, 4):
@@ -293,7 +378,19 @@ def build_dialogue_script(articles_by_category: Dict[str, List[Dict]], date: dat
                 import time
                 time.sleep(5)  # 5秒待ってリトライ
 
-    print("  ⚠️  Gemini で台本生成に失敗 → ルールベースのフォールバック台本を使用します")
+    return None
+
+
+def build_dialogue_script(articles_by_category: Dict[str, List[Dict]], date: datetime) -> str:
+    """2人対話形式の台本を作る。Claude（サブスク枠）→ Gemini → ルールベースの順に試す。"""
+    user_prompt = _build_user_prompt(articles_by_category, date)
+    script = _script_via_claude(user_prompt)
+    if script:
+        return script
+    script = _script_via_gemini(user_prompt, date)
+    if script:
+        return script
+    print("  ⚠️  台本係が使えませんでした → ルールベースのフォールバック台本を使用します")
     return _fallback_script(articles_by_category, date)
 
 
