@@ -144,7 +144,10 @@ _DIALOGUE_SYSTEM_PROMPT = """\
 - てらこ先生は、解説の合間にときどき率直な感想を短く挟む程度でよい。
 - 暗い話題（事故・規制・訴訟・失業・不安など）でも、番組全体の明るいトーンを保つ。深刻ぶった重い言い回しや、ため息まじりの相づちは使わない。
   事実は事実として伝えたうえで、「だからこそ、ここを押さえておけば大丈夫です」のように、聴く人が前向きに受け取れる一言で締める。
-- てらこ先生の受け答えを「そうなんですよね。」で始めない（音声にすると沈んで聞こえる）。同意するときは「ええ、まさに。」「そこがポイントなんです。」「いい質問です。」のような、明るく前に進む言い方にする。
+- 相づち・受け答えの入り方は、毎回変える（同じ言い方が続くと「定型だな」と分かってしまう）。
+  1回の台本の中で、同じ話し手が同じ相づち（「そうなんですよね」「そうなんです」「なるほど」など）を2度使わない。
+  形も混ぜる：「〜ですよね」の共感ばかりにせず、言い切り（「そこがポイントなんです」）、短い実話、問いかけ（「こんな経験、ありませんか」）を織り交ぜる。
+- 共感は1文で切り上げ、すぐ前向きな文につなぐ。「〜よね。」で終わる文を続けない（音声にすると沈んで聞こえる）。
   例：「これは僕も注目してるんです。」「正直、ここまで速いとは思いませんでした。」
 - ！は本当に強調したい場面に絞って使う（全体で5回程度まで）。
 - 疑問文の文末には必ず「？」を付けること（読み上げ時に語尾の抑揚が自然になるため）。「〜でしょうか。」ではなく「〜でしょうか？」と書く。
@@ -213,13 +216,22 @@ def build_dialogue_script(articles_by_category: Dict[str, List[Dict]], date: dat
         import monetize, site_theme
         if site_theme.newsletter_links(monetize.load_config())["signup_url"]:
             mail_note = ("\n補足：メール購読（無料）も用意しています。締めの案内では"
-                         "「説明欄のリンクから、記事を読むこともメールで毎朝受け取ることもできます」"
+                         "「説明欄のリンクから、記事を読むことも、メールで読みものを受け取ることもできます」"
                          "のように、記事とメールの両方に一言で触れてください。")
     except Exception:
         pass
 
+    avoid = ""
+    try:
+        recent = recent_openers(date)
+        if recent:
+            avoid = ("\n前の2回で使った台詞の入り方です。今回は使わず、別の言い方にしてください：\n"
+                     + "\n".join(f"- {spk}：" + "／".join(w) for spk, w in recent.items()))
+    except Exception:
+        pass
+
     user_prompt = (
-        f"{news_text}{mail_note}\n"
+        f"{news_text}{mail_note}{avoid}\n"
         f"上記の素材（多くは英語）を理解し、{date_str}版の「世界一わかりやすいAIニュース」台本を作ってください。"
         "英語をそのまま直訳するのではなく、内容をかみくだいて、日本語のラジオで自然に話す言葉に置き換えてください。"
     )
@@ -386,6 +398,27 @@ def _fallback_script(articles_by_category: Dict[str, List[Dict]], date: datetime
 # ---------------------------------------------------------------------------
 # 台本パーサー
 # ---------------------------------------------------------------------------
+
+_AIZUCHI_KEYS = ("そう", "なるほど", "まさに", "その通り", "おっしゃる", "たしかに", "確かに",
+                 "本当に", "ええ", "はい", "わかります", "ですよね", "いい質問", "ポイント")
+
+
+def recent_openers(date: datetime, n: int = 2) -> Dict[str, List[str]]:
+    """この回より前の n 回で、話し手ごとに台詞の入り方（最初の短いひと言）を拾う。
+    次の回の台本係に「今回は使わない」として渡す（2026-10-06 藤崎さん：相づちにバリエーションを）。"""
+    out: Dict[str, List[str]] = {}
+    me = f"script-{date.strftime('%Y-%m-%d')}.txt"
+    files = sorted(p for p in PODCAST_DIR.glob("script-*.txt") if p.name < me)[-n:]
+    for p in files:
+        for spk, text in parse_dialogue(p.read_text(encoding="utf-8")):
+            m = re.match(r"^([^。、！？]{1,12})[。、！？]", text)
+            # 相づち・受け答えだけを拾う（話題の書き出しや挨拶は対象外）
+            if m and any(k in m.group(1) for k in _AIZUCHI_KEYS):
+                out.setdefault(spk, [])
+                if m.group(1) not in out[spk]:
+                    out[spk].append(m.group(1))
+    return out
+
 
 def parse_dialogue(script: str) -> List[Tuple[str, str]]:
     """
