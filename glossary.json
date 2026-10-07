@@ -5885,6 +5885,223 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "intelligent-ui",
+      "term": "Intelligent UI",
+      "reading": "インテリジェント・ユーアイ",
+      "aliases": [
+        "インテリジェントUI"
+      ],
+      "category": "使い方",
+      "short": "ChatGPTの新しい画面の仕組みです。文章だけでなく、図や押して動かせる部品も答えの中に出してくれます。",
+      "detail": "OpenAIがGPT-6と同時に全ユーザーへ提供を始めた表示方式です。回答の一部としてインタラクティブな要素をその場で生成する点が特徴で、Wiredは「説明より見せる」方向への転換と表現しています。チャットAIの価値が回答の中身だけでなく見せ方にも広がりつつあることを示しています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "claude-haiku",
+      "term": "Claude Haiku",
+      "reading": "クロード・ハイク",
+      "aliases": [
+        "Haiku",
+        "Claude Haiku 5.5",
+        "Haiku 5.5"
+      ],
+      "category": "モデル",
+      "short": "Anthropicが作るAIのうち、小さくて速く、安く使えるタイプです。たくさんの作業を手早くこなしたいときに向いています。",
+      "detail": "ClaudeシリーズはOpus、Sonnet、Haikuの3つの大きさで展開されており、Haikuは最も軽量なラインです。2026年10月にClaude Haiku 5.5が公開され、5.5世代の3モデルがそろいました。大量の問い合わせ対応や下処理など、速度とコストが重視される用途でよく選ばれます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "le-chonk",
+      "term": "Le Chonk",
+      "reading": "ル・チョンク",
+      "aliases": [],
+      "category": "モデル",
+      "short": "フランスのMistral AIが発表した新しいAIです。中身が公開されていて、誰でも手元で動かせる形で提供されます。",
+      "detail": "Mistral AIは、Le Chonkがトップクラスのクローズドモデルに匹敵する性能を持つと説明しています。そのうえで重みを公開するオープンウェイトとして提供される点が特徴です。高性能なモデルを自社の環境で動かしたい企業にとって、有力な選択肢になる可能性があります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "synthid",
+      "term": "SynthID",
+      "reading": "シンスアイディー",
+      "aliases": [],
+      "category": "安全性",
+      "short": "Googleが作った、AIで作られた画像や文章などを見分けるための仕組みです。専用のウェブサイトで確認できます。",
+      "detail": "改良版が世界中で使えるようになり、Google製のAIだけでなくOpenAIなど他社のAIが作ったコンテンツも判定できるとされています。偽情報やディープフェイク対策として、一般の人が手軽に確かめられる手段のひとつです。ただし電子透かし系の技術には回避されやすいという限界も指摘されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "closed-model",
+      "term": "クローズドモデル",
+      "reading": "",
+      "aliases": [
+        "非公開モデル"
+      ],
+      "category": "基礎",
+      "short": "作った会社が中身を公開していないAIのことです。使うには、その会社のサービスを通す必要があります。",
+      "detail": "オープンウェイトのモデルと対になる言葉で、ChatGPTのように提供元のサービス経由でだけ使える形を指します。性能が高いモデルほどクローズドで提供される傾向がありました。MistralのLe Chonkのように、オープンウェイトでも同等の性能をうたうモデルが出てきたことで、両者の差が注目されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "tradewinds",
+      "term": "Tradewinds",
+      "reading": "トレードウィンズ",
+      "aliases": [],
+      "category": "規制",
+      "short": "アメリカ政府が、新しい技術を持つ会社から防衛向けの製品を買いやすくするための取り組みです。手続きを簡単にして、早く契約できるようにしています。",
+      "detail": "従来の防衛企業ではない「非伝統的」な事業者に、数百万ドル規模の資金を出しやすくする仕組みです。OpenAI、Anthropic、Googleといった企業も対象に含まれます。企業が提出する5分間の動画をもとに、軍事向けAIの調達を早めることが狙いとされています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "kill-chain",
+      "term": "キルチェーン",
+      "reading": "キルチェーン",
+      "aliases": [
+        "Kill Chain"
+      ],
+      "category": "安全性",
+      "short": "軍事で、相手を見つけてから攻撃するまでの一連の流れを指す言葉です。",
+      "detail": "標的の発見から判断、攻撃までの各段階をひとつながりの鎖として捉える考え方です。米国防総省はこの流れに関わるAIの調達を急いでいると報じられています。AIが軍事の意思決定のどこまで入り込むかは、倫理や安全性の面で大きな論点になっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "healthleap",
+      "term": "Healthleap",
+      "reading": "ヘルスリープ",
+      "aliases": [],
+      "category": "企業",
+      "short": "病院で、もっと注意して見守るべき患者をAIで知らせる仕組みを作っている会社です。",
+      "detail": "シードラウンドとシリーズAを合わせて3800万ドルを調達しました。シードはSequoia CapitalとFirst Round Capitalが共同で主導し、シリーズAはHummingbird Venturesが主導しています。医療現場の見落としを減らすAIとして、投資家の期待を集めています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "first-round-capital",
+      "term": "First Round Capital",
+      "reading": "ファースト・ラウンド・キャピタル",
+      "aliases": [],
+      "category": "企業",
+      "short": "できたばかりの会社にお金を出す投資会社です。",
+      "detail": "ベンチャーキャピタルの一つで、Healthleapの800万ドルのシードラウンドをSequoia Capitalと共同で主導しました。創業初期の会社への投資は失敗のリスクが高い一方、有名な投資家が入ることはその後の資金集めで信頼の目安になります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "hummingbird-ventures",
+      "term": "Hummingbird Ventures",
+      "reading": "ハミングバード・ベンチャーズ",
+      "aliases": [],
+      "category": "企業",
+      "short": "成長中の会社にお金を出す投資会社です。",
+      "detail": "ベンチャーキャピタルの一つで、Healthleapの3000万ドルのシリーズAを主導しました。主導する投資家は、投資条件の取りまとめなどで中心的な役割を担います。医療AIへの投資判断として注目されます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "seed-round",
+      "term": "シードラウンド",
+      "reading": "シードラウンド",
+      "aliases": [
+        "シード",
+        "Seed"
+      ],
+      "category": "ビジネス",
+      "short": "会社をつくって間もない時期に、最初にまとまったお金を集めることです。",
+      "detail": "資金調達はシード、シリーズA、シリーズBと段階的に進むのが一般的で、シードはその最初の段階にあたります。製品や事業がまだ固まっていない時期の投資なので、金額は比較的小さめです。Healthleapは800万ドルのシードラウンドを実施しました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "bot",
+      "term": "ボット",
+      "reading": "ボット",
+      "aliases": [
+        "bot"
+      ],
+      "category": "基礎",
+      "short": "人の代わりに、決められた操作を自動でくり返すプログラムです。",
+      "detail": "便利な自動化に使われる一方、不正にも悪用されます。今回の事件では1万のボットにAI楽曲を再生させ、音楽配信の印税800万ドルをだまし取っていました。配信サービスにとっては、人間による再生かどうかを見分けることが大きな課題です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "royalty",
+      "term": "印税",
+      "reading": "いんぜい",
+      "aliases": [
+        "ロイヤリティ",
+        "ロイヤルティ"
+      ],
+      "category": "ビジネス",
+      "short": "作品が使われたり売れたりしたときに、作った人に支払われるお金です。",
+      "detail": "音楽配信では、曲が再生された回数などに応じて権利者に支払われます。再生回数に連動する仕組みのため、ボットで回数を水増しすれば不正に受け取れてしまいます。生成AIで曲を大量に作れるようになり、こうした不正のリスクが高まっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "packing-problem",
+      "term": "詰め込み問題",
+      "reading": "つめこみもんだい",
+      "aliases": [
+        "パッキング問題",
+        "正方形詰め込み問題"
+      ],
+      "category": "基礎",
+      "short": "いくつかの図形を、なるべく小さな入れ物にすき間少なく詰める方法を考える数学の問題です。",
+      "detail": "たとえば同じ大きさの正方形を何個か、できるだけ小さな正方形の中に並べる方法を探します。見た目は単純でも、それが本当に最善だと証明するのは難しいことがあります。今回は11個の正方形について、AIの支援で最適な配置が証明されたと報告されました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "engagement",
+      "term": "エンゲージメント",
+      "reading": "エンゲージメント",
+      "aliases": [
+        "engagement"
+      ],
+      "category": "ビジネス",
+      "short": "利用者がサービスにどれだけ関わり続けているかを表す言葉です。",
+      "detail": "ネットサービスでは、利用時間や会話の続き具合などが指標として重視されます。ただし、これを追い求めすぎると利用者の健康を損なうおそれがあります。ChatGPTの10代向け版では、危機的な状況でも会話を続けるよう促していたことが問題視されました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "imprisonment",
+      "term": "禁錮",
+      "reading": "きんこ",
+      "aliases": [
+        "実刑"
+      ],
+      "category": "規制",
+      "short": "刑務所に入れられる刑罰のひとつです。",
+      "detail": "今回の事件では、AI楽曲とボットを使って音楽配信の印税をだまし取った男に、18カ月の刑が言い渡されました。AIを使った不正にも、実際に刑務所に入る重い判決が出ていることを示す例です。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
