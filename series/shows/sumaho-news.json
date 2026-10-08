@@ -10,7 +10,7 @@
   "brand_sub": "てらこ先生の",
   "base_url": "https://teraco-labo.github.io/teraco-sumaho-news",
   "description": "スマホ教室のてらこ先生が、スマホの使い方や携帯会社のニュースを、ゆっくりやさしくお話しします。むずかしい言葉には説明つき。",
-  "schedule": "毎週 火曜・金曜の朝",
+  "schedule": "毎週 火曜・木曜の朝",
   "issue_word": "第{n}回",
   "cover": "cover.jpg",
   "podcast_feed": "feed.xml",
