@@ -558,12 +558,12 @@ SUMAHO_URL = "https://teraco-labo.github.io/teraco-sumaho-news"
 
 
 def _sumaho_box(date: datetime) -> str:
-    """火曜・金曜は、兄弟番組「世界一わかりやすいスマホニュース」の今朝の回も同じメールで知らせる。
+    """火曜・木曜は、兄弟番組「世界一わかりやすいスマホニュース」の今朝の回も同じメールで知らせる。
 
     スマホニュースはこのMacの定時ジョブが6時に公開する。このメールの方が先に出ることもあるので、
     今朝の回がまだ一覧に無ければ番組のトップ（いつも最新の回が開く）へ案内する（2026-10-05 藤崎さん）。
     """
-    if date.weekday() not in (1, 4):   # 火・金
+    if date.weekday() not in (1, 3):   # 火・木（2026-10-08 金→木）
         return ""
     import json as _json, urllib.request as _ur
     iso = date.strftime("%Y-%m-%d")
