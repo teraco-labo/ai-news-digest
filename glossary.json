@@ -6102,6 +6102,226 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "lmarena",
+      "term": "LMArena",
+      "reading": "エルエムアリーナ",
+      "aliases": [
+        "Arena"
+      ],
+      "category": "評価",
+      "short": "いろいろなAIの性能を比べて、順位表として公開している人気サイトです。運営会社のArenaは大きな資金を集めています。",
+      "detail": "LMArenaはAIモデルを比べた結果をリーダーボードとして公開し、業界で広く参照されています。運営会社はLightspeedとKhoslaの主導で2億ドルを調達し、評価額は31億ドルに達しました。最近は性能だけでなく、モデルがうそをつくかといったアライメント面の評価にも広げています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "lightspeed",
+      "term": "Lightspeed",
+      "reading": "ライトスピード",
+      "aliases": [
+        "Lightspeed Venture Partners"
+      ],
+      "category": "ビジネス",
+      "short": "成長しそうな会社にお金を出す投資会社です。AI関連の会社にも投資しています。",
+      "detail": "Lightspeedはベンチャーキャピタルで、AI評価サイトLMArenaを運営するArenaの2億ドルの資金調達ラウンドを主導しました。投資を主導する会社は、条件の交渉で中心的な役割を担います。どの投資会社がどの企業に賭けているかは、業界の勢力図を読む手がかりになります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "khosla-ventures",
+      "term": "Khosla Ventures",
+      "reading": "コースラ・ベンチャーズ",
+      "aliases": [
+        "Khosla",
+        "コースラ"
+      ],
+      "category": "ビジネス",
+      "short": "新しい技術の会社にお金を出す投資会社です。AIの会社にも投資しています。",
+      "detail": "Khosla Venturesはベンチャーキャピタルで、今回はLightspeedとともにArenaの2億ドルの資金調達を主導しました。有力な投資会社が投資を主導すると、その企業への市場の評価が高まりやすくなります。AI評価という分野に大きなお金が集まっていることを示す例です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "goodfire",
+      "term": "Goodfire",
+      "reading": "グッドファイア",
+      "aliases": [],
+      "category": "企業",
+      "short": "AIの頭の中をのぞいて、おかしな動きを見つける技術を作っている会社です。AIを安全に使うための道具を開発しています。",
+      "detail": "GoodfireはAIエージェントの監視ツールを開発する企業です。別のAIに全部の行動を読ませる従来の方法とは違い、動いているモデルの内部を直接調べ、怪しいときだけ追加のチェックを呼び出す方式で費用を抑えるとしています。AIエージェントを業務で使う企業にとって、安全対策のコストを下げる選択肢になります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "natura",
+      "term": "Natura",
+      "reading": "ナチュラ",
+      "aliases": [],
+      "category": "企業",
+      "short": "指輪の形をした機械を作っている会社です。指で押すとAIが手伝ってくれる指輪を売り出しました。",
+      "detail": "Naturaは99ドルのスマートリング「Interface」を発表しました。指で押すとAIエージェントを呼び出し、タスクの実行やメモ、機器の操作ができ、健康トラッカーとしても使えます。スマホを取り出さずにAIを使うウェアラブルの新しい形として注目されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "smart-ring",
+      "term": "スマートリング",
+      "reading": "スマートリング",
+      "aliases": [
+        "スマート指輪"
+      ],
+      "category": "基礎",
+      "short": "コンピューターの機能が入った指輪です。体の調子を測ったり、ほかの機器を操作したりできます。",
+      "detail": "スマートリングは指にはめるウェアラブル端末です。睡眠や心拍などを測る健康管理の用途が中心でしたが、AIエージェントの呼び出しに使う製品も出てきました。腕時計やメガネと並んで、画面を見ずにAIを使うための入り口として期待されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "adobe",
+      "term": "Adobe",
+      "reading": "アドビ",
+      "aliases": [
+        "アドビ"
+      ],
+      "category": "企業",
+      "short": "写真の加工やデザイン、動画づくりのソフトを作っている大手の会社です。プロのクリエイターの多くが使っています。",
+      "detail": "AdobeはPhotoshopなどのクリエイティブ系ソフトで知られる米国企業です。ソフトをまとめて月額で提供するCreative Cloudが主力です。AIで作られた無料のクローンソフトが登場し、既存の大手ソフトの立場が揺らぐかどうかが話題になっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "creative-cloud",
+      "term": "Creative Cloud",
+      "reading": "クリエイティブクラウド",
+      "aliases": [],
+      "category": "ビジネス",
+      "short": "Adobeのソフトをまとめて使えるサービスです。毎月お金を払って使う仕組みです。",
+      "detail": "Creative CloudはAdobeが提供する、写真・デザイン・動画などのソフトの詰め合わせです。プロの現場で広く使われる一方、料金の高さに不満を持つ人もいます。AIで作られたオープンソースの代替ソフトが登場し、Creative Cloudの代わりになれるかが試されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "chilling-effect",
+      "term": "萎縮効果",
+      "reading": "イシュクコウカ",
+      "aliases": [
+        "チリングエフェクト"
+      ],
+      "category": "安全性",
+      "short": "誰かが罰を受けたのを見て、ほかの人が意見を言いにくくなることです。本当は言うべきことまで黙ってしまう状態を指します。",
+      "detail": "OpenAIを解雇された安全研究者3人は、自分たちの解雇が社内で萎縮効果を生んでいると訴えました。AIの安全性では、社員が危険に気づいたときに声を上げられることが重要です。萎縮効果が広がると、問題が表に出る前に見過ごされるおそれがあります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "leaderboard",
+      "term": "リーダーボード",
+      "reading": "リーダーボード",
+      "aliases": [
+        "ランキング表"
+      ],
+      "category": "評価",
+      "short": "成績の順番を並べた表です。AIの場合は、どのAIが優れているかを比べるのに使われます。",
+      "detail": "AI分野のリーダーボードは、各社のモデルを同じ条件で比べた結果を順位表にしたものです。LMArenaのように広く参照されるものは、モデルの評判や企業の宣伝にも影響します。最近は性能だけでなく、うそをつかないかといった信頼性も評価の対象になりつつあります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "subagent",
+      "term": "サブエージェント",
+      "reading": "サブエージェント",
+      "aliases": [
+        "サブエージェント機能"
+      ],
+      "category": "使い方",
+      "short": "メインのAIから仕事の一部を任される、手伝い役のAIです。大きな仕事を分けて進めるために使われます。",
+      "detail": "GoogleのGeminiの新しいエージェントは、作業をサブエージェントに振り分けることができます。大きな仕事を小さく分けて並行して進めると、効率よくこなせるようになります。企業の業務では、調べ物や書類作成などを役割ごとのAIに任せる使い方が想定されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "usage-policy",
+      "term": "利用ポリシー",
+      "reading": "リヨウポリシー",
+      "aliases": [
+        "利用規約",
+        "Usage Policy"
+      ],
+      "category": "規制",
+      "short": "サービスを使うときに守るべきルールをまとめたものです。やってはいけない使い方が書かれています。",
+      "detail": "Anthropicは利用ポリシーを改定し、Claudeを極端な形で繰り返し虐待する行為や、選挙干渉、兵器向けソフトウェア、監視への利用などを禁止しました。AI企業の利用ポリシーは、どんな使い方を許すかという会社の姿勢を示すものです。違反するとサービスを使えなくなる場合があります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "election-interference",
+      "term": "選挙干渉",
+      "reading": "センキョカンショウ",
+      "aliases": [],
+      "category": "規制",
+      "short": "うその情報を流すなどして、選挙の結果をゆがめようとすることです。民主主義をおびやかす行為とされています。",
+      "detail": "Anthropicの新しい利用ポリシーでは、Claudeを選挙干渉や欺瞞的なキャンペーンに使うことが禁止されました。生成AIは大量の文章を簡単に作れるため、選挙での悪用が心配されています。AI企業が規約で選挙への悪用を明確に禁じる動きが広がっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "humanoid-robot",
+      "term": "ヒューマノイドロボット",
+      "reading": "ヒューマノイドロボット",
+      "aliases": [
+        "人型ロボット",
+        "ヒューマノイド"
+      ],
+      "category": "基礎",
+      "short": "人間のような形をしたロボットです。手足や頭があり、人間に近い動きを目指しています。",
+      "detail": "ヒューマノイドロボットは、ダンスの動画などで話題になり、期待が大きく高まっています。MIT Technology Reviewは、AIの進歩がすぐに生活を変えるという見方は先走りすぎだと指摘しています。NVIDIAもヒューマノイドロボットの安全基盤づくりに取り組んでいます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "annualized-revenue",
+      "term": "年換算売上高",
+      "reading": "ネンカンザンウリアゲダカ",
+      "aliases": [
+        "年換算売上",
+        "annualized revenue"
+      ],
+      "category": "ビジネス",
+      "short": "ある期間の売上をもとに、1年分ならいくらになるかを計算した金額です。急成長している会社の規模を示すのによく使われます。",
+      "detail": "OpenAIの年換算売上高は約700億ドルと報じられていましたが、新しい報道では約200億ドル少ないとされています。年換算の数字は、どの期間を元に計算するかで大きく変わります。AI企業の評価額はこうした売上の見込みに左右されるため、数字の差は投資の判断に影響します。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "retraction",
+      "term": "撤回",
+      "reading": "テッカイ",
+      "aliases": [
+        "取り下げ"
+      ],
+      "category": "評価",
+      "short": "一度出した発表や論文を、なかったことにして取り下げることです。間違いや問題が見つかったときに行われます。",
+      "detail": "OpenAIは、数学研究者グループのガイドラインから外れていた数学の成果3件を撤回しました。学術の世界では、撤回は成果の信頼性に関わる重い判断です。AIが作った研究成果をどう確かめるかという課題を示す出来事になりました。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
