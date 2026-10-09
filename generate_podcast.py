@@ -75,10 +75,10 @@ _TRANSITIONS = [
 # TTS 発音改善：略語・固有名詞をカタカナに変換
 # ---------------------------------------------------------------------------
 _TTS_REPLACEMENTS = [
-    # --- Teraco Library（2026-10-09 登録）---
-    ("Teraco Library", "テラコライブラリー"),
-    ("TERACO LIBRARY", "テラコライブラリー"),
-    ("TeracoLibrary", "テラコライブラリー"),
+    # --- Teraco Shelf（2026-10-09 登録・同日 Teraco Library から改名）---
+    ("Teraco Shelf", "テラコシェルフ"),
+    ("TERACO SHELF", "テラコシェルフ"),
+    ("TeracoShelf", "テラコシェルフ"),
     # --- Teraco Studio（2026-10-05 登録）---
     ("Teraco Studio", "テラコスタジオ"),
     ("TERACO STUDIO", "テラコスタジオ"),
