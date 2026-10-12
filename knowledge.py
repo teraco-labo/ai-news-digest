@@ -29,6 +29,10 @@ Claude はセッションが終わると、そこで話したことを忘れま�
     python knowledge.py add --title "..." --summary "..." --source テツメモ
     python knowledge.py list                    # 一覧
     python knowledge.py search Skill            # 検索
+    python knowledge.py show <ID>               # 1件の全文
+    python knowledge.py try <ID> --note "..."   # 真似してみる（試し中にする）
+    python knowledge.py adopt <ID> --note "..." # 良かったので採用（＝毎回守るルールになる）
+    python knowledge.py reject <ID> --note "..."# 合わなかったので見送り
     python knowledge.py report --since 7        # 直近7日の報告
     python knowledge.py build                   # INDEX.md を再生成
     python knowledge.py stats
@@ -60,7 +64,15 @@ CONFIDENCE_LABEL = {
     "opinion": "意見・体験",
 }
 
-INDEX_MAX_ENTRIES = 120  # 索引に個別掲載する上限（超えた分は件数だけ出す）
+# 「読む→真似する→良ければ覚える」の段階。採用したものだけが、毎回守るルールになる。
+TRIAL_LABEL = {
+    "": "",
+    "trying": "🧪試し中",
+    "adopted": "✅採用",
+    "rejected": "⏸見送り",
+}
+CONFIDENCE_SHORT = {"fact": "事", "claim": "主", "opinion": "意"}
+SKIP_TAG = "対象外"  # 宣伝だけだったメールの記録。索引には出さない
 
 
 def today() -> str:
@@ -119,6 +131,11 @@ def _normalize(entry: Dict) -> Dict:
             "published": str(source.get("published", ""))[:10],
         },
         "visibility": entry.get("visibility", "private"),  # サイトには一切出さない
+        "trial": {
+            "status": (entry.get("trial") or {}).get("status", "") if (entry.get("trial") or {}).get("status", "") in TRIAL_LABEL else "",
+            "note": str((entry.get("trial") or {}).get("note", "")).strip(),
+            "date": str((entry.get("trial") or {}).get("date", ""))[:10],
+        },
     }
 
 
@@ -160,22 +177,44 @@ def has_ref(ref: str) -> bool:
 
 # ------------------------------------------------------------------ 検索・抽出
 
+def _variants(word: str) -> List[str]:
+    """日本語の活用ゆれを吸収する（「読み間違い」で「読み間違える」も拾う）。
+
+    3文字以上の語は、末尾を1文字落とした語幹でも探す。分かち書きの無い日本語で
+    辞書を持たずに済ませるための、ざっくりした方法。
+    """
+    word = word.lower()
+    return [word, word[:-1]] if len(word) >= 3 else [word]
+
+
 def search(query: str, limit: int = 20) -> List[Dict]:
+    """語で探す。タイトルとタグに当たったものを上に、同点なら新しいものを上に。
+
+    入口（INDEX.md）を一覧だけにしたので、本文に届くかどうかはこの検索にかかっている。
+    """
     words = [w for w in re.split(r"\s+", query.strip()) if w]
     if not words:
         return []
     hits = []
     for entry in map(_normalize, entries()):
-        haystack = " ".join([
-            entry["title"], entry["summary"], " ".join(entry["takeaways"]),
-            " ".join(entry["apply"]), " ".join(entry["tags"]), entry["source"]["name"],
+        if SKIP_TAG in entry["tags"]:
+            continue
+        strong = " ".join([entry["title"], " ".join(entry["tags"])]).lower()
+        weak = " ".join([
+            entry["summary"], " ".join(entry["takeaways"]), " ".join(entry["apply"]),
+            entry["source"]["name"], entry["source"]["title"],
         ]).lower()
-        score = sum(1 for w in words if w.lower() in haystack)
+        score = 0
+        for word in words:
+            for i, form in enumerate(_variants(word)):
+                found = 3 * strong.count(form) + weak.count(form)
+                if found:
+                    score += found if i == 0 else found * 0.8  # 語幹一致は少しだけ下げる
+                    break
         if score:
-            hits.append((score, entry))
-    hits.sort(key=lambda x: (-x[0], x[1]["date"]), reverse=False)
-    hits.sort(key=lambda x: (-x[0], x[1]["date"]))
-    return [e for _, e in hits[:limit]]
+            hits.append((score, entry["source"]["published"] or entry["date"], entry))
+    hits.sort(key=lambda x: (x[0], x[1]), reverse=True)
+    return [e for _, _, e in hits[:limit]]
 
 
 def since(days: int) -> List[Dict]:
@@ -194,81 +233,104 @@ def by_tag() -> Dict[str, List[Dict]]:
 # ------------------------------------------------------------------ 索引の生成
 
 def _one_liner(entry: Dict) -> str:
+    """索引の1行。本文は載せない（本文は show で必要なときだけ読む）。"""
     src = entry["source"]
     who = src["name"] or src["type"]
     when = (src["published"] or entry["date"])[5:].replace("-", "/")
-    mark = CONFIDENCE_LABEL.get(entry["confidence"], "")
-    line = f"- **{entry['title']}** — {entry['summary']}"
-    line += f"\n  <small>{who} {when}・{mark}・`{entry['id']}`</small>"
-    if entry["apply"]:
-        line += "\n  → 応用: " + " / ".join(entry["apply"])
-    return line
+    mark = CONFIDENCE_SHORT.get(entry["confidence"], "")
+    trial = TRIAL_LABEL.get(entry["trial"]["status"], "")
+    head = f"{trial} " if trial else ""
+    return f"- {head}`{entry['id']}` {entry['title']} — {who} {when}・{mark}"
 
 
 def build_index(verbose: bool = True) -> str:
-    """INDEX.md を作り直す。Claude がセッション開始時に読むのはこのファイル。"""
-    all_entries = sorted(map(_normalize, entries()), key=lambda e: e["date"], reverse=True)
+    """INDEX.md を作り直す。Claude がセッション開始時に読むのはこのファイル。
+
+    ここは「玄関」なので一覧だけにする。以前は本文まで全部載せていて、
+    16件で49KB・1件がタグの数だけ重複して載っていた。件数が増えるほど
+    毎回のセッションが重くなるため、本文は show / search で必要なときだけ読む。
+    （テツメモさん 2026-09-22号「AGENTS.mdを231行から10行へ」の考え方）
+    """
+    all_entries = sorted(
+        (e for e in map(_normalize, entries()) if SKIP_TAG not in e["tags"]),
+        key=lambda e: (e["source"]["published"] or e["date"]), reverse=True,
+    )
     KNOWLEDGE_DIR.mkdir(parents=True, exist_ok=True)
+    adopted = [e for e in all_entries if e["trial"]["status"] == "adopted"]
+    trying = [e for e in all_entries if e["trial"]["status"] == "trying"]
 
     lines = [
         "# ナレッジ索引",
         "",
         "<!-- knowledge.py build が生成します。手で編集しても次回上書きされます。 -->",
         "",
-        f"最終更新: {today()} ／ 全 {len(all_entries)} 件",
+        f"最終更新: {today()} ／ 全 {len(all_entries)} 件（✅採用 {len(adopted)}・🧪試し中 {len(trying)}）",
         "",
-        "ここに入っているのは、**このプロジェクトの判断に効く知見**です。",
-        "ニュースそのものは対象外（それは日次ダイジェストの役割）。",
-        "各行の末尾は「出典 日付・確からしさ・ID」。`claim`（出典の主張）は",
-        "検証されていない主張なので、事実として断言しないこと。",
+        "**一覧だけです。本文はここに載せていません。** 読み方:",
+        "",
+        "- 助言・設計・実装をするとき → 関係する語で `python knowledge.py search <語>`、"
+        "使うものは `python knowledge.py show <ID>` で本文を読む",
+        "- ✅採用 は運営者が試して採用したルール → その話題に触れる作業では必ず `show` で読んで従う",
+        "- 末尾の記号は確からしさ: 事＝検証済み／主＝出典の主張（断言しない）／意＝意見・体験",
         "",
     ]
 
-    actionable = [e for e in all_entries if e["apply"]]
-    if actionable:
-        lines += ["## このプロジェクトに効くもの", ""]
-        lines += [_one_liner(e) for e in actionable[:40]]
-        lines += [""]
+    if adopted:
+        lines += ["## ✅ 採用済み（守るルール）", ""]
+        lines += [_one_liner(e) for e in adopted] + [""]
+    if trying:
+        lines += ["## 🧪 試し中", ""]
+        lines += [_one_liner(e) for e in trying] + [""]
 
-    lines += ["## タグ別", ""]
-    for tag, group in by_tag().items():
-        lines.append(f"### {tag}（{len(group)}件）")
-        lines.append("")
-        for entry in sorted(group, key=lambda e: e["date"], reverse=True)[:INDEX_MAX_ENTRIES]:
-            lines.append(_one_liner(entry))
-        lines.append("")
+    # 各項目は最初のタグにだけ載せる（重複させない）
+    grouped: Dict[str, List[Dict]] = {}
+    for entry in all_entries:
+        grouped.setdefault((entry["tags"] or ["未分類"])[0], []).append(entry)
+    if grouped:
+        lines += ["## 一覧", ""]
+        for tag, group in sorted(grouped.items(), key=lambda kv: (-len(kv[1]), kv[0])):
+            lines.append(f"### {tag}")
+            lines += [_one_liner(e) for e in group] + [""]
 
     if not all_entries:
         lines += [
             "まだ1件も入っていません。",
-            "",
-            "```bash",
-            "python knowledge.py add --title \"...\" --summary \"...\" --source テツメモ",
-            "```",
-            "",
             "Claude に「これ覚えといて」と話すのが一番早い（→ KNOWLEDGE.md）。",
             "",
         ]
 
-    lines += [
-        "---",
-        "",
-        "全文と詳細は `knowledge/knowledge.json`。検索は `python knowledge.py search <語>`。",
-        "",
-    ]
-
     text = "\n".join(lines)
     INDEX_FILE.write_text(text, encoding="utf-8")
     if verbose:
-        print(f"✓ {INDEX_FILE.relative_to(REPO_DIR)} を更新（{len(all_entries)}件）")
+        print(f"✓ {INDEX_FILE.relative_to(REPO_DIR)} を更新（{len(all_entries)}件・{len(text.encode('utf-8')):,} bytes）")
     return text
+
+
+def get(entry_id: str) -> Optional[Dict]:
+    for entry in map(_normalize, entries()):
+        if entry["id"] == entry_id:
+            return entry
+    return None
+
+
+def set_trial(entry_id: str, status: str, note: str = "") -> Optional[Dict]:
+    """真似してみた結果を記録する。adopted にしたものが「毎回守るルール」になる。"""
+    data = load()
+    for raw in data.get("entries", []):
+        if _normalize(raw)["id"] == entry_id:
+            raw["id"] = _normalize(raw)["id"]
+            raw["trial"] = {"status": status, "note": note.strip(), "date": today()}
+            save(data)
+            return _normalize(raw)
+    return None
 
 
 # ------------------------------------------------------------------ 報告
 
 def report(days: int = 7) -> str:
     """「新しく蓄えたナレッジ」の報告文（Markdown）。"""
-    recent = sorted(since(days), key=lambda e: e["date"], reverse=True)
+    recent = sorted((e for e in since(days) if SKIP_TAG not in e["tags"]),
+                    key=lambda e: e["date"], reverse=True)
     head = f"## ナレッジ報告（直近{days}日）\n\n"
     if not recent:
         return head + f"この{days}日で新しく記録したものはありません。\n"
@@ -289,6 +351,9 @@ def report(days: int = 7) -> str:
             out += [f"- {t}" for t in entry["takeaways"]] + [""]
         if entry["apply"]:
             out.append("**このプロジェクトへの応用**: " + " / ".join(entry["apply"]))
+            out.append("")
+        if entry["trial"]["status"]:
+            out.append(f"**{TRIAL_LABEL[entry['trial']['status']]}**（{entry['trial']['date']}）: {entry['trial']['note']}")
             out.append("")
         meta = f"出典: {src['name']}"
         if src["title"]:
@@ -354,7 +419,8 @@ def stats() -> Dict:
 def _print_entry(entry: Dict, full: bool = False):
     src = entry["source"]
     tags = ("#" + " #".join(entry["tags"])) if entry["tags"] else ""
-    print(f"[{entry['date']}] {entry['title']}")
+    trial = TRIAL_LABEL.get(entry["trial"]["status"], "")
+    print(f"[{entry['date']}] {trial + ' ' if trial else ''}{entry['title']}")
     print(f"    {entry['summary'][:160]}")
     if full and entry["takeaways"]:
         for takeaway in entry["takeaways"]:
@@ -398,6 +464,16 @@ def main():
     p_report.add_argument("--since", type=int, default=7)
     p_report.add_argument("--email", action="store_true", help="報告をメールで送る")
     p_report.add_argument("--to", default="", help="宛先（既定は自分）")
+
+    p_show = sub.add_parser("show", help="1件の全文")
+    p_show.add_argument("id")
+
+    for name, label in (("try", "真似してみる（試し中にする）"),
+                        ("adopt", "採用する（毎回守るルールになる）"),
+                        ("reject", "見送る")):
+        p_trial = sub.add_parser(name, help=label)
+        p_trial.add_argument("id")
+        p_trial.add_argument("--note", default="", help="試した結果・理由")
 
     sub.add_parser("build", help="INDEX.md を再生成")
     sub.add_parser("stats", help="統計")
@@ -458,6 +534,34 @@ def main():
             send_report_email(args.since, args.to)
         else:
             print(report(args.since))
+
+    elif args.command == "show":
+        entry = get(args.id)
+        if not entry:
+            print(f"見つかりません: {args.id}")
+            return 1
+        src = entry["source"]
+        print(f"# {entry['title']}\n")
+        print(entry["summary"] + "\n")
+        for t in entry["takeaways"]:
+            print(f"- {t}")
+        if entry["apply"]:
+            print("\n応用:")
+            for a in entry["apply"]:
+                print(f"- {a}")
+        if entry["trial"]["status"]:
+            print(f"\n{TRIAL_LABEL[entry['trial']['status']]}（{entry['trial']['date']}）: {entry['trial']['note']}")
+        print(f"\n出典: {src['name']}「{src['title']}」{src['published']} ／ "
+              f"{CONFIDENCE_LABEL.get(entry['confidence'], '')} ／ #{' #'.join(entry['tags'])} ／ {entry['id']}")
+
+    elif args.command in ("try", "adopt", "reject"):
+        status = {"try": "trying", "adopt": "adopted", "reject": "rejected"}[args.command]
+        entry = set_trial(args.id, status, args.note)
+        if not entry:
+            print(f"見つかりません: {args.id}")
+            return 1
+        print(f"{TRIAL_LABEL[status]}: {entry['title']}")
+        build_index()
 
     elif args.command == "build":
         build_index()

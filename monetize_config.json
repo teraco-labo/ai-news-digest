@@ -274,14 +274,21 @@
           "info@mag.ikehaya.com",
           "info@ikemag.jp"
         ],
-        "note": "個人の発信・教材・働き方。収益設計とコンテンツ運用の判断材料"
+        "note": "個人の発信・教材・働き方。収益設計とコンテンツ運用の判断材料",
+        "feeds": [
+          "https://ihayato.substack.com/feed"
+        ]
       },
       {
         "name": "テツメモ",
         "senders": [
           "tetumemo@m-newsletter.com"
         ],
-        "note": "Claude Code / Skill / 自動化の実践ログ。手を動かす系の知見が多い"
+        "note": "Claude Code / Skill / 自動化の実践ログ。手を動かす系の知見が多い。本誌は m-newsletter（メール）、Substack「テツメモの発信実験ログ」は RSS で追う",
+        "feeds": [
+          "https://tetumemo.substack.com/feed"
+        ],
+        "_unfollowed_note": "X(@tetumemo)・note・YouTube/Spotify「AI QUEST」・tetumemo.com は未対応。X は RSS が無く、ほかは正確なフィードURLを未確認のため"
       }
     ],
     "lookback_days": 7,

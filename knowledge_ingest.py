@@ -4,14 +4,15 @@
 
 ## 流れ
 
-    fetch   Gmail(IMAP) から対象ニュースレターを取得 → knowledge/inbox/*.md に保存
+    fetch   Gmail(IMAP) と RSS（Substack など）から取得 → knowledge/inbox/*.md に保存
     distill 保存したメールを Claude が読み、要点だけを knowledge.json に記録
     run     fetch → distill → INDEX.md 再生成 まで一気に
 
 ## 誰を見るか
 
 `monetize_config.json` の `knowledge.watch` に書きます（既定はイケハヤさん・テツメモさん）。
-コードを触らずに追加・削除できます。
+コードを触らずに追加・削除できます。1人につき、メールの差出人（senders）と
+RSS（feeds）の両方を持てます。メールで届かない発信（Substack の投稿など）は feeds で追います。
 
 ## 認証
 
@@ -119,14 +120,14 @@ def config() -> Dict:
 
 def watch_list() -> List[Dict]:
     entries = config().get("watch") or DEFAULT_WATCH
-    return [w for w in entries if w.get("senders")]
+    return [w for w in entries if w.get("senders") or w.get("feeds")]
 
 
 def sender_name(address: str) -> str:
     """差出人アドレスから、設定した呼び名を引く。"""
     address = address.lower()
     for watched in watch_list():
-        for sender in watched["senders"]:
+        for sender in watched.get("senders", []):
             if sender.lower() in address:
                 return watched.get("name", sender)
     return address
@@ -235,7 +236,7 @@ def fetch(days: int = DEFAULT_LOOKBACK, verbose: bool = True) -> List[Path]:
     try:
         server.select("INBOX", readonly=True)
         for target in watched:
-            for sender in target["senders"]:
+            for sender in target.get("senders", []):
                 try:
                     status, data = server.search(None, f'(FROM "{sender}" SINCE "{since_date}")')
                 except Exception as e:
@@ -316,6 +317,112 @@ def _save_one(server, uid: bytes, name: str, verbose: bool) -> Optional[Path]:
     return path
 
 
+# ------------------------------------------------------------------ RSS 取得
+
+def _local(tag: str) -> str:
+    """名前空間を外したタグ名（{http://...}encoded → encoded）。"""
+    return tag.rsplit("}", 1)[-1]
+
+
+def _parse_feed(content: bytes) -> List[Dict]:
+    """RSS 2.0 / Atom を、同じ形の辞書のリストにする。
+
+    Substack・note・YouTube はどれもこのどちらかで出しているので、
+    標準ライブラリだけで読める。本文は全文（content:encoded / content）があればそれを、
+    無ければ要約（description / summary）を使う。
+    """
+    import xml.etree.ElementTree as ET
+    from email.utils import parsedate_to_datetime
+
+    try:
+        root = ET.fromstring(content)
+    except ET.ParseError:
+        return []
+
+    items = []
+    for node in root.iter():
+        if _local(node.tag) not in ("item", "entry"):
+            continue
+        fields: Dict[str, str] = {}
+        # 直下の子だけでなく子孫まで見る（YouTube の説明文は media:group の中にある）
+        for child in node.iter():
+            if child is node:
+                continue
+            name = _local(child.tag)
+            if name == "link" and child.get("href"):          # Atom
+                fields.setdefault("link", child.get("href"))
+            elif child.text:
+                fields.setdefault(name, child.text.strip())
+
+        raw_date = fields.get("pubDate") or fields.get("published") or fields.get("updated") or ""
+        published = ""
+        if raw_date:
+            try:
+                published = parsedate_to_datetime(raw_date).astimezone(JST).strftime("%Y-%m-%d")
+            except Exception:
+                published = raw_date[:10]
+
+        items.append({
+            "title": fields.get("title", ""),
+            "link": fields.get("link", "") or fields.get("guid", "") or fields.get("id", ""),
+            "published": published,
+            "body": fields.get("encoded") or fields.get("content") or fields.get("description") or fields.get("summary") or "",
+        })
+    return items
+
+
+def fetch_feeds(days: int = DEFAULT_LOOKBACK, verbose: bool = True) -> List[Path]:
+    """RSS を読んで inbox に保存する。メールで届かない発信を追うため。"""
+    import requests
+
+    threshold = (datetime.now(JST) - timedelta(days=days)).strftime("%Y-%m-%d")
+    INBOX_DIR.mkdir(parents=True, exist_ok=True)
+    saved: List[Path] = []
+
+    for target in watch_list():
+        name = target.get("name", "")
+        for url in target.get("feeds", []):
+            try:
+                resp = requests.get(url, timeout=20, headers={"User-Agent": "ai-news-digest knowledge reader"})
+                resp.raise_for_status()
+            except Exception as e:
+                if verbose:
+                    print(f"   ⚠️  RSS を読めませんでした（{name}: {url}）: {e}")
+                continue
+
+            items = _parse_feed(resp.content)
+            if not items and verbose:
+                print(f"   ⚠️  RSS に記事が見つかりませんでした（{url}）")
+            for item in items:
+                if not item["link"] or (item["published"] and item["published"] < threshold):
+                    continue
+                ref = f"rss:{item['link']}"
+                if knowledge.has_ref(ref):
+                    continue
+                path = INBOX_DIR / f"{item['published'] or knowledge.today()}-{_slug(name)}-{_slug(item['title'], 30)}.md"
+                if path.exists():
+                    continue
+                body = _html_to_text(item["body"])
+                if not body:
+                    continue
+                path.write_text("\n".join([
+                    f"source_name: {name}",
+                    f"subject: {item['title']}",
+                    f"published: {item['published']}",
+                    f"ref: {ref}",
+                    "---",
+                    "",
+                    body,
+                ]), encoding="utf-8")
+                saved.append(path)
+                if verbose:
+                    print(f"   + {name}（RSS）「{item['title'][:50]}」")
+
+    if verbose:
+        print(f"✓ RSS から新しく取り込んだ記事: {len(saved)} 本")
+    return saved
+
+
 # ------------------------------------------------------------------ 蒸留
 
 def _parse_inbox_file(path: Path) -> Dict:
@@ -386,6 +493,22 @@ def _ask_claude(prompt: str, verbose: bool = True) -> Optional[Dict]:
         return None
 
 
+def _known_titles_block(source_name: str, limit: int = 60) -> str:
+    """同じ発信者の記録済み知見のタイトル。
+
+    同じ人がニュースレターと Substack で同じ話を書くことがあるので、
+    既に持っている知見を見せて、重複して記録させないようにする。
+    """
+    titles = [e["title"] for e in map(knowledge._normalize, knowledge.entries())
+              if e["source"]["name"] == source_name and not e["title"].startswith("（知見なし）")]
+    if not titles:
+        return ""
+    lines = "\n".join(f"- {t}" for t in titles[-limit:])
+    return ("この発信者から既に記録済みの知見（同じ内容は記録しないこと。"
+            "新しい事実・数字・失敗談が加わっている場合だけ、差分として記録してよい）:\n"
+            + lines + "\n\n")
+
+
 def distill(limit: int = DEFAULT_MAX_PER_RUN, keep: bool = False, verbose: bool = True) -> int:
     """inbox のメールを読み、知見だけを knowledge.json に記録する。"""
     if not INBOX_DIR.exists():
@@ -417,6 +540,7 @@ def distill(limit: int = DEFAULT_MAX_PER_RUN, keep: bool = False, verbose: bool 
             + f"差出人: {meta.get('source_name', '')}\n"
             + f"件名: {meta.get('subject', '')}\n"
             + f"配信日: {meta.get('published', '')}\n\n"
+            + _known_titles_block(meta.get("source_name", ""))
             + "本文:\n"
             + body[:MAX_BODY_CHARS]
         )
@@ -471,6 +595,7 @@ def run(days: int = DEFAULT_LOOKBACK, limit: int = DEFAULT_MAX_PER_RUN, verbose:
             print("   ナレッジ取り込みは設定で無効化されています")
         return 0
     fetch(days=days, verbose=verbose)
+    fetch_feeds(days=days, verbose=verbose)
     added = distill(limit=limit, verbose=verbose)
     knowledge.build_index(verbose=verbose)
     return added
@@ -500,6 +625,7 @@ def main():
 
     if args.command == "fetch":
         fetch(days=days)
+        fetch_feeds(days=days)
     elif args.command == "distill":
         distill(limit=limit, keep=args.keep)
         knowledge.build_index()

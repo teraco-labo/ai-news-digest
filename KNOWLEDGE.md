@@ -40,15 +40,22 @@ Claudeとの会話 ─────────┘                               
 毎朝6時の自動実行のときに、Gmailに届いたニュースレターを読んで、
 使えそうな知見だけを勝手に記録します。**あなたは何もしなくて構いません。**
 
-見ている差出人:
+見ているもの:
 
-| 名前 | アドレス |
-|---|---|
-| イケハヤ | `info@mag.ikehaya.com` / `info@ikemag.jp` |
-| テツメモ | `tetumemo@m-newsletter.com` |
+| 名前 | メール | RSS |
+|---|---|---|
+| イケハヤ | `info@mag.ikehaya.com` / `info@ikemag.jp` | Substack「イケハヤラジオ＆コラム」 |
+| テツメモ | `tetumemo@m-newsletter.com`（本誌） | Substack「テツメモの発信実験ログ」 |
 
-増やしたいときは `monetize_config.json` の `knowledge.watch` に足すか、
-Claude に「〇〇さんのニュースレターも見て」と言ってください。
+Substack の投稿はメールだと見出ししか届かないので、RSS で本文を読みます。
+同じ人がニュースレターと Substack で同じ話を書いても、記録済みの知見を見せてから
+読ませるので、重複して記録しにくくしてあります。
+
+**まだ追えていないもの**: テツメモさんの X・note・YouTube/Spotify「AI QUEST」・tetumemo.com。
+X は RSS が無く、ほかは正確なフィードの URL を確認できていません。URL が分かれば
+`monetize_config.json` の `knowledge.watch` の `feeds` に1行足すだけで追えます。
+
+増やしたいときは同じ場所に足すか、Claude に「〇〇さんのニュースレターも見て」と言ってください。
 
 宣伝だけのメールは「知見なし」として記録され、二度読み返しません。
 
@@ -66,6 +73,19 @@ python knowledge.py add \
 ```
 
 ---
+
+## 真似してみて、良かったら覚えてもらう
+
+読んだだけの知見と、実際に試して「うちでも効いた」知見は別物です。
+Claude に「これ真似してみよう」と言えば試し中に、「良かったから覚えて」と言えば採用になります。
+
+| 段階 | コマンド | 意味 |
+|---|---|---|
+| 🧪試し中 | `python knowledge.py try <ID> --note "..."` | 真似している最中 |
+| ✅採用 | `python knowledge.py adopt <ID> --note "..."` | **以後のセッションで守るルールになる** |
+| ⏸見送り | `python knowledge.py reject <ID> --note "..."` | 合わなかった（理由を残す） |
+
+採用したものは索引の先頭に並び、Claude はその話題に触れる作業では必ず読んで従います。
 
 ## 報告を受け取る
 
@@ -110,6 +130,6 @@ Claude はこの区別を守って助言します。「出典の主張」は断�
 
 | ファイル | 中身 |
 |---|---|
-| `knowledge/INDEX.md` | 索引。Claude が毎回読むのはここ |
+| `knowledge/INDEX.md` | 索引（一覧だけ）。Claude が毎回読むのはここ。本文は `python knowledge.py show <ID>` |
 | `knowledge/knowledge.json` | 全データ |
 | `knowledge/inbox/` | 取り込んだメール本文（蒸留待ち・コミットされない） |
