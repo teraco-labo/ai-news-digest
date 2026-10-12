@@ -191,7 +191,14 @@ def scan(days: int, seen: Dict = None) -> Dict:
     known: Dict[str, List[Dict]] = {}
     unknown: Dict[str, List[Dict]] = {}
 
+    own = os.environ.get("GMAIL_ADDRESS", "").strip().lower()
     for msg in messages:
+        # 自分のアドレスから届いたものは請求ではない（2026-10-12）。
+        # 以前は前日の「台帳に無い課金」のお知らせ自体を新しい課金と取り違え、毎朝同じ知らせを繰り返していた
+        if own and own in msg["from"].lower():
+            continue
+        if msg["subject"].startswith("【サブスクAPIチェッカー】"):
+            continue
         if not looks_like_billing(msg, signals):
             continue
         if sender_ignored(msg, ignore):
