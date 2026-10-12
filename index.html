@@ -214,84 +214,6 @@
     opacity:0; visibility:hidden; transition:opacity .22s; }
   #veil.on { opacity:1; visibility:visible; }
   @media (prefers-reduced-motion:reduce){ #sheet,#veil,#tip{transition:none} }
-.sx, #fsheet, #fveil, .mini { --bg:#f8fafc;--card:#ffffff;--ink:#1e293b;--ink2:#64748b;--line:#e2e8f0;--head:#1d4ed8;--head-ink:#ffffff;--accent:#1d4ed8;--heading:#1d4ed8;--btn:#1d4ed8;--btn-ink:#ffffff;--btn2:#38bdf8;--soft:#eff6ff;--now:#fef3c7;--mark:#1d4ed8;--pill-border:#93c5fd;--pill-bg:#ffffff;--pill-ink:#1d4ed8;--follow:#facc15;--follow-ink:#422006;--follow-edge:#ca8a04;--chip:#1d4ed8;--chip-ink:#ffffff;--hero1:#f7faff;--hero2:#e8f1ff;--hero-ink:#0b1f4d;--hero-sub:#475569;--ribbon1:rgba(56,189,248,.35);--ribbon2:rgba(29,78,216,.28); --play-size:60px; }
-.sx { color:var(--ink); } .sx .read-hint { font-size:.85em; color:var(--ink2); margin-top:4px; }
-.sx h2.sx-h { margin:28px 0 8px; font-size:1.1em; color:var(--heading); border-left:5px solid var(--mark); padding-left:10px; }
-
-  .sx .player { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:18px 16px 16px; margin-top:-14px;
-             position:relative; z-index:2; box-shadow:0 6px 24px rgba(0,0,0,.06); }
-  .sx .p-head { display:flex; gap:14px; align-items:center; }
-  .sx .p-head img { width:84px; height:84px; border-radius:12px; flex:none; box-shadow:0 4px 14px rgba(0,0,0,.12); }
-  .sx .p-date { font-size:.8em; color:var(--ink2); }
-  .sx .p-title { font-weight:700; line-height:1.4; }
-  .sx .progress { position:relative; height:10px; background:var(--line); border-radius:5px; margin-top:18px; cursor:pointer; touch-action:none; }
-  .sx .progress .fill { position:absolute; left:0; top:0; bottom:0; width:0; background:linear-gradient(90deg,var(--btn2),var(--btn)); border-radius:5px; }
-  .sx .progress .knob { position:absolute; top:50%; left:0; width:20px; height:20px; margin:-10px 0 0 -10px; border-radius:50%;
-                    background:var(--btn); border:3px solid var(--card); box-shadow:0 1px 4px rgba(0,0,0,.25); }
-  .sx .time-row { display:flex; justify-content:space-between; font-size:.75em; color:var(--ink2); margin-top:6px; font-variant-numeric:tabular-nums; }
-  .sx .controls { display:flex; align-items:center; justify-content:center; gap:4px; margin-top:6px; }
-  .sx .ctl { display:flex; flex-direction:column; align-items:center; background:none; border:none; color:var(--ink); cursor:pointer;
-         padding:8px; border-radius:12px; font-family:inherit; }
-  .sx .ctl svg { width:30px; height:30px; display:block; }
-  .sx .ctl small { font-size:.6em; color:var(--ink2); font-weight:700; margin-top:-1px; }
-  .sx .ctl.play { width:var(--play-size); height:var(--play-size); margin:0 10px; padding:0; justify-content:center; border-radius:50%;
-              background:var(--btn); color:var(--btn-ink); box-shadow:0 6px 16px color-mix(in srgb, var(--btn) 40%, transparent); }
-  .sx .ctl.play svg { width:34px; height:34px; }
-  .sx .play-lbl { text-align:center; font-size:.78em; font-weight:700; color:var(--ink2); margin-top:2px; }
-  .sx .sx-speed { margin-top:12px; }
-  .sx .sx-speed-label { display:block; font-size:.75em; color:var(--ink2); font-weight:700; margin-bottom:4px; }
-  .sx .sx-speed-btns { display:grid; grid-template-columns:repeat(auto-fit,minmax(0,1fr)); gap:6px; }
-  .sx .sx-speed-btns .sp { padding:8px 0; border-radius:999px; border:1.5px solid var(--line); background:var(--bg); color:var(--ink);
-                    font-size:.85em; font-weight:700; font-family:inherit; cursor:pointer; }
-  .sx .sx-speed-btns .sp.on { background:var(--btn); border-color:var(--btn); color:var(--btn-ink); }
-  .sx .readbtn { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; margin-top:12px; padding:13px;
-             border:2px solid var(--pill-border); border-radius:999px; background:var(--pill-bg); color:var(--pill-ink); font-size:1em;
-             font-weight:700; text-decoration:none; }
-  .sx .readbtn svg { width:22px; height:22px; }
-  .sx .kbd { margin-top:10px; font-size:.7em; color:var(--ink2); display:none; }
-  @media (hover:hover) and (pointer:fine) { .kbd { display:block; } }
-  .mini { position:fixed; left:0; right:0; bottom:0; z-index:50; background:var(--card); border-top:1px solid var(--line);
-          box-shadow:0 -6px 20px rgba(0,0,0,.12); padding:10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
-          display:flex; gap:10px; align-items:center; transform:translateY(110%); transition:transform .2s; }
-  .mini.show { transform:translateY(0); }
-  .mini button { flex:none; border:none; border-radius:12px; font-family:inherit; font-weight:700; cursor:pointer; }
-  .mini .m-play { width:52px; height:44px; background:var(--btn); color:var(--btn-ink); }
-  .mini .m-play svg { width:24px; height:24px; }
-  .mini .m-back { position:relative; width:44px; height:44px; background:transparent; color:var(--ink); }
-  .mini .m-back svg { width:36px; height:36px; }
-  .mini .m-back span { position:absolute; left:0; right:0; top:50%; transform:translateY(-46%); font-size:.55em; font-weight:700; }
-  .mini .m-bar { flex:1; height:8px; background:var(--line); border-radius:4px; overflow:hidden; }
-  .mini .m-fill { height:100%; width:0; background:var(--btn); }
-  .mini .m-time { flex:none; font-size:.72em; color:var(--ink2); font-variant-numeric:tabular-nums; }
-  .sx .read-h { scroll-margin-top:16px; }
-  .sx .read-hint { font-size:.82em; color:var(--ink2); background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 14px; margin-top:8px; }
-  .sx .ln { border-radius:12px; padding:6px 10px; margin:6px -10px; cursor:pointer; transition:background .2s; }
-  .sx .ln.now { background:var(--now); }
-  .sx .ln .who { display:block; font-size:.68em; font-weight:700; color:var(--ink2); }
-  .sx .ln.partner { background:color-mix(in srgb, var(--soft) 55%, transparent); }
-  .sx .ln.partner.now { background:var(--now); }
-  .sx .follow { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; margin-top:28px; padding:14px;
-            border:none; border-radius:999px; background:var(--follow); color:var(--follow-ink); font-size:1.05em; font-weight:700;
-            font-family:inherit; cursor:pointer; box-shadow:0 3px 0 var(--follow-edge); }
-  .sx .follow:active { transform:translateY(2px); box-shadow:0 1px 0 var(--follow-edge); }
-  .sx .follow svg { width:24px; height:24px; }
-  .sx .follow.follow-top { margin-top:14px; }
-  #fveil { position:fixed; inset:0; z-index:80; background:rgba(0,0,0,.4); display:none; }
-  #fsheet { position:fixed; left:0; right:0; bottom:0; z-index:81; max-width:680px; margin:0 auto; background:var(--card);
-            color:var(--ink); border-radius:18px 18px 0 0; padding:22px 18px calc(26px + env(safe-area-inset-bottom, 0px));
-            box-shadow:0 -8px 30px rgba(0,0,0,.25); display:none; max-height:88vh; overflow:auto; }
-  #fveil.on, #fsheet.on { display:block; }
-  #fsheet h3 { font-size:1.15em; }
-  #fsheet .way { margin-top:14px; padding:14px; border:1px solid var(--line); border-radius:14px; }
-  #fsheet .way b { display:block; }
-  #fsheet .way p { font-size:.9em; color:var(--ink2); margin-top:4px; line-height:1.7; }
-  #fsheet .go { display:block; margin-top:10px; padding:13px; border-radius:12px; text-align:center; font-weight:700;
-                text-decoration:none; color:#fff; background:var(--btn); }
-  #fsheet .go.spotify { background:#1DB954; }
-  #fsheet .small { margin-top:14px; font-size:.85em; color:var(--ink2); text-align:center; }
-  #fsheet .small a { color:var(--ink2); }
-  #fsheet .close { display:block; width:100%; margin-top:14px; padding:12px; border:1px solid var(--line); border-radius:12px;
-                   background:transparent; color:var(--ink); font-size:.95em; font-family:inherit; cursor:pointer; }
 </style>
 <!-- monetize.py: SEO / analytics -->
 <meta name="description" content="AIの最新ニュースを毎朝6時に日本語でお届けします。企業名・ツール名・専門用語にはすべて解説がつくので、予備知識がなくても読むだけで理解が深まります。音声版もあります。">
@@ -346,7 +268,6 @@
     <p>読むだけで賢くなる。専門用語ぜんぶ解説つき。</p>
     <div class="hero-actions"><a class="btn btn-primary" href="https://teracosensei.substack.com/embed" target="_blank" rel="noopener">毎朝メールで読みたい方はこちら（無料）</a></div>
     <div class="top-nav">
-      <a href="#listen">音声で聴く</a>
       <a href="terms/">AI用語集</a>
       <a href="articles/">読み物</a>
       <a href="archive.html">バックナンバー</a>
@@ -356,59 +277,43 @@
 </div>
 
 <main>
-  <div class="today">2026年10月12日（月）のAIニュース　厳選 5 件</div>
+  <div class="today">2026年10月13日（火）のAIニュース　厳選 10 件</div>
 
-<div class="sx" id="listen">
-  <div class="player" id="player">
-    <div class="p-head"><img src="podcast/cover.jpg" alt="" width="84" height="84"><div><div class="p-date">2026年10月12日（月）のAIニュース</div><div class="p-title">世界一わかりやすいAIニュース</div></div></div>
-    <div class="progress" id="progress" role="slider" aria-label="再生位置" tabindex="0"><div class="fill" id="fill"></div><div class="knob" id="knob"></div></div>
-    <div class="time-row"><span id="cur">0:00</span><span id="dur">--:--</span></div>
-    <div class="controls"><button type="button" class="ctl" data-skip="-30" aria-label="30秒もどる"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg><small>30</small></button><button type="button" class="ctl" data-skip="-10" aria-label="10秒もどる"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg><small>10</small></button><button class="ctl play" id="play" type="button" aria-label="音声で聴く"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button><button type="button" class="ctl" data-skip="10" aria-label="10秒すすむ"><svg style="transform:scaleX(-1)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg><small>10</small></button><button type="button" class="ctl" data-skip="30" aria-label="30秒すすむ"><svg style="transform:scaleX(-1)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg><small>30</small></button></div>
-    <div class="play-lbl" id="playLbl">音声で聴く</div>
-    <div class="sx-speed" id="speeds"><span class="sx-speed-label">聴く速さ</span><div class="sx-speed-btns"><button type="button" class="sp" data-r="0.7">0.7×</button><button type="button" class="sp" data-r="0.8">0.8×</button><button type="button" class="sp" data-r="0.9">0.9×</button><button type="button" class="sp" data-r="1">1×</button><button type="button" class="sp" data-r="1.25">1.25×</button><button type="button" class="sp" data-r="1.5">1.5×</button><button type="button" class="sp" data-r="2">2×</button></div></div>
-    <button class="follow follow-top" type="button"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg><span>毎日聴く</span></button>
-    <a class="readbtn" href="#yomu" id="toread"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 5h16v2H4zm0 4h16v2H4zm0 4h10v2H4zm0 4h16v2H4z"/></svg><span>文字で読む</span></a>
-    <p class="kbd">キーボード：スペースで再生／停止、← → で10秒、J / L で30秒</p>
-  </div>
-  <audio id="audio" src="https://pub-59f9285441114b44af1b246d89bf3b21.r2.dev/ai-news-2026-10-12.mp3" preload="metadata"></audio>
-  <div class="mini" id="mini" aria-hidden="true">
-    <button type="button" class="m-play" id="mplay" aria-label="再生／一時停止"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
-    <button type="button" class="m-back" data-skip="-10" aria-label="10秒もどる"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg><span>10</span></button>
-    <div class="m-bar"><div class="m-fill" id="mfill"></div></div>
-    <span class="m-time" id="mtime">0:00</span>
-  </div></div>
-
-  <div id="fveil"></div>
-  <div id="fsheet" role="dialog" aria-modal="true" aria-labelledby="fsheet-h">
-    <h3 id="fsheet-h">毎日聴くには</h3><div class="way"><b>メールで受け取る</b><p>メールアドレスを登録すると、週に1回、AIニュースとスマホニュースのまとめをメールでお届けします。てらこ先生がAIを実際に使って確かめた読みものも、ときどき届きます。毎回の番組のメールは届きません。登録は無料です。</p><a class="go mail" href="https://teracosensei.substack.com/embed">メールで受け取る</a></div><p class="small">Spotify を使っている人は <a href="https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3">こちらからフォロー</a></p>
-    <button class="close" id="fclose" type="button">閉じる</button>
-  </div>
 
 <span id="yomu"></span>
   <div class="lead">
     <div class="lead-label">今日の3行まとめ</div>
     <ol>
-      <li><span class="t" data-t="microsoft" tabindex="0" role="button" aria-label="Microsoftの説明を見る">Microsoft</span>の<span class="t" data-t="satya-nadella" tabindex="0" role="button" aria-label="Satya Nadellaの説明を見る">Satya Nadella</span>氏が、AIモデルには「緊急ブレーキ」が必要だと訴えました。</li>
-      <li><span class="t" data-t="datacenter" tabindex="0" role="button" aria-label="データセンターの説明を見る">データセンター</span>建設への反対が広がる中、業界の秘密主義や説明不足を見直すべきかが議論されています。</li>
-      <li><span class="t" data-t="voice-ai" tabindex="0" role="button" aria-label="音声AIの説明を見る">音声AI</span>の課題や、<span class="t" data-t="ai-agent" tabindex="0" role="button" aria-label="AIエージェントの説明を見る">AIエージェント</span>でゲームを逆解析する試みなど、実用面での限界と可能性も話題です。</li>
+      <li><span class="t" data-t="meta-ai" tabindex="0" role="button" aria-label="Metaの説明を見る">Meta</span>が<span class="t" data-t="muse-spark" tabindex="0" role="button" aria-label="Muse Sparkの説明を見る">Muse Spark</span>の上位にあたる大型モデル<span class="t" data-t="muse-wonder" tabindex="0" role="button" aria-label="Muse Wonderの説明を見る">Muse Wonder</span>を公開し、<span class="t" data-t="frontier-model" tabindex="0" role="button" aria-label="最先端モデルの説明を見る">最先端モデル</span>の競争に本格参入しました。</li>
+      <li><span class="t" data-t="microsoft" tabindex="0" role="button" aria-label="Microsoftの説明を見る">Microsoft</span>の<span class="t" data-t="brad-smith" tabindex="0" role="button" aria-label="Brad Smithの説明を見る">Brad Smith</span>社長は、AI企業は牛乳や洗濯機よりも監督がゆるいと述べ、早急な規制を求めました。</li>
+      <li><span class="t" data-t="codex" tabindex="0" role="button" aria-label="Codexの説明を見る">Codex</span> <span class="t" data-t="cli" tabindex="0" role="button" aria-label="CLIの説明を見る">CLI</span>の<span class="t" data-t="daemon" tabindex="0" role="button" aria-label="常駐プログラムの説明を見る">常駐プログラム</span>問題や<span class="t" data-t="anthropic" tabindex="0" role="button" aria-label="Anthropicの説明を見る">Anthropic</span>の<span class="t" data-t="ipo" tabindex="0" role="button" aria-label="IPOの説明を見る">IPO</span>への批判など、AI企業への厳しい目も目立った一日です。</li>
     </ol>
   </div>
 
   <div class="tier">注目のニュース</div>
   <div class="digest">
+    <article class="card model top">
+      <div class="card-top">
+        <span class="card-label model">モデル</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
+      </div>
+      <div class="card-title-ja">Meta、初のフロンティアモデル「Muse Wonder」を公開</div>
+      <div class="card-source">TechCrunch AI</div>
+      <div class="card-body">Metaが、同社として初めてのフロンティアモデルとなる「Muse Wonder」を公開しました。先に出たMuse Sparkは、低<span class="t" data-t="latency" tabindex="0" role="button" aria-label="レイテンシの説明を見る">レイテンシ</span>で動く軽量モデルという位置づけでした。Wonderシリーズはそれより大型で能力が高く、<span class="t" data-t="benchmark" tabindex="0" role="button" aria-label="ベンチマークの説明を見る">ベンチマーク</span>のスコアやコーディングなど複雑なタスクの成績も上回るとされています。<span class="t" data-t="wired" tabindex="0" role="button" aria-label="Wiredの説明を見る">Wired</span>は、世界トップクラスのモデルに並ぶ性能に加え、<span class="t" data-t="ai-agent" tabindex="0" role="button" aria-label="エージェントの説明を見る">エージェント</span>の暴走を防ぐ新機能を備えている点に注目しています。<span class="t" data-t="hacker-news" tabindex="0" role="button" aria-label="Hacker Newsの説明を見る">Hacker News</span>でも400ポイントを超える反響があり、Metaが最先端の開発競争に戻ってきたことを示す発表です。</div>
+    </article>
     <article class="card policy top">
       <div class="card-top">
         <span class="card-label policy">ポリシー</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
-      <div class="card-title-ja">Nadella氏、AIモデルに「緊急ブレーキ」が必要と提言</div>
+      <div class="card-title-ja">Microsoft社長「AI規制を主導するのに最適なのは英国」</div>
       <div class="card-source">TechCrunch AI</div>
-      <div class="card-body">MicrosoftのCEOであるSatya Nadella氏が土曜の朝に投稿を公開し、AIモデルには「緊急ブレーキ」が必要だと述べました。Nadella氏はその中で、いまこそ一度立ち止まり、AIの「<span class="t" data-t="trust-architecture" tabindex="0" role="button" aria-label="信頼アーキテクチャの説明を見る">信頼アーキテクチャ</span>」を見直すべきだと書いています。AI開発を最も積極的に進めてきた巨大企業のトップが、自ら安全装置の必要性を口にした点が注目されます。今後、AIの安全性をめぐる業界の議論や規制の方向性に影響する可能性があります。</div>
+      <div class="card-body">MicrosoftのBrad Smith社長が、AIの規制を急ぐべきだと訴え、その議論を主導するのに最も適した立場にあるのは英国だという考えを示しました。Smith氏は、牛乳や洗濯機のほうがAI企業よりも厳しく監督されていると述べ、今の規制の手薄さを強い言葉で指摘しています。大手AI企業の経営幹部が自ら規制強化を求めたことになり、各国のルールづくりの議論に影響しそうです。</div>
     </article>
   </div>
 
   <div class="tier">ジャンル別のニュース（タップで開く）</div>
-  <details class="genre research" open>
+  <details class="genre research">
     <summary><span class="genre-dot"></span>研究<span class="cnt">1件</span></summary>
     <div class="genre-body">
     <article class="card research">
@@ -416,13 +321,45 @@
         <span class="card-label research">研究</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">5000億<span class="t" data-t="token" tabindex="0" role="button" aria-label="トークンの説明を見る">トークン</span>を投じ、AIエージェントにFPSを逆解析させた記録</div>
+      <div class="card-title-ja"><span class="t" data-t="agentic-coding" tabindex="0" role="button" aria-label="AIコーディングの説明を見る">AIコーディング</span>エージェントでコードは増えたが、ソフトウェアは増えていない</div>
       <div class="card-source">Hacker News</div>
-      <div class="card-body">AIエージェントを使って、FPS（一人称視点のシューティングゲーム）のプログラムを<span class="t" data-t="decompile" tabindex="0" role="button" aria-label="デコンパイルの説明を見る">デコンパイル</span>させた試みの記録が公開されました。タイトルによれば、この作業に費やされたトークンは5000億に達しています。完成したプログラムから人間が読めるソースコードを復元する作業は本来、熟練者が長い時間をかける領域で、エージェント型の作業がどこまで通用するかを示す事例です。<span class="t" data-t="hacker-news" tabindex="0" role="button" aria-label="Hacker Newsの説明を見る">Hacker News</span>では125ポイントを集め、開発者の関心を呼んでいます。</div>
+      <div class="card-body">AIコーディングエージェントによって書かれるコードの量は増えたものの、実際に世に出るソフトウェアは増えていない、と指摘する論考がHacker Newsで200ポイントを集めました。エージェント型コーディングの普及で開発の生産性が上がったという見方は多くあります。しかし、成果物の数で見ると効果がはっきりしないという問題提起です。AI導入の効果をコードの行数ではなく何で測るべきかという、開発現場にとって切実な論点を突いています。</div>
     </article>
     </div>
   </details>
-  <details class="genre policy" open>
+  <details class="genre business">
+    <summary><span class="genre-dot"></span>ビジネス<span class="cnt">3件</span></summary>
+    <div class="genre-body">
+    <article class="card business">
+      <div class="card-top">
+        <span class="card-label business">ビジネス</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja">AnthropicのIPOに調査会社が「投資家の騙されやすさを試す前例のない試験」と酷評</div>
+      <div class="card-source">Hacker News</div>
+      <div class="card-body">ある調査会社が、AnthropicのIPO（新規株式公開）を「投資家の騙されやすさを試す前例のない試験」と批判しました。Hacker Newsでも234ポイントを集め、議論になっています。フロンティアモデルを開発する企業が上場して一般の投資家から資金を集めることに対しては、<span class="t" data-t="valuation" tabindex="0" role="button" aria-label="評価額の説明を見る">評価額</span>が妥当なのかという疑問が出ています。<span class="t" data-t="generative-ai" tabindex="0" role="button" aria-label="生成AIの説明を見る">生成AI</span>企業の値付けを市場がどう判断するのかを占う材料として注目されます。</div>
+    </article>
+    <article class="card business">
+      <div class="card-top">
+        <span class="card-label business">ビジネス</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja"><span class="t" data-t="windborne" tabindex="0" role="button" aria-label="WindBorneの説明を見る">WindBorne</span>、気象観測気球のデータで<span class="t" data-t="us-air-force" tabindex="0" role="button" aria-label="米空軍の説明を見る">米空軍</span>から約5000万ドル契約</div>
+      <div class="card-source">TechCrunch AI</div>
+      <div class="card-body">気象観測気球とAIを組み合わせて天気を予測するシリコンバレーのスタートアップWindBorneが、米空軍と約5000万ドル（約75億円）の契約を結びました。自社の気球で集めた観測データと、AIによる予測を組み合わせている点が特徴です。AIを使った気象予測が軍事という実用の場で大型の契約につながった例であり、この分野が商業的に伸びていることを示しています。</div>
+    </article>
+    <article class="card business">
+      <div class="card-top">
+        <span class="card-label business">ビジネス</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja">元Plaud幹部、常時聞き取りAIアプリで2600万ドル調達</div>
+      <div class="card-source">TechCrunch AI</div>
+      <div class="card-body">AI録音機器メーカーPlaudの元幹部が、バックグラウンドで利用者の声を聞き取り続けるAIアプリの開発資金として2600万ドル（約39億円）を調達しました。AIは利用者のことを知るほど適切に手助けできる、というのがテック企業の主張です。その考えのもとで、行動を常に記録して文脈を集める製品が増えています。便利さとプライバシーのどちらを優先するのかという、常時稼働型AIの課題が改めて問われる案件です。</div>
+    </article>
+    </div>
+  </details>
+  <details class="genre policy">
     <summary><span class="genre-dot"></span>ポリシー<span class="cnt">1件</span></summary>
     <div class="genre-body">
     <article class="card policy">
@@ -430,135 +367,47 @@
         <span class="card-label policy">ポリシー</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja"><span class="t" data-t="nda" tabindex="0" role="button" aria-label="NDAの説明を見る">NDA</span>をやめればデータセンター反対派を説得できるか</div>
-      <div class="card-source">TechCrunch AI</div>
-      <div class="card-body"><span class="t" data-t="techcrunch" tabindex="0" role="button" aria-label="TechCrunchの説明を見る">TechCrunch</span>のポッドキャスト「<span class="t" data-t="equity-podcast" tabindex="0" role="button" aria-label="Equityの説明を見る">Equity</span>」が、各地で広がるデータセンター建設の<span class="t" data-t="moratorium" tabindex="0" role="button" aria-label="モラトリアムの説明を見る">モラトリアム</span>（一時停止）の影響を取り上げました。番組では、AI業界が地域社会とのコミュニケーションに問題を抱えているのではないかという点が議論されています。焦点の一つは、建設計画をNDA（秘密保持契約）で伏せたまま進める慣行を改めれば、反対派の理解を得られるのかという問いです。<span class="t" data-t="compute" tabindex="0" role="button" aria-label="計算資源の説明を見る">計算資源</span>の確保がAI競争の前提となる中で、住民の合意をどう得るかは業界全体の課題になりつつあります。</div>
+      <div class="card-title-ja">QGIS、AIで生成したコードの受け入れを一時停止</div>
+      <div class="card-source">Hacker News</div>
+      <div class="card-body"><span class="t" data-t="open-source" tabindex="0" role="button" aria-label="オープンソースの説明を見る">オープンソース</span>プロジェクトのQGISが、AIを使って作られた貢献（コードなどの提供）を受け付けない<span class="t" data-t="moratorium" tabindex="0" role="button" aria-label="モラトリアムの説明を見る">モラトリアム</span>（一時停止）を決めました。Hacker Newsで345ポイントを集め、大きな反響を呼んでいます。<span class="t" data-t="ai-generated-code" tabindex="0" role="button" aria-label="AI生成コードの説明を見る">AI生成コード</span>が増えるなかで、<span class="t" data-t="code-review" tabindex="0" role="button" aria-label="コードレビューの説明を見る">コードレビュー</span>の負担や品質、<span class="t" data-t="license" tabindex="0" role="button" aria-label="ライセンスの説明を見る">ライセンス</span>の扱いにオープンソース側がどう向き合うかは共通の課題です。主要なプロジェクトが正式に方針を打ち出した例として注目されます。</div>
     </article>
     </div>
   </details>
-  <details class="genre tools" open>
-    <summary><span class="genre-dot"></span>ツール<span class="cnt">2件</span></summary>
+  <details class="genre tools">
+    <summary><span class="genre-dot"></span>ツール<span class="cnt">3件</span></summary>
     <div class="genre-body">
     <article class="card tools">
       <div class="card-top">
         <span class="card-label tools">ツール</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">音声AIはまだ「<span class="t" data-t="chatgpt-moment" tabindex="0" role="button" aria-label="ChatGPTモーメントの説明を見る">ChatGPTモーメント</span>」に届いていない</div>
-      <div class="card-source">TechCrunch AI</div>
-      <div class="card-body">音声AIに携わる企業の経営陣が、この分野はまだ<span class="t" data-t="gpt" tabindex="0" role="button" aria-label="ChatGPTの説明を見る">ChatGPT</span>が登場したときのような決定的な転換点を迎えていないとの見方を示しました。指摘されている課題は、会話の文脈を扱う「<span class="t" data-t="context-layer" tabindex="0" role="button" aria-label="コンテキスト層の説明を見る">コンテキスト層</span>」で重要な情報を取りこぼしがちなことです。そのひとつの欠落が、音声認識から応答生成までをつなぐ<span class="t" data-t="pipeline" tabindex="0" role="button" aria-label="パイプラインの説明を見る">パイプライン</span>全体の破綻につながるといいます。音声エージェントの普及には、モデル単体の性能よりも文脈処理の設計が鍵になることを示す議論です。</div>
+      <div class="card-title-ja">Codex CLI、常駐して自動更新するデーモンを標準でインストール</div>
+      <div class="card-source">Hacker News</div>
+      <div class="card-body"><span class="t" data-t="openai" tabindex="0" role="button" aria-label="OpenAIの説明を見る">OpenAI</span>のコーディングエージェント「Codex」のCLI版が、インストール時に初期設定のまま、バックグラウンドで常に動き続けて自分自身を自動更新するデーモンを入れていることが指摘されました。Hacker Newsで287ポイントを集め、開発者のあいだで議論になっています。利用者がはっきり同意しないまま開発者のマシンに常駐プログラムを置くことは、セキュリティと透明性の面で問題になりえます。AIコーディングツールが手元の環境にどこまで手を入れてよいのかを考えるきっかけになる話題です。</div>
     </article>
     <article class="card tools">
       <div class="card-top">
         <span class="card-label tools">ツール</span>
         <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">GoogleのAIツールでゲームを作ってみたら「ひどい出来」に</div>
-      <div class="card-source">Wired AI</div>
-      <div class="card-body"><span class="t" data-t="wired" tabindex="0" role="button" aria-label="Wiredの説明を見る">Wired</span>の記者が、GoogleのAIによるゲーム制作環境を使って丸一日かけてゲームを作った体験を報告しました。記者は出来上がった作品を「ひどいゲーム」と表現し、その作業を「ビデオゲーム版のスロップ（粗製乱造コンテンツ）の採掘場」でのつらい労働にたとえています。<span class="t" data-t="generative-ai" tabindex="0" role="button" aria-label="生成AIの説明を見る">生成AI</span>で誰でもゲームを作れるという触れ込みに対し、実際の品質にはまだ大きな隔たりがあることをうかがわせるレポートです。</div>
+      <div class="card-title-ja">写真やスケッチから数分で申請可能な設計図、<span class="t" data-t="blueprints-ai" tabindex="0" role="button" aria-label="Blueprints AIの説明を見る">Blueprints AI</span></div>
+      <div class="card-source">TechCrunch AI</div>
+      <div class="card-body">米サンタモニカのスタートアップBlueprints AIが、写真やPDF、手描きのスケッチから建築基準に合った設計図を作るソフトウェアを開発しました。行政への許可申請にそのまま使える水準の図面を、数分で作れるとうたっています。外部から出資を受けずに自己資金で事業を続けている点も特徴です。時間と費用がかかる建築設計の手続きを、生成AIで短くしようとする試みです。</div>
+    </article>
+    <article class="card tools">
+      <div class="card-top">
+        <span class="card-label tools">ツール</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja"><span class="t" data-t="honeyjar" tabindex="0" role="button" aria-label="Honeyjarの説明を見る">Honeyjar</span>、企業の広報業務を改善するAIツールを提供</div>
+      <div class="card-source">TechCrunch AI</div>
+      <div class="card-body">Honeyjarが、あらゆる企業の広報（<span class="t" data-t="pull-request" tabindex="0" role="button" aria-label="PRの説明を見る">PR</span>）やコミュニケーション業務を改善するAIツールを提供しています。記者や起業家だけでなく、広報担当者自身からも、今のPRのやり方はうまく機能していないという声が上がっています。AIがこの状況を本当に良くできるのかが問われています。</div>
     </article>
     </div>
   </details>
 
-<section class="sx"><h2 class="sx-h" id="script">台本（音声に合わせて流れます）</h2><p class="read-hint">台詞を押すと、そこから再生します。</p><div id="sxLines" data-script="podcast/script-2026-10-12.txt" data-times="podcast/times-2026-10-12.json"><p class="read-hint">読み込み中…</p></div></section>
-<script>
-(function(){
-  var C = {"play": "音声で聴く", "pause": "止める", "def": "1", "normal": ["1", "1×"], "remember": true, "key": "wk-speed", "keyboard": true, "names": {"ミカ": "イロハ", "いろは": "イロハ"}, "roles": {"てらこ先生": "teacher", "イロハ": "partner", "いろは": "partner", "ミカ": "partner"}};
-  var PLAY = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>', PAUSE = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>';
-  var a = document.getElementById('audio'), play = document.getElementById('play'), mplay = document.getElementById('mplay');
-  function fmt(s){ if (!isFinite(s)) return '--:--'; s = Math.floor(s); return Math.floor(s/60) + ':' + ('0' + s%60).slice(-2); }
-  function ui(){ var on = !a.paused;
-    play.innerHTML = on ? PAUSE : PLAY; play.setAttribute('aria-label', on ? C.pause : C.play);
-    document.getElementById('playLbl').textContent = on ? C.pause : C.play;
-    mplay.innerHTML = on ? PAUSE : PLAY; }
-  ui();
-  function toggle(){ a.paused ? a.play() : a.pause(); }
-  play.addEventListener('click', toggle); mplay.addEventListener('click', toggle);
-  a.addEventListener('play', ui); a.addEventListener('pause', ui); a.addEventListener('ended', ui);
-  function skip(s){ a.currentTime = Math.max(0, Math.min(a.duration || 0, a.currentTime + s)); }
-  document.querySelectorAll('[data-skip]').forEach(function(b){ b.addEventListener('click', function(){ skip(+b.dataset.skip); }); });
-  var fill = document.getElementById('fill'), mfill = document.getElementById('mfill');
-  a.addEventListener('loadedmetadata', function(){ document.getElementById('dur').textContent = fmt(a.duration); });
-  a.addEventListener('timeupdate', function(){
-    var r = a.duration ? a.currentTime / a.duration * 100 : 0;
-    fill.style.width = r + '%'; mfill.style.width = r + '%'; document.getElementById('knob').style.left = r + '%';
-    document.getElementById('cur').textContent = fmt(a.currentTime);
-    document.getElementById('mtime').textContent = fmt(a.currentTime) + ' / ' + fmt(a.duration);
-  });
-  var prog = document.getElementById('progress');
-  function seekAt(x){ var r = prog.getBoundingClientRect(); if (a.duration) a.currentTime = a.duration * Math.max(0, Math.min(1, (x - r.left) / r.width)); }
-  prog.addEventListener('click', function(e){ seekAt(e.clientX); });
-  prog.addEventListener('keydown', function(e){ if (e.key === 'ArrowLeft') skip(-10); if (e.key === 'ArrowRight') skip(10); });
-  // 速さ：番組ごとの設定。覚える番組（AIニュース）は保存、毎回1倍の番組（スマホニュース）は保存しない
-  var rate = C.def, sps = [].slice.call(document.querySelectorAll('#speeds .sp'));
-  if (C.remember && C.key) { try { var s = localStorage.getItem(C.key); if (s && sps.some(function(b){ return b.dataset.r === s; })) rate = s; } catch(e) {} }
-  function setRate(v){ rate = v; a.playbackRate = parseFloat(v); a.preservesPitch = true;
-    sps.forEach(function(b){ b.classList.toggle('on', b.dataset.r === v); b.setAttribute('aria-pressed', b.dataset.r === v ? 'true' : 'false'); });
-    if (C.remember && C.key) { try { localStorage.setItem(C.key, v); } catch(e) {} } }
-  sps.forEach(function(b){ b.addEventListener('click', function(){ setRate(rate === b.dataset.r ? C.normal[0] : b.dataset.r); }); });  // もう一度押すとふつうに戻る
-  setRate(rate);
-  a.addEventListener('play', function(){ a.playbackRate = parseFloat(rate); });
-  if (C.keyboard) document.addEventListener('keydown', function(e){
-    if (/INPUT|TEXTAREA/.test(e.target.tagName) || e.metaKey || e.ctrlKey) return;
-    if (e.key === ' ' || e.key === 'k') { e.preventDefault(); toggle(); }
-    else if (e.key === 'ArrowLeft') skip(-10); else if (e.key === 'ArrowRight') skip(10);
-    else if (e.key === 'j') skip(-30); else if (e.key === 'l') skip(30);
-  });
-  // 大きなプレイヤーが画面の外に出たら、下に小さな再生バー
-  var big = document.getElementById('player'), mini = document.getElementById('mini');
-  function miniCheck(){ var out = big.getBoundingClientRect().bottom < 0; mini.classList.toggle('show', out); mini.setAttribute('aria-hidden', out ? 'false' : 'true'); }
-  addEventListener('scroll', miniCheck, {passive:true}); miniCheck();
-  // 本文：今の文に色をつけて画面がついていく。自分でスクロールした直後の8秒は追いかけない
-  var lines = [], now = null, userAt = 0;
-  ['wheel','touchmove','keydown'].forEach(function(ev){ addEventListener(ev, function(){ userAt = Date.now(); }, {passive:true}); });
-  function wire(){
-    lines = [].slice.call(document.querySelectorAll('.ln[data-t]'));
-    lines.forEach(function(l){ if (l.dataset.w) return; l.dataset.w = 1; l.addEventListener('click', function(e){
-      if (e.target.closest('.t') || e.target.closest('a')) return;      // 言葉の説明やリンクを押したときは再生しない
-      userAt = 0; a.currentTime = +l.dataset.t; a.play(); }); });
-  }
-  function follow(force){
-    var c = null;
-    for (var i = 0; i < lines.length; i++) { if (+lines[i].dataset.t <= a.currentTime + 0.15) c = lines[i]; else break; }
-    if (c === now && !force) return;
-    if (now) now.classList.remove('now'); now = c; if (!now) return;
-    now.classList.add('now');
-    if (!a.paused && Date.now() - userAt > 8000) { var r = now.getBoundingClientRect();
-      if (r.top < 60 || r.bottom > innerHeight - 90) scrollTo({ top: scrollY + r.top - innerHeight * 0.3, behavior: 'smooth' }); }
-  }
-  a.addEventListener('timeupdate', function(){ follow(false); });
-  a.addEventListener('seeked', function(){ follow(true); });
-  a.addEventListener('play', function(){ follow(true); });
-  wire();
-  // 台本を後から読み込む番組（AIニュース：声の差し替えで開始秒が変わるため、その場で読む）
-  var box = document.getElementById('sxLines');
-  if (box && box.dataset.script) {
-    var NAMES = C.names || {}, ROLES = C.roles || {};
-    Promise.all([
-      fetch(box.dataset.script, {cache:'no-cache'}).then(function(r){ return r.ok ? r.text() : Promise.reject(); }),
-      fetch(box.dataset.times, {cache:'no-cache'}).then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; })
-    ]).then(function(res){
-      var times = res[1] || [], k = 0, out = [];
-      res[0].split('\n').forEach(function(line){
-        var m = line.match(/^\[([^\]]+)\]\s*(.+)$/); if (!m) return;
-        var st = times[k++], who = NAMES[m[1]] || m[1], role = ROLES[m[1]] || 'teacher';
-        var t = (typeof st === 'number') ? ' data-t="' + st + '"' : '';
-        out.push('<div class="ln ' + role + '"' + t + '><span class="who">' + who.replace(/</g,'&lt;') + '</span>'
-                 + m[2].replace(/&/g,'&amp;').replace(/</g,'&lt;') + '</div>');
-      });
-      box.innerHTML = out.length ? out.join('') : '<p class="read-hint">この号の台本はまだありません。</p>';
-      wire(); follow(true);
-    }).catch(function(){ box.innerHTML = '<p class="read-hint">台本を読み込めませんでした。</p>'; });
-  }
-  // 「この番組を毎回聴く」
-  var fs = document.getElementById('fsheet'), fv = document.getElementById('fveil'), fbs = document.querySelectorAll('.follow');
-  if (fs && fbs.length) { var op = function(){ fs.classList.add('on'); fv.classList.add('on'); }, cl = function(){ fs.classList.remove('on'); fv.classList.remove('on'); };
-    fbs.forEach(function(b){ b.addEventListener('click', op); }); document.getElementById('fclose').addEventListener('click', cl); fv.addEventListener('click', cl);
-    document.addEventListener('keydown', function(e){ if (e.key === 'Escape') cl(); }); }
-})();
-</script>
 
-  <p style="max-width:760px;margin:1.5rem auto 0;font-size:0.82rem;text-align:right;"><a href="ai-news-2026-10-12.html" style="color:var(--text-muted);">この号だけを開く（共有用リンク） →</a></p>
+  <p style="max-width:760px;margin:1.5rem auto 0;font-size:0.82rem;text-align:right;"><a href="ai-news-2026-10-13.html" style="color:var(--text-muted);">この号だけを開く（共有用リンク） →</a></p>
 
   <div class="section-label">読み物</div>
   <div class="issue-grid">
@@ -574,6 +423,10 @@
 
   <div class="section-label">これまでの号</div>
   <div class="issue-grid">
+    <a class="issue" href="ai-news-2026-10-12.html">
+      <div class="d">2026年10月12日（月）</div>
+      <div class="m">音声あり</div>
+    </a>
     <a class="issue" href="ai-news-2026-10-11.html">
       <div class="d">2026年10月11日（日）</div>
       <div class="m">音声あり</div>
@@ -602,12 +455,8 @@
       <div class="d">2026年10月5日（月）</div>
       <div class="m">音声あり</div>
     </a>
-    <a class="issue" href="ai-news-2026-10-04.html">
-      <div class="d">2026年10月4日（日）</div>
-      <div class="m">音声あり</div>
-    </a>
   </div>
-  <p style="margin-top:1rem;font-size:0.85rem;"><a href="archive.html" style="color:var(--accent);font-weight:600;">全 139 号の一覧を見る →</a></p>
+  <p style="margin-top:1rem;font-size:0.85rem;"><a href="archive.html" style="color:var(--accent);font-weight:600;">全 140 号の一覧を見る →</a></p>
 
   <div id="subscribe"></div>
   <div class="section-label">毎朝うけとる</div>
@@ -633,7 +482,7 @@
   <div class="footer-links"><a href="">トップ</a> ／ <a href="terms/">AI用語集</a> ／ <a href="articles/">読み物</a> ／ <a href="archive.html">バックナンバー</a> ／ <a href="about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
   <div class="footer-brand">Teraco News by てらこ先生</div>
 </footer>
-<script type="application/json" id="glossary-data">{"ai-agent": {"n": "AIエージェント", "r": "エーアイエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "chatgpt-moment": {"n": "ChatGPTモーメント", "r": "チャットジーピーティーモーメント", "s": "ある技術が一気に世の中に広まる、決定的な転換点のことです。ChatGPTの登場で生成AIが急に身近になった出来事にたとえた言い方です。", "u": "terms/chatgpt-moment.html"}, "compute": {"n": "計算資源", "r": "コンピュート", "s": "AIの学習や実行に使う計算能力の総量のことです。お金・電力・半導体の量とほぼ同じ意味で語られます。", "u": "terms/compute.html"}, "context-layer": {"n": "コンテキスト層", "r": "コンテキストそう", "s": "AIが会話の流れや前提を覚えておき、答えに反映させる部分のことです。ここが弱いと話がかみ合わなくなります。", "u": "terms/context-layer.html"}, "datacenter": {"n": "データセンター", "r": "データセンター", "s": "AIを動かすためのコンピュータを大量に設置した施設です。AI競争は電力と土地の競争でもあります。", "u": "terms/datacenter.html"}, "decompile": {"n": "デコンパイル", "r": "デコンパイル", "s": "完成したソフトから、人が読める形のプログラムを復元する作業のことです。料理から元のレシピを推理するような作業です。", "u": "terms/decompile.html"}, "equity-podcast": {"n": "Equity", "r": "エクイティ", "s": "TechCrunch が配信しているテック業界のポッドキャストです。その週の話題を記者が議論する形式です。", "u": "terms/equity-podcast.html"}, "generative-ai": {"n": "生成AI", "r": "", "s": "文章・画像・音声・動画などを新しく作り出せるAIの総称です。分類や予測をするだけだった従来のAIとの違いがここにあります。", "u": "terms/generative-ai.html"}, "gpt": {"n": "GPT", "r": "ジーピーティー", "s": "OpenAIが開発しているAIモデルのシリーズ名です。ChatGPTの中身がこれにあたります。", "u": "terms/gpt.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "microsoft": {"n": "Microsoft", "r": "マイクロソフト", "s": "OpenAIに巨額の出資を行い、自社サービスにAIを組み込んでいる企業です。", "u": "terms/microsoft.html"}, "moratorium": {"n": "モラトリアム", "r": "モラトリアム", "s": "ある活動をしばらくの間止めておく決まりのことです。データセンターの話では、新しく建てるのを一時的に禁じる地域のルールを指します。", "u": "terms/moratorium.html"}, "nda": {"n": "NDA", "r": "エヌディーエー", "s": "知った情報を外に漏らさないと約束する契約です。日本語では秘密保持契約と言います。", "u": "terms/nda.html"}, "pipeline": {"n": "パイプライン", "r": "パイプライン", "s": "いくつもの処理を順番につないで、ひとつの仕事をこなす仕組みのことです。工場のベルトコンベアのように、前の工程の結果が次に渡されます。", "u": "terms/pipeline.html"}, "satya-nadella": {"n": "Satya Nadella", "r": "サティア・ナデラ", "s": "Microsoftのトップです。OpenAIへの巨額出資を決断し、AI時代の同社を方向づけました。", "u": "terms/satya-nadella.html"}, "techcrunch": {"n": "TechCrunch", "r": "テッククランチ", "s": "スタートアップと技術業界を専門に扱うアメリカのニュースメディアです。", "u": "terms/techcrunch.html"}, "token": {"n": "トークン", "r": "トークン", "s": "AIが文章を扱うときの最小単位です。英語ならおよそ単語1つ、日本語なら1〜2文字が1トークンにあたります。", "u": "terms/token.html"}, "trust-architecture": {"n": "信頼アーキテクチャ", "r": "しんらいアーキテクチャ", "s": "AIを安心して使えるようにするための、仕組み全体の設計のことです。どこで確認し、どこで止めるかといった約束ごとの組み立てを指します。", "u": "terms/trust-architecture.html"}, "voice-ai": {"n": "音声AI", "r": "おんせいエーアイ", "s": "人の声を聞き取り、声で答えるAIのことです。電話対応や音声アシスタントなどに使われます。", "u": "terms/voice-ai.html"}, "wired": {"n": "Wired", "r": "ワイアード", "s": "技術と社会の関わりを扱う米国の雑誌・ニュースサイトです。日本語版もあります。", "u": "terms/wired.html"}}</script>
+<script type="application/json" id="glossary-data">{"agentic-coding": {"n": "エージェント型コーディング", "r": "", "s": "AIが自分でファイルを読み書きし、テストを実行しながらプログラムを完成させる開発の進め方です。", "u": "terms/agentic-coding.html"}, "ai-agent": {"n": "AIエージェント", "r": "エーアイエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "ai-generated-code": {"n": "AI生成コード", "r": "エーアイせいせいコード", "s": "人ではなくAIが書いたプログラムのことです。手早く作れる反面、扱い方には議論があります。", "u": "terms/ai-generated-code.html"}, "anthropic": {"n": "Anthropic", "r": "アンソロピック", "s": "AIアシスタント「Claude」を開発するアメリカの企業です。AIの安全性を重視する方針を掲げています。", "u": "terms/anthropic.html"}, "benchmark": {"n": "ベンチマーク", "r": "ベンチマーク", "s": "AIの性能を共通のテストで測るための指標です。モデル同士の比較に使われます。", "u": "terms/benchmark.html"}, "blueprints-ai": {"n": "Blueprints AI", "r": "ブループリンツ・エーアイ", "s": "写真や手描きの絵から、建物の設計図を自動で作るAIの会社です。アメリカのサンタモニカにあります。", "u": "terms/blueprints-ai.html"}, "brad-smith": {"n": "Brad Smith", "r": "ブラッド・スミス", "s": "Microsoftの社長です。会社を代表して、政府や規制について発言することが多い人です。", "u": "terms/brad-smith.html"}, "cli": {"n": "CLI", "r": "シーエルアイ", "s": "文字のコマンドを打ち込んでソフトを動かす方法です。ボタンやアイコンは使いません。", "u": "terms/cli.html"}, "code-review": {"n": "コードレビュー", "r": "", "s": "書いたプログラムを、別の人が読んで間違いや問題点がないか確認する作業です。文章でいう校正にあたります。", "u": "terms/code-review.html"}, "codex": {"n": "Codex", "r": "コーデックス", "s": "OpenAI が提供している、プログラムを書く作業を任せるためのAIです。人が指示を出すと、コードを書いたり直したりします。", "u": "terms/codex.html"}, "daemon": {"n": "デーモン", "r": "デーモン", "s": "パソコンの裏側でずっと動き続けるプログラムです。画面には出てこないまま仕事をします。", "u": "terms/daemon.html"}, "frontier-model": {"n": "フロンティアモデル", "r": "", "s": "その時点で最も性能が高い、開発の最前線にある大型のAIモデルを指す言葉です。各社がここで性能を競っています。", "u": "terms/frontier-model.html"}, "generative-ai": {"n": "生成AI", "r": "", "s": "文章・画像・音声・動画などを新しく作り出せるAIの総称です。分類や予測をするだけだった従来のAIとの違いがここにあります。", "u": "terms/generative-ai.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "honeyjar": {"n": "Honeyjar", "r": "ハニージャー", "s": "会社の広報の仕事を手伝うAIツールを作っている会社です。", "u": "terms/honeyjar.html"}, "ipo": {"n": "IPO", "r": "アイピーオー", "s": "企業が株式を証券取引所に上場し、誰でも売買できるようにすることです。新規株式公開ともいいます。", "u": "terms/ipo.html"}, "latency": {"n": "レイテンシ", "r": "レイテンシ", "s": "お願いしてから返事が返ってくるまでの待ち時間です。短いほど速く感じます。", "u": "terms/latency.html"}, "license": {"n": "ライセンス", "r": "ライセンス", "s": "他の会社が持つ技術や作品を、決まった条件で使わせてもらう権利のことです。ふつうは対価を払います。", "u": "terms/license.html"}, "meta-ai": {"n": "Meta", "r": "メタ", "s": "FacebookやInstagramを運営する企業で、AIモデル「Llama」を公開しています。", "u": "terms/meta-ai.html"}, "microsoft": {"n": "Microsoft", "r": "マイクロソフト", "s": "OpenAIに巨額の出資を行い、自社サービスにAIを組み込んでいる企業です。", "u": "terms/microsoft.html"}, "moratorium": {"n": "モラトリアム", "r": "モラトリアム", "s": "ある活動をしばらくの間止めておく決まりのことです。データセンターの話では、新しく建てるのを一時的に禁じる地域のルールを指します。", "u": "terms/moratorium.html"}, "muse-spark": {"n": "Muse Spark", "r": "ミューズスパーク", "s": "Metaが新しく出したAIモデルの名前です。コードを書く作業などを自動で進める用途を想定しています。", "u": "terms/muse-spark.html"}, "muse-wonder": {"n": "Muse Wonder", "r": "ミューズ・ワンダー", "s": "Metaが出した、大きくて賢いAIのモデルです。同じシリーズの軽いモデルよりも、難しい作業が得意です。", "u": "terms/muse-wonder.html"}, "open-source": {"n": "オープンソース", "r": "オープンソース", "s": "ソフトウェアの中身が公開され、誰でも自由に使ったり改良したりできる形態のことです。", "u": "terms/open-source.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "pull-request": {"n": "プルリクエスト", "r": "", "s": "作業用に分けて書いたコードを、本体に入れてよいか確認する場のことです。中身を見せ合ってから合流させます。", "u": "terms/pull-request.html"}, "us-air-force": {"n": "米空軍", "r": "べいくうぐん", "s": "アメリカ軍のうち、空を担当する組織です。", "u": "terms/us-air-force.html"}, "valuation": {"n": "評価額", "r": "ひょうかがく", "s": "投資を受ける際に算定される企業の価値のことです。「10億ドルの評価額で調達」のように使われます。", "u": "terms/valuation.html"}, "windborne": {"n": "WindBorne", "r": "ウィンドボーン", "s": "気象観測用の気球とAIで天気を予測する会社です。シリコンバレーにあるスタートアップです。", "u": "terms/windborne.html"}, "wired": {"n": "Wired", "r": "ワイアード", "s": "技術と社会の関わりを扱う米国の雑誌・ニュースサイトです。日本語版もあります。", "u": "terms/wired.html"}}</script>
 
 <script>
 (function(){

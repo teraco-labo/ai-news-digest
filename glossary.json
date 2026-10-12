@@ -6775,6 +6775,142 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "muse-wonder",
+      "term": "Muse Wonder",
+      "reading": "ミューズ・ワンダー",
+      "aliases": [],
+      "category": "モデル",
+      "short": "Metaが出した、大きくて賢いAIのモデルです。同じシリーズの軽いモデルよりも、難しい作業が得意です。",
+      "detail": "Metaにとって初めてのフロンティアモデル（最先端級のモデル）にあたります。低レイテンシを重視した軽量版のMuse Sparkに比べて規模が大きく、ベンチマークのスコアやコーディングなど複雑なタスクの成績が高いとされています。エージェントの暴走を防ぐ機能も備えており、Metaが最先端の競争に戻ってきたことを示すモデルです。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "brad-smith",
+      "term": "Brad Smith",
+      "reading": "ブラッド・スミス",
+      "aliases": [
+        "ブラッド・スミス"
+      ],
+      "category": "人物",
+      "short": "Microsoftの社長です。会社を代表して、政府や規制について発言することが多い人です。",
+      "detail": "MicrosoftのPresident（社長）を務めています。AIの規制を急ぐべきだと主張し、牛乳や洗濯機のほうがAI企業よりも厳しく監督されていると指摘しました。大手AI企業の幹部が自ら規制を求めているため、その発言は各国の政策議論で注目されます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "windborne",
+      "term": "WindBorne",
+      "reading": "ウィンドボーン",
+      "aliases": [],
+      "category": "企業",
+      "short": "気象観測用の気球とAIで天気を予測する会社です。シリコンバレーにあるスタートアップです。",
+      "detail": "自社の気球で集めた観測データとAIを組み合わせて、気象を予測しています。米空軍から約5000万ドル規模の契約を受注しました。AIによる気象予測が軍事という実用の場で使われ始めている例です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "blueprints-ai",
+      "term": "Blueprints AI",
+      "reading": "ブループリンツ・エーアイ",
+      "aliases": [],
+      "category": "企業",
+      "short": "写真や手描きの絵から、建物の設計図を自動で作るAIの会社です。アメリカのサンタモニカにあります。",
+      "detail": "写真やPDF、スケッチを読み込み、建築基準に合った設計図を数分で作るソフトウェアを開発しています。行政への許可申請に使える水準をうたっているのが特徴です。外部から出資を受けず、自己資金で運営しています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "honeyjar",
+      "term": "Honeyjar",
+      "reading": "ハニージャー",
+      "aliases": [],
+      "category": "企業",
+      "short": "会社の広報の仕事を手伝うAIツールを作っている会社です。",
+      "detail": "あらゆる企業の広報（PR）やコミュニケーション業務を改善するAIツールを提供しています。記者や広報担当者からも、今のPRのやり方はうまく機能していないという声が上がっています。そうした課題をAIで解決しようとしている企業です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "daemon",
+      "term": "デーモン",
+      "reading": "デーモン",
+      "aliases": [
+        "daemon",
+        "常駐プログラム"
+      ],
+      "category": "基礎",
+      "short": "パソコンの裏側でずっと動き続けるプログラムです。画面には出てこないまま仕事をします。",
+      "detail": "利用者が操作しなくても、バックグラウンドで常に動き続けるプログラムを指します。自動更新や監視などによく使われます。ただ、利用者が知らないうちに入れられると、セキュリティや透明性の面で問題になります。Codex CLIが初期設定でこれをインストールしていたことが議論になりました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "cli",
+      "term": "CLI",
+      "reading": "シーエルアイ",
+      "aliases": [
+        "コマンドラインインターフェース"
+      ],
+      "category": "使い方",
+      "short": "文字のコマンドを打ち込んでソフトを動かす方法です。ボタンやアイコンは使いません。",
+      "detail": "Command Line Interfaceの略で、ターミナルにコマンドを入力して操作する形式です。開発者向けのAIツールでは、手元の環境で直接動くCLI版がよく提供されます。手元のマシンに深く入り込むため、何をインストールするのかが透明であることが大切になります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "latency",
+      "term": "レイテンシ",
+      "reading": "レイテンシ",
+      "aliases": [
+        "latency",
+        "遅延"
+      ],
+      "category": "基礎",
+      "short": "お願いしてから返事が返ってくるまでの待ち時間です。短いほど速く感じます。",
+      "detail": "AIモデルでは、入力してから応答が始まるまでの時間を指すことが多い言葉です。軽量なモデルほど低レイテンシで動かしやすくなります。一方で、大型のモデルは性能が高い代わりに応答が遅くなりがちです。モデルを選ぶときは、性能と速さのどちらを優先するかが判断の分かれ目になります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "bootstrapping",
+      "term": "ブートストラップ",
+      "reading": "ブートストラップ",
+      "aliases": [
+        "bootstrapped",
+        "自己資金経営"
+      ],
+      "category": "ビジネス",
+      "short": "投資家からお金を集めずに、自分たちのお金や売上だけで会社を育てるやり方です。",
+      "detail": "ベンチャーキャピタルなどの外部から出資を受けずに事業を成長させる経営スタイルです。経営の自由度を保てる一方で、成長のスピードは資金の量に左右されます。Blueprints AIはこの形で運営しています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "us-air-force",
+      "term": "米空軍",
+      "reading": "べいくうぐん",
+      "aliases": [
+        "US Air Force",
+        "アメリカ空軍"
+      ],
+      "category": "規制",
+      "short": "アメリカ軍のうち、空を担当する組織です。",
+      "detail": "アメリカ軍の一部門です。WindBorneと、気球による観測データをもとにした約5000万ドルの契約を結びました。軍がAIによる気象予測を調達し始めていることを示す例です。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
