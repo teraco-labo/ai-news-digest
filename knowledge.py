@@ -53,6 +53,7 @@ REPO_DIR = Path(__file__).parent
 KNOWLEDGE_DIR = REPO_DIR / "knowledge"
 STORE_FILE = KNOWLEDGE_DIR / "knowledge.json"
 INDEX_FILE = KNOWLEDGE_DIR / "INDEX.md"
+AMBER_FILE = KNOWLEDGE_DIR / "AMBER.md"   # 運営者のAI（Amber）が取り込む学習ノート
 INBOX_DIR = KNOWLEDGE_DIR / "inbox"
 
 JST = timezone(timedelta(hours=9))
@@ -301,8 +302,65 @@ def build_index(verbose: bool = True) -> str:
 
     text = "\n".join(lines)
     INDEX_FILE.write_text(text, encoding="utf-8")
+    build_amber(all_entries, verbose=verbose)
     if verbose:
         print(f"✓ {INDEX_FILE.relative_to(REPO_DIR)} を更新（{len(all_entries)}件・{len(text.encode('utf-8')):,} bytes）")
+    return text
+
+
+def build_amber(all_entries: Optional[List[Dict]] = None, verbose: bool = True) -> str:
+    """Amber（運営者が普段使っている Claude Code のセッション）向けの学習ノートを作る。
+
+    Amber は別の場所で動いているので、このリポジトリの CLAUDE.md は読まない。
+    Amber の CLAUDE.md からこのファイルを @ で取り込んでもらう前提で、
+    「守ること（✅採用）」だけは本文ごと載せ、残りは一覧への案内にとどめる。
+    """
+    if all_entries is None:
+        all_entries = [e for e in map(_normalize, entries()) if SKIP_TAG not in e["tags"]]
+    adopted = [e for e in all_entries if e["trial"]["status"] == "adopted"]
+    trying = [e for e in all_entries if e["trial"]["status"] == "trying"]
+
+    lines = [
+        "# Amber の学習ノート",
+        "",
+        "<!-- ai-news-digest の knowledge.py が自動で作ります。手で編集しても上書きされます。 -->",
+        "",
+        f"最終更新: {today()}",
+        "",
+        "藤崎さんがニュースレター（テツメモ・イケハヤ・Fujin など）から集め、",
+        "**実際に試して「Amber に覚えてほしい」と採用した知見**です。",
+        "",
+        "## 守ること（✅採用）",
+        "",
+    ]
+    if adopted:
+        for e in adopted:
+            lines += [f"### {e['title']}", "", e["summary"], ""]
+            lines += [f"- {t}" for t in e["takeaways"]]
+            if e["trial"]["note"]:
+                lines += ["", f"採用した理由（{e['trial']['date']}）: {e['trial']['note']}"]
+            lines += ["", f"<small>出典: {e['source']['name']} {e['source']['published']}・"
+                          f"{CONFIDENCE_LABEL.get(e['confidence'], '')}・`{e['id']}`</small>", ""]
+    else:
+        lines += ["まだありません。藤崎さんが「これ採用」と言ったものがここに入ります。", ""]
+
+    if trying:
+        lines += ["## 試し中（まだルールではない）", ""]
+        lines += [f"- {e['title']}" for e in trying] + [""]
+
+    lines += [
+        "## もっと知りたいとき",
+        "",
+        f"ほかに {len(all_entries)} 件の知見があります。一覧は同じフォルダの `INDEX.md`。",
+        "本文は ai-news-digest のフォルダで `python knowledge.py search <語>` / `python knowledge.py show <ID>`。",
+        "",
+        "確からしさ: 検証済み＝事実として使ってよい／出典の主張＝「〜と言われている」と断る／意見・体験＝一般則にしない。",
+        "",
+    ]
+    text = "\n".join(lines)
+    AMBER_FILE.write_text(text, encoding="utf-8")
+    if verbose:
+        print(f"✓ {AMBER_FILE.relative_to(REPO_DIR)} を更新（✅採用 {len(adopted)}件）")
     return text
 
 

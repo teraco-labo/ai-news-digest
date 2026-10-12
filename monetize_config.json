@@ -289,6 +289,16 @@
           "https://tetumemo.substack.com/feed"
         ],
         "_unfollowed_note": "X(@tetumemo)・note・YouTube/Spotify「AI QUEST」・tetumemo.com は未対応。X は RSS が無く、ほかは正確なフィードURLを未確認のため"
+      },
+      {
+        "name": "Fujin",
+        "senders": [
+          "info@news.fujinvibe.com"
+        ],
+        "feeds": [
+          "https://fujin.substack.com/feed"
+        ],
+        "note": "AI自動化・エージェント・AI時代の働き方。本文は Substack にあるので RSS で追う。info_nc@my54p.com は教材の販売告知だけなので見ない"
       }
     ],
     "lookback_days": 7,

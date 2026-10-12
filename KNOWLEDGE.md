@@ -46,6 +46,7 @@ Claudeとの会話 ─────────┘                               
 |---|---|---|
 | イケハヤ | `info@mag.ikehaya.com` / `info@ikemag.jp` | Substack「イケハヤラジオ＆コラム」 |
 | テツメモ | `tetumemo@m-newsletter.com`（本誌） | Substack「テツメモの発信実験ログ」 |
+| Fujin | `info@news.fujinvibe.com` | Substack「Fujin」 |
 
 Substack の投稿はメールだと見出ししか届かないので、RSS で本文を読みます。
 同じ人がニュースレターと Substack で同じ話を書いても、記録済みの知見を見せてから
@@ -86,6 +87,15 @@ Claude に「これ真似してみよう」と言えば試し中に、「良か�
 | ⏸見送り | `python knowledge.py reject <ID> --note "..."` | 合わなかった（理由を残す） |
 
 採用したものは索引の先頭に並び、Claude はその話題に触れる作業では必ず読んで従います。
+
+## Amber に覚えてもらう
+
+Amber（藤崎さんが普段使っている Claude Code のセッション）は別の場所で動いているので、
+このリポジトリの CLAUDE.md は読みません。代わりに `knowledge/AMBER.md` を取り込んでもらいます。
+
+- `AMBER.md` には **✅採用 の知見だけ本文ごと**載り、毎朝自動で更新されます
+- Amber 側の CLAUDE.md に `@<このリポジトリの場所>/knowledge/AMBER.md` と1行書けば、毎回読み込まれます
+- 採用していない知見は載せません（試していないものを Amber のルールにしないため）
 
 ## 報告を受け取る
 
@@ -130,6 +140,7 @@ Claude はこの区別を守って助言します。「出典の主張」は断�
 
 | ファイル | 中身 |
 |---|---|
+| `knowledge/AMBER.md` | Amber が取り込む学習ノート（✅採用のものだけ） |
 | `knowledge/INDEX.md` | 索引（一覧だけ）。Claude が毎回読むのはここ。本文は `python knowledge.py show <ID>` |
 | `knowledge/knowledge.json` | 全データ |
 | `knowledge/inbox/` | 取り込んだメール本文（蒸留待ち・コミットされない） |
