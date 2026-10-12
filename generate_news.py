@@ -466,6 +466,12 @@ def send_email_draft(email_html: str, target_date: datetime) -> bool:
     email_to = "fujisaki@teraco-labo.com"
     date_str = target_date.strftime("%Y年%m月%d日")
 
+    # 2026-10-12 藤崎さん「朝のメールは1通に」→ ニュースは Mac の「朝のメール」（AIの話題）に見出しとリンクで載る。
+    # このメールは送らない（作成・公開・音声はそのまま）。戻すときは環境変数 DAILY_SELF_EMAIL=1
+    if os.getenv("DAILY_SELF_EMAIL", "") != "1":
+        print("📭 ニュースのメールは送りません（朝のメール1通にまとめています）")
+        return True
+
     try:
         # Try Gmail API first (for local/interactive mode)
         try:

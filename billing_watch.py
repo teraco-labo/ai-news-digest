@@ -315,6 +315,11 @@ def notify(result: Dict) -> str:
     news = newsworthy(result)
     if not news["unknown"] and not news["deadlines"]:
         return "skipped"
+    # 2026-10-12 藤崎さん「朝のメールは1通に」→ 請求の見張りは Mac の「朝のメール」（AIの話題）の「お金の見張り」欄に載る。
+    # ここからのメールは送らない。戻すときは環境変数 BILLING_EMAIL=1
+    if os.getenv("BILLING_EMAIL", "") != "1":
+        print("📭 課金のメールは送りません（朝のメール1通にまとめています）")
+        return "skipped"
 
     user = os.getenv("GMAIL_ADDRESS")
     password = os.getenv("GMAIL_APP_PASSWORD")
