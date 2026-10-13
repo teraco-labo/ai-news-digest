@@ -79,6 +79,10 @@ _TTS_REPLACEMENTS = [
     ("Teraco Shelf", "テラコシェルフ"),
     ("TERACO SHELF", "テラコシェルフ"),
     ("TeracoShelf", "テラコシェルフ"),
+    # --- Teraco Manga（2026-10-13 登録）---
+    ("Teraco Manga", "テラコマンガ"),
+    ("TERACO MANGA", "テラコマンガ"),
+    ("TeracoManga", "テラコマンガ"),
     # --- Teraco Studio（2026-10-05 登録）---
     ("Teraco Studio", "テラコスタジオ"),
     ("TERACO STUDIO", "テラコスタジオ"),
