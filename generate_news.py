@@ -843,6 +843,13 @@ def main():
         if curated:
             categorized = curated["categorized"]
             overview = curated["overview"]
+            # 海外の新機能は日本でまだ使えないことが多い。試せるものには「日本では、〜」を公式で調べて1文足す
+            # （2026-10-14 藤崎さん。失敗してもその日は付かないだけで配信は続ける）
+            try:
+                import japan_check
+                categorized = japan_check.annotate(categorized)
+            except Exception as e:
+                print(f"   ⚠️  日本での提供状況の確認を飛ばしました: {e}")
 
     if categorized is None:
         # キュレーションが使えない場合は従来のキーワード分類にフォールバックする
