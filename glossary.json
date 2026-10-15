@@ -7309,6 +7309,249 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "muse-spark-open",
+      "term": "Muse Spark Open",
+      "reading": "ミューズ・スパーク・オープン",
+      "aliases": [],
+      "category": "モデル",
+      "short": "Metaが公開した、誰でも手元のパソコンに入れて動かせるAIです。Appleと組んで、Macで動くように作られています。",
+      "detail": "Metaの「Muse Spark」系列のモデルを、オープンウェイト（中身の数値を公開する形）で出したものです。Apple siliconを積んだMac上でローカルに動かせるため、データを外部のサーバーに送らずに使えます。大手SNS企業とAppleが組んだ点でも話題になっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "apple-silicon",
+      "term": "Apple silicon",
+      "reading": "アップルシリコン",
+      "aliases": [
+        "Appleシリコン"
+      ],
+      "category": "インフラ",
+      "short": "Appleが自分で設計した、MacやiPhoneの頭脳にあたる部品です。動きが速く、電気をあまり使わないのが特長です。",
+      "detail": "Appleが自社で設計しているチップの総称で、Macなどに搭載されています。AIの計算も手元の端末で効率よくこなせるため、ネットにつながずにAIを動かす「オンデバイスAI」の土台になっています。MetaのMuse Spark Openも、このチップ上で動くことを前提に公開されました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "panos-panay",
+      "term": "Panos Panay",
+      "reading": "パノス・パネイ",
+      "aliases": [
+        "パネイ氏"
+      ],
+      "category": "人物",
+      "short": "Amazonで、AlexaやBeeなどの機器づくりを率いている人です。AI機器の未来について発言して注目されています。",
+      "detail": "Amazonのデバイス部門のトップです。TechCrunch Disrupt 2026で、AI機器が背後で動き、利用者の必要を先回りして察知する未来を語りました。アプリを開いて操作する使い方が要らなくなるという見方を示しており、Amazonの機器戦略の方向を知る手がかりになる人物です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "bee",
+      "term": "Bee",
+      "reading": "ビー",
+      "aliases": [],
+      "category": "企業",
+      "short": "身につけて会話を記録し、AIが内容をまとめてくれる機器を作る会社です。現在はAmazonの傘下にあります。",
+      "detail": "Amazonに買収されたAIデバイスの会社です。2026年10月には買収後初の新製品として、改良版のウェアラブル端末と、スマホに付けるカード大の録音機を74.99ドルから発売しました。会話の要約やToDoリストの作成ができ、AlexaやAmazonのショッピングと連携します。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "alexa",
+      "term": "Alexa",
+      "reading": "アレクサ",
+      "aliases": [
+        "アレクサ"
+      ],
+      "category": "使い方",
+      "short": "Amazonの、声で話しかけて使うアシスタントです。スマートスピーカーなどに入っています。",
+      "detail": "Amazonの音声アシスタントで、同社の機器やサービスの中心に位置づけられています。Beeの新しいAIデバイスもAlexaと連携しており、記録した会話の内容をAmazonのサービスにつなげられます。Amazonがアプリに頼らないAI体験を広げるうえでの軸になっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "universal-cart",
+      "term": "Universal Cart",
+      "reading": "ユニバーサル・カート",
+      "aliases": [],
+      "category": "使い方",
+      "short": "Googleの新しい買い物のための機能です。いまはアメリカで使えます。",
+      "detail": "Googleが2026年10月に米国で提供を始めた買い物ツールです。Google検索とGeminiアプリの両方から使えます。検索とAIアシスタントの双方を購買の入り口にする動きとして注目されています。日本での提供は発表されていません。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "figma",
+      "term": "Figma",
+      "reading": "フィグマ",
+      "aliases": [],
+      "category": "企業",
+      "short": "アプリやWebサイトの画面をデザインするための道具を作っている会社です。ブラウザ上でみんなで同時に作業できます。",
+      "detail": "デザイナーと開発者が共同で画面設計を行うツールとして広く使われています。2026年10月には、自社プラットフォーム上でAIエージェントがどう作業するかを定めるための新機能を発表しました。あわせて「code layers」機能をオープンベータで公開しています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "code-layers",
+      "term": "code layers",
+      "reading": "コードレイヤー",
+      "aliases": [
+        "コードレイヤー"
+      ],
+      "category": "使い方",
+      "short": "Figmaの新しい機能の名前です。いまは誰でも試せるお試し版として公開されています。",
+      "detail": "Figmaが2026年10月にオープンベータとして公開した機能です。AIエージェントの働き方を定める新機能と同時に発表されました。正式版になる前の段階のため、仕様が変わる可能性があります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "open-beta",
+      "term": "オープンベータ",
+      "reading": "",
+      "aliases": [
+        "公開ベータ",
+        "open beta"
+      ],
+      "category": "基礎",
+      "short": "完成前の新しい機能を、誰でも試せるように公開することです。使った人の声を集めて改良していきます。",
+      "detail": "限られた人だけが試せる段階を経て、一般の利用者にも開放したお試し期間を指します。正式版の前なので、不具合が残っていたり仕様が変わったりすることがあります。企業は実際の使われ方を見ながら、正式提供に向けて調整します。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "bluesky",
+      "term": "Bluesky",
+      "reading": "ブルースカイ",
+      "aliases": [],
+      "category": "企業",
+      "short": "文章を投稿して交流するSNSを運営している会社です。Xに似た使い方ができます。",
+      "detail": "短文投稿型のSNSを運営しています。実験的なAIアプリ「Attie」を展開しており、2026年10月には誰でもWebサイトやゲーム、クイズを作れるように機能を広げました。作ったものをSNS上の利用者に届けられる点を「ソーシャル・バイブコーディング」と呼んでいます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "rivian",
+      "term": "Rivian",
+      "reading": "リヴィアン",
+      "aliases": [
+        "リビアン"
+      ],
+      "category": "企業",
+      "short": "アメリカの電気自動車メーカーです。自社の車にAIを積む計画を進めています。",
+      "detail": "米国のEVメーカーで、自社の車にAIエージェントを導入する方針を示しています。詳しい仕組みは、2026年12月に予定する「AI & Autonomy Day」で明らかになる見込みです。車のAIが、質問に答えるだけでなく作業を代わりにこなす方向へ進む例として注目されます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "ev",
+      "term": "EV",
+      "reading": "イーブイ",
+      "aliases": [
+        "電気自動車"
+      ],
+      "category": "基礎",
+      "short": "ガソリンではなく、電池の電気でモーターを回して走る車です。",
+      "detail": "Electric Vehicleの略です。ソフトウェアで多くの機能を制御するため、AIを組み込みやすい車でもあります。RivianのようなEVメーカーは、AIエージェントの搭載を新たな売りにしようとしています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "simons-foundation",
+      "term": "Simons Foundation",
+      "reading": "サイモンズ・ファウンデーション",
+      "aliases": [
+        "サイモンズ財団"
+      ],
+      "category": "企業",
+      "short": "数学や科学の研究にお金を出して応援しているアメリカの財団です。",
+      "detail": "米国の研究助成財団です。2026年10月、数学者がAI時代に対応できるよう支援する1500万ドル規模の取り組みを始めました。AIが数学研究に入り込みつつあるなか、研究者側の備えに資金を投じる動きとして注目されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "ambient-ai",
+      "term": "アンビエントAI",
+      "reading": "",
+      "aliases": [
+        "ambient AI",
+        "アンビエントなAIデバイス"
+      ],
+      "category": "基礎",
+      "short": "いちいち命令しなくても、そばで静かに動いて手助けしてくれるAIのことです。空気のように生活にとけこむイメージです。",
+      "detail": "アンビエントは「周囲の」「環境の」という意味です。利用者の指示を待つのではなく、背後で状況をとらえて必要なことを先回りして行うAIを指します。AmazonのPanos Panay氏は、こうしたAI機器がアプリを使う必要そのものをなくす未来を語っています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "techcrunch-disrupt",
+      "term": "TechCrunch Disrupt",
+      "reading": "テッククランチ・ディスラプト",
+      "aliases": [],
+      "category": "メディア",
+      "short": "テック系メディアのTechCrunchが開く、大きなイベントです。企業のトップや投資家が集まって話をします。",
+      "detail": "TechCrunchが主催するテクノロジー業界のイベントで、2026年版には1万人以上が参加するとされています。企業の幹部が登壇して戦略や将来像を語る場になっており、AmazonのPanos Panay氏もここでAI機器の展望を語りました。業界の方向性を知る発言が出やすい場です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "civil-penalty",
+      "term": "制裁金",
+      "reading": "セイサイキン",
+      "aliases": [
+        "罰金"
+      ],
+      "category": "規制",
+      "short": "ルールを破った会社に、国の機関が払わせるお金のことです。",
+      "detail": "規制当局が違反企業に科す金銭的なペナルティです。報道によると、FTCはAnthropicやOpenAIに対し、情報漏えいの報告を遅らせた企業と同程度の制裁金を科す可能性があります。金額の大きさは、企業の行動を変えさせる圧力として働きます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "ai-labeling",
+      "term": "AIラベル表示",
+      "reading": "",
+      "aliases": [
+        "生成AIラベル",
+        "AI表示"
+      ],
+      "category": "安全性",
+      "short": "AIで作られた作品だと分かるように、目印を付けることです。見る人や聴く人が人間の作品と区別できます。",
+      "detail": "生成AIでつくったコンテンツに、その旨を示す表示を付ける取り組みです。YouTube Musicは2026年10月にAI楽曲へのラベル表示を始め、YouTube本体にも広げる予定です。AI生成物が増えるなか、利用者が判断できる材料を示す仕組みとして各プラットフォームで導入が進んでいます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "third-party-evaluation",
+      "term": "第三者評価",
+      "reading": "ダイサンシャヒョウカ",
+      "aliases": [
+        "外部評価"
+      ],
+      "category": "安全性",
+      "short": "作った会社とは関係のない外の人が、安全かどうかを調べて判断することです。",
+      "detail": "開発企業が自分で安全性を主張するだけでなく、独立した機関が検証する仕組みです。AnthropicはMETRに社員並みのアクセスを認め、評価結果の公表を止める権利も手放しました。評価する側の独立性がどこまで保たれるかが、第三者評価の信頼性を左右します。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
