@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-16",
+  "updated": "2026-10-17",
   "entries": [
     {
       "id": "20260826-33a3d0",
@@ -1194,6 +1194,31 @@
         "status": "adopted",
         "note": "藤崎さん本人の指示。試す必要のない決まりごとなので、そのまま採用",
         "date": "2026-10-16"
+      }
+    },
+    {
+      "id": "20261017-3de4f6",
+      "date": "2026-10-17",
+      "title": "（知見なし）",
+      "summary": "Substack からの「テツメモの発信実験ログが別のニュースレター（ミヤマさんちの仕事部屋）をおすすめしています」というお知らせ。テツメモさん自身の新しい記事ではないので、知見はありません。",
+      "takeaways": [],
+      "apply": [],
+      "tags": [
+        "対象外"
+      ],
+      "confidence": "fact",
+      "source": {
+        "type": "manual",
+        "name": "テツメモ",
+        "title": "",
+        "ref": "",
+        "published": ""
+      },
+      "visibility": "private",
+      "trial": {
+        "status": "",
+        "note": "",
+        "date": ""
       }
     }
   ]
