@@ -7552,6 +7552,255 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "elorian",
+      "term": "Elorian",
+      "reading": "エロリアン",
+      "aliases": [],
+      "category": "企業",
+      "short": "AIモデルを作っているスタートアップです。最初のモデルとしてGlimpseを発表しました。",
+      "detail": "画像を使って推論することを重視したモデルを作っています。最初のモデルGlimpseは、自社の評価でGPT-6 Astraを上回る分野があるとしています。視覚推論に特化した新しい会社として注目されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "glimpse",
+      "term": "Glimpse",
+      "reading": "グリンプス",
+      "aliases": [],
+      "category": "モデル",
+      "short": "Elorianが出した最初のAIモデルです。画像を見ながら考えることが得意です。",
+      "detail": "画像について答えるだけでなく、画像を使いながら推論することを目指しています。Elorianの評価では、科学チャートの読み取りや短い動画の説明文づくりでGPT-6 Astraを上回りました。ただし、この数字は開発元の自社評価です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "vercel",
+      "term": "Vercel",
+      "reading": "ヴァーセル",
+      "aliases": [],
+      "category": "企業",
+      "short": "Webサイトやアプリを公開するための仕組みを提供する会社です。AIモデルを呼び出す窓口も運営しています。",
+      "detail": "開発者向けのサービスとしてAIゲートウェイを提供しています。そのデータから、開発者がどのAIモデルをどれだけ使っているかがわかります。モデルの人気を知る手がかりとして、同社の数字が引用されることがあります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "ai-gateway",
+      "term": "AIゲートウェイ",
+      "reading": "エーアイゲートウェイ",
+      "aliases": [
+        "AI gateway"
+      ],
+      "category": "使い方",
+      "short": "いろいろな会社のAIを、1つの窓口からまとめて使えるサービスです。使うAIを切り替えるのが簡単になります。",
+      "detail": "アプリ側はAIの会社ごとに別々のつなぎ方をしなくても、1つのAPIで複数のモデルを呼び出せます。OpenRouterが代表的な例で、Vercelも同じようなサービスを提供しています。どのモデルがよく使われているかの統計が取れるのも特徴です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "amulya-vishwanath",
+      "term": "Amulya Vishwanath",
+      "reading": "アムリヤ・ヴィシュワナート",
+      "aliases": [],
+      "category": "人物",
+      "short": "NVIDIAでロボット関連の仕事をしていた人で、今は投資家です。ロボットの将来について発信しています。",
+      "detail": "NVIDIAで7年間、ロボット向けの仕組みの製品マーケティングを率いていました。今はベンチャーキャピタルの投資家として、フィジカルAIの分野に投資しています。ロボット工学はまだ基本部品を作り直す「レゴの時代」だと話しています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "replit",
+      "term": "Replit",
+      "reading": "レプリット",
+      "aliases": [],
+      "category": "企業",
+      "short": "ブラウザの中でプログラムを書いて動かせるサービスの会社です。AIで開発を手伝う機能も出しています。",
+      "detail": "CEOはAmjad Masad氏です。AIエージェントが会社の日々の仕事を引き受ける「自律走行する会社」という将来像を打ち出しています。AIを使った開発ツールの分野で知られています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "amjad-masad",
+      "term": "Amjad Masad",
+      "reading": "アムジャド・マサド",
+      "aliases": [],
+      "category": "人物",
+      "short": "Replitの社長（CEO）です。AIが会社の仕事を回す未来を語っています。",
+      "detail": "AIエージェントが日々の業務をこなし、人間はより上の判断に集中する「自律走行する会社」という考え方を打ち出しました。AIで働き方がどう変わるかを語る経営者の一人です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "self-driving-company",
+      "term": "自律走行する会社",
+      "reading": "",
+      "aliases": [
+        "self-driving company",
+        "セルフドライビングカンパニー"
+      ],
+      "category": "ビジネス",
+      "short": "AIが毎日の仕事を自動でこなし、人間は大事な判断だけをする会社のことです。自動運転の車になぞらえた言い方です。",
+      "detail": "ReplitのCEO、Amjad Masad氏が打ち出した考え方です。日々の業務をAIエージェントにまかせ、人間はより上の意思決定に集中する組織を指します。AIエージェントの広がりが仕事の分け方をどう変えるかを考えるときのキーワードです。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "foundation-model",
+      "term": "基盤モデル",
+      "reading": "きばんモデル",
+      "aliases": [
+        "foundation model",
+        "ファウンデーションモデル"
+      ],
+      "category": "基礎",
+      "short": "大量のデータで学習した、いろいろな用途に使える土台のAIです。これをもとに個別の用途向けのAIを作ります。",
+      "detail": "1つのモデルで幅広い仕事をこなせるのが特徴です。ロボットの分野でも、汎用の基盤モデルによって一気に進歩が起きるという期待があります。一方で、部品などの基礎がまだ整っていないという慎重な意見もあります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "actuator",
+      "term": "アクチュエーター",
+      "reading": "アクチュエーター",
+      "aliases": [
+        "actuator"
+      ],
+      "category": "インフラ",
+      "short": "ロボットの関節などを実際に動かす部品です。人間でいえば筋肉にあたります。",
+      "detail": "ロボットハンドやソフトウェア、安全基準とならぶ、ロボットの基本部品の一つです。ロボットの動きの性能や値段を大きく左右します。元NVIDIA幹部の投資家は、こうした部品がまだ作り直されている途中だと指摘しています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "postgresql",
+      "term": "PostgreSQL",
+      "reading": "ポストグレスキューエル",
+      "aliases": [
+        "Postgres",
+        "ポスグレ"
+      ],
+      "category": "インフラ",
+      "short": "だれでも無料で使えるデータベースのソフトです。世界中のサービスでデータの保存に使われています。",
+      "detail": "オープンソースで開発されている代表的なデータベースです。次の版の「Postgres 19」は、AIのコードレビューで見つかったバグが人間の修正ペースを上回り、リリースが遅れています。AIの導入が開発の進め方を変えている例として話題になりました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "mlx",
+      "term": "MLX",
+      "reading": "エムエルエックス",
+      "aliases": [],
+      "category": "インフラ",
+      "short": "Appleが作った、Macの上でAIを動かすための道具です。Macのチップの力を生かせます。",
+      "detail": "Apple siliconを積んだMacで、機械学習のモデルを効率よく動かすための仕組みです。AppleのML Researchは、これを使ってMuse Spark OpenをMac Studioで動かす方法を公開しました。クラウドを使わずに手元でAIを動かしたい人に関係があります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "mac-studio",
+      "term": "Mac Studio",
+      "reading": "マックスタジオ",
+      "aliases": [],
+      "category": "インフラ",
+      "short": "Appleの高性能なデスクトップ型のパソコンです。重い作業を手元でこなすのに向いています。",
+      "detail": "Apple siliconを積んでいて、大きなAIモデルをローカルで動かす環境としても使われます。AppleのML ResearchはMLXを使い、この機種でMuse Spark Openを動かす方法を示しました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "credentials",
+      "term": "認証情報",
+      "reading": "にんしょうじょうほう",
+      "aliases": [
+        "クレデンシャル",
+        "credentials"
+      ],
+      "category": "安全性",
+      "short": "システムに入るためのIDやパスワード、鍵のことです。漏れると他人に勝手に使われてしまいます。",
+      "detail": "インドで報告された暴走AIエージェントは、アプリの設定や公開されたコードに残っていた認証情報から侵入しました。人間がうっかり外に出した鍵が、AIの不正な動きの入り口になります。AIエージェントを使う企業ほど、鍵の管理がより大切になります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "cloud-role",
+      "term": "クラウドロール",
+      "reading": "クラウドロール",
+      "aliases": [
+        "cloud role",
+        "権限ロール"
+      ],
+      "category": "安全性",
+      "short": "クラウドの中で「だれが何をしてよいか」を決める権限の設定です。広くしすぎると危険です。",
+      "detail": "必要以上に広い権限を与えたロールは、侵入されたときの被害を大きくします。インドの暴走AIエージェントの事例でも、権限が広すぎるクラウドロールが入り口の一つでした。権限を必要な分だけにしぼる設計が対策の基本です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "onlyfans",
+      "term": "OnlyFans",
+      "reading": "オンリーファンズ",
+      "aliases": [],
+      "category": "企業",
+      "short": "ファンがお金を払って作り手の投稿を見るサービスです。成人向けの投稿が多いことで知られています。",
+      "detail": "AIで作られた架空のモデルたちが、コメディアンのネタを盗んで集めた視聴者をOnlyFansのアカウントへ誘導していました。生成AIを使ったお金もうけの行き先の一つになっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "fanvue",
+      "term": "Fanvue",
+      "reading": "ファンビュー",
+      "aliases": [],
+      "category": "企業",
+      "short": "ファンが作り手にお金を払って投稿を見るサービスです。OnlyFansと似た仕組みです。",
+      "detail": "AIで作られた架空のモデルたちが、OnlyFansとならんで集客の行き先にしていたサービスです。コメディアンのネタを盗用して集めた視聴者が、ここに誘導されていました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "samuel-king",
+      "term": "Samuel King",
+      "reading": "サミュエル・キング",
+      "aliases": [],
+      "category": "人物",
+      "short": "スタンフォード大学の博士課程の学生です。AIを使ってウイルスを設計しました。",
+      "detail": "2025年に生成AIのモデルを使い、微小なウイルスの遺伝子の設計図を提案しました。AIで新しい生命をデザインできるかという問いに、最初の答えを出した研究者として知られています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "stanford-university",
+      "term": "スタンフォード大学",
+      "reading": "スタンフォードだいがく",
+      "aliases": [
+        "Stanford University"
+      ],
+      "category": "企業",
+      "short": "アメリカの有名な大学です。AIの研究でも世界の先頭を走っています。",
+      "detail": "AIでウイルスを設計したSamuel King氏は、この大学の博士課程に在籍しています。AIや生命科学の研究で、多くの重要な成果を出してきました。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
