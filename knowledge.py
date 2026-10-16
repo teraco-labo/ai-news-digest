@@ -327,8 +327,8 @@ def build_amber(all_entries: Optional[List[Dict]] = None, verbose: bool = True) 
         "",
         f"最終更新: {today()}",
         "",
-        "藤崎さんがニュースレター（テツメモ・イケハヤ・Fujin など）から集め、",
-        "**実際に試して「Amber に覚えてほしい」と採用した知見**です。",
+        "Amber（藤崎さんのAIパートナー）が、ニュースレター（テツメモ・イケハヤ・Fujin など）から集め、",
+        "**実際に試して効果を確かめ、採用した知見**です。Amber として動くときは必ず守ること。",
         "",
         "## 守ること（✅採用）",
         "",
@@ -342,7 +342,7 @@ def build_amber(all_entries: Optional[List[Dict]] = None, verbose: bool = True) 
             lines += ["", f"<small>出典: {e['source']['name']} {e['source']['published']}・"
                           f"{CONFIDENCE_LABEL.get(e['confidence'], '')}・`{e['id']}`</small>", ""]
     else:
-        lines += ["まだありません。藤崎さんが「これ採用」と言ったものがここに入ります。", ""]
+        lines += ["まだありません。試して効果を確かめたものがここに入ります。", ""]
 
     if trying:
         lines += ["## 試し中（まだルールではない）", ""]
