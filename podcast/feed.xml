@@ -5,8 +5,8 @@
 <channel>
   <title>世界一わかりやすいAIニュース｜てらこ先生</title>
   <itunes:title>世界一わかりやすいAIニュース｜てらこ先生</itunes:title>
-  <description>毎朝6時配信。AIの最新ニュースを、専門用語ぜんぶに解説をつけてお届けします。聴いていて分からなかった言葉は、各回の説明欄にある記事版ですべて確認できます。予備知識がなくても置いていかれません。</description>
-  <itunes:summary>毎朝6時配信。AIの最新ニュースを、専門用語ぜんぶに解説をつけてお届けします。聴いていて分からなかった言葉は、各回の説明欄にある記事版ですべて確認できます。予備知識がなくても置いていかれません。</itunes:summary>
+  <description>毎朝6時配信。AIの最新ニュースを、専門用語ぜんぶに解説をつけてお届けします。聴いていて分からなかった言葉は、各回の説明欄にある記事版ですべて確認できます。予備知識がなくても置いていかれません。毎週土曜に、AIのまとめをメールでお届けしています（無料）→ https://teracosensei.substack.com/embed</description>
+  <itunes:summary>毎朝6時配信。AIの最新ニュースを、専門用語ぜんぶに解説をつけてお届けします。聴いていて分からなかった言葉は、各回の説明欄にある記事版ですべて確認できます。予備知識がなくても置いていかれません。毎週土曜に、AIのまとめをメールでお届けしています（無料）→ https://teracosensei.substack.com/embed</itunes:summary>
   <link>https://teraco-labo.github.io/ai-news-digest</link>
   <language>ja</language>
   <author>fujisaki@teraco-labo.com (てらこ先生)</author>

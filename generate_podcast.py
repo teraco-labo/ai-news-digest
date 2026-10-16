@@ -331,7 +331,8 @@ PODCAST_AUTHOR = "てらこ先生"
 DEFAULT_SHOW_DESCRIPTION = (
     "毎朝6時配信。AIの最新ニュースを、専門用語ぜんぶに解説をつけてお届けします。"
     "聴いていて分からなかった言葉は、各回の説明欄にある記事版ですべて確認できます。"
-    "予備知識がなくても置いていかれません。")
+    "予備知識がなくても置いていかれません。"
+    "毎週土曜に、AIのまとめをメールでお届けしています（無料）→ https://teracosensei.substack.com/embed")
 
 
 def _show_description() -> str:
