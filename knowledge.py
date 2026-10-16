@@ -53,7 +53,8 @@ REPO_DIR = Path(__file__).parent
 KNOWLEDGE_DIR = REPO_DIR / "knowledge"
 STORE_FILE = KNOWLEDGE_DIR / "knowledge.json"
 INDEX_FILE = KNOWLEDGE_DIR / "INDEX.md"
-AMBER_FILE = KNOWLEDGE_DIR / "AMBER.md"   # 運営者のAI（Amber）が取り込む学習ノート
+AMBER_FILE = KNOWLEDGE_DIR / "AMBER.md"
+PERSONA_FILE = KNOWLEDGE_DIR / "persona.md"  # 手で書くプロフィール（名前・表記ルール・コハクちゃん）   # 運営者のAI（Amber）が取り込む学習ノート
 INBOX_DIR = KNOWLEDGE_DIR / "inbox"
 
 JST = timezone(timedelta(hours=9))
@@ -330,9 +331,17 @@ def build_amber(all_entries: Optional[List[Dict]] = None, verbose: bool = True) 
         "Amber（藤崎さんのAIパートナー）が、ニュースレター（テツメモ・イケハヤ・Fujin など）から集め、",
         "**実際に試して効果を確かめ、採用した知見**です。Amber として動くときは必ず守ること。",
         "",
-        "## 守ること（✅採用）",
-        "",
     ]
+    if PERSONA_FILE.exists():
+        # 手で書いたプロフィールを、見出しを1段下げて丸ごと取り込む
+        persona = PERSONA_FILE.read_text(encoding="utf-8")
+        persona = re.sub(r"<!--.*?-->\n?", "", persona, flags=re.S)
+        for line in persona.splitlines():
+            if line.startswith("# "):
+                continue
+            lines.append(("#" + line) if line.startswith("#") else line)
+        lines.append("")
+    lines += ["## 守ること（✅採用）", ""]
     if adopted:
         for e in adopted:
             lines += [f"### {e['title']}", "", e["summary"], ""]
