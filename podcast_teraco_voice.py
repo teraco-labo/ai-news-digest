@@ -224,7 +224,11 @@ def _eleven_tts_plain(text: str, out: Path, voice_id: str, st: dict):
         headers={"xi-api-key": vf._eleven_key(), "Content-Type": "application/json"})
     mp3 = out.with_suffix(".eleven.mp3")
     mp3.write_bytes(urllib.request.urlopen(req, timeout=180).read())
-    subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(mp3), "-ar", "44100", "-ac", "1",
+    af = []
+    if st.get("semitone"):   # 2026-10-17 イロハさんを明るく：速さは変えずに声の高さだけ上げる
+        r = 2 ** (float(st["semitone"]) / 12)
+        af = ["-af", f"asetrate=44100*{r},aresample=44100,atempo={1 / r}"]
+    subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(mp3), *af, "-ar", "44100", "-ac", "1",
                     "-c:a", "pcm_s16le", str(out)], check=True)
     mp3.unlink(missing_ok=True)
 
