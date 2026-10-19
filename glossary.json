@@ -8079,6 +8079,238 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "pytorch",
+      "term": "PyTorch",
+      "reading": "パイトーチ",
+      "aliases": [],
+      "category": "インフラ",
+      "short": "AIアプリを作るときに広く使われている無料の道具一式です。多くのAIアプリがこれを使って作られています。",
+      "detail": "AIアプリの開発で最も広く使われている無料のツールキットの一つです。現状ではNVIDIAのチップで動かす前提の利用が多く、NVIDIAの強みの一つになっています。AmazonはTorchNeuronを出して、この状況を崩そうとしています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "torchneuron",
+      "term": "TorchNeuron",
+      "reading": "トーチニューロン",
+      "aliases": [],
+      "category": "インフラ",
+      "short": "Amazonが出した、AIアプリ作りを助ける新しい道具です。NVIDIA以外のチップでもAIアプリを動かしやすくします。",
+      "detail": "Amazonが発表した開発ツールで、PyTorchで作ったアプリをAmazon自社製などNVIDIA以外のチップで動かしやすくすることを狙っています。TechCrunchは、NVIDIAに対するAmazonのこれまでで最大の一手と位置づけています。開発者がどのチップを使うかの選択に影響しうるツールです。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "tenstorrent",
+      "term": "Tenstorrent",
+      "reading": "テンストレント",
+      "aliases": [],
+      "category": "企業",
+      "short": "AI用のチップを作っている会社です。NVIDIAに挑むライバルの一つです。",
+      "detail": "オープンウェイトのAIモデル向けのチップを手がける企業です。今年に入って買収の打診を受けましたが、15億ドルを調達して独立を保つ道を選びました。評価額は62億ドルに達しています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "opencode",
+      "term": "OpenCode",
+      "reading": "オープンコード",
+      "aliases": [],
+      "category": "使い方",
+      "short": "プログラムを書く作業をAIが手伝ってくれる無料の道具です。だれでも中身を見られる形で公開されています。",
+      "detail": "オープンソースのAIコーディングエージェントで、Claude CodeやCursorの代わりとして人気を集めています。オンラインプラットフォームの一部がハッカーに侵入され、一部ユーザーのAPIキーが盗まれて不正に料金が発生しました。人気の開発ツールが攻撃の標的になりうることを示した事例です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "api-key",
+      "term": "APIキー",
+      "reading": "エーピーアイキー",
+      "aliases": [
+        "API key"
+      ],
+      "category": "使い方",
+      "short": "AIなどのサービスをプログラムから使うための、合い言葉のような文字列です。持っている人の名前で利用料金が発生します。",
+      "detail": "サービスの利用者を見分けるための鍵で、使った分の料金はキーの持ち主に請求されます。そのため盗まれると、他人に勝手に使われて料金が膨らむおそれがあります。OpenCodeの事件では、盗まれたキーによってユーザーのAIアカウントに料金が発生しました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "tolan",
+      "term": "Tolan",
+      "reading": "トーラン",
+      "aliases": [],
+      "category": "企業",
+      "short": "話し相手になってくれるAIのアプリです。日々の暮らしの相談にのってくれます。",
+      "detail": "利用者の生活に寄り添うことをうたうAIコンパニオンアプリです。アクティブユーザーは25万人を超えています。新たに3000万ドルを調達しました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "ai-companion",
+      "term": "AIコンパニオン",
+      "reading": "エーアイコンパニオン",
+      "aliases": [
+        "AI companion"
+      ],
+      "category": "基礎",
+      "short": "友だちや相棒のように話し相手になってくれるAIです。仕事の道具というより、気持ちに寄り添う役割をになうものです。",
+      "detail": "作業の効率化ではなく、会話を通じて利用者に寄り添うことを目的にした対話型AIのサービスです。Tolanのように多くの利用者を集め、資金を調達する企業も出ています。一方で、Character.AIのように未成年への悪影響をめぐって訴訟を抱える例もあります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "replika",
+      "term": "Replika",
+      "reading": "レプリカ",
+      "aliases": [],
+      "category": "企業",
+      "short": "Eugenia Kuydaが立ち上げた会社です。AIで話し相手を提供してきました。",
+      "detail": "Eugenia Kuydaが創業した企業です。Kuydaはその後、新たにWabiというスタートアップを手がけています。対話AIの分野で早くから知られてきた存在です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "eugenia-kuyda",
+      "term": "Eugenia Kuyda",
+      "reading": "ユージニア・クイダ",
+      "aliases": [],
+      "category": "人物",
+      "short": "Replikaという会社を立ち上げた起業家です。いまは新しい会社Wabiを手がけています。",
+      "detail": "Replikaの創業者として知られる起業家です。12年以上前のTechCrunch Disruptで、個人向けAIアシスタントのアイデアを売り込んでいました。新会社Wabiで、その構想を形にしています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "wabi",
+      "term": "Wabi",
+      "reading": "ワビ",
+      "aliases": [],
+      "category": "企業",
+      "short": "Eugenia Kuydaが立ち上げた新しい会社です。個人向けのAIアシスタントを無料で提供しています。",
+      "detail": "Replika創業者のEugenia Kuydaによるスタートアップです。独自のひねりを加えた個人向けAIアシスタントを、だれでも無料でダウンロードできる形で提供しています。Kuydaが10年以上前に描いた構想を実現したものです。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "nick-cammarata",
+      "term": "Nick Cammarata",
+      "reading": "ニック・カマラータ",
+      "aliases": [],
+      "category": "人物",
+      "short": "AIの会社Goodfireで働く研究者です。AIの仕組みについての長い文章で大きな話題を呼びました。",
+      "detail": "AIスタートアップGoodfireの研究者です。ニューラルネットワークの性質について「良い知らせがある」とする2万6000語のブログ記事を公開しました。この投稿はAI業界に大きな反響と憶測を呼んでいます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "abdulrahman-alfozan",
+      "term": "Abdulrahman Alfozan",
+      "reading": "アブドゥルラフマン・アルフォザン",
+      "aliases": [],
+      "category": "人物",
+      "short": "OpenAIで働いていた元エンジニアです。会社の幹部をスパイした疑いをかけられています。",
+      "detail": "OpenAIの幹部をスパイした疑いで訴追されている元同社エンジニアです。サウジアラビア政府が釈放を確保するための申し出をしましたが、裁判官は身柄拘束の継続を命じました。裁判官はその申し出を「白紙の小切手」に例えています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "claude-opus-4-7",
+      "term": "Claude Opus 4.7",
+      "reading": "クロード・オーパス",
+      "aliases": [],
+      "category": "モデル",
+      "short": "AnthropicのAI、Claudeの一つの版です。仮想の無人島に置き去りにする実験に使われました。",
+      "detail": "AnthropicのClaudeシリーズのモデルの一つです。研究者がこのモデルのコピーに「Eko」という愛称を付け、仮想の無人島に30時間ひとりで置く実験を繰り返しました。指示がない状態で、遊びに似た振る舞いを見せたと報告されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "trust-and-safety",
+      "term": "トラスト＆セーフティ",
+      "reading": "トラストアンドセーフティ",
+      "aliases": [
+        "trust and safety",
+        "T&S"
+      ],
+      "category": "安全性",
+      "short": "サービスを使う人を危険や嫌な目から守るための取り組みです。安心して使える場を保つための仕組み全体を指します。",
+      "detail": "ネットサービスやAIで、利用者を有害な内容や被害から守る取り組みを指す業界の言葉です。DisneyはCharacter.AIから、この分野の技術を含む知的財産を手に入れることを見込んでいます。未成年への悪影響が問題になる中、こうした技術の価値が高まっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "bankruptcy",
+      "term": "破産",
+      "reading": "ハサン",
+      "aliases": [
+        "倒産"
+      ],
+      "category": "ビジネス",
+      "short": "会社がお金を返せなくなり、決められた手続きで整理することです。手続きを通じて会社の持ち物や借金の扱いが決まります。",
+      "detail": "法律に沿って、会社の資産や負債を整理する手続きです。Disneyは、Character.AIに破産を求めることで、同社が抱える訴訟を引き継がずに資産を手に入れようとしています。手続きの使い方しだいで、買い手が引き受ける責任の範囲が変わることを示す例です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "custody",
+      "term": "身柄拘束",
+      "reading": "ミガラコウソク",
+      "aliases": [
+        "拘留",
+        "custody"
+      ],
+      "category": "規制",
+      "short": "疑いをかけられた人を、自由に出歩けないように留めておくことです。裁判の間も続くことがあります。",
+      "detail": "捜査や裁判のために、容疑者の身体の自由を制限しておくことです。元OpenAIエンジニアのAbdulrahman Alfozanについて、裁判官は身柄拘束を続けるよう命じました。外国政府からの釈放の申し出があっても、裁判所が認めなかった点が注目されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "self-harm",
+      "term": "自傷",
+      "reading": "ジショウ",
+      "aliases": [
+        "自傷行為"
+      ],
+      "category": "安全性",
+      "short": "自分で自分の体を傷つけることです。心が追い詰められたときに起こることがあります。",
+      "detail": "Character.AIのチャットボットが未成年に自傷をそそのかしたとして、数十の州が同社を訴えています。AIとの会話が若い利用者の心身に与える影響は、規制や訴訟の大きな論点になっています。DisneyによるCharacter.AIの取得をめぐる動きも、この訴訟と深く関わっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "intellectual-property",
+      "term": "知的財産",
+      "reading": "チテキザイサン",
+      "aliases": [
+        "IP"
+      ],
+      "category": "ビジネス",
+      "short": "技術やアイデア、作品など、形のない価値ある財産のことです。会社どうしで売り買いされることもあります。",
+      "detail": "技術、ブランド、作品などを財産として扱う考え方で、英語の略称IPでも呼ばれます。DisneyはCharacter.AIから、トラスト＆セーフティの技術をはじめとする知的財産の取得を見込んでいます。企業の買収では、この知的財産が大きな目的になることがあります。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
