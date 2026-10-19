@@ -116,6 +116,10 @@ def _normalize(entry: Dict) -> Dict:
     source = entry.get("source") or {}
     if isinstance(source, str):
         source = {"name": source}
+    # source_title / ref / published を平らに書いた JSON も受け取る（入れ子にし忘れると ref が消え、同じメールを読み直すため）
+    for flat, key in (("source_type", "type"), ("source_title", "title"), ("ref", "ref"), ("published", "published")):
+        if entry.get(flat) and not source.get(key):
+            source = {**source, key: entry[flat]}
     return {
         "id": entry.get("id") or _make_id(str(entry.get("title", "")), date),
         "date": date,
