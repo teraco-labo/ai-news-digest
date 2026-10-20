@@ -8311,6 +8311,238 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "orchestra-bio",
+      "term": "Orchestra Bio",
+      "reading": "オーケストラ・バイオ",
+      "aliases": [],
+      "category": "企業",
+      "short": "生命科学の分野で活動していたスタートアップです。OpenAIに買収されました。",
+      "detail": "OpenAIは、Orchestra Bioのチームと技術を、生命科学研究向けのAIモデルRosalindと、関連ツールのRosalind Workbenchの開発に加えるとしています。製品だけでなく人材ごと取り込む買収で、OpenAIがバイオ分野の事業を強めようとしていることがうかがえます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "rosalind",
+      "term": "Rosalind",
+      "reading": "ロザリンド",
+      "aliases": [],
+      "category": "モデル",
+      "short": "OpenAIが作った、生命科学の研究向けのAIです。研究者の仕事を手伝うことを目指しています。",
+      "detail": "OpenAIはOrchestra Bioを買収し、そのチームと技術をRosalindの開発に加えると発表しました。汎用のチャットAIとは別に、専門分野に特化したモデルとして育てられています。関連ツールのRosalind Workbenchとあわせて、研究の現場で実際に使われることを狙っています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "rosalind-workbench",
+      "term": "Rosalind Workbench",
+      "reading": "ロザリンド・ワークベンチ",
+      "aliases": [],
+      "category": "使い方",
+      "short": "OpenAIが作った、研究者向けの道具です。実験の計画を立てたり、結果を分析したりするのを手伝います。",
+      "detail": "生命科学向けのAIモデルRosalindを、研究の現場で使いやすくするためのハーネスとして作られています。OpenAIはOrchestra Bioの買収で得たチームと技術を、このツールの開発にも投入するとしています。モデル単体ではなく、研究の作業の流れに組み込む道具まで用意している点が特徴です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "harness",
+      "term": "ハーネス",
+      "reading": "ハーネス",
+      "aliases": [
+        "harness"
+      ],
+      "category": "基礎",
+      "short": "AIを実際の仕事で使えるようにするための、まわりの仕組みのことです。AIそのものではなく、AIに道具や手順を持たせる「装備」にあたります。",
+      "detail": "同じAIモデルでも、どんなハーネスに組み込むかで、できる作業の幅や使いやすさが大きく変わります。たとえばRosalind Workbenchは、研究者が実験を計画し結果を分析するのを支えるハーネスと説明されています。最近は、モデルの性能だけでなく、ハーネスの出来が製品の差になりつつあります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "eka-robotics",
+      "term": "Eka Robotics",
+      "reading": "エカ・ロボティクス",
+      "aliases": [
+        "Eka"
+      ],
+      "category": "企業",
+      "short": "ロボットアームを動かすAIを作っている会社です。人間のように滑らかに物をつかむ技術が注目されています。",
+      "detail": "フィジカルAIのモデルが専門家から高く評価され、評価額は14.5億ドルに達しました。同社のアームは、さまざまな種類の物を上手につかめる点が特徴とされています。ロボットが現場で役に立つかどうかを左右する「つかむ」動作で、成果を示した企業です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "astrolab",
+      "term": "Astrolab",
+      "reading": "アストロラボ",
+      "aliases": [],
+      "category": "企業",
+      "short": "月の表面を走る探査車を作っている会社です。月の上で初めてAIを動かそうとしています。",
+      "detail": "同社の月面探査車FLIPには、AIソフトを動かせるコンピューターが積み込まれる予定です。早ければ2026年11月に月へ向けて出発し、月面で初めて大規模言語モデルが動く見込みです。FLIPは、同社が計画している探査車シリーズの1台目にあたります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "flip-rover",
+      "term": "FLIP",
+      "reading": "フリップ",
+      "aliases": [
+        "FLEX Lunar Innovation Platform",
+        "FLIPローバー"
+      ],
+      "category": "インフラ",
+      "short": "Astrolabが作った、月の表面を走る探査車です。重さは480kgあります。",
+      "detail": "正式名は「FLEX Lunar Innovation Platform」です。AIソフトを動かせるコンピューターを積んでおり、早ければ2026年11月に月へ向かいます。実現すれば、月面で大規模言語モデルが動く初めての例になります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "personal-intelligence",
+      "term": "Personal Intelligence",
+      "reading": "パーソナル・インテリジェンス",
+      "aliases": [],
+      "category": "使い方",
+      "short": "GoogleのAI「Gemini」の機能のひとつです。使う人に合わせて働くことを目指しています。",
+      "detail": "この機能が自動車でも使えるようになると報じられました。Ars Technicaは、これを機にGeminiの設定を見直したほうがよいと呼びかけています。個人に合わせて働く機能を使うときは、AIにどの情報を使わせるかを自分で確認しておくことが大切です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "robots-txt",
+      "term": "robots.txt",
+      "reading": "ロボッツ・テキスト",
+      "aliases": [],
+      "category": "基礎",
+      "short": "ウェブサイトに置く小さな設定ファイルです。自動で情報を集めに来るプログラムに「ここは見ないで」と伝えるために使います。",
+      "detail": "サイトの運営者は、このファイルでクローラーにどのページの収集を許すかを示します。ただし守るかどうかは集める側にまかされていて、無理やり守らせる仕組みはありません。Metaは利用規約を変えたものの、robots.txtを尊重するという文言は加えておらず、そこが問題視されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "torrent",
+      "term": "トレント",
+      "reading": "トレント",
+      "aliases": [
+        "torrent",
+        "BitTorrent"
+      ],
+      "category": "基礎",
+      "short": "たくさんのパソコンどうしで、ファイルを少しずつ分け合ってダウンロードする仕組みです。仕組み自体は合法ですが、海賊版の配布にもよく使われます。",
+      "detail": "Metaは、AIの学習に使う書籍をトレントで入手したとされる問題で責任を問われています。Metaは「誰も海賊版を使うと決めたわけではない」と主張しており、実際にダウンロードした社員に責任を負わせようとしていると報じられています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "pirated-copy",
+      "term": "海賊版",
+      "reading": "かいぞくばん",
+      "aliases": [
+        "piracy"
+      ],
+      "category": "規制",
+      "short": "権利を持つ人の許可を得ずに、勝手にコピーされた本や映像のことです。作り手にはお金が入りません。",
+      "detail": "AIの学習データに海賊版の書籍が使われたのではないかという問題は、AIと著作権をめぐる争いの大きな争点です。Metaは、海賊版を使うことを組織として決めたわけではないと主張しています。学習データの入手経緯は、AI企業の法的責任を左右するポイントになっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "national-security",
+      "term": "国家安全保障",
+      "reading": "こっかあんぜんほしょう",
+      "aliases": [
+        "安全保障",
+        "national security"
+      ],
+      "category": "規制",
+      "short": "国やそこに住む人を、外からの脅威から守ることです。軍事だけでなく、情報やデータの守りも含みます。",
+      "detail": "米国は国家安全保障上の懸念を理由に、連邦機関のシステムからDeepSeekの製品を取り除くよう命じました。AIやデータの分野でも、この理由で特定の国の製品が規制される例が増えています。政府と取引する企業にとっては、使っている技術の出どころが問われる時代になっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "federal-agencies",
+      "term": "連邦政府機関",
+      "reading": "れんぽうせいふきかん",
+      "aliases": [
+        "連邦機関",
+        "federal agencies"
+      ],
+      "category": "規制",
+      "short": "アメリカの国全体の政治を担う役所のことです。州ごとの役所とは別のものです。",
+      "detail": "今回、米国は連邦の民間機関に対してDeepSeek製品の排除を命じました。「民間」は軍ではない機関を指し、省庁などがこれにあたります。政府のシステムで使う技術の決まりは、取引する企業の製品選びにも影響します。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "third-party",
+      "term": "サードパーティー",
+      "reading": "サードパーティー",
+      "aliases": [
+        "第三者",
+        "third party"
+      ],
+      "category": "ビジネス",
+      "short": "製品を作った会社でも利用者でもない、外部の会社のことです。他社の技術を使って独自のサービスを作る会社などを指します。",
+      "detail": "米国のDeepSeek排除の命令は、DeepSeek自身の製品だけでなく、その技術を使って作られたサードパーティーのサービスも対象にしました。AIでは、他社のモデルを土台に自社サービスを作るのが一般的です。そのため、土台となるモデルへの規制は、それを使う多くの会社にまで広く影響します。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "conglomerate",
+      "term": "コングロマリット",
+      "reading": "コングロマリット",
+      "aliases": [
+        "複合企業",
+        "conglomerate"
+      ],
+      "category": "ビジネス",
+      "short": "関係の薄いいくつもの事業を、ひとつのグループで手がける大企業のことです。",
+      "detail": "記事では、ロケット、データセンター、AIなどを抱えるイーロン・マスク氏のSpaceXをこう呼んでいます。いまのSpaceXは収入の52%をAIが占めており、宇宙企業から姿を変えつつあります。事業が多い会社では、どの事業が稼いでいるかで会社の性格が変わって見えます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "retention",
+      "term": "リテンション",
+      "reading": "リテンション",
+      "aliases": [
+        "定着率",
+        "継続率",
+        "retention"
+      ],
+      "category": "ビジネス",
+      "short": "アプリやサービスを、一度使った人がその後も使い続けている割合のことです。",
+      "detail": "ダウンロード数は話題になれば一気に伸びますが、リテンションが低いとすぐに使われなくなります。MetaのMuseは、ダウンロード数の伸びに加えて、リテンションが競合のAIアプリより高いことも示されました。アプリが本当に定着しているかを見るうえで、とても重要な数字です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "threads",
+      "term": "Threads",
+      "reading": "スレッズ",
+      "aliases": [],
+      "category": "メディア",
+      "short": "Metaが運営している、短い文章を投稿するSNSです。",
+      "detail": "記事では、MetaのMuseが公開から40日で米国1000万ダウンロードを超えた、ごく少数のアプリのひとつとして名前が挙がっています。この記録を持つアプリはMuseのほかに11本しかなく、Threadsもその中に入っています。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
