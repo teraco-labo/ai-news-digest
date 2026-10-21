@@ -52,10 +52,13 @@
 
 **絵の作業（設定シート・表情やポーズの追加・目のバリエーションなど）は Teraco Manga のセクションでやる。** このリポジトリのセクションでは描かず、決まったことの記録だけをする（藤崎さん、2026-10-16）。
 
-- Google ドライブ「1.TERACO」の中
-  - `てらこ先生_キャラクター一式_20261006`（藤崎さんが作ったもの。見本）
-  - `コハクちゃん_キャラクター一式_20261016`：設定メモ（Google ドキュメント）、`2_正本の絵/コハクちゃん_正面.svg`。設定シートの画像（PNG）は藤崎さんが入れる
-  - `イロハさん_キャラクター一式_20261016`：設定メモと設定画の作り方（画像生成の指示文）、`2_正本の絵/イロハさん_正本_上半身.png`
+- Google ドライブ「1.TERACO」の中（**AIに渡すときは名前で探させず、下のIDで渡す**。同じ名前の写しがあり、名前だと取り違えるため。2026-10-22 確認）
+  - `てらこ先生_キャラクター一式_20261006`（藤崎さんが作った見本）：フォルダ `1hK9wnwSi9D-FIjice5hVgJ-o1BjBXuSF`／設定シート `1Tuox-bdPjS7Nqr4f4mLWq07niTSx14Kj`
+  - `コハクちゃん_キャラクター一式_20261016`（本物）：フォルダ `1UHMjwXxhcXg2NlCHE9_QjIxdvUgWMHwI`
+    - `1_キャラクター設定シート`（PNG 4枚）`1HEsl33dviuOgcmRgyUV3kU1knbSL7pzJ`／`2_正本の絵`（SVG と透明 PNG）`1Vlx0WjPs0MmkyBUhDXgF788nFqqWtZ7D`／`3_目の候補_20261016` `1gsKlNKJntGpptAiMIXRrZZonxIyCoKm0`／`元データ` `11Qy13g58jYH2GTKTew2IlyT637rYcVJx`
+  - `イロハさん_キャラクター一式_20261016`（本物）：フォルダ `1JcczubBPo1I2Q3o4qlKzdsGRPRowc6MR`
+    - `1_キャラクター設定シート`（プロフィール・全方向・表情・ポーズの PNG）`1v8eknK7gqGnYZk4sN61VHIK3bSib75Jc`／`2_正本の絵` `13gEcHaKmj-ilsho_liTkHvJHEEgsct5O`
+  - 名前の最後に「 2」が付いた `コハクちゃん_キャラクター一式_20261016 2`（`18S9NfOHZbx3xA9_lYsiNgmH8M2xGJXqk`）と `イロハさん_キャラクター一式_20261016 2`（`1WtiPKAGcxqY79HpGe6gc0G4v4uvXP8tZ`）は、10/16 昼に Amber が最初に作った古い版（SVG と Google ドキュメント）。使わない。片付けるかどうかは藤崎さんが決める
 - 高画質の画像と元データ：Claude のページ「TERACO キャラクター設定」（藤崎さんだけが見られる）https://claude.ai/artifact/QfAmq9mzWuTroySPnbHJVK
   - `src/kohaku_hq.js` がコハクちゃん本体の描画。向き・表情・ポーズは引数で変える。直すときはここを直して、全シートを描き直す
 - コハクちゃんは画像生成ではなく SVG で描く（形と色が全シートでずれないため）。
