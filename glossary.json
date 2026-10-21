@@ -8543,6 +8543,174 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "recursive",
+      "term": "Recursive",
+      "reading": "リカーシブ",
+      "aliases": [],
+      "category": "企業",
+      "short": "AIを使ってAIを作ることに力を入れているスタートアップです。ノートPCで動くコーディング用のAIを無料で公開しました。",
+      "detail": "AIが自分で自分を改良する「再帰的自己改善」に全面的に賭けている会社です。最新のモデルFlintは、大部分を自社のAI研究システムが作ったと説明しています。同社は、AIでAIを作る利点はリスクを上回るという立場をとっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "flint",
+      "term": "Flint",
+      "reading": "フリント",
+      "aliases": [],
+      "category": "モデル",
+      "short": "Recursiveが無料で公開した、プログラムを書くためのAIです。ノートPCでも動く大きさに作られています。",
+      "detail": "大部分がRecursive自身のAI研究システムによって作られたとされるモデルです。同社はこれを、自分で自分を改良するAIの初期の実験と位置づけています。手元のPCで動かせるため、ネット上のサービスを使わずにコーディングの手伝いをさせられます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "recursive-self-improvement",
+      "term": "再帰的自己改善",
+      "reading": "さいきてきじこかいぜん",
+      "aliases": [
+        "Recursive Self-Improvement"
+      ],
+      "category": "安全性",
+      "short": "AIが自分より良いAIを作り、そのAIがまた次のAIを作る、という流れのことです。これが繰り返されると、性能が一気に伸びる可能性があります。",
+      "detail": "AIの開発スピードを大きく上げる可能性がある一方で、人間が管理しきれなくなるリスクも指摘されています。これまでは主に理論上の話でしたが、Recursiveのように実際の製品開発に取り入れる会社が出てきました。メリットとリスクのどちらが大きいかで、意見が分かれているテーマです。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "php",
+      "term": "PHP",
+      "reading": "ピーエイチピー",
+      "aliases": [],
+      "category": "基礎",
+      "short": "Webサイトを作るのに広く使われているプログラミング言語です。世界中のたくさんのサイトがこれで動いています。",
+      "detail": "とても多くのサイトで使われているため、PHPに欠陥が見つかると影響を受けるサイトは数百万規模になります。今回は重大な脆弱性が2件見つかり、緊急パッチが出されることになりました。サイトの運営者は、すぐに更新することが求められています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "php2shell",
+      "term": "PHP2Shell",
+      "reading": "ピーエイチピートゥーシェル",
+      "aliases": [],
+      "category": "安全性",
+      "short": "PHPで作られたサイトを外から乗っ取れてしまう、とされる攻撃手法の名前です。AIが見つけたと報じられています。",
+      "detail": "未確認の報道では、PHPで動くサイト上で、外部から好きなプログラムを動かせる（リモートコード実行）とされています。Hacker Newsでは「AIが発見した重大な欠陥」として大きな話題になりました。AIが脆弱性を見つける力が現実の脅威にも防御にもなることを示す例です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "rce",
+      "term": "RCE（リモートコード実行）",
+      "reading": "アールシーイー",
+      "aliases": [
+        "リモートコード実行",
+        "Remote Code Execution"
+      ],
+      "category": "安全性",
+      "short": "ネットを通じて、他人のコンピュータで勝手にプログラムを動かせてしまう欠陥のことです。最も危険な種類の欠陥のひとつです。",
+      "detail": "攻撃者がサーバーを思いどおりに操れるようになるため、情報が盗まれたり、サイトが改ざんされたりする恐れがあります。脆弱性の中でも深刻度がとりわけ高いものとして扱われます。見つかったら、できるだけ早くパッチを当てることが基本です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "php-foundation",
+      "term": "PHP Foundation",
+      "reading": "ピーエイチピー・ファウンデーション",
+      "aliases": [],
+      "category": "企業",
+      "short": "プログラミング言語PHPの開発や手入れを支えている団体です。今回、重大な欠陥を公表しました。",
+      "detail": "PHPの安全性に関わる情報を発表し、修正版を出す役割を担っています。今回は2件の深刻な脆弱性を明らかにし、すぐに緊急パッチを出すと予告しました。PHPを使っているサイトの運営者は、この団体の発表を確認する必要があります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "dsx-pod",
+      "term": "DSX Pod",
+      "reading": "ディーエスエックス・ポッド",
+      "aliases": [
+        "プラグイン型データセンター"
+      ],
+      "category": "インフラ",
+      "short": "NVIDIAが発表した、差し込むように設置できるデータセンターです。AIを動かすための設備をまとめて導入できます。",
+      "detail": "ベルリンで開かれたGTCで、Jensen Huang CEOが発表しました。Huang氏は、AIインフラで遅れている欧州が追いつくための鍵としてこの製品を位置づけています。データセンターを一から建てるより導入しやすい形を狙ったものです。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "gtc",
+      "term": "GTC",
+      "reading": "ジーティーシー",
+      "aliases": [],
+      "category": "ビジネス",
+      "short": "NVIDIAが開いている大きな発表イベントです。新しい製品や技術がここでお披露目されます。",
+      "detail": "今回はベルリンで開かれ、Jensen Huang CEOがプラグイン型データセンター「DSX Pod」を発表しました。AIのハードウェアの方向性が示される場なので、業界全体が注目しています。開催地によって、その地域向けの戦略が語られることもあります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "openevidence",
+      "term": "OpenEvidence",
+      "reading": "オープンエビデンス",
+      "aliases": [],
+      "category": "企業",
+      "short": "医師が仕事で使うAIのサービスです。広告収入で成り立っています。",
+      "detail": "評価額は150億ドルに達し、すでに多くの医師が使っているとされます。一方で、回答の正確さや、医療情報に広告が入ることへの疑問も出ています。医療AIをどんな仕組みで稼がせるかを考えるうえで、注目される例です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "google-cloud",
+      "term": "Google Cloud",
+      "reading": "グーグル・クラウド",
+      "aliases": [],
+      "category": "インフラ",
+      "short": "Googleが企業向けに貸し出している、ネット上のコンピュータの設備やサービスです。AIのモデルもここから使えます。",
+      "detail": "今回、競合であるOpenAIのモデルもGoogle Cloudで使えるようになることが明らかになりました。利用企業にとっては、選べるモデルが増えることになります。クラウド事業者とAI企業は、協力しながら競争もするという複雑な関係にあります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "brain-implant",
+      "term": "脳インプラント",
+      "reading": "のうインプラント",
+      "aliases": [
+        "ブレインインプラント"
+      ],
+      "category": "基礎",
+      "short": "脳に取り付けて、脳の信号を読み取ったりする小さな装置です。医療への応用が研究されています。",
+      "detail": "OpenAIは、脳インプラントでがんを見つけることを目指すスタートアップに出資しました。AI企業が脳のデータに関わる事業に投資する動きは増えています。脳のデータはとても扱いに注意が必要な情報なので、プライバシーの議論も欠かせません。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "agentic-ai",
+      "term": "エージェント型AI",
+      "reading": "エージェントがたエーアイ",
+      "aliases": [
+        "agentic AI",
+        "エージェンティックAI"
+      ],
+      "category": "基礎",
+      "short": "指示を受けたAIが、自分で手順を考えて作業を進めていく使い方のことです。人がひとつずつ操作しなくても仕事が進みます。",
+      "detail": "便利な一方で、ハッカーがエージェント型AIを攻撃に使う例が世界中で増えていると報じられています。買い物や攻撃など、実際の行動まで任せられる点が従来のチャットAIとの違いです。そのため、AIに何をどこまで任せるかの管理が重要になります。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
