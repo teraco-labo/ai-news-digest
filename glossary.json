@@ -8711,6 +8711,264 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "1password",
+      "term": "1Password",
+      "reading": "ワンパスワード",
+      "aliases": [],
+      "category": "企業",
+      "short": "たくさんのパスワードをまとめて安全に保管してくれるサービスです。一つの合言葉を覚えるだけで、いろいろなサイトに入れるようになります。",
+      "detail": "パスワード管理サービスの代表的な一つです。今回、AIエージェントが本人に代わってログインする際に、エージェントにパスワードそのものを見せない仕組みを発表しました。AIに作業を任せる時代に、ログイン情報をどう安全に渡すかという課題への一つの答えになります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "canva",
+      "term": "Canva",
+      "reading": "キャンバ",
+      "aliases": [],
+      "category": "企業",
+      "short": "チラシやSNS用の画像などを、専門知識がなくても簡単に作れるデザインサービスです。ブラウザやスマホから使えます。",
+      "detail": "今回、初めて自社開発の画像生成モデルを公開し、全ユーザーに提供しました。性能・カスタマイズ性・コストの面で優位をうたっています。デザインツールが外部のAIに頼らず自前のモデルを持つ流れの一例です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "mustafa-suleyman",
+      "term": "Mustafa Suleyman",
+      "reading": "ムスタファ・スレイマン",
+      "aliases": [
+        "スレイマン"
+      ],
+      "category": "人物",
+      "short": "MicrosoftでAI部門を率いている人物です。医療で活躍するAIづくりに力を入れています。",
+      "detail": "今回、同社のAI診断システムが難しい症例で一般医を上回ったと発表し、「医療スーパーインテリジェンス」を目指すと語りました。ただし性能向上の多くは土台となるAIモデルの進歩によるものとみられています。発言の大きさと、実際に何が改善したのかを分けて読むことが大切です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "medical-superintelligence",
+      "term": "医療スーパーインテリジェンス",
+      "reading": "いりょうスーパーインテリジェンス",
+      "aliases": [
+        "medical superintelligence"
+      ],
+      "category": "基礎",
+      "short": "病気の診断などで、人間の医師をはるかに超える力を持つAIを目指す考え方です。Microsoftがこの言葉を掲げています。",
+      "detail": "MicrosoftのMustafa Suleyman氏が目標として掲げている言葉です。今回の研究では難症例で一般医を上回る結果が出ましたが、まだ研究段階の成果です。宣伝的な言葉として使われる面もあるため、具体的な検証結果と合わせて読む必要があります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "science-journal",
+      "term": "Science",
+      "reading": "サイエンス",
+      "aliases": [
+        "サイエンス誌"
+      ],
+      "category": "メディア",
+      "short": "世界でもっとも権威のある科学雑誌の一つです。ここに載る研究は、専門家の厳しいチェックを通っています。",
+      "detail": "Microsoftの診断AIが医師を上回ったという研究はこの雑誌に掲載されました。掲載されることで研究の信頼性は高まりますが、結果の解釈は別に考える必要があります。今回も、改善の多くは基盤モデルによるものと指摘されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "connectwise",
+      "term": "ConnectWise",
+      "reading": "コネクトワイズ",
+      "aliases": [],
+      "category": "企業",
+      "short": "企業のパソコンやシステムを管理するためのソフトを提供しているIT企業です。多くの会社がその仕組みを使っています。",
+      "detail": "今回、中国寄りのハッカー集団に侵入され、その顧客である数千社がスパイ被害を受けました。一社が破られると、その製品を使う多数の企業に被害が広がるのがこの種の攻撃の怖さです。攻撃にはAIエージェントが使われたとMicrosoftは指摘しています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "supply-chain-attack",
+      "term": "サプライチェーン攻撃",
+      "reading": "サプライチェーンこうげき",
+      "aliases": [],
+      "category": "安全性",
+      "short": "狙った相手を直接攻めずに、その相手が使っている会社や製品を先に乗っ取る攻撃です。そこを足がかりに多くの相手へ被害が広がります。",
+      "detail": "今回のConnectWiseへの侵入は、この形で数千社に被害が及んだ例です。取引先やIT事業者の安全性が、自社の安全性に直結することを示しています。AIエージェントの利用で、こうした攻撃が速く広く行われる懸念が強まっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "uber",
+      "term": "Uber",
+      "reading": "ウーバー",
+      "aliases": [],
+      "category": "企業",
+      "short": "スマホで車を呼べる配車サービスの大手企業です。料理の宅配サービスも手がけています。",
+      "detail": "今回、全社員約3万人にOpenAIの企業向けエージェント「ChatGPT Work」を導入しました。小規模な試験導入から全社展開に広げた形です。大企業でのAIエージェント活用が本格化している例として注目されます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "chatgpt-work",
+      "term": "ChatGPT Work",
+      "reading": "チャットジーピーティー・ワーク",
+      "aliases": [],
+      "category": "使い方",
+      "short": "OpenAIが会社向けに提供している、仕事を手伝うAIのサービスです。社員が業務の中で使うことを想定しています。",
+      "detail": "企業向けのAIエージェント製品として位置づけられています。Uberは試験導入を経て、全社員約3万人に広げました。大規模導入の事例が増えると、ほかの企業の判断材料にもなります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "spotify",
+      "term": "Spotify",
+      "reading": "スポティファイ",
+      "aliases": [],
+      "category": "企業",
+      "short": "スマホやパソコンで音楽やポッドキャストを聞き放題にできるサービスです。世界中で使われています。",
+      "detail": "同社はAIエージェントが音楽を選ぶ時代に、エージェントから選ばれるサービスになることを目指しています。利用者が直接アプリを開かずにAI経由で再生する流れを好機と捉えています。人ではなくAIに選ばれる競争という新しい視点を示しています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "gustav-soderstrom",
+      "term": "Gustav Söderström",
+      "reading": "グスタフ・セーデルストレム",
+      "aliases": [],
+      "category": "人物",
+      "short": "Spotifyの共同CEO（会社のトップを2人で務める立場の一人）です。同社のAI戦略を語っています。",
+      "detail": "AIエージェントの普及がSpotifyにとって追い風になりうると説明しました。エージェントがどの音楽サービスを選ぶかが重要になるという見方です。サービスの集客の仕方が変わる可能性を示す発言です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "co-ceo",
+      "term": "共同CEO",
+      "reading": "きょうどうシーイーオー",
+      "aliases": [
+        "co-CEO"
+      ],
+      "category": "ビジネス",
+      "short": "会社の最高責任者を2人以上で分担している体制、またはその一人のことです。それぞれ得意な分野を受け持つことが多いです。",
+      "detail": "Spotifyでは共同CEOの一人がGustav Söderström氏です。一人のトップに権限を集中させず、役割を分けて経営する形です。発言者がどの立場の人かを知ると、ニュースの重みを判断しやすくなります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "claude-duet",
+      "term": "Claude Duet",
+      "reading": "クロード・デュエット",
+      "aliases": [],
+      "category": "使い方",
+      "short": "Anthropicが出した、AIに作業を任せることに重点を置いたアプリです。今は順番待ちの登録をした人から使えます。",
+      "detail": "AnthropicのAIエージェント分野への本格的な取り組みと位置づけられています。対象はProプランとMaxプランの利用者で、ウェイトリスト経由で提供されています。他社のエージェント製品との競争の中で登場しました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "waitlist",
+      "term": "ウェイトリスト",
+      "reading": "",
+      "aliases": [
+        "順番待ちリスト",
+        "waitlist"
+      ],
+      "category": "ビジネス",
+      "short": "新しいサービスを使いたい人に登録してもらい、順番に利用を始めてもらう仕組みです。いきなり全員に公開しないときに使われます。",
+      "detail": "新製品で利用者が殺到するのを防いだり、少しずつ不具合を直したりする目的で使われます。Claude Duetもこの形で提供されています。登録しても、すぐに使えるとは限らない点に注意が必要です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "decision-model",
+      "term": "意思決定モデル",
+      "reading": "いしけっていモデル",
+      "aliases": [
+        "decision model"
+      ],
+      "category": "モデル",
+      "short": "物事を決めるときの判断を手助けすることに向けたAIのことです。いくつかの企業が競って作っています。",
+      "detail": "先行するJevに対し、OpenAIも自社の意思決定モデルを一般提供しました。記事ではこの分野の競争が激しくなっていると伝えています。後発の大手が参入することで、市場の構図が変わる可能性があります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "nirva",
+      "term": "Nirva",
+      "reading": "ニルヴァ",
+      "aliases": [],
+      "category": "企業",
+      "short": "首から下げるペンダント型のAI機器を作っているスタートアップです。身に着けた本人の声だけを聞き取るのが特徴です。",
+      "detail": "3300万ドルを調達し、価格249ドルの製品を年内に出荷する予定です。周りの人の会話まで拾う機器へのプライバシーの心配に配慮した設計です。身に着けるAI機器の市場での差別化の一例です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "pendant-device",
+      "term": "ペンダント型デバイス",
+      "reading": "ペンダントがたデバイス",
+      "aliases": [],
+      "category": "基礎",
+      "short": "ネックレスのように首から下げて使う小さな電子機器です。AIと組み合わせて、会話を聞き取る製品などがあります。",
+      "detail": "スマホを取り出さずに使えるのが利点で、AI機器の新しい形として各社が開発しています。一方で、常に音を拾うことによるプライバシーの問題が指摘されています。Nirvaは本人の声だけを聞くことでこの課題に対応しようとしています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "openshell",
+      "term": "OpenShell",
+      "reading": "オープンシェル",
+      "aliases": [],
+      "category": "インフラ",
+      "short": "たくさんのAIエージェントを、安全に動かすための土台となる仕組みです。Hacker Newsで注目を集めました。",
+      "detail": "自律的に動くAIエージェントの群れを、安全かつプライベートに実行することをうたっています。エージェントが自分で操作を行うほど、その動ける範囲を区切って管理する必要が高まります。開発者コミュニティで153ポイントを集めました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "runtime",
+      "term": "実行環境（ランタイム）",
+      "reading": "ランタイム",
+      "aliases": [
+        "runtime",
+        "ランタイム"
+      ],
+      "category": "インフラ",
+      "short": "プログラムを実際に動かすための土台となる仕組みです。どこで、どんな条件で動くかを決めます。",
+      "detail": "OpenShellはAIエージェント向けの実行環境として公開されました。エージェントを安全な実行環境の中で動かすことで、想定外の操作による被害を抑えられます。エージェントの実用化が進むほど重要になる部分です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "diagnostic-ai",
+      "term": "診断AI",
+      "reading": "しんだんエーアイ",
+      "aliases": [
+        "AI診断システム"
+      ],
+      "category": "基礎",
+      "short": "患者の症状や検査結果をもとに、病気が何かを推測するAIです。医師の判断を助けることを目指しています。",
+      "detail": "Microsoftの診断AIは、難しい症例で一般医を上回る結果を出したと報告されました。ただし性能向上の多くは土台のAIモデルによるものとみられています。医療現場で使うには、精度だけでなく責任の所在や検証方法も問われます。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
