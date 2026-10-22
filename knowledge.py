@@ -436,6 +436,54 @@ def report(days: int = 7) -> str:
     return "\n".join(out) + "\n"
 
 
+def table_report(days: int = 7) -> str:
+    """「取り入れたこと・やらなかったこと」の一覧表（Markdown）。藤崎さんへの定期報告用。"""
+    threshold = (datetime.now(JST) - timedelta(days=days)).strftime("%Y-%m-%d")
+    all_entries = [e for e in map(_normalize, entries()) if SKIP_TAG not in e["tags"]]
+
+    def cell(text: str, limit: int = 70) -> str:
+        text = " ".join(str(text).split()).replace("|", "／")
+        return text if len(text) <= limit else text[:limit - 1] + "…"
+
+    def who(entry: Dict) -> str:
+        src = entry["source"]
+        when = (src["published"] or entry["date"])[5:].replace("-", "/")
+        return f"{src['name'] or 'その他'} {when}"
+
+    def decided(status: str) -> List[Dict]:
+        rows = [e for e in all_entries if e["trial"]["status"] == status and (e["trial"]["date"] or e["date"]) >= threshold]
+        return sorted(rows, key=lambda e: e["trial"]["date"] or e["date"], reverse=True)
+
+    adopted, rejected = decided("adopted"), decided("rejected")
+    trying = [e for e in all_entries if e["trial"]["status"] == "trying"]
+    learned = sorted((e for e in all_entries if not e["trial"]["status"] and e["date"] >= threshold),
+                     key=lambda e: e["date"], reverse=True)
+    skipped = sum(1 for e in map(_normalize, entries()) if SKIP_TAG in e["tags"] and e["date"] >= threshold)
+
+    out = [f"## Amber の取り入れ報告（直近{days}日）", "",
+           f"取り入れた {len(adopted)} 件 ／ 試し中 {len(trying)} 件 ／ やらなかった {len(rejected)} 件 ／ "
+           f"覚えただけ {len(learned)} 件 ／ 知見なし {skipped} 通", ""]
+
+    def table(title: str, rows: List[Dict], last_head: str, last) -> None:
+        out.append(f"### {title}")
+        out.append("")
+        if not rows:
+            out.extend(["（ありません）", ""])
+            return
+        out.extend([f"| 日付 | 取り入れたもの | 出どころ | {last_head} |", "|---|---|---|---|"])
+        for e in rows:
+            day = (e["trial"]["date"] or e["date"])[5:].replace("-", "/")
+            out.append(f"| {day} | {cell(e['title'], 60)} | {cell(who(e), 20)} | {cell(last(e))} |")
+        out.append("")
+
+    table("✅ 取り入れたこと（採用して、毎回守るルールにした）", adopted, "何が良かったか", lambda e: e["trial"]["note"])
+    table("🧪 試している最中", trying, "何をどう試しているか", lambda e: e["trial"]["note"])
+    table("⏸ やらなかったこと（試して見送った）", rejected, "見送った理由", lambda e: e["trial"]["note"])
+    table("📥 覚えただけ（まだ試していない）", learned, "うちでの使い道",
+          lambda e: e["apply"][0] if e["apply"] else (e["takeaways"][0] if e["takeaways"] else ""))
+    return "\n".join(out)
+
+
 def send_report_email(days: int = 7, to: str = "") -> bool:
     """報告をメールで送る。日次ダイジェストと同じアプリパスワードを使う。"""
     import smtplib
@@ -534,6 +582,7 @@ def main():
     p_report = sub.add_parser("report", help="新しく蓄えたナレッジの報告")
     p_report.add_argument("--since", type=int, default=7)
     p_report.add_argument("--email", action="store_true", help="報告をメールで送る")
+    p_report.add_argument("--table", action="store_true", help="取り入れたこと・やらなかったことの一覧表にする")
     p_report.add_argument("--to", default="", help="宛先（既定は自分）")
 
     p_show = sub.add_parser("show", help="1件の全文")
@@ -601,7 +650,9 @@ def main():
             _print_entry(entry, full=True)
 
     elif args.command == "report":
-        if args.email:
+        if args.table:
+            print(table_report(args.since))
+        elif args.email:
             send_report_email(args.since, args.to)
         else:
             print(report(args.since))

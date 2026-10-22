@@ -22,6 +22,7 @@
 | いろは、いろはさん、色葉、イロハ | **イロハさん**（カタカナ＋さん） | ポッドキャストでてらこ先生と掛け合う今のパートナー（前のミカさんは引退） |
 | 琥珀ちゃん、コハク | **コハクちゃん** | Amber のロボットとしての姿（2026-10-16 にデザイン決定） |
 | てらこマンガ、寺子漫画、テラコ漫画、漫画（のセクション） | **Teraco Manga** | Claude アプリのセクション（セッション）の名前。キャラクターの絵と漫画の作業はここでやる |
+| 吸盤 | **旧版** | 古い版。捨てるのが不安なものは消さずに「旧版」フォルダへ移す（藤崎さん、2026-10-22） |
 
 聞き違いが新しく見つかったら、この表に1行足す。
 
@@ -58,7 +59,7 @@
     - `1_キャラクター設定シート`（PNG 4枚）`1HEsl33dviuOgcmRgyUV3kU1knbSL7pzJ`／`2_正本の絵`（SVG と透明 PNG）`1Vlx0WjPs0MmkyBUhDXgF788nFqqWtZ7D`／`3_目の候補_20261016` `1gsKlNKJntGpptAiMIXRrZZonxIyCoKm0`／`元データ` `11Qy13g58jYH2GTKTew2IlyT637rYcVJx`
   - `イロハさん_キャラクター一式_20261016`（本物）：フォルダ `1JcczubBPo1I2Q3o4qlKzdsGRPRowc6MR`
     - `1_キャラクター設定シート`（プロフィール・全方向・表情・ポーズの PNG）`1v8eknK7gqGnYZk4sN61VHIK3bSib75Jc`／`2_正本の絵` `13gEcHaKmj-ilsho_liTkHvJHEEgsct5O`
-  - 名前の最後に「 2」が付いた `コハクちゃん_キャラクター一式_20261016 2`（`18S9NfOHZbx3xA9_lYsiNgmH8M2xGJXqk`）と `イロハさん_キャラクター一式_20261016 2`（`1WtiPKAGcxqY79HpGe6gc0G4v4uvXP8tZ`）は、10/16 昼に Amber が最初に作った古い版（SVG と Google ドキュメント）。使わない。片付けるかどうかは藤崎さんが決める
+  - 古い版（10/16 昼に Amber が最初に作った SVG と Google ドキュメント）は、2026-10-22 に `1.TERACO/旧版`（`1C689AwkKkAa-OEZpKZtLoNCHdwbyy1Iy`）へ移した。名前の頭に「旧版_」を付けてある。使わない
 - 高画質の画像と元データ：Claude のページ「TERACO キャラクター設定」（藤崎さんだけが見られる）https://claude.ai/artifact/QfAmq9mzWuTroySPnbHJVK
   - `src/kohaku_hq.js` がコハクちゃん本体の描画。向き・表情・ポーズは引数で変える。直すときはここを直して、全シートを描き直す
 - コハクちゃんは画像生成ではなく SVG で描く（形と色が全シートでずれないため）。

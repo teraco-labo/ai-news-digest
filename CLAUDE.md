@@ -55,6 +55,7 @@ python knowledge_ingest.py run       # ニュースレター取り込み→蒸�
 python knowledge.py search <語>      # 蓄積から探す
 python knowledge.py show <ID>        # 1件の本文
 python knowledge.py report --since 7 # 直近の報告
+python knowledge.py report --since 7 --table # 取り入れたこと・やらなかったことの一覧表（毎週の報告）
 python knowledge.py stats            # 何がどれだけ溜まっているか
 ```
 
