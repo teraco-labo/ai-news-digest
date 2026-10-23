@@ -644,6 +644,23 @@ def _transcribe_whisper(path: Path, verbose: bool) -> Optional[str]:
     再生時間とだいたい同じくらいかかる（1時間の録画で1時間弱）。
     急ぐときは GEMINI_API_KEY を入れて --cloud-transcribe を使う。
     """
+    # 2026-10-23：精度のいちばん高い Whisper large-v3（Apple のチップ向けの mlx 版）と、
+    # 無音のところに出る作り話（「ご視聴ありがとうございました」など）を取り除く共通の部品を使う。
+    # 部品は ~/ai-office/bin/whisper_clean.py（授業の記録と共通）。無い Mac では従来の turbo で起こす
+    try:
+        sys.path.insert(0, str(Path.home() / "ai-office" / "bin"))
+        import whisper_clean as _W
+    except Exception:
+        _W = None
+    if _W is not None:
+        if verbose:
+            print("   Mac の中で文字起こしします（Whisper large-v3・費用ゼロ・音声は外に出ません）")
+        segs = _W.transcribe(str(path))
+        if segs:
+            return _format_segments([{"start": sg["start"], "text": sg["text"]} for sg in segs])
+        if verbose:
+            print("   ⚠️  large-v3 で起こせなかったので、従来の方法で起こします")
+
     exe = shutil.which("whisper")
     if not exe:
         if verbose:
@@ -674,6 +691,8 @@ def _transcribe_whisper(path: Path, verbose: bool) -> Optional[str]:
             print("   ⚠️  文字起こしの結果が見つかりませんでした")
             return None
         segments = _parse_vtt(vtts[0])
+    if segments and _W is not None:   # 従来の方法でも、無音の作り話は取り除く
+        segments = _W.clean_segments(segments, str(path))
     return _format_segments(segments) if segments else None
 
 
