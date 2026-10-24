@@ -9138,6 +9138,141 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "block",
+      "term": "Block",
+      "reading": "ブロック",
+      "aliases": [
+        "Block Inc."
+      ],
+      "category": "企業",
+      "short": "お店のレジや送金アプリなど、お金のやり取りの仕組みをつくっているアメリカの会社です。最近はAIの開発にも力を入れています。",
+      "detail": "決済サービスのSquareや送金アプリのCash Appを運営するフィンテック企業です。今回は、MacBookの上で動く音声モデルを発表しました。金融サービスの会社がAIモデルを自分たちで作る動きの一例として注目されます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "m4-max",
+      "term": "M4 Max",
+      "reading": "エムフォー・マックス",
+      "aliases": [],
+      "category": "インフラ",
+      "short": "Appleのパソコンに入っている、頭脳にあたる部品の一つです。M4シリーズの中でも特に高性能なものです。",
+      "detail": "Apple siliconのM4世代の上位チップで、MacBook Proなどに載っています。今回のBlockの音声モデルは、このチップを積んだMacBookでローカルに動かせるとされています。クラウドを使わずに手元のパソコンでAIを動かせるかどうかの目安になるチップです。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "super-app",
+      "term": "スーパーアプリ",
+      "reading": "スーパーアプリ",
+      "aliases": [
+        "super app"
+      ],
+      "category": "ビジネス",
+      "short": "一つのアプリで、買い物や支払い、連絡などいろいろなことができるようにしたものです。スマホでいくつものアプリを使い分けなくて済みます。",
+      "detail": "多くの機能を一つのアプリにまとめる戦略で、AI企業にもこれを目指す動きがあります。今回の記事では、OpenAIの「スーパーアプリ」の立ち上げが混乱した例として挙げられました。利用者を一つのアプリに囲い込めるため、プラットフォームの主導権争いと深く関わっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "torrentfreak",
+      "term": "TorrentFreak",
+      "reading": "トレントフリーク",
+      "aliases": [],
+      "category": "メディア",
+      "short": "ファイル共有や著作権のニュースを専門に伝えるネットのニュースサイトです。",
+      "detail": "トレントや海賊版、著作権をめぐる裁判などを専門に報じています。今回は、AIを使って書かれた論文が、TorrentFreakの実在しない記事を引用していたことが問題になりました。実在するメディアの名前を使った架空の引用は、見抜くのが特に難しくなります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "r2-d2",
+      "term": "R2-D2",
+      "reading": "アールツー・ディーツー",
+      "aliases": [],
+      "category": "基礎",
+      "short": "映画『スター・ウォーズ』に出てくる、筒形の小さなロボットのキャラクターです。言葉の代わりにピコピコという電子音でしゃべります。",
+      "detail": "親しみやすいロボットの代表として、よく引き合いに出されるキャラクターです。今回のMicroduckは、R2-D2のような小さな電子音を鳴らすと報じられました。かわいらしさを前面に出したロボットを説明するときの、分かりやすいたとえとして使われています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "political-bias",
+      "term": "政治的バイアス",
+      "reading": "せいじてきバイアス",
+      "aliases": [
+        "政治的な偏り"
+      ],
+      "category": "安全性",
+      "short": "考え方や答えが、特定の政党や立場の側に偏っていることです。AIの答えにも、こうした偏りが出ることがあります。",
+      "detail": "AIは学習データや調整の仕方によって、特定の政治的立場に寄った答えを返すことがあります。今回の研究では、GrokとGPTが約500の選挙戦の90%以上で異なる候補を選びました。選挙の情報をAIで集める人が増えるほど、こうした偏りが社会に与える影響は大きくなります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "exploit",
+      "term": "エクスプロイト",
+      "reading": "エクスプロイト",
+      "aliases": [
+        "exploit",
+        "悪用"
+      ],
+      "category": "安全性",
+      "short": "ソフトの弱点を突いて、悪いことをするための方法や手順のことです。",
+      "detail": "脆弱性を実際の攻撃に使える形にしたものや、それを使う行為を指します。今回のPHPの件では、AIの助けで見つかった古い脆弱性がすぐに攻撃に使われました。弱点の発見から悪用までの時間が短くなるほど、守る側の対応も急がなければなりません。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "scripting-language",
+      "term": "スクリプト言語",
+      "reading": "スクリプトげんご",
+      "aliases": [],
+      "category": "基礎",
+      "short": "コンピュータへの指示を手軽に書いて、すぐに動かせるプログラミング言語のことです。",
+      "detail": "PHPやPythonなどが代表的で、Webサイトの裏側の処理によく使われます。PHPは長年にわたって多くのWebサイトで使われてきたため、古い脆弱性があると被害が広い範囲に及びます。今回の騒動も、この影響範囲の広さが問題を大きくしました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "republican-party",
+      "term": "共和党（米国）",
+      "reading": "きょうわとう",
+      "aliases": [
+        "Republican Party",
+        "Republicans"
+      ],
+      "category": "規制",
+      "short": "アメリカの二大政党の一つです。もう一つの大きな政党は民主党です。",
+      "detail": "一般に、保守的な考え方を持つ政党とされています。今回の研究では、Grokが選挙で共和党の候補を勧める傾向が強いと報告されました。AIの政治的な偏りを測るときに、米国では共和党と民主党のどちらに寄るかが物差しとしてよく使われます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "democratic-party",
+      "term": "民主党（米国）",
+      "reading": "みんしゅとう",
+      "aliases": [
+        "Democratic Party",
+        "Democrats"
+      ],
+      "category": "規制",
+      "short": "アメリカの二大政党の一つです。もう一つの大きな政党は共和党です。",
+      "detail": "一般に、リベラルな考え方を持つ政党とされています。今回の研究では、OpenAIのGPTが民主党の候補を選ぶ傾向にあると報告されました。日本の政党の「民主党」とは別の、アメリカの政党です。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
