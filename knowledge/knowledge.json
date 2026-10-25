@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-22",
+  "updated": "2026-10-26",
   "entries": [
     {
       "id": "20260826-33a3d0",
@@ -1523,6 +1523,31 @@
         "status": "adopted",
         "note": "藤崎さん本人の指示。試す必要のない決まりごとなので、そのまま採用",
         "date": "2026-10-22"
+      }
+    },
+    {
+      "id": "20261026-3de4f6",
+      "date": "2026-10-26",
+      "title": "（知見なし）",
+      "summary": "新作ゲーム配信を記念したポイントキャンペーンの告知だけで、今後の判断に使える知見はありませんでした。",
+      "takeaways": [],
+      "apply": [],
+      "tags": [
+        "対象外"
+      ],
+      "confidence": "fact",
+      "source": {
+        "type": "email",
+        "name": "イケハヤ",
+        "title": "【今日と明日だけ】新作「どぱくり！」配信。遊ぶとMacBook Proのポイントが+500pt",
+        "ref": "gmail:1a170a71595c5ccf",
+        "published": "2026-10-25"
+      },
+      "visibility": "private",
+      "trial": {
+        "status": "",
+        "note": "",
+        "date": ""
       }
     }
   ]
