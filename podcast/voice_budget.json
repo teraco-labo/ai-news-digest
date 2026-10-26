@@ -1,0 +1,28 @@
+{
+ "date": "2026-10-26",
+ "tier": "creator",
+ "used": 14942,
+ "limit": 124236,
+ "reset": "2026-11-23",
+ "days_left": 28,
+ "available": 105294,
+ "planned_base": 105250,
+ "planned_final": 105250,
+ "state": "ちょうど",
+ "counts": {
+  "ai_news": 27,
+  "sumaho_news": 8,
+  "yt_set": 19,
+  "reading": 4
+ },
+ "targets": {
+  "ai_news": {
+   "lo": 1980,
+   "hi": 2200,
+   "max": 2420
+  },
+  "yt_long": 1100,
+  "yt_short": 250,
+  "reading": 1650
+ }
+}

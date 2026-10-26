@@ -177,6 +177,23 @@ _DIALOGUE_SYSTEM_PROMPT = """\
 SCRIPT_MIN_CHARS = 4000   # 決まりは 4000〜4800 字。これを下回ったら1回だけ書き足しを頼む
 
 
+def _system_prompt() -> str:
+    """台本の長さを、声の枠の見張り（podcast/voice_budget.json・Mac の voice_budget.py が毎日書く）に合わせる。
+    2026-10-26 藤崎さん「常にトラッキングして、スタジオと相談して、台本の長さとか内容を決めていくといい」。
+    ファイルが無い・古い（3日より前）ときは、決めておいた長さ（約2,200字）のまま。"""
+    try:
+        b = json.loads((Path(__file__).resolve().parent / "podcast" / "voice_budget.json").read_text(encoding="utf-8"))
+        if (datetime.now().date() - datetime.fromisoformat(b["date"]).date()).days > 3:
+            return _DIALOGUE_SYSTEM_PROMPT
+        a = b["targets"]["ai_news"]
+        mins = round(a["hi"] / 400)
+        line = (f"- 台本全体の文字数は{a['lo']}〜{a['hi']}文字。{a['max']}文字を超えないこと（音声で約{max(mins - 1, 3)}〜{mins}分）。"
+                f"取り上げるニュースは{3 if a['hi'] < 2600 else 4}本前後に絞る。")
+        return _DIALOGUE_SYSTEM_PROMPT.replace('- 台本全体の文字数は2000〜2400文字。2600文字を超えないこと（音声で約5〜6分）。取り上げるニュースは3本前後に絞る。', line)
+    except Exception:
+        return _DIALOGUE_SYSTEM_PROMPT
+
+
 def _script_config() -> Dict:
     try:
         import monetize
@@ -273,7 +290,7 @@ def _script_via_claude(user_prompt: str) -> Optional[str]:
         try:
             proc = subprocess.run(
                 [exe, "-p", "--output-format", "json", "--model", model,
-                 "--system-prompt", _DIALOGUE_SYSTEM_PROMPT],
+                 "--system-prompt", _system_prompt()],
                 input=prompt, capture_output=True, text=True, timeout=900, env=env,
             )
         except Exception as e:
@@ -330,7 +347,7 @@ def _script_via_gemini(user_prompt: str, date: datetime) -> Optional[str]:
                 model="gemini-flash-latest",
                 contents=user_prompt,
                 config=genai_types.GenerateContentConfig(
-                    system_instruction=_DIALOGUE_SYSTEM_PROMPT,
+                    system_instruction=_system_prompt(),
                     temperature=0.7,
                     # 15分前後の長めの台本（約5500文字）が途中で切れないよう
                     # 出力トークン上限を十分に確保する
