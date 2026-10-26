@@ -9361,6 +9361,228 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "s-1",
+      "term": "S-1",
+      "reading": "エスワン",
+      "aliases": [
+        "S-1届出書",
+        "登録届出書"
+      ],
+      "category": "ビジネス",
+      "short": "アメリカで会社が株式を上場するときに、国に出す書類です。会社のお金の状況や危険な点がくわしく書かれています。",
+      "detail": "米国証券取引委員会（SEC）に提出する登録届出書の様式名です。売上や損失、事業のリスク、経営の仕組みなどを投資家向けに開示します。上場前の企業は普段は財務を公開しないため、S-1は企業の内情を知る数少ない公式資料になります。AnthropicのS-1は335ページで、約100ページがリスクの説明でした。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "prospectus",
+      "term": "目論見書",
+      "reading": "モクロミショ",
+      "aliases": [
+        "prospectus",
+        "IPO目論見書"
+      ],
+      "category": "ビジネス",
+      "short": "株を買ってもらうために、会社が自分のことを説明する書類です。良いことだけでなく、危ない点も書く決まりがあります。",
+      "detail": "株式を売り出す際に投資家へ交付する、事業内容・財務・リスクなどをまとめた説明書です。米国ではS-1などの届出書がその土台になります。投資判断の材料であると同時に、企業が自社の戦略や世界観をどう説明するかが表れる文書でもあります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "cross-selling",
+      "term": "クロスセル",
+      "reading": "",
+      "aliases": [
+        "cross-selling",
+        "クロスセリング"
+      ],
+      "category": "ビジネス",
+      "short": "ひとつの商品を買ったお客さんに、関係する別の商品も買ってもらうことです。お店でいう「ご一緒にいかがですか」です。",
+      "detail": "既存顧客に複数の製品を使ってもらうことで、1社あたりの売上を伸ばし、乗り換えにくくする販売戦略です。AnthropicのS-1では、10万ドル以上を支払う顧客の半数超がClaude Platformと自社アプリの両方を使っていることが示され、Amazonの手法になぞらえられています。複数製品を使うほど他社に移る手間が増えるため、顧客の定着につながります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "corporate-governance",
+      "term": "企業統治",
+      "reading": "キギョウトウチ",
+      "aliases": [
+        "コーポレートガバナンス",
+        "ガバナンス"
+      ],
+      "category": "ビジネス",
+      "short": "会社を誰がどうやって動かし、見張るかという仕組みのことです。誰が大事なことを決められるかもここで決まります。",
+      "detail": "株主・取締役会・経営陣のあいだで、意思決定の権限や監督の方法をどう配分するかを定めた仕組みです。上場すると通常は株主の影響力が強まりますが、AnthropicはS-1で創業者の支配権とAI安全性の使命を保つための独特な統治構造を示しました。投資家にとっては、自分の議決権がどこまで効くかを判断する材料になります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "binding-commitment",
+      "term": "拘束力のある確約",
+      "reading": "コウソクリョクノアルカクヤク",
+      "aliases": [
+        "binding commitment"
+      ],
+      "category": "ビジネス",
+      "short": "「必ずお金を出します」と正式に約束し、簡単には取り消せない状態のことです。口約束とは違います。",
+      "detail": "資金の出し手が法的な義務を負う形で提供を約束したものを指します。条件交渉中の「意向」とは異なり、計画の資金繰りが固まったことを意味します。SpaceXはApolloから約400億ドルの拘束力ある確約を得たと届出書で開示しました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "gpu-financing",
+      "term": "GPUファイナンス",
+      "reading": "ジーピーユーファイナンス",
+      "aliases": [
+        "GPU融資",
+        "GPU financing"
+      ],
+      "category": "インフラ",
+      "short": "AIに使う高価な計算用チップを買うために、お金を借りたり用意したりすることです。チップそのものが担保になることもあります。",
+      "detail": "AIの学習・運用に必要なGPUやデータセンター機器の購入資金を、株式ではなく融資などで調達する手法です。計算資源への投資額が巨大になるなか、資金の集め方としての重要度が増しています。SpaceXはApolloとの約400億ドルの契約を「確約済みのGPU向け資金調達として過去最大」と呼びました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "sam-hiner",
+      "term": "Sam Hiner",
+      "reading": "サム・ハイナー",
+      "aliases": [],
+      "category": "人物",
+      "short": "若者の立場からテクノロジーの問題に取り組む団体を作った人です。AIの身近な害についての意見記事を書きました。",
+      "detail": "Young People's Allianceの共同創業者です。Emma Leiken氏とともにMIT Technology Reviewに寄稿し、AI安全性の議論が大惨事のシナリオに偏り、日常的な害が見過ごされていると論じました。若い世代の視点からテック政策の基準そのものを問い直す立場にあります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "emma-leiken",
+      "term": "Emma Leiken",
+      "reading": "エマ・ライケン",
+      "aliases": [],
+      "category": "人物",
+      "short": "若者とテクノロジーに関わる基金のトップを務める人です。AIの身近な害についての意見記事を書きました。",
+      "detail": "Responsible Technology Youth Power Fundの事務局長です。Sam Hiner氏との共著で、企業が低い安全基準を満たすだけで「成功」とされる現状を批判しました。若者の声をテクノロジー政策に反映させる活動の担い手です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "young-peoples-alliance",
+      "term": "Young People's Alliance",
+      "reading": "ヤング・ピープルズ・アライアンス",
+      "aliases": [],
+      "category": "規制",
+      "short": "若い人たちがテクノロジーなどの問題について声を上げるための団体です。",
+      "detail": "Sam Hiner氏が共同創業した団体です。今回の意見記事では、AIやSNSの安全対策が「最低限」にとどまっている点を若者の立場から指摘しています。AI規制の議論に、利用者側・若い世代の視点を持ち込む役割を担っています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "responsible-technology-youth-power-fund",
+      "term": "Responsible Technology Youth Power Fund",
+      "reading": "レスポンシブル・テクノロジー・ユース・パワー・ファンド",
+      "aliases": [],
+      "category": "規制",
+      "short": "責任あるテクノロジーを目指す若者の活動を支える基金です。",
+      "detail": "Emma Leiken氏が事務局長を務める基金です。テクノロジーのあり方に関わる若者の取り組みを支援する立場から、AIの日常的な害に目を向けるよう訴えています。政策議論で若者の声を後押しする存在として名前が挙がります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "fentanyl",
+      "term": "フェンタニル",
+      "reading": "",
+      "aliases": [
+        "fentanyl"
+      ],
+      "category": "基礎",
+      "short": "とても強い効き目を持つ薬物です。アメリカでは乱用による死亡が大きな社会問題になっています。",
+      "detail": "医療用の強力な鎮痛薬ですが、違法に出回ったものの乱用が米国で深刻な問題になっています。意見記事では、SNSで子どもがフェンタニルを買いにくくする対策が、本来あって当然の保護の例として挙げられました。テック企業の安全対策の水準を語る際の具体例として登場します。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "ice",
+      "term": "ICE",
+      "reading": "アイス",
+      "aliases": [
+        "米移民・関税執行局",
+        "U.S. Immigration and Customs Enforcement"
+      ],
+      "category": "規制",
+      "short": "アメリカで移民の取り締まりなどを行う政府の機関です。",
+      "detail": "米国土安全保障省に属する移民・関税執行局の略称です。不法滞在者の摘発や強制送還などを担っています。AIラジオDJのCoyotecは、ICEから身を守る方法をリスナーに伝えていることで話題になりました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "coyotec",
+      "term": "Coyotec",
+      "reading": "コヨテック",
+      "aliases": [],
+      "category": "メディア",
+      "short": "スペイン語と英語を話すAIのラジオDJです。移民の側に立った発信で人気を集めています。",
+      "detail": "Wiredが紹介したAIのラジオパーソナリティです。悪態もつく個性的な語り口で、ICEから身を守る方法をリスナーに伝えています。放送局がAIのパーソナリティを試す動きが広がるなかで、支持を得た事例として注目されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "ai-personality",
+      "term": "AIパーソナリティ",
+      "reading": "",
+      "aliases": [
+        "人工のパーソナリティ",
+        "artificial personality"
+      ],
+      "category": "使い方",
+      "short": "AIで作った、ラジオやテレビの「しゃべり手」のことです。人間のDJのように個性を持たせてあります。",
+      "detail": "放送や配信で、AIが固有の名前・口調・立場を持つ語り手として番組を担う形態です。Wiredによれば、放送局のあいだでこうした人工のパーソナリティを試す動きが広がっています。人件費の面だけでなく、誰が発言の責任を負うのかという論点も生みます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "investigative-journalism",
+      "term": "調査報道",
+      "reading": "チョウサホウドウ",
+      "aliases": [
+        "investigative journalism"
+      ],
+      "category": "メディア",
+      "short": "記者が自分で時間をかけて調べ、隠れた事実を明らかにする報道です。発表をそのまま伝えるニュースとは違います。",
+      "detail": "関係者への取材や資料の分析を重ね、権力や組織の問題などを掘り起こす報道の形です。手間とコストがかかるため、報道機関の価値の中心とされます。Wiredの記事では、AIエージェントがこの調査報道の企画まで編集者に売り込んでいる様子が描かれました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "pitch",
+      "term": "ピッチ",
+      "reading": "",
+      "aliases": [
+        "企画の売り込み",
+        "pitch"
+      ],
+      "category": "ビジネス",
+      "short": "自分の企画やアイデアを相手に売り込むことです。記者が「この記事を書かせてください」と提案するのもピッチです。",
+      "detail": "メディア業界では、フリーの記者などが編集者に記事の企画を提案することを指します。スタートアップが投資家に事業を説明する場面でも使われる言葉です。今回の記事では、AIエージェントが人間の記者と同じように編集者へピッチを送っていました。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
