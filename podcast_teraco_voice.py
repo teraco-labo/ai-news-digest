@@ -53,6 +53,10 @@ POLISH_EQ = {
     "てらこ先生": "highpass=f=80,equalizer=f=200:t=q:w=1.2:g=-3,equalizer=f=2500:t=q:w=1:g=2.5,equalizer=f=5000:t=q:w=1:g=1.5",
     "イロハ": "highpass=f=100,equalizer=f=250:t=q:w=1.2:g=-5,equalizer=f=1250:t=q:w=1:g=3,equalizer=f=3000:t=q:w=1:g=1.5",
 }
+# 2026-10-26 イロハさんを新しい声 v2（整えた録音から作り直したクローン）に替え、聞き比べの「7番（合わせ技）」に決定：
+# 出だしの小さな「ん」をやわらげる（頭の無音を詰めて 35ms でなめらかに立ち上げ、60ms の間を戻す）＋高いところを少し足して明るく。
+POLISH_EQ["イロハ"] = ("silenceremove=start_periods=1:start_threshold=-45dB,afade=t=in:d=0.035,adelay=60,"
+                      + POLISH_EQ["イロハ"] + ",equalizer=f=4200:t=q:w=1:g=2,highshelf=f=8000:g=1.5")
 POLISH_LUFS = {"てらこ先生": -19.0, "イロハ": -19.7}   # 10/26 の回の てらこ先生（-19.3）とほぼ同じ大きさ。イロハさんは 0.7 下
 
 
@@ -241,7 +245,7 @@ def _mika_choice() -> dict:
         voices = pod.get("mika_voices", {})
         n = str(os.environ.get("MIKA_VOICE", pod.get("mika_voice", 0)))
         v = dict(voices.get(n) or voices.get("0") or {"name": "Nanami", "engine": "edge"})
-        v["settings"] = voices.get("settings", {})
+        v["settings"] = {**voices.get("settings", {}), **v.get("settings", {})}   # 声ごとの設定があれば上書き
         return v
     except Exception:
         return {"name": "Nanami", "engine": "edge", "settings": {}}
