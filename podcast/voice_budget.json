@@ -1,13 +1,13 @@
 {
  "date": "2026-10-26",
  "tier": "creator",
- "used": 14942,
+ "used": 15135,
  "limit": 124236,
  "reset": "2026-11-23",
  "days_left": 28,
- "available": 105294,
+ "available": 105101,
  "planned_base": 105250,
- "planned_final": 105250,
+ "planned_final": 105098,
  "state": "ちょうど",
  "counts": {
   "ai_news": 27,
@@ -23,6 +23,6 @@
   },
   "yt_long": 1100,
   "yt_short": 250,
-  "reading": 1650
+  "reading": 1612
  }
 }
