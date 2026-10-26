@@ -44,6 +44,49 @@ COMP_RATIO        = 3         # 圧縮の強さ。上げすぎると声が平板
 # -1dB と -2dB が「どちらもちょうどいい」。迫力を残せる -1dB を採用した
 # （2026-09-08 藤崎さんが5段階のテスト盤を聴いて決定）。
 TERAKO_BOOST_DB = float(os.environ.get("TERAKO_BOOST_DB", -1.0))
+# 声の仕上げ（2026-10-26 藤崎さんが6通りの聞き比べで「5」に決定）：二人とも「こもり」を取り、イロハさんを少し小さく。
+# イロハさん（奥さんの声のクローン）は低いところ（200〜300Hz）が強く、言葉がはっきりする高さ（1,000〜1,500Hz）が弱かった。
+# てらこ先生も高いところが少なめ。音量は耳の感じ方の物差し（LUFS）で、イロハさんがてらこ先生より 1.3 大きかったので、
+# そろえたうえでイロハさんを 0.7 下げる（藤崎さん「まだいろはさんの方が若干大きく聞こえる」）。
+# 音量は台詞ごとに LUFS で測ってそろえる（無音の長さでずれないように。平均の強さ〔mean_volume〕だと女性の声が大きく聞こえた）
+POLISH_EQ = {
+    "てらこ先生": "highpass=f=80,equalizer=f=200:t=q:w=1.2:g=-3,equalizer=f=2500:t=q:w=1:g=2.5,equalizer=f=5000:t=q:w=1:g=1.5",
+    "イロハ": "highpass=f=100,equalizer=f=250:t=q:w=1.2:g=-5,equalizer=f=1250:t=q:w=1:g=3,equalizer=f=3000:t=q:w=1:g=1.5",
+}
+POLISH_LUFS = {"てらこ先生": -19.0, "イロハ": -19.7}   # 10/26 の回の てらこ先生（-19.3）とほぼ同じ大きさ。イロハさんは 0.7 下
+
+
+def _lufs(path):
+    import re as _re
+    e = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(path), "-af", "ebur128", "-f", "null", "-"],
+                       capture_output=True, text=True).stderr
+    m = _re.findall(r"I:\s+(-?[\d.]+) LUFS", e)
+    v = float(m[-1]) if m else None
+    return v if v is not None and v > -60 else None
+
+
+def polish(path: Path, speaker: str):
+    """声の仕上げ（こもり取りと、LUFS で音量をそろえる）。イロハさんは奥さんの声（Iroha）のときだけ。
+    測れない（短すぎる）台詞は、こもり取りだけかけて音量はそのまま。"""
+    eq = POLISH_EQ.get(speaker)
+    if not eq or (speaker == "イロハ" and "Iroha" not in MIKA_USED.get("name", "")):
+        return
+    tmp = path.with_suffix(".eq.wav")
+    if subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(path), "-af", eq,
+                       "-ar", "24000", "-ac", "1", "-c:a", "pcm_s16le", str(tmp)], capture_output=True).returncode:
+        tmp.unlink(missing_ok=True)
+        return
+    now = _lufs(tmp)
+    gain = max(-12.0, min(12.0, (POLISH_LUFS[speaker] - now) if now is not None else 0.0))
+    out = path.with_suffix(".pol.wav")
+    r = subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(tmp),
+                        "-af", f"volume={gain:.2f}dB,alimiter=limit={10 ** (CEILING_DB / 20):.3f}",
+                        "-ar", "24000", "-ac", "1", "-c:a", "pcm_s16le", str(out)], capture_output=True)
+    tmp.unlink(missing_ok=True)
+    if r.returncode == 0 and out.exists() and out.stat().st_size:
+        out.replace(path)
+    else:
+        out.unlink(missing_ok=True)
 
 
 def _tidy_for_teraco(text: str) -> str:
@@ -311,6 +354,7 @@ def build(script_path: Path, out_mp3: Path, log):
                 continue
             dst = tmp / f"p_{i:04d}.wav"
             to_pcm(src, dst, TERAKO_BOOST_DB if s == "てらこ先生" else 0.0)
+            polish(dst, s)
             if prev:
                 sil = tmp / ("sil_same.wav" if prev == s else "sil_change.wav")
                 if not sil.exists():
