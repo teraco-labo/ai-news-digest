@@ -190,8 +190,9 @@ def build_auto_post(articles: List[Dict], date: datetime, url: str, config: Dict
     tail = ["", f"{cta}↓", line_url] if cta and line_url else ["", "#AI #生成AI #AIニュース"]
     date_label = f"{date.month}/{date.day}"
     for n in (3, 2):
-        for title_budget in range(60, 15, -4):
-            lines = [f"【{date_label} AIニュース{n}行まとめ】", ""]
+        floor = 39 if n == 3 else 15   # 3本で見出しが短く切れすぎる日は、2本にして見出しを残す
+        for title_budget in range(60, floor, -4):
+            lines = [f"【{date_label} 今日のAIニュース】", ""]
             lines += [f"▪️ {_trim(a['title_ja'], title_budget)}" for a in articles[:n]]
             lines += ["", url] + tail
             text = "\n".join(lines)
