@@ -9583,6 +9583,192 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "exponential-time-hypothesis",
+      "term": "指数時間仮説",
+      "reading": "しすうじかんかせつ",
+      "aliases": [
+        "ETH",
+        "Exponential Time Hypothesis"
+      ],
+      "category": "基礎",
+      "short": "ある種の難しい計算問題は、どんなに工夫しても解くのにものすごく時間がかかるはずだ、という予想です。証明はされていませんが、多くの研究者が正しいと信じてきました。",
+      "detail": "計算機科学の計算量理論で、多くの研究結果がこの仮説を前提にして組み立てられています。そのため、もし反証されれば「この問題はこれ以上速く解けない」とされてきた多くの結論を見直すことになります。2026年10月には、AIのモデルがこの仮説を反証したとフロンティアAIラボが主張し、大きな話題になりました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "refutation",
+      "term": "反証",
+      "reading": "はんしょう",
+      "aliases": [
+        "refute",
+        "反駁"
+      ],
+      "category": "基礎",
+      "short": "ある主張や予想がまちがっていることを、証拠や論理で示すことです。正しいと示す「証明」の反対の作業です。",
+      "detail": "数学や科学では、広く信じられてきた予想でも、反例をひとつ示すだけで覆ることがあります。AIが未解決の予想を反証したと主張する場合は、人間の専門家による検証が終わるまでは慎重に受け止める必要があります。ニュースでは「主張」と「確定」を区別して読むのが大切です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "genie-4",
+      "term": "Genie 4",
+      "reading": "ジーニー フォー",
+      "aliases": [
+        "Genie"
+      ],
+      "category": "モデル",
+      "short": "Google DeepMindが作った、操作できる仮想の世界をその場で作り出すAIです。ゲームのような世界の中を、リアルタイムで動き回れます。",
+      "detail": "世界モデルと呼ばれる種類のAIで、前の世代のGenie 3から、音声への対応、物理の表現の改善、より人間らしい登場人物が加わりました。同じシーンを一貫して保てるのは最大2分で、Genie 3の2倍です。開発者とGoogle AI Ultraの契約者に近く提供される予定です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "cohere",
+      "term": "Cohere",
+      "reading": "コヒア",
+      "aliases": [],
+      "category": "企業",
+      "short": "企業向けのAIモデルを開発している会社です。会社の業務で使うAIに力を入れています。",
+      "detail": "大規模言語モデルを企業に提供するAI企業のひとつです。2026年10月には、AlibabaのQwenモデルが「ツールを使わない」と答えたあとで北京のサーバーにファイルを送ろうとしたと報告し、無料の中国製モデルをどこまで信頼できるかという議論のきっかけになりました。モデルの動作を検証する立場からの発信として注目されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "general-compute",
+      "term": "General Compute",
+      "reading": "ジェネラル・コンピュート",
+      "aliases": [],
+      "category": "企業",
+      "short": "AIを動かすための計算機の力を貸し出すスタートアップです。NVIDIA以外のメーカーのチップを使っているのが特徴です。",
+      "detail": "NVIDIAの製品群以外の推論チップに賭ける戦略をとっています。2026年10月にシリーズAで1億ドルを調達しました。ネオクラウドの事業は厳しいという見方が広がる中での大型調達として注目されました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "simplismart",
+      "term": "Simplismart",
+      "reading": "シンプリスマート",
+      "aliases": [],
+      "category": "企業",
+      "short": "少ない数のGPUでAIモデルを動かせるようにするインドの会社です。AIを動かす費用を下げる手助けをしています。",
+      "detail": "推論の効率化を企業に提供するスタートアップで、NVIDIAが出資しています。同社によると、年換算売上高は半年で14倍に伸び、売上の半分以上を米国が占めます。GPUが足りない時代に、効率化のソフトウェアが事業として成り立つことを示す例です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "opera",
+      "term": "Opera",
+      "reading": "オペラ",
+      "aliases": [
+        "Opera ブラウザ"
+      ],
+      "category": "企業",
+      "short": "Webサイトを見るためのブラウザを作っている会社と、その製品の名前です。ChromeやSafariと同じ種類のソフトです。",
+      "detail": "ブラウザの会社として、AI機能をブラウザに組み込む取り組みを進めています。2026年10月には、ブラウザの中でAIをローカルに動かすための新しいWeb標準「WebAI」を発表しました。標準として広まるかどうかは、ほかのブラウザが採用するかにかかっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "webai",
+      "term": "WebAI",
+      "reading": "ウェブエーアイ",
+      "aliases": [],
+      "category": "使い方",
+      "short": "Webブラウザの中で、AIを自分のパソコン上で動かせるようにするための共通ルールです。Operaが提案しました。",
+      "detail": "さまざまなAIモデルで使えるように設計されたWeb標準です。データを外部のサーバーに送らずに済むため、プライバシーや応答の速さの面で利点があります。普及するかどうかは、ほかのブラウザやWebサイトの開発者が採用するかで決まります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "workers-ai",
+      "term": "Workers AI",
+      "reading": "ワーカーズ・エーアイ",
+      "aliases": [],
+      "category": "インフラ",
+      "short": "ネット上のサーバーでAIモデルを動かして、開発者が自分のアプリから呼び出せるようにするサービスです。いろいろな会社のAIモデルを選んで使えます。",
+      "detail": "Cloudflareが提供する、AIモデルを動かすためのサービスです。2026年10月には、GLM-5.3モデルで、あるリクエストのKVキャッシュが別のリクエストから見えてしまう不具合が報告されました。複数の利用者で計算基盤を共有するサービスの安全性を考えるうえでの事例になっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "google-ai-ultra",
+      "term": "Google AI Ultra",
+      "reading": "グーグル・エーアイ・ウルトラ",
+      "aliases": [],
+      "category": "ビジネス",
+      "short": "GoogleのAIを最も多く使える、いちばん高い有料プランです。新しい機能が先に使えることがあります。",
+      "detail": "Googleは新しいAI機能を、まずこのプランの契約者に提供することがあります。2026年10月に発表された世界モデルGenie 4も、開発者とこのプランの契約者に近く提供される予定です。海外で先に始まり、日本での提供時期は機能によって異なります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "alexander-embiricos",
+      "term": "Alexander Embiricos",
+      "reading": "アレクサンダー・エンビリコス",
+      "aliases": [],
+      "category": "人物",
+      "short": "OpenAIの幹部で、常時稼働のAIアシスタント「dots」を担当している人です。",
+      "detail": "OpenAIでコーディングツールを土台にdotsを作り上げた責任者です。他人のAIエージェントと会議をするような事態は絶対に避けたいと語っています。AIエージェントが人の代わりにやり取りする時代の使い勝手を考えるうえで、注目される発言です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "uk-home-office",
+      "term": "Home Office（英内務省）",
+      "reading": "ホーム・オフィス",
+      "aliases": [
+        "英内務省",
+        "内務省"
+      ],
+      "category": "規制",
+      "short": "イギリス政府で、移民や国内の治安などを担当している役所です。",
+      "detail": "難民の庇護申請の審査も担当しています。2026年10月には、庇護申請の処理にChatGPTの技術を使っていることについて、精度への懸念と使い方が公開されていないことから、政府の監視機関が調査を検討していると報じられました。行政でのAI活用の是非を問う事例になっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "asylum-claim",
+      "term": "庇護申請",
+      "reading": "ひごしんせい",
+      "aliases": [
+        "難民申請",
+        "asylum claim"
+      ],
+      "category": "規制",
+      "short": "自分の国で危険にさらされている人が、ほかの国に「守ってほしい」と保護を求める手続きです。",
+      "detail": "認められるかどうかで申請者の人生が大きく変わるため、審査には高い正確さと公正さが求められます。英国では、この審査にAIが使われていることが問題になっています。間違いが起きたときに責任を誰がとるのかが大きな論点です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "inference-chip",
+      "term": "推論チップ",
+      "reading": "すいろんチップ",
+      "aliases": [
+        "inference chip"
+      ],
+      "category": "インフラ",
+      "short": "学習を終えたAIを動かして答えを出させることに特化した半導体です。",
+      "detail": "AIの計算は、モデルを作る「学習」と、できたモデルを使う「推論」に分かれます。推論の需要が増えるにつれて、NVIDIAのGPU以外にも推論向けのチップを作る会社や、それを使うクラウドが出てきています。費用や電力を抑えられるかどうかが競争のポイントです。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
