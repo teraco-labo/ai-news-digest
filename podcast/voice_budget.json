@@ -1,13 +1,13 @@
 {
  "date": "2026-10-27",
  "tier": "creator",
- "used": 16969,
+ "used": 17687,
  "limit": 124236,
  "reset": "2026-11-23",
  "days_left": 27,
- "available": 103267,
+ "available": 102549,
  "planned_base": 100000,
- "planned_final": 101612,
+ "planned_final": 101274,
  "state": "ちょうど",
  "counts": {
   "ai_news": 26,
@@ -17,9 +17,9 @@
  },
  "targets": {
   "ai_news": {
-   "lo": 2035,
-   "hi": 2262,
-   "max": 2488
+   "lo": 2024,
+   "hi": 2249,
+   "max": 2473
   },
   "yt_long": 1100,
   "yt_short": 250,
