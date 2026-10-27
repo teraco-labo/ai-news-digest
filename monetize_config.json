@@ -346,5 +346,11 @@
     "embed_html": "",
     "substack_url": "https://teracosensei.substack.com",
     "_signup_note": "登録ボタンの行き先。/subscribe は有料プランの選択画面（月額1,000円など）が先に出て、無料で毎朝読みたいAIニュースの読者が身構えるので、メールアドレス欄だけの /embed に向ける（2026-10-02）"
+  },
+  "social": {
+    "_note": "2026-10-27 藤崎さんの決定：毎朝7時に AI ニュースのまとめを X・Threads へ自動で出す。最後の1行は LINE @381（てらこ先生｜TERACO.LABO）への案内。無料でもらえる物（AIに頼むときの言い方の早見表）ができたら line_cta をそちらに替える。line_cta を空にすると LINE の1行は付かない（代わりにハッシュタグ）",
+    "line_cta": "AIを教える先生へ：授業1回分の無料の見本はLINEで",
+    "line_url": "https://lin.ee/9c4pI82",
+    "auto_post": false
   }
 }

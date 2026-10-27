@@ -175,6 +175,32 @@ def build_x_posts(articles: List[Dict], date: datetime, url: str) -> List[Dict]:
     return posts
 
 
+THREADS_LIMIT = 500  # Threads の1投稿の文字数の上限
+
+
+def build_auto_post(articles: List[Dict], date: datetime, url: str, config: Dict) -> Optional[Dict]:
+    """毎朝7時に X・Threads へ自動で出す1本（2026-10-27 藤崎さんの決定で X・Threads を自動の転載で再開）。
+
+    まとめ投稿の最後に LINE @381 への1行（monetize_config.json の social.line_cta）を付ける。
+    見出しが長くて X の上限を超える日は、見出しを短く → 3本を2本に、の順で収める。
+    """
+    soc = config.get("social", {})
+    cta = soc.get("line_cta", "").strip()
+    line_url = soc.get("line_url", "").strip()
+    tail = ["", f"{cta}↓", line_url] if cta and line_url else ["", "#AI #生成AI #AIニュース"]
+    date_label = f"{date.month}/{date.day}"
+    for n in (3, 2):
+        for title_budget in range(60, 15, -4):
+            lines = [f"【{date_label} AIニュース{n}行まとめ】", ""]
+            lines += [f"▪️ {_trim(a['title_ja'], title_budget)}" for a in articles[:n]]
+            lines += ["", url] + tail
+            text = "\n".join(lines)
+            if x_length(text) <= X_LIMIT:
+                return {"date": date.strftime("%Y-%m-%d"), "x": text, "threads": text,
+                        "x_length": x_length(text), "threads_length": len(text)}
+    return None
+
+
 def build_note_outline(articles: List[Dict], date: datetime, url: str) -> str:
     date_label = f"{date.year}年{date.month}月{date.day}日"
     lines = [
@@ -261,6 +287,15 @@ def write_kit(categorized: Dict[str, List[Dict]], date: datetime,
     SOCIAL_DIR.mkdir(exist_ok=True)
     path = SOCIAL_DIR / f"{date.strftime('%Y-%m-%d')}.md"
     path.write_text(content, encoding="utf-8")
+    # 自動投稿用の1本（X・Threads の定時タスクがこれを読んで出す）
+    config = config if config is not None else monetize.load_config()
+    base = config.get("site", {}).get("base_url", "").rstrip("/")
+    articles = top_articles(categorized, limit=3)
+    auto = build_auto_post(articles, date, f"{base}/ai-news-{date.strftime('%Y-%m-%d')}.html", config)
+    if auto:
+        import json as _json
+        (SOCIAL_DIR / f"{date.strftime('%Y-%m-%d')}.post.json").write_text(
+            _json.dumps(auto, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     if verbose:
         print(f"✓ SNS投稿キット: social/{path.name}")
     return path
