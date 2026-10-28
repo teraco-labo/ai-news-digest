@@ -1,28 +1,28 @@
 {
- "date": "2026-10-27",
+ "date": "2026-10-28",
  "tier": "creator",
- "used": 17687,
+ "used": 24992,
  "limit": 124236,
  "reset": "2026-11-23",
- "days_left": 27,
- "available": 102549,
- "planned_base": 100000,
- "planned_final": 101274,
+ "days_left": 26,
+ "available": 95244,
+ "planned_base": 96450,
+ "planned_final": 95242,
  "state": "ちょうど",
  "counts": {
-  "ai_news": 26,
+  "ai_news": 25,
   "sumaho_news": 7,
-  "yt_set": 18,
+  "yt_set": 17,
   "reading": 4
  },
  "targets": {
   "ai_news": {
-   "lo": 2024,
-   "hi": 2249,
-   "max": 2473
+   "lo": 1980,
+   "hi": 2200,
+   "max": 2420
   },
   "yt_long": 1100,
   "yt_short": 250,
-  "reading": 1650
+  "reading": 1348
  }
 }
