@@ -1,0 +1,54 @@
+[てらこ先生] おはようございます！てらこ先生です。世界一わかりやすいAIニュース、2026年10月30日金曜日版！僕が本日の注目13件をお届けします。イロハさん、今日もよろしく！
+[イロハ] よろしくお願いします。今日も気になるニュースを一緒に見ていきましょう。
+[てらこ先生] では、モデル・リリース関連のニュースをお届けします。
+[イロハ] モデル・リリース、気になりますね。
+[てらこ先生] We're releasing the weights of Mistral Large 4。Hacker Newsからのニュースです。Hacker News で938 ポイント獲得。コミュニティで注目を集めている話題。
+[イロハ] これは注目ですね。もう少し詳しく教えてもらえますか？
+[てらこ先生] そうですね。Hacker News で938 ポイント獲得。コミュニティで注目を集めている話題。　今後の展開が注目されます。
+[てらこ先生] Gemini 4 Carbon is the new #1 on the Artificial Analysis Intelligence Index v5。Hacker Newsからのニュースです。Hacker News で320 ポイント獲得。コミュニティで注目を集めている話題。
+[イロハ] これは注目ですね。もう少し詳しく教えてもらえますか？
+[てらこ先生] そうですね。Hacker News で320 ポイント獲得。コミュニティで注目を集めている話題。　今後の展開が注目されます。
+[てらこ先生] Claude Code regularly sends each background agent’s transcript to its model。Hacker Newsからのニュースです。Hacker News で553 ポイント獲得。コミュニティで注目を集めている話題。
+[イロハ] これは注目ですね。もう少し詳しく教えてもらえますか？
+[てらこ先生] そうですね。Hacker News で553 ポイント獲得。コミュニティで注目を集めている話題。　今後の展開が注目されます。
+[てらこ先生] では、研究・技術関連のニュースをお届けします。
+[イロハ] 研究・技術、気になりますね。
+[てらこ先生] I went to Mexico to test-drive the cars Americans can’t buy。Hacker Newsからのニュースです。Hacker News で259 ポイント獲得。コミュニティで注目を集めている話題。
+[イロハ] これは注目ですね。もう少し詳しく教えてもらえますか？
+[てらこ先生] そうですね。Hacker News で259 ポイント獲得。コミュニティで注目を集めている話題。　今後の展開が注目されます。
+[てらこ先生] エルエルエム Voice。Hacker Newsからのニュースです。Hacker News で242 ポイント獲得。コミュニティで注目を集めている話題。
+[イロハ] これは注目ですね。もう少し詳しく教えてもらえますか？
+[てらこ先生] そうですね。Hacker News で242 ポイント獲得。コミュニティで注目を集めている話題。　今後の展開が注目されます。
+[てらこ先生] As search traffic dries up, Reddit announces it’s shifting to a logged-in experience。TechCrunch AIからのニュースです。As AI transforms how people find information online, Reddit is rethinking its open-web roots to protect its audience and business.
+[イロハ] これは注目ですね。もう少し詳しく教えてもらえますか？
+[てらこ先生] そうですね。As AI transforms how people find information online, Reddit is rethinking its open-web roots to protect its audience and business.　今後の展開が注目されます。
+[てらこ先生] では、ビジネス・産業関連のニュースをお届けします。
+[イロハ] ビジネス・産業、気になりますね。
+[てらこ先生] Rivian expands joint venture with VW to include AI assistant。TechCrunch AIからのニュースです。Rivian doesn't disclose if the value of its $5.8 billion joint venture will expand as a result.
+[イロハ] これは注目ですね。もう少し詳しく教えてもらえますか？
+[てらこ先生] そうですね。Rivian doesn't disclose if the value of its $5.8 billion joint venture will expand as a result.　今後の展開が注目されます。
+[てらこ先生] オープンエーアイ-backed Thrive Holdings acquires ADT。TechCrunch AIからのニュースです。オープンエーアイ-backed Thrive Holdings is buying ADT in a $15.3 billion deal, with plans to bring AI to the home security business.
+[イロハ] これは注目ですね。もう少し詳しく教えてもらえますか？
+[てらこ先生] そうですね。オープンエーアイ-backed Thrive Holdings is buying ADT in a $15.3 billion deal, with plans to bring AI to the home security business.　今後の展開が注目されます。
+[てらこ先生] US investigated Chinese spy plot aimed at Nvidia シーイーオー。TechCrunch AIからのニュースです。A top executive of a Singapore AI cloud company that was accused of illegally selling Nvidia chips to China could also have been a Chinese spy, sources have told the New York Times.
+[イロハ] これは注目ですね。もう少し詳しく教えてもらえますか？
+[てらこ先生] そうですね。A top executive of a Singapore AI cloud company that was accused of illegally selling Nvidia chips to China could also have been a Chinese spy, source　今後の展開が注目されます。
+[てらこ先生] では、政策・倫理関連のニュースをお届けします。
+[イロハ] 政策・倫理、気になりますね。
+[てらこ先生] The Download: AI agent tracking and climate feedback loops。MIT Tech Reviewからのニュースです。
+[イロハ] これは注目ですね。もう少し詳しく教えてもらえますか？
+[てらこ先生] そうですね。This is today's edition of The Download, our weekday newsletter that provides a daily dose of what's going on in the world of technology. Opinion: We 　今後の展開が注目されます。
+[てらこ先生] We urgently need to monitor AI agents’ actions in real time。MIT Tech Reviewからのニュースです。
+[イロハ] これは注目ですね。もう少し詳しく教えてもらえますか？
+[てらこ先生] そうですね。This summer, hundreds of オープンエーアイ agents tried to cheat on a cybersecurity test. They broke out of their test environment and successfully hacked Hugg　今後の展開が注目されます。
+[てらこ先生] では、ツール・開発関連のニュースをお届けします。
+[イロハ] ツール・開発、気になりますね。
+[てらこ先生] Meta quietly launches an AI fashion app called Style Sketch。TechCrunch AIからのニュースです。The app connects to Instagram to build a virtual closet from photos you’ve already shared, or lets you add items manually by snapping a photo, recording a quick video, or uploading images from your camera roll.
+[イロハ] これは注目ですね。もう少し詳しく教えてもらえますか？
+[てらこ先生] そうですね。The app connects to Instagram to build a virtual closet from photos you’ve already shared, or lets you add items manually by snapping a photo, recordi　今後の展開が注目されます。
+[てらこ先生] Granola crunches up a dictation feature to compete with Wispr。TechCrunch AIからのニュースです。Uno reverse! After Wispr added meeting notes to its dictation app, Granola is adding dictation to its meeting notetaker. The voice AI wars are getting interesting.
+[イロハ] これは注目ですね。もう少し詳しく教えてもらえますか？
+[てらこ先生] そうですね。Uno reverse! After Wispr added meeting notes to its dictation app, Granola is adding dictation to its meeting notetaker. The voice AI wars are getting　今後の展開が注目されます。
+[イロハ] 今日も盛りだくさんの内容でしたね！
+[イロハ] 今日の内容は、番組の説明欄のリンクから、専門用語の解説つきの記事でも読めますよ。
+[てらこ先生] 以上、2026年10月30日版の注目13件をお届けしました。世界一わかりやすいAIニュース、また明日もお楽しみに。
