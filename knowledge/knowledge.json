@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-29",
+  "updated": "2026-10-30",
   "entries": [
     {
       "id": "20260826-33a3d0",
@@ -1638,6 +1638,31 @@
         "name": "テツメモ",
         "title": "Meta AIのMuse、3日使い倒して分かった始め方と使いどころ。Xの評判185件の調査レポートと、チャットから自宅PCのCodex・Claude Codeを動かすSkillを配布します",
         "ref": "gmail:1a184245a03d67a5#3",
+        "published": "2026-10-29"
+      },
+      "visibility": "private",
+      "trial": {
+        "status": "",
+        "note": "",
+        "date": ""
+      }
+    },
+    {
+      "id": "20261030-3de4f6",
+      "date": "2026-10-30",
+      "title": "（知見なし）",
+      "summary": "Fujin さんの新しい有料講座（AI動画マーケティングBrain）の発売予告だけのメールでした。講座の項目が並んでいるだけで、判断に使える中身はありません。翌日に読み直さないため記録だけ残します。",
+      "takeaways": [],
+      "apply": [],
+      "tags": [
+        "対象外"
+      ],
+      "confidence": "opinion",
+      "source": {
+        "type": "email",
+        "name": "Fujin",
+        "title": "AI動画マーケティング自動化Brain、明日10/30（金）リリースです！",
+        "ref": "gmail:1a1869b971dea1d9",
         "published": "2026-10-29"
       },
       "visibility": "private",
