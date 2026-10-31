@@ -615,20 +615,20 @@ def build_email_html(categorized: Dict[str, List[Dict]], date: datetime, include
 <style>
   body { font-family: 'Hiragino Sans', 'Helvetica Neue', sans-serif; max-width: 600px; margin: 0; padding: 20px; background: #f5f5f5; }
   .container { background: white; border-radius: 8px; padding: 30px; }
-  .header { background: #eef4ff; border: 1px solid #dbe7fb; color: #0b1f4d; padding: 20px; border-radius: 12px; margin-bottom: 24px; text-align: center; }
+  .header { background: #FFF4E8; border: 1px solid #FBE3CC; color: #3A2210; padding: 20px; border-radius: 12px; margin-bottom: 24px; text-align: center; }
   .header h1 { margin: 0; font-size: 24px; }
   .header p { margin: 5px 0 0 0; font-size: 12px; color: #475569; }
   .section { margin-bottom: 30px; }
   .section-title { font-size: 16px; font-weight: bold; color: #1e293b; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0; }
-  .article { margin-bottom: 15px; padding: 12px; background: #f8fafc; border-left: 3px solid #60a5fa; border-radius: 4px; }
+  .article { margin-bottom: 15px; padding: 12px; background: #f8fafc; border-left: 3px solid #FB923C; border-radius: 4px; }
   .article-title { font-weight: bold; color: #1e293b; margin-bottom: 5px; font-size: 14px; }
   .article-summary { font-size: 13px; color: #475569; line-height: 1.5; margin-bottom: 5px; }
   .article-source { font-size: 11px; color: #64748b; }
   .footer { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e2e8f0; color: #64748b; font-size: 12px; }
   .podcast-box { background: #f0f4f8; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
   .podcast-box h3 { margin: 0 0 10px 0; color: #1e293b; font-size: 14px; }
-  .podcast-box a { color: #60a5fa; text-decoration: none; font-size: 12px; }
-  .category-model { border-left-color: #1d4ed8; }
+  .podcast-box a { color: #FB923C; text-decoration: none; font-size: 12px; }
+  .category-model { border-left-color: #EF6C00; }
   .category-research { border-left-color: #6d28d9; }
   .category-business { border-left-color: #065f46; }
   .category-policy { border-left-color: #92400e; }
@@ -665,10 +665,10 @@ def build_email_html(categorized: Dict[str, List[Dict]], date: datetime, include
     listen_url = f"{article_url}#listen"
     btn = ("display:inline-block;padding:12px 20px;border-radius:999px;text-decoration:none;"
            "font-weight:bold;font-size:15px;margin:4px 6px 4px 0;")
-    text_btn = (f'<a href="{article_url}" style="{btn}background:#ffffff;color:#1d4ed8;border:2px solid #1d4ed8;">'
+    text_btn = (f'<a href="{article_url}" style="{btn}background:#ffffff;color:#EF6C00;border:2px solid #EF6C00;">'
                 '文字で読む（用語解説つき）</a>')
     if podcast_available:
-        audio_btn = (f'<a href="{listen_url}" style="{btn}background:#1d4ed8;color:#ffffff;border:2px solid #1d4ed8;">'
+        audio_btn = (f'<a href="{listen_url}" style="{btn}background:#EF6C00;color:#ffffff;border:2px solid #EF6C00;">'
                      '音声で聴く</a>')
         note = "1つのページで、聴きながら台本と用語解説も読めます。"
     else:
@@ -698,7 +698,7 @@ def build_email_html(categorized: Dict[str, List[Dict]], date: datetime, include
 
         articles = categorized[category]
         cat_display = CATEGORIES_JA.get(category, category.upper())
-        color = category_colors.get(category, "#1d4ed8")
+        color = category_colors.get(category, "#EF6C00")
 
         email_html += f'\n  <div class="section">\n    <div class="section-title">【{cat_display}】 ({len(articles)}件)</div>\n'
 
@@ -713,9 +713,9 @@ def build_email_html(categorized: Dict[str, List[Dict]], date: datetime, include
             email_html += f'      <div class="article-summary">{summary}</div>\n'
             email_html += f'      <div class="article-source">{source}'
             if url:
-                email_html += f' &nbsp;·&nbsp; <a href="{url}" style="color:#60a5fa;">元記事</a>'
+                email_html += f' &nbsp;·&nbsp; <a href="{url}" style="color:#FB923C;">元記事</a>'
             if translate_url:
-                email_html += f' &nbsp;·&nbsp; <a href="{translate_url}" style="color:#818cf8;">日本語で読む</a>'
+                email_html += f' &nbsp;·&nbsp; <a href="{translate_url}" style="color:#F59E0B;">日本語で読む</a>'
             email_html += '</div>\n'
             email_html += f'    </div>\n'
 
@@ -727,7 +727,7 @@ def build_email_html(categorized: Dict[str, List[Dict]], date: datetime, include
         "&body=このメールをそのまま送信すると、世界一わかりやすいAIニュースの配信を停止します。"
     )
     email_html += '  <div class="footer">\n'
-    email_html += f'    <p>世界一わかりやすいAIニュース | <a href="{SITE_URL}" style="color: #60a5fa; text-decoration: none;">サイトを見る</a></p>\n'
+    email_html += f'    <p>世界一わかりやすいAIニュース | <a href="{SITE_URL}" style="color: #FB923C; text-decoration: none;">サイトを見る</a></p>\n'
     email_html += (
         '    <p style="margin-top:10px;font-size:11px;color:#94a3b8;">\n'
         '      このメールは「世界一わかりやすいAIニュース」の購読者にお届けしています。<br>\n'

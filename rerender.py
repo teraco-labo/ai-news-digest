@@ -39,7 +39,7 @@ def _overview(raw: str) -> list:
 NAV_BAR = """<div id="legacy-nav" style="position:sticky;top:0;z-index:50;
 background:#0f172a;color:#e2e8f0;padding:0.6rem 1rem;font-size:0.8rem;
 font-family:'Noto Sans JP',sans-serif;display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
-<a href="./" style="color:#22d3ee;text-decoration:none;font-weight:700;">{name}</a>
+<a href="./" style="color:#FB923C;text-decoration:none;font-weight:700;">{name}</a>
 <a href="./" style="color:#e2e8f0;text-decoration:none;">トップ</a>
 <a href="terms/" style="color:#e2e8f0;text-decoration:none;">AI用語集</a>
 <a href="archive.html" style="color:#e2e8f0;text-decoration:none;">バックナンバー</a>

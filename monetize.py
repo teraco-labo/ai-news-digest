@@ -143,7 +143,7 @@ def _css() -> str:
   .mz-cta-block h2 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: #fff; }
   .mz-cta-block p { font-size: 0.85rem; line-height: 1.8; color: #cbd5e1; }
   .mz-cta-block a { display: inline-block; margin-top: 0.9rem; padding: 0.6rem 1.4rem;
-    background: #22d3ee; color: #0f172a; font-size: 0.85rem; font-weight: 700;
+    background: #FB923C; color: #0f172a; font-size: 0.85rem; font-weight: 700;
     border-radius: 6px; text-decoration: none; }
   .mz-ad { max-width: 1100px; margin: 2rem auto; text-align: center; }
 </style>

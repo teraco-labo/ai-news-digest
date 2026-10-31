@@ -158,7 +158,7 @@ class Annotator:
 TOOLTIP_CSS = """
   .t { color:var(--accent); border-bottom:1px dashed currentColor; cursor:help;
     font-weight:500; }
-  .t:hover, .t:focus-visible { background:rgba(14,116,144,0.10); outline:none; border-radius:2px; }
+  .t:hover, .t:focus-visible { background:rgba(239,108,0,0.10); outline:none; border-radius:2px; }
   #tip { position:absolute; z-index:60; max-width:min(22rem,88vw); padding:0.85rem 1rem;
     background:var(--card-bg); border:1px solid var(--border); border-radius:8px;
     box-shadow:0 8px 28px rgba(15,23,42,0.16); font-size:0.84rem; line-height:1.8;
