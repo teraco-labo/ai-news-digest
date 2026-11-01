@@ -239,7 +239,10 @@ def build_head_tags(config: Dict, *, page_url: str, title: str,
     parts.append(f'<meta property="og:site_name" content="{_html.escape(site.get("name", ""))}">\n')
     parts.append(f'<meta property="og:locale" content="{_html.escape(site.get("locale", "ja_JP"))}">\n')
     if site.get("base_url"):
-        parts.append(f'<meta property="og:image" content="{_html.escape(site["base_url"])}/podcast/cover.jpg">\n')
+        # 表紙の中身が変わったら URL も変える（2026-11-02：表紙をオレンジにしたのに、X が同じ URL の古い青い画像を出し続けた）
+        cover = Path(__file__).resolve().parent / "podcast" / "cover.jpg"
+        ver = f"?v={zlib.crc32(cover.read_bytes()) & 0xffffffff:08x}" if cover.exists() else ""
+        parts.append(f'<meta property="og:image" content="{_html.escape(site["base_url"])}/podcast/cover.jpg{ver}">\n')
     parts.append('<meta name="twitter:card" content="summary_large_image">\n')
     if _filled(site.get("twitter")):
         parts.append(f'<meta name="twitter:site" content="{_html.escape(site["twitter"])}">\n')
