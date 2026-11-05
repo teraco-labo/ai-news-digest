@@ -10894,6 +10894,267 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "leading-the-future",
+      "term": "Leading the Future",
+      "reading": "リーディング・ザ・フューチャー",
+      "aliases": [],
+      "category": "規制",
+      "short": "AIを推進する立場で選挙にお金を使う、米国の政治団体のグループです。シリコンバレーのお金持ちたちが支えています。",
+      "detail": "AI推進派で最大のスーパーPACネットワークで、1億ドルの資金を持っていました。AI規制に強く反対する立場で2026年の米中間選挙に臨みましたが、目立った成果は出せませんでした。業界がお金で政治に影響を与えようとする動きの代表例として名前が挙がります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "super-pac",
+      "term": "スーパーPAC",
+      "reading": "スーパーパック",
+      "aliases": [
+        "PAC",
+        "政治活動委員会"
+      ],
+      "category": "規制",
+      "short": "米国で選挙のためにお金を集めて使う団体です。特定の候補や主張を応援する広告などにお金を出します。",
+      "detail": "PACは政治活動委員会の略で、なかでもスーパーPACは集められる金額や使える金額の制限がゆるいのが特徴です。2026年の中間選挙では、AI業界のPACが数百万ドル規模を投じて議会の顔ぶれに影響を与えようとしました。業界の利害がどう政治に持ち込まれるかを読むうえで欠かせない言葉です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "conductor",
+      "term": "Conductor",
+      "reading": "コンダクター",
+      "aliases": [],
+      "category": "企業",
+      "short": "AIにプログラムを書かせる道具を作っていたスタートアップです。Metaに買収されました。",
+      "detail": "エンジニアが複数のAIエージェントをチームとして動かし、プロジェクトの別々の部分を同時に進められるツールを提供していました。1つのAIに任せるのではなく、複数のAIを指揮するという考え方の製品です。Metaによる買収は、AIコーディング分野での競争の広がりを示しています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "nothing",
+      "term": "Nothing",
+      "reading": "ナッシング",
+      "aliases": [],
+      "category": "企業",
+      "short": "スマートフォンなどを作っている新しい会社です。AIを中心にした新しい端末を準備しています。",
+      "detail": "スマートフォンのスタートアップとして知られています。CEOは、AIを使って生産性を高める「AIファースト」の端末を2026年12月に出すと話しています。どんな形の製品になるかはまだ明らかになっていません。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "siri-recaps",
+      "term": "Siri Recaps",
+      "reading": "シリ・リキャップス",
+      "aliases": [],
+      "category": "使い方",
+      "short": "AppleがSiriに加えた、AIを使う新しい機能です。試した記者は便利だと感じた一方、少し不安も覚えたそうです。",
+      "detail": "TechCrunchの記者は1日使っただけでその便利さに納得したと書いています。一方でプライバシー面の懸念も残るとしており、改善の余地もあると評価しています。日本での提供状況は記事からは分かりません。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "ai-overviews",
+      "term": "AI Overviews",
+      "reading": "エーアイ・オーバービューズ",
+      "aliases": [
+        "AIによる概要"
+      ],
+      "category": "使い方",
+      "short": "Googleで検索したとき、結果の上にAIがまとめた答えを表示する機能です。リンクを開かなくても答えが読めます。",
+      "detail": "Googleはこの機能を通常の検索と切り離せない形にしたため、学校や保護者から反発を受けています。AIがすぐに答えを出すことで、子どもが自分で考える力を失うのではないかという懸念があります。検索の仕組みそのものが変わりつつあることを示す機能でもあります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "duckduckgo",
+      "term": "DuckDuckGo",
+      "reading": "ダックダックゴー",
+      "aliases": [],
+      "category": "企業",
+      "short": "Googleとは別の検索サービスを提供している会社です。AIの機能を止めて使うこともできます。",
+      "detail": "GoogleのAI方針に不満を持つ学校に向けて、自社の検索エンジンを売り込んでいます。AI機能を無効にできることを強みとしてアピールしています。大手のAI方針への反発が、競合にとってのチャンスになっている例です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "zohran-mamdani",
+      "term": "Zohran Mamdani",
+      "reading": "ゾーラン・マムダニ",
+      "aliases": [],
+      "category": "人物",
+      "short": "米ニューヨーク市の市長です。左派の政治家として知られています。",
+      "detail": "AIを制限する学校で検索を使えなくするというGoogleの計画を批判しました。元FTC委員長のLina Khan氏とともに、Googleが規制を受けない独占企業のように振る舞っていると訴えています。大都市のトップがテック企業のAI方針に直接意見していることになります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "monopoly",
+      "term": "独占（モノポリー）",
+      "reading": "ドクセン",
+      "aliases": [
+        "独占企業",
+        "モノポリー"
+      ],
+      "category": "規制",
+      "short": "ある商品やサービスを、ほぼ1つの会社だけが提供している状態です。ほかに選ぶ相手がいないので、その会社の言い分が通りやすくなります。",
+      "detail": "Googleは検索でこうした強い立場にあると批判されています。学校がAI機能を嫌っても、ほかに移る先が限られれば、Googleの方針を受け入れるしかなくなります。そのため政治家からは、規制が必要だという声が上がっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "clement-delangue",
+      "term": "Clément Delangue",
+      "reading": "クレマン・ドゥラング",
+      "aliases": [],
+      "category": "人物",
+      "short": "AIのモデルを共有するサイトを運営するHugging FaceのCEOです。誰でも使えるオープンなAIを強く支持しています。",
+      "detail": "AIで人類が破滅する確率は「ほぼゼロ」だと語りました。リスクの大半は、閉ざされた環境で開発する一握りの企業が生み出していると主張しています。オープンソースAIを推す立場の代表的な声として発言が注目されます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "p-doom",
+      "term": "P(doom)",
+      "reading": "ピー・ドゥーム",
+      "aliases": [
+        "破滅確率"
+      ],
+      "category": "安全性",
+      "short": "AIのせいで人類がとても悪い結末を迎える確率を、その人がどう見積もっているかを表す言葉です。数字で「どれくらい心配しているか」を示します。",
+      "detail": "「P」は確率、「doom」は破滅を意味します。AI業界の人が自分のリスク観を一言で示すときに使われ、人によって見積もりは大きく違います。Hugging FaceのClément Delangue氏は、自分の値は「ほぼゼロ」だと述べています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "chris-lehane",
+      "term": "Chris Lehane",
+      "reading": "クリス・レヘイン",
+      "aliases": [],
+      "category": "人物",
+      "short": "OpenAIで政治や政府との関係を担当している幹部です。AIを2028年の米国選挙の大きなテーマにしようとしています。",
+      "detail": "新しい「社会契約」を提案し、AIが米国民にもたらす利益を打ち出しています。TechCrunchは、その提案がOpenAI自身の事業上の利益にもつながると指摘しています。AI企業が政治の議題づくりにどう関わるかを見るうえで重要な人物です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "social-contract",
+      "term": "社会契約",
+      "reading": "シャカイケイヤク",
+      "aliases": [],
+      "category": "規制",
+      "short": "社会の人々と国や組織のあいだで、お互いに何を約束し合うかという取り決めのことです。新しい技術が広まるときに、その分け前や責任を決め直す意味でも使われます。",
+      "detail": "OpenAIのChris Lehane氏は、AI時代の新しい社会契約を提案しています。米国民に恩恵をもたらしうる一方で、OpenAIのビジネスにも有利な内容だと指摘されています。言葉の響きのよさと、その裏にある企業の利害を分けて読むことが大切です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "blue-wave",
+      "term": "ブルーウェーブ",
+      "reading": "ブルーウェーブ",
+      "aliases": [
+        "blue wave",
+        "青い波"
+      ],
+      "category": "規制",
+      "short": "米国の選挙で民主党が大きく勝つことを指す言い方です。民主党のイメージカラーが青であることから来ています。",
+      "detail": "2026年の中間選挙では民主党が下院と上院の両方で多数を取り、まさにブルーウェーブとなりました。テキサスのような共和党が強かった州でも民主党が勝っています。この結果が、AIデータセンターの建設計画に影響するのではないかと見られています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "us-senate",
+      "term": "上院（米国）",
+      "reading": "ジョウイン",
+      "aliases": [
+        "米上院",
+        "Senate"
+      ],
+      "category": "規制",
+      "short": "米国の議会にある2つの院のうちの1つです。各州から選ばれた議員が集まります。",
+      "detail": "2026年の中間選挙で、民主党は下院とあわせて上院でも多数を取りました。法律を通すには両院の賛成が必要なので、どちらの党が多数かでAIやデータセンターの政策の方向性が変わります。テキサスの上院選も注目されていました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "james-talarico",
+      "term": "James Talarico",
+      "reading": "ジェームズ・タラリコ",
+      "aliases": [],
+      "category": "人物",
+      "short": "米テキサス州の民主党の政治家です。2026年の上院選で当選しました。",
+      "detail": "テキサス州の上院選で、共和党のKen Paxton氏を破りました。テキサスはAIデータセンター建設の中心地なので、この結果は業界からも注目されています。民主党が州で勢いを増した象徴として名前が挙がります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "ken-paxton",
+      "term": "Ken Paxton",
+      "reading": "ケン・パクストン",
+      "aliases": [],
+      "category": "人物",
+      "short": "米テキサス州の共和党の政治家です。2026年の上院選で敗れました。",
+      "detail": "テキサス州の上院選で、民主党のJames Talarico氏に負けました。共和党が強いテキサスでの敗北は、2026年中間選挙の流れを象徴する出来事として報じられています。データセンター建設の行方を占うニュースの中で名前が出てきます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "gina-hinojosa",
+      "term": "Gina Hinojosa",
+      "reading": "ジーナ・イノホサ",
+      "aliases": [],
+      "category": "人物",
+      "short": "米テキサス州の民主党の政治家です。2026年の州知事選で当選しました。",
+      "detail": "州知事選で、共和党の現職を破りました。州知事は州の産業政策に大きな影響力を持つため、データセンター建設の行方を左右しうる立場です。テキサスのAIインフラ拠点としての地位が揺らぐかもしれないと言われる理由の1つです。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "rezoning",
+      "term": "用途地域の変更（リゾーニング）",
+      "reading": "リゾーニング",
+      "aliases": [
+        "rezoning",
+        "ゾーニング変更"
+      ],
+      "category": "規制",
+      "short": "ある土地に何を建ててよいかという決まりを変えることです。たとえば農地だった場所に大きな施設を建てられるようにします。",
+      "detail": "データセンターを建てるには、土地の決まりを変える必要があることがよくあります。2026年の中間選挙では、こうした変更の是非を住民が投票で決める場面もあり、データセンター推進派は苦戦しました。地域住民の賛否がAIインフラ拡大のボトルネックになりうることを示しています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "ai-minister-uk",
+      "term": "AI担当大臣（英国）",
+      "reading": "",
+      "aliases": [
+        "AI minister"
+      ],
+      "category": "規制",
+      "short": "英国政府でAIに関する政策を受け持つ大臣です。",
+      "detail": "AIで英国経済が4000億ポンド伸びるという政府の説明について、実際の見込みはその3分の1未満だと認めました。もとの数字は主にGoogleの試算から来ていたと報じられています。政府の数字の根拠を誰が作ったのかが問われるきっかけになりました。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
