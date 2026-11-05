@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AIプロンプト集を無料でプレゼント｜てらこ先生</title>
+<meta name="description" content="コピペで使えるAIプロンプト集を無料でプレゼント中。LINEで「プロンプト」と送ってね。">
+<meta property="og:title" content="AIプロンプト集を無料でプレゼント｜てらこ先生">
+<meta property="og:description" content="LINEで「プロンプト」と送ってね">
+<meta property="og:image" content="https://teraco-labo.github.io/ai-news-digest/podcast/cover.jpg?v=287cbf6c">
+<meta name="twitter:card" content="summary">
+<!--
+  2026-11-05 X のピン留めの LINE のリンクが押せない対策（藤崎さん「LINE アプリを開くっていうボタンは押せない」）。
+  X・Instagram・Facebook の中で開く画面（アプリ内ブラウザ）は、LINE の案内ページの「LINEアプリで開く」（line://）を呼び出せない。
+  そこで X などからはこのページへ飛ばし、①ボタン ②Android は Chrome で開き直す ③ID のコピー ④QR の4通りを用意する。
+  ボタンの行き先は計測つきの lin.ee/9c4pI82（@381traad）のまま。
+-->
+<style>
+:root{--o:#EF6C00;--ink:#3A2210;--bg:#FFF7ED;--card:#fff;--line:#06C755}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN",sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+main{max-width:480px;margin:0 auto;padding:28px 16px 48px}
+.top{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.top img{width:56px;height:56px;border-radius:12px}
+.top b{font-size:15px}
+h1{font-size:24px;line-height:1.45;margin-bottom:10px}
+h1 span{color:var(--o)}
+.card{background:var(--card);border-radius:16px;padding:18px;margin-top:16px;box-shadow:0 4px 16px rgba(58,34,16,.08)}
+.btn{display:block;text-align:center;text-decoration:none;font-weight:800;font-size:18px;border-radius:999px;padding:16px;color:#fff;background:var(--line)}
+.btn.sub{background:#fff;color:var(--ink);border:2px solid #E5D3C0;font-size:16px;margin-top:12px}
+.note{font-size:15px;margin-top:12px}
+.inapp{display:none;border:2px solid var(--o)}
+.inapp.on{display:block}
+.inapp h2{font-size:17px;color:var(--o);margin-bottom:6px}
+.id{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:20px;font-weight:800;background:var(--bg);border-radius:12px;padding:10px 14px;margin-top:8px}
+.id button{font:inherit;font-size:15px;font-weight:800;border:0;border-radius:999px;background:var(--o);color:#fff;padding:8px 16px}
+.qr{text-align:center}
+.qr img{width:180px;height:180px}
+</style>
+</head>
+<body>
+<main>
+  <div class="top"><img src="podcast/cover.jpg?v=287cbf6c" alt=""><b>てらこ先生｜やさしいAIの使い方</b></div>
+  <h1>コピペで使える<br><span>AIプロンプト集</span>を<br>無料でプレゼント</h1>
+  <p>LINEで友だちになって「<b>プロンプト</b>」と送ってね。</p>
+
+  <div class="card inapp" id="inapp">
+    <h2>ボタンが押せないときは</h2>
+    <p id="ios">右上（または右下）の「<b>…</b>」から「<b>ブラウザで開く</b>」を押してから、緑のボタンを押してください。</p>
+    <a class="btn sub" id="android" href="#" hidden>Chrome で開き直す</a>
+  </div>
+
+  <div class="card">
+    <a class="btn" href="https://lin.ee/9c4pI82">LINEで友だちになる</a>
+  </div>
+
+  <div class="card">
+    <p><b>IDで探す</b>：LINEの「友だち追加」→「検索」に貼り付けてください。</p>
+    <div class="id"><span>@381traad</span><button type="button" id="copy">コピー</button></div>
+  </div>
+
+  <div class="card qr">
+    <p><b>パソコンで見ている方</b>は、スマホのLINEで読み取ってください。</p>
+    <img src="line_qr.png" alt="LINE友だち追加のQRコード">
+  </div>
+</main>
+<script>
+// X・Instagram・Facebook・LINE などのアプリの中の画面かどうか
+var ua = navigator.userAgent;
+if (/Twitter|Instagram|FBAN|FBAV|FB_IAB|Threads|TikTok|BytedanceWebview|musical_ly/i.test(ua)) {
+  document.getElementById('inapp').classList.add('on');
+  if (/Android/i.test(ua)) {
+    // Android は intent で Chrome に開き直せる
+    var a = document.getElementById('android');
+    a.hidden = false;
+    a.href = 'intent://' + location.host + location.pathname + '#Intent;scheme=https;package=com.android.chrome;end';
+    document.getElementById('ios').textContent = '下のボタンで Chrome に開き直してから、緑のボタンを押してください。';
+  }
+}
+document.getElementById('copy').onclick = function () {
+  var b = this;
+  var done = function () { b.textContent = 'コピーしました'; };
+  if (navigator.clipboard) { navigator.clipboard.writeText('@381traad').then(done, done); }
+  else { var t = document.createElement('textarea'); t.value = '@381traad'; document.body.appendChild(t); t.select(); try { document.execCommand('copy'); } catch (e) {} t.remove(); done(); }
+};
+</script>
+</body>
+</html>

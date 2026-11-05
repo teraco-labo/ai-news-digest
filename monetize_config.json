@@ -349,8 +349,9 @@
   },
   "social": {
     "_note": "2026-10-27 藤崎さんの決定：毎朝7時に AI ニュースのまとめを X・Threads へ自動で出す。最後の1行は LINE @381（てらこ先生｜TERACO.LABO）への案内。2026-10-27 同日、入口を広くする決定で line_cta を「コピペで使える AIプロンプト集」（合言葉「プロンプト」）の案内に替えた。line_cta を空にすると LINE の1行は付かない（代わりにハッシュタグ）",
+    "_note_line_url": "2026-11-05 X の中の画面では lin.ee の「LINEアプリで開く」が押せない（藤崎さん）。X・Threads からは案内ページ line.html へ飛ばす（中のボタンは lin.ee/9c4pI82 のまま）",
     "line_cta": "AIプロンプト集を無料でプレゼント中。LINEで「プロンプト」と送ってね",
-    "line_url": "https://lin.ee/9c4pI82",
+    "line_url": "https://teraco-labo.github.io/ai-news-digest/line.html",
     "auto_post": true
   }
 }
