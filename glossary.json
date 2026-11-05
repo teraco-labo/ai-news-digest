@@ -11155,6 +11155,230 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "greg-brockman",
+      "term": "Greg Brockman",
+      "reading": "グレッグ・ブロックマン",
+      "aliases": [
+        "ブロックマン"
+      ],
+      "category": "人物",
+      "short": "OpenAIの社長です。会社の経営の中心にいる人物の一人です。",
+      "detail": "OpenAIの社長として、会社の方針や事業の見通しを外に向けて語る立場にあります。2026年11月には、OpenAIが2027年に上場の準備を整えられる可能性があると発言しました。根拠として企業向け売上の伸びが加速していることを挙げており、同社の財務の動きを知るうえで発言が注目されます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "plaid",
+      "term": "Plaid",
+      "reading": "プレイド",
+      "aliases": [],
+      "category": "企業",
+      "short": "アプリと銀行口座やカードをつなぐ仲介サービスです。利用者が許可すると、アプリが口座の情報を読めるようになります。",
+      "detail": "ClaudeのPersonal Finance機能は、Plaidを通じて銀行やカードのアカウントを連携します。AIなどのアプリが金融機関ごとに個別につなぎ込まなくても、口座データを扱えるようにする役割です。AIが個人の金融データを扱うときは、こうした連携の窓口の安全性も大事になります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "claude-personal-finance",
+      "term": "Personal Finance（Claude）",
+      "reading": "パーソナル・ファイナンス",
+      "aliases": [
+        "Personal Finance in Claude"
+      ],
+      "category": "モデル",
+      "short": "Claudeで自分のお金の使い方を分析できる機能です。銀行口座やカードをつなぐと、支出について質問できます。",
+      "detail": "Plaidを通じて銀行口座やカードのアカウントを連携し、支出の傾向などをClaudeに尋ねられます。チャットAIが個人の金融データに直接アクセスする機能の一つです。便利な一方で、プライバシーやデータの扱いにも気を配る必要があります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "axiom-math",
+      "term": "Axiom Math",
+      "reading": "アクシオム・マス",
+      "aliases": [],
+      "category": "企業",
+      "short": "AIで数学の証明が正しいかを確かめるスタートアップです。間違った証明が広まるのを防ぐことを目指しています。",
+      "detail": "AIが確かめられていない証明を大量に作るようになったことを受け、正しさの「検証」に力を入れています。同社のAIエージェントは、数学で最大級のライブラリの一つであるStacks Projectの形式検証を完了しました。AIの成果を信頼できる形にするための取り組みとして注目されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "stacks-project",
+      "term": "Stacks Project",
+      "reading": "スタックス・プロジェクト",
+      "aliases": [],
+      "category": "基礎",
+      "short": "数学の知識をまとめた大きな資料集です。数学の分野で最大級のライブラリの一つです。",
+      "detail": "Axiom MathのAIエージェントが、このライブラリ全体の形式検証を完了しました。分量の多い数学の資料をまるごと機械的に確かめられたことは、AIによる検証が大きな規模でも使えることを示しています。数学でのAI活用を考えるときの一つの目安になる事例です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "dropbox",
+      "term": "Dropbox",
+      "reading": "ドロップボックス",
+      "aliases": [],
+      "category": "企業",
+      "short": "ファイルをネット上に保存して共有できるサービスの会社です。仕事でも個人でも広く使われています。",
+      "detail": "2026年11月、AIインフラを強化するためにTigris Dataを3億5,000万ドルで買収すると発表しました。AIモデルやエージェントを作る開発者向けのストレージ基盤「DBX Agent Cloud」の開発につなげるねらいです。ファイル共有からAI開発の裏方へと事業を広げる動きとして注目されます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "tigris-data",
+      "term": "Tigris Data",
+      "reading": "ティグリス・データ",
+      "aliases": [],
+      "category": "企業",
+      "short": "データを保存する仕組みを作っている会社です。Dropboxに買収されることになりました。",
+      "detail": "Dropboxが3億5,000万ドルで買収しました。この買収は、AI開発者向けのストレージ基盤「DBX Agent Cloud」の開発を支えるためのものです。AIの開発には大量のデータを保存して扱う仕組みが欠かせず、その部分を担う企業として買われました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "dbx-agent-cloud",
+      "term": "DBX Agent Cloud",
+      "reading": "ディービーエックス・エージェント・クラウド",
+      "aliases": [],
+      "category": "インフラ",
+      "short": "Dropboxが作っている、AI開発者向けのデータ保存の仕組みです。AIモデルやAIエージェントを作る人を対象にしています。",
+      "detail": "DropboxがTigris Dataの買収で開発を加速させようとしている新しいストレージ基盤です。AIモデルやエージェントの開発に必要なデータを扱うことを想定しています。ファイル共有の会社がAIインフラ市場に参入する足がかりになります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "box",
+      "term": "Box",
+      "reading": "ボックス",
+      "aliases": [],
+      "category": "企業",
+      "short": "会社の文書やファイルをネット上でまとめて管理するサービスの会社です。主に企業が使っています。",
+      "detail": "NVIDIAのNemotronを使った、AIエージェント向けのコンテンツ検索システムを発表しました。応答が4倍速く、誤りが20%少なく、使うトークンが90%少ないとしています。社内の文書をAIエージェントが探しに行く使い方を前提にした動きです。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "nemotron",
+      "term": "Nemotron",
+      "reading": "ネモトロン",
+      "aliases": [],
+      "category": "モデル",
+      "short": "NVIDIAが提供しているAIモデルです。ほかの会社が自社の製品に組み込んで使えます。",
+      "detail": "Boxは、新しいエージェント向けコンテンツ検索システムにNemotronを採用しました。NVIDIAはチップだけでなくAIモデルも提供しており、Nemotronはその一つです。半導体の会社がソフトの側でも存在感を高めていることを示す例です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "aina",
+      "term": "Aina",
+      "reading": "アイナ",
+      "aliases": [],
+      "category": "企業",
+      "short": "AIを操作するための指輪型の端末を作っているスタートアップです。スマホを使わずにAIに指示を出せるようにすることを目指しています。",
+      "detail": "同社のスマートリングには画面、ジョイスティック、マイクが付いていて、ワンタップでAIエージェントの動作を指示できます。通話や、Macでの音声入力によるメモ取りにも使えます。AIを操作する新しい端末の形を探る会社として注目されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "nasdaq",
+      "term": "Nasdaq",
+      "reading": "ナスダック",
+      "aliases": [
+        "ナスダック"
+      ],
+      "category": "ビジネス",
+      "short": "アメリカの株式市場の一つです。IT企業やテック企業の株が多く取引されています。",
+      "detail": "テック企業の株が多いため、その値動きはAIや半導体への市場の期待をよく映します。2026年11月の米選挙のあと、投資家がAI関連株から資金を引き揚げ、5%下落しました。AIブームに対する市場の見方を知る手がかりになります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "listing",
+      "term": "上場",
+      "reading": "じょうじょう",
+      "aliases": [
+        "株式上場",
+        "株式公開"
+      ],
+      "category": "ビジネス",
+      "short": "会社の株を、誰でも売り買いできる株式市場に出すことです。上場すると、会社はより多くのお金を集めやすくなります。",
+      "detail": "上場すると、会社は売上や利益などの情報を広く公開する必要が出てきます。OpenAIのBrockman社長は、同社が2027年には上場の準備を整えられる可能性があると述べました。大手AI企業の上場は、業界全体の評価額や資金の流れにも影響します。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "ai-trade",
+      "term": "AIトレード",
+      "reading": "エーアイトレード",
+      "aliases": [
+        "AI trade"
+      ],
+      "category": "ビジネス",
+      "short": "AIで成長しそうな会社の株にお金を集める投資の動きです。AIブームへの期待を表す言葉です。",
+      "detail": "AIへの期待が高まると、関連する会社の株が買われて値上がりします。逆に先行きへの不安が出ると、一斉に売られることもあります。2026年11月の米選挙の後には、投資家がAIトレードから手を引き、Nasdaqが5%下落しました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "dictation",
+      "term": "ディクテーション（音声入力）",
+      "reading": "ディクテーション",
+      "aliases": [
+        "音声入力",
+        "dictation"
+      ],
+      "category": "使い方",
+      "short": "話した言葉をそのまま文字にして入力することです。キーボードを打たずにメモや文章を書けます。",
+      "detail": "Ainaのスマートリングは、Macでのメモ取りをディクテーションで手伝えます。手がふさがっているときや、思いついたことをすぐ残したいときに便利です。AIの性能が上がったことで、話し言葉をそのまま使える場面が広がっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "storage",
+      "term": "ストレージ",
+      "reading": "ストレージ",
+      "aliases": [
+        "記憶装置",
+        "保存領域"
+      ],
+      "category": "インフラ",
+      "short": "データを保存しておく場所や仕組みのことです。写真や文書、AIの学習用データなどをしまっておきます。",
+      "detail": "AIの開発では大量のデータを保存して素早く取り出す必要があり、ストレージの性能が重要になります。DropboxはTigris Dataの買収で、AI開発者向けのストレージ基盤「DBX Agent Cloud」を強化しようとしています。AIの裏方を支える分野として投資が集まっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "infrastructure",
+      "term": "インフラ",
+      "reading": "インフラ",
+      "aliases": [
+        "インフラストラクチャー",
+        "基盤"
+      ],
+      "category": "インフラ",
+      "short": "物事を動かすための土台になる設備や仕組みのことです。AIの場合は、データセンターや電力、データを保存する仕組みなどを指します。",
+      "detail": "AI企業はモデルを作り動かすために、巨大なインフラへの投資を続けています。一方で、データセンターなどの大規模インフラには地域社会からの反発も強まっています。Metaは、この反発が将来のAI投資を難しくする可能性があると警告しました。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
