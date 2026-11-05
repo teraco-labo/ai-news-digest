@@ -361,13 +361,26 @@ def _episode_description(ep: Dict) -> str:
     # 台本つきプレイヤーへのリンクはここには置かない。Spotify で聴いている人は
     # すでに音声を聴けているので行く理由がなく、リンクが増えるほど記事が押されなくなる
     # （2026-09-07 藤崎さんの判断）。プレイヤーはサイト内からの導線として残す
-    text = (f"{ep.get('title','')}。"
-            f" この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → {article}")
+    text = f"{ep.get('title','')}。"
+    # 冒頭に「今日の3行まとめ」を置く。Substack はこの欄をそのまま本文に取り込むので、
+    # 音声だけでなく中身も読めるようにする。用語の解説は記事版にだけ残す（2026-11-05 藤崎さんの判断）
+    try:
+        import digest_page
+        page = REPO_DIR / f"ai-news-{date}.html"
+        lines = digest_page.extract_overview(page.read_text(encoding="utf-8")) if page.exists() else []
+    except Exception:
+        lines = []
+    if lines:
+        marks = "①②③④⑤"
+        text += "\n\n今日の3行まとめ\n" + "\n".join(f"{marks[i]} {l}" for i, l in enumerate(lines[:5])) + "\n\n"
+    else:
+        text += " "
+    text += f"この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → {article}"
     try:
         import monetize, site_theme
         mail = site_theme.newsletter_links(monetize.load_config())["signup_url"]
         if mail:
-            text += f" ／ メールで毎朝受け取る（無料）→ {mail}"
+            text += f" ／ 毎週土曜のまとめをメールで受け取る（無料）→ {mail}"
     except Exception:
         pass
     return text.replace("&", "&amp;").replace("<", "&lt;")
