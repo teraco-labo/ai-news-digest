@@ -34,7 +34,7 @@ CATEGORIES_JA = {
     "policy": "ポリシー", "tools": "ツール",
 }
 CAT_COLOR = {
-    "model": "#1d4ed8", "research": "#6d28d9", "business": "#065f46",
+    "model": "#EF6C00", "research": "#6d28d9", "business": "#065f46",
     "policy": "#92400e", "tools": "#0e7490",
 }
 WEEKDAYS_JA = ["月", "火", "水", "木", "金", "土", "日"]
@@ -105,7 +105,7 @@ def _terms_block(articles: List[Dict], base: str, limit: int = 6) -> str:
             continue
         reading = f'（{_esc(t["reading"])}）' if t.get("reading") else ""
         link = f"{base}/terms/{slug}.html" if base else ""
-        name = (f'<a href="{link}" style="color:#0e7490;text-decoration:none;">'
+        name = (f'<a href="{link}" style="color:#EF6C00;text-decoration:none;">'
                 f'{_esc(t["term"])}</a>') if link else _esc(t["term"])
         rows += (
             f'<div style="margin:0 0 14px;">'
@@ -160,7 +160,7 @@ def build_html(date_iso: str, config: Optional[Dict] = None,
             f'<div style="font-size:12px;color:#cbd5e1;margin:0 0 12px;">'
             f"通勤中や作業中に、対話形式で聴けます（10〜15分）</div>"
             f'<a href="{podcast_store.audio_url(date_iso)}" '
-            f'style="display:inline-block;padding:9px 18px;background:#22d3ee;color:#0f172a;'
+            f'style="display:inline-block;padding:9px 18px;background:#EF6C00;color:#ffffff;'
             f'font-size:13px;font-weight:700;border-radius:6px;text-decoration:none;">'
             f"再生する →</a></div>"
         )
@@ -177,7 +177,7 @@ def build_html(date_iso: str, config: Optional[Dict] = None,
         body += _terms_block(articles, base)
 
     web = (f'<div style="margin:28px 0 0;text-align:center;font-family:{FONT};">'
-           f'<a href="{base}/" style="font-size:13px;color:#0e7490;text-decoration:none;">'
+           f'<a href="{base}/" style="font-size:13px;color:#EF6C00;text-decoration:none;">'
            f"ブラウザで読む（用語にカーソルを乗せると解説が出ます）→</a></div>") if base else ""
 
     return (
