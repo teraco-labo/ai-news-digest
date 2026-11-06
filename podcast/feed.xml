@@ -1698,34 +1698,5 @@
     <pubDate>Tue, 08 Sep 2026 21:00:00 GMT</pubDate>
     <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-08.mp3</guid>
   </item>
-  <item>
-    <title>2026年9月7日（月）のAIニュース</title>
-    <itunes:title>2026年9月7日（月）のAIニュース</itunes:title>
-    <description>2026年9月7日（月）のAIニュース。
-
-今日の3行まとめ
-① AnthropicとOpenAIをめぐる著作権の争いが、和解金の配分と新たな提訴の両面で動きました。
-② GPT-6 Astraをロボットアームで動かす試みが注目され、言語モデルの身体化が進んでいます。
-③ データセンター建設への反発やSiri刷新の評価など、AIの受け止め方は揺れ続けています。
-
-この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-07.html ／ 毎週土曜のまとめをメールで受け取る（無料）→ https://teracosensei.substack.com/embed</description>
-    <itunes:summary>2026年9月7日（月）のAIニュース。
-
-今日の3行まとめ
-① AnthropicとOpenAIをめぐる著作権の争いが、和解金の配分と新たな提訴の両面で動きました。
-② GPT-6 Astraをロボットアームで動かす試みが注目され、言語モデルの身体化が進んでいます。
-③ データセンター建設への反発やSiri刷新の評価など、AIの受け止め方は揺れ続けています。
-
-この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-07.html ／ 毎週土曜のまとめをメールで受け取る（無料）→ https://teracosensei.substack.com/embed</itunes:summary>
-    <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>てらこ先生</itunes:author>
-    <itunes:episode>63</itunes:episode>
-    <itunes:episodeType>full</itunes:episodeType>
-    <itunes:duration>14:13</itunes:duration>
-    <itunes:explicit>false</itunes:explicit>
-    <enclosure url="https://pub-59f9285441114b44af1b246d89bf3b21.r2.dev/ai-news-2026-09-07.mp3" length="8535293" type="audio/mpeg"/>
-    <pubDate>Mon, 07 Sep 2026 21:00:00 GMT</pubDate>
-    <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-07.mp3</guid>
-  </item>
 </channel>
 </rss>
