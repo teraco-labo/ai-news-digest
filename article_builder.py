@@ -258,7 +258,7 @@ def build_article_page(article: Dict, config: Dict, related: List[Dict]) -> str:
             "@type": "BreadcrumbList",
             "itemListElement": [
                 {"@type": "ListItem", "position": 1, "name": "ホーム", "item": f"{base}/"},
-                {"@type": "ListItem", "position": 2, "name": "読み物", "item": f"{base}/articles/"},
+                {"@type": "ListItem", "position": 2, "name": "エッセイ", "item": f"{base}/articles/"},
                 {"@type": "ListItem", "position": 3, "name": article["title"], "item": page_url},
             ],
         }
@@ -295,7 +295,7 @@ def build_article_page(article: Dict, config: Dict, related: List[Dict]) -> str:
 
     body = f"""<div class="hero">
   <div class="hero-inner">
-    <div class="crumbs"><a href="../">{_html.escape(name)}</a> ／ <a href="./">読み物</a></div>
+    <div class="crumbs"><a href="../">{_html.escape(name)}</a> ／ <a href="./">エッセイ</a></div>
     <h1>{_html.escape(article['title'])}</h1>
     <p>{_html.escape(article['description'])}</p>
   </div>
@@ -339,7 +339,7 @@ def build_index_page(articles: List[Dict], config: Dict) -> str:
     head = monetize.build_head_tags(
         config,
         page_url=f"{base}/articles/" if base else "",
-        title=f"読み物 | {name}",
+        title=f"エッセイ | {name}",
         description="AIの使い方・学び方・仕事への活かし方をまとめた解説記事の一覧です。",
     ).replace('<meta property="og:type" content="article">',
               '<meta property="og:type" content="website">')
@@ -360,7 +360,7 @@ def build_index_page(articles: List[Dict], config: Dict) -> str:
     body = f"""<div class="hero">
   <div class="hero-inner">
     <div class="crumbs"><a href="../">{_html.escape(name)}</a></div>
-    <h1>読み物</h1>
+    <h1>エッセイ</h1>
     <p>AIの使い方・学び方・仕事への活かし方。ニュースの一歩先を解説します。</p>
     <div class="hero-actions">
       <a class="btn btn-ghost" href="../">トップへ戻る</a>
@@ -377,7 +377,7 @@ def build_index_page(articles: List[Dict], config: Dict) -> str:
   {site_theme.footer_links(config, prefix="../")}
 </footer>"""
 
-    return site_theme.page_shell(f"読み物 | {name}", head, body)
+    return site_theme.page_shell(f"エッセイ | {name}", head, body)
 
 
 # ---------------------------------------------------------------- エントリポイント

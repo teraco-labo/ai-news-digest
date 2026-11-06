@@ -129,7 +129,7 @@ def build_home(issues: List[Dict], articles: List[Dict], config: Dict) -> str:
               '<meta property="og:type" content="website">')
 
     nav = ['      <a href="terms/">AI用語集</a>\n',
-           '      <a href="articles/">読み物</a>\n',
+           '      <a href="articles/">エッセイ</a>\n',
            '      <a href="archive.html">バックナンバー</a>\n']
     if latest and latest["podcast"]:
         nav.insert(0, '      <a href="#listen">音声で聴く</a>\n')
@@ -147,7 +147,7 @@ def build_home(issues: List[Dict], articles: List[Dict], config: Dict) -> str:
             "    </a>\n"
             for a in articles[:4]
         )
-        reads = ('  <div class="section-label">読み物</div>\n'
+        reads = ('  <div class="section-label">エッセイ</div>\n'
                  f'  <div class="issue-grid">\n{cards}  </div>\n')
 
     # バックナンバー（直近8号）

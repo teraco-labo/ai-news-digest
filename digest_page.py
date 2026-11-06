@@ -330,7 +330,7 @@ def render(categorized: Dict[str, List[Dict]], date: datetime,
 {site_theme.subscribe_cta(config)}    <div class="top-nav">
       <a href="./">トップ</a>{listen_nav}
       <a href="terms/">AI用語集</a>
-      <a href="articles/">読み物</a>
+      <a href="articles/">エッセイ</a>
       <a href="archive.html">バックナンバー</a>
     </div>
     {site_theme.lang_switch(config)}

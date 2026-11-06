@@ -275,7 +275,7 @@ def footer_links(config: dict, prefix: str = "") -> str:
     items = [
         (f"{prefix}", "トップ"),
         (f"{prefix}terms/", "AI用語集"),
-        (f"{prefix}articles/", "読み物"),
+        (f"{prefix}articles/", "エッセイ"),
         (f"{prefix}archive.html", "バックナンバー"),
     ]
     if config.get("legal", {}).get("enabled"):
