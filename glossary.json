@@ -11531,6 +11531,129 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "chainalysis",
+      "term": "Chainalysis",
+      "reading": "チェイナリシス",
+      "aliases": [],
+      "category": "企業",
+      "short": "暗号資産のお金の流れを調べる道具を作っている会社です。捜査機関や金融機関が主な利用者です。",
+      "detail": "ブロックチェーン上の取引を分析し、不正な資金の流れを追跡するサービスを提供しています。今回、全顧客の認証情報とトークンが盗まれたと発表しました。攻撃にはAIエージェントの利用も含まれていたと説明しています。利用者に公的機関が多いため、被害の影響が広く及ぶおそれがあります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "microsoft-research",
+      "term": "Microsoft Research",
+      "reading": "マイクロソフト・リサーチ",
+      "aliases": [
+        "マイクロソフト研究所"
+      ],
+      "category": "企業",
+      "short": "Microsoftの中にある研究部門です。すぐ製品にならない、先の技術を研究しています。",
+      "detail": "Microsoftの基礎研究や先端研究を担う組織です。今回、その中でAIの最先端研究を担っていたAI Frontiersグループがなくなることが話題になりました。巨大IT企業が研究部門をどう再編するかは、AI研究全体の方向性にも影響します。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "ai-frontiers",
+      "term": "AI Frontiers",
+      "reading": "エーアイ・フロンティアーズ",
+      "aliases": [],
+      "category": "企業",
+      "short": "Microsoft Researchの中で、AIの最先端を研究していたチームです。このたび解散することになりました。",
+      "detail": "Microsoft Researchに置かれていた、AIの先端研究を担うグループです。解散の話題はHacker Newsで大きな注目を集めました。巨大IT企業で研究から製品開発へ資源を移す流れがある中、象徴的な出来事として受け止められています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "wyoming",
+      "term": "ワイオミング州",
+      "reading": "ワイオミングしゅう",
+      "aliases": [
+        "Wyoming"
+      ],
+      "category": "規制",
+      "short": "アメリカの西部にある州です。土地が広く、大きな施設を建てる候補地になることがあります。",
+      "detail": "CrusoeがAI向けのデータセンターを計画していた場所です。計画は難航し、最終的にGoogleに売却されました。データセンターの立地は、電力や土地を確保しやすいかどうかで選ばれることが多くあります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "classifier",
+      "term": "分類器",
+      "reading": "ぶんるいき",
+      "aliases": [
+        "classifier",
+        "クラシファイア"
+      ],
+      "category": "基礎",
+      "short": "入ってきたものを、あらかじめ決めたグループに振り分ける仕組みです。写真に写っているのが誰かを判定する、といった使い方をします。",
+      "detail": "機械学習でよく使われるモデルの一種で、入力がどのカテゴリに当てはまるかを判定します。今回、Macに「家族のメンバーかどうか」を判定する公開されていない分類器が入っていると報告されました。何を判定しているのかがユーザーに見えないと、プライバシー上の懸念につながります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "connector",
+      "term": "コネクタ",
+      "reading": "コネクタ",
+      "aliases": [
+        "connectors"
+      ],
+      "category": "使い方",
+      "short": "AIを、メールや文書など別のサービスとつなぐための機能です。つなぐとAIがその中身を読めるようになります。",
+      "detail": "ChatGPTなどのAIサービスで、外部のアプリやデータをAIにつなぐ仕組みです。便利な一方で、どのデータがどこへ流れるのかが見えにくくなります。今回、コネクタどうしのあいだでユーザーに知らせずにデータが受け渡されているという指摘が出ました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "agent-memory",
+      "term": "エージェントメモリ",
+      "reading": "エージェントメモリ",
+      "aliases": [
+        "Agent Memory",
+        "エージェントの記憶"
+      ],
+      "category": "基礎",
+      "short": "AIエージェントが、前に見たことや話したことを覚えておく仕組みです。長い作業を続けるのに必要になります。",
+      "detail": "AIが一度に読める情報の量には限りがあるため、必要な情報を外に保存しておき、あとで取り出す工夫が必要になります。記憶をどう組み立てるかで、エージェントの精度やコストが変わります。今回、その構成要素を整理した解説記事が注目を集めました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "on-path-attack",
+      "term": "オンパス攻撃",
+      "reading": "オンパスこうげき",
+      "aliases": [
+        "on-path attack",
+        "中間者攻撃"
+      ],
+      "category": "安全性",
+      "short": "通信の途中に割り込んで、やり取りされているデータを盗み見たり抜き取ったりする攻撃です。送る側も受け取る側も気づきにくいのが特徴です。",
+      "detail": "送り手と受け手のあいだの経路に攻撃者が入り込む手口です。Chainalysisは、今回の攻撃にこの方法でデータを抜き取る手口が含まれていたと説明しています。通信の暗号化や、相手が本物かどうかの確認が主な対策になります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "maxxbench",
+      "term": "MaxxBench",
+      "reading": "マックスベンチ",
+      "aliases": [],
+      "category": "評価",
+      "short": "AIの成績として発表された数字が本当に正しいのかを確かめようとする取り組みです。DeepSWEのスコアに疑問を投げかけました。",
+      "detail": "「DeepSWEのスコアは本当なのか」という問いを掲げて、Hacker Newsで注目を集めました。ベンチマークの数字が実際の能力をどこまで反映しているかは、モデル選びに直結する問題です。公表されたスコアを検証し直す動きの一つといえます。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }

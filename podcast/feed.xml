@@ -1698,34 +1698,5 @@
     <pubDate>Wed, 09 Sep 2026 21:00:00 GMT</pubDate>
     <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-09.mp3</guid>
   </item>
-  <item>
-    <title>2026年9月8日（火）のAIニュース</title>
-    <itunes:title>2026年9月8日（火）のAIニュース</itunes:title>
-    <description>2026年9月8日（火）のAIニュース。
-
-今日の3行まとめ
-① AIエージェントに実際の事業運営を任せた実験が注目を集め、3200ドルの赤字という結果が話題です。
-② 32億ドル規模のAIデータセンターでは、複数企業が絡み合って責任の所在が見えにくくなっています。
-③ 推論の高速化や記憶の共通化など、AIを日常的に使うための地味な土台づくりも進んでいます。
-
-この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-08.html ／ 毎週土曜のまとめをメールで受け取る（無料）→ https://teracosensei.substack.com/embed</description>
-    <itunes:summary>2026年9月8日（火）のAIニュース。
-
-今日の3行まとめ
-① AIエージェントに実際の事業運営を任せた実験が注目を集め、3200ドルの赤字という結果が話題です。
-② 32億ドル規模のAIデータセンターでは、複数企業が絡み合って責任の所在が見えにくくなっています。
-③ 推論の高速化や記憶の共通化など、AIを日常的に使うための地味な土台づくりも進んでいます。
-
-この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-08.html ／ 毎週土曜のまとめをメールで受け取る（無料）→ https://teracosensei.substack.com/embed</itunes:summary>
-    <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>てらこ先生</itunes:author>
-    <itunes:episode>64</itunes:episode>
-    <itunes:episodeType>full</itunes:episodeType>
-    <itunes:duration>12:55</itunes:duration>
-    <itunes:explicit>false</itunes:explicit>
-    <enclosure url="https://pub-59f9285441114b44af1b246d89bf3b21.r2.dev/ai-news-2026-09-08.mp3" length="7755538" type="audio/mpeg"/>
-    <pubDate>Tue, 08 Sep 2026 21:00:00 GMT</pubDate>
-    <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-08.mp3</guid>
-  </item>
 </channel>
 </rss>
