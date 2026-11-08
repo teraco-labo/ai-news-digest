@@ -1698,34 +1698,5 @@
     <pubDate>Thu, 10 Sep 2026 21:00:00 GMT</pubDate>
     <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-10.mp3</guid>
   </item>
-  <item>
-    <title>2026年9月9日（水）のAIニュース</title>
-    <itunes:title>2026年9月9日（水）のAIニュース</itunes:title>
-    <description>2026年9月9日（水）のAIニュース。
-
-今日の3行まとめ
-① Mistral AIが3,000億円規模の3,000万ユーロ改めユーロ建て30億ユーロを調達し、評価額210億ユーロに到達しました。
-② MetaがパーソナルAIエージェント「Muse」を公開し、メールや決済へのアクセス許諾で信頼が問われています。
-③ OpenAIによるナビエ・ストークス方程式の成果発表に、数学者から手続き上の異議が出ています。
-
-この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-09.html ／ 毎週土曜のまとめをメールで受け取る（無料）→ https://teracosensei.substack.com/embed</description>
-    <itunes:summary>2026年9月9日（水）のAIニュース。
-
-今日の3行まとめ
-① Mistral AIが3,000億円規模の3,000万ユーロ改めユーロ建て30億ユーロを調達し、評価額210億ユーロに到達しました。
-② MetaがパーソナルAIエージェント「Muse」を公開し、メールや決済へのアクセス許諾で信頼が問われています。
-③ OpenAIによるナビエ・ストークス方程式の成果発表に、数学者から手続き上の異議が出ています。
-
-この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-09.html ／ 毎週土曜のまとめをメールで受け取る（無料）→ https://teracosensei.substack.com/embed</itunes:summary>
-    <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>てらこ先生</itunes:author>
-    <itunes:episode>65</itunes:episode>
-    <itunes:episodeType>full</itunes:episodeType>
-    <itunes:duration>13:14</itunes:duration>
-    <itunes:explicit>false</itunes:explicit>
-    <enclosure url="https://pub-59f9285441114b44af1b246d89bf3b21.r2.dev/ai-news-2026-09-09.mp3" length="7943881" type="audio/mpeg"/>
-    <pubDate>Wed, 09 Sep 2026 21:00:00 GMT</pubDate>
-    <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-09.mp3</guid>
-  </item>
 </channel>
 </rss>
