@@ -229,7 +229,7 @@
     </div>
     <div class="term-more">
       <span class="lbl">もう一歩くわしく</span>
-      <p>英国発の金融サービス企業で、<span class="t" data-t="z-ai" tabindex="0" role="button" aria-label="Z.aiの説明を見る">Z.ai</span>の<span class="t" data-t="open-weight" tabindex="0" role="button" aria-label="オープンウェイトの説明を見る">オープンウェイト</span>モデル<span class="t" data-t="glm" tabindex="0" role="button" aria-label="GLMの説明を見る">GLM</span>を自社で運用する体制へ移行したことが話題になりました。金融業界は顧客データの扱いが厳しく、外部<span class="t" data-t="api" tabindex="0" role="button" aria-label="APIの説明を見る">API</span>にデータを送らずに済む<span class="t" data-t="self-hosted" tabindex="0" role="button" aria-label="セルフホストの説明を見る">セルフホスト</span>には大きな利点があります。大企業が商用APIからオープンウェイトモデルへ乗り換える実例として注目されます。</p>
+      <p>英国発の金融サービス企業で、<span class="t" data-t="z-ai" tabindex="0" role="button" aria-label="Z.aiの説明を見る">Z.ai</span>のオープンウェイトモデル<span class="t" data-t="glm" tabindex="0" role="button" aria-label="GLMの説明を見る">GLM</span>を自社で運用する体制へ移行したことが話題になりました。金融業界は顧客データの扱いが厳しく、外部<span class="t" data-t="api" tabindex="0" role="button" aria-label="APIの説明を見る">API</span>にデータを送らずに済む<span class="t" data-t="self-hosted" tabindex="0" role="button" aria-label="セルフホストの説明を見る">セルフホスト</span>には大きな利点があります。大企業が商用APIからオープンウェイトモデルへ乗り換える実例として注目されます。</p>
     </div>
   <div class="lbl" style="margin-top:2rem">この用語が出てきたニュース</div>
   <div class="seen">
@@ -246,7 +246,7 @@
   <strong>世界一わかりやすいAIニュース</strong> — てらこ先生
   <div class="footer-links"><a href="../">トップ</a> ／ <a href="../terms/">AI用語集</a> ／ <a href="../articles/">エッセイ</a> ／ <a href="../archive.html">バックナンバー</a> ／ <a href="../about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
 </footer>
-<script type="application/json" id="glossary-data">{"api": {"n": "API", "r": "エーピーアイ", "s": "他のソフトウェアからAIを呼び出すための窓口です。自作のアプリにAIを組み込むときに使います。", "u": "../terms/api.html"}, "glm": {"n": "GLM", "r": "ジーエルエム", "s": "Z.aiが開発しているAIモデルのシリーズ名です。番号付きで新しい版が次々に公開されています。", "u": "../terms/glm.html"}, "open-weight": {"n": "オープンウェイト", "r": "オープンウェイト", "s": "モデルの中身（重み）が公開されていて、誰でもダウンロードして動かせる形態のことです。", "u": "../terms/open-weight.html"}, "self-hosted": {"n": "セルフホスト", "r": "", "s": "ソフトを他社のサービスに任せず、自分で用意した環境で動かすことです。データや設定を自分で管理できます。", "u": "../terms/self-hosted.html"}, "z-ai": {"n": "Z.ai", "r": "ゼットエーアイ", "s": "中国のAI研究開発企業です。GLMという名前のモデルシリーズを開発しています。", "u": "../terms/z-ai.html"}}</script>
+<script type="application/json" id="glossary-data">{"api": {"n": "API", "r": "エーピーアイ", "s": "他のソフトウェアからAIを呼び出すための窓口です。自作のアプリにAIを組み込むときに使います。", "u": "../terms/api.html"}, "glm": {"n": "GLM", "r": "ジーエルエム", "s": "Z.aiが開発しているAIモデルのシリーズ名です。番号付きで新しい版が次々に公開されています。", "u": "../terms/glm.html"}, "self-hosted": {"n": "セルフホスト", "r": "", "s": "ソフトを他社のサービスに任せず、自分で用意した環境で動かすことです。データや設定を自分で管理できます。", "u": "../terms/self-hosted.html"}, "z-ai": {"n": "Z.ai", "r": "ゼットエーアイ", "s": "中国のAI研究開発企業です。GLMという名前のモデルシリーズを開発しています。", "u": "../terms/z-ai.html"}}</script>
 
 <script>
 (function(){
@@ -271,7 +271,8 @@
       + '<a class="tip-m" href="#">くわしい解説 →</a>';
     tip.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
     tip.querySelector('.tip-s').textContent = d.s;
-    tip.querySelector('.tip-m').href = d.u;
+    tip.querySelector('.tip-m').href = d.u || '#';
+    tip.querySelector('.tip-m').style.display = d.u ? '' : 'none';
     tip.classList.add('on');
     var r = node.getBoundingClientRect();
     var w = tip.offsetWidth, h = tip.offsetHeight;
@@ -286,7 +287,8 @@
   function openSheet(d){
     sheet.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
     sheet.querySelector('.tip-s').textContent = d.s;
-    sheet.querySelector('.tip-m').href = d.u;
+    sheet.querySelector('.tip-m').href = d.u || '#';
+    sheet.querySelector('.tip-m').style.display = d.u ? '' : 'none';
     sheet.classList.add('on'); veil.classList.add('on');
   }
   function closeSheet(){ sheet.classList.remove('on'); veil.classList.remove('on'); }
@@ -312,7 +314,7 @@
     var n = e.target.closest('.t'); if (!n) return;
     var d = G[n.getAttribute('data-t')]; if (!d) return;
     e.preventDefault();
-    if (hoverable) { location.href = d.u; } else { openSheet(d); }
+    if (hoverable && d.u) { location.href = d.u; } else if (!hoverable) { openSheet(d); }
   });
   document.addEventListener('keydown', function(e){
     if (e.key === 'Escape') { hideTip(); closeSheet(); return; }

@@ -229,7 +229,7 @@
     </div>
     <div class="term-more">
       <span class="lbl">もう一歩くわしく</span>
-      <p><span class="t" data-t="agentic-coding" tabindex="0" role="button" aria-label="AIコーディングの説明を見る">AIコーディング</span>ツールの普及で、AIが書いたコードが開発現場に急速に入り込んでいます。一方で、品質や保守の負担などを理由に受け入れを制限するプロジェクトも出てきました。<span class="t" data-t="pop-os" tabindex="0" role="button" aria-label="Pop!_OSの説明を見る">Pop!_OS</span>の禁止方針は、その線引きが分かれ始めていることを示す例です。</p>
+      <p>AIコーディングツールの普及で、AIが書いたコードが開発現場に急速に入り込んでいます。一方で、品質や保守の負担などを理由に受け入れを制限するプロジェクトも出てきました。<span class="t" data-t="pop-os" tabindex="0" role="button" aria-label="Pop!_OSの説明を見る">Pop!_OS</span>の禁止方針は、その線引きが分かれ始めていることを示す例です。</p>
     </div>
   <div class="lbl" style="margin-top:2rem">この用語が出てきたニュース</div>
   <div class="seen">
@@ -250,7 +250,7 @@
   <strong>世界一わかりやすいAIニュース</strong> — てらこ先生
   <div class="footer-links"><a href="../">トップ</a> ／ <a href="../terms/">AI用語集</a> ／ <a href="../articles/">エッセイ</a> ／ <a href="../archive.html">バックナンバー</a> ／ <a href="../about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
 </footer>
-<script type="application/json" id="glossary-data">{"agentic-coding": {"n": "エージェント型コーディング", "r": "", "s": "AIが自分でファイルを読み書きし、テストを実行しながらプログラムを完成させる開発の進め方です。", "u": "../terms/agentic-coding.html"}, "pop-os": {"n": "Pop!_OS", "r": "ポップ・オーエス", "s": "パソコンを動かすための基本ソフトのひとつです。誰でも中身を見られる形で作られています。", "u": "../terms/pop-os.html"}}</script>
+<script type="application/json" id="glossary-data">{"pop-os": {"n": "Pop!_OS", "r": "ポップ・オーエス", "s": "パソコンを動かすための基本ソフトのひとつです。誰でも中身を見られる形で作られています。", "u": "../terms/pop-os.html"}}</script>
 
 <script>
 (function(){
@@ -275,7 +275,8 @@
       + '<a class="tip-m" href="#">くわしい解説 →</a>';
     tip.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
     tip.querySelector('.tip-s').textContent = d.s;
-    tip.querySelector('.tip-m').href = d.u;
+    tip.querySelector('.tip-m').href = d.u || '#';
+    tip.querySelector('.tip-m').style.display = d.u ? '' : 'none';
     tip.classList.add('on');
     var r = node.getBoundingClientRect();
     var w = tip.offsetWidth, h = tip.offsetHeight;
@@ -290,7 +291,8 @@
   function openSheet(d){
     sheet.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
     sheet.querySelector('.tip-s').textContent = d.s;
-    sheet.querySelector('.tip-m').href = d.u;
+    sheet.querySelector('.tip-m').href = d.u || '#';
+    sheet.querySelector('.tip-m').style.display = d.u ? '' : 'none';
     sheet.classList.add('on'); veil.classList.add('on');
   }
   function closeSheet(){ sheet.classList.remove('on'); veil.classList.remove('on'); }
@@ -316,7 +318,7 @@
     var n = e.target.closest('.t'); if (!n) return;
     var d = G[n.getAttribute('data-t')]; if (!d) return;
     e.preventDefault();
-    if (hoverable) { location.href = d.u; } else { openSheet(d); }
+    if (hoverable && d.u) { location.href = d.u; } else if (!hoverable) { openSheet(d); }
   });
   document.addEventListener('keydown', function(e){
     if (e.key === 'Escape') { hideTip(); closeSheet(); return; }

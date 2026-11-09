@@ -229,7 +229,7 @@
     </div>
     <div class="term-more">
       <span class="lbl">もう一歩くわしく</span>
-      <p>2026年9月に Claude Fable 5.1 が公開され、同時に Claude Mythos 5.1 も発表されました。今回の更新では、処理に使う<span class="t" data-t="token" tabindex="0" role="button" aria-label="トークンの説明を見る">トークン</span>の量を減らして費用を下げることと、安全機構が無害な依頼まで誤って拒否してしまう「誤検知」を減らすことが主眼に置かれています。費用と拒否率は業務でモデルを使うときに最も引っかかりやすい2点で、そこを直接下げにきた形です。</p>
+      <p>2026年9月に Claude Fable 5.1 が公開され、同時に <span class="t" data-t="mythos" tabindex="0" role="button" aria-label="Claude Mythosの説明を見る">Claude Mythos</span> 5.1 も発表されました。今回の更新では、処理に使う<span class="t" data-t="token" tabindex="0" role="button" aria-label="トークンの説明を見る">トークン</span>の量を減らして費用を下げることと、安全機構が無害な依頼まで誤って拒否してしまう「誤検知」を減らすことが主眼に置かれています。費用と拒否率は業務でモデルを使うときに最も引っかかりやすい2点で、そこを直接下げにきた形です。</p>
     </div>
   <div class="lbl" style="margin-top:2rem">この用語が出てきたニュース</div>
   <div class="seen">
@@ -250,7 +250,7 @@
   <strong>世界一わかりやすいAIニュース</strong> — てらこ先生
   <div class="footer-links"><a href="../">トップ</a> ／ <a href="../terms/">AI用語集</a> ／ <a href="../articles/">エッセイ</a> ／ <a href="../archive.html">バックナンバー</a> ／ <a href="../about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
 </footer>
-<script type="application/json" id="glossary-data">{"anthropic": {"n": "Anthropic", "r": "アンソロピック", "s": "AIアシスタント「Claude」を開発するアメリカの企業です。AIの安全性を重視する方針を掲げています。", "u": "../terms/anthropic.html"}, "claude": {"n": "Claude", "r": "クロード", "s": "Anthropicが開発しているAIアシスタントです。長文の読解や文章作成、プログラミングに強みがあります。", "u": "../terms/claude.html"}, "token": {"n": "トークン", "r": "トークン", "s": "AIが文章を扱うときの最小単位です。英語ならおよそ単語1つ、日本語なら1〜2文字が1トークンにあたります。", "u": "../terms/token.html"}}</script>
+<script type="application/json" id="glossary-data">{"anthropic": {"n": "Anthropic", "r": "アンソロピック", "s": "AIアシスタント「Claude」を開発するアメリカの企業です。AIの安全性を重視する方針を掲げています。", "u": "../terms/anthropic.html"}, "claude": {"n": "Claude", "r": "クロード", "s": "Anthropicが開発しているAIアシスタントです。長文の読解や文章作成、プログラミングに強みがあります。", "u": "../terms/claude.html"}, "mythos": {"n": "Mythos", "r": "ミトス", "s": "Anthropicが公開したAIモデルの名前です。Fableと同じタイミングで発表されました。", "u": "../terms/mythos.html"}, "token": {"n": "トークン", "r": "トークン", "s": "AIが文章を扱うときの最小単位です。英語ならおよそ単語1つ、日本語なら1〜2文字が1トークンにあたります。", "u": "../terms/token.html"}}</script>
 
 <script>
 (function(){
@@ -275,7 +275,8 @@
       + '<a class="tip-m" href="#">くわしい解説 →</a>';
     tip.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
     tip.querySelector('.tip-s').textContent = d.s;
-    tip.querySelector('.tip-m').href = d.u;
+    tip.querySelector('.tip-m').href = d.u || '#';
+    tip.querySelector('.tip-m').style.display = d.u ? '' : 'none';
     tip.classList.add('on');
     var r = node.getBoundingClientRect();
     var w = tip.offsetWidth, h = tip.offsetHeight;
@@ -290,7 +291,8 @@
   function openSheet(d){
     sheet.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
     sheet.querySelector('.tip-s').textContent = d.s;
-    sheet.querySelector('.tip-m').href = d.u;
+    sheet.querySelector('.tip-m').href = d.u || '#';
+    sheet.querySelector('.tip-m').style.display = d.u ? '' : 'none';
     sheet.classList.add('on'); veil.classList.add('on');
   }
   function closeSheet(){ sheet.classList.remove('on'); veil.classList.remove('on'); }
@@ -316,7 +318,7 @@
     var n = e.target.closest('.t'); if (!n) return;
     var d = G[n.getAttribute('data-t')]; if (!d) return;
     e.preventDefault();
-    if (hoverable) { location.href = d.u; } else { openSheet(d); }
+    if (hoverable && d.u) { location.href = d.u; } else if (!hoverable) { openSheet(d); }
   });
   document.addEventListener('keydown', function(e){
     if (e.key === 'Escape') { hideTip(); closeSheet(); return; }

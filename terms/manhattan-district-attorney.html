@@ -225,7 +225,7 @@
   <div class="term-body">
     <div class="term-easy">
       <span class="lbl">かんたんに言うと</span>
-      <p>ニューヨーク市マンハッタンを管轄する検察の組織です。<span class="t" data-t="deepfake" tabindex="0" role="button" aria-label="ディープフェイクの説明を見る">ディープフェイク</span>サイト12件の差し押さえを実行しました。</p>
+      <p>ニューヨーク市マンハッタンを管轄する検察の組織です。ディープフェイクサイト12件の差し押さえを実行しました。</p>
     </div>
     <div class="term-more">
       <span class="lbl">もう一歩くわしく</span>
@@ -246,7 +246,7 @@
   <strong>世界一わかりやすいAIニュース</strong> — てらこ先生
   <div class="footer-links"><a href="../">トップ</a> ／ <a href="../terms/">AI用語集</a> ／ <a href="../articles/">エッセイ</a> ／ <a href="../archive.html">バックナンバー</a> ／ <a href="../about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
 </footer>
-<script type="application/json" id="glossary-data">{"deepfake": {"n": "ディープフェイク", "r": "ディープフェイク", "s": "AIで作られた、本物と見分けがつかない偽の映像や音声のことです。", "u": "../terms/deepfake.html"}, "generative-ai": {"n": "生成AI", "r": "", "s": "文章・画像・音声・動画などを新しく作り出せるAIの総称です。分類や予測をするだけだった従来のAIとの違いがここにあります。", "u": "../terms/generative-ai.html"}}</script>
+<script type="application/json" id="glossary-data">{"generative-ai": {"n": "生成AI", "r": "", "s": "文章・画像・音声・動画などを新しく作り出せるAIの総称です。分類や予測をするだけだった従来のAIとの違いがここにあります。", "u": "../terms/generative-ai.html"}}</script>
 
 <script>
 (function(){
@@ -271,7 +271,8 @@
       + '<a class="tip-m" href="#">くわしい解説 →</a>';
     tip.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
     tip.querySelector('.tip-s').textContent = d.s;
-    tip.querySelector('.tip-m').href = d.u;
+    tip.querySelector('.tip-m').href = d.u || '#';
+    tip.querySelector('.tip-m').style.display = d.u ? '' : 'none';
     tip.classList.add('on');
     var r = node.getBoundingClientRect();
     var w = tip.offsetWidth, h = tip.offsetHeight;
@@ -286,7 +287,8 @@
   function openSheet(d){
     sheet.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
     sheet.querySelector('.tip-s').textContent = d.s;
-    sheet.querySelector('.tip-m').href = d.u;
+    sheet.querySelector('.tip-m').href = d.u || '#';
+    sheet.querySelector('.tip-m').style.display = d.u ? '' : 'none';
     sheet.classList.add('on'); veil.classList.add('on');
   }
   function closeSheet(){ sheet.classList.remove('on'); veil.classList.remove('on'); }
@@ -312,7 +314,7 @@
     var n = e.target.closest('.t'); if (!n) return;
     var d = G[n.getAttribute('data-t')]; if (!d) return;
     e.preventDefault();
-    if (hoverable) { location.href = d.u; } else { openSheet(d); }
+    if (hoverable && d.u) { location.href = d.u; } else if (!hoverable) { openSheet(d); }
   });
   document.addEventListener('keydown', function(e){
     if (e.key === 'Escape') { hideTip(); closeSheet(); return; }

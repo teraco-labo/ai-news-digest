@@ -11765,6 +11765,267 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "mythos",
+      "term": "Mythos",
+      "reading": "ミトス",
+      "aliases": [
+        "Claude Mythos",
+        "Mythos 5.2"
+      ],
+      "category": "モデル",
+      "short": "Anthropicが公開したAIモデルの名前です。Fableと同じタイミングで発表されました。",
+      "detail": "Hacker Newsでは「Mythos 5.2」としてFable 5.2と並んで話題になりました。Anthropicは、コーディング、推論、画像理解の性能が上がり、ユーザーへの説明もより分かりやすくなったとしています。AIの自己改善をめぐる懸念が強まるなかでの公開だったため、性能だけでなく安全性の面からも注目されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "muse-ember",
+      "term": "Muse Ember",
+      "reading": "ミューズ・エンバー",
+      "aliases": [
+        "Ember"
+      ],
+      "category": "モデル",
+      "short": "Metaが出した、小さくて動かす費用の安いAIモデルです。AIに作業を任せる用途に向けて作られています。",
+      "detail": "Metaは「最も小さく、最も効率的なモデル」と説明しています。価格は入力100万トークンあたり10セントで、HaikuやLunaなどの軽量モデルより大幅に安く設定されています。AIエージェントはモデルを何度も呼び出すため、単価の差が運用費に大きく響きます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "automattic",
+      "term": "Automattic",
+      "reading": "オートマティック",
+      "aliases": [],
+      "category": "企業",
+      "short": "ウェブサイトやアプリを公開するためのサービスを作っている会社です。AIで作ったアプリを公開する新サービスを発表しました。",
+      "detail": "新しいプラットフォーム「Spacefast」で、バイブコーディングで作ったアプリを公開する市場に参入しました。同じ分野のLovableなどと競合します。AIでアプリを作る人が増え、作ったものを動かす場所の需要が高まっていることを受けた動きです。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "spacefast",
+      "term": "Spacefast",
+      "reading": "スペースファスト",
+      "aliases": [],
+      "category": "使い方",
+      "short": "Automatticが始めた、AIで作ったアプリを公開するためのサービスです。作ったアプリをネット上で動かせるようにします。",
+      "detail": "バイブコーディングで作られたアプリの公開先をねらったプラットフォームです。Lovableなどの競合に対抗する位置付けとされています。アプリを作る段階だけでなく、公開して動かし続ける段階まで支えるサービスが、新しい競争の場になりつつあります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "lovable",
+      "term": "Lovable",
+      "reading": "ラバブル",
+      "aliases": [],
+      "category": "企業",
+      "short": "AIに話しかけるだけでアプリを作れるサービスの一つです。この分野の代表的な存在として名前が挙がります。",
+      "detail": "AutomatticがSpacefastを発表した際、競合として名前が挙がりました。バイブコーディングでアプリを作るサービスの比較対象としてよく言及されます。プログラミングの専門知識がない人でもアプリを作れる流れを象徴するサービスの一つです。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "medium",
+      "term": "Medium",
+      "reading": "ミディアム",
+      "aliases": [],
+      "category": "メディア",
+      "short": "誰でも記事を書いて公開できるブログ投稿サービスです。書き手と読み手が集まる場になっています。",
+      "detail": "新しい執筆アプリ「TK」で、文章を書く作業にAIの支援を組み込みました。出版の世界でAIの使い方に議論が起きているなかで、AIによる執筆支援を受け入れる方針を示した形です。書き手のAI利用をどこまで認めるかという議論にも関わってきます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "tk-app",
+      "term": "TK",
+      "reading": "ティーケー",
+      "aliases": [
+        "TKアプリ"
+      ],
+      "category": "使い方",
+      "short": "Mediumが出した、文章を書くための新しいアプリです。書いている途中でAIの手助けを受けられます。",
+      "detail": "文章を書く作業そのものにAIの支援を組み込んでいるのが特徴です。出版業界ではAIを使った文章への警戒が強まっており、その流れの中で公開されました。書き手にとって、AIをどこまで頼るかを考えるきっかけになる製品です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "jeffrey-sonnenfeld",
+      "term": "Jeffrey Sonnenfeld",
+      "reading": "ジェフリー・ソネンフェルド",
+      "aliases": [
+        "ソネンフェルド"
+      ],
+      "category": "人物",
+      "short": "アメリカのYale大学に所属する専門家です。会社のトップの進退についてコメントしています。",
+      "detail": "NVIDIAの取締役会がJensen Huang CEOを調査している件について、Huang氏がCEOにとどまれるかは「五分五分」だと見立てました。経営トップの去就をめぐる報道で、専門家の見方として引用されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "heller",
+      "term": "Heller",
+      "reading": "ヘラー",
+      "aliases": [],
+      "category": "企業",
+      "short": "企業や個人のイメージを守る手伝いをするPR会社です。性的なスキャンダルへの対応で知られています。",
+      "detail": "Wiredによると、Jensen Huang氏は2025年10月にはこの会社のコンサルタントと仕事を始めていました。それは、同氏が中国のスパイと疑われる人物と初めて結び付けられた時期とほぼ重なります。危機対応の専門家を早くから雇っていたことが、問題の経緯を読み解く手がかりとして報じられています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "scott-wiener",
+      "term": "Scott Wiener",
+      "reading": "スコット・ウィーナー",
+      "aliases": [
+        "ウィーナー議員"
+      ],
+      "category": "人物",
+      "short": "アメリカ・カリフォルニア州の政治家です。AIの危険を抑えるための法律づくりに取り組んできました。",
+      "detail": "カリフォルニア州の上院議員として、高度なAIのリスクを抑える法案を書いてきました。Nancy Pelosi氏が退いたサンフランシスコの選挙区で接戦を制し、連邦議会の議員になりました。AI企業が集まる地域の代表として、国のAI政策で重要な役割を担う可能性があります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "nancy-pelosi",
+      "term": "Nancy Pelosi",
+      "reading": "ナンシー・ペロシ",
+      "aliases": [
+        "ペロシ"
+      ],
+      "category": "人物",
+      "short": "アメリカの議会で議長を務めたことがある、有名な政治家です。サンフランシスコを地盤にしていました。",
+      "detail": "下院議長を務めた人物で、サンフランシスコの選挙区の議席を離れました。その後継を決める選挙でScott Wiener氏が当選し、AI規制に積極的な議員が連邦議会に加わることになりました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "data-center-alley",
+      "term": "データセンター・アレー",
+      "reading": "データセンター・アレー",
+      "aliases": [
+        "Data Center Alley",
+        "Ashburn",
+        "アッシュバーン"
+      ],
+      "category": "インフラ",
+      "short": "アメリカのバージニア州アッシュバーン周辺の呼び名です。世界でいちばんデータセンターが集まっている場所です。",
+      "detail": "世界最大のデータセンターの集積地として知られています。MIT Technology Reviewはここを取材し、データセンターへの反発の根っこには電力の問題があるのではないかと論じました。AI向けの電力需要が地域の暮らしや政治とぶつかる最前線と言える場所です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "mary-nichols",
+      "term": "Mary Nichols",
+      "reading": "メアリー・ニコルズ",
+      "aliases": [],
+      "category": "人物",
+      "short": "アメリカの環境政策の専門家です。カリフォルニア州で大気汚染の対策を担う組織のトップを務めました。",
+      "detail": "カリフォルニア大気資源局の元委員長で、現在はUCLAロースクールに所属しています。MIT Technology Reviewへの寄稿で、AIが気候対策に役立つという主張はまだ立証されていないと論じました。環境行政の経験者による、AI業界への批判的な見方として注目されます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "california-air-resources-board",
+      "term": "カリフォルニア大気資源局",
+      "reading": "",
+      "aliases": [
+        "California Air Resources Board",
+        "CARB"
+      ],
+      "category": "規制",
+      "short": "アメリカ・カリフォルニア州で、空気の汚れを減らすためのルールを作る役所です。",
+      "detail": "Mary Nichols氏が委員長を務めていた機関です。今回は、AIと気候をめぐる寄稿の筆者の経歴として登場しました。環境規制の現場を知る立場から、AIの環境負荷を論じる議論に重みを与えています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "un-climate-conference",
+      "term": "国連気候変動会議",
+      "reading": "",
+      "aliases": [
+        "United Nations climate conference",
+        "COP"
+      ],
+      "category": "規制",
+      "short": "世界の国々が集まって、地球温暖化への対策を話し合う国連の会議です。",
+      "detail": "今回はトルコのAntalyaで開かれています。開催国は、AIを気候対策に役立つ形で設計・運用することを各国に呼びかけており、AIが主要な話題になると見られています。AIの電力消費と環境への効果をどう評価するかが論点です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "ssh-agent",
+      "term": "SSHエージェント",
+      "reading": "エスエスエイチ・エージェント",
+      "aliases": [
+        "SSH agent",
+        "SSHエージェント転送"
+      ],
+      "category": "インフラ",
+      "short": "別のコンピューターに安全につなぐための「鍵」を、手元で預かっておく仕組みです。つなぐたびに鍵を入力しなくて済みます。",
+      "detail": "ChatGPTのデスクトップアプリがこのSSHエージェントをリモートマシンへ転送している、という指摘がHacker Newsで話題になりました。転送が有効だと、接続先から手元の鍵を使った認証ができるようになります。そのため、接続先が乗っ取られていると鍵を悪用されるおそれがあります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "board-of-directors",
+      "term": "取締役会",
+      "reading": "とりしまりやくかい",
+      "aliases": [
+        "board"
+      ],
+      "category": "ビジネス",
+      "short": "会社の大事なことを決めたり、社長などの経営陣を見張ったりする役員の集まりです。",
+      "detail": "NVIDIAの取締役会は、Jensen Huang CEOと中国スパイ疑惑の人物との関係を調べ始めました。取締役会はCEOの進退を判断する立場にあるため、調査の結果は経営体制に直接影響しかねません。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "lobbying",
+      "term": "ロビー活動",
+      "reading": "ロビーかつどう",
+      "aliases": [
+        "ロビイング",
+        "lobbying"
+      ],
+      "category": "規制",
+      "short": "企業や団体が、自分たちに有利な法律やルールにしてもらうよう政治家や役所に働きかけることです。",
+      "detail": "NVIDIAは、米国の半導体輸出規制を緩めて中国のAI市場を確保するために働きかけてきました。CEOに中国スパイ疑惑の人物との関係が浮上したことで、こうした働きかけが難しくなると見られています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "speaker-of-the-house",
+      "term": "下院議長（米国）",
+      "reading": "かいんぎちょう",
+      "aliases": [
+        "Speaker of the House"
+      ],
+      "category": "規制",
+      "short": "アメリカの下院で、議会の進め方をまとめるトップの役職です。",
+      "detail": "Nancy Pelosi氏が務めた役職です。同氏が離れたサンフランシスコの選挙区でScott Wiener氏が当選したことで、AI規制に詳しい議員が連邦議会に加わることになりました。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }

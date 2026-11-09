@@ -225,7 +225,7 @@
   <div class="term-body">
     <div class="term-easy">
       <span class="lbl">かんたんに言うと</span>
-      <p><span class="t" data-t="hugging-face" tabindex="0" role="button" aria-label="Hugging Faceの説明を見る">Hugging Face</span> が売り出した399ドルのアヒル型ロ<span class="t" data-t="bot" tabindex="0" role="button" aria-label="ボットの説明を見る">ボット</span>です。設計が公開されていて、誰でも中身を見られます。</p>
+      <p><span class="t" data-t="hugging-face" tabindex="0" role="button" aria-label="Hugging Faceの説明を見る">Hugging Face</span> が売り出した399ドルのアヒル型ロボットです。設計が公開されていて、誰でも中身を見られます。</p>
     </div>
     <div class="term-more">
       <span class="lbl">もう一歩くわしく</span>
@@ -247,7 +247,7 @@
   <strong>世界一わかりやすいAIニュース</strong> — てらこ先生
   <div class="footer-links"><a href="../">トップ</a> ／ <a href="../terms/">AI用語集</a> ／ <a href="../articles/">エッセイ</a> ／ <a href="../archive.html">バックナンバー</a> ／ <a href="../about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
 </footer>
-<script type="application/json" id="glossary-data">{"bot": {"n": "ボット", "r": "ボット", "s": "人の代わりに、決められた操作を自動でくり返すプログラムです。", "u": "../terms/bot.html"}, "hugging-face": {"n": "Hugging Face", "r": "ハギングフェイス", "s": "AIモデルやデータセットを誰でも公開・共有できるプラットフォームです。「AI版GitHub」と呼ばれます。", "u": "../terms/hugging-face.html"}, "open-source": {"n": "オープンソース", "r": "オープンソース", "s": "ソフトウェアの中身が公開され、誰でも自由に使ったり改良したりできる形態のことです。", "u": "../terms/open-source.html"}, "reinforcement-learning": {"n": "強化学習", "r": "", "s": "うまくいったら褒める、失敗したら褒めないという繰り返しでAIを上達させるやり方です。ゲームやロボットの動作の学習でよく使われます。", "u": "../terms/reinforcement-learning.html"}}</script>
+<script type="application/json" id="glossary-data">{"hugging-face": {"n": "Hugging Face", "r": "ハギングフェイス", "s": "AIモデルやデータセットを誰でも公開・共有できるプラットフォームです。「AI版GitHub」と呼ばれます。", "u": "../terms/hugging-face.html"}, "open-source": {"n": "オープンソース", "r": "オープンソース", "s": "ソフトウェアの中身が公開され、誰でも自由に使ったり改良したりできる形態のことです。", "u": "../terms/open-source.html"}, "reinforcement-learning": {"n": "強化学習", "r": "", "s": "うまくいったら褒める、失敗したら褒めないという繰り返しでAIを上達させるやり方です。ゲームやロボットの動作の学習でよく使われます。", "u": "../terms/reinforcement-learning.html"}}</script>
 
 <script>
 (function(){
@@ -272,7 +272,8 @@
       + '<a class="tip-m" href="#">くわしい解説 →</a>';
     tip.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
     tip.querySelector('.tip-s').textContent = d.s;
-    tip.querySelector('.tip-m').href = d.u;
+    tip.querySelector('.tip-m').href = d.u || '#';
+    tip.querySelector('.tip-m').style.display = d.u ? '' : 'none';
     tip.classList.add('on');
     var r = node.getBoundingClientRect();
     var w = tip.offsetWidth, h = tip.offsetHeight;
@@ -287,7 +288,8 @@
   function openSheet(d){
     sheet.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
     sheet.querySelector('.tip-s').textContent = d.s;
-    sheet.querySelector('.tip-m').href = d.u;
+    sheet.querySelector('.tip-m').href = d.u || '#';
+    sheet.querySelector('.tip-m').style.display = d.u ? '' : 'none';
     sheet.classList.add('on'); veil.classList.add('on');
   }
   function closeSheet(){ sheet.classList.remove('on'); veil.classList.remove('on'); }
@@ -313,7 +315,7 @@
     var n = e.target.closest('.t'); if (!n) return;
     var d = G[n.getAttribute('data-t')]; if (!d) return;
     e.preventDefault();
-    if (hoverable) { location.href = d.u; } else { openSheet(d); }
+    if (hoverable && d.u) { location.href = d.u; } else if (!hoverable) { openSheet(d); }
   });
   document.addEventListener('keydown', function(e){
     if (e.key === 'Escape') { hideTip(); closeSheet(); return; }

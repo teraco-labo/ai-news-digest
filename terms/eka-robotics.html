@@ -229,7 +229,7 @@
     </div>
     <div class="term-more">
       <span class="lbl">もう一歩くわしく</span>
-      <p><span class="t" data-t="embodied-ai" tabindex="0" role="button" aria-label="フィジカルAIの説明を見る">フィジカルAI</span>のモデルが専門家から高く評価され、<span class="t" data-t="valuation" tabindex="0" role="button" aria-label="評価額の説明を見る">評価額</span>は14.5億ドルに達しました。同社のアームは、さまざまな種類の物を上手につかめる点が特徴とされています。ロ<span class="t" data-t="bot" tabindex="0" role="button" aria-label="ボットの説明を見る">ボット</span>が現場で役に立つかどうかを左右する「つかむ」動作で、成果を示した企業です。</p>
+      <p><span class="t" data-t="embodied-ai" tabindex="0" role="button" aria-label="フィジカルAIの説明を見る">フィジカルAI</span>のモデルが専門家から高く評価され、<span class="t" data-t="valuation" tabindex="0" role="button" aria-label="評価額の説明を見る">評価額</span>は14.5億ドルに達しました。同社のアームは、さまざまな種類の物を上手につかめる点が特徴とされています。ロボットが現場で役に立つかどうかを左右する「つかむ」動作で、成果を示した企業です。</p>
     </div>
   <div class="lbl" style="margin-top:2rem">この用語が出てきたニュース</div>
   <div class="seen">
@@ -246,7 +246,7 @@
   <strong>世界一わかりやすいAIニュース</strong> — てらこ先生
   <div class="footer-links"><a href="../">トップ</a> ／ <a href="../terms/">AI用語集</a> ／ <a href="../articles/">エッセイ</a> ／ <a href="../archive.html">バックナンバー</a> ／ <a href="../about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
 </footer>
-<script type="application/json" id="glossary-data">{"bot": {"n": "ボット", "r": "ボット", "s": "人の代わりに、決められた操作を自動でくり返すプログラムです。", "u": "../terms/bot.html"}, "embodied-ai": {"n": "身体性AI", "r": "", "s": "ロボットなど物理的な身体を持ち、実世界で動作するAIのことです。", "u": "../terms/embodied-ai.html"}, "robot-arm": {"n": "ロボットアーム", "r": "", "s": "人の腕のように動く機械の腕です。工場で物をつかんだり組み立てたりするのに使われます。", "u": "../terms/robot-arm.html"}, "valuation": {"n": "評価額", "r": "ひょうかがく", "s": "投資を受ける際に算定される企業の価値のことです。「10億ドルの評価額で調達」のように使われます。", "u": "../terms/valuation.html"}}</script>
+<script type="application/json" id="glossary-data">{"embodied-ai": {"n": "身体性AI", "r": "", "s": "ロボットなど物理的な身体を持ち、実世界で動作するAIのことです。", "u": "../terms/embodied-ai.html"}, "robot-arm": {"n": "ロボットアーム", "r": "", "s": "人の腕のように動く機械の腕です。工場で物をつかんだり組み立てたりするのに使われます。", "u": "../terms/robot-arm.html"}, "valuation": {"n": "評価額", "r": "ひょうかがく", "s": "投資を受ける際に算定される企業の価値のことです。「10億ドルの評価額で調達」のように使われます。", "u": "../terms/valuation.html"}}</script>
 
 <script>
 (function(){
@@ -271,7 +271,8 @@
       + '<a class="tip-m" href="#">くわしい解説 →</a>';
     tip.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
     tip.querySelector('.tip-s').textContent = d.s;
-    tip.querySelector('.tip-m').href = d.u;
+    tip.querySelector('.tip-m').href = d.u || '#';
+    tip.querySelector('.tip-m').style.display = d.u ? '' : 'none';
     tip.classList.add('on');
     var r = node.getBoundingClientRect();
     var w = tip.offsetWidth, h = tip.offsetHeight;
@@ -286,7 +287,8 @@
   function openSheet(d){
     sheet.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
     sheet.querySelector('.tip-s').textContent = d.s;
-    sheet.querySelector('.tip-m').href = d.u;
+    sheet.querySelector('.tip-m').href = d.u || '#';
+    sheet.querySelector('.tip-m').style.display = d.u ? '' : 'none';
     sheet.classList.add('on'); veil.classList.add('on');
   }
   function closeSheet(){ sheet.classList.remove('on'); veil.classList.remove('on'); }
@@ -312,7 +314,7 @@
     var n = e.target.closest('.t'); if (!n) return;
     var d = G[n.getAttribute('data-t')]; if (!d) return;
     e.preventDefault();
-    if (hoverable) { location.href = d.u; } else { openSheet(d); }
+    if (hoverable && d.u) { location.href = d.u; } else if (!hoverable) { openSheet(d); }
   });
   document.addEventListener('keydown', function(e){
     if (e.key === 'Escape') { hideTip(); closeSheet(); return; }

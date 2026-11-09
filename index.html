@@ -356,11 +356,11 @@
 </div>
 
 <main>
-  <div class="today">2026年11月9日（月）のAIニュース　厳選 7 件</div>
+  <div class="today">2026年11月10日（火）のAIニュース　厳選 12 件</div>
 
 <div class="sx" id="listen">
   <div class="player" id="player">
-    <div class="p-head"><img src="podcast/cover.jpg" alt="" width="84" height="84"><div><div class="p-date">2026年11月9日（月）のAIニュース</div><div class="p-title">世界一わかりやすいAIニュース</div></div></div>
+    <div class="p-head"><img src="podcast/cover.jpg" alt="" width="84" height="84"><div><div class="p-date">2026年11月10日（火）のAIニュース</div><div class="p-title">世界一わかりやすいAIニュース</div></div></div>
     <div class="progress" id="progress" role="slider" aria-label="再生位置" tabindex="0"><div class="fill" id="fill"></div><div class="knob" id="knob"></div></div>
     <div class="time-row"><span id="cur">0:00</span><span id="dur">--:--</span></div>
     <div class="controls"><button type="button" class="ctl" data-skip="-30" aria-label="30秒もどる"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg><small>30</small></button><button type="button" class="ctl" data-skip="-10" aria-label="10秒もどる"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg><small>10</small></button><button class="ctl play" id="play" type="button" aria-label="音声で聴く"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button><button type="button" class="ctl" data-skip="10" aria-label="10秒すすむ"><svg style="transform:scaleX(-1)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg><small>10</small></button><button type="button" class="ctl" data-skip="30" aria-label="30秒すすむ"><svg style="transform:scaleX(-1)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg><small>30</small></button></div>
@@ -370,7 +370,7 @@
     <a class="readbtn" href="#yomu" id="toread"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 5h16v2H4zm0 4h16v2H4zm0 4h10v2H4zm0 4h16v2H4z"/></svg><span>文字で読む</span></a>
     <p class="kbd">キーボード：スペースで再生／停止、← → で10秒、J / L で30秒</p>
   </div>
-  <audio id="audio" src="https://pub-59f9285441114b44af1b246d89bf3b21.r2.dev/ai-news-2026-11-09.mp3" preload="metadata"></audio>
+  <audio id="audio" src="https://pub-59f9285441114b44af1b246d89bf3b21.r2.dev/ai-news-2026-11-10.mp3" preload="metadata"></audio>
   <div class="mini" id="mini" aria-hidden="true">
     <button type="button" class="m-play" id="mplay" aria-label="再生／一時停止"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
     <button type="button" class="m-back" data-skip="-10" aria-label="10秒もどる"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg><span>10</span></button>
@@ -388,97 +388,142 @@
   <div class="lead">
     <div class="lead-label">今日の3行まとめ</div>
     <ol>
-      <li><span class="t" data-t="openai" tabindex="0" role="button" aria-label="OpenAIの説明を見る">OpenAI</span>が110億ドルを調達し、<span class="t" data-t="valuation" tabindex="0" role="button" aria-label="評価額の説明を見る">評価額</span>は1.25兆ドルに達したと報じられ、AI投資の過熱ぶりが改めて浮き彫りになりました。</li>
-      <li>米情報機関のメモで、中国の情報機関が<span class="t" data-t="nvidia" tabindex="0" role="button" aria-label="NVIDIAの説明を見る">NVIDIA</span>のCEOを狙ったスパイ工作を図ったと報じられ、AI<span class="t" data-t="semiconductor" tabindex="0" role="button" aria-label="半導体の説明を見る">半導体</span>をめぐる緊張が続いています。</li>
-      <li><span class="t" data-t="gpu" tabindex="0" role="button" aria-label="GPUの説明を見る">GPU</span>なしで2840億<span class="t" data-t="parameter" tabindex="0" role="button" aria-label="パラメータの説明を見る">パラメータ</span>の<span class="t" data-t="deepseek" tabindex="0" role="button" aria-label="DeepSeekの説明を見る">DeepSeek</span>を動かす試みや、<span class="t" data-t="world-model" tabindex="0" role="button" aria-label="世界モデルの説明を見る">世界モデル</span>の解説など、技術面の話題も注目を集めました。</li>
+      <li><span class="t" data-t="anthropic" tabindex="0" role="button" aria-label="Anthropicの説明を見る">Anthropic</span>が<span class="t" data-t="mythos" tabindex="0" role="button" aria-label="Mythosの説明を見る">Mythos</span>とFableの新モデルを公開し、コーディングや<span class="t" data-t="inference" tabindex="0" role="button" aria-label="推論の説明を見る">推論</span>、画像理解の性能向上をうたっています。</li>
+      <li><span class="t" data-t="nvidia" tabindex="0" role="button" aria-label="NVIDIAの説明を見る">NVIDIA</span>の<span class="t" data-t="jensen-huang" tabindex="0" role="button" aria-label="Jensen Huangの説明を見る">Jensen Huang</span> CEOに中国スパイ疑惑の人物との関係が浮上し、<span class="t" data-t="board-of-directors" tabindex="0" role="button" aria-label="取締役会の説明を見る">取締役会</span>が調査に乗り出しました。</li>
+      <li><span class="t" data-t="meta-ai" tabindex="0" role="button" aria-label="Metaの説明を見る">Meta</span>は<span class="t" data-t="muse-ember" tabindex="0" role="button" aria-label="Muse Emberの説明を見る">Muse Ember</span>を入力100万<span class="t" data-t="token" tabindex="0" role="button" aria-label="トークンの説明を見る">トークン</span>10セントで投入し、<span class="t" data-t="ai-agent" tabindex="0" role="button" aria-label="エージェントの説明を見る">エージェント</span>向け小型モデルの価格競争が激しくなっています。</li>
     </ol>
   </div>
 
   <div class="tier">注目のニュース</div>
   <div class="digest">
-    <article class="card business top">
+    <article class="card model top">
       <div class="card-top">
-        <span class="card-label business">ビジネス</span>
+        <span class="card-label model">モデル</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
-      <div class="card-title-ja">OpenAI、110億ドル調達　評価額は1.25兆ドルに</div>
-      <div class="card-source">Hacker News</div>
-      <div class="card-body">OpenAIが110億ドル（約1.6兆円）の資金を調達し、企業としての評価額が1.25兆ドルに達したと報じられました。<span class="t" data-t="hacker-news" tabindex="0" role="button" aria-label="Hacker Newsの説明を見る">Hacker News</span>でも171ポイントを集め、開発者コミュニティの関心の高さがうかがえます。未<span class="t" data-t="listing" tabindex="0" role="button" aria-label="上場の説明を見る">上場</span>のAI企業として、評価額が1兆ドルを超える水準に乗ったことになります。巨額の資金はモデル開発と<span class="t" data-t="compute" tabindex="0" role="button" aria-label="計算資源の説明を見る">計算資源</span>の確保に充てられるとみられ、AI業界の資金の流れが一部の大手にさらに集中していることを示すニュースです。</div>
+      <div class="card-title-ja">Anthropic、新モデルMythosとFableを公開　<span class="t" data-t="self-improving-ai" tabindex="0" role="button" aria-label="自己改善AIの説明を見る">自己改善AI</span>への懸念も</div>
+      <div class="card-source">TechCrunch AI</div>
+      <div class="card-body">Anthropicが新モデル「Mythos」と「Fable」を公開しました。<span class="t" data-t="hacker-news" tabindex="0" role="button" aria-label="Hacker Newsの説明を見る">Hacker News</span>ではバージョン5.2として話題になり、574ポイントを集めています。同社によると、コーディング、推論、画像理解（ビジョン）の性能が上がり、ユーザーへの説明もより分かりやすくなったとのことです。一方で、AIが自分自身を改良していく「<span class="t" data-t="recursive-self-improvement" tabindex="0" role="button" aria-label="再帰的自己改善の説明を見る">再帰的自己改善</span>（RSI）」への懸念が強まるなかでの発表となりました。性能向上の速さと安全性の両立が、業界全体の論点としていっそう注目されそうです。日本では、Fable 5.2は有料プランの人と<span class="t" data-t="api" tabindex="0" role="button" aria-label="APIの説明を見る">API</span>（開発者向けの窓口）で使えます。Mythos 5.2は、Anthropicの審査を受けたサイバー防御・生命科学分野の組織だけが対象で、一般には使えません。</div>
+    </article>
+    <article class="card model top">
+      <div class="card-top">
+        <span class="card-label model">モデル</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
+      </div>
+      <div class="card-title-ja">Meta、エージェント実行向けの軽量モデルMuse Emberを公開</div>
+      <div class="card-source">TechCrunch AI</div>
+      <div class="card-body">Metaが、AIエージェントの実行に特化した軽量モデル「Muse Ember」を公開しました。同社は「最も小さく、最も効率的なモデル」と位置付けています。価格は入力100万トークンあたり10セントで、<span class="t" data-t="claude-haiku" tabindex="0" role="button" aria-label="Haikuの説明を見る">Haiku</span>やLunaといった他社の軽量モデルより大幅に安く設定されています。エージェントはモデルを何度も呼び出すため、単価の低さが運用コストに直結します。Hacker Newsでも145ポイントを集め、小型モデルの価格競争の行方に関心が集まっています。日本での提供時期は、公式には発表されていません。</div>
     </article>
     <article class="card policy top">
       <div class="card-top">
         <span class="card-label policy">ポリシー</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
-      <div class="card-title-ja">中国情報機関がNVIDIAのCEOを狙ったスパイ工作か</div>
+      <div class="card-title-ja">NVIDIAのHuang CEOに中国スパイ疑惑の人物との不倫、対中戦略に影</div>
       <div class="card-source">TechCrunch AI</div>
-      <div class="card-body">今年初めに回覧された米情報機関のメモで、中国の国家安全部が<span class="t" data-t="megaspeed" tabindex="0" role="button" aria-label="Megaspeedの説明を見る">Megaspeed</span>の女性幹部をスパイとして勧誘し、NVIDIAのCEOである<span class="t" data-t="jensen-huang" tabindex="0" role="button" aria-label="Jensen Huangの説明を見る">Jensen Huang</span>の動向を探らせようとしたと記されていたことが<span class="t" data-t="techcrunch" tabindex="0" role="button" aria-label="TechCrunchの説明を見る">TechCrunch</span>の報道で分かりました。内容はメモに書かれていた主張として伝えられたもので、事実関係の確認はまだです。NVIDIAはAI向け半導体の中心的な企業で、米中の<span class="t" data-t="export-control" tabindex="0" role="button" aria-label="輸出規制の説明を見る">輸出規制</span>をめぐる駆け引きの焦点でもあります。AI半導体が技術競争だけでなく、国家間の<span class="t" data-t="espionage" tabindex="0" role="button" aria-label="諜報の説明を見る">諜報</span>の対象にもなっていることを示す報道です。</div>
+      <div class="card-body">NVIDIAのJensen Huang CEOが、中国のスパイと疑われる人物と不倫関係にあったと報じられました。Huang氏は社内メモで不倫を認め、取締役会は中国の情報機関が関係を通じて同氏を狙ったかどうかを調べ始めています。<span class="t" data-t="wired" tabindex="0" role="button" aria-label="Wiredの説明を見る">Wired</span>によると、Huang氏は2025年10月の時点で、性的スキャンダル対応で知られる<span class="t" data-t="pull-request" tabindex="0" role="button" aria-label="PRの説明を見る">PR</span>会社<span class="t" data-t="heller" tabindex="0" role="button" aria-label="Hellerの説明を見る">Heller</span>のコンサルタントを起用していました。Huang氏は<span class="t" data-t="elevenlabs" tabindex="0" role="button" aria-label="ElevenLabsの説明を見る">ElevenLabs</span>やAnthropicのイベントへの登壇も取りやめています。NVIDIAは米国の<span class="t" data-t="export-control" tabindex="0" role="button" aria-label="半導体輸出規制の説明を見る">半導体輸出規制</span>の緩和を働きかけ、中国のAI市場を確保しようとしてきたため、今回の件でその<span class="t" data-t="lobbying" tabindex="0" role="button" aria-label="ロビー活動の説明を見る">ロビー活動</span>が難しくなるとみられています。Yale大学の<span class="t" data-t="jeffrey-sonnenfeld" tabindex="0" role="button" aria-label="Jeffrey Sonnenfeldの説明を見る">Jeffrey Sonnenfeld</span>氏は、Huang氏がCEOにとどまれるかは「五分五分」とみています。</div>
     </article>
   </div>
 
   <div class="tier">ジャンル別のニュース（タップで開く）</div>
-  <details class="genre research">
-    <summary><span class="genre-dot"></span>研究<span class="cnt">1件</span></summary>
+  <details class="genre business">
+    <summary><span class="genre-dot"></span>ビジネス<span class="cnt">2件</span></summary>
     <div class="genre-body">
-    <article class="card research">
+    <article class="card business">
       <div class="card-top">
-        <span class="card-label research">研究</span>
+        <span class="card-label business">ビジネス</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">「世界モデル」とは何か　テキストの次は3D空間へ</div>
-      <div class="card-source">Wired AI</div>
-      <div class="card-body"><span class="t" data-t="wired" tabindex="0" role="button" aria-label="Wiredの説明を見る">Wired</span>が、今後あらゆる場面で目にすることになるとして「世界モデル」を解説しました。世界モデルは現実世界の物理法則をシミュレーションし、ロ<span class="t" data-t="bot" tabindex="0" role="button" aria-label="ボットの説明を見る">ボット</span>や自動運転車が現実の環境で動き方を学ぶために使われます。これまでテキストを中心に発展してきた<span class="t" data-t="generative-ai" tabindex="0" role="button" aria-label="生成AIの説明を見る">生成AI</span>が、3次元空間の理解へと対象を広げつつあるという流れを整理した記事です。ロボティクスや自動運転の進み具合を読み解くうえで、押さえておきたい概念です。</div>
+      <div class="card-title-ja">Anthropic、34億ドル分の天然<span class="t" data-t="gas-turbine" tabindex="0" role="button" aria-label="ガスタービンの説明を見る">ガスタービン</span>を購入</div>
+      <div class="card-source">TechCrunch AI</div>
+      <div class="card-body">Anthropicが、総額34億ドル相当の天然ガスタービンを購入しました。AIの<span class="t" data-t="datacenter" tabindex="0" role="button" aria-label="データセンターの説明を見る">データセンター</span>向け電力を確保するために天然ガス発電へ向かう動きが業界で広がっており、Anthropicもそこに加わった形です。<span class="t" data-t="techcrunch" tabindex="0" role="button" aria-label="TechCrunchの説明を見る">TechCrunch</span>は、将来この判断を後悔することになりかねない取引だと指摘しています。AI開発の競争が、モデルの性能だけでなく電力の確保にまで及んでいることを示すニュースです。</div>
+    </article>
+    <article class="card business">
+      <div class="card-top">
+        <span class="card-label business">ビジネス</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja">Apple、エンジニアのAI利用額を1日200ドルに制限と報道</div>
+      <div class="card-source">Hacker News</div>
+      <div class="card-body">Appleが社内エンジニアのAIツール利用額に、1日200ドルの上限を設けていたと伝えられ、Hacker Newsで109ポイントを集めました。AIコーディングツールの利用が広がると、トークン課金が企業にとって無視できないコストになります。大手企業がAI利用の予算をどう管理するかを示す事例として注目されています。</div>
     </article>
     </div>
   </details>
   <details class="genre policy">
-    <summary><span class="genre-dot"></span>ポリシー<span class="cnt">1件</span></summary>
+    <summary><span class="genre-dot"></span>ポリシー<span class="cnt">3件</span></summary>
     <div class="genre-body">
     <article class="card policy">
       <div class="card-top">
         <span class="card-label policy">ポリシー</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja"><span class="t" data-t="midterm-elections" tabindex="0" role="button" aria-label="中間選挙の説明を見る">中間選挙</span>後、<span class="t" data-t="elon-musk" tabindex="0" role="button" aria-label="マスク氏の説明を見る">マスク氏</span>と<span class="t" data-t="datacenter" tabindex="0" role="button" aria-label="データセンターの説明を見る">データセンター</span>に逆風</div>
-      <div class="card-source">TechCrunch AI</div>
-      <div class="card-body">TechCrunchのポッドキャスト「<span class="t" data-t="equity-podcast" tabindex="0" role="button" aria-label="Equityの説明を見る">Equity</span>」が、米中間選挙の結果がテック業界に与える影響を取り上げました。番組では、選挙後の情勢がイーロン・マスク氏とデータセンター事業にとって厳しいものになりつつあると論じています。AIの計算資源を支えるデータセンターの建設は電力や用地をめぐって地域の政治と深く結びついており、選挙結果が今後の建設計画を左右する可能性があります。</div>
+      <div class="card-title-ja">Pelosi氏の後継、<span class="t" data-t="scott-wiener" tabindex="0" role="button" aria-label="Scott Wienerの説明を見る">Scott Wiener</span>氏が連邦レベルのAI規制に意欲</div>
+      <div class="card-source">MIT Tech Review</div>
+      <div class="card-body"><span class="t" data-t="nancy-pelosi" tabindex="0" role="button" aria-label="Nancy Pelosiの説明を見る">Nancy Pelosi</span>元下院議長が退いたサンフランシスコの選挙区で、Scott Wiener氏が接戦を制して当選しました。Wiener氏はカリフォルニア州の上院議員として、高度なAIのリスクを抑える法案を書いてきた人物です。<span class="t" data-t="mit-tech-review" tabindex="0" role="button" aria-label="MIT Technology Reviewの説明を見る">MIT Technology Review</span>が当選直後に行ったインタビューでは、連邦議会でもAI規制に取り組む姿勢を示しています。AI企業が集まる地域の代表が連邦のAI政策で重要な役割を担う可能性があり、米国の規制議論に影響しそうです。</div>
+    </article>
+    <article class="card policy">
+      <div class="card-top">
+        <span class="card-label policy">ポリシー</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja">データセンターへの反発、根っこは「電気代」の問題か</div>
+      <div class="card-source">MIT Tech Review</div>
+      <div class="card-body">MIT Technology Reviewの記者が、世界最大のデータセンター集積地である米バージニア州<span class="t" data-t="data-center-alley" tabindex="0" role="button" aria-label="Ashburnの説明を見る">Ashburn</span>（通称「データセンター・アレー」）を訪れ、データセンター反対運動の実態を伝えています。全米で投票が行われた時期の取材で、反発の中心にあるのは電力の問題ではないかと論じています。英ロンドン東部でも、Googleの新しいデータセンター建設に反対して、バイク愛好家や昆虫愛好家が手を組む動きが報じられています。AIの拡大に伴う電力需要は、各地で政治的な争点になりつつあります。</div>
+    </article>
+    <article class="card policy">
+      <div class="card-top">
+        <span class="card-label policy">ポリシー</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja">寄稿：AIは気候対策に役立つという主張はまだ立証されていない</div>
+      <div class="card-source">MIT Tech Review</div>
+      <div class="card-body">トルコのAntalyaで開かれている<span class="t" data-t="un-climate-conference" tabindex="0" role="button" aria-label="国連気候変動会議の説明を見る">国連気候変動会議</span>に合わせて、MIT Technology Reviewに寄稿が掲載されました。筆者は、<span class="t" data-t="california-air-resources-board" tabindex="0" role="button" aria-label="カリフォルニア大気資源局の説明を見る">カリフォルニア大気資源局</span>の元委員長でUCLAロースクールに所属する<span class="t" data-t="mary-nichols" tabindex="0" role="button" aria-label="Mary Nicholsの説明を見る">Mary Nichols</span>氏です。開催国は、AIを気候対策に役立つ形で設計・運用することを各国に呼びかけています。これに対しNichols氏は、AIが気候に良い影響を与えるという主張はまだ裏付けられていないと論じています。AIの電力消費が増えるなか、業界が掲げる環境面のメリットを見直すよう求める内容です。</div>
     </article>
     </div>
   </details>
   <details class="genre tools">
-    <summary><span class="genre-dot"></span>ツール<span class="cnt">3件</span></summary>
+    <summary><span class="genre-dot"></span>ツール<span class="cnt">4件</span></summary>
     <div class="genre-body">
     <article class="card tools">
       <div class="card-top">
         <span class="card-label tools">ツール</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">GPUなし・<span class="t" data-t="memory" tabindex="0" role="button" aria-label="メモリの説明を見る">メモリ</span>64GBで2840億パラメータのDeepSeekを実行</div>
+      <div class="card-title-ja"><span class="t" data-t="claude-code" tabindex="0" role="button" aria-label="Claude Codeの説明を見る">Claude Code</span>、GitHub上でパスワードや<span class="t" data-t="api-key" tabindex="0" role="button" aria-label="APIキーの説明を見る">APIキー</span>を誤って公開する事例</div>
+      <div class="card-source">Ars Technica</div>
+      <div class="card-body">Claude Codeが原因で、パスワードやAPIキーなどの機密情報がGitHub上に公開されてしまう事例が相次いでいると、<span class="t" data-t="ars-technica" tabindex="0" role="button" aria-label="Ars Technicaの説明を見る">Ars Technica</span>が報じました。発端は、確認<span class="t" data-t="prompt" tabindex="0" role="button" aria-label="プロンプトの説明を見る">プロンプト</span>の「今後は確認しない（Do not ask again）」という選択肢です。これを選ぶと、その後の操作が確認なしで進み、機密情報を含む内容がそのまま共有されてしまうことがあります。エージェント型のコーディングツールに権限を広く渡すと、こうした事故が起きやすくなります。利用者は自分のリポジトリに<span class="t" data-t="credentials" tabindex="0" role="button" aria-label="認証情報の説明を見る">認証情報</span>が含まれていないか確認し、承認の設定を見直したほうがよさそうです。</div>
+    </article>
+    <article class="card tools">
+      <div class="card-top">
+        <span class="card-label tools">ツール</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja"><span class="t" data-t="gpt" tabindex="0" role="button" aria-label="ChatGPTの説明を見る">ChatGPT</span>デスクトップ版、<span class="t" data-t="ssh-agent" tabindex="0" role="button" aria-label="SSHエージェントの説明を見る">SSHエージェント</span>をリモート先へ転送と指摘</div>
       <div class="card-source">Hacker News</div>
-      <div class="card-body">「<span class="t" data-t="llama-modchip" tabindex="0" role="button" aria-label="Llama-modchipの説明を見る">Llama-modchip</span>」と名付けられたプロジェクトが、2840億パラメータのDeepSeekのモデルを、GPUを使わずにメモリ64GBの環境で動かしたとしてHacker Newsで294ポイントを集めました。この規模のモデルは通常、高価なGPUを何枚も並べた環境で動かすのが前提です。手元の一般的なマシンで巨大な<span class="t" data-t="open-weight" tabindex="0" role="button" aria-label="オープンウェイトの説明を見る">オープンウェイト</span>モデルを動かす工夫は、<span class="t" data-t="local-llm" tabindex="0" role="button" aria-label="ローカルLLMの説明を見る">ローカルLLM</span>の実用範囲を広げる取り組みとして注目されています。速度や精度の条件は元記事で確認する必要があります。日本では、すでに使えます（GitHubで公開されていて日本からも入手できます。ただし説明は英語で、日本語への対応は公式には書かれていません）。</div>
+      <div class="card-body">ChatGPTのデスクトップアプリが、利用者のSSHエージェントをリモートマシンへ転送している、という指摘がHacker Newsで193ポイントを集めました。SSHエージェントの転送が有効だと、接続先のマシンから手元のSSH鍵を使った認証ができるようになります。そのため、接続先が侵害されていると鍵を<span class="t" data-t="exploit" tabindex="0" role="button" aria-label="悪用の説明を見る">悪用</span>される危険があります。開発者がAIアプリにリモート環境を操作させる場面が増えるなか、ツールの既定の設定がセキュリティに与える影響が問われています。</div>
+    </article>
+    <article class="card tools">
+      <div class="card-top">
+        <span class="card-label tools">ツール</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja"><span class="t" data-t="automattic" tabindex="0" role="button" aria-label="Automatticの説明を見る">Automattic</span>、<span class="t" data-t="agentic-coding" tabindex="0" role="button" aria-label="バイブコーディングの説明を見る">バイブコーディング</span>製アプリの公開<span class="t" data-t="infrastructure" tabindex="0" role="button" aria-label="基盤の説明を見る">基盤</span><span class="t" data-t="spacefast" tabindex="0" role="button" aria-label="Spacefastの説明を見る">Spacefast</span>を発表</div>
+      <div class="card-source">TechCrunch AI</div>
+      <div class="card-body">Automatticが、バイブコーディングで作ったアプリを公開するためのプラットフォーム「Spacefast」を発表しました。同じ分野の<span class="t" data-t="lovable" tabindex="0" role="button" aria-label="Lovableの説明を見る">Lovable</span>などと競合する位置付けです。AIを使って誰でもアプリを作れるようになるなか、作ったものをどこで動かし、どう公開するかが新しい市場になりつつあります。インターネットのあり方が変わりつつあることを受けた動きだと報じられています。日本での提供時期は、公式には発表されていません。</div>
     </article>
     <article class="card tools">
       <div class="card-top">
         <span class="card-label tools">ツール</span>
         <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja"><span class="t" data-t="nyt-cooking" tabindex="0" role="button" aria-label="NYT Cookingの説明を見る">NYT Cooking</span>、AIでレシピを調整するベータ機能を追加</div>
-      <div class="card-source">Wired AI</div>
-      <div class="card-body"><span class="t" data-t="the-times-lawsuit-documents" tabindex="0" role="button" aria-label="The New York Timesの説明を見る">The New York Times</span>が料理アプリ「NYT Cooking」に、AIを使ったレシピ調整機能を<span class="t" data-t="beta-version" tabindex="0" role="button" aria-label="ベータ版の説明を見る">ベータ版</span>として追加しました。材料を別のものに置き換えたり、読者の事情に合わせてレシピを変えたりできる機能です。実際に試したWiredの記者は「おおむね的を射ている」と評価しています。報道機関が自社のコンテンツにAIを組み込み、読者向けの実用的なサービスに仕立てる事例として参考になります。日本での提供時期は、公式には発表されていません（現在は米国のNYT Cooking購読者向けにiOSアプリで提供され、「近く広く提供する」とだけ述べられています）。</div>
-    </article>
-    <article class="card tools">
-      <div class="card-top">
-        <span class="card-label tools">ツール</span>
-        <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
-      </div>
-      <div class="card-title-ja">「コーディングに<span class="t" data-t="llm" tabindex="0" role="button" aria-label="LLMの説明を見る">LLM</span>は使わない」宣言が議論に</div>
-      <div class="card-source">Hacker News</div>
-      <div class="card-body">あるエンジニアが、自分のプログラミングにLLMを使わない理由をまとめたブログ記事がHacker Newsで97ポイントを集めました。AIによるコーディング支援が急速に広がる一方で、あえて使わないという立場の表明に開発者の関心が集まっています。<span class="t" data-t="ai-generated-code" tabindex="0" role="button" aria-label="AI生成コードの説明を見る">AI生成コード</span>への依存や<span class="t" data-t="deskilling" tabindex="0" role="button" aria-label="デスキリングの説明を見る">デスキリング</span>をめぐる議論が、現場のエンジニアの間で続いていることを示す話題です。</div>
+      <div class="card-title-ja"><span class="t" data-t="medium" tabindex="0" role="button" aria-label="Mediumの説明を見る">Medium</span>、AIの執筆支援を組み込んだ新アプリ「<span class="t" data-t="tk-app" tabindex="0" role="button" aria-label="TKの説明を見る">TK</span>」を公開</div>
+      <div class="card-source">TechCrunch AI</div>
+      <div class="card-body">ブログ投稿サービスのMediumが、文章を書く作業そのものにAIの支援を組み込んだ新しい執筆アプリ「TK」を公開しました。出版の世界では、AIを使った文章の扱いをめぐる議論が強まっています。そうしたなかで、MediumはAIによる執筆支援を受け入れる方針を打ち出した形です。書き手のAI利用をどこまで認めるかという業界の議論に一石を投じそうです。日本での提供時期は、公式には発表されていません。</div>
     </article>
     </div>
   </details>
 
-<section class="sx"><h2 class="sx-h" id="script">台本（音声に合わせて流れます）</h2><p class="read-hint">台詞を押すと、そこから再生します。</p><div id="sxLines" data-script="podcast/script-2026-11-09.txt" data-times="podcast/times-2026-11-09.json"><p class="read-hint">読み込み中…</p></div></section>
+<section class="sx"><h2 class="sx-h" id="script">台本（音声に合わせて流れます）</h2><p class="read-hint">台詞を押すと、そこから再生します。</p><div id="sxLines" data-script="podcast/script-2026-11-10.txt" data-times="podcast/times-2026-11-10.json"><p class="read-hint">読み込み中…</p></div></section>
 <script>
 (function(){
   var C = {"play": "音声で聴く", "pause": "止める", "def": "1", "normal": ["1", "1×"], "remember": true, "key": "wk-speed", "keyboard": true, "names": {"ミカ": "イロハ", "いろは": "イロハ"}, "roles": {"てらこ先生": "teacher", "イロハ": "partner", "いろは": "partner", "ミカ": "partner"}};
@@ -576,7 +621,7 @@
 })();
 </script>
 
-  <p style="max-width:760px;margin:1.5rem auto 0;font-size:0.82rem;text-align:right;"><a href="ai-news-2026-11-09.html" style="color:var(--text-muted);">この号だけを開く（共有用リンク） →</a></p>
+  <p style="max-width:760px;margin:1.5rem auto 0;font-size:0.82rem;text-align:right;"><a href="ai-news-2026-11-10.html" style="color:var(--text-muted);">この号だけを開く（共有用リンク） →</a></p>
 
   <div class="section-label">エッセイ</div>
   <div class="issue-grid">
@@ -592,6 +637,10 @@
 
   <div class="section-label">これまでの号</div>
   <div class="issue-grid">
+    <a class="issue" href="ai-news-2026-11-09.html">
+      <div class="d">2026年11月9日（月）</div>
+      <div class="m">音声あり</div>
+    </a>
     <a class="issue" href="ai-news-2026-11-08.html">
       <div class="d">2026年11月8日（日）</div>
       <div class="m">音声あり</div>
@@ -620,12 +669,8 @@
       <div class="d">2026年11月2日（月）</div>
       <div class="m">音声あり</div>
     </a>
-    <a class="issue" href="ai-news-2026-11-01.html">
-      <div class="d">2026年11月1日（日）</div>
-      <div class="m">音声あり</div>
-    </a>
   </div>
-  <p style="margin-top:1rem;font-size:0.85rem;"><a href="archive.html" style="color:var(--accent);font-weight:600;">全 167 号の一覧を見る →</a></p>
+  <p style="margin-top:1rem;font-size:0.85rem;"><a href="archive.html" style="color:var(--accent);font-weight:600;">全 168 号の一覧を見る →</a></p>
 
   <div id="subscribe"></div>
   <div class="section-label">毎朝うけとる</div>
@@ -651,7 +696,7 @@
   <div class="footer-links"><a href="">トップ</a> ／ <a href="terms/">AI用語集</a> ／ <a href="articles/">エッセイ</a> ／ <a href="archive.html">バックナンバー</a> ／ <a href="about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
   <div class="footer-brand">Teraco News by てらこ先生</div>
 </footer>
-<script type="application/json" id="glossary-data">{"ai-generated-code": {"n": "AI生成コード", "r": "エーアイせいせいコード", "s": "人ではなくAIが書いたプログラムのことです。手早く作れる反面、扱い方には議論があります。", "u": "terms/ai-generated-code.html"}, "beta-version": {"n": "ベータ版", "r": "ベータばん", "s": "正式に完成する前に、試しに公開されるバージョンです。使えますが、不具合があったり内容が変わったりすることがあります。", "u": "terms/beta-version.html"}, "bot": {"n": "ボット", "r": "ボット", "s": "人の代わりに、決められた操作を自動でくり返すプログラムです。", "u": "terms/bot.html"}, "compute": {"n": "計算資源", "r": "コンピュート", "s": "AIの学習や実行に使う計算能力の総量のことです。お金・電力・半導体の量とほぼ同じ意味で語られます。", "u": "terms/compute.html"}, "datacenter": {"n": "データセンター", "r": "データセンター", "s": "AIを動かすためのコンピュータを大量に設置した施設です。AI競争は電力と土地の競争でもあります。", "u": "terms/datacenter.html"}, "deepseek": {"n": "DeepSeek", "r": "ディープシーク", "s": "中国のAI開発企業です。少ない費用で高い性能を出すモデルを次々に公開して注目されています。", "u": "terms/deepseek.html"}, "deskilling": {"n": "デスキリング", "r": "デスキリング", "s": "道具や機械に任せるうちに、人が持っていた技術が衰えていくことです。仕事は残っていても、腕が落ちていく状態をいいます。", "u": "terms/deskilling.html"}, "elon-musk": {"n": "イーロン・マスク", "r": "イーロン・マスク", "s": "テスラやスペースX、X（旧Twitter）を率いる実業家です。AI企業xAIも設立しました。", "u": "terms/elon-musk.html"}, "equity-podcast": {"n": "Equity", "r": "エクイティ", "s": "TechCrunch が配信しているテック業界のポッドキャストです。その週の話題を記者が議論する形式です。", "u": "terms/equity-podcast.html"}, "espionage": {"n": "諜報", "r": "ちょうほう", "s": "相手の秘密の情報をこっそり集めることです。国や企業の機密を盗み出す活動を指します。", "u": "terms/espionage.html"}, "export-control": {"n": "半導体輸出規制", "r": "", "s": "高性能なAI半導体を特定の国へ売ることを制限する政策です。", "u": "terms/export-control.html"}, "generative-ai": {"n": "生成AI", "r": "", "s": "文章・画像・音声・動画などを新しく作り出せるAIの総称です。分類や予測をするだけだった従来のAIとの違いがここにあります。", "u": "terms/generative-ai.html"}, "gpu": {"n": "GPU", "r": "ジーピーユー", "s": "大量の計算を同時に行える半導体で、AIの学習と実行に欠かせない部品です。", "u": "terms/gpu.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "jensen-huang": {"n": "Jensen Huang", "r": "ジェンスン・フアン", "s": "AI用の半導体で圧倒的なシェアを持つNVIDIAの創業者・トップです。黒い革ジャンがトレードマークです。", "u": "terms/jensen-huang.html"}, "listing": {"n": "上場", "r": "じょうじょう", "s": "会社の株を、誰でも売り買いできる株式市場に出すことです。上場すると、会社はより多くのお金を集めやすくなります。", "u": "terms/listing.html"}, "llama-modchip": {"n": "Llama-modchip", "r": "ラマ・モッドチップ", "s": "高性能な画像処理チップ（GPU）を使わずに、とても大きなAIモデルを動かそうとするプロジェクトです。メモリ64GBの環境で2840億パラメータのモデルを動かしたと発表しました。", "u": "terms/llama-modchip.html"}, "llm": {"n": "LLM", "r": "エルエルエム", "s": "大量の文章を学習して、人間のように読み書きできるAIのことです。ChatGPTやClaudeの「頭脳」にあたる部分がこれです。", "u": "terms/llm.html"}, "local-llm": {"n": "ローカルLLM", "r": "ローカルエルエルエム", "s": "ネットの向こうのサービスを使わず、自分のパソコンなどで直接動かすAIの言語モデルです。入力した内容が外に出ないのが特徴です。", "u": "terms/local-llm.html"}, "megaspeed": {"n": "Megaspeed", "r": "メガスピード", "s": "今回のスパイ報道で名前が出た会社です。この会社の女性幹部が、スパイ役として誘われたと報じられました。", "u": "terms/megaspeed.html"}, "memory": {"n": "メモリ", "r": "", "s": "コンピューターが作業中のデータを一時的に置いておく部品です。量が多いほど一度にたくさんの処理ができます。", "u": "terms/memory.html"}, "midterm-elections": {"n": "中間選挙", "r": "ちゅうかんせんきょ", "s": "アメリカで、大統領の任期の真ん中に行われる議会の選挙です。4年の任期の2年目にあたります。", "u": "terms/midterm-elections.html"}, "nvidia": {"n": "NVIDIA", "r": "エヌビディア", "s": "AI開発に不可欠なGPUを作っている半導体企業です。生成AIブームの最大の受益者と言われています。", "u": "terms/nvidia.html"}, "nyt-cooking": {"n": "NYT Cooking", "r": "エヌワイティー・クッキング", "s": "アメリカの新聞社ニューヨーク・タイムズが出している料理レシピのアプリです。新たにAIでレシピを調整できる機能が試験的に加わりました。", "u": "terms/nyt-cooking.html"}, "open-weight": {"n": "オープンウェイト", "r": "オープンウェイト", "s": "モデルの中身（重み）が公開されていて、誰でもダウンロードして動かせる形態のことです。", "u": "terms/open-weight.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "parameter": {"n": "パラメータ", "r": "パラメータ", "s": "AIの中にある調整つまみのようなもので、学習によって値が決まります。数が多いほど複雑なことを覚えられます。", "u": "terms/parameter.html"}, "semiconductor": {"n": "半導体", "r": "はんどうたい", "s": "電気を通したり止めたりできる性質を持つ材料、またはそれで作ったコンピュータの部品のことです。", "u": "terms/semiconductor.html"}, "techcrunch": {"n": "TechCrunch", "r": "テッククランチ", "s": "スタートアップと技術業界を専門に扱うアメリカのニュースメディアです。", "u": "terms/techcrunch.html"}, "the-times-lawsuit-documents": {"n": "The Times", "r": "ザ・タイムズ", "s": "アメリカの大手新聞社です。自社の記事がAIの学習に無断で使われたとして争っています。", "u": "terms/the-times-lawsuit-documents.html"}, "valuation": {"n": "評価額", "r": "ひょうかがく", "s": "投資を受ける際に算定される企業の価値のことです。「10億ドルの評価額で調達」のように使われます。", "u": "terms/valuation.html"}, "wired": {"n": "Wired", "r": "ワイアード", "s": "技術と社会の関わりを扱う米国の雑誌・ニュースサイトです。日本語版もあります。", "u": "terms/wired.html"}, "world-model": {"n": "世界モデル", "r": "", "s": "物理法則や物事の因果関係をAIが内部に持つ仕組みのことです。", "u": "terms/world-model.html"}}</script>
+<script type="application/json" id="glossary-data">{"agentic-coding": {"n": "エージェント型コーディング", "r": "", "s": "AIが自分でファイルを読み書きし、テストを実行しながらプログラムを完成させる開発の進め方です。", "u": "terms/agentic-coding.html"}, "ai-agent": {"n": "AIエージェント", "r": "エーアイエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "anthropic": {"n": "Anthropic", "r": "アンソロピック", "s": "AIアシスタント「Claude」を開発するアメリカの企業です。AIの安全性を重視する方針を掲げています。", "u": "terms/anthropic.html"}, "api": {"n": "API", "r": "エーピーアイ", "s": "他のソフトウェアからAIを呼び出すための窓口です。自作のアプリにAIを組み込むときに使います。", "u": "terms/api.html"}, "api-key": {"n": "APIキー", "r": "エーピーアイキー", "s": "AIなどのサービスをプログラムから使うための、合い言葉のような文字列です。持っている人の名前で利用料金が発生します。", "u": "terms/api-key.html"}, "ars-technica": {"n": "Ars Technica", "r": "アルステクニカ", "s": "技術を深く掘り下げて解説する米国のニュースサイトです。専門的な検証記事に強みがあります。", "u": "terms/ars-technica.html"}, "automattic": {"n": "Automattic", "r": "オートマティック", "s": "ウェブサイトやアプリを公開するためのサービスを作っている会社です。AIで作ったアプリを公開する新サービスを発表しました。", "u": "terms/automattic.html"}, "board-of-directors": {"n": "取締役会", "r": "とりしまりやくかい", "s": "会社の大事なことを決めたり、社長などの経営陣を見張ったりする役員の集まりです。", "u": "terms/board-of-directors.html"}, "california-air-resources-board": {"n": "カリフォルニア大気資源局", "r": "", "s": "アメリカ・カリフォルニア州で、空気の汚れを減らすためのルールを作る役所です。", "u": "terms/california-air-resources-board.html"}, "claude-code": {"n": "Claude Code", "r": "クロードコード", "s": "Claudeにコードを書かせたり直させたりするための道具です。ファイルの編集から変更の記録まで任せられます。", "u": "terms/claude-code.html"}, "claude-haiku": {"n": "Claude Haiku", "r": "クロード・ハイク", "s": "Anthropicが作るAIのうち、小さくて速く、安く使えるタイプです。たくさんの作業を手早くこなしたいときに向いています。", "u": "terms/claude-haiku.html"}, "credentials": {"n": "認証情報", "r": "にんしょうじょうほう", "s": "システムに入るためのIDやパスワード、鍵のことです。漏れると他人に勝手に使われてしまいます。", "u": "terms/credentials.html"}, "data-center-alley": {"n": "データセンター・アレー", "r": "データセンター・アレー", "s": "アメリカのバージニア州アッシュバーン周辺の呼び名です。世界でいちばんデータセンターが集まっている場所です。", "u": "terms/data-center-alley.html"}, "datacenter": {"n": "データセンター", "r": "データセンター", "s": "AIを動かすためのコンピュータを大量に設置した施設です。AI競争は電力と土地の競争でもあります。", "u": "terms/datacenter.html"}, "elevenlabs": {"n": "ElevenLabs", "r": "イレブンラボ", "s": "人間そっくりのAIの声を作る会社です。お店や会社の電話窓口などで使われています。", "u": "terms/elevenlabs.html"}, "exploit": {"n": "エクスプロイト", "r": "エクスプロイト", "s": "ソフトの弱点を突いて、悪いことをするための方法や手順のことです。", "u": "terms/exploit.html"}, "export-control": {"n": "半導体輸出規制", "r": "", "s": "高性能なAI半導体を特定の国へ売ることを制限する政策です。", "u": "terms/export-control.html"}, "gas-turbine": {"n": "ガスタービン", "r": "", "s": "燃料を燃やした勢いで羽根車を回し、電気を作る装置です。設置が比較的早く済み、大きな電力をまかなえます。", "u": "terms/gas-turbine.html"}, "gpt": {"n": "GPT", "r": "ジーピーティー", "s": "OpenAIが開発しているAIモデルのシリーズ名です。ChatGPTの中身がこれにあたります。", "u": "terms/gpt.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "heller": {"n": "Heller", "r": "ヘラー", "s": "企業や個人のイメージを守る手伝いをするPR会社です。性的なスキャンダルへの対応で知られています。", "u": "terms/heller.html"}, "inference": {"n": "推論", "r": "すいろん", "s": "学習済みのAIを実際に動かして答えを出させることです。AIを「使う」場面はすべて推論にあたります。", "u": "terms/inference.html"}, "infrastructure": {"n": "インフラ", "r": "インフラ", "s": "物事を動かすための土台になる設備や仕組みのことです。AIの場合は、データセンターや電力、データを保存する仕組みなどを指します。", "u": "terms/infrastructure.html"}, "jeffrey-sonnenfeld": {"n": "Jeffrey Sonnenfeld", "r": "ジェフリー・ソネンフェルド", "s": "アメリカのYale大学に所属する専門家です。会社のトップの進退についてコメントしています。", "u": "terms/jeffrey-sonnenfeld.html"}, "jensen-huang": {"n": "Jensen Huang", "r": "ジェンスン・フアン", "s": "AI用の半導体で圧倒的なシェアを持つNVIDIAの創業者・トップです。黒い革ジャンがトレードマークです。", "u": "terms/jensen-huang.html"}, "lobbying": {"n": "ロビー活動", "r": "ロビーかつどう", "s": "企業や団体が、自分たちに有利な法律やルールにしてもらうよう政治家や役所に働きかけることです。", "u": "terms/lobbying.html"}, "lovable": {"n": "Lovable", "r": "ラバブル", "s": "AIに話しかけるだけでアプリを作れるサービスの一つです。この分野の代表的な存在として名前が挙がります。", "u": "terms/lovable.html"}, "mary-nichols": {"n": "Mary Nichols", "r": "メアリー・ニコルズ", "s": "アメリカの環境政策の専門家です。カリフォルニア州で大気汚染の対策を担う組織のトップを務めました。", "u": "terms/mary-nichols.html"}, "medium": {"n": "Medium", "r": "ミディアム", "s": "誰でも記事を書いて公開できるブログ投稿サービスです。書き手と読み手が集まる場になっています。", "u": "terms/medium.html"}, "meta-ai": {"n": "Meta", "r": "メタ", "s": "FacebookやInstagramを運営する企業で、AIモデル「Llama」を公開しています。", "u": "terms/meta-ai.html"}, "mit-tech-review": {"n": "MIT Technology Review", "r": "エムアイティー・テクノロジーレビュー", "s": "マサチューセッツ工科大学が発行する技術の専門誌です。", "u": "terms/mit-tech-review.html"}, "muse-ember": {"n": "Muse Ember", "r": "ミューズ・エンバー", "s": "Metaが出した、小さくて動かす費用の安いAIモデルです。AIに作業を任せる用途に向けて作られています。", "u": "terms/muse-ember.html"}, "mythos": {"n": "Mythos", "r": "ミトス", "s": "Anthropicが公開したAIモデルの名前です。Fableと同じタイミングで発表されました。", "u": "terms/mythos.html"}, "nancy-pelosi": {"n": "Nancy Pelosi", "r": "ナンシー・ペロシ", "s": "アメリカの議会で議長を務めたことがある、有名な政治家です。サンフランシスコを地盤にしていました。", "u": "terms/nancy-pelosi.html"}, "nvidia": {"n": "NVIDIA", "r": "エヌビディア", "s": "AI開発に不可欠なGPUを作っている半導体企業です。生成AIブームの最大の受益者と言われています。", "u": "terms/nvidia.html"}, "prompt": {"n": "プロンプト", "r": "プロンプト", "s": "AIに与える指示や質問の文章のことです。書き方しだいで返ってくる答えの質が大きく変わります。", "u": "terms/prompt.html"}, "pull-request": {"n": "プルリクエスト", "r": "", "s": "作業用に分けて書いたコードを、本体に入れてよいか確認する場のことです。中身を見せ合ってから合流させます。", "u": "terms/pull-request.html"}, "recursive-self-improvement": {"n": "再帰的自己改善", "r": "さいきてきじこかいぜん", "s": "AIが自分より良いAIを作り、そのAIがまた次のAIを作る、という流れのことです。これが繰り返されると、性能が一気に伸びる可能性があります。", "u": "terms/recursive-self-improvement.html"}, "scott-wiener": {"n": "Scott Wiener", "r": "スコット・ウィーナー", "s": "アメリカ・カリフォルニア州の政治家です。AIの危険を抑えるための法律づくりに取り組んできました。", "u": "terms/scott-wiener.html"}, "self-improving-ai": {"n": "自己改善AI", "r": "ジコカイゼンエーアイ", "s": "AIが自分自身の弱点を見つけて直していく仕組みのことです。人が手を入れなくても性能や安全性が上がっていくことを目指します。", "u": "terms/self-improving-ai.html"}, "spacefast": {"n": "Spacefast", "r": "スペースファスト", "s": "Automatticが始めた、AIで作ったアプリを公開するためのサービスです。作ったアプリをネット上で動かせるようにします。", "u": "terms/spacefast.html"}, "ssh-agent": {"n": "SSHエージェント", "r": "エスエスエイチ・エージェント", "s": "別のコンピューターに安全につなぐための「鍵」を、手元で預かっておく仕組みです。つなぐたびに鍵を入力しなくて済みます。", "u": "terms/ssh-agent.html"}, "techcrunch": {"n": "TechCrunch", "r": "テッククランチ", "s": "スタートアップと技術業界を専門に扱うアメリカのニュースメディアです。", "u": "terms/techcrunch.html"}, "tk-app": {"n": "TK", "r": "ティーケー", "s": "Mediumが出した、文章を書くための新しいアプリです。書いている途中でAIの手助けを受けられます。", "u": "terms/tk-app.html"}, "token": {"n": "トークン", "r": "トークン", "s": "AIが文章を扱うときの最小単位です。英語ならおよそ単語1つ、日本語なら1〜2文字が1トークンにあたります。", "u": "terms/token.html"}, "un-climate-conference": {"n": "国連気候変動会議", "r": "", "s": "世界の国々が集まって、地球温暖化への対策を話し合う国連の会議です。", "u": "terms/un-climate-conference.html"}, "wired": {"n": "Wired", "r": "ワイアード", "s": "技術と社会の関わりを扱う米国の雑誌・ニュースサイトです。日本語版もあります。", "u": "terms/wired.html"}}</script>
 
 <script>
 (function(){
@@ -676,7 +721,8 @@
       + '<a class="tip-m" href="#">くわしい解説 →</a>';
     tip.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
     tip.querySelector('.tip-s').textContent = d.s;
-    tip.querySelector('.tip-m').href = d.u;
+    tip.querySelector('.tip-m').href = d.u || '#';
+    tip.querySelector('.tip-m').style.display = d.u ? '' : 'none';
     tip.classList.add('on');
     var r = node.getBoundingClientRect();
     var w = tip.offsetWidth, h = tip.offsetHeight;
@@ -691,7 +737,8 @@
   function openSheet(d){
     sheet.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
     sheet.querySelector('.tip-s').textContent = d.s;
-    sheet.querySelector('.tip-m').href = d.u;
+    sheet.querySelector('.tip-m').href = d.u || '#';
+    sheet.querySelector('.tip-m').style.display = d.u ? '' : 'none';
     sheet.classList.add('on'); veil.classList.add('on');
   }
   function closeSheet(){ sheet.classList.remove('on'); veil.classList.remove('on'); }
@@ -717,7 +764,7 @@
     var n = e.target.closest('.t'); if (!n) return;
     var d = G[n.getAttribute('data-t')]; if (!d) return;
     e.preventDefault();
-    if (hoverable) { location.href = d.u; } else { openSheet(d); }
+    if (hoverable && d.u) { location.href = d.u; } else if (!hoverable) { openSheet(d); }
   });
   document.addEventListener('keydown', function(e){
     if (e.key === 'Escape') { hideTip(); closeSheet(); return; }
