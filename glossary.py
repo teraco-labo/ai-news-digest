@@ -61,7 +61,7 @@ def _surface_forms(term: Dict) -> List[str]:
     return [s for s in [term.get("term", "")] + term.get("aliases", []) if s]
 
 
-def _build_matcher(terms: List[Dict]) -> Tuple[Optional[re.Pattern], Dict[str, str]]:
+def _build_matcher(terms: List[Dict], match_reading: bool = False) -> Tuple[Optional[re.Pattern], Dict[str, str]]:
     """全用語＋別名から1本の正規表現を作る。
 
     長い表記を先に並べることで、「大規模言語モデル」を「モデル」より優先させる。
@@ -71,7 +71,12 @@ def _build_matcher(terms: List[Dict]) -> Tuple[Optional[re.Pattern], Dict[str, s
     pieces: List[Tuple[int, str]] = []
 
     for t in terms:
-        for surface in _surface_forms(t):
+        forms = _surface_forms(t)
+        # 読み上げ用にカタカナで書いた台本（アンバー）では、英字の見出しを読み（カタカナ）でも見つける（2026-11-09 「Llama-modchip」→「ラマ・モッドチップ」）
+        rd = t.get("reading", "")
+        if match_reading and len(rd) >= 3 and re.fullmatch(r"[ァ-ヶー・]+", rd):
+            forms = forms + [rd]
+        for surface in forms:
             key = surface.lower()
             if key in lookup:
                 continue
@@ -130,10 +135,11 @@ class Annotator:
     """1ページぶんの注釈をまとめて扱う。"""
 
     def __init__(self, limit: int = DEFAULT_LIMIT, prefix: str = "",
-                 skip: Optional[Set[str]] = None):
+                 skip: Optional[Set[str]] = None, match_reading: bool = False):
+        self.match_reading = match_reading
         self.data = load()
         self.terms = {t["slug"]: t for t in published(self.data)}
-        self.matcher, self.lookup = _build_matcher(list(self.terms.values()))
+        self.matcher, self.lookup = _build_matcher(list(self.terms.values()), match_reading)
         self.used: Set[str] = set()
         self.limit = limit
         self.prefix = prefix
@@ -144,7 +150,7 @@ class Annotator:
         for t in terms:
             if t.get("term") and t.get("short") and t.get("slug") not in self.terms:
                 self.terms[t["slug"]] = dict(t, local=True)
-        self.matcher, self.lookup = _build_matcher(list(self.terms.values()))
+        self.matcher, self.lookup = _build_matcher(list(self.terms.values()), self.match_reading)
 
     def __call__(self, text: str) -> str:
         return annotate(text, self.matcher, self.lookup, self.used,
@@ -171,20 +177,21 @@ EXTRACT_PROMPT = """次の文章を、{audience}が読みます。読んで「�
 - カタカナ語・英語・英字の名前（会社・サービス・製品・人の名前も）・専門用語・ニュースの言葉（評価額・上場など）・略語を、もれなく
 - 言葉は文章に出てくる表記と一字一句同じに。名前や長い言葉は途中で切らず、ひとかたまりで（例：「ラマ・モッドチップ」は「チップ」ではなく「ラマ・モッドチップ」）
 - 次の言葉は説明済みなので出さない：{known}
-- short は、初心者がポップアップで読むやさしい説明（1〜2文・です・ます）。事実だけ。分からないことは書かない
+- short は、ポップアップで読む説明（1〜2文・です・ます）。事実だけ。分からないことは書かない。下に「参考資料」があれば、名前・数字はそれと照らして正確に書く
 返事は JSON の配列だけ（前後に何も書かない）：[{{"term": "言葉", "reading": "読み（カタカナ・不要なら空）", "short": "説明"}}]
 
 # 文章
 {text}
-"""
+{reference}"""
 
 
 def extract_terms(text: str, known: List[str], audience: str = "スマホやAIに詳しくない初心者",
-                  n: str = "40〜60", timeout: int = 600) -> List[Dict]:
+                  n: str = "40〜60", timeout: int = 600, reference: str = "") -> List[Dict]:
     """文章から、説明が要りそうな言葉を Claude に拾わせる（2026-11-09 藤崎さん「もっと初心者向けにいっぱい注釈散りばめないと価値がない」）。
     失敗したら空の一覧を返す（ページは今までどおりの注釈で作られる）。"""
     import subprocess
-    prompt = EXTRACT_PROMPT.format(audience=audience, n=n, known="、".join(known), text=text)
+    ref = f"\n# 参考資料（元の記事。説明はこれに合わせる）\n{reference}\n" if reference else ""
+    prompt = EXTRACT_PROMPT.format(audience=audience, n=n, known="、".join(known), text=text, reference=ref)
     try:
         r = subprocess.run(["claude", "-p", prompt, "--output-format", "text"], capture_output=True, text=True, timeout=timeout)
         raw = r.stdout.strip()
