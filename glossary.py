@@ -53,6 +53,7 @@ def published(data: Optional[Dict] = None) -> List[Dict]:
 
 # ---------------------------------------------------------------- 本文への注釈
 
+_KANA = re.compile(r"[ァ-ヶー]")
 _ASCII_ONLY = re.compile(r"^[A-Za-z0-9 .\-·]+$")
 
 
@@ -78,6 +79,12 @@ def _build_matcher(terms: List[Dict]) -> Tuple[Optional[re.Pattern], Dict[str, s
             esc = re.escape(surface)
             if _ASCII_ONLY.match(surface):
                 esc = r"(?<![A-Za-z0-9])" + esc + r"(?![A-Za-z0-9])"
+            # 2026-11-09 藤崎さん：「ラマ・モッドチップ」の中の「チップ」「ラマ」に説明が付いて、知りたい言葉と違った。
+            # カタカナで始まる／終わる表記は、前後がカタカナ（・でつながる名前も）なら長い言葉の一部とみなして付けない
+            if _KANA.match(surface[0]):
+                esc = r"(?<![ァ-ヶー])(?<![ァ-ヶ]・)" + esc
+            if _KANA.match(surface[-1]):
+                esc = esc + r"(?![ァ-ヶー])(?!・[ァ-ヶ])"
             pieces.append((len(surface), esc))
 
     if not pieces:
@@ -132,6 +139,13 @@ class Annotator:
         self.prefix = prefix
         self.skip = skip or set()
 
+    def add_local(self, terms: List[Dict]):
+        """その回だけの言葉（用語集に無い言葉）を足す。説明ページは無いので、ポップアップにリンクは出ない（2026-11-09）"""
+        for t in terms:
+            if t.get("term") and t.get("short") and t.get("slug") not in self.terms:
+                self.terms[t["slug"]] = dict(t, local=True)
+        self.matcher, self.lookup = _build_matcher(list(self.terms.values()))
+
     def __call__(self, text: str) -> str:
         return annotate(text, self.matcher, self.lookup, self.used,
                         self.limit, self.prefix, self.skip)
@@ -145,12 +159,47 @@ class Annotator:
                 "n": self.terms[slug]["term"],
                 "r": self.terms[slug].get("reading", ""),
                 "s": self.terms[slug]["short"],
-                "u": f"{self.prefix}terms/{slug}.html",
+                "u": "" if self.terms[slug].get("local") else f"{self.prefix}terms/{slug}.html",
             }
             for slug in sorted(self.used) if slug in self.terms
         }
         return ('<script type="application/json" id="glossary-data">'
                 + json.dumps(data, ensure_ascii=False) + "</script>\n")
+
+
+EXTRACT_PROMPT = """次の文章を、{audience}が読みます。読んで「意味が分からないかもしれない」言葉を、できるだけたくさん拾い出してください。目安は{n}語。
+- カタカナ語・英語・英字の名前（会社・サービス・製品・人の名前も）・専門用語・ニュースの言葉（評価額・上場など）・略語を、もれなく
+- 言葉は文章に出てくる表記と一字一句同じに。名前や長い言葉は途中で切らず、ひとかたまりで（例：「ラマ・モッドチップ」は「チップ」ではなく「ラマ・モッドチップ」）
+- 次の言葉は説明済みなので出さない：{known}
+- short は、初心者がポップアップで読むやさしい説明（1〜2文・です・ます）。事実だけ。分からないことは書かない
+返事は JSON の配列だけ（前後に何も書かない）：[{{"term": "言葉", "reading": "読み（カタカナ・不要なら空）", "short": "説明"}}]
+
+# 文章
+{text}
+"""
+
+
+def extract_terms(text: str, known: List[str], audience: str = "スマホやAIに詳しくない初心者",
+                  n: str = "40〜60", timeout: int = 600) -> List[Dict]:
+    """文章から、説明が要りそうな言葉を Claude に拾わせる（2026-11-09 藤崎さん「もっと初心者向けにいっぱい注釈散りばめないと価値がない」）。
+    失敗したら空の一覧を返す（ページは今までどおりの注釈で作られる）。"""
+    import subprocess
+    prompt = EXTRACT_PROMPT.format(audience=audience, n=n, known="、".join(known), text=text)
+    try:
+        r = subprocess.run(["claude", "-p", prompt, "--output-format", "text"], capture_output=True, text=True, timeout=timeout)
+        raw = r.stdout.strip()
+        raw = raw[raw.find("["): raw.rfind("]") + 1]
+        items = json.loads(raw)
+    except Exception:
+        return []
+    out, seen = [], set()
+    for i, t in enumerate(items if isinstance(items, list) else []):
+        w = (t.get("term") or "").strip() if isinstance(t, dict) else ""
+        if not w or w in seen or w not in text or not t.get("short"):
+            continue
+        seen.add(w)
+        out.append({"slug": f"local-{i}", "term": w, "reading": t.get("reading", ""), "aliases": [], "short": t["short"].strip()})
+    return out
 
 
 # ---------------------------------------------------------------- UI 部品
@@ -209,7 +258,8 @@ TOOLTIP_JS = """
       + '<a class="tip-m" href="#">くわしい解説 →</a>';
     tip.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
     tip.querySelector('.tip-s').textContent = d.s;
-    tip.querySelector('.tip-m').href = d.u;
+    tip.querySelector('.tip-m').href = d.u || '#';
+    tip.querySelector('.tip-m').style.display = d.u ? '' : 'none';
     tip.classList.add('on');
     var r = node.getBoundingClientRect();
     var w = tip.offsetWidth, h = tip.offsetHeight;
@@ -224,7 +274,8 @@ TOOLTIP_JS = """
   function openSheet(d){
     sheet.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
     sheet.querySelector('.tip-s').textContent = d.s;
-    sheet.querySelector('.tip-m').href = d.u;
+    sheet.querySelector('.tip-m').href = d.u || '#';
+    sheet.querySelector('.tip-m').style.display = d.u ? '' : 'none';
     sheet.classList.add('on'); veil.classList.add('on');
   }
   function closeSheet(){ sheet.classList.remove('on'); veil.classList.remove('on'); }
@@ -250,7 +301,7 @@ TOOLTIP_JS = """
     var n = e.target.closest('.t'); if (!n) return;
     var d = G[n.getAttribute('data-t')]; if (!d) return;
     e.preventDefault();
-    if (hoverable) { location.href = d.u; } else { openSheet(d); }
+    if (hoverable && d.u) { location.href = d.u; } else if (!hoverable) { openSheet(d); }
   });
   document.addEventListener('keydown', function(e){
     if (e.key === 'Escape') { hideTip(); closeSheet(); return; }
