@@ -12026,6 +12026,274 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "oura",
+      "term": "Oura",
+      "reading": "オーラ",
+      "aliases": [
+        "Oura Ring"
+      ],
+      "category": "企業",
+      "short": "指輪の形をした健康管理の機器を作っている会社です。睡眠や体の調子を記録できます。",
+      "detail": "スマートリングと呼ばれる指輪型のウェアラブル機器のメーカーです。最大22億ドル規模を見込んだIPOを、市場の不確実性を理由に無期限延期しました。その数週間後にAI医療スタートアップのCounsel Healthを6億2500万ドルで買収すると発表し、健康データと医療サービスを結びつける方向へ動いています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "counsel-health",
+      "term": "Counsel Health",
+      "reading": "カウンセル・ヘルス",
+      "aliases": [],
+      "category": "企業",
+      "short": "AIを使った、かかりつけ医のような医療サービスを作るスタートアップです。2026年にOuraに買収されることになりました。",
+      "detail": "最初からAIを前提に設計した「AIネイティブ」のプライマリケア（かかりつけ医療）を手がけるスタートアップです。Ouraが6億2500万ドルで買収すると発表しました。ウェアラブル機器で集めた健康データを、実際の医療サービスにつなげる役割を担うとみられます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "psi",
+      "term": "PSI",
+      "reading": "ピーエスアイ",
+      "aliases": [],
+      "category": "企業",
+      "short": "AIを使って科学の新しい発見をし、それを商売にしようとしている会社です。量子コンピューターの難問に答えを出しました。",
+      "detail": "AI主導の科学的発見を事業化しようとしているスタートアップです。Anthropicの未公開モデルを使い、科学者が20年近く取り組んできた量子コンピューティングの根本的な問いに答えを出しました。AIを研究の道具ではなく発見の担い手として使い、それを収益にできるかが注目されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "claude-meetings",
+      "term": "Claude Meetings",
+      "reading": "クロード・ミーティングス",
+      "aliases": [],
+      "category": "使い方",
+      "short": "会議にClaudeが参加して、話し合いの内容を計画ややることリストにまとめてくれる機能です。会議中に質問にも答えます。",
+      "detail": "Anthropicが発表した会議向けの機能です。話している最中に計画の下書きを作り、ホワイトボードにタイムラインを描き、会議チャットの質問に答えます。接続した業務アプリから昨年の数字などの情報を取り出すこともでき、会議後ではなく会議中にAIが作業を進める点が特徴です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "tpu-8tx",
+      "term": "TPU 8tx",
+      "reading": "ティーピーユー・エイト・ティーエックス",
+      "aliases": [],
+      "category": "インフラ",
+      "short": "Googleが新しく発表した、AI専用の計算チップの一つです。用途に合わせて作られています。",
+      "detail": "GoogleのAIチップTPUの新製品で、TPU 8i Maxと同時に発表されました。この2種は、データを秘匿したままの機密学習や、より大きなメモリ容量を必要とする用途に向けたものです。用途別にチップを揃えて、TPUを使える場面を広げる狙いがあります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "tpu-8i-max",
+      "term": "TPU 8i Max",
+      "reading": "ティーピーユー・エイト・アイ・マックス",
+      "aliases": [],
+      "category": "インフラ",
+      "short": "Googleが新しく発表した、AI専用の計算チップの一つです。TPU 8txと同時に発表されました。",
+      "detail": "GoogleのAIチップTPUの新製品です。同時発表のTPU 8txとあわせて、機密性の高いモデル学習や大容量メモリを必要とする用途をカバーします。NVIDIAのGPUが主流の市場で、Googleが独自チップの選択肢を広げる動きの一つです。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "signal-protocol",
+      "term": "Signal Protocol",
+      "reading": "シグナル・プロトコル",
+      "aliases": [
+        "Signalプロトコル"
+      ],
+      "category": "安全性",
+      "short": "メッセージを暗号化して、送り手と受け手以外に読まれないようにするための仕組みです。多くのアプリで使われています。",
+      "detail": "広く使われている暗号化プロトコル（通信の取り決め）です。Google DeepMindの研究者がAIツールを使い、設計どおりに機能することを形式検証で数学的に証明しました。多くの人のメッセージの安全を支える仕組みのため、その正しさが証明された意味は大きいといえます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "gemini-robotics",
+      "term": "Gemini Robotics",
+      "reading": "ジェミニ・ロボティクス",
+      "aliases": [
+        "Gemini Robotics 2.5"
+      ],
+      "category": "モデル",
+      "short": "Google DeepMindが作った、ロボットを動かすためのAIです。新しい版では一部の作業がうまくできる割合が上がりました。",
+      "detail": "Google DeepMindのロボット向けAIモデルのシリーズです。新版のGemini Robotics 2.5は、一部のタスクで成功率が最大2倍に向上したとされます。同時に、ロボット向けAIの安全性を測るベンチマークASIMOV-jailbreakも公開されました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "asimov-jailbreak",
+      "term": "ASIMOV-jailbreak",
+      "reading": "アシモフ・ジェイルブレイク",
+      "aliases": [],
+      "category": "評価",
+      "short": "ロボットを動かすAIが、悪い指示にだまされないかを確かめるためのテストです。誰でも使えるように公開されています。",
+      "detail": "Google DeepMindがGemini Robotics 2.5と同時に公開した、オープンな安全性ベンチマークです。名前のとおり、ジェイルブレイク（AIの制限を外させる攻撃）への耐性を測ることを目的としています。現実世界で動くロボットでは制限が外れたときの被害が大きいため、こうした評価の重要性が高まっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "abliteration",
+      "term": "abliteration",
+      "reading": "アブリテレーション",
+      "aliases": [
+        "abliterator",
+        "アブリテレーター"
+      ],
+      "category": "安全性",
+      "short": "AIに組み込まれた「危ない質問には答えない」という仕組みを取り外すことです。それをする人たちはabliteratorと呼ばれます。",
+      "detail": "AIモデルから安全装置（ガードレール）を取り除き、どんな依頼も断らないようにする行為です。こうしたモデルはネット上に大量に出回っており、サイバー防御の研究に役立つ一方、爆弾の作り方を調べるといった悪用もしやすくなります。配布後のモデルでは開発元の安全対策を簡単に外せるという課題を示しています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "fireworks-ai",
+      "term": "Fireworks AI",
+      "reading": "ファイアワークスAI",
+      "aliases": [],
+      "category": "企業",
+      "short": "ほかの会社のサービスの裏側で、AIを動かす計算を引き受けている会社です。セキュリティの事故が起きました。",
+      "detail": "AIモデルを動かす基盤を他社に提供している企業です。同社で起きたセキュリティ侵害が、利用企業のNotionとその顧客にまで影響しました。AI機能を外部に委託するサービスでは、委託先の事故がそのまま自社と顧客のリスクになることを示す例です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "notion",
+      "term": "Notion",
+      "reading": "ノーション",
+      "aliases": [],
+      "category": "企業",
+      "short": "メモや資料、仕事の管理をまとめて行えるサービスです。仕事でよく使われています。",
+      "detail": "文書作成やタスク管理などを一つにまとめた業務向けのサービスです。AI基盤を提供するFireworks AIのセキュリティ侵害により、Notionとその顧客に影響が出ました。業務の情報が集まるサービスほど、外部委託先の安全性が重要になります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "adobe-firefly",
+      "term": "Firefly",
+      "reading": "ファイアフライ",
+      "aliases": [
+        "Adobe Firefly"
+      ],
+      "category": "モデル",
+      "short": "Adobeが作っている、AIで画像などを作るサービスです。新しく試作品を作る機能も加わりました。",
+      "detail": "Adobeの生成AIサービスです。新たにプロトタイプ（試作品）を作るツールが加わり、デザインツールのFigmaと直接競合する形になりました。PhotoshopやPremiereと並んで、AIエージェントの導入対象にもなっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "quantum-computing",
+      "term": "量子コンピューティング",
+      "reading": "りょうしコンピューティング",
+      "aliases": [
+        "量子コンピューター",
+        "量子計算"
+      ],
+      "category": "基礎",
+      "short": "とても小さな物の不思議な性質を使って計算する、新しいタイプの計算の仕組みです。今のコンピューターでは時間がかかる問題を解けると期待されています。",
+      "detail": "量子力学の性質を利用して計算を行う技術分野です。PSIはAnthropicの未公開モデルを使い、この分野で科学者が20年近く追ってきた根本的な問いに答えを出しました。AIが最先端の科学の難問に取り組み始めている例として注目されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "price-range",
+      "term": "想定価格帯",
+      "reading": "そうていかかくたい",
+      "aliases": [
+        "仮条件",
+        "price range"
+      ],
+      "category": "ビジネス",
+      "short": "株を初めて売り出すときに、会社が示す「このくらいの値段で売る予定」という幅のことです。最終的な値段はこの幅を目安に決まります。",
+      "detail": "IPOの際に、会社が投資家の需要を探るために示す株価の範囲です。AnthropicはIPOで1株70〜78ドルという想定価格帯を設定しました。上限で決まるか中央値で決まるかによって、会社の評価額や創業者が手にする金額が変わります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "fully-diluted",
+      "term": "完全希薄化ベース",
+      "reading": "かんぜんきはくかベース",
+      "aliases": [
+        "fully diluted"
+      ],
+      "category": "ビジネス",
+      "short": "将来株に変わる可能性のある権利まで、すべて株として数えた計算のしかたです。会社の価値を大きめに、もれなく見積もるときに使います。",
+      "detail": "ストックオプションなど、将来株式に変わりうるものをすべて発行済みとみなして株数を数える方法です。AnthropicのIPOでは、この基準で計算すると、上限価格での評価額が1兆4040億ドルになります。評価額のニュースでは、どの基準で数えた数字かによって金額が変わる点に注意が必要です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "confidential-training",
+      "term": "機密学習",
+      "reading": "きみつがくしゅう",
+      "aliases": [
+        "confidential model training"
+      ],
+      "category": "安全性",
+      "short": "大事なデータを外にもらさないように守ったまま、AIに学習させることです。新しいTPUがこの使い方に対応しています。",
+      "detail": "学習に使うデータやモデルを秘匿した状態でAIモデルを訓練する使い方です。GoogleはTPUの新製品で、この機密性の高い学習の用途に対応しました。機密データを扱う企業がクラウドでAIを学習させる際の不安を減らす狙いがあります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "control-of-company",
+      "term": "支配権",
+      "reading": "しはいけん",
+      "aliases": [
+        "経営支配権"
+      ],
+      "category": "ビジネス",
+      "short": "会社の大事なことを決める力のことです。多くの株や投票の権利を持つ人がこの力を持ちます。",
+      "detail": "株主総会での議決などを通じて、会社の経営方針を左右できる立場のことです。Anthropicの7人の共同創業者は、IPOで株を売った後も、グループとして会社の支配権を維持する設計にしています。上場後も創業者の方針を守れるかどうかは、投資家にとって重要な判断材料です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "primary-care",
+      "term": "プライマリケア",
+      "reading": "プライマリケア",
+      "aliases": [
+        "かかりつけ医療",
+        "primary care"
+      ],
+      "category": "ビジネス",
+      "short": "体の具合が悪いときに最初に相談する、身近な医療のことです。かかりつけのお医者さんのような役割です。",
+      "detail": "専門医療の前段階として、日常的な健康相談や初期の診療を担う医療のことです。OuraはAIを前提にしたプライマリケアのスタートアップCounsel Healthを6億2500万ドルで買収します。健康データを集める機器と医療サービスを結びつける動きとして注目されます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "prototype",
+      "term": "プロトタイプ",
+      "reading": "プロトタイプ",
+      "aliases": [
+        "試作品"
+      ],
+      "category": "使い方",
+      "short": "本番の前に作る、動きや見た目を確かめるための試作品のことです。アプリやWebサイトの設計でよく作られます。",
+      "detail": "製品の完成前に、操作の流れや画面の構成を確かめるために作る試作版です。AdobeはFireflyにプロトタイプを作るツールを加え、この分野で強いFigmaと直接競合する形になりました。AIで試作が早く作れるようになると、デザインと開発の進め方も変わっていきます。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }

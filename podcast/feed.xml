@@ -1698,34 +1698,5 @@
     <pubDate>Sat, 12 Sep 2026 21:00:00 GMT</pubDate>
     <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-12.mp3</guid>
   </item>
-  <item>
-    <title>2026年9月11日（金）のAIニュース</title>
-    <itunes:title>2026年9月11日（金）のAIニュース</itunes:title>
-    <description>2026年9月11日（金）のAIニュース。
-
-今日の3行まとめ
-① Anthropicが中国のAI企業3社による蒸留攻撃の実態を公表し、モデルの守り方が競争の焦点に浮上しました。
-② DeepSeekがv4.1 Flashを公開し、軽量モデルの水準がまた一段引き上げられた形です。
-③ OpenAIの数学的成果をめぐる疑義が相次ぎ、研究者との信頼関係が揺らいでいます。
-
-この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-11.html ／ 毎週土曜のまとめをメールで受け取る（無料）→ https://teracosensei.substack.com/embed</description>
-    <itunes:summary>2026年9月11日（金）のAIニュース。
-
-今日の3行まとめ
-① Anthropicが中国のAI企業3社による蒸留攻撃の実態を公表し、モデルの守り方が競争の焦点に浮上しました。
-② DeepSeekがv4.1 Flashを公開し、軽量モデルの水準がまた一段引き上げられた形です。
-③ OpenAIの数学的成果をめぐる疑義が相次ぎ、研究者との信頼関係が揺らいでいます。
-
-この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-11.html ／ 毎週土曜のまとめをメールで受け取る（無料）→ https://teracosensei.substack.com/embed</itunes:summary>
-    <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>てらこ先生</itunes:author>
-    <itunes:episode>67</itunes:episode>
-    <itunes:episodeType>full</itunes:episodeType>
-    <itunes:duration>11:54</itunes:duration>
-    <itunes:explicit>false</itunes:explicit>
-    <enclosure url="https://pub-59f9285441114b44af1b246d89bf3b21.r2.dev/ai-news-2026-09-11.mp3" length="7148452" type="audio/mpeg"/>
-    <pubDate>Fri, 11 Sep 2026 21:00:00 GMT</pubDate>
-    <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-11.mp3</guid>
-  </item>
 </channel>
 </rss>
