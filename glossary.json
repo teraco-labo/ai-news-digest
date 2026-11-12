@@ -12294,6 +12294,177 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "tsmc",
+      "term": "TSMC",
+      "reading": "ティーエスエムシー",
+      "aliases": [
+        "台湾積体電路製造"
+      ],
+      "category": "企業",
+      "short": "台湾にある、世界最大級の半導体を作る会社です。ほかの会社が設計したチップを請け負って作っています。",
+      "detail": "AI向けの高性能チップの多くはTSMCの工場で作られており、AI産業の土台を支える存在です。今回はチップの供給元としてだけでなく、AnthropicやOpenAIに出資する投資家としても名前が出ています。顧客に出資する構図は、AI業界の循環金融の一例として注目されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "coreweave",
+      "term": "CoreWeave",
+      "reading": "コアウィーブ",
+      "aliases": [],
+      "category": "企業",
+      "short": "AIを動かすためのコンピューターを貸し出している会社です。大量のGPUを用意して、AI企業に使ってもらっています。",
+      "detail": "AI専用のクラウドを提供する、いわゆるネオクラウドの代表的な企業です。最近の決算からは、顧客の前払いや契約を担保にした借り入れなど、成長資金を集める方法を工夫している様子が分かります。同社の資金繰りは、AIインフラ投資の健全さを見るうえでの指標にもなります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "fractile",
+      "term": "Fractile",
+      "reading": "フラクタイル",
+      "aliases": [],
+      "category": "企業",
+      "short": "英国のスタートアップで、AI専用のチップを開発しています。最近、大きな額の資金を集めました。",
+      "detail": "7億2000万ドルの資金調達ラウンドで、AI専用チップ分野で最も多くの資金を集めた企業の一つになりました。GPUが中心の市場で、用途に絞ったチップで勝負する企業の一つです。欧州発のAIチップ企業としても注目されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "radical-numerics",
+      "term": "Radical Numerics",
+      "reading": "ラディカル・ニューメリクス",
+      "aliases": [],
+      "category": "企業",
+      "short": "AIを使って病気のもとになる菌やウイルスを見分けようとしているスタートアップです。ネットにつながなくても使える仕組みを作っています。",
+      "detail": "自然の病原体だけでなく、AIで設計された病原体も見分けられるとするモデルを開発しました。AIの悪用で生物兵器が作られるリスクに、AIで対抗しようとするバイオセキュリティの取り組みです。オフラインで動くので、ネットが使えない現場でも使える可能性があります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "santosh-janardhan",
+      "term": "Santosh Janardhan",
+      "reading": "サントシュ・ジャナルダン",
+      "aliases": [],
+      "category": "人物",
+      "short": "Metaでインフラ部門を率いてきた幹部です。2009年に入社し、長く会社を支えてきました。",
+      "detail": "Metaのインフラ責任者として、データセンターなどの計算の土台づくりを担当してきました。今回その役職を退くことが明らかになりました。MetaはAI向けのインフラに巨額の投資をしているため、この人事は社内外から注目されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "big-walk",
+      "term": "Big Walk",
+      "reading": "ビッグウォーク",
+      "aliases": [],
+      "category": "企業",
+      "short": "ゲームを作っているスタジオです。AIを使ってゲームの不具合を直したことで話題になりました。",
+      "detail": "AIでバグを修正したことを明らかにしたところ、インディーゲームの世界で賛否の議論が起きました。AIによるコーディングを一切認めないという意見も多く、創作分野でAIをどう扱うかを考えるきっかけになっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "independent-games-festival",
+      "term": "Independent Games Festival",
+      "reading": "インディペンデント・ゲームズ・フェスティバル",
+      "aliases": [
+        "IGF"
+      ],
+      "category": "ビジネス",
+      "short": "個人や小さなチームが作ったゲームを表彰する賞です。審査員がすぐれた作品を選びます。",
+      "detail": "インディーゲーム業界で注目される賞で、審査員の考え方が業界の価値観を映しています。今回はAIによるコーディングを少しでも使うことに否定的な審査員が多いことが話題になりました。創作物でAIをどこまで使ってよいかを考えるうえで、一つの目安になる場です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "united-airlines",
+      "term": "United Airlines",
+      "reading": "ユナイテッド・エアラインズ",
+      "aliases": [
+        "ユナイテッド航空"
+      ],
+      "category": "企業",
+      "short": "アメリカの大きな航空会社です。AIが利用者の代わりに航空券を予約することを禁止しました。",
+      "detail": "AIエージェントによる予約を禁止したことで、Hacker Newsで大きな議論になりました。AIに予約や買い物を任せるサービスが広がるなか、サービスを提供する企業側が利用を制限する例として注目されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "chromebook",
+      "term": "Chromebook",
+      "reading": "クロームブック",
+      "aliases": [],
+      "category": "基礎",
+      "short": "Googleの仕組みで動くノートパソコンです。学校で生徒に配られることが多い端末です。",
+      "detail": "学校で配られる端末として広く使われており、生徒がその上でGeminiなどの生成AIを使う場面も増えています。今回は、学校のChromebookでの危険なAIとのやり取りが数週間見つからなかったことが問題になりました。学校の端末でのAI利用をどう見守るかが課題になっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "circular-financing",
+      "term": "循環金融",
+      "reading": "じゅんかんきんゆう",
+      "aliases": [
+        "circular financing"
+      ],
+      "category": "ビジネス",
+      "short": "同じ業界の会社どうしで、お金がぐるぐる回る状態のことです。出資したお金が、自分の商品を買う代金として戻ってくるような形です。",
+      "detail": "AIブームでは、チップやクラウドの供給元が顧客であるAI企業に出資する例が増えています。TSMCによるAnthropicやOpenAIへの投資もその一例とされています。見かけの売上や需要がふくらんで見えやすいため、AIバブルを心配する声の根拠にもなっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "sexpionage",
+      "term": "セクスピオナージ",
+      "reading": "セクスピオナージ",
+      "aliases": [
+        "sexpionage",
+        "ハニートラップ"
+      ],
+      "category": "安全性",
+      "short": "恋愛や性的な関係を使って相手に近づき、情報を盗み出すスパイの手口です。昔から使われてきた方法です。",
+      "detail": "中国が使う諜報の手口として知られており、最近も有名な例があるとされています。今回は、NVIDIAのジェンスン・フアン氏がこの手口にかかったのではないかと報じられました。AIの重要な技術を持つ企業の幹部が狙われることは、国家安全保障の問題にもなります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "pathogen",
+      "term": "病原体",
+      "reading": "びょうげんたい",
+      "aliases": [
+        "pathogen"
+      ],
+      "category": "安全性",
+      "short": "病気を引き起こす細菌やウイルスなどのことです。人や動物にうつって体に害を与えます。",
+      "detail": "AIで新しい病原体が設計されるおそれがあり、生物兵器のリスクとして議論されています。Radical Numericsは、自然の病原体とAIで作られた病原体を見分けるモデルを開発したとしています。バイオセキュリティを考えるうえで中心になる言葉です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "permitting",
+      "term": "許認可",
+      "reading": "きょにんか",
+      "aliases": [
+        "permitting"
+      ],
+      "category": "規制",
+      "short": "建物を建てたり事業を始めたりするときに、役所から許可をもらう手続きのことです。手続きに時間がかかることもあります。",
+      "detail": "データセンターの建設では、許認可の遅れが大きな壁になっています。地元住民の反対や電力不足と並んで、発表された計画がなかなか進まない理由の一つです。AIインフラ投資の発表を読むときは、許認可が通るかどうかも考える必要があります。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
