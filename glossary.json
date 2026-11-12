@@ -12465,6 +12465,257 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "colette-kress",
+      "term": "Colette Kress",
+      "reading": "コレット・クレス",
+      "aliases": [
+        "クレス氏"
+      ],
+      "category": "人物",
+      "short": "NVIDIAで長くお金の管理を担当してきた幹部です。Jensen Huang氏の辞任を受けて、一時的に会社のトップを務めることになりました。",
+      "detail": "NVIDIAで長年CFO（最高財務責任者）を務め、同社がAIの中心企業へ成長する過程を支えてきた人物です。Huang氏の辞任を受け、暫定CEOとして経営を引き継ぎました。正式な後任が決まるまでの舵取り役として、投資家や取引先からの信頼をどう保つかが問われます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "gemini-4-hydrogen",
+      "term": "Gemini 4 Hydrogen",
+      "reading": "ジェミニ・フォー・ハイドロジェン",
+      "aliases": [
+        "Hydrogen"
+      ],
+      "category": "モデル",
+      "short": "Googleが新しく出したAIモデルです。これまで使われていたGemini 3.8 Flashと入れ替わります。",
+      "detail": "Gemini 4シリーズの一つで、先に出たCarbonやArgonのような慎重な段階公開を取らずに提供が始まりました。検索のAI Modeにも使われ、複雑な質問の理解や関連リンクの提示、図や画像を交えた回答が良くなるとされています。日常的に使われるモデルの置き換えなので、多くの利用者に影響があります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "gemini-3-8-flash",
+      "term": "Gemini 3.8 Flash",
+      "reading": "ジェミニ・スリーポイントエイト・フラッシュ",
+      "aliases": [
+        "3.8 Flash"
+      ],
+      "category": "モデル",
+      "short": "Googleがこれまで提供していたAIモデルです。新しいGemini 4 Hydrogenに置き換えられます。",
+      "detail": "Gemini 4 Hydrogenの登場により、役目を後継モデルに譲ることになりました。このモデルを組み込んでサービスを作っている開発者は、新モデルへの切り替えで動作や結果が変わらないか確かめる必要があります。モデルの世代交代は、AIを使った製品の品質に直接関わります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "softbank",
+      "term": "SoftBank",
+      "reading": "ソフトバンク",
+      "aliases": [
+        "ソフトバンクグループ"
+      ],
+      "category": "企業",
+      "short": "日本の大手投資会社です。AI関連に大きなお金を投じています。",
+      "detail": "AIデータセンターの電源として天然ガスタービンを先行発注し、30億ドルを超える損失を出したと報じられました。AI向けの電力を先回りして確保する動きの代表例でしたが、この損失で同様の投資に慎重さが広がる可能性があります。AIへの投資がエネルギー分野にまで広がっていることを示す存在です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "bill-foster",
+      "term": "Bill Foster",
+      "reading": "ビル・フォスター",
+      "aliases": [
+        "フォスター議員"
+      ],
+      "category": "人物",
+      "short": "アメリカ・イリノイ州選出の下院議員です。AI向け半導体の密輸を防ぐ法案を出しています。",
+      "detail": "民主党所属で、下院の科学委員会に所属しています。チップの追跡を求めるChip Security Actを提出し、NVIDIAの担当者から追跡は技術的に可能だと聞いたとMIT Technology Reviewに明かしました。業界団体が公に「実現できない可能性がある」としていた中での発言で、規制議論に影響を与えうる証言です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "chip-security-act",
+      "term": "Chip Security Act",
+      "reading": "チップ・セキュリティ・アクト",
+      "aliases": [
+        "チップ安全保障法案"
+      ],
+      "category": "規制",
+      "short": "AI向けの半導体が不正に国外へ持ち出されるのを防ぐためのアメリカの法案です。チップがどこにあるかを追跡できるようにすることを求めています。",
+      "detail": "Bill Foster下院議員が提出した法案で、密輸対策としてチップの追跡を求めています。業界団体はこの要件を「実現できない可能性がある」と公に主張していましたが、NVIDIAの担当者は非公式に技術的には可能だと伝えていたと報じられました。成立すれば、半導体輸出規制の実効性を高める手段になりえます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "chip-smuggling",
+      "term": "チップの密輸",
+      "reading": "チップのみつゆ",
+      "aliases": [
+        "半導体の密輸",
+        "密輸"
+      ],
+      "category": "規制",
+      "short": "輸出が禁止・制限されている半導体を、ひそかに国外へ運び出すことです。AI向けの高性能チップで特に問題になっています。",
+      "detail": "アメリカは高性能なAIチップの輸出を規制していますが、それをすり抜けて持ち出す密輸が課題になっています。Chip Security Actは、チップの位置を追跡できるようにすることでこれを防ごうとしています。規制がどこまで実際に効くかを左右する論点です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "subpoena",
+      "term": "召喚状",
+      "reading": "しょうかんじょう",
+      "aliases": [
+        "サピーナ",
+        "subpoena"
+      ],
+      "category": "規制",
+      "short": "議会や裁判所が、人を呼び出して話を聞くために出す正式な命令書です。出されると応じる義務が生じます。",
+      "detail": "Jensen Huang氏の件では、複数の有力議員が召喚状を出すと迫ったことで、Huang氏が自ら議会で証言することに同意しました。召喚状は強制力のある手段のため、実際に出される前に本人が任意で応じる形になることもよくあります。企業トップが議会に呼ばれる場面で頻繁に出てくる言葉です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "congressional-testimony",
+      "term": "議会証言",
+      "reading": "ぎかいしょうげん",
+      "aliases": [
+        "議会で証言",
+        "testify"
+      ],
+      "category": "規制",
+      "short": "議会に呼ばれて、議員の質問に公の場で答えることです。発言は記録に残ります。",
+      "detail": "Jensen Huang氏は、水曜日に米議会で証言することに同意しました。議会証言は、企業や個人の行動が国の政策や安全保障に関わるときに求められることが多い場です。そこでの発言は、その後の規制や法案づくりに影響することがあります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "interim-ceo",
+      "term": "暫定CEO",
+      "reading": "ざんていシーイーオー",
+      "aliases": [
+        "interim CEO"
+      ],
+      "category": "ビジネス",
+      "short": "正式なトップが決まるまでの間、一時的に会社を率いる人です。急な辞任などのときに置かれます。",
+      "detail": "NVIDIAではJensen Huang氏の辞任を受け、CFOのColette Kress氏が暫定CEOになりました。社内の事情をよく知る幹部が就くことが多く、混乱を抑えて経営を続ける役割を担います。正式な後任が誰になるかで、会社の今後の方針が大きく変わることもあります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "cfo",
+      "term": "CFO",
+      "reading": "シーエフオー",
+      "aliases": [
+        "最高財務責任者"
+      ],
+      "category": "ビジネス",
+      "short": "会社のお金まわりを取りまとめる責任者です。予算や資金の管理、投資家への説明などを担当します。",
+      "detail": "NVIDIAで長年CFOを務めたColette Kress氏が、Huang氏の辞任を受けて暫定CEOに就きました。CFOは会社の財務の状況を最もよく知る立場のため、緊急時にトップを任されることがあります。決算発表などで投資家と向き合う顔でもあります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "market-capitalization",
+      "term": "時価総額",
+      "reading": "じかそうがく",
+      "aliases": [
+        "market value",
+        "市場価値"
+      ],
+      "category": "ビジネス",
+      "short": "株の値段に、その会社が出している株の数をかけた金額です。市場がその会社をいくらと見ているかを表します。",
+      "detail": "NVIDIAはスキャンダルが始まってから1カ月足らずで、時価総額のうち1兆ドル以上を失ったと報じられました。株価が下がればその分時価総額も減り、会社の信用や資金集めにも影響します。企業の規模や勢いを比べるときによく使われる数字です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "reuters",
+      "term": "Reuters",
+      "reading": "ロイター",
+      "aliases": [
+        "ロイター通信"
+      ],
+      "category": "メディア",
+      "short": "世界中にニュースを配信している大手の通信社です。多くの新聞やテレビがその記事を使っています。",
+      "detail": "Jensen Huang氏が3件目の不倫関係にあったと報じ、相手はNVIDIAの社員だと伝えました。相手の名前は伏せて報じています。通信社の報道は他のメディアに広く引用されるため、ニュースの流れを左右することがあります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "intelligence-asset",
+      "term": "情報協力者（インテリジェンス・アセット）",
+      "reading": "インテリジェンス・アセット",
+      "aliases": [
+        "intelligence asset",
+        "スパイ"
+      ],
+      "category": "安全性",
+      "short": "外国の情報機関のために、ひそかに情報を集めたり渡したりする人のことです。いわゆるスパイに近い存在です。",
+      "detail": "Jensen Huang氏の不倫相手が中国の情報機関の協力者だった疑いが報じられ、NVIDIAが調査を始めるきっかけになりました。AI半導体は国家安全保障に直結するため、経営トップの周辺に情報機関の影があるだけで大きな問題になります。今回の辞任劇の中心にある疑惑です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "gentle-monster",
+      "term": "Gentle Monster",
+      "reading": "ジェントル・モンスター",
+      "aliases": [],
+      "category": "企業",
+      "short": "眼鏡やサングラスのブランドです。Googleなどと一緒にGemini搭載のスマートグラスを手がけました。",
+      "detail": "Google、Samsung、Warby Parkerとともに、Geminiを搭載した初めてのスマートグラスを共同で手がけています。AIグラスでは、技術だけでなく「普段かけたくなる見た目」が普及の鍵になるため、眼鏡ブランドとの組み合わせが重視されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "warby-parker",
+      "term": "Warby Parker",
+      "reading": "ワービー・パーカー",
+      "aliases": [],
+      "category": "企業",
+      "short": "眼鏡のブランドです。Googleなどと一緒にGemini搭載のスマートグラスを手がけました。",
+      "detail": "Google、Samsung、Gentle Monsterとともに、395ドルからのGemini搭載スマートグラスを共同で手がけています。テック企業が眼鏡ブランドと組むのは、毎日身につけられるデザインが求められるためです。AIグラスの売れ行きを左右するパートナーの一つです。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "nectar",
+      "term": "Nectar",
+      "reading": "ネクター",
+      "aliases": [],
+      "category": "企業",
+      "short": "ブランドの宣伝に協力してくれるクリエイター探しを手伝う会社です。その作業を自動でこなすAIエージェントを出しました。",
+      "detail": "新しいAIエージェントは、ブランドに合うクリエイターの発掘、依頼の連絡、提携の管理、キャンペーン成果の追跡までを自動化します。これまで人手に頼っていたインフルエンサーマーケティングの作業を、AIで置き換えようとしています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "influencer-marketing",
+      "term": "インフルエンサーマーケティング",
+      "reading": "",
+      "aliases": [
+        "influencer marketing"
+      ],
+      "category": "ビジネス",
+      "short": "SNSなどで人気のある人に商品を紹介してもらう宣伝の方法です。企業が報酬を払って依頼することが多いです。",
+      "detail": "合う人を探し、連絡を取り、条件を詰め、成果を測るまで手間のかかる作業が多い分野です。NectarのようにAIエージェントでこの流れを自動化するサービスが出てきています。広告の予算がテレビなどからSNSへ移るなかで、存在感が大きくなっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
