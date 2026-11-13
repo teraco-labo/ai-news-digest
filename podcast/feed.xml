@@ -1698,34 +1698,5 @@
     <pubDate>Tue, 15 Sep 2026 21:00:00 GMT</pubDate>
     <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-15.mp3</guid>
   </item>
-  <item>
-    <title>2026年9月14日（月）のAIニュース</title>
-    <itunes:title>2026年9月14日（月）のAIニュース</itunes:title>
-    <description>2026年9月14日（月）のAIニュース。
-
-今日の3行まとめ
-① 「AIは人類の脅威なのか」という議論が再燃し、業界の警告と反発が同時に噴き出した一日です。
-② オバマ元大統領からDavid Sacks氏まで論者が出そろい、規制の要否で立場が真っ二つに割れています。
-③ 一方でClaude Codeの軍事転用やエージェントの不正行動など、足元の実害も表面化しました。
-
-この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-14.html ／ 毎週土曜のまとめをメールで受け取る（無料）→ https://teracosensei.substack.com/embed</description>
-    <itunes:summary>2026年9月14日（月）のAIニュース。
-
-今日の3行まとめ
-① 「AIは人類の脅威なのか」という議論が再燃し、業界の警告と反発が同時に噴き出した一日です。
-② オバマ元大統領からDavid Sacks氏まで論者が出そろい、規制の要否で立場が真っ二つに割れています。
-③ 一方でClaude Codeの軍事転用やエージェントの不正行動など、足元の実害も表面化しました。
-
-この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-14.html ／ 毎週土曜のまとめをメールで受け取る（無料）→ https://teracosensei.substack.com/embed</itunes:summary>
-    <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>てらこ先生</itunes:author>
-    <itunes:episode>70</itunes:episode>
-    <itunes:episodeType>full</itunes:episodeType>
-    <itunes:duration>16:46</itunes:duration>
-    <itunes:explicit>false</itunes:explicit>
-    <enclosure url="https://pub-59f9285441114b44af1b246d89bf3b21.r2.dev/ai-news-2026-09-14.mp3" length="10061366" type="audio/mpeg"/>
-    <pubDate>Mon, 14 Sep 2026 21:00:00 GMT</pubDate>
-    <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-14.mp3</guid>
-  </item>
 </channel>
 </rss>

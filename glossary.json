@@ -12716,6 +12716,216 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "langchain",
+      "term": "LangChain",
+      "reading": "ラングチェーン",
+      "aliases": [],
+      "category": "企業",
+      "short": "AIエージェントを作ったり動かしたりするための道具を提供している会社です。評価額は30億ドルに達しています。",
+      "detail": "エージェントの開発と運用を支える基盤を手がけるスタートアップです。管理ツールのLangSmithには7,000社の顧客がいると発表しています。企業がAIエージェントを実際の業務で使い始めるなか、その裏方を担う会社として存在感を高めています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "langsmith",
+      "term": "LangSmith",
+      "reading": "ラングスミス",
+      "aliases": [],
+      "category": "使い方",
+      "short": "LangChainが提供する、AIエージェントを管理するための道具です。どの会社のAIと組み合わせても使えます。",
+      "detail": "特定のAIモデルや開発基盤に縛られない「モデル非依存・プラットフォーム非依存」の設計が特徴です。LangChainによると顧客は7,000社にのぼります。エージェントを本番で運用する企業が、動作を監視・管理する目的で導入しています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "chatgpt-wallet",
+      "term": "ChatGPT Wallet",
+      "reading": "チャットジーピーティー ウォレット",
+      "aliases": [
+        "Wallet"
+      ],
+      "category": "使い方",
+      "short": "ChatGPTのAIが、利用者の代わりに買い物をして支払いまで済ませる機能です。まずは米国の一部の利用者から使えるようになります。",
+      "detail": "AIエージェントが商品選びから決済手続き（チェックアウト）までを代行します。最初は米国のProプラン加入者に限って提供されます。AIが実際にお金を動かすようになるため、便利さとあわせて、安全性や本人確認のしくみが重要になります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "elevenai",
+      "term": "ElevenAI",
+      "reading": "イレブンエーアイ",
+      "aliases": [],
+      "category": "使い方",
+      "short": "ElevenLabsが出した、会議のメモ取りと音声入力をひとつにまとめたアプリです。チームや会社で使うことを想定しています。",
+      "detail": "会議の内容を記録する機能と、話した言葉を文字にする音声入力（ディクテーション）の機能をあわせ持ちます。音声合成で知られるElevenLabsが、業務アプリに事業を広げる一手です。企業向けの議事録ツールの市場で、既存の製品と競うことになります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "nebius",
+      "term": "Nebius",
+      "reading": "ネビウス",
+      "aliases": [],
+      "category": "企業",
+      "short": "AIの計算に使うコンピュータを貸し出している会社です。設備を大きく増やす計画を立てています。",
+      "detail": "AI向けクラウドに特化した新興勢力（ネオクラウド）のひとつです。400億ドル規模の拡張計画を、顧客からの前払いと借り入れでまかなう方針を示しています。Microsoft向けデータセンターの遅れから、この資金調達のやり方が成り立つのか疑問視する声も出ています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "reward-hacking",
+      "term": "報酬ハッキング",
+      "reading": "ほうしゅうハッキング",
+      "aliases": [
+        "reward hacking",
+        "リワードハッキング"
+      ],
+      "category": "安全性",
+      "short": "AIが本当の目的を果たさずに、点数だけを上げる抜け道を見つけてしまうことです。言われたことの「穴」を突くイメージです。",
+      "detail": "AIは「報酬」と呼ばれる点数が高くなるように学習しますが、その点数の付け方に穴があると、意図しない行動で点数を稼いでしまいます。OpenAIの取締役を務める研究者は、この現象が人類の絶滅にまでつながりうる道筋を論じています。AIの安全性研究で重視されているテーマのひとつです。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "ai-takeover",
+      "term": "AIによる乗っ取り",
+      "reading": "",
+      "aliases": [
+        "AI takeover",
+        "AIテイクオーバー"
+      ],
+      "category": "安全性",
+      "short": "AIが人間の手に負えなくなり、社会の主導権を握ってしまう事態のことです。AIの危険性を語るときに使われます。",
+      "detail": "OpenAIの取締役を務める研究者は、こうした事態が数か月以内に起こりうると懸念を示しました。報酬ハッキングのようなAIの振る舞いが、制御を失うきっかけになりうると指摘されています。AIの安全対策や規制の議論で、最も深刻なリスクとして語られる考え方です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "kurt-godel",
+      "term": "クルト・ゲーデル",
+      "reading": "",
+      "aliases": [
+        "Kurt Gödel",
+        "ゲーデル"
+      ],
+      "category": "人物",
+      "short": "20世紀を代表する数学者・論理学者です。彼が残したノートがAIで読み解かれました。",
+      "detail": "論理学の分野で大きな業績を残した人物として知られています。報道によると、彼のノートには数百の証明済みの定理が含まれているといいます。AIによる資料の解読が、数学史の研究に新しい光を当てた例です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "air-traffic-control",
+      "term": "航空管制",
+      "reading": "こうくうかんせい",
+      "aliases": [
+        "air traffic control",
+        "ATC"
+      ],
+      "category": "基礎",
+      "short": "空を飛ぶ飛行機の流れを整理し、ぶつからないように指示を出す仕事です。管制官と呼ばれる専門職が担っています。",
+      "detail": "米連邦航空局（FAA）は、空の混雑を管理するためにAIの助言を使う取り組みを、米国の全空域に広げました。航空会社はこのツールを評価していますが、管制官の労働組合は導入に関わっていなかったといいます。安全に直結する分野でのAI活用として注目されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "platform-agnostic",
+      "term": "プラットフォーム非依存",
+      "reading": "プラットフォームひいぞん",
+      "aliases": [
+        "platform agnostic",
+        "モデル非依存",
+        "model agnostic"
+      ],
+      "category": "基礎",
+      "short": "特定の会社の仕組みに縛られず、どれと組み合わせても使えることです。乗り換えがしやすくなります。",
+      "detail": "LangChainのLangSmithは、使うAIモデルや開発基盤を選ばないことを特徴にしています。企業にとっては、ひとつの会社に頼りきる「囲い込み」を避けられる利点があります。AIモデルの入れ替わりが激しい今、選ばれやすい設計方針です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "customer-prepayment",
+      "term": "前払い（顧客の前払い）",
+      "reading": "まえばらい",
+      "aliases": [
+        "prepayment",
+        "前受金"
+      ],
+      "category": "ビジネス",
+      "short": "サービスを使う前に、お客さんが代金を先に払うことです。会社はそのお金を設備づくりに回せます。",
+      "detail": "Nebiusは、400億ドル規模のインフラ拡張の資金を、顧客の前払いと借り入れでまかなう計画です。株式で資金を集めるのとは違い、顧客の需要が続くことが前提になります。データセンターの完成が遅れると、この仕組みが揺らぐリスクがあります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "chatgpt-pro",
+      "term": "ChatGPT Pro",
+      "reading": "チャットジーピーティー プロ",
+      "aliases": [
+        "Proプラン"
+      ],
+      "category": "使い方",
+      "short": "ChatGPTの有料プランのひとつです。新しい機能が先に使えることがあります。",
+      "detail": "ChatGPT Walletは、まず米国のPro加入者に限って提供が始まりました。新機能をこうした有料の上位プランから試験的に出し、様子を見てから広げるのはよくある進め方です。日本で使えるようになる時期は機能ごとに異なります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "congressional-investigation",
+      "term": "議会調査",
+      "reading": "ぎかいちょうさ",
+      "aliases": [
+        "congressional investigation"
+      ],
+      "category": "規制",
+      "short": "国の議会の議員たちが、企業や政府の問題を調べることです。結果によっては新しい法律や処分につながります。",
+      "detail": "米議会の民主党議員は、NVIDIAの中国向け販売とトランプ政権との関係について調査を始めました。スパイ疑惑の報道以降、議会による調査はこれで2件目です。企業にとっては資料の提出や証言を求められる可能性があり、経営への影響が大きくなります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "robotics",
+      "term": "ロボティクス",
+      "reading": "",
+      "aliases": [
+        "robotics",
+        "ロボット工学"
+      ],
+      "category": "基礎",
+      "short": "ロボットを作ったり動かしたりするための技術や研究の分野です。",
+      "detail": "OpenAIはロボティクス専門のチームを解散しました。汎用のAIモデルがそのままロボットの制御に使えるようになってきたためです。ロボット専用の研究から、汎用モデルを生かす方向へ、開発の進め方が変わりつつあります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "successor",
+      "term": "後継者",
+      "reading": "こうけいしゃ",
+      "aliases": [
+        "successor"
+      ],
+      "category": "ビジネス",
+      "short": "前の人の役職や仕事を引き継ぐ人のことです。会社では次の社長などを指します。",
+      "detail": "NVIDIAではJensen Huang氏の辞任を受け、Colette Kress氏が後継者と位置づけられています。ただ、報道によるとHuang氏はKress氏に信頼を示していなかったとされます。トップの交代がうまくいくかどうかは、会社の方針や株価に大きく影響します。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
