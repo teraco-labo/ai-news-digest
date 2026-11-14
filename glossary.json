@@ -12926,6 +12926,106 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "unsloth",
+      "term": "Unsloth",
+      "reading": "アンスロース",
+      "aliases": [],
+      "category": "企業",
+      "short": "AIモデルを小さく軽くして、手元のパソコンでも動かしやすくする取り組みをしている開発者グループです。軽くしたモデルを公開しています。",
+      "detail": "公開されているAIモデルを量子化（データを圧縮する処理）した版を配布しており、今回はQwen3.8-27B向けの「Dynamic v3.1」を更新しました。Hacker Newsで高い注目を集めており、ローカルLLMを使う開発者の間でよく参照されています。大きなモデルを手持ちの機材で試したいときの選択肢になります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "qwen3-8",
+      "term": "Qwen3.8",
+      "reading": "クウェン3.8",
+      "aliases": [
+        "Qwen3.8-27B"
+      ],
+      "category": "モデル",
+      "short": "AlibabaのAIモデル「Qwen」シリーズの一つのバージョンです。後ろに付く「27B」はモデルの大きさを表します。",
+      "detail": "27Bは約270億パラメータという意味で、モデルの規模を示します。今回はUnslothがこのモデルを量子化した版を公開し、少ないメモリで動かせるようにしています。手元の環境で使えるサイズの公開モデルとして注目されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "dgx-station",
+      "term": "DGX Station",
+      "reading": "ディージーエックス・ステーション",
+      "aliases": [
+        "DGX"
+      ],
+      "category": "インフラ",
+      "short": "NVIDIAが作っている、AIを動かすための高性能なコンピュータです。机に置ける規模の機材です。",
+      "detail": "データセンターの大型サーバーでなくても、大きなAIモデルを動かせることを狙った製品です。今回の事例では2台を組み合わせ、vLLMを使ってGLM-5.3を毎秒607.8トークンで動かしました。社内でAIを運用したい企業にとって、必要な機材の目安になります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "throughput",
+      "term": "スループット",
+      "reading": "スループット",
+      "aliases": [
+        "tok/s",
+        "トークン毎秒"
+      ],
+      "category": "評価",
+      "short": "決まった時間の中で、どれだけの量を処理できるかを表す数字です。AIでは1秒間に作れる文字の量で測ることが多いです。",
+      "detail": "AIモデルの場合、1秒あたりに生成できるトークン数（tok/s）で表すのが一般的です。今回のGLM-5.3の事例では毎秒607.8トークンという数字が示されています。同じモデルでも機材や設定によって大きく変わるため、運用コストや使い心地を比べる際の重要な指標になります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "dynamic-quantization",
+      "term": "動的量子化",
+      "reading": "どうてきりょうしか",
+      "aliases": [
+        "Dynamic quantization",
+        "Dynamic v3.1"
+      ],
+      "category": "インフラ",
+      "short": "AIモデルを軽くするときに、部分ごとに圧縮の強さを変えるやり方です。性能を落としすぎずに小さくすることを狙います。",
+      "detail": "量子化はモデルの数値を粗く表して容量を減らす技術ですが、一律に圧縮すると精度が落ちやすくなります。Unslothの「Dynamic」シリーズは、こうした圧縮のかけ方を工夫した量子化版として公開されています。今回はQwen3.8-27B向けにv3.1へ更新されました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "air-traffic-controller",
+      "term": "航空管制官",
+      "reading": "こうくうかんせいかん",
+      "aliases": [
+        "Air Traffic Controller",
+        "管制官"
+      ],
+      "category": "基礎",
+      "short": "空を飛ぶ飛行機どうしがぶつからないよう、無線で指示を出す仕事の人です。空港や管制施設で働いています。",
+      "detail": "米国では管制官の労働組合があり、今回FAAがAIによる混雑管理を全空域に広げた際、組合は関与していなかったと報じられました。Wiredは管制官の数が少ない将来像にも疑問を投げかけています。人命に関わる現場の判断にAIをどう組み込むかが問われています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "investment-capital",
+      "term": "出資",
+      "reading": "しゅっし",
+      "aliases": [
+        "投資",
+        "チェック（check）"
+      ],
+      "category": "ビジネス",
+      "short": "会社にお金を出して、その会社の持ち主の一人になることです。会社が成長すれば、出した側も得をします。",
+      "detail": "スタートアップは出資を受けて事業を大きくします。NVIDIAはHuang氏の体制のもとでAIスタートアップに数百億ドル規模を出資してきました。英語のニュースでは出資額を「check（小切手）」と表すことがあり、「smaller checks」は出資額が小さくなることを指します。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
