@@ -1698,34 +1698,5 @@
     <pubDate>Fri, 18 Sep 2026 21:00:00 GMT</pubDate>
     <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-18.mp3</guid>
   </item>
-  <item>
-    <title>2026年9月17日（木）のAIニュース</title>
-    <itunes:title>2026年9月17日（木）のAIニュース</itunes:title>
-    <description>2026年9月17日（木）のAIニュース。
-
-今日の3行まとめ
-① 安全性評価を社外の目に開く動きが進む一方、米国の法規制は当面動かない構図が鮮明になりました。
-② Anthropic が Claude と Cowork を統合し、Google Home も MCP でエージェントに開放されました。
-③ Mistral と Mozilla の提携、DeepSeek v4.1 Flash など、モデル側の話題も濃い一日です。
-
-この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-17.html ／ 毎週土曜のまとめをメールで受け取る（無料）→ https://teracosensei.substack.com/embed</description>
-    <itunes:summary>2026年9月17日（木）のAIニュース。
-
-今日の3行まとめ
-① 安全性評価を社外の目に開く動きが進む一方、米国の法規制は当面動かない構図が鮮明になりました。
-② Anthropic が Claude と Cowork を統合し、Google Home も MCP でエージェントに開放されました。
-③ Mistral と Mozilla の提携、DeepSeek v4.1 Flash など、モデル側の話題も濃い一日です。
-
-この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-17.html ／ 毎週土曜のまとめをメールで受け取る（無料）→ https://teracosensei.substack.com/embed</itunes:summary>
-    <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>てらこ先生</itunes:author>
-    <itunes:episode>73</itunes:episode>
-    <itunes:episodeType>full</itunes:episodeType>
-    <itunes:duration>15:27</itunes:duration>
-    <itunes:explicit>false</itunes:explicit>
-    <enclosure url="https://pub-59f9285441114b44af1b246d89bf3b21.r2.dev/ai-news-2026-09-17.mp3" length="9275342" type="audio/mpeg"/>
-    <pubDate>Thu, 17 Sep 2026 21:00:00 GMT</pubDate>
-    <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-17.mp3</guid>
-  </item>
 </channel>
 </rss>
