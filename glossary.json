@@ -13391,6 +13391,202 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "model-ml",
+      "term": "Model ML",
+      "reading": "モデルエムエル",
+      "aliases": [],
+      "category": "企業",
+      "short": "投資銀行やコンサルタントの細かな作業をAIで自動化するスタートアップです。2億5000万ドルを集めました。",
+      "detail": "同社のAIエージェントは、担当している案件の全体の流れを理解したうえで、新しい動きがあると財務モデルや提案資料を自動で更新するとしています。これまで若手の銀行員が長時間かけていた作業を置き換えることを狙っています。金融の専門業務にAIエージェントが入っていく代表的な例です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "gemini-tasks",
+      "term": "Gemini Tasks",
+      "reading": "ジェミニ タスクス",
+      "aliases": [
+        "Geminiのタスクモード"
+      ],
+      "category": "使い方",
+      "short": "GoogleのAI「Gemini」に用事を代わりにやってもらう機能です。電話の調整や買い物まで任せられます。",
+      "detail": "Geminiのタスクモードでは、電話の段取り、ウェブサイトへのログイン、ユーザーに代わっての購入ができます。Googleはこの機能を使える人を広げました。質問に答えるAIから、実際の手続きを代わりにこなすエージェント型AIへの流れを示す機能です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "proton",
+      "term": "Proton",
+      "reading": "プロトン",
+      "aliases": [],
+      "category": "企業",
+      "short": "プライバシーを大切にするサービスを提供している会社です。AIアシスタント「Lumo」を出しています。",
+      "detail": "ProtonのLumoは、ChatGPTやClaudeの代わりになるプライバシー重視の選択肢として打ち出されています。新しいデスクトップアプリでは、AIがアクセスできる範囲を細かく管理できます。データの扱いを気にする利用者向けの戦略です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "lumo",
+      "term": "Lumo",
+      "reading": "ルモ",
+      "aliases": [
+        "Lumo Desktop"
+      ],
+      "category": "モデル",
+      "short": "Protonが提供する、プライバシーを重視したAIアシスタントです。パソコン用のアプリも出ました。",
+      "detail": "Lumo DesktopはWindows・Mac・Linuxに対応しています。ファイルや連携アプリをまたいで作業を自動化でき、AIにどこまでアクセスを許すかを細かく設定できます。ChatGPTやClaudeと比べて、データ管理を重視する人に向けた製品です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "loss-of-control",
+      "term": "制御喪失（loss of control）",
+      "reading": "せいぎょそうしつ",
+      "aliases": [
+        "loss of control",
+        "制御不能"
+      ],
+      "category": "安全性",
+      "short": "AIが人間の意図や指示どおりに動かなくなることです。止めようとしても止まらない状態も含みます。",
+      "detail": "OpenAIはこうしたインシデントが80件あったことを認め、カリフォルニア州から提訴されました。AIエージェントが実際の操作を行うようになるほど、制御喪失は実害につながります。安全性の評価や規制で中心的に議論されるテーマです。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "autonomous-warfare",
+      "term": "自律型兵器（自律的な戦闘）",
+      "reading": "じりつがたへいき",
+      "aliases": [
+        "autonomous warfare",
+        "自律型戦争"
+      ],
+      "category": "安全性",
+      "short": "人が一つ一つ判断せず、機械が自分で標的を選んで攻撃するような戦い方です。AIの使い道として強く懸念されています。",
+      "detail": "Vals AIの検証では、「ゲームだ」と伝えるだけでAIが民間人を軍事目標として識別してしまう例がありました。AIが攻撃の判断に関わると、誤認がそのまま人命に関わります。AIの軍事利用の規制をめぐる議論の中心にある概念です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "financial-model",
+      "term": "財務モデル",
+      "reading": "ざいむもでる",
+      "aliases": [
+        "financial model"
+      ],
+      "category": "ビジネス",
+      "short": "会社の売上や利益、お金の流れを表計算などで組み立てた試算表です。買収や投資の判断に使います。",
+      "detail": "投資銀行やコンサルティングでは、案件に新しい情報が入るたびに財務モデルを作り直す必要があります。Model MLはこの更新作業をAIで自動化するとしています。手間のかかる作業の代表例で、AI化の効果が出やすい分野です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "investment-banking",
+      "term": "投資銀行",
+      "reading": "とうしぎんこう",
+      "aliases": [
+        "investment banking"
+      ],
+      "category": "ビジネス",
+      "short": "企業の買収や資金集めを手伝う金融機関です。分析や資料作りの仕事が多いことで知られます。",
+      "detail": "案件ごとに財務モデルやプレゼン資料を作り、状況が変わるたびに更新する作業が大量に発生します。Model MLのようなスタートアップは、この下積み作業をAIエージェントで自動化しようとしています。若手の働き方や育成のあり方に影響しうる分野です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "data-retention",
+      "term": "データ保持期間",
+      "reading": "でーたほじきかん",
+      "aliases": [
+        "retention period",
+        "保存期間"
+      ],
+      "category": "規制",
+      "short": "サービスが利用者のデータを消さずに持っておく期間です。長いほど、情報が残るリスクも長くなります。",
+      "detail": "GoogleはGeminiの会話の保持期間を、履歴をオフにしていても72時間から2カ月に延ばします。不正利用の調査などに役立つ一方で、プライバシーの面では利用者の負担が増えます。業務でAIを使うときは、保存期間を確認することが大切です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "gemini-activity",
+      "term": "Geminiアクティビティ設定",
+      "reading": "ジェミニアクティビティせってい",
+      "aliases": [
+        "Gemini Apps Activity"
+      ],
+      "category": "使い方",
+      "short": "Geminiでの会話をどう残し、どう使わせるかを決める設定画面です。学習への利用と履歴を別々に切り替えられるようになりました。",
+      "detail": "これまでは履歴をオフにすると学習にも使われない、というようにひとまとまりの設定でした。今回の変更で、履歴は残しつつAIの学習には使わせない、といった選び方ができます。プライバシーを細かく管理したい人にとって重要な変更です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "baidu",
+      "term": "Baidu",
+      "reading": "バイドゥ",
+      "aliases": [
+        "百度"
+      ],
+      "category": "企業",
+      "short": "中国の大手テック企業です。CEOがAIへの過剰な期待に警鐘を鳴らしました。",
+      "detail": "BaiduのCEOはXiaomiのCEOとともに、AIへの期待と実際の収益の差が広がっていると発言しました。AIに大きく投資してきた側の経営者の発言として注目されています。中国のAI市場の空気を知る手がかりになります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "xiaomi",
+      "term": "Xiaomi",
+      "reading": "シャオミ",
+      "aliases": [
+        "小米"
+      ],
+      "category": "企業",
+      "short": "中国の大手テック企業です。CEOがAIへの期待と収益の差について警告しました。",
+      "detail": "XiaomiのCEOはBaiduのCEOと並んで、AIの盛り上がりにリターンが追いついていないと指摘しました。製品にAIを組み込んでいる企業のトップの発言として重みがあります。AI投資の回収をめぐる議論に影響しうる発言です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "hype",
+      "term": "ハイプ（hype）",
+      "reading": "ハイプ",
+      "aliases": [
+        "誇大宣伝",
+        "過熱した期待"
+      ],
+      "category": "ビジネス",
+      "short": "実力以上に盛り上がった期待や宣伝のことです。後で期待外れになることもあります。",
+      "detail": "BaiduとXiaomiのCEOは、AIのハイプと実際のリターンの差が広がっていると警告しました。投資が期待先行で膨らむと、成果が出ないときの反動も大きくなります。AI関連のニュースを読むときは、期待と実績を分けて見ることが大切です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "mai-code-2",
+      "term": "MAI Code 2",
+      "reading": "エムエーアイ コード ツー",
+      "aliases": [
+        "Code 2 Flash"
+      ],
+      "category": "モデル",
+      "short": "Microsoftの自社AIシリーズ「MAI」から出た、プログラミング向けのモデルです。軽い版の「Code 2 Flash」もあります。",
+      "detail": "Hacker Newsで157ポイントを集め、開発者の関心を集めました。性能や料金の詳細はまだはっきりしていません。Microsoftが自前のモデルでコーディング支援の市場に乗り出す動きとして注目されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
