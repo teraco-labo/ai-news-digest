@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026年11月19日（木）のAIニュース | 世界一わかりやすいAIニュース</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --bg:#f8fafc; --card-bg:#fff; --text:#1e293b; --text-muted:#64748b; --border:#e2e8f0; --accent:#EF6C00; }
+  body { font-family:'Noto Sans JP','Inter',sans-serif; background:var(--bg); color:var(--text);
+    line-height:1.7; -webkit-font-smoothing:antialiased; }
+  a { color:inherit; }
+  .hero { position:relative; overflow:hidden; background:linear-gradient(180deg,#FFFAF4,#FFEDD9);
+    color:#3A2210; padding:3rem 1.5rem; border-bottom:1px solid #FBE3CC; }
+  .hero::before, .hero::after { content:""; position:absolute; border-radius:999px; pointer-events:none; }
+  .hero::before { right:-160px; bottom:-40px; width:620px; height:120px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(251,191,36,0.0),rgba(251,191,36,0.35)); }
+  .hero::after { right:-120px; bottom:-90px; width:560px; height:90px; transform:rotate(-14deg);
+    background:linear-gradient(90deg,rgba(239,108,0,0.0),rgba(239,108,0,0.28)); }
+  .hero-inner { position:relative; z-index:1; max-width:1100px; margin:0 auto; }
+  .hero h1 { font-size:1.8rem; font-weight:700; letter-spacing:0.01em; }
+  .hero p { margin-top:0.6rem; font-size:0.95rem; color:#475569; max-width:640px; }
+  .hero-actions { margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.75rem; }
+  .crumbs { font-size:0.75rem; color:#64748b; margin-bottom:0.75rem; }
+  .crumbs a { text-decoration:none; }
+  .crumbs a:hover { text-decoration:underline; }
+  .btn { display:inline-block; padding:0.6rem 1.3rem; border-radius:6px; font-size:0.85rem;
+    font-weight:700; text-decoration:none; }
+  .btn-primary { background:#EF6C00; color:#fff; box-shadow:0 4px 14px rgba(239,108,0,0.25); }
+  .btn-ghost { border:1px solid #FDBA74; color:#EF6C00; background:#fff; }
+  main { max-width:1100px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
+  .section-label { font-size:0.75rem; font-weight:700; letter-spacing:0.12em; color:var(--text-muted);
+    text-transform:uppercase; margin:2.5rem 0 1rem; }
+  .section-label:first-child { margin-top:0; }
+  .issue-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1rem; }
+  .issue { display:block; padding:1rem 1.1rem; background:var(--card-bg); border:1px solid var(--border);
+    border-radius:8px; text-decoration:none; transition:border-color .15s; }
+  .issue:hover { border-color:var(--accent); }
+  .issue .d { font-size:0.95rem; font-weight:700; }
+  .issue .m { margin-top:0.25rem; font-size:0.75rem; color:var(--text-muted); }
+  .issue-list { list-style:none; columns:2; column-gap:2rem; }
+  .issue-list li { break-inside:avoid; padding:0.35rem 0; border-bottom:1px solid var(--border); }
+  .issue-list a { font-size:0.85rem; text-decoration:none; }
+  .issue-list a:hover { color:var(--accent); }
+  .issue-list .m { font-size:0.72rem; color:var(--text-muted); margin-left:0.5rem; }
+  footer { border-top:1px solid var(--border); padding:2rem 1.5rem; text-align:center;
+    font-size:0.78rem; color:var(--text-muted); }
+  .sub-grid { max-width:760px; margin:0 auto; display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:0.8rem; }
+  .sub-card { display:flex; flex-direction:column; gap:0.3rem; padding:1.1rem 1.2rem;
+    background:var(--card-bg); border:1px solid var(--border); border-radius:8px;
+    text-decoration:none; transition:border-color .15s; }
+  .sub-card:hover { border-color:var(--accent); }
+  .sub-card.mail { border-color:var(--accent); border-width:2px;
+    background:linear-gradient(180deg,rgba(239,108,0,0.05),transparent); }
+  .sub-embed { cursor:default; }
+  .sub-badge { display:block; margin-top:0.5rem; padding:0.6rem; text-align:center;
+    border-radius:6px; font-size:0.85rem; font-weight:700; text-decoration:none; color:#fff; }
+  .sub-badge.spotify { background:#1db954; }
+  .sub-badge.apple { background:#8e44ec; }
+  .sub-copy { margin-top:0.6rem; width:100%; padding:0.6rem; background:var(--accent);
+    color:#fff; font-size:0.85rem; font-weight:700; border:none; border-radius:6px;
+    cursor:pointer; }
+  .sub-advanced { max-width:760px; margin:0.8rem auto 0; font-size:0.72rem;
+    color:var(--text-muted); }
+  .sub-advanced a { color:var(--text-muted); }
+  .sub-embed form { margin-top:0.5rem; }
+  .sub-embed input[type="email"] { width:100%; padding:0.6rem 0.8rem; font-size:0.9rem;
+    border:1px solid var(--border); border-radius:6px; background:var(--bg); color:var(--text); }
+  .sub-embed button, .sub-embed input[type="submit"] { margin-top:0.5rem; width:100%;
+    padding:0.65rem; background:var(--accent); color:#fff; font-size:0.88rem; font-weight:700;
+    border:none; border-radius:6px; cursor:pointer; }
+  .sub-ico { font-size:1.2rem; }
+  .sub-t { font-size:0.92rem; font-weight:700; }
+  .sub-d { font-size:0.76rem; line-height:1.7; color:var(--text-muted); }
+  .lang-switch { display:flex; flex-wrap:wrap; align-items:center; gap:0.35rem;
+    margin-top:1rem; font-size:0.74rem; }
+  .lang-switch .globe { opacity:0.7; margin-right:0.15rem; }
+  .lang-switch .lang { padding:0.25rem 0.7rem; border-radius:999px;
+    border:1px solid #cbd5e1; color:#475569; background:#fff; text-decoration:none; }
+  .lang-switch a.lang:hover { background:#FFF7ED; color:#EF6C00; }
+  .lang-switch .lang.on { background:#EF6C00; color:#fff; font-weight:700;
+    border-color:transparent; }
+  .lang-switch .lang.soon { opacity:0.45; cursor:default; }
+  .lang-switch .lang.soon em { font-style:normal; font-size:0.62rem; margin-left:0.3rem;
+    opacity:0.85; }
+  .footer-links { margin-top:0.9rem; font-size:0.75rem; }
+  .footer-links a { color:var(--text-muted); text-decoration:none; }
+  .footer-links a:hover { color:var(--accent); text-decoration:underline; }
+  .footer-brand { margin-top:1.1rem; font-size:0.68rem; letter-spacing:0.04em;
+    color:var(--text-muted); opacity:0.55; }
+  @media (max-width:640px){ .issue-list{columns:1;} .hero h1{font-size:1.4rem;} }
+
+  :root {
+    --model:#EF6C00; --research:#6d28d9; --business:#065f46;
+    --policy:#92400e; --tools:#0e7490;
+  }
+  .lead { max-width:760px; margin:0 auto 2.5rem; padding:1.5rem 1.7rem;
+    background:var(--card-bg); border:1px solid var(--border); border-radius:8px; }
+  .lead-label { font-size:0.7rem; font-weight:700; letter-spacing:0.14em;
+    color:var(--text-muted); margin-bottom:0.9rem; }
+  .lead ol { list-style:none; counter-reset:lead; display:flex; flex-direction:column; gap:0.7rem; }
+  .lead li { counter-increment:lead; position:relative; padding-left:1.9rem;
+    font-size:0.95rem; line-height:1.85; }
+  .lead li::before { content:counter(lead); position:absolute; left:0; top:0.3em;
+    width:1.25rem; height:1.25rem; border-radius:50%; background:var(--accent); color:#fff;
+    font-size:0.68rem; font-weight:700; display:flex; align-items:center; justify-content:center; }
+  .digest { max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:1rem; }
+  .card { padding:1.4rem 1.5rem; background:var(--card-bg); border:1px solid var(--border);
+    border-left:3px solid var(--text-muted); border-radius:8px; }
+  .card.model{border-left-color:var(--model)} .card.research{border-left-color:var(--research)}
+  .card.business{border-left-color:var(--business)} .card.policy{border-left-color:var(--policy)}
+  .card.tools{border-left-color:var(--tools)}
+  .card-top { display:flex; align-items:center; gap:0.6rem; margin-bottom:0.6rem; }
+  .card-label { font-size:0.66rem; font-weight:700; letter-spacing:0.06em; padding:2px 7px;
+    border-radius:3px; color:#fff; background:var(--text-muted); }
+  .card-label.model{background:var(--model)} .card-label.research{background:var(--research)}
+  .card-label.business{background:var(--business)} .card-label.policy{background:var(--policy)}
+  .card-label.tools{background:var(--tools)}
+  .stars { display:flex; gap:3px; }
+  .dot { width:6px; height:6px; border-radius:50%; background:var(--border); }
+  .dot.filled { background:var(--text-muted); }
+  .card-title-ja { font-size:1.08rem; font-weight:700; line-height:1.6; }
+  .card-title-en { margin-top:0.25rem; font-size:0.78rem; color:var(--text-muted); line-height:1.5; }
+  .card-source { margin-top:0.5rem; font-size:0.72rem; color:var(--text-muted); }
+  .card-body { margin-top:0.7rem; font-size:0.9rem; line-height:1.95; }
+  .card-link { display:inline-block; margin-top:0.9rem; font-size:0.82rem; font-weight:600;
+    color:var(--accent); text-decoration:none; }
+  .card-link:hover { text-decoration:underline; }
+  .card.top { border-left-width:4px; background:linear-gradient(180deg,rgba(239,108,0,0.04),transparent); }
+  .card.top .card-title-ja { font-size:1.25rem; }
+  .tier { max-width:760px; margin:2rem auto 0.5rem; font-size:0.7rem; font-weight:700;
+    letter-spacing:0.14em; color:var(--text-muted); }
+  .tier:first-of-type { margin-top:0; }
+  .top-nav { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:1.3rem; }
+  .top-nav a { padding:0.4rem 0.95rem; border:1px solid #FED7AA; border-radius:999px;
+    font-size:0.78rem; font-weight:600; color:#EF6C00; background:#fff; text-decoration:none; }
+  .top-nav a:hover { background:#FFF7ED; }
+  .listen { max-width:760px; margin:0 auto 2.5rem; padding:1.2rem 1.4rem;
+    background:#fff; border:1px solid #FBE3CC; border-radius:14px; color:#1e293b;
+    box-shadow:0 8px 28px rgba(239,108,0,0.08); }
+  .listen-head { display:flex; align-items:baseline; gap:0.6rem; flex-wrap:wrap; margin-bottom:0.75rem; }
+  .listen-head strong { font-size:0.95rem; color:#3A2210; }
+  .listen-head span { font-size:0.76rem; color:#64748b; }
+  .listen audio { width:100%; height:40px; display:block; }
+  .speed-row { display:grid; grid-template-columns:repeat(7, minmax(0, 1fr)); gap:0.3rem; margin-top:0.7rem; }
+  .speed-row .speed-label { grid-column:1 / -1; }
+  .speed-label { font-size:0.7rem; color:#64748b; margin-right:0.2rem; }
+  .speed-btn { padding:0.35rem 0; text-align:center; background:#f1f5f9;
+    border:1px solid #e2e8f0; border-radius:999px; color:#334155;
+    font-size:0.75rem; font-weight:600; cursor:pointer; }
+  .speed-btn.on { background:#EF6C00; border-color:#EF6C00; color:#fff; }
+  .copy-feed { padding:0.25rem 0.7rem; background:#FFF7ED;
+    border:1px solid #FED7AA; border-radius:6px; color:#EF6C00;
+    font-size:0.72rem; font-weight:600; cursor:pointer; }
+  .listen-sub { margin-top:0.8rem; font-size:0.74rem; color:#64748b; line-height:1.8; }
+  .listen-sub a { color:#EF6C00; text-decoration:none; }
+  .listen-sub a:hover { text-decoration:underline; }
+  details.genre { max-width:760px; margin:0 auto 0.75rem; background:var(--card-bg);
+    border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+  details.genre > summary { list-style:none; cursor:pointer; padding:1rem 1.3rem;
+    display:flex; align-items:center; gap:0.7rem; font-weight:700; font-size:0.92rem;
+    -webkit-tap-highlight-color:transparent; }
+  details.genre > summary::-webkit-details-marker { display:none; }
+  details.genre > summary::before { content:"▸"; font-size:0.8rem; color:var(--text-muted);
+    transition:transform .15s; }
+  details.genre[open] > summary::before { transform:rotate(90deg); }
+  details.genre > summary .cnt { margin-left:auto; font-size:0.72rem; font-weight:600;
+    color:var(--text-muted); }
+  details.genre .genre-dot { width:9px; height:9px; border-radius:50%; background:var(--text-muted); }
+  details.genre.model .genre-dot{background:var(--model)} details.genre.research .genre-dot{background:var(--research)}
+  details.genre.business .genre-dot{background:var(--business)} details.genre.policy .genre-dot{background:var(--policy)}
+  details.genre.tools .genre-dot{background:var(--tools)}
+  details.genre .genre-body { padding:0 0.9rem 0.9rem; display:flex; flex-direction:column; gap:0.75rem; }
+  details.genre .card { border:none; border-left:3px solid var(--border); background:var(--bg);
+    border-radius:6px; }
+  .subscribe { max-width:760px; margin:2.5rem auto 0; padding:1rem 1.3rem; text-align:center;
+    border:1px dashed var(--border); border-radius:8px; font-size:0.8rem; color:var(--text-muted); }
+  .subscribe a { color:var(--accent); font-weight:600; text-decoration:none; }
+  @media (max-width:640px){ .card{padding:1.15rem 1.2rem} .card.top .card-title-ja{font-size:1.1rem} }
+
+  .t { color:var(--accent); border-bottom:1px dashed currentColor; cursor:help;
+    font-weight:500; }
+  .t:hover, .t:focus-visible { background:rgba(239,108,0,0.10); outline:none; border-radius:2px; }
+  #tip { position:absolute; z-index:60; max-width:min(22rem,88vw); padding:0.85rem 1rem;
+    background:var(--card-bg); border:1px solid var(--border); border-radius:8px;
+    box-shadow:0 8px 28px rgba(15,23,42,0.16); font-size:0.84rem; line-height:1.8;
+    opacity:0; visibility:hidden; transition:opacity .12s; pointer-events:none; }
+  #tip.on { opacity:1; visibility:visible; pointer-events:auto; }
+  #tip .tip-n { font-weight:700; display:block; margin-bottom:0.3rem; }
+  #tip .tip-m { display:inline-block; margin-top:0.5rem; font-size:0.78rem;
+    font-weight:600; color:var(--accent); text-decoration:none; }
+  #sheet { position:fixed; left:0; right:0; bottom:0; z-index:70; padding:1.4rem 1.4rem 2rem;
+    background:var(--card-bg); border-top:1px solid var(--border);
+    border-radius:16px 16px 0 0; box-shadow:0 -8px 32px rgba(15,23,42,0.22);
+    transform:translateY(102%); transition:transform .22s ease; }
+  #sheet.on { transform:translateY(0); }
+  #sheet .sheet-grip { width:36px; height:4px; border-radius:2px; background:var(--border);
+    margin:0 auto 1rem; }
+  #sheet .tip-n { font-size:1.05rem; font-weight:700; display:block; margin-bottom:0.5rem; }
+  #sheet .tip-s { font-size:0.92rem; line-height:1.95; color:var(--text-muted); }
+  #sheet .tip-m { display:block; margin-top:1.1rem; padding:0.75rem; text-align:center;
+    background:var(--accent); color:#fff; border-radius:8px; font-size:0.88rem;
+    font-weight:700; text-decoration:none; }
+  #veil { position:fixed; inset:0; z-index:69; background:rgba(15,23,42,0.35);
+    opacity:0; visibility:hidden; transition:opacity .22s; }
+  #veil.on { opacity:1; visibility:visible; }
+  @media (prefers-reduced-motion:reduce){ #sheet,#veil,#tip{transition:none} }
+.sx, #fsheet, #fveil, .mini { --bg:#f8fafc;--card:#ffffff;--ink:#1e293b;--ink2:#64748b;--line:#e2e8f0;--head:#EF6C00;--head-ink:#ffffff;--accent:#EF6C00;--heading:#EF6C00;--btn:#EF6C00;--btn-ink:#ffffff;--btn2:#FB8C00;--soft:#FFF7ED;--now:#fef3c7;--mark:#EF6C00;--pill-border:#FDBA74;--pill-bg:#ffffff;--pill-ink:#EF6C00;--follow:#facc15;--follow-ink:#422006;--follow-edge:#ca8a04;--chip:#EF6C00;--chip-ink:#ffffff;--hero1:#FFFAF4;--hero2:#FFEDD9;--hero-ink:#3A2210;--hero-sub:#475569;--ribbon1:rgba(251,191,36,.35);--ribbon2:rgba(239,108,0,.28); --play-size:60px; }
+.sx { color:var(--ink); } .sx .read-hint { font-size:.85em; color:var(--ink2); margin-top:4px; }
+.sx h2.sx-h { margin:28px 0 8px; font-size:1.1em; color:var(--heading); border-left:5px solid var(--mark); padding-left:10px; }
+
+  .sx .player { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:18px 16px 16px; margin-top:-14px;
+             position:relative; z-index:2; box-shadow:0 6px 24px rgba(0,0,0,.06); }
+  .sx .p-head { display:flex; gap:14px; align-items:center; }
+  .sx .p-head img { width:84px; height:84px; border-radius:12px; flex:none; box-shadow:0 4px 14px rgba(0,0,0,.12); }
+  .sx .p-date { font-size:.8em; color:var(--ink2); }
+  .sx .p-title { font-weight:700; line-height:1.4; }
+  .sx .progress { position:relative; height:10px; background:var(--line); border-radius:5px; margin-top:18px; cursor:pointer; touch-action:none; }
+  .sx .progress .fill { position:absolute; left:0; top:0; bottom:0; width:0; background:linear-gradient(90deg,var(--btn2),var(--btn)); border-radius:5px; }
+  .sx .progress .knob { position:absolute; top:50%; left:0; width:20px; height:20px; margin:-10px 0 0 -10px; border-radius:50%;
+                    background:var(--btn); border:3px solid var(--card); box-shadow:0 1px 4px rgba(0,0,0,.25); }
+  .sx .time-row { display:flex; justify-content:space-between; font-size:.75em; color:var(--ink2); margin-top:6px; font-variant-numeric:tabular-nums; }
+  .sx .controls { display:flex; align-items:center; justify-content:center; gap:4px; margin-top:6px; }
+  .sx .ctl { display:flex; flex-direction:column; align-items:center; background:none; border:none; color:var(--ink); cursor:pointer;
+         padding:8px; border-radius:12px; font-family:inherit; }
+  .sx .ctl svg { width:30px; height:30px; display:block; }
+  .sx .ctl small { font-size:.6em; color:var(--ink2); font-weight:700; margin-top:-1px; }
+  .sx .ctl.play { width:var(--play-size); height:var(--play-size); margin:0 10px; padding:0; justify-content:center; border-radius:50%;
+              background:var(--btn); color:var(--btn-ink); box-shadow:0 6px 16px color-mix(in srgb, var(--btn) 40%, transparent); }
+  .sx .ctl.play svg { width:34px; height:34px; }
+  .sx .play-lbl { text-align:center; font-size:.78em; font-weight:700; color:var(--ink2); margin-top:2px; }
+  .sx .sx-speed { margin-top:12px; }
+  .sx .sx-speed-label { display:block; font-size:.75em; color:var(--ink2); font-weight:700; margin-bottom:4px; }
+  .sx .sx-speed-btns { display:grid; grid-template-columns:repeat(auto-fit,minmax(0,1fr)); gap:6px; }
+  .sx .sx-speed-btns .sp { padding:8px 0; border-radius:999px; border:1.5px solid var(--line); background:var(--bg); color:var(--ink);
+                    font-size:.85em; font-weight:700; font-family:inherit; cursor:pointer; }
+  .sx .sx-speed-btns .sp.on { background:var(--btn); border-color:var(--btn); color:var(--btn-ink); }
+  .sx .readbtn { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; margin-top:12px; padding:13px;
+             border:2px solid var(--pill-border); border-radius:999px; background:var(--pill-bg); color:var(--pill-ink); font-size:1em;
+             font-weight:700; text-decoration:none; }
+  .sx .readbtn svg { width:22px; height:22px; }
+  .sx .kbd { margin-top:10px; font-size:.7em; color:var(--ink2); display:none; }
+  @media (hover:hover) and (pointer:fine) { .kbd { display:block; } }
+  .mini { position:fixed; left:0; right:0; bottom:0; z-index:50; background:var(--card); border-top:1px solid var(--line);
+          box-shadow:0 -6px 20px rgba(0,0,0,.12); padding:10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
+          display:flex; gap:10px; align-items:center; transform:translateY(110%); transition:transform .2s; }
+  .mini.show { transform:translateY(0); }
+  .mini button { flex:none; border:none; border-radius:12px; font-family:inherit; font-weight:700; cursor:pointer; }
+  .mini .m-play { width:52px; height:44px; background:var(--btn); color:var(--btn-ink); }
+  .mini .m-play svg { width:24px; height:24px; }
+  .mini .m-back { position:relative; width:44px; height:44px; background:transparent; color:var(--ink); }
+  .mini .m-back svg { width:36px; height:36px; }
+  .mini .m-back span { position:absolute; left:0; right:0; top:50%; transform:translateY(-46%); font-size:.55em; font-weight:700; }
+  .mini .m-bar { flex:1; height:8px; background:var(--line); border-radius:4px; overflow:hidden; }
+  .mini .m-fill { height:100%; width:0; background:var(--btn); }
+  .mini .m-time { flex:none; font-size:.72em; color:var(--ink2); font-variant-numeric:tabular-nums; }
+  .sx .read-h { scroll-margin-top:16px; }
+  .sx .read-hint { font-size:.82em; color:var(--ink2); background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 14px; margin-top:8px; }
+  .sx .ln { border-radius:12px; padding:6px 10px; margin:6px -10px; cursor:pointer; transition:background .2s; }
+  .sx .ln.now { background:var(--now); }
+  .sx .ln .who { display:block; font-size:.68em; font-weight:700; color:var(--ink2); }
+  .sx .ln.partner { background:color-mix(in srgb, var(--soft) 55%, transparent); }
+  .sx .ln.partner.now { background:var(--now); }
+  .sx .follow { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; margin-top:28px; padding:14px;
+            border:none; border-radius:999px; background:var(--follow); color:var(--follow-ink); font-size:1.05em; font-weight:700;
+            font-family:inherit; cursor:pointer; box-shadow:0 3px 0 var(--follow-edge); }
+  .sx .follow:active { transform:translateY(2px); box-shadow:0 1px 0 var(--follow-edge); }
+  .sx .follow svg { width:24px; height:24px; }
+  .sx .follow.follow-top { margin-top:14px; }
+  #fveil { position:fixed; inset:0; z-index:80; background:rgba(0,0,0,.4); display:none; }
+  #fsheet { position:fixed; left:0; right:0; bottom:0; z-index:81; max-width:680px; margin:0 auto; background:var(--card);
+            color:var(--ink); border-radius:18px 18px 0 0; padding:22px 18px calc(26px + env(safe-area-inset-bottom, 0px));
+            box-shadow:0 -8px 30px rgba(0,0,0,.25); display:none; max-height:88vh; overflow:auto; }
+  #fveil.on, #fsheet.on { display:block; }
+  #fsheet h3 { font-size:1.15em; }
+  #fsheet .way { margin-top:14px; padding:14px; border:1px solid var(--line); border-radius:14px; }
+  #fsheet .way b { display:block; }
+  #fsheet .way p { font-size:.9em; color:var(--ink2); margin-top:4px; line-height:1.7; }
+  #fsheet .go { display:block; margin-top:10px; padding:13px; border-radius:12px; text-align:center; font-weight:700;
+                text-decoration:none; color:#fff; background:var(--btn); }
+  #fsheet .go.spotify { background:#1DB954; }
+  #fsheet .small { margin-top:14px; font-size:.85em; color:var(--ink2); text-align:center; }
+  #fsheet .small a { color:var(--ink2); }
+  #fsheet .close { display:block; width:100%; margin-top:14px; padding:12px; border:1px solid var(--line); border-radius:12px;
+                   background:transparent; color:var(--ink); font-size:.95em; font-family:inherit; cursor:pointer; }
+</style>
+<!-- monetize.py: SEO / analytics -->
+<meta name="description" content="NVIDIA取締役会がJensen Huang氏の復帰を否定し、暫定CEOのもとでの立て直しが本格化しています。">
+<link rel="canonical" href="https://teraco-labo.github.io/ai-news-digest/ai-news-2026-11-19.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2026年11月19日（木）のAIニュース | 世界一わかりやすいAIニュース">
+<meta property="og:description" content="NVIDIA取締役会がJensen Huang氏の復帰を否定し、暫定CEOのもとでの立て直しが本格化しています。">
+<meta property="og:url" content="https://teraco-labo.github.io/ai-news-digest/ai-news-2026-11-19.html">
+<meta property="og:site_name" content="世界一わかりやすいAIニュース">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://teraco-labo.github.io/ai-news-digest/podcast/cover.jpg?v=287cbf6c">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="application/rss+xml" title="世界一わかりやすいAIニュース" href="https://teraco-labo.github.io/ai-news-digest/feed.xml">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "2026年11月19日（木）のAIニュース | 世界一わかりやすいAIニュース", "description": "NVIDIA取締役会がJensen Huang氏の復帰を否定し、暫定CEOのもとでの立て直しが本格化しています。", "url": "https://teraco-labo.github.io/ai-news-digest/ai-news-2026-11-19.html", "inLanguage": "ja", "author": {"@type": "Person", "name": "てらこ先生"}, "publisher": {"@type": "Organization", "name": "世界一わかりやすいAIニュース"}, "datePublished": "2026-11-19T06:00:00+09:00", "dateModified": "2026-11-19T06:00:00+09:00"}</script>
+
+<style id="mz-style">
+  .mz-disclosure { max-width: 1100px; margin: 0 auto 1rem; padding: 0.5rem 0.75rem;
+    font-size: 0.7rem; line-height: 1.6; color: var(--text-muted, #64748b);
+    background: rgba(148,163,184,0.10); border-radius: 6px; }
+  .mz-block { max-width: 1100px; margin: 2rem auto; }
+  .mz-head { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+  .mz-head h2 { font-size: 0.9rem; font-weight: 700; color: var(--text, #1e293b); letter-spacing: 0.02em; }
+  .mz-pr { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em; padding: 2px 6px;
+    border-radius: 3px; background: #94a3b8; color: #fff; }
+  .mz-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+  .mz-card { display: flex; flex-direction: column; gap: 0.4rem; padding: 1rem;
+    background: var(--card-bg, #fff); border: 1px solid var(--border, #e2e8f0);
+    border-left: 3px solid #EF6C00; border-radius: 8px; }
+  .mz-card .mz-name { font-size: 0.68rem; font-weight: 600; color: var(--text-muted, #64748b); letter-spacing: 0.04em; }
+  .mz-card .mz-title { font-size: 0.95rem; font-weight: 700; color: var(--text, #1e293b); line-height: 1.5; }
+  .mz-card .mz-body { font-size: 0.8rem; line-height: 1.7; color: var(--text-muted, #64748b); }
+  .mz-card .mz-cta { margin-top: auto; padding-top: 0.6rem; font-size: 0.8rem; font-weight: 600;
+    color: #EF6C00; text-decoration: none; }
+  .mz-card .mz-cta:hover { text-decoration: underline; }
+  .mz-badge { align-self: flex-start; font-size: 0.6rem; font-weight: 700; padding: 2px 6px;
+    border-radius: 3px; background: #EF6C00; color: #fff; }
+  .mz-cta-block { max-width: 1100px; margin: 2rem auto; padding: 1.5rem;
+    background: linear-gradient(135deg, #0f172a, #1e293b); border-radius: 10px; color: #e2e8f0; }
+  .mz-cta-block h2 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: #fff; }
+  .mz-cta-block p { font-size: 0.85rem; line-height: 1.8; color: #cbd5e1; }
+  .mz-cta-block a { display: inline-block; margin-top: 0.9rem; padding: 0.6rem 1.4rem;
+    background: #FB923C; color: #0f172a; font-size: 0.85rem; font-weight: 700;
+    border-radius: 6px; text-decoration: none; }
+  .mz-ad { max-width: 1100px; margin: 2rem auto; text-align: center; }
+</style>
+
+<!-- monetize.py: SEO / analytics -->
+<meta name="description" content="2026年11月19日のAI関連ニュース12件を日本語で要約。モデル・研究・ビジネス・ポリシー・ツールの5カテゴリで重要ニュースだけを厳選しています。">
+<link rel="canonical" href="https://teraco-labo.github.io/ai-news-digest/ai-news-2026-11-19.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2026年11月19日（木）のAIニュース | 世界一わかりやすいAIニュース">
+<meta property="og:description" content="2026年11月19日のAI関連ニュース12件を日本語で要約。モデル・研究・ビジネス・ポリシー・ツールの5カテゴリで重要ニュースだけを厳選しています。">
+<meta property="og:url" content="https://teraco-labo.github.io/ai-news-digest/ai-news-2026-11-19.html">
+<meta property="og:site_name" content="世界一わかりやすいAIニュース">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://teraco-labo.github.io/ai-news-digest/podcast/cover.jpg?v=287cbf6c">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="application/rss+xml" title="世界一わかりやすいAIニュース" href="https://teraco-labo.github.io/ai-news-digest/feed.xml">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "2026年11月19日（木）のAIニュース | 世界一わかりやすいAIニュース", "description": "2026年11月19日のAI関連ニュース12件を日本語で要約。モデル・研究・ビジネス・ポリシー・ツールの5カテゴリで重要ニュースだけを厳選しています。", "url": "https://teraco-labo.github.io/ai-news-digest/ai-news-2026-11-19.html", "inLanguage": "ja", "author": {"@type": "Person", "name": "てらこ先生"}, "publisher": {"@type": "Organization", "name": "世界一わかりやすいAIニュース"}, "datePublished": "2026-11-19T06:00:00+09:00", "dateModified": "2026-11-19T06:00:00+09:00"}</script>
+
+<style id="mz-style">
+  .mz-disclosure { max-width: 1100px; margin: 0 auto 1rem; padding: 0.5rem 0.75rem;
+    font-size: 0.7rem; line-height: 1.6; color: var(--text-muted, #64748b);
+    background: rgba(148,163,184,0.10); border-radius: 6px; }
+  .mz-block { max-width: 1100px; margin: 2rem auto; }
+  .mz-head { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+  .mz-head h2 { font-size: 0.9rem; font-weight: 700; color: var(--text, #1e293b); letter-spacing: 0.02em; }
+  .mz-pr { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em; padding: 2px 6px;
+    border-radius: 3px; background: #94a3b8; color: #fff; }
+  .mz-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+  .mz-card { display: flex; flex-direction: column; gap: 0.4rem; padding: 1rem;
+    background: var(--card-bg, #fff); border: 1px solid var(--border, #e2e8f0);
+    border-left: 3px solid #EF6C00; border-radius: 8px; }
+  .mz-card .mz-name { font-size: 0.68rem; font-weight: 600; color: var(--text-muted, #64748b); letter-spacing: 0.04em; }
+  .mz-card .mz-title { font-size: 0.95rem; font-weight: 700; color: var(--text, #1e293b); line-height: 1.5; }
+  .mz-card .mz-body { font-size: 0.8rem; line-height: 1.7; color: var(--text-muted, #64748b); }
+  .mz-card .mz-cta { margin-top: auto; padding-top: 0.6rem; font-size: 0.8rem; font-weight: 600;
+    color: #EF6C00; text-decoration: none; }
+  .mz-card .mz-cta:hover { text-decoration: underline; }
+  .mz-badge { align-self: flex-start; font-size: 0.6rem; font-weight: 700; padding: 2px 6px;
+    border-radius: 3px; background: #EF6C00; color: #fff; }
+  .mz-cta-block { max-width: 1100px; margin: 2rem auto; padding: 1.5rem;
+    background: linear-gradient(135deg, #0f172a, #1e293b); border-radius: 10px; color: #e2e8f0; }
+  .mz-cta-block h2 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: #fff; }
+  .mz-cta-block p { font-size: 0.85rem; line-height: 1.8; color: #cbd5e1; }
+  .mz-cta-block a { display: inline-block; margin-top: 0.9rem; padding: 0.6rem 1.4rem;
+    background: #FB923C; color: #0f172a; font-size: 0.85rem; font-weight: 700;
+    border-radius: 6px; text-decoration: none; }
+  .mz-ad { max-width: 1100px; margin: 2rem auto; text-align: center; }
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-inner">
+    <div class="crumbs"><a href="./">世界一わかりやすいAIニュース</a></div>
+    <h1>2026年11月19日（木）のAIニュース</h1>
+    <p>厳選 12 件。専門用語ぜんぶ解説つき。</p>
+    <div class="hero-actions"><a class="btn btn-primary" href="https://teracosensei.substack.com/embed" target="_blank" rel="noopener">毎朝メールで読みたい方はこちら（無料）</a></div>
+    <div class="top-nav">
+      <a href="./">トップ</a>
+      <a href="#listen">音声で聴く</a>
+      <a href="terms/">AI用語集</a>
+      <a href="articles/">エッセイ</a>
+      <a href="archive.html">バックナンバー</a>
+    </div>
+    <div class="lang-switch"><span class="lang on">日本語</span><span class="lang soon" title="準備中">English<em>準備中</em></span><span class="lang soon" title="準備中">中文<em>準備中</em></span><span class="lang soon" title="準備中">Español<em>準備中</em></span></div>
+  </div>
+</div>
+
+<main>
+<div class="sx" id="listen">
+  <div class="player" id="player">
+    <div class="p-head"><img src="podcast/cover.jpg" alt="" width="84" height="84"><div><div class="p-date">2026年11月19日（木）のAIニュース</div><div class="p-title">世界一わかりやすいAIニュース</div></div></div>
+    <div class="progress" id="progress" role="slider" aria-label="再生位置" tabindex="0"><div class="fill" id="fill"></div><div class="knob" id="knob"></div></div>
+    <div class="time-row"><span id="cur">0:00</span><span id="dur">--:--</span></div>
+    <div class="controls"><button type="button" class="ctl" data-skip="-30" aria-label="30秒もどる"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg><small>30</small></button><button type="button" class="ctl" data-skip="-10" aria-label="10秒もどる"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg><small>10</small></button><button class="ctl play" id="play" type="button" aria-label="音声で聴く"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button><button type="button" class="ctl" data-skip="10" aria-label="10秒すすむ"><svg style="transform:scaleX(-1)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg><small>10</small></button><button type="button" class="ctl" data-skip="30" aria-label="30秒すすむ"><svg style="transform:scaleX(-1)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg><small>30</small></button></div>
+    <div class="play-lbl" id="playLbl">音声で聴く</div>
+    <div class="sx-speed" id="speeds"><span class="sx-speed-label">聴く速さ</span><div class="sx-speed-btns"><button type="button" class="sp" data-r="0.7">0.7×</button><button type="button" class="sp" data-r="0.8">0.8×</button><button type="button" class="sp" data-r="0.9">0.9×</button><button type="button" class="sp" data-r="1">1×</button><button type="button" class="sp" data-r="1.25">1.25×</button><button type="button" class="sp" data-r="1.5">1.5×</button><button type="button" class="sp" data-r="2">2×</button></div></div>
+    <button class="follow follow-top" type="button"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg><span>毎日聴く</span></button>
+    <a class="readbtn" href="#yomu" id="toread"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 5h16v2H4zm0 4h16v2H4zm0 4h10v2H4zm0 4h16v2H4z"/></svg><span>文字で読む</span></a>
+    <p class="kbd">キーボード：スペースで再生／停止、← → で10秒、J / L で30秒</p>
+  </div>
+  <audio id="audio" src="https://pub-59f9285441114b44af1b246d89bf3b21.r2.dev/ai-news-2026-11-19.mp3" preload="metadata"></audio>
+  <div class="mini" id="mini" aria-hidden="true">
+    <button type="button" class="m-play" id="mplay" aria-label="再生／一時停止"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+    <button type="button" class="m-back" data-skip="-10" aria-label="10秒もどる"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg><span>10</span></button>
+    <div class="m-bar"><div class="m-fill" id="mfill"></div></div>
+    <span class="m-time" id="mtime">0:00</span>
+  </div></div>
+
+  <div id="fveil"></div>
+  <div id="fsheet" role="dialog" aria-modal="true" aria-labelledby="fsheet-h">
+    <h3 id="fsheet-h">毎日聴くには</h3><div class="way"><b>メールで受け取る</b><p>メールアドレスを登録すると、週に1回、AIニュースとスマホニュースのまとめをメールでお届けします。てらこ先生がAIを実際に使って確かめた読みものも、ときどき届きます。毎回の番組のメールは届きません。登録は無料です。</p><a class="go mail" href="https://teracosensei.substack.com/embed">メールで受け取る</a></div><p class="small">Spotify を使っている人は <a href="https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3">こちらからフォロー</a></p>
+    <button class="close" id="fclose" type="button">閉じる</button>
+  </div>
+
+<span id="yomu"></span>
+  <div class="lead">
+    <div class="lead-label">今日の3行まとめ</div>
+    <ol>
+      <li><span class="t" data-t="nvidia" tabindex="0" role="button" aria-label="NVIDIAの説明を見る">NVIDIA</span><span class="t" data-t="board-of-directors" tabindex="0" role="button" aria-label="取締役会の説明を見る">取締役会</span>が<span class="t" data-t="jensen-huang" tabindex="0" role="button" aria-label="Jensen Huangの説明を見る">Jensen Huang</span>氏の復帰を否定し、<span class="t" data-t="interim-ceo" tabindex="0" role="button" aria-label="暫定CEOの説明を見る">暫定CEO</span>のもとでの立て直しが本格化しています。</li>
+      <li><span class="t" data-t="citi" tabindex="0" role="button" aria-label="Citiの説明を見る">Citi</span>など米国の大手銀行が、<span class="t" data-t="ai-agent" tabindex="0" role="button" aria-label="AIエージェントの説明を見る">AIエージェント</span>利用時のハッキング被害は補償しない方針を相次いで示しています。</li>
+      <li><span class="t" data-t="snapchat" tabindex="0" role="button" aria-label="Snapchatの説明を見る">Snapchat</span>のLens開発やGoogleのAI Modeなど、身近なサービスへのAI機能の組み込みも進んでいます。</li>
+    </ol>
+  </div>
+
+  <div class="tier">注目のニュース</div>
+  <div class="digest">
+    <article class="card business top">
+      <div class="card-top">
+        <span class="card-label business">ビジネス</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
+      </div>
+      <div class="card-title-ja">NVIDIA取締役会、Jensen Huang氏のCEO復帰を否定</div>
+      <div class="card-title-en">Nvidia’s Board Has No Plans to Bring Back Jensen Huang</div>
+      <div class="card-source">Wired AI · Tue, 17 No</div>
+      <div class="card-body">NVIDIAの取締役会は、先週<span class="t" data-t="retirement-resignation" tabindex="0" role="button" aria-label="退任の説明を見る">退任</span>したJensen Huang氏をCEOに復帰させる「意図はない」と表明しました。Huang氏は、中国の<span class="t" data-t="intelligence-asset" tabindex="0" role="button" aria-label="スパイの説明を見る">スパイ</span>とされる人物との不倫関係を含む複数のスキャンダルを受けて職を退いており、<span class="t" data-t="donald-trump" tabindex="0" role="button" aria-label="トランプ大統領の説明を見る">トランプ大統領</span>や<span class="t" data-t="elon-musk" tabindex="0" role="button" aria-label="イーロン・マスクの説明を見る">イーロン・マスク</span>氏、シリコンバレーの経営者らから復帰を求める圧力がかかっていました。暫定CEOの<span class="t" data-t="colette-kress" tabindex="0" role="button" aria-label="Colette Kressの説明を見る">Colette Kress</span>氏は、Huang氏退任後初めての全社集会で昇給と<span class="t" data-t="equity-compensation" tabindex="0" role="button" aria-label="株式報酬の説明を見る">株式報酬</span>の上乗せを約束し、社員の動揺を抑えようとしています。<span class="t" data-t="openai" tabindex="0" role="button" aria-label="OpenAIの説明を見る">OpenAI</span>の<span class="t" data-t="sam-altman" tabindex="0" role="button" aria-label="Sam Altmanの説明を見る">Sam Altman</span>氏も「Jensenのいない AI業界は想像しにくい」と語っており、AI<span class="t" data-t="semiconductor" tabindex="0" role="button" aria-label="半導体の説明を見る">半導体</span>の最大手が創業者抜きの体制でどう舵を取るかが業界全体の関心事になっています。</div>
+      <a class="card-link" href="https://www.wired.com/story/nvidias-board-has-no-plans-to-reinstate-jensen-huang/" target="_blank" rel="noopener">元記事を読む →</a>
+    </article>
+    <article class="card policy top">
+      <div class="card-top">
+        <span class="card-label policy">ポリシー</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
+      </div>
+      <div class="card-title-ja">Citiも個人向けAIエージェントに歯止め、被害は顧客の自己責任に</div>
+      <div class="card-title-en">More banks say customers using AI agents are on their own — even if they get hacked</div>
+      <div class="card-source">TechCrunch AI · Wed, 18 No</div>
+      <div class="card-body">米大手銀行のCitiが、個人の資産管理を担うAIエージェントの利用に歯止めをかける金融機関に新たに加わりました。顧客がAIエージェントを使っている場合、たとえハッキングの被害に遭っても銀行は責任を負わないとする方針を示す銀行が増えています。AIエージェントに家計や口座の管理を任せるサービスが広がる一方で、銀行側はその安全性まで保証しきれないと判断した形です。利用者にとっては、便利さと引き換えに被害時の補償を失いうる点を理解したうえで使う必要があります。</div>
+      <a class="card-link" href="https://techcrunch.com/2026/11/18/more-banks-says-customers-using-ai-agents-are-on-their-own-even-if-they-get-hacked/" target="_blank" rel="noopener">元記事を読む →</a>
+    </article>
+  </div>
+  <div class="tier">ジャンル別のニュース（タップで開く）</div>
+  <details class="genre research">
+    <summary><span class="genre-dot"></span>研究<span class="cnt">2件</span></summary>
+    <div class="genre-body">
+    <article class="card research">
+      <div class="card-top">
+        <span class="card-label research">研究</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja"><span class="t" data-t="osmo" tabindex="0" role="button" aria-label="Osmoの説明を見る">Osmo</span>、「人間並みのAIの鼻」を開発と主張</div>
+      <div class="card-title-en">This smell startup says its AI nose is as good as a human’s</div>
+      <div class="card-source">MIT Tech Review · Wed, 18 No</div>
+      <div class="card-body">AIスタートアップのOsmoが、自社のAIによる<span class="t" data-t="olfaction" tabindex="0" role="button" aria-label="嗅覚の説明を見る">嗅覚</span>は人間に匹敵すると主張しています。米ニュージャージー州のニューアーク空港近くにある研究所では、経験豊富な約30人の「嗅ぎ手」が地球上のあらゆる匂いを順に嗅ぎ、「ナッツのよう」「桃のよう」「海のよう」といった記録を残しています。この記録を化学分析の結果と突き合わせて充実した<span class="t" data-t="training-data" tabindex="0" role="button" aria-label="学習データの説明を見る">学習データ</span>を作り、Osmoが「世界初」とうたう<span class="t" data-t="foundation-model" tabindex="0" role="button" aria-label="基盤モデルの説明を見る">基盤モデル</span>の開発に使っています。言語や画像に続いて、匂いという感覚までAIの対象に入りつつあることを示す事例です。</div>
+      <a class="card-link" href="https://www.technologyreview.com/2026/11/18/1148816/smell-startup-osmo-ai-nose-good-as-humans/" target="_blank" rel="noopener">元記事を読む →</a>
+    </article>
+    <article class="card research">
+      <div class="card-top">
+        <span class="card-label research">研究</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja"><span class="t" data-t="gen-z" tabindex="0" role="button" aria-label="Z世代の説明を見る">Z世代</span>の3人に1人超が友人関係をAIに依存、<span class="t" data-t="gallup" tabindex="0" role="button" aria-label="Gallupの説明を見る">Gallup</span>調査</div>
+      <div class="card-title-en">Over a Third of Gen Z-ers Rely on AI for Friendship</div>
+      <div class="card-source">Wired AI · Wed, 18 No</div>
+      <div class="card-body">Gallupの新しい調査で、Z世代の3分の1以上が友人関係をAIに頼っていることが分かりました。ネット上だけの友人がいる若者や、AIを社交の相手として使っている若者は、そうでない若者に比べて孤独を感じる確率が高いといいます。<span class="t" data-t="ai-companion" tabindex="0" role="button" aria-label="AIコンパニオンの説明を見る">AIコンパニオン</span>が孤独を和らげるのか、それとも深めるのかを考えるうえで、利用の広がりと孤独感との関係を数字で示した調査として注目されます。</div>
+      <a class="card-link" href="https://www.wired.com/story/over-a-third-of-gen-z-rely-on-ai-for-friendship/" target="_blank" rel="noopener">元記事を読む →</a>
+    </article>
+    </div>
+  </details>
+  <details class="genre business">
+    <summary><span class="genre-dot"></span>ビジネス<span class="cnt">3件</span></summary>
+    <div class="genre-body">
+    <article class="card business">
+      <div class="card-top">
+        <span class="card-label business">ビジネス</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja">NVIDIAのスタートアップ<span class="t" data-t="investment-capital" tabindex="0" role="button" aria-label="出資の説明を見る">出資</span>が650億ドルに、新規案件は不透明</div>
+      <div class="card-title-en">Nvidia’s startup stakes ballooned to $65B, but Huang’s exit puts future  deals in doubt</div>
+      <div class="card-source">TechCrunch AI · Wed, 18 No</div>
+      <div class="card-body">NVIDIAが未<span class="t" data-t="listing" tabindex="0" role="button" aria-label="上場の説明を見る">上場</span>のスタートアップに持つ出資の価値が、650億ドルにまで膨らみました。過去9か月でほぼ3倍に増えた計算で、Jensen Huang氏による積極的な出資案件と、既存の出資先の<span class="t" data-t="valuation" tabindex="0" role="button" aria-label="評価額の説明を見る">評価額</span>の上昇が押し上げました。ただし、案件を主導してきたHuang氏の退任によって、今後も同じペースで出資が続くかは不透明になっています。NVIDIAはAIスタートアップにとって大口の出資者になっているため、方針が変われば業界の資金の流れにも影響しえます。</div>
+      <a class="card-link" href="https://techcrunch.com/2026/11/17/nvidias-startup-stakes-ballooned-to-65b-but-huangs-exit-puts-future-deals-in-doubt/" target="_blank" rel="noopener">元記事を読む →</a>
+    </article>
+    <article class="card business">
+      <div class="card-top">
+        <span class="card-label business">ビジネス</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja">NVIDIA、<span class="t" data-t="neocloud" tabindex="0" role="button" aria-label="ネオクラウドの説明を見る">ネオクラウド</span>向け融資の保証条件を明確化</div>
+      <div class="card-title-en">Nvidia clarifies when it will — and won’t — keep financing neoclouds</div>
+      <div class="card-source">TechCrunch AI · Wed, 18 No</div>
+      <div class="card-body">NVIDIAは、ネオクラウドの<span class="t" data-t="datacenter" tabindex="0" role="button" aria-label="データセンターの説明を見る">データセンター</span>建設融資を<span class="t" data-t="backstop" tabindex="0" role="button" aria-label="後ろ盾の説明を見る">後ろ盾</span>として支える場合に、どこまで責任を負うかを説明しました。暫定CEOのColette Kress氏によると、ネオクラウド側が独自の資金を確保し、NVIDIA製の機器を導入した施設を実際に完成させない限り、NVIDIAは返済の責任を負わないといいます。<span class="t" data-t="gpu" tabindex="0" role="button" aria-label="GPUの説明を見る">GPU</span>を買う側の<span class="t" data-t="funding-round" tabindex="0" role="button" aria-label="資金調達の説明を見る">資金調達</span>までNVIDIAが支える構図には関心が集まっており、今回の説明は同社が抱えるリスクの範囲を線引きしたものです。Huang氏退任後の新体制で、ネオクラウドへの支援姿勢を測る材料になります。</div>
+      <a class="card-link" href="https://techcrunch.com/2026/11/18/nvidia-clarifies-when-it-will-and-wont-keep-financing-neoclouds/" target="_blank" rel="noopener">元記事を読む →</a>
+    </article>
+    <article class="card business">
+      <div class="card-top">
+        <span class="card-label business">ビジネス</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja">インド<span class="t" data-t="humyn-labs" tabindex="0" role="button" aria-label="Humyn Labsの説明を見る">Humyn Labs</span>、米ロボット企業向けデータで4700万ドル調達</div>
+      <div class="card-title-en">India’s Humyn Labs raises $47M to feed US robotics companies the data they need</div>
+      <div class="card-source">TechCrunch AI · Wed, 18 No</div>
+      <div class="card-body">インドのHumyn Labsが4,700万ドルを調達しました。同社は今年2月に創業したばかりで、米国の<span class="t" data-t="robotics" tabindex="0" role="button" aria-label="ロボティクスの説明を見る">ロボティクス</span>企業が必要とする学習データを供給しており、売上の約90%を米国が占めています。競合には<span class="t" data-t="mecka-ai" tabindex="0" role="button" aria-label="Mecka AIの説明を見る">Mecka AI</span>や<span class="t" data-t="xdof" tabindex="0" role="button" aria-label="XDOFの説明を見る">XDOF</span>といったスタートアップがあります。ロボット開発で<span class="t" data-t="robot-data" tabindex="0" role="button" aria-label="ロボットデータの説明を見る">ロボットデータ</span>の需要が高まるなか、データを作る側にも大きな資金が流れ込んでいることを示す案件です。</div>
+      <a class="card-link" href="https://techcrunch.com/2026/11/18/accel-backs-indias-humyn-labs-to-supply-training-data-needed-by-u-s-robotics-ai-developers/" target="_blank" rel="noopener">元記事を読む →</a>
+    </article>
+    </div>
+  </details>
+  <details class="genre policy">
+    <summary><span class="genre-dot"></span>ポリシー<span class="cnt">2件</span></summary>
+    <div class="genre-body">
+    <article class="card policy">
+      <div class="card-top">
+        <span class="card-label policy">ポリシー</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja">AIハッキングツール「Artex」、犯罪者の間で人気に</div>
+      <div class="card-title-en">Artex Is Criminals’ New Favorite ‘Point-and-Shoot’ AI Hacking Tool</div>
+      <div class="card-source">Wired AI · Wed, 18 No</div>
+      <div class="card-body">Artexをはじめとする<span class="t" data-t="penetration-testing" tabindex="0" role="button" aria-label="ペネトレーションテストの説明を見る">ペネトレーションテスト</span>用のツールが、犯罪者の間で「狙って撃つだけ」のAIハッキングツールとして広まっています。<span class="t" data-t="chatbot" tabindex="0" role="button" aria-label="チャットボットの説明を見る">チャットボット</span>に<span class="t" data-t="prompt" tabindex="0" role="button" aria-label="プロンプトの説明を見る">プロンプト</span>を入力するだけで、標的のシステムの<span class="t" data-t="vulnerability" tabindex="0" role="button" aria-label="脆弱性の説明を見る">脆弱性</span>をスキャンし、実際に攻撃を成功させるところまで進められるため、経験の浅いハッカーでも扱えてしまいます。本来は守る側が弱点を洗い出すための仕組みが、攻撃の敷居を大きく下げている構図です。企業は、攻撃者の裾野が広がる前提で防御を見直す必要に迫られています。</div>
+      <a class="card-link" href="https://www.wired.com/story/artex-ai-hacking-tools/" target="_blank" rel="noopener">元記事を読む →</a>
+    </article>
+    <article class="card policy">
+      <div class="card-top">
+        <span class="card-label policy">ポリシー</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja">Altman氏とBrockman氏、AIが主導権を握る未来に警鐘</div>
+      <div class="card-title-en">Sam Altman warns against a future where AI, not humans, calls the shots</div>
+      <div class="card-source">TechCrunch AI · Wed, 18 No</div>
+      <div class="card-body">OpenAIのSam Altman氏と<span class="t" data-t="greg-brockman" tabindex="0" role="button" aria-label="Greg Brockmanの説明を見る">Greg Brockman</span>氏が、シリコンバレーで広がる「<span class="t" data-t="ai-takeover" tabindex="0" role="button" aria-label="AIによる乗っ取りの説明を見る">AIによる乗っ取り</span>」をめぐる議論に反論しました。両氏は、物事を決めるのはAIではなく人間であるべきだと強調する一方で、高度なモデルを人間の管理下に置き続けることの難しさも認めています。<span class="t" data-t="frontier-model" tabindex="0" role="button" aria-label="フロンティアモデルの説明を見る">フロンティアモデル</span>を開発する当事者のトップが、制御の課題を公の場で認めた点は、AIの安全性をめぐる議論にとって小さくない意味を持ちます。</div>
+      <a class="card-link" href="https://techcrunch.com/2026/11/18/sam-altman-warns-against-a-future-where-ai-not-humans-calls-the-shots/" target="_blank" rel="noopener">元記事を読む →</a>
+    </article>
+    </div>
+  </details>
+  <details class="genre tools">
+    <summary><span class="genre-dot"></span>ツール<span class="cnt">3件</span></summary>
+    <div class="genre-body">
+    <article class="card tools">
+      <div class="card-top">
+        <span class="card-label tools">ツール</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja">GoogleのAI Modeに、履歴が残らない「一時スレッド」</div>
+      <div class="card-title-en">Google’s AI feature in Search gets its own incognito mode</div>
+      <div class="card-source">TechCrunch AI · Wed, 18 No</div>
+      <div class="card-body">Googleは、検索のAI Modeに会話を記録しない「一時スレッド」機能を追加しました。この機能を使うと、AI Modeでのやり取りが検索履歴に追加されず、今後のおすすめ表示にも影響しません。いわばAI検索版のシークレットモードで、履歴やパーソナライズを気にせずにAIへ質問できる選択肢が加わったことになります。日本では、すでに使えます（AI Modeが対応しているすべての言語で、世界中に順次提供中と発表されており、日本語のAI Modeも含まれます）。</div>
+      <a class="card-link" href="https://techcrunch.com/2026/11/18/googles-ai-feature-in-search-gets-its-own-incognito-mode/" target="_blank" rel="noopener">元記事を読む →</a>
+    </article>
+    <article class="card tools">
+      <div class="card-top">
+        <span class="card-label tools">ツール</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja">Snapchat、<span class="t" data-t="claude-code" tabindex="0" role="button" aria-label="Claude Codeの説明を見る">Claude Code</span>や<span class="t" data-t="cursor" tabindex="0" role="button" aria-label="Cursorの説明を見る">Cursor</span>で<span class="t" data-t="ar" tabindex="0" role="button" aria-label="ARの説明を見る">AR</span>のLens開発が可能に</div>
+      <div class="card-title-en">Snapchat now lets developers build AR Lenses with AI assistants like Claude Code and Cursor</div>
+      <div class="card-source">TechCrunch AI · Wed, 18 No</div>
+      <div class="card-body">Snapchatは、開発者がClaude CodeやCursorといったAIアシスタントを使って、ARのLensを作れるようにしました。作り手は欲しいLensを普段の言葉で説明するだけでよく、制作の最初から最後までをAIアシスタントが担うとしています。AIコーディングツールが特定のプラットフォームの開発に直接つながる流れの一例で、ARの専門的な開発経験が無い人にも制作の門戸が広がります。日本での提供時期は、公式には発表されていません。開発者向けの説明ページには、対応する地域の記載がなく、Lens Studio 5.25以降が必要とだけ書かれています。</div>
+      <a class="card-link" href="https://techcrunch.com/2026/11/18/snapchat-now-lets-developers-build-ar-lenses-with-ai-coding-assistants-like-claude-code-and-cursor/" target="_blank" rel="noopener">元記事を読む →</a>
+    </article>
+    <article class="card tools">
+      <div class="card-top">
+        <span class="card-label tools">ツール</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
+      </div>
+      <div class="card-title-ja"><span class="t" data-t="lovable" tabindex="0" role="button" aria-label="Lovableの説明を見る">Lovable</span>、<span class="t" data-t="agentic-coding" tabindex="0" role="button" aria-label="バイブコーディングの説明を見る">バイブコーディング</span>で「事業運営」まで支援へ</div>
+      <div class="card-title-en">Lovable Wants You to Vibe Code Your Dream Job</div>
+      <div class="card-source">Wired AI · Wed, 18 No</div>
+      <div class="card-body">スウェーデンのスタートアップLovableが、事業の軸足を移しつつあります。同社はAIで手軽にアプリを作る「バイブコーディング」のブームで市場を席巻しましたが、サービス開始から2年を経て、作ったアプリでビジネスを回すところまで支援する方向にかじを切っています。アプリを「作る」ことが手軽になった次の段階として、作った後の運営をどこまでAIが担えるかが問われ始めています。</div>
+      <a class="card-link" href="https://www.wired.com/story/lovable-wants-you-to-vibe-code-a-living/" target="_blank" rel="noopener">元記事を読む →</a>
+    </article>
+    </div>
+  </details>
+
+<section class="sx"><h2 class="sx-h" id="script">台本（音声に合わせて流れます）</h2><p class="read-hint">台詞を押すと、そこから再生します。</p><div id="sxLines" data-script="podcast/script-2026-11-19.txt" data-times="podcast/times-2026-11-19.json"><p class="read-hint">読み込み中…</p></div></section>
+<script>
+(function(){
+  var C = {"play": "音声で聴く", "pause": "止める", "def": "1", "normal": ["1", "1×"], "remember": true, "key": "wk-speed", "keyboard": true, "names": {"ミカ": "イロハ", "いろは": "イロハ"}, "roles": {"てらこ先生": "teacher", "イロハ": "partner", "いろは": "partner", "ミカ": "partner"}};
+  var PLAY = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>', PAUSE = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>';
+  var a = document.getElementById('audio'), play = document.getElementById('play'), mplay = document.getElementById('mplay');
+  function fmt(s){ if (!isFinite(s)) return '--:--'; s = Math.floor(s); return Math.floor(s/60) + ':' + ('0' + s%60).slice(-2); }
+  function ui(){ var on = !a.paused;
+    play.innerHTML = on ? PAUSE : PLAY; play.setAttribute('aria-label', on ? C.pause : C.play);
+    document.getElementById('playLbl').textContent = on ? C.pause : C.play;
+    mplay.innerHTML = on ? PAUSE : PLAY; }
+  ui();
+  function toggle(){ a.paused ? a.play() : a.pause(); }
+  play.addEventListener('click', toggle); mplay.addEventListener('click', toggle);
+  a.addEventListener('play', ui); a.addEventListener('pause', ui); a.addEventListener('ended', ui);
+  function skip(s){ a.currentTime = Math.max(0, Math.min(a.duration || 0, a.currentTime + s)); }
+  document.querySelectorAll('[data-skip]').forEach(function(b){ b.addEventListener('click', function(){ skip(+b.dataset.skip); }); });
+  var fill = document.getElementById('fill'), mfill = document.getElementById('mfill');
+  a.addEventListener('loadedmetadata', function(){ document.getElementById('dur').textContent = fmt(a.duration); });
+  a.addEventListener('timeupdate', function(){
+    var r = a.duration ? a.currentTime / a.duration * 100 : 0;
+    fill.style.width = r + '%'; mfill.style.width = r + '%'; document.getElementById('knob').style.left = r + '%';
+    document.getElementById('cur').textContent = fmt(a.currentTime);
+    document.getElementById('mtime').textContent = fmt(a.currentTime) + ' / ' + fmt(a.duration);
+  });
+  var prog = document.getElementById('progress');
+  function seekAt(x){ var r = prog.getBoundingClientRect(); if (a.duration) a.currentTime = a.duration * Math.max(0, Math.min(1, (x - r.left) / r.width)); }
+  prog.addEventListener('click', function(e){ seekAt(e.clientX); });
+  prog.addEventListener('keydown', function(e){ if (e.key === 'ArrowLeft') skip(-10); if (e.key === 'ArrowRight') skip(10); });
+  // 速さ：番組ごとの設定。覚える番組（AIニュース）は保存、毎回1倍の番組（スマホニュース）は保存しない
+  var rate = C.def, sps = [].slice.call(document.querySelectorAll('#speeds .sp'));
+  if (C.remember && C.key) { try { var s = localStorage.getItem(C.key); if (s && sps.some(function(b){ return b.dataset.r === s; })) rate = s; } catch(e) {} }
+  function setRate(v){ rate = v; a.playbackRate = parseFloat(v); a.preservesPitch = true;
+    sps.forEach(function(b){ b.classList.toggle('on', b.dataset.r === v); b.setAttribute('aria-pressed', b.dataset.r === v ? 'true' : 'false'); });
+    if (C.remember && C.key) { try { localStorage.setItem(C.key, v); } catch(e) {} } }
+  sps.forEach(function(b){ b.addEventListener('click', function(){ setRate(rate === b.dataset.r ? C.normal[0] : b.dataset.r); }); });  // もう一度押すとふつうに戻る
+  setRate(rate);
+  a.addEventListener('play', function(){ a.playbackRate = parseFloat(rate); });
+  if (C.keyboard) document.addEventListener('keydown', function(e){
+    if (/INPUT|TEXTAREA/.test(e.target.tagName) || e.metaKey || e.ctrlKey) return;
+    if (e.key === ' ' || e.key === 'k') { e.preventDefault(); toggle(); }
+    else if (e.key === 'ArrowLeft') skip(-10); else if (e.key === 'ArrowRight') skip(10);
+    else if (e.key === 'j') skip(-30); else if (e.key === 'l') skip(30);
+  });
+  // 大きなプレイヤーが画面の外に出たら、下に小さな再生バー
+  var big = document.getElementById('player'), mini = document.getElementById('mini');
+  function miniCheck(){ var out = big.getBoundingClientRect().bottom < 0; mini.classList.toggle('show', out); mini.setAttribute('aria-hidden', out ? 'false' : 'true'); }
+  addEventListener('scroll', miniCheck, {passive:true}); miniCheck();
+  // 本文：今の文に色をつけて画面がついていく。自分でスクロールした直後の8秒は追いかけない
+  var lines = [], now = null, userAt = 0;
+  ['wheel','touchmove','keydown'].forEach(function(ev){ addEventListener(ev, function(){ userAt = Date.now(); }, {passive:true}); });
+  function wire(){
+    lines = [].slice.call(document.querySelectorAll('.ln[data-t]'));
+    lines.forEach(function(l){ if (l.dataset.w) return; l.dataset.w = 1; l.addEventListener('click', function(e){
+      if (e.target.closest('.t') || e.target.closest('a')) return;      // 言葉の説明やリンクを押したときは再生しない
+      userAt = 0; a.currentTime = +l.dataset.t; a.play(); }); });
+  }
+  function follow(force){
+    var c = null;
+    for (var i = 0; i < lines.length; i++) { if (+lines[i].dataset.t <= a.currentTime + 0.15) c = lines[i]; else break; }
+    if (c === now && !force) return;
+    if (now) now.classList.remove('now'); now = c; if (!now) return;
+    now.classList.add('now');
+    if (!a.paused && Date.now() - userAt > 8000) { var r = now.getBoundingClientRect();
+      if (r.top < 60 || r.bottom > innerHeight - 90) scrollTo({ top: scrollY + r.top - innerHeight * 0.3, behavior: 'smooth' }); }
+  }
+  a.addEventListener('timeupdate', function(){ follow(false); });
+  a.addEventListener('seeked', function(){ follow(true); });
+  a.addEventListener('play', function(){ follow(true); });
+  wire();
+  // 台本を後から読み込む番組（AIニュース：声の差し替えで開始秒が変わるため、その場で読む）
+  var box = document.getElementById('sxLines');
+  if (box && box.dataset.script) {
+    var NAMES = C.names || {}, ROLES = C.roles || {};
+    Promise.all([
+      fetch(box.dataset.script, {cache:'no-cache'}).then(function(r){ return r.ok ? r.text() : Promise.reject(); }),
+      fetch(box.dataset.times, {cache:'no-cache'}).then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; })
+    ]).then(function(res){
+      var times = res[1] || [], k = 0, out = [];
+      res[0].split('\n').forEach(function(line){
+        var m = line.match(/^\[([^\]]+)\]\s*(.+)$/); if (!m) return;
+        var st = times[k++], who = NAMES[m[1]] || m[1], role = ROLES[m[1]] || 'teacher';
+        var t = (typeof st === 'number') ? ' data-t="' + st + '"' : '';
+        out.push('<div class="ln ' + role + '"' + t + '><span class="who">' + who.replace(/</g,'&lt;') + '</span>'
+                 + m[2].replace(/&/g,'&amp;').replace(/</g,'&lt;') + '</div>');
+      });
+      box.innerHTML = out.length ? out.join('') : '<p class="read-hint">この号の台本はまだありません。</p>';
+      wire(); follow(true);
+    }).catch(function(){ box.innerHTML = '<p class="read-hint">台本を読み込めませんでした。</p>'; });
+  }
+  // 「この番組を毎回聴く」
+  var fs = document.getElementById('fsheet'), fv = document.getElementById('fveil'), fbs = document.querySelectorAll('.follow');
+  if (fs && fbs.length) { var op = function(){ fs.classList.add('on'); fv.classList.add('on'); }, cl = function(){ fs.classList.remove('on'); fv.classList.remove('on'); };
+    fbs.forEach(function(b){ b.addEventListener('click', op); }); document.getElementById('fclose').addEventListener('click', cl); fv.addEventListener('click', cl);
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape') cl(); }); }
+})();
+</script>
+
+  <div class="section-label">毎朝うけとる</div>
+  <div class="sub-grid">
+    <div class="sub-card mail sub-embed">
+      <span class="sub-t">メールマガジンで受け取る</span>
+      <span class="sub-d">毎朝6時のAIニュースと、週1回のまとめ・解説記事をメールで。専門用語には解説つき。無料・いつでも解除できます</span>
+      <iframe src="https://teracosensei.substack.com/embed" width="100%" height="150" style="border:1px solid var(--border);border-radius:6px;background:#fff;" frameborder="0" scrolling="no" title="メールマガジン登録"></iframe>
+    </div>
+    <div class="sub-card sub-embed">
+      <span class="sub-t">ポッドキャストで聴く</span>
+      <span class="sub-d">通勤中や作業中に。毎朝10〜15分の音声版です</span>
+      <a class="sub-badge spotify" href="https://open.spotify.com/show/0kuCanHapeNX2ALHYvzbf3">Spotify で聴く</a>
+    </div>
+  </div>
+  <p class="sub-advanced">上級者向け：<a href="feed.xml">RSS配信</a>（サイトの更新を自動で受け取るための仕組みです。Feedly などのRSSリーダーをお使いの方はこちらを登録してください）</p>
+
+</main>
+
+<footer>
+  <strong>世界一わかりやすいAIニュース</strong> — てらこ先生<br>
+  毎朝6時に配信しています。
+  <div class="footer-links"><a href="">トップ</a> ／ <a href="terms/">AI用語集</a> ／ <a href="articles/">エッセイ</a> ／ <a href="archive.html">バックナンバー</a> ／ <a href="about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
+  <div class="footer-brand">Teraco News by てらこ先生</div>
+</footer>
+<script type="application/json" id="glossary-data">{"agentic-coding": {"n": "エージェント型コーディング", "r": "", "s": "AIが自分でファイルを読み書きし、テストを実行しながらプログラムを完成させる開発の進め方です。", "u": "terms/agentic-coding.html"}, "ai-agent": {"n": "AIエージェント", "r": "エーアイエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "ai-companion": {"n": "AIコンパニオン", "r": "エーアイコンパニオン", "s": "友だちや相棒のように話し相手になってくれるAIです。仕事の道具というより、気持ちに寄り添う役割をになうものです。", "u": "terms/ai-companion.html"}, "ai-takeover": {"n": "AIによる乗っ取り", "r": "", "s": "AIが人間の手に負えなくなり、社会の主導権を握ってしまう事態のことです。AIの危険性を語るときに使われます。", "u": "terms/ai-takeover.html"}, "ar": {"n": "AR", "r": "エーアール", "s": "カメラに映る現実の景色に、デジタルの絵や情報を重ねて見せる技術です。顔に動物の耳を付けるカメラアプリなどが身近な例です。", "u": "terms/ar.html"}, "backstop": {"n": "バックストップ", "r": "バックストップ", "s": "お金を借りる人が返せなくなったときに備えて、別の会社が後ろで支える約束のことです。貸す側は安心してお金を出せます。", "u": "terms/backstop.html"}, "board-of-directors": {"n": "取締役会", "r": "とりしまりやくかい", "s": "会社の大事なことを決めたり、社長などの経営陣を見張ったりする役員の集まりです。", "u": "terms/board-of-directors.html"}, "chatbot": {"n": "チャットボット", "r": "チャットボット", "s": "文字や声で話しかけると、会話の形で答えてくれるプログラムのことです。ChatGPTが代表例です。", "u": "terms/chatbot.html"}, "citi": {"n": "Citi", "r": "シティ", "s": "アメリカの大手銀行グループです。世界中で個人や企業向けにお金のサービスを提供しています。", "u": "terms/citi.html"}, "claude-code": {"n": "Claude Code", "r": "クロードコード", "s": "Claudeにコードを書かせたり直させたりするための道具です。ファイルの編集から変更の記録まで任せられます。", "u": "terms/claude-code.html"}, "colette-kress": {"n": "Colette Kress", "r": "コレット・クレス", "s": "NVIDIAで長くお金の管理を担当してきた幹部です。Jensen Huang氏の辞任を受けて、一時的に会社のトップを務めることになりました。", "u": "terms/colette-kress.html"}, "cursor": {"n": "Cursor", "r": "カーソル", "s": "AIがコードを書くのを手伝うプログラミング用のエディタです。", "u": "terms/cursor.html"}, "datacenter": {"n": "データセンター", "r": "データセンター", "s": "AIを動かすためのコンピュータを大量に設置した施設です。AI競争は電力と土地の競争でもあります。", "u": "terms/datacenter.html"}, "donald-trump": {"n": "ドナルド・トランプ", "r": "", "s": "アメリカの大統領です。AIを含む国の政策を最終的に決める立場にあります。", "u": "terms/donald-trump.html"}, "elon-musk": {"n": "イーロン・マスク", "r": "イーロン・マスク", "s": "テスラやスペースX、X（旧Twitter）を率いる実業家です。AI企業xAIも設立しました。", "u": "terms/elon-musk.html"}, "equity-compensation": {"n": "株式報酬", "r": "カブシキホウシュウ", "s": "給料の一部を、会社の株で受け取る仕組みです。会社の価値が上がると、もらった株の価値も上がります。", "u": "terms/equity-compensation.html"}, "foundation-model": {"n": "基盤モデル", "r": "きばんモデル", "s": "大量のデータで学習した、いろいろな用途に使える土台のAIです。これをもとに個別の用途向けのAIを作ります。", "u": "terms/foundation-model.html"}, "frontier-model": {"n": "フロンティアモデル", "r": "", "s": "その時点で最も性能が高い、開発の最前線にある大型のAIモデルを指す言葉です。各社がここで性能を競っています。", "u": "terms/frontier-model.html"}, "funding-round": {"n": "資金調達ラウンド", "r": "", "s": "スタートアップが投資家からお金を集める段階のことです。シード、シリーズA、Bと進みます。", "u": "terms/funding-round.html"}, "gallup": {"n": "Gallup", "r": "ギャラップ", "s": "アメリカの世論調査の会社です。人々の考えや暮らしぶりをアンケートで調べて発表しています。", "u": "terms/gallup.html"}, "gen-z": {"n": "Z世代", "r": "ゼットセダイ", "s": "おおむね1990年代後半から2010年ごろに生まれた世代のことです。子どものころからスマホやネットが身近にあった世代です。", "u": "terms/gen-z.html"}, "gpu": {"n": "GPU", "r": "ジーピーユー", "s": "大量の計算を同時に行える半導体で、AIの学習と実行に欠かせない部品です。", "u": "terms/gpu.html"}, "greg-brockman": {"n": "Greg Brockman", "r": "グレッグ・ブロックマン", "s": "OpenAIの社長です。会社の経営の中心にいる人物の一人です。", "u": "terms/greg-brockman.html"}, "humyn-labs": {"n": "Humyn Labs", "r": "ヒューミンラボ", "s": "ロボットを賢くするためのデータを作って売っているインドの会社です。お客さんの多くはアメリカの会社です。", "u": "terms/humyn-labs.html"}, "intelligence-asset": {"n": "情報協力者（インテリジェンス・アセット）", "r": "インテリジェンス・アセット", "s": "外国の情報機関のために、ひそかに情報を集めたり渡したりする人のことです。いわゆるスパイに近い存在です。", "u": "terms/intelligence-asset.html"}, "interim-ceo": {"n": "暫定CEO", "r": "ざんていシーイーオー", "s": "正式なトップが決まるまでの間、一時的に会社を率いる人です。急な辞任などのときに置かれます。", "u": "terms/interim-ceo.html"}, "investment-capital": {"n": "出資", "r": "しゅっし", "s": "会社にお金を出して、その会社の持ち主の一人になることです。会社が成長すれば、出した側も得をします。", "u": "terms/investment-capital.html"}, "jensen-huang": {"n": "Jensen Huang", "r": "ジェンスン・フアン", "s": "AI用の半導体で圧倒的なシェアを持つNVIDIAの創業者・トップです。黒い革ジャンがトレードマークです。", "u": "terms/jensen-huang.html"}, "listing": {"n": "上場", "r": "じょうじょう", "s": "会社の株を、誰でも売り買いできる株式市場に出すことです。上場すると、会社はより多くのお金を集めやすくなります。", "u": "terms/listing.html"}, "lovable": {"n": "Lovable", "r": "ラバブル", "s": "AIに話しかけるだけでアプリを作れるサービスの一つです。この分野の代表的な存在として名前が挙がります。", "u": "terms/lovable.html"}, "mecka-ai": {"n": "Mecka AI", "r": "メッカエーアイ", "s": "ロボットに動きを覚えさせるためのデータを作っている、создан2年目の新しい会社です。Sequoia Capitalが主導する出資で、会社の値段が約5億ドルに届こうとしています。", "u": "terms/mecka-ai.html"}, "neocloud": {"n": "ネオクラウド", "r": "ネオクラウド", "s": "AI向けの計算機を大量に持ち、時間貸しする新しいタイプの事業者のことです。大手クラウドとは違い、AIの計算に絞ってサービスを提供します。", "u": "terms/neocloud.html"}, "nvidia": {"n": "NVIDIA", "r": "エヌビディア", "s": "AI開発に不可欠なGPUを作っている半導体企業です。生成AIブームの最大の受益者と言われています。", "u": "terms/nvidia.html"}, "olfaction": {"n": "嗅覚", "r": "キュウカク", "s": "鼻で匂いを感じ取る力のことです。視覚（見る）や聴覚（聞く）と並ぶ、五感の一つです。", "u": "terms/olfaction.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "osmo": {"n": "Osmo", "r": "オズモ", "s": "匂いをAIで扱えるようにしようとしている会社です。人が嗅いだ記録と化学の分析を組み合わせてAIに学ばせています。", "u": "terms/osmo.html"}, "penetration-testing": {"n": "ペネトレーションテスト", "r": "ペネトレーションテスト", "s": "守る側があえて自分のシステムを攻撃してみて、弱いところを探す検査です。本物の攻撃を受ける前に穴をふさぐのが目的です。", "u": "terms/penetration-testing.html"}, "prompt": {"n": "プロンプト", "r": "プロンプト", "s": "AIに与える指示や質問の文章のことです。書き方しだいで返ってくる答えの質が大きく変わります。", "u": "terms/prompt.html"}, "retirement-resignation": {"n": "退任", "r": "たいにん", "s": "会社のトップなどが、その役職から退くことです。自分から辞める場合も、責任を取って辞める場合もあります。", "u": "terms/retirement-resignation.html"}, "robot-data": {"n": "ロボットデータ", "r": "ロボットデータ", "s": "ロボットに動き方を覚えさせるために集める、実際の動作の記録です。カメラの映像や、関節をどう動かしたかといった情報が含まれます。", "u": "terms/robot-data.html"}, "robotics": {"n": "ロボティクス", "r": "", "s": "ロボットを作ったり動かしたりするための技術や研究の分野です。", "u": "terms/robotics.html"}, "sam-altman": {"n": "Sam Altman", "r": "サム・アルトマン", "s": "ChatGPTを作ったOpenAIのトップ（CEO）です。今のAIブームの顔ともいえる人物です。", "u": "terms/sam-altman.html"}, "semiconductor": {"n": "半導体", "r": "はんどうたい", "s": "電気を通したり止めたりできる性質を持つ材料、またはそれで作ったコンピュータの部品のことです。", "u": "terms/semiconductor.html"}, "snapchat": {"n": "Snapchat", "r": "スナップチャット", "s": "写真や動画を送り合う、若い人に人気のアプリです。顔に飾りをつけるエフェクトでも知られています。", "u": "terms/snapchat.html"}, "training-data": {"n": "学習データ", "r": "", "s": "AIを訓練するために読み込ませる大量のデータのことです。AIの性能と偏りの両方を決める土台です。", "u": "terms/training-data.html"}, "valuation": {"n": "評価額", "r": "ひょうかがく", "s": "投資を受ける際に算定される企業の価値のことです。「10億ドルの評価額で調達」のように使われます。", "u": "terms/valuation.html"}, "vulnerability": {"n": "脆弱性", "r": "", "s": "ソフトウェアに残っている、攻撃に悪用されうる欠陥のことです。見つかると修正プログラムが配られます。", "u": "terms/vulnerability.html"}, "xdof": {"n": "XDOF", "r": "エックスディーオーエフ", "s": "ロボットを動かすためのデータを集めて提供している新しい会社です。事業内容を公表したのは3か月ほど前で、設立から日が浅い企業です。", "u": "terms/xdof.html"}}</script>
+
+<script>
+(function(){
+  var el = document.getElementById('glossary-data');
+  if (!el) return;
+  var G; try { G = JSON.parse(el.textContent); } catch(e) { return; }
+
+  // 指でも操作する端末ではシート、マウスがある端末ではポップアップにする
+  var hoverable = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  var tip = document.createElement('div'); tip.id = 'tip';
+  var veil = document.createElement('div'); veil.id = 'veil';
+  var sheet = document.createElement('div'); sheet.id = 'sheet';
+  sheet.innerHTML = '<div class="sheet-grip"></div><span class="tip-n"></span>'
+    + '<div class="tip-s"></div><a class="tip-m" href="#">くわしい解説を読む →</a>';
+  document.body.appendChild(tip);
+  document.body.appendChild(veil);
+  document.body.appendChild(sheet);
+
+  function showTip(node, d){
+    tip.innerHTML = '<span class="tip-n"></span><span class="tip-s"></span>'
+      + '<a class="tip-m" href="#">くわしい解説 →</a>';
+    tip.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
+    tip.querySelector('.tip-s').textContent = d.s;
+    tip.querySelector('.tip-m').href = d.u || '#';
+    tip.querySelector('.tip-m').style.display = d.u ? '' : 'none';
+    tip.classList.add('on');
+    var r = node.getBoundingClientRect();
+    var w = tip.offsetWidth, h = tip.offsetHeight;
+    var left = Math.min(Math.max(8, r.left + r.width/2 - w/2), window.innerWidth - w - 8);
+    var top = r.top - h - 10;
+    if (top < 8) top = r.bottom + 10;           // 上に入らなければ下に出す
+    tip.style.left = (left + window.scrollX) + 'px';
+    tip.style.top  = (top + window.scrollY) + 'px';
+  }
+  function hideTip(){ tip.classList.remove('on'); }
+
+  function openSheet(d){
+    sheet.querySelector('.tip-n').textContent = d.r ? (d.n + '（' + d.r + '）') : d.n;
+    sheet.querySelector('.tip-s').textContent = d.s;
+    sheet.querySelector('.tip-m').href = d.u || '#';
+    sheet.querySelector('.tip-m').style.display = d.u ? '' : 'none';
+    sheet.classList.add('on'); veil.classList.add('on');
+  }
+  function closeSheet(){ sheet.classList.remove('on'); veil.classList.remove('on'); }
+  veil.addEventListener('click', closeSheet);
+
+  var hideTimer;
+  document.addEventListener('mouseover', function(e){
+    if (!hoverable) return;
+    var n = e.target.closest('.t'); if (!n) return;
+    clearTimeout(hideTimer);
+    var d = G[n.getAttribute('data-t')]; if (d) showTip(n, d);
+  });
+  document.addEventListener('mouseout', function(e){
+    if (!hoverable) return;
+    if (e.target.closest('.t') && !tip.contains(e.relatedTarget)) {
+      hideTimer = setTimeout(hideTip, 180);
+    }
+  });
+  tip.addEventListener('mouseenter', function(){ clearTimeout(hideTimer); });
+  tip.addEventListener('mouseleave', hideTip);
+
+  document.addEventListener('click', function(e){
+    var n = e.target.closest('.t'); if (!n) return;
+    var d = G[n.getAttribute('data-t')]; if (!d) return;
+    e.preventDefault();
+    if (hoverable && d.u) { location.href = d.u; } else if (!hoverable) { openSheet(d); }
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') { hideTip(); closeSheet(); return; }
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    var n = document.activeElement; if (!n || !n.classList.contains('t')) return;
+    var d = G[n.getAttribute('data-t')]; if (!d) return;
+    e.preventDefault();
+    hoverable ? (location.href = d.u) : openSheet(d);
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -13587,6 +13587,208 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "citi",
+      "term": "Citi",
+      "reading": "シティ",
+      "aliases": [
+        "シティグループ",
+        "Citigroup"
+      ],
+      "category": "企業",
+      "short": "アメリカの大手銀行グループです。世界中で個人や企業向けにお金のサービスを提供しています。",
+      "detail": "米国を代表する巨大金融機関の一つです。今回、顧客が個人の資産管理にAIエージェントを使う場合に歯止めをかける銀行の一つとして報じられました。大手銀行の方針は業界全体の基準になりやすく、AIエージェントにお金の操作を任せるサービスの広がり方に影響します。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "osmo",
+      "term": "Osmo",
+      "reading": "オズモ",
+      "aliases": [],
+      "category": "企業",
+      "short": "匂いをAIで扱えるようにしようとしている会社です。人が嗅いだ記録と化学の分析を組み合わせてAIに学ばせています。",
+      "detail": "米ニュージャージー州に研究所を持つAIスタートアップです。約30人の経験豊富な「嗅ぎ手」の記録と化学分析を突き合わせて学習データを作り、匂いの分野で「世界初」とうたう基盤モデルを開発しています。自社のAIの鼻は人間並みだと主張しています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "humyn-labs",
+      "term": "Humyn Labs",
+      "reading": "ヒューミンラボ",
+      "aliases": [],
+      "category": "企業",
+      "short": "ロボットを賢くするためのデータを作って売っているインドの会社です。お客さんの多くはアメリカの会社です。",
+      "detail": "2026年2月に創業し、4,700万ドルを調達しました。米国のロボティクス企業向けに学習データを供給しており、売上の約90%が米国からです。Mecka AIやXDOFなどと競合しています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "gallup",
+      "term": "Gallup",
+      "reading": "ギャラップ",
+      "aliases": [
+        "ギャラップ社"
+      ],
+      "category": "企業",
+      "short": "アメリカの世論調査の会社です。人々の考えや暮らしぶりをアンケートで調べて発表しています。",
+      "detail": "世論調査や意識調査で知られる米国の調査会社です。今回はZ世代の3分の1以上が友人関係をAIに頼っているという調査結果を発表しました。調査会社の数字は、報道や政策の議論で根拠としてよく引用されます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "snapchat",
+      "term": "Snapchat",
+      "reading": "スナップチャット",
+      "aliases": [
+        "スナチャ"
+      ],
+      "category": "企業",
+      "short": "写真や動画を送り合う、若い人に人気のアプリです。顔に飾りをつけるエフェクトでも知られています。",
+      "detail": "米国の若年層を中心に使われているメッセージアプリです。カメラに映った映像に効果を重ねる「Lens」が特徴で、今回、その制作にClaude CodeやCursorなどのAIアシスタントを使えるようにしました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "ar",
+      "term": "AR",
+      "reading": "エーアール",
+      "aliases": [
+        "拡張現実",
+        "Augmented Reality"
+      ],
+      "category": "基礎",
+      "short": "カメラに映る現実の景色に、デジタルの絵や情報を重ねて見せる技術です。顔に動物の耳を付けるカメラアプリなどが身近な例です。",
+      "detail": "現実を置き換えるVR（仮想現実）に対し、現実に情報を「足す」のがARです。スマホのカメラアプリやメガネ型端末で使われています。SnapchatのLensはAR体験の代表例の一つです。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "snapchat-lens",
+      "term": "Lens（Snapchat）",
+      "reading": "レンズ",
+      "aliases": [
+        "ARレンズ",
+        "Lenses"
+      ],
+      "category": "使い方",
+      "short": "Snapchatのカメラで使える、見た目を変える効果のことです。顔や景色に飾りや動きを重ねられます。",
+      "detail": "SnapchatのAR機能で、開発者やクリエイターが作って公開できます。今回、作りたいLensを普段の言葉で説明すれば、Claude CodeやCursorなどのAIアシスタントが制作を最初から最後まで進める仕組みが用意されました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "penetration-testing",
+      "term": "ペネトレーションテスト",
+      "reading": "ペネトレーションテスト",
+      "aliases": [
+        "ペンテスト",
+        "侵入テスト",
+        "penetration testing"
+      ],
+      "category": "安全性",
+      "short": "守る側があえて自分のシステムを攻撃してみて、弱いところを探す検査です。本物の攻撃を受ける前に穴をふさぐのが目的です。",
+      "detail": "本来は企業のセキュリティ対策として行われる正当な検査です。ところがArtexのようなAI搭載のツールは、チャットボットへの指示だけで脆弱性のスキャンから攻撃まで進められるため、犯罪者にも悪用されています。防御のための道具が攻撃の敷居を下げてしまう例です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "gen-z",
+      "term": "Z世代",
+      "reading": "ゼットセダイ",
+      "aliases": [
+        "Gen Z",
+        "ジェンジー"
+      ],
+      "category": "基礎",
+      "short": "おおむね1990年代後半から2010年ごろに生まれた世代のことです。子どものころからスマホやネットが身近にあった世代です。",
+      "detail": "マーケティングや社会調査でよく使われる世代の呼び方です。今回のGallupの調査では、Z世代の3分の1以上が友人関係をAIに頼っていると報告されました。若い世代のAIとの付き合い方は、AIコンパニオンをめぐる議論の中心になっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "equity-compensation",
+      "term": "株式報酬",
+      "reading": "カブシキホウシュウ",
+      "aliases": [
+        "エクイティ",
+        "ストック報酬"
+      ],
+      "category": "ビジネス",
+      "short": "給料の一部を、会社の株で受け取る仕組みです。会社の価値が上がると、もらった株の価値も上がります。",
+      "detail": "テック企業では、社員を引き留める手段として広く使われています。NVIDIAの暫定CEOは、Huang氏の退任で動揺する社員に向けて昇給とあわせて株式報酬の上乗せを約束しました。経営の混乱期に人材流出を防ぐ典型的な手段です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "backstop",
+      "term": "バックストップ",
+      "reading": "バックストップ",
+      "aliases": [
+        "後ろ盾",
+        "債務保証"
+      ],
+      "category": "ビジネス",
+      "short": "お金を借りる人が返せなくなったときに備えて、別の会社が後ろで支える約束のことです。貸す側は安心してお金を出せます。",
+      "detail": "今回はNVIDIAが、ネオクラウドのデータセンター建設融資を支える場合の条件として説明されました。NVIDIAが責任を負うのは、ネオクラウドが独自の資金を確保し、NVIDIA製機器を入れた施設を完成させた場合に限るとしています。保証の範囲は、支える側が抱えるリスクの大きさを左右します。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "temporary-threads",
+      "term": "一時スレッド（Google AI Mode）",
+      "reading": "イチジスレッド",
+      "aliases": [
+        "temporary threads",
+        "AI Modeのシークレットモード"
+      ],
+      "category": "使い方",
+      "short": "GoogleのAI検索で、会話を記録に残さずに使える機能です。調べた内容が履歴やおすすめに反映されません。",
+      "detail": "GoogleがAI Modeに追加した機能で、ブラウザのシークレットモードのAI検索版にあたります。この機能でのやり取りは検索履歴に追加されず、今後のおすすめ表示にも影響しません。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "olfaction",
+      "term": "嗅覚",
+      "reading": "キュウカク",
+      "aliases": [
+        "におい",
+        "匂いの感覚"
+      ],
+      "category": "基礎",
+      "short": "鼻で匂いを感じ取る力のことです。視覚（見る）や聴覚（聞く）と並ぶ、五感の一つです。",
+      "detail": "AIは文字・画像・音声を扱うのが得意になってきましたが、匂いは扱いが難しい分野でした。Osmoは人の嗅ぎ分けの記録と化学分析を組み合わせることで、AIに嗅覚を持たせようとしています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "ouster",
+      "term": "解任",
+      "reading": "カイニン",
+      "aliases": [
+        "更迭"
+      ],
+      "category": "ビジネス",
+      "short": "役職についている人を、その役目から外すことです。本人の意思ではなく、周りの判断で辞めさせる場合に使います。",
+      "detail": "企業では、取締役会がCEOを解任する権限を持つのが一般的です。NVIDIAのJensen Huang氏は複数のスキャンダルを受けて職を退き、報道では「解任」とも表現されています。取締役会は外部からの圧力があっても復帰させない考えを示しました。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }
