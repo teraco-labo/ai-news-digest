@@ -1,18 +1,18 @@
 {
- "date": "2026-11-18",
+ "date": "2026-11-19",
  "tier": "creator",
- "used": 68930,
+ "used": 71764,
  "limit": 124236,
  "reset": "2026-11-23",
- "days_left": 5,
- "available": 51306,
- "planned_base": 14850,
- "planned_final": 18850,
+ "days_left": 4,
+ "available": 48472,
+ "planned_base": 9600,
+ "planned_final": 12600,
  "state": "ゆとりあり",
  "counts": {
-  "ai_news": 4,
-  "sumaho_news": 1,
-  "yt_set": 2,
+  "ai_news": 3,
+  "sumaho_news": 0,
+  "yt_set": 1,
   "reading": 1
  },
  "targets": {
