@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-20",
+  "updated": "2026-11-22",
   "entries": [
     {
       "id": "20260826-33a3d0",
@@ -2269,6 +2269,387 @@
         "title": "Museの使いすぎで「タスク迷子」と「お馬鹿化」を、毎朝1画面の健康診断で防ぐ。メモリを26%減らした点検ダッシュボードの作り方を紹介",
         "ref": "gmail:1a1ef2010732d28f#2",
         "published": "2026-11-18"
+      },
+      "visibility": "private",
+      "trial": {
+        "status": "",
+        "note": "",
+        "date": ""
+      }
+    },
+    {
+      "id": "20261122-001145",
+      "date": "2026-11-22",
+      "title": "AIで作った映像は1コマずつ止めて見て、気になる所を画面写真で指摘して直させる（往復が前提）",
+      "summary": "イケハヤさんは Claude Code と画像・動画の生成サービスをつないで、3日で4本のMVを作った。ただしAIの絵は手の左右や指の本数、キャラの細部がまだ崩れるので、再生位置を動かしながら1コマずつ見て、おかしい所を画面写真で撮って指摘し直させている。1本あたり平均25往復ほどかかるという。安っぽく見えるときは、別のAIに見た目を批評させる指示もよく使うとのこと。",
+      "takeaways": [
+        "AIの映像は最初の出来がぱっと見よくても細部が崩れる。完成扱いの前に1コマずつ点検する工程を必ず入れる",
+        "直しは言葉だけでなく、該当のコマの画面写真を添えて場所を特定して頼む",
+        "往復回数（ここでは平均25回）を見込んで日程を組む",
+        "安っぽさのような言葉にしにくい不満は、別のAIに批評させて言語化させる"
+      ],
+      "apply": [
+        "古代生物チャンネル・建造物チャンネル・スライド動画の検品で、書き出したあと一定間隔でコマを切り出して並べ、崩れを探す工程を入れる"
+      ],
+      "tags": [
+        "動画制作",
+        "検品"
+      ],
+      "confidence": "opinion",
+      "source": {
+        "type": "web",
+        "name": "イケハヤ",
+        "title": "Claude Codeで「ミュージックビデオ」を作る方法。【※稼げません】",
+        "ref": "https://ihayato.substack.com/p/claude-code-a36",
+        "published": "2026-11-19"
+      },
+      "visibility": "private",
+      "trial": {
+        "status": "",
+        "note": "",
+        "date": ""
+      }
+    },
+    {
+      "id": "20261122-9ad3df",
+      "date": "2026-11-22",
+      "title": "名前を出せない下請けの仕事はAIの内製化で消えやすい。自分の名前が入った作品を公開して指名される理由を作る",
+      "summary": "大きな取引先の仕事は、関わった人が名前を出せない契約になっていることが多い。発注する側から見ると「その人である必要がない」仕事なので、AIで社内でも作りやすくなった今、内製化で真っ先に外されやすい、というのがイケハヤさんの見立て。対策は、自分の名前が入った作品を自分のサイトなどで公開し、AIで自作するより明らかに良いと思わせる質を見せることだという。",
+      "takeaways": [
+        "「AIでよくない？」と客が気づいた瞬間になくなる仕事は危ない",
+        "指名される理由は、名前の入った公開作品（実績）で作る",
+        "公開する作品がしょぼいと逆効果。AIを使い倒しても出せない水準のものを出す"
+      ],
+      "apply": [
+        "藤崎映像デザインの映像制作・講座の実績を、名前つきで自分のホームページに並べる（公開するかは藤崎さんが決める）"
+      ],
+      "tags": [
+        "働き方",
+        "実績づくり"
+      ],
+      "confidence": "opinion",
+      "source": {
+        "type": "web",
+        "name": "イケハヤ",
+        "title": "「名前を出せない仕事」は、どんどんAIに奪われます。",
+        "ref": "https://ihayato.substack.com/p/ai-93d",
+        "published": "2026-11-19"
+      },
+      "visibility": "private",
+      "trial": {
+        "status": "",
+        "note": "",
+        "date": ""
+      }
+    },
+    {
+      "id": "20261122-d56912",
+      "date": "2026-11-22",
+      "title": "教材はAIに丸投げできない。中身は自分のナレッジを入れ、作業の工程ごとに得意なAIを使い分ける",
+      "summary": "Fujin さんは Brain の教材を AI と一緒に作っているが、自分の知見はしっかり入れており、教材づくりはAIに丸投げできないと述べている。最初の組み立てはクラウドのエージェント、動画編集は Claude Code のほうが速く正確なのでそちらへ、と工程ごとに道具を分けている。",
+      "takeaways": [
+        "教材の価値は本人の知見。AIは組み立てと作業の手として使う",
+        "1つのAIで全部やらず、工程ごとに得意なものへ振り分ける"
+      ],
+      "apply": [
+        "Brain の「講座まるごと」づくりでも、中身は藤崎さんの講座の録音・カードから取り、AIには形にする作業を任せる"
+      ],
+      "tags": [
+        "教材づくり",
+        "自動化"
+      ],
+      "confidence": "opinion",
+      "source": {
+        "type": "web",
+        "name": "Fujin",
+        "title": "AIと一緒にBrainを作るのがおすすめ。DotsはPlusプランにも展開へ",
+        "ref": "https://fujin.substack.com/p/aibraindotsplus",
+        "published": "2026-11-20"
+      },
+      "visibility": "private",
+      "trial": {
+        "status": "",
+        "note": "",
+        "date": ""
+      }
+    },
+    {
+      "id": "20261122-60773a",
+      "date": "2026-11-22",
+      "title": "AIエージェントは「裏のモデルの賢さ」「画面・ブラウザ操作ができるか」「手入れが要らないか」で選ぶ",
+      "summary": "Fujin さんは Grok Bot と ChatGPT の Dots を比べ、Grok Bot は裏で動くモデルが弱く、画面やブラウザの操作ができずファイルとターミナルだけだったので、Dots のほうが良いと判断した。選ぶ基準として、できることの幅・簡単さ・手入れが要らないことを挙げ、結局はフロンティアモデルを作る会社のエージェントが一番だという結論。エージェントは乗り換えが簡単なので、基準で選び直せばよいとも言っている。",
+      "takeaways": [
+        "エージェントの比較は、裏のモデル・画面操作の可否・手入れの手間の3点を見る",
+        "乗り換えは簡単なので、1つに固執せず基準で選び直す"
+      ],
+      "apply": [],
+      "tags": [
+        "AIエージェント",
+        "道具選び"
+      ],
+      "confidence": "opinion",
+      "source": {
+        "type": "web",
+        "name": "Fujin",
+        "title": "Dotsの教科書は土曜12時リリース。Grok Botより圧倒的にいい2つの理由",
+        "ref": "https://fujin.substack.com/p/dots12grok-bot2",
+        "published": "2026-11-19"
+      },
+      "visibility": "private",
+      "trial": {
+        "status": "",
+        "note": "",
+        "date": ""
+      }
+    },
+    {
+      "id": "20261122-d59910",
+      "date": "2026-11-22",
+      "title": "裏で動き続けるAIに丸投げすると、許可待ちで止まる・頼んだことを忘れる・1つの会話に仕事が混ざる",
+      "summary": "Fujin さんは、クラウド上に専用のパソコンを持つエージェントが出たことで、常時動かすための借りサーバーを解約したという。約1か月半で97項目を任せたが、丸投げでは良い結果が出ず、許可待ちで止まったまま、途中で頼んだことを忘れる、会話が1つしかないので仕事が増えると混ざる、といったつまずきがあったと述べている。",
+      "takeaways": [
+        "任せっぱなしの仕事は、許可待ちで止まっていないか・指示を忘れていないかを見張る仕組みが要る",
+        "仕事ごとに会話（セッション）を分けないと混ざる"
+      ],
+      "apply": [
+        "定時タスクは結果を毎回報告させ、止まった・忘れたを見つけられる形を続ける（いまのセッション分けと報告の決まりで足りているかを週の振り返りで見る）"
+      ],
+      "tags": [
+        "AIエージェント",
+        "自動化"
+      ],
+      "confidence": "opinion",
+      "source": {
+        "type": "email",
+        "name": "Fujin",
+        "title": "Dotsが出た翌日に、VPSを解約しました",
+        "ref": "gmail:1a1fc0fa23f20f45",
+        "published": "2026-11-21"
+      },
+      "visibility": "private",
+      "trial": {
+        "status": "",
+        "note": "",
+        "date": ""
+      }
+    },
+    {
+      "id": "20261122-23528a",
+      "date": "2026-11-22",
+      "title": "（知見なし）明日12時「Dotsの教科書」を出します",
+      "summary": "教材の発売予告が中心。中身は 11/21 の同じ人のメールと同じだった。",
+      "takeaways": [],
+      "apply": [],
+      "tags": [
+        "対象外"
+      ],
+      "confidence": "fact",
+      "source": {
+        "type": "email",
+        "name": "Fujin",
+        "title": "明日12時「Dotsの教科書」を出します",
+        "ref": "gmail:1a1f8d9867f3f119",
+        "published": "2026-11-20"
+      },
+      "visibility": "private",
+      "trial": {
+        "status": "",
+        "note": "",
+        "date": ""
+      }
+    },
+    {
+      "id": "20261122-66e429",
+      "date": "2026-11-22",
+      "title": "（知見なし）Dotsの教科書、本日12時リリース。AIエージェントは育てないと意味がない",
+      "summary": "発売の告知が中心。選び方の話は 11/19 の記事の記録にまとめた。",
+      "takeaways": [],
+      "apply": [],
+      "tags": [
+        "対象外"
+      ],
+      "confidence": "fact",
+      "source": {
+        "type": "web",
+        "name": "Fujin",
+        "title": "Dotsの教科書、本日12時リリース。AIエージェントは育てないと意味がない",
+        "ref": "https://fujin.substack.com/p/dots12ai",
+        "published": "2026-11-20"
+      },
+      "visibility": "private",
+      "trial": {
+        "status": "",
+        "note": "",
+        "date": ""
+      }
+    },
+    {
+      "id": "20261122-70f454",
+      "date": "2026-11-22",
+      "title": "（知見なし）ChatGPTの最強AIエージェント「Dots」の教科書リリースしました！",
+      "summary": "発売の告知だけで、本文は有料部分。",
+      "takeaways": [],
+      "apply": [],
+      "tags": [
+        "対象外"
+      ],
+      "confidence": "fact",
+      "source": {
+        "type": "web",
+        "name": "Fujin",
+        "title": "ChatGPTの最強AIエージェント「Dots」の教科書リリースしました！",
+        "ref": "https://fujin.substack.com/p/chatgptaidots",
+        "published": "2026-11-21"
+      },
+      "visibility": "private",
+      "trial": {
+        "status": "",
+        "note": "",
+        "date": ""
+      }
+    },
+    {
+      "id": "20261122-41aaf3",
+      "date": "2026-11-22",
+      "title": "（知見なし）Museが「タスク迷子」と「お馬鹿化」になったので、健康診断ダッシュボードを作って運用したら改善した話",
+      "summary": "11/18 の本誌（gmail:1a1ef2010732d28f）と同じ内容で、そちらから記録済み。",
+      "takeaways": [],
+      "apply": [],
+      "tags": [
+        "対象外"
+      ],
+      "confidence": "fact",
+      "source": {
+        "type": "web",
+        "name": "テツメモ",
+        "title": "Museが「タスク迷子」と「お馬鹿化」になったので、健康診断ダッシュボードを作って運用したら改善した話",
+        "ref": "https://tetumemo.substack.com/p/muse",
+        "published": "2026-11-21"
+      },
+      "visibility": "private",
+      "trial": {
+        "status": "",
+        "note": "",
+        "date": ""
+      }
+    },
+    {
+      "id": "20261122-3c3400",
+      "date": "2026-11-22",
+      "title": "（知見なし）「年商」「フォロワー数」を基準に他人をコケにする愚かさよ。",
+      "summary": "個人的な昔話と意見で、うちの判断に効く知見はない。",
+      "takeaways": [],
+      "apply": [],
+      "tags": [
+        "対象外"
+      ],
+      "confidence": "fact",
+      "source": {
+        "type": "web",
+        "name": "イケハヤ",
+        "title": "「年商」「フォロワー数」を基準に他人をコケにする愚かさよ。",
+        "ref": "https://ihayato.substack.com/p/a67",
+        "published": "2026-11-21"
+      },
+      "visibility": "private",
+      "trial": {
+        "status": "",
+        "note": "",
+        "date": ""
+      }
+    },
+    {
+      "id": "20261122-5b018d",
+      "date": "2026-11-22",
+      "title": "（知見なし）【雑談】他人をナメるような人間には絶対になりたくない話。",
+      "summary": "音声回で、本文はキャンペーンの告知だけ。",
+      "takeaways": [],
+      "apply": [],
+      "tags": [
+        "対象外"
+      ],
+      "confidence": "fact",
+      "source": {
+        "type": "web",
+        "name": "イケハヤ",
+        "title": "【雑談】他人をナメるような人間には絶対になりたくない話。",
+        "ref": "https://ihayato.substack.com/p/96c",
+        "published": "2026-11-20"
+      },
+      "visibility": "private",
+      "trial": {
+        "status": "",
+        "note": "",
+        "date": ""
+      }
+    },
+    {
+      "id": "20261122-9e9c9d",
+      "date": "2026-11-22",
+      "title": "（知見なし）コラボ記念対談：ロマ子様登場！",
+      "summary": "ライブ配信の告知だけ。",
+      "takeaways": [],
+      "apply": [],
+      "tags": [
+        "対象外"
+      ],
+      "confidence": "fact",
+      "source": {
+        "type": "web",
+        "name": "イケハヤ",
+        "title": "コラボ記念対談：ロマ子様登場！",
+        "ref": "https://ihayato.substack.com/p/605",
+        "published": "2026-11-20"
+      },
+      "visibility": "private",
+      "trial": {
+        "status": "",
+        "note": "",
+        "date": ""
+      }
+    },
+    {
+      "id": "20261122-e68178",
+      "date": "2026-11-22",
+      "title": "（知見なし）【稼げません】AIでミュージックビデオを作る方法を解説。",
+      "summary": "音声回で、本文は告知だけ。中身は同じ日の記事（claude-code-a36）から記録した。",
+      "takeaways": [],
+      "apply": [],
+      "tags": [
+        "対象外"
+      ],
+      "confidence": "fact",
+      "source": {
+        "type": "web",
+        "name": "イケハヤ",
+        "title": "【稼げません】AIでミュージックビデオを作る方法を解説。",
+        "ref": "https://ihayato.substack.com/p/ai-cff",
+        "published": "2026-11-19"
+      },
+      "visibility": "private",
+      "trial": {
+        "status": "",
+        "note": "",
+        "date": ""
+      }
+    },
+    {
+      "id": "20261122-45a7f0",
+      "date": "2026-11-22",
+      "title": "（知見なし）今月の売上は、Brainだけで約700万円です。稼いだお金は広告費に回します！",
+      "summary": "売上の報告が中心で、続きは有料部分。",
+      "takeaways": [],
+      "apply": [],
+      "tags": [
+        "対象外"
+      ],
+      "confidence": "fact",
+      "source": {
+        "type": "web",
+        "name": "イケハヤ",
+        "title": "今月の売上は、Brainだけで約700万円です。稼いだお金は広告費に回します！",
+        "ref": "https://ihayato.substack.com/p/brain700",
+        "published": "2026-11-19"
       },
       "visibility": "private",
       "trial": {
