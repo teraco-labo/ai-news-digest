@@ -14318,6 +14318,247 @@
       "related": [],
       "status": "published",
       "auto": true
+    },
+    {
+      "slug": "decart",
+      "term": "Decart",
+      "reading": "デカート",
+      "aliases": [],
+      "category": "企業",
+      "short": "AIを速く安く動かすための技術を開発してきた会社です。Amazonがこの会社の技術と研究チームを取得しました。",
+      "detail": "報道によると、AmazonはDecartのAI最適化技術と研究チームを75億ドルで取得します。Amazonは自社チップTrainiumの外部販売を準備しており、その取り組みと重なる取引です。チップの性能を引き出すソフトウェア技術の価値の高さを示す事例です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "trainium",
+      "term": "Trainium",
+      "reading": "トレイニアム",
+      "aliases": [],
+      "category": "インフラ",
+      "short": "Amazonが自社で開発しているAI用のチップです。AIの学習などの重い計算に使います。",
+      "detail": "AmazonはこれまでTrainiumを主に自社のクラウド内で提供してきましたが、外部への販売を準備していると報じられています。NVIDIAのGPUへの依存を減らす選択肢として、クラウド大手の自社チップは注目されています。チップを売るには、モデルを効率よく動かすソフトウェアの充実が欠かせません。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "sierra",
+      "term": "Sierra",
+      "reading": "シエラ",
+      "aliases": [],
+      "category": "企業",
+      "short": "企業のお客様対応をAIで行う仕組みを提供する会社です。Salesforceの元トップが共同で立ち上げました。",
+      "detail": "2026年11月にシリーズFで17億5000万ドルを調達し、評価額は300億ドルに達しました。評価額は6か月で2倍になっています。問い合わせ対応などをAIエージェントに任せたい企業の需要が成長を支えています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "bret-taylor",
+      "term": "Bret Taylor",
+      "reading": "ブレット・テイラー",
+      "aliases": [
+        "ブレット・テイラー"
+      ],
+      "category": "人物",
+      "short": "アメリカの経営者で、Salesforceで共同CEOを務めた人物です。お客様対応AIの会社Sierraを共同で立ち上げました。",
+      "detail": "大手IT企業の経営経験を持つ人物がAIスタートアップを率いていることは、Sierraへの投資家の信頼につながっています。Sierraは顧客体験（CX）向けAIの代表的な企業に成長しました。ニュースでは、Sierraの資金調達などの文脈で名前が出てきます。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "notable-capital",
+      "term": "Notable Capital",
+      "reading": "ノータブル・キャピタル",
+      "aliases": [],
+      "category": "ビジネス",
+      "short": "有望な会社にお金を出す投資会社です。上場前のAnthropicに大きく出資しました。",
+      "detail": "TechCrunchによると、上場前のAnthropicに数十億ドル規模を出資した投資家の1社です。スタートアップに早い段階から資金を出すベンチャーキャピタルとして活動しています。AI企業の上場が進む中、初期の投資家の判断が改めて注目されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "gic",
+      "term": "GIC",
+      "reading": "ジーアイシー",
+      "aliases": [],
+      "category": "ビジネス",
+      "short": "シンガポール政府のお金を運用する投資機関です。上場前のAnthropicに大きく出資しました。",
+      "detail": "国の資産を長期的に運用する立場から、世界中の企業や不動産に投資しています。上場前のAnthropicに数十億ドル規模で出資した投資家の1社として名前が挙がりました。国家系の投資機関がAI企業に巨額の資金を出す動きが広がっています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "baillie-gifford",
+      "term": "Baillie Gifford",
+      "reading": "ベイリー・ギフォード",
+      "aliases": [],
+      "category": "ビジネス",
+      "short": "イギリスの資産運用会社です。上場前のAnthropicに大きく出資しました。",
+      "detail": "成長企業への長期投資で知られる運用会社です。上場前のAnthropicに数十億ドル規模で出資した投資家の1社として紹介されました。上場前の企業にも積極的に投資する姿勢が特徴です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "paradromics",
+      "term": "Paradromics",
+      "reading": "パラドロミクス",
+      "aliases": [],
+      "category": "企業",
+      "short": "脳とコンピューターをつなぐ装置を開発している会社です。脳から得たデータの処理にNVIDIAの技術を使っています。",
+      "detail": "脳の信号は量が多く、すばやく読み解くには高い計算能力が必要です。ParadromicsはNVIDIAのハードウェアとソフトウェアでこの処理を行っています。AI向けの計算基盤が医療機器にも広がっている例として注目されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "brain-computer-interface",
+      "term": "ブレイン・コンピューター・インターフェース",
+      "reading": "",
+      "aliases": [
+        "BCI",
+        "脳コンピューターインターフェース"
+      ],
+      "category": "基礎",
+      "short": "脳の信号を読み取って、コンピューターとやりとりする技術です。考えるだけで機械を動かすことをめざします。",
+      "detail": "脳から得られるデータは量が多く複雑なため、処理には高い計算能力が欠かせません。そのためAIやGPUの技術と組み合わせて開発が進んでいます。医療分野での活用が特に期待されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "loop-transformer",
+      "term": "ループトランスフォーマー",
+      "reading": "",
+      "aliases": [
+        "loop transformer",
+        "ループ型トランスフォーマー"
+      ],
+      "category": "基礎",
+      "short": "AIの中の同じ部品をくり返し使って、考えを深める仕組みです。部品の数を増やさずに、じっくり考えさせられます。",
+      "detail": "通常のTransformerは層を1回ずつ通りますが、ループ型は同じ層を何度も通して計算を重ねます。パラメータを増やさずに推論の深さを稼げる手法として研究が進んでいます。GLM-5.4はこの構造を初めて採用したモデルとして発表されました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "series-f",
+      "term": "シリーズF",
+      "reading": "シリーズエフ",
+      "aliases": [
+        "Series F"
+      ],
+      "category": "ビジネス",
+      "short": "会社が投資家からお金を集める段階の名前の一つです。かなり成長した会社が、さらに大きく伸びるために集める段階です。",
+      "detail": "資金調達はシード、シリーズA、B…と進み、Fは後のほうの段階にあたります。この段階では調達額も評価額も大きくなります。Sierraは2026年11月にシリーズFで17億5000万ドルを集めました。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "customer-experience",
+      "term": "CX（顧客体験）",
+      "reading": "シーエックス",
+      "aliases": [
+        "CX",
+        "カスタマーエクスペリエンス",
+        "顧客体験"
+      ],
+      "category": "ビジネス",
+      "short": "お客様が商品やサービスを使うときに感じる、体験全体のことです。問い合わせへの対応のしやすさなども含みます。",
+      "detail": "問い合わせ対応などをAIエージェントに任せる動きが広がり、CXはAIの導入が特に進む分野になっています。Sierraはこの分野の代表的な企業で、評価額が半年で2倍の300億ドルに達しました。企業にとっては、人手不足への対策と満足度向上を両立できるかが焦点です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "cnbc",
+      "term": "CNBC",
+      "reading": "シーエヌビーシー",
+      "aliases": [],
+      "category": "メディア",
+      "short": "アメリカの経済ニュース専門のテレビ局です。経営者や政治家のインタビューをよく放送します。",
+      "detail": "トランプ大統領は、NVIDIAの取締役会にフアン氏の復帰を働きかけたことをCNBCで語りました。市場に影響する発言が出る場として、ビジネスニュースで頻繁に名前が挙がります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "public-hearing",
+      "term": "公聴会",
+      "reading": "こうちょうかい",
+      "aliases": [
+        "ヒアリング"
+      ],
+      "category": "規制",
+      "short": "議会などが、関係する人を呼んで公開の場で話を聞く会です。誰でも内容を見られます。",
+      "detail": "米国では議会の公聴会に企業のトップが呼ばれ、議員の質問に答えることがあります。NVIDIAのフアン氏は、中国のスパイと疑われる人物との関係について、上院の公聴会で証言する予定です。発言は記録に残るため、企業の評判や今後の規制に影響します。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "bipartisan",
+      "term": "超党派",
+      "reading": "ちょうとうは",
+      "aliases": [
+        "bipartisan"
+      ],
+      "category": "規制",
+      "short": "対立する政党同士が、立場の違いを越えて協力することです。米国では民主党と共和党がそろうことを指します。",
+      "detail": "米国議会では党派の対立が激しいため、超党派の動きは重く受け止められます。フアン氏の証言は、両党から求める声が上がって実現しました。AIや半導体をめぐる安全保障の問題は、超党派で取り組まれることが多い分野です。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "board-chair",
+      "term": "取締役会議長",
+      "reading": "とりしまりやくかいぎちょう",
+      "aliases": [
+        "会長",
+        "board chair"
+      ],
+      "category": "ビジネス",
+      "short": "会社の大事なことを決める会議を取りまとめる人です。社長とは別の人が務めることもあります。",
+      "detail": "取締役会は経営陣を監督し、CEOの選任や解任も決めます。NVIDIAのフアン氏はCEOと取締役会議長の両方に復帰しました。監督する側とされる側を同じ人が兼ねる形のため、企業統治の面で議論になることがあります。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "attorney-general-us",
+      "term": "司法長官（米国）",
+      "reading": "しほうちょうかん",
+      "aliases": [
+        "attorney general"
+      ],
+      "category": "規制",
+      "short": "アメリカで法律に関わる仕事をまとめる役職です。国と州のそれぞれに置かれています。",
+      "detail": "州の司法長官は州を代表して企業を訴えることができ、オレゴン州とバージニア州の司法長官はGrokをめぐりマスク氏の企業を提訴しました。国の司法長官は司法省のトップで、トランプ大統領はその見解を引いてフアン氏を擁護しました。AIをめぐる訴訟では、州の司法長官が動くことが増えています。",
+      "related": [],
+      "status": "published",
+      "auto": true
+    },
+    {
+      "slug": "asus-proart",
+      "term": "ASUS ProArt",
+      "reading": "エイスース・プロアート",
+      "aliases": [
+        "ProArt P16"
+      ],
+      "category": "インフラ",
+      "short": "台湾のパソコンメーカーASUSの、プロ向けの製品シリーズです。動画編集などの重い作業向けに作られています。",
+      "detail": "新しいノートPC「ProArt P16」は最大7000ドルと高額ですが、複数のAIエージェントを手元で同時に動かせる性能を持ちます。クラウドを使わずにAIを動かすローカルAIの用途で注目されています。",
+      "related": [],
+      "status": "published",
+      "auto": true
     }
   ]
 }

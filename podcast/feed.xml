@@ -1712,34 +1712,5 @@
     <pubDate>Fri, 25 Sep 2026 21:00:00 GMT</pubDate>
     <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-25.mp3</guid>
   </item>
-  <item>
-    <title>2026年9月24日（木）のAIニュース</title>
-    <itunes:title>2026年9月24日（木）のAIニュース</itunes:title>
-    <description>2026年9月24日（木）のAIニュース。
-
-今日の3行まとめ
-① Anthropicが生物学ラボの成果を公表し、AIを使った科学的発見が現実味を帯びてきました
-② MetaのMuseに深刻なゼロデイ脆弱性が見つかり、AIアシスタントの安全性が改めて問われています
-③ YouTubeやSpotifyが、自然な言葉でおすすめを調整できる機能を相次いで打ち出しました
-
-この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-24.html ／ 毎週土曜のまとめをメールで受け取る（無料）→ https://teracosensei.substack.com/embed</description>
-    <itunes:summary>2026年9月24日（木）のAIニュース。
-
-今日の3行まとめ
-① Anthropicが生物学ラボの成果を公表し、AIを使った科学的発見が現実味を帯びてきました
-② MetaのMuseに深刻なゼロデイ脆弱性が見つかり、AIアシスタントの安全性が改めて問われています
-③ YouTubeやSpotifyが、自然な言葉でおすすめを調整できる機能を相次いで打ち出しました
-
-この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-24.html ／ 毎週土曜のまとめをメールで受け取る（無料）→ https://teracosensei.substack.com/embed</itunes:summary>
-    <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>てらこ先生</itunes:author>
-    <itunes:episode>80</itunes:episode>
-    <itunes:episodeType>full</itunes:episodeType>
-    <itunes:duration>13:39</itunes:duration>
-    <itunes:explicit>false</itunes:explicit>
-    <enclosure url="https://pub-59f9285441114b44af1b246d89bf3b21.r2.dev/ai-news-2026-09-24.mp3" length="8197269" type="audio/mpeg"/>
-    <pubDate>Thu, 24 Sep 2026 21:00:00 GMT</pubDate>
-    <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-24.mp3</guid>
-  </item>
 </channel>
 </rss>

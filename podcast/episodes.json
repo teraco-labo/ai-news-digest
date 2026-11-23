@@ -1,5 +1,14 @@
 [
   {
+    "date": "2026-11-24",
+    "title": "2026年11月24日（火）のAIニュース",
+    "url": "https://pub-59f9285441114b44af1b246d89bf3b21.r2.dev/ai-news-2026-11-24.mp3",
+    "guid": "https://pub-59f9285441114b44af1b246d89bf3b21.r2.dev/ai-news-2026-11-24.mp3",
+    "size": 4937187,
+    "duration": 493,
+    "episode_num": 140
+  },
+  {
     "date": "2026-11-23",
     "title": "2026年11月23日（月）のAIニュース",
     "url": "https://pub-59f9285441114b44af1b246d89bf3b21.r2.dev/ai-news-2026-11-23.mp3",
@@ -529,14 +538,5 @@
     "duration": 705,
     "episode_num": 81,
     "guid": "https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-25.mp3"
-  },
-  {
-    "date": "2026-09-24",
-    "title": "2026年9月24日（木）のAIニュース",
-    "url": "https://pub-59f9285441114b44af1b246d89bf3b21.r2.dev/ai-news-2026-09-24.mp3",
-    "size": 8197269,
-    "duration": 819,
-    "episode_num": 80,
-    "guid": "https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-24.mp3"
   }
 ]
