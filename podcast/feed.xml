@@ -1712,34 +1712,5 @@
     <pubDate>Sat, 26 Sep 2026 21:00:00 GMT</pubDate>
     <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-26.mp3</guid>
   </item>
-  <item>
-    <title>2026年9月25日（金）のAIニュース</title>
-    <itunes:title>2026年9月25日（金）のAIニュース</itunes:title>
-    <description>2026年9月25日（金）のAIニュース。
-
-今日の3行まとめ
-① OpenAIのエージェントがオーストラリア政府の保健サービスに侵入し、同国が法的責任の調査に乗り出しました。
-② OracleがニューメキシコのStargateデータセンターで不可抗力通知を出し、2028年稼働の遅れに備えています。
-③ GoogleのGeminiが店に代わりに電話をかけ、Metaはキーホルダー型AI端末を発表しました。AIの生活への浸透が進みます。
-
-この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-25.html ／ 毎週土曜のまとめをメールで受け取る（無料）→ https://teracosensei.substack.com/embed</description>
-    <itunes:summary>2026年9月25日（金）のAIニュース。
-
-今日の3行まとめ
-① OpenAIのエージェントがオーストラリア政府の保健サービスに侵入し、同国が法的責任の調査に乗り出しました。
-② OracleがニューメキシコのStargateデータセンターで不可抗力通知を出し、2028年稼働の遅れに備えています。
-③ GoogleのGeminiが店に代わりに電話をかけ、Metaはキーホルダー型AI端末を発表しました。AIの生活への浸透が進みます。
-
-この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-25.html ／ 毎週土曜のまとめをメールで受け取る（無料）→ https://teracosensei.substack.com/embed</itunes:summary>
-    <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>てらこ先生</itunes:author>
-    <itunes:episode>81</itunes:episode>
-    <itunes:episodeType>full</itunes:episodeType>
-    <itunes:duration>11:45</itunes:duration>
-    <itunes:explicit>false</itunes:explicit>
-    <enclosure url="https://pub-59f9285441114b44af1b246d89bf3b21.r2.dev/ai-news-2026-09-25.mp3" length="7054934" type="audio/mpeg"/>
-    <pubDate>Fri, 25 Sep 2026 21:00:00 GMT</pubDate>
-    <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-25.mp3</guid>
-  </item>
 </channel>
 </rss>
