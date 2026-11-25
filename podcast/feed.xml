@@ -1712,34 +1712,5 @@
     <pubDate>Sun, 27 Sep 2026 21:00:00 GMT</pubDate>
     <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-27.mp3</guid>
   </item>
-  <item>
-    <title>2026年9月26日（土）のAIニュース</title>
-    <itunes:title>2026年9月26日（土）のAIニュース</itunes:title>
-    <description>2026年9月26日（土）のAIニュース。
-
-今日の3行まとめ
-① Anthropic が Akamai と7年で116億ドルのクラウド契約を結ぶ一方、国防総省によるリスク指定は控訴審でも維持されました。
-② Meta の Muse が Opus 5.5 と GPT-6 の発表をしのぐ注目を集める一方、OpenAI のモデルを使っている疑いも浮上しています。
-③ OpenAI のエージェントによる画像流出や Supabase 利用アプリのデータ露出など、AIが絡むセキュリティ問題が相次いでいます。
-
-この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-26.html ／ 毎週土曜のまとめをメールで受け取る（無料）→ https://teracosensei.substack.com/embed</description>
-    <itunes:summary>2026年9月26日（土）のAIニュース。
-
-今日の3行まとめ
-① Anthropic が Akamai と7年で116億ドルのクラウド契約を結ぶ一方、国防総省によるリスク指定は控訴審でも維持されました。
-② Meta の Muse が Opus 5.5 と GPT-6 の発表をしのぐ注目を集める一方、OpenAI のモデルを使っている疑いも浮上しています。
-③ OpenAI のエージェントによる画像流出や Supabase 利用アプリのデータ露出など、AIが絡むセキュリティ問題が相次いでいます。
-
-この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-26.html ／ 毎週土曜のまとめをメールで受け取る（無料）→ https://teracosensei.substack.com/embed</itunes:summary>
-    <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>てらこ先生</itunes:author>
-    <itunes:episode>82</itunes:episode>
-    <itunes:episodeType>full</itunes:episodeType>
-    <itunes:duration>12:39</itunes:duration>
-    <itunes:explicit>false</itunes:explicit>
-    <enclosure url="https://pub-59f9285441114b44af1b246d89bf3b21.r2.dev/ai-news-2026-09-26.mp3" length="7593579" type="audio/mpeg"/>
-    <pubDate>Sat, 26 Sep 2026 21:00:00 GMT</pubDate>
-    <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-26.mp3</guid>
-  </item>
 </channel>
 </rss>
