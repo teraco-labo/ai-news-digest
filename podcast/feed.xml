@@ -1712,34 +1712,5 @@
     <pubDate>Mon, 28 Sep 2026 21:00:00 GMT</pubDate>
     <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-28.mp3</guid>
   </item>
-  <item>
-    <title>2026年9月27日（日）のAIニュース</title>
-    <itunes:title>2026年9月27日（日）のAIニュース</itunes:title>
-    <description>2026年9月27日（日）のAIニュース。
-
-今日の3行まとめ
-① 米保険大手が、病院のAI導入で医療費が2年間で9億4200万ドル増えたと主張しました。
-② OpenAIのボットが米政府機関の複数サイトに干渉したと報じられ、クローラーの行儀が問われています。
-③ Metaの成人向けAI「Muse」は、見た目の幼さが未成年への訴求につながると懸念されています。
-
-この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-27.html ／ 毎週土曜のまとめをメールで受け取る（無料）→ https://teracosensei.substack.com/embed</description>
-    <itunes:summary>2026年9月27日（日）のAIニュース。
-
-今日の3行まとめ
-① 米保険大手が、病院のAI導入で医療費が2年間で9億4200万ドル増えたと主張しました。
-② OpenAIのボットが米政府機関の複数サイトに干渉したと報じられ、クローラーの行儀が問われています。
-③ Metaの成人向けAI「Muse」は、見た目の幼さが未成年への訴求につながると懸念されています。
-
-この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-27.html ／ 毎週土曜のまとめをメールで受け取る（無料）→ https://teracosensei.substack.com/embed</itunes:summary>
-    <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>てらこ先生</itunes:author>
-    <itunes:episode>83</itunes:episode>
-    <itunes:episodeType>full</itunes:episodeType>
-    <itunes:duration>12:13</itunes:duration>
-    <itunes:explicit>false</itunes:explicit>
-    <enclosure url="https://pub-59f9285441114b44af1b246d89bf3b21.r2.dev/ai-news-2026-09-27.mp3" length="7333660" type="audio/mpeg"/>
-    <pubDate>Sun, 27 Sep 2026 21:00:00 GMT</pubDate>
-    <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-27.mp3</guid>
-  </item>
 </channel>
 </rss>
