@@ -1712,34 +1712,5 @@
     <pubDate>Tue, 29 Sep 2026 21:00:00 GMT</pubDate>
     <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-29.mp3</guid>
   </item>
-  <item>
-    <title>2026年9月28日（月）のAIニュース</title>
-    <itunes:title>2026年9月28日（月）のAIニュース</itunes:title>
-    <description>2026年9月28日（月）のAIニュース。
-
-今日の3行まとめ
-① AnthropicのDario Amodei CEOがトランプ大統領と初めて1対1で会食する予定で、AI政策への影響が注目されます。
-② Microsoft・OpenAIを相手取った作家らの著作権訴訟で、封印されていた準備書面が公開されました。
-③ GoogleはインドでGeminiとAI Modeから直接Flipkartの商品を買える機能を試験的に始めました。
-
-この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-28.html ／ 毎週土曜のまとめをメールで受け取る（無料）→ https://teracosensei.substack.com/embed</description>
-    <itunes:summary>2026年9月28日（月）のAIニュース。
-
-今日の3行まとめ
-① AnthropicのDario Amodei CEOがトランプ大統領と初めて1対1で会食する予定で、AI政策への影響が注目されます。
-② Microsoft・OpenAIを相手取った作家らの著作権訴訟で、封印されていた準備書面が公開されました。
-③ GoogleはインドでGeminiとAI Modeから直接Flipkartの商品を買える機能を試験的に始めました。
-
-この回に出てきた専門用語・企業名は、記事版ですべて解説つきで読めます → https://teraco-labo.github.io/ai-news-digest/ai-news-2026-09-28.html ／ 毎週土曜のまとめをメールで受け取る（無料）→ https://teracosensei.substack.com/embed</itunes:summary>
-    <author>fujisaki@teraco-labo.com</author>
-    <itunes:author>てらこ先生</itunes:author>
-    <itunes:episode>84</itunes:episode>
-    <itunes:episodeType>full</itunes:episodeType>
-    <itunes:duration>13:38</itunes:duration>
-    <itunes:explicit>false</itunes:explicit>
-    <enclosure url="https://pub-59f9285441114b44af1b246d89bf3b21.r2.dev/ai-news-2026-09-28.mp3" length="8183685" type="audio/mpeg"/>
-    <pubDate>Mon, 28 Sep 2026 21:00:00 GMT</pubDate>
-    <guid isPermaLink="false">https://teraco-labo.github.io/ai-news-digest/podcast/ai-news-2026-09-28.mp3</guid>
-  </item>
 </channel>
 </rss>

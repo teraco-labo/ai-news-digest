@@ -356,11 +356,11 @@
 </div>
 
 <main>
-  <div class="today">2026年11月27日（金）のAIニュース　厳選 8 件</div>
+  <div class="today">2026年11月28日（土）のAIニュース　厳選 5 件</div>
 
 <div class="sx" id="listen">
   <div class="player" id="player">
-    <div class="p-head"><img src="podcast/cover.jpg" alt="" width="84" height="84"><div><div class="p-date">2026年11月27日（金）のAIニュース</div><div class="p-title">世界一わかりやすいAIニュース</div></div></div>
+    <div class="p-head"><img src="podcast/cover.jpg" alt="" width="84" height="84"><div><div class="p-date">2026年11月28日（土）のAIニュース</div><div class="p-title">世界一わかりやすいAIニュース</div></div></div>
     <div class="progress" id="progress" role="slider" aria-label="再生位置" tabindex="0"><div class="fill" id="fill"></div><div class="knob" id="knob"></div></div>
     <div class="time-row"><span id="cur">0:00</span><span id="dur">--:--</span></div>
     <div class="controls"><button type="button" class="ctl" data-skip="-30" aria-label="30秒もどる"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg><small>30</small></button><button type="button" class="ctl" data-skip="-10" aria-label="10秒もどる"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg><small>10</small></button><button class="ctl play" id="play" type="button" aria-label="音声で聴く"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button><button type="button" class="ctl" data-skip="10" aria-label="10秒すすむ"><svg style="transform:scaleX(-1)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg><small>10</small></button><button type="button" class="ctl" data-skip="30" aria-label="30秒すすむ"><svg style="transform:scaleX(-1)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg><small>30</small></button></div>
@@ -370,7 +370,7 @@
     <a class="readbtn" href="#yomu" id="toread"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 5h16v2H4zm0 4h16v2H4zm0 4h10v2H4zm0 4h16v2H4z"/></svg><span>文字で読む</span></a>
     <p class="kbd">キーボード：スペースで再生／停止、← → で10秒、J / L で30秒</p>
   </div>
-  <audio id="audio" src="https://pub-59f9285441114b44af1b246d89bf3b21.r2.dev/ai-news-2026-11-27.mp3" preload="metadata"></audio>
+  <audio id="audio" src="https://pub-59f9285441114b44af1b246d89bf3b21.r2.dev/ai-news-2026-11-28.mp3" preload="metadata"></audio>
   <div class="mini" id="mini" aria-hidden="true">
     <button type="button" class="m-play" id="mplay" aria-label="再生／一時停止"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
     <button type="button" class="m-back" data-skip="-10" aria-label="10秒もどる"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg><span>10</span></button>
@@ -388,87 +388,50 @@
   <div class="lead">
     <div class="lead-label">今日の3行まとめ</div>
     <ol>
-      <li>米国が中国へのAI<span class="t" data-t="semiconductor" tabindex="0" role="button" aria-label="チップの説明を見る">チップ</span>流入への警戒を強めるなか、<span class="t" data-t="nvidia" tabindex="0" role="button" aria-label="NVIDIAの説明を見る">NVIDIA</span>が東南アジア4カ国へのサーバー出荷を一時止めました。</li>
-      <li>英国の金融<span class="t" data-t="regulator" tabindex="0" role="button" aria-label="規制当局の説明を見る">規制当局</span><span class="t" data-t="fca" tabindex="0" role="button" aria-label="FCAの説明を見る">FCA</span>が、<span class="t" data-t="meta-ai" tabindex="0" role="button" aria-label="Metaの説明を見る">Meta</span>の<span class="t" data-t="ai-agent" tabindex="0" role="button" aria-label="エージェントの説明を見る">エージェント</span>「<span class="t" data-t="muse" tabindex="0" role="button" aria-label="Museの説明を見る">Muse</span>」の共同テスト要請を断られたと公に不満を示しました。</li>
-      <li><span class="t" data-t="openai" tabindex="0" role="button" aria-label="OpenAIの説明を見る">OpenAI</span>が<span class="t" data-t="gpt-6-2" tabindex="0" role="button" aria-label="GPT-6.2の説明を見る">GPT-6.2</span>の利用枠を縮小し、<span class="t" data-t="anthropic" tabindex="0" role="button" aria-label="Anthropicの説明を見る">Anthropic</span>のLean検証の短縮版も公開されるなど、開発者向けの話題が続きます。</li>
+      <li>ドイツの<span class="t" data-t="q-ant" tabindex="0" role="button" aria-label="Q.ANTの説明を見る">Q.ANT</span>が、光でAIの重い計算を処理する<span class="t" data-t="semiconductor" tabindex="0" role="button" aria-label="チップの説明を見る">チップ</span>で消費電力の削減に挑んでいます。</li>
+      <li>AIの進歩でネットの安全を支える<span class="t" data-t="cryptography" tabindex="0" role="button" aria-label="暗号技術の説明を見る">暗号技術</span>が役に立たなくなるのでは、と数学者たちが懸念を示しています。</li>
+      <li><span class="t" data-t="moonshot-ai" tabindex="0" role="button" aria-label="Moonshot AIの説明を見る">Moonshot AI</span>が研究支援の「<span class="t" data-t="kimi-for-science" tabindex="0" role="button" aria-label="Kimi for Scienceの説明を見る">Kimi for Science</span>」を公開し、AIと<span class="t" data-t="self-hosted" tabindex="0" role="button" aria-label="セルフホストの説明を見る">セルフホスト</span>の話題も注目されています。</li>
     </ol>
   </div>
 
   <div class="tier">注目のニュース</div>
   <div class="digest">
-    <article class="card model top">
+    <article class="card research top">
       <div class="card-top">
-        <span class="card-label model">モデル</span>
+        <span class="card-label research">研究</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
       </div>
-      <div class="card-title-ja">OpenAI、GPT-6.2の利用枠を縮小　上限到達が最大4割早く</div>
-      <div class="card-source">Hacker News</div>
-      <div class="card-body">OpenAIがGPT-6.2の利用枠を減らしたと報じられ、<span class="t" data-t="hacker-news" tabindex="0" role="button" aria-label="Hacker Newsの説明を見る">Hacker News</span>で442ポイントを集めました。タイトルによると、<span class="t" data-t="astra" tabindex="0" role="button" aria-label="Astraの説明を見る">Astra</span>では<span class="t" data-t="usage-limit" tabindex="0" role="button" aria-label="利用上限の説明を見る">利用上限</span>に達するのが40%早くなり、Solでは25%早くなります。日常的にこれらのモデルで作業している開発者やヘビーユーザーにとっては、使える作業量が実質的に減ることになります。<span class="t" data-t="compute" tabindex="0" role="button" aria-label="計算資源の説明を見る">計算資源</span>の制約や<span class="t" data-t="inference-cost" tabindex="0" role="button" aria-label="推論コストの説明を見る">推論コスト</span>が、利用者向けの条件に直接はね返ってきた例といえます。日本では、有料プラン（Plus、Pro、Enterprise、Edu）の人なら使えます。OpenAIのサービスは日本も提供地域に入っていますが、日本語への対応は公式の発表ページでは確かめられませんでした。</div>
-    </article>
-    <article class="card policy top">
-      <div class="card-top">
-        <span class="card-label policy">ポリシー</span>
-        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
-      </div>
-      <div class="card-title-ja">NVIDIA、東南アジア4カ国へのサーバー出荷を一時停止</div>
-      <div class="card-source">TechCrunch AI</div>
-      <div class="card-body">NVIDIAが製造パートナーに対し、マレーシア、シンガポール、タイ、インドネシア向けのサーバー出荷を一時停止するよう伝えました。米国はAIチップを中国に渡さないための締め付けを強めており、今回の措置はその流れの中で取られたものです。対象は特定の1カ国ではなく東南アジアの4カ国にまたがっています。東南アジアは<span class="t" data-t="datacenter" tabindex="0" role="button" aria-label="データセンターの説明を見る">データセンター</span><span class="t" data-t="investment-capital" tabindex="0" role="button" aria-label="投資の説明を見る">投資</span>が集中している地域なので、出荷停止が長引けば現地のAI<span class="t" data-t="infrastructure" tabindex="0" role="button" aria-label="インフラの説明を見る">インフラ</span>整備の計画にも影響が出るおそれがあります。</div>
-    </article>
-    <article class="card policy top">
-      <div class="card-top">
-        <span class="card-label policy">ポリシー</span>
-        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
-      </div>
-      <div class="card-title-ja">英FCA、MetaがMuseのテスト協力を拒んだと批判</div>
+      <div class="card-title-ja">光で計算するAIチップ、独Q.ANTが省電力化に挑む</div>
       <div class="card-source">Wired AI</div>
-      <div class="card-body">英国の金融行動監視機構（FCA）が、Metaから個人向けエージェント「Muse」の共同テストへの協力を断られたと公に不満を表明しました。Metaは火曜日に英国でMuseの提供を始める予定で、FCAはその前に一緒に検証したいと申し入れていました。FCAは、エージェントが「新たな攻撃の手段」になりうると警告しています。金融分野の規制当局が、特定企業のAIエージェントの安全性を名指しで問題にしたのは珍しく、ほかの国の当局がエージェントをどう扱うかにも影響しそうです。</div>
+      <div class="card-body">ドイツのQ.ANTが、電気信号ではなく光の波を使ってAIモデルの計算を行う新しいタイプのチップを開発しています。狙いは、AIの処理の中でも特に負荷の大きい計算を光で肩代わりさせ、モデルを動かすのに必要なエネルギーを減らすことです。<span class="t" data-t="generative-ai" tabindex="0" role="button" aria-label="生成AIの説明を見る">生成AI</span>の普及で<span class="t" data-t="datacenter" tabindex="0" role="button" aria-label="データセンターの説明を見る">データセンター</span>の電力消費が急増しており、<span class="t" data-t="gpu" tabindex="0" role="button" aria-label="GPUの説明を見る">GPU</span>を中心とする今の構成のままでは電力供給が追いつかないという懸念が強まっています。光を使う<span class="t" data-t="enzan" tabindex="0" role="button" aria-label="演算の説明を見る">演算</span>が実用レベルに達すれば、AI<span class="t" data-t="infrastructure" tabindex="0" role="button" aria-label="インフラの説明を見る">インフラ</span>のコストと電力の制約を緩める選択肢の一つになります。</div>
+    </article>
+    <article class="card policy top">
+      <div class="card-top">
+        <span class="card-label policy">ポリシー</span>
+        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div></div>
+      </div>
+      <div class="card-title-ja">AIがネットの安全を無力化する？数学者が懸念</div>
+      <div class="card-source">Hacker News</div>
+      <div class="card-body">AIの能力向上によって、オンラインのセキュリティが役に立たなくなる瀬戸際にあると数学者たちが懸念を示しています。ネットの安全は、解くのが極めて難しい数学の問題を土台にした暗号技術に支えられており、その前提が揺らぐことへの警戒です。この話題は<span class="t" data-t="hacker-news" tabindex="0" role="button" aria-label="Hacker Newsの説明を見る">Hacker News</span>で110ポイントを集めました。数学の分野でAIの成果が相次ぐなか、暗号の安全性をどう確かめ直すかは、金融や通信を含むあらゆるオンラインサービスに関わる問題です。</div>
     </article>
   </div>
 
   <div class="tier">ジャンル別のニュース（タップで開く）</div>
-  <details class="genre research">
-    <summary><span class="genre-dot"></span>研究<span class="cnt">1件</span></summary>
+  <details class="genre model" open>
+    <summary><span class="genre-dot"></span>モデル<span class="cnt">1件</span></summary>
     <div class="genre-body">
-    <article class="card research">
+    <article class="card model">
       <div class="card-top">
-        <span class="card-label research">研究</span>
+        <span class="card-label model">モデル</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">Anthropicの<span class="t" data-t="generalized-riemann-hypothesis" tabindex="0" role="button" aria-label="一般化リーマン予想の説明を見る">一般化リーマン予想</span>のLean検証、大幅な短縮版が登場</div>
+      <div class="card-title-ja">Moonshot AI、研究支援の「Kimi for Science」を公開</div>
       <div class="card-source">Hacker News</div>
-      <div class="card-body">Anthropicによる、一般化リーマン予想（GRH）に関わるLeanでの検証について、大幅に短くした版が公開されました。Hacker Newsで534ポイントを集め、注目度の高い話題になっています。Leanは数学の証明をコンピュータで1行ずつ確かめるための言語で、検証が短くなると<span class="t" data-t="third-party" tabindex="0" role="button" aria-label="第三者の説明を見る">第三者</span>が中身を読んで確かめやすくなります。AIを数学の<span class="t" data-t="formal-verification" tabindex="0" role="button" aria-label="形式検証の説明を見る">形式検証</span>に使う取り組みが、実際に使える段階まで進んできていることを示す動きです。</div>
+      <div class="card-body">中国のMoonshot AIが、科学研究向けの「Kimi for Science」を発表しました。「より多くの科学的アイデアを可能にする」とうたっており、研究者が仮説や研究の着想を得る作業をAIで支えることを狙ったものです。Hacker Newsでは173ポイントを集めて関心を呼びました。汎用の<span class="t" data-t="chatbot" tabindex="0" role="button" aria-label="チャットボットの説明を見る">チャットボット</span>から研究特化型へと用途を広げる動きは各社で進んでおり、中国勢もこの分野での競争に本格的に加わった形です。日本での提供状況については、元記事からは分かりません。日本での提供可否は、公式には発表されていません（申請制のプログラムで、応募は現在受付中、第1期の締め切りは12月8日です）。</div>
     </article>
     </div>
   </details>
-  <details class="genre business">
-    <summary><span class="genre-dot"></span>ビジネス<span class="cnt">1件</span></summary>
-    <div class="genre-body">
-    <article class="card business">
-      <div class="card-top">
-        <span class="card-label business">ビジネス</span>
-        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
-      </div>
-      <div class="card-title-ja">S&amp;P、NVIDIAの<span class="t" data-t="downgrade" tabindex="0" role="button" aria-label="格下げの説明を見る">格下げ</span>を検討　<span class="t" data-t="corporate-governance" tabindex="0" role="button" aria-label="企業統治の説明を見る">企業統治</span>と<span class="t" data-t="key-man-risk" tabindex="0" role="button" aria-label="キーマンリスクの説明を見る">キーマンリスク</span>を懸念</div>
-      <div class="card-source">TechCrunch AI</div>
-      <div class="card-body"><span class="t" data-t="credit-rating-agency" tabindex="0" role="button" aria-label="格付け会社の説明を見る">格付け会社</span>のS&amp;Pが、NVIDIAの信用格付けを引き下げる検討に入りました。下がった場合はAA-となり、上から4番目の格付けです。理由としては、企業統治の問題と、特定の経営者に依存しすぎている「キーマン」リスクが挙げられています。AIブームの中心にいるNVIDIAでも、業績とは別に経営体制そのものが市場から厳しく見られていることがうかがえます。</div>
-    </article>
-    </div>
-  </details>
-  <details class="genre policy">
-    <summary><span class="genre-dot"></span>ポリシー<span class="cnt">1件</span></summary>
-    <div class="genre-body">
-    <article class="card policy">
-      <div class="card-top">
-        <span class="card-label policy">ポリシー</span>
-        <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
-      </div>
-      <div class="card-title-ja">NYT、写真家に<span class="t" data-t="photoshop" tabindex="0" role="button" aria-label="Photoshopの説明を見る">Photoshop</span>のAI機能を理由に更新見合わせを指示</div>
-      <div class="card-source">Hacker News</div>
-      <div class="card-body"><span class="t" data-t="the-times-lawsuit-documents" tabindex="0" role="button" aria-label="The New York Timesの説明を見る">The New York Times</span>が、契約する写真家たちにPhotoshopを更新しないよう呼びかけたと報じられました。理由は新しいバージョンに入ったAI機能です。報道写真では「撮ったままであること」が信頼の前提なので、編集ソフトに組み込まれたAIが写真の真正性を損なうことを警戒した形です。Hacker Newsでは628ポイントを集め、この日いちばん反響の大きい話題になりました。</div>
-    </article>
-    </div>
-  </details>
-  <details class="genre tools">
+  <details class="genre tools" open>
     <summary><span class="genre-dot"></span>ツール<span class="cnt">2件</span></summary>
     <div class="genre-body">
     <article class="card tools">
@@ -476,23 +439,23 @@
         <span class="card-label tools">ツール</span>
         <div class="stars"><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">GoogleがAIエージェントに自社<span class="t" data-t="mcp" tabindex="0" role="button" aria-label="MCPの説明を見る">MCP</span>サーバーを必須化、Gmail版は送信不可</div>
+      <div class="card-title-ja">「AIのおかげでセルフホストがまた楽しくなった」</div>
       <div class="card-source">Hacker News</div>
-      <div class="card-body">Googleが、自社サービスにつなぐAIエージェントに対して、Googleが用意したMCPサーバーを使わせる方針だと報じられました。ところが、そのGmail用のMCPサーバーではメールを送信できないと指摘されています。エージェントにどこまでの操作を許すかを、プラットフォーム側が決めるという流れがはっきりしてきました。Gmailと連携するエージェントを作っている開発者は、できることが限られる可能性があります。</div>
+      <div class="card-body">自分のサーバーでサービスを動かすセルフホストが、AIの登場で再び楽しいものになったと語るエッセイが、Hacker Newsで1035ポイントを集めました。この日の投稿の中で最も多い支持です。セルフホストは設定やトラブル対応に手間がかかり、敬遠されがちでした。AIに設定作業や調べものを手伝わせることで、そのハードルが下がったと感じる開発者が多いことがうかがえます。</div>
     </article>
     <article class="card tools">
       <div class="card-top">
         <span class="card-label tools">ツール</span>
         <div class="stars"><div class="dot filled"></div><div class="dot"></div><div class="dot"></div></div>
       </div>
-      <div class="card-title-ja">検索の<span class="t" data-t="kagi" tabindex="0" role="button" aria-label="Kagiの説明を見る">Kagi</span>、AI機能付きのGmail対抗メールを開始</div>
-      <div class="card-source">Ars Technica</div>
-      <div class="card-body">Googleに代わる検索サービスとして知られるKagiが、Gmailに対抗するメールサービスを始めました。売りは、プライバシーの約束とAI機能という、あまり見かけない組み合わせです。AI機能を加えるとデータの扱いが不透明になりがちなので、プライバシー重視の会社がそこをどう両立させるのかが注目されます。日本での提供状況は元記事には書かれていません。日本での提供地域は、公式には発表されていません。公式ヘルプでは、現在は<span class="t" data-t="open-beta" tabindex="0" role="button" aria-label="公開ベータの説明を見る">公開ベータ</span>版で、国や地域の制限は書かれていません。使うには有料プラン（60日間の無料お試しあり、その後は月9ドル）が必要です。</div>
+      <div class="card-title-ja">AIが陰で話し合う？風変わりなグループチャット</div>
+      <div class="card-source">Hacker News</div>
+      <div class="card-body">参加者それぞれのAIが、本人の見ていないところで会話する仕組みのグループチャットが公開され、Hacker Newsで629ポイントを集めました。人同士のやり取りにAIの「分身」が加わるという発想を形にした試みです。<span class="t" data-t="ai-agent" tabindex="0" role="button" aria-label="AIエージェントの説明を見る">AIエージェント</span>同士がやり取りする設計は実験段階のものが多く、こうした遊び心のある実装が、エージェント同士の連携をどう使うかを考える手がかりになっています。</div>
     </article>
     </div>
   </details>
 
-<section class="sx"><h2 class="sx-h" id="script">台本（音声に合わせて流れます）</h2><p class="read-hint">台詞を押すと、そこから再生します。</p><div id="sxLines" data-script="podcast/script-2026-11-27.txt" data-times="podcast/times-2026-11-27.json"><p class="read-hint">読み込み中…</p></div></section>
+<section class="sx"><h2 class="sx-h" id="script">台本（音声に合わせて流れます）</h2><p class="read-hint">台詞を押すと、そこから再生します。</p><div id="sxLines" data-script="podcast/script-2026-11-28.txt" data-times="podcast/times-2026-11-28.json"><p class="read-hint">読み込み中…</p></div></section>
 <script>
 (function(){
   var C = {"play": "音声で聴く", "pause": "止める", "def": "1", "normal": ["1", "1×"], "remember": true, "key": "wk-speed", "keyboard": true, "names": {"ミカ": "イロハ", "いろは": "イロハ"}, "roles": {"てらこ先生": "teacher", "イロハ": "partner", "いろは": "partner", "ミカ": "partner"}};
@@ -590,7 +553,7 @@
 })();
 </script>
 
-  <p style="max-width:760px;margin:1.5rem auto 0;font-size:0.82rem;text-align:right;"><a href="ai-news-2026-11-27.html" style="color:var(--text-muted);">この号だけを開く（共有用リンク） →</a></p>
+  <p style="max-width:760px;margin:1.5rem auto 0;font-size:0.82rem;text-align:right;"><a href="ai-news-2026-11-28.html" style="color:var(--text-muted);">この号だけを開く（共有用リンク） →</a></p>
 
   <div class="section-label">エッセイ</div>
   <div class="issue-grid">
@@ -606,6 +569,10 @@
 
   <div class="section-label">これまでの号</div>
   <div class="issue-grid">
+    <a class="issue" href="ai-news-2026-11-27.html">
+      <div class="d">2026年11月27日（金）</div>
+      <div class="m">音声あり</div>
+    </a>
     <a class="issue" href="ai-news-2026-11-26.html">
       <div class="d">2026年11月26日（木）</div>
       <div class="m">音声あり</div>
@@ -634,12 +601,8 @@
       <div class="d">2026年11月20日（金）</div>
       <div class="m">音声あり</div>
     </a>
-    <a class="issue" href="ai-news-2026-11-19.html">
-      <div class="d">2026年11月19日（木）</div>
-      <div class="m">音声あり</div>
-    </a>
   </div>
-  <p style="margin-top:1rem;font-size:0.85rem;"><a href="archive.html" style="color:var(--accent);font-weight:600;">全 185 号の一覧を見る →</a></p>
+  <p style="margin-top:1rem;font-size:0.85rem;"><a href="archive.html" style="color:var(--accent);font-weight:600;">全 186 号の一覧を見る →</a></p>
 
   <div id="subscribe"></div>
   <div class="section-label">毎朝うけとる</div>
@@ -665,7 +628,7 @@
   <div class="footer-links"><a href="">トップ</a> ／ <a href="terms/">AI用語集</a> ／ <a href="articles/">エッセイ</a> ／ <a href="archive.html">バックナンバー</a> ／ <a href="about.html">運営者情報・免責事項</a> ／ <a href="https://teraco-labo.com">TERACO.LABO</a></div>
   <div class="footer-brand">Teraco News by てらこ先生</div>
 </footer>
-<script type="application/json" id="glossary-data">{"ai-agent": {"n": "AIエージェント", "r": "エーアイエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "anthropic": {"n": "Anthropic", "r": "アンソロピック", "s": "AIアシスタント「Claude」を開発するアメリカの企業です。AIの安全性を重視する方針を掲げています。", "u": "terms/anthropic.html"}, "astra": {"n": "Astra", "r": "アストラ", "s": "OpenAI がこれから公開する新しい AI モデルの名前です。コンピュータへの侵入を伴う作業がとても得意だとされています。", "u": "terms/astra.html"}, "compute": {"n": "計算資源", "r": "コンピュート", "s": "AIの学習や実行に使う計算能力の総量のことです。お金・電力・半導体の量とほぼ同じ意味で語られます。", "u": "terms/compute.html"}, "corporate-governance": {"n": "企業統治", "r": "キギョウトウチ", "s": "会社を誰がどうやって動かし、見張るかという仕組みのことです。誰が大事なことを決められるかもここで決まります。", "u": "terms/corporate-governance.html"}, "credit-rating-agency": {"n": "信用格付け機関", "r": "しんようかくづけきかん", "s": "会社や国が借りたお金をきちんと返せそうかを評価して、ランクを付ける会社です。投資家はこのランクを参考にお金を貸すか決めます。", "u": "terms/credit-rating-agency.html"}, "datacenter": {"n": "データセンター", "r": "データセンター", "s": "AIを動かすためのコンピュータを大量に設置した施設です。AI競争は電力と土地の競争でもあります。", "u": "terms/datacenter.html"}, "downgrade": {"n": "格下げ", "r": "かくさげ", "s": "格付け会社が、会社や国の評価を1段階以上下げることです。お金を返す力に前より不安が出てきた、という意味になります。", "u": "terms/downgrade.html"}, "fca": {"n": "FCA", "r": "エフシーエー", "s": "イギリスで銀行や証券会社などを見張っている国の機関です。お金に関わるサービスが利用者に害を与えないかをチェックします。", "u": "terms/fca.html"}, "formal-verification": {"n": "形式検証", "r": "けいしきけんしょう", "s": "プログラムが決めたとおりに動くことを、数学の証明で確かめる方法です。テストよりも確実ですが、手間がかかります。", "u": "terms/formal-verification.html"}, "generalized-riemann-hypothesis": {"n": "一般化リーマン予想", "r": "いっぱんかリーマンよそう", "s": "数学でとても有名な未解決問題「リーマン予想」を、もっと広い範囲に広げた予想です。素数の並び方に深く関わっています。", "u": "terms/generalized-riemann-hypothesis.html"}, "gpt-6-2": {"n": "GPT-6.2", "r": "ジーピーティー ろくてんに", "s": "OpenAIが提供しているAIモデルのバージョンの1つです。AstraやSolといった種類があります。", "u": "terms/gpt-6-2.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "inference-cost": {"n": "推論コスト", "r": "", "s": "AIを動かすたびにかかる費用のことです。AIサービスの採算を左右する最も重要な数字です。", "u": "terms/inference-cost.html"}, "infrastructure": {"n": "インフラ", "r": "インフラ", "s": "物事を動かすための土台になる設備や仕組みのことです。AIの場合は、データセンターや電力、データを保存する仕組みなどを指します。", "u": "terms/infrastructure.html"}, "investment-capital": {"n": "出資", "r": "しゅっし", "s": "会社にお金を出して、その会社の持ち主の一人になることです。会社が成長すれば、出した側も得をします。", "u": "terms/investment-capital.html"}, "kagi": {"n": "Kagi", "r": "カギ", "s": "広告を出さず、利用料で運営している検索サービスの会社です。Google検索の代わりとして使う人がいます。", "u": "terms/kagi.html"}, "key-man-risk": {"n": "キーマンリスク", "r": "キーマンリスク", "s": "会社が特定の1人に頼りすぎているせいで、その人がいなくなると会社が困ってしまう危険のことです。創業者や有名な社長がいる会社でよく話題になります。", "u": "terms/key-man-risk.html"}, "mcp": {"n": "MCP", "r": "エムシーピー", "s": "AIと外部サービスをつなぐための共通の規格です。AI版のUSB端子のようなものだと考えると分かりやすいです。", "u": "terms/mcp.html"}, "meta-ai": {"n": "Meta", "r": "メタ", "s": "FacebookやInstagramを運営する企業で、AIモデル「Llama」を公開しています。", "u": "terms/meta-ai.html"}, "muse": {"n": "Muse", "r": "ミューズ", "s": "Metaが出した、身の回りのことを代わりにやってくれるAIです。メールや予約、支払いまで扱おうとしています。", "u": "terms/muse.html"}, "nvidia": {"n": "NVIDIA", "r": "エヌビディア", "s": "AI開発に不可欠なGPUを作っている半導体企業です。生成AIブームの最大の受益者と言われています。", "u": "terms/nvidia.html"}, "open-beta": {"n": "オープンベータ", "r": "", "s": "完成前の新しい機能を、誰でも試せるように公開することです。使った人の声を集めて改良していきます。", "u": "terms/open-beta.html"}, "openai": {"n": "OpenAI", "r": "オープンエーアイ", "s": "ChatGPTを開発したアメリカのAI企業です。2022年のChatGPT公開が、今の生成AIブームの引き金になりました。", "u": "terms/openai.html"}, "photoshop": {"n": "Photoshop", "r": "フォトショップ", "s": "Adobeが作っている、写真を加工・編集するための定番ソフトです。プロの写真家やデザイナーが広く使っています。", "u": "terms/photoshop.html"}, "regulator": {"n": "規制当局", "r": "きせいとうきょく", "s": "企業が法律やルールを守っているかを見張り、必要なら調査や処分をする国の役所のことです。", "u": "terms/regulator.html"}, "semiconductor": {"n": "半導体", "r": "はんどうたい", "s": "電気を通したり止めたりできる性質を持つ材料、またはそれで作ったコンピュータの部品のことです。", "u": "terms/semiconductor.html"}, "the-times-lawsuit-documents": {"n": "The Times", "r": "ザ・タイムズ", "s": "アメリカの大手新聞社です。自社の記事がAIの学習に無断で使われたとして争っています。", "u": "terms/the-times-lawsuit-documents.html"}, "third-party": {"n": "サードパーティー", "r": "サードパーティー", "s": "製品を作った会社でも利用者でもない、外部の会社のことです。他社の技術を使って独自のサービスを作る会社などを指します。", "u": "terms/third-party.html"}, "usage-limit": {"n": "利用上限", "r": "りようじょうげん", "s": "一定の時間内にAIサービスを使える量の決まりです。上限に届くと、しばらく使えなくなったり遅くなったりします。", "u": "terms/usage-limit.html"}}</script>
+<script type="application/json" id="glossary-data">{"ai-agent": {"n": "AIエージェント", "r": "エーアイエージェント", "s": "指示を受けて、自分で手順を考えながら複数の作業を実行してくれるAIのことです。「答える」から「やってくれる」への進化です。", "u": "terms/ai-agent.html"}, "chatbot": {"n": "チャットボット", "r": "チャットボット", "s": "文字や声で話しかけると、会話の形で答えてくれるプログラムのことです。ChatGPTが代表例です。", "u": "terms/chatbot.html"}, "cryptography": {"n": "暗号技術", "r": "あんごうぎじゅつ", "s": "情報を他人に読めない形に変えて守る技術です。ネットでの買い物や通信の安全を支えています。", "u": "terms/cryptography.html"}, "datacenter": {"n": "データセンター", "r": "データセンター", "s": "AIを動かすためのコンピュータを大量に設置した施設です。AI競争は電力と土地の競争でもあります。", "u": "terms/datacenter.html"}, "enzan": {"n": "演算", "r": "えんざん", "s": "コンピューターが行う計算のことです。足し算やかけ算などの処理をまとめてこう呼びます。", "u": "terms/enzan.html"}, "generative-ai": {"n": "生成AI", "r": "", "s": "文章・画像・音声・動画などを新しく作り出せるAIの総称です。分類や予測をするだけだった従来のAIとの違いがここにあります。", "u": "terms/generative-ai.html"}, "gpu": {"n": "GPU", "r": "ジーピーユー", "s": "大量の計算を同時に行える半導体で、AIの学習と実行に欠かせない部品です。", "u": "terms/gpu.html"}, "hacker-news": {"n": "Hacker News", "r": "ハッカーニュース", "s": "技術者が集まる掲示板型のニュースサイトです。投票で話題の順位が決まります。", "u": "terms/hacker-news.html"}, "infrastructure": {"n": "インフラ", "r": "インフラ", "s": "物事を動かすための土台になる設備や仕組みのことです。AIの場合は、データセンターや電力、データを保存する仕組みなどを指します。", "u": "terms/infrastructure.html"}, "kimi-for-science": {"n": "Kimi for Science", "r": "キミ・フォー・サイエンス", "s": "Moonshot AIが出した、科学研究を手伝うAIです。研究のアイデアを出す作業を支えます。", "u": "terms/kimi-for-science.html"}, "moonshot-ai": {"n": "Moonshot AI", "r": "ムーンショットエーアイ", "s": "中国の大手AI開発企業のひとつです。対話型AIや大規模モデルを手がけています。", "u": "terms/moonshot-ai.html"}, "q-ant": {"n": "Q.ANT", "r": "キューアント", "s": "ドイツの会社です。光を使って計算するAI向けのチップを作っています。", "u": "terms/q-ant.html"}, "self-hosted": {"n": "セルフホスト", "r": "", "s": "ソフトを他社のサービスに任せず、自分で用意した環境で動かすことです。データや設定を自分で管理できます。", "u": "terms/self-hosted.html"}, "semiconductor": {"n": "半導体", "r": "はんどうたい", "s": "電気を通したり止めたりできる性質を持つ材料、またはそれで作ったコンピュータの部品のことです。", "u": "terms/semiconductor.html"}}</script>
 
 <script>
 (function(){
